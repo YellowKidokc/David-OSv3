@@ -1,14 +1,14 @@
 ---
 fis_schema: "folder-index.v1"
-folder_id: "FLD-20260717-0ada2459"
+folder_id: "FLD-20260723-0ada2459"
 folder: "GitHub\David-OS-tagger-publish\scripts\bootstrap"
 folder_class: "project"
 confidence: 0.6
 dependency_risk: 0.333
 dominant_family: "code"
-dominant_ratio: 1.0
-file_count: 3
-classified_at: "2026-07-17T20:45:43"
+dominant_ratio: 0.75
+file_count: 4
+classified_at: "2026-07-23T09:30:51"
 allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
 suggested_name: "bootstrap"
 system_markers: ["dir:__pycache__"]
@@ -16,7 +16,7 @@ system_markers: ["dir:__pycache__"]
 
 # FIS Folder Index: bootstrap
 
-**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 3  ·  **Dominant**: code (100%)
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 4  ·  **Dominant**: code (75%)
 
 ## Allowed actions
 - index

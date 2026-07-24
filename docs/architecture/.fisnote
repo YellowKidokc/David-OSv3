@@ -1,21 +1,21 @@
 ---
 fis_schema: "folder-index.v1"
-folder_id: "FLD-20260717-3f2d4b56"
+folder_id: "FLD-20260723-3f2d4b56"
 folder: "GitHub\David-OS-tagger-publish\docs\architecture"
 folder_class: "project"
 confidence: 0.6
 dependency_risk: 0.0
 dominant_family: "text"
-dominant_ratio: 1.0
-file_count: 11
-classified_at: "2026-07-17T20:45:41"
+dominant_ratio: 0.917
+file_count: 12
+classified_at: "2026-07-23T09:30:47"
 allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
 suggested_name: "architecture"
 ---
 
 # FIS Folder Index: architecture
 
-**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 11  ·  **Dominant**: text (100%)
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 12  ·  **Dominant**: text (92%)
 
 ## Allowed actions
 - index

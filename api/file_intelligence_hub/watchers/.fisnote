@@ -1,14 +1,14 @@
 ---
 fis_schema: "folder-index.v1"
-folder_id: "FLD-20260717-0f16ae43"
+folder_id: "FLD-20260723-0f16ae43"
 folder: "GitHub\David-OS-tagger-publish\api\file_intelligence_hub\watchers"
 folder_class: "project"
 confidence: 0.6
 dependency_risk: 0.333
 dominant_family: "code"
-dominant_ratio: 1.0
-file_count: 4
-classified_at: "2026-07-17T20:45:40"
+dominant_ratio: 0.8
+file_count: 5
+classified_at: "2026-07-23T09:30:46"
 allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
 suggested_name: "watchers"
 system_markers: ["dir:__pycache__"]
@@ -16,7 +16,7 @@ system_markers: ["dir:__pycache__"]
 
 # FIS Folder Index: watchers
 
-**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 4  ·  **Dominant**: code (100%)
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 5  ·  **Dominant**: code (80%)
 
 ## Allowed actions
 - index

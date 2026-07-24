@@ -1,21 +1,21 @@
 ---
 fis_schema: "folder-index.v1"
-folder_id: "FLD-20260717-845ae26f"
+folder_id: "FLD-20260723-845ae26f"
 folder: "GitHub\David-OS-tagger-publish\ahk\overlay"
 folder_class: "project"
 confidence: 0.6
 dependency_risk: 0.0
 dominant_family: "code"
-dominant_ratio: 1.0
-file_count: 3
-classified_at: "2026-07-17T20:45:36"
+dominant_ratio: 0.75
+file_count: 4
+classified_at: "2026-07-23T09:30:45"
 allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
 suggested_name: "overlay"
 ---
 
 # FIS Folder Index: overlay
 
-**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 3  ·  **Dominant**: code (100%)
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 4  ·  **Dominant**: code (75%)
 
 ## Allowed actions
 - index

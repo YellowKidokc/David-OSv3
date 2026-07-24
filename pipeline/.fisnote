@@ -1,21 +1,21 @@
 ---
 fis_schema: "folder-index.v1"
-folder_id: "FLD-20260717-5c7741be"
+folder_id: "FLD-20260723-5c7741be"
 folder: "GitHub\David-OS-tagger-publish\pipeline"
 folder_class: "project"
 confidence: 0.6
 dependency_risk: 0.0
 dominant_family: "code"
-dominant_ratio: 1.0
-file_count: 5
-classified_at: "2026-07-17T20:45:43"
+dominant_ratio: 0.833
+file_count: 6
+classified_at: "2026-07-23T09:30:51"
 allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
 suggested_name: "pipeline"
 ---
 
 # FIS Folder Index: pipeline
 
-**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 5  ·  **Dominant**: code (100%)
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 6  ·  **Dominant**: code (83%)
 
 ## Allowed actions
 - index

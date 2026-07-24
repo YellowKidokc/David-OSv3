@@ -1,21 +1,21 @@
 ---
 fis_schema: "folder-index.v1"
-folder_id: "FLD-20260717-0f2b03bd"
+folder_id: "FLD-20260723-0f2b03bd"
 folder: "GitHub\David-OS-tagger-publish\api\docs\security"
 folder_class: "project"
 confidence: 0.6
 dependency_risk: 0.0
 dominant_family: "text"
-dominant_ratio: 1.0
-file_count: 2
-classified_at: "2026-07-17T20:45:36"
+dominant_ratio: 0.667
+file_count: 3
+classified_at: "2026-07-23T09:30:46"
 allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
 suggested_name: "security"
 ---
 
 # FIS Folder Index: security
 
-**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 2  ·  **Dominant**: text (100%)
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 3  ·  **Dominant**: text (67%)
 
 ## Allowed actions
 - index

@@ -1,23 +1,23 @@
 ---
 fis_schema: "folder-index.v1"
-folder_id: "FLD-20260717-8344aba7"
+folder_id: "FLD-20260723-8344aba7"
 folder: "GitHub\David-OS-tagger-publish\config\rules"
 folder_class: "dump"
 confidence: 0.85
 dependency_risk: 0.0
 dominant_family: "code"
-dominant_ratio: 1.0
-file_count: 18
-classified_at: "2026-07-17T20:45:41"
+dominant_ratio: 0.947
+file_count: 19
+classified_at: "2026-07-23T09:30:47"
 allowed_actions: ["triage", "quarantine", "group_obvious", "dedupe", "rename_high_confidence"]
 suggested_name: "dump_rules"
 ---
 
 # FIS Folder Index: rules
 
-**Class**: dump  ·  **Confidence**: 85%  ·  **Files**: 18  ·  **Dominant**: code (100%)
+**Class**: dump  ·  **Confidence**: 85%  ·  **Files**: 19  ·  **Dominant**: code (95%)
 
-> 12/18 files have dump-style names
+> 12/19 files have dump-style names
 
 ## Allowed actions
 - triage

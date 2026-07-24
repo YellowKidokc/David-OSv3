@@ -1,21 +1,21 @@
 ---
 fis_schema: "folder-index.v1"
-folder_id: "FLD-20260717-cf9d2895"
+folder_id: "FLD-20260723-cf9d2895"
 folder: "GitHub\David-OS-tagger-publish\bridges\ahk"
 folder_class: "project"
 confidence: 0.6
 dependency_risk: 0.0
 dominant_family: "text"
-dominant_ratio: 0.5
-file_count: 4
-classified_at: "2026-07-17T20:45:41"
+dominant_ratio: 0.4
+file_count: 5
+classified_at: "2026-07-23T09:30:47"
 allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
 suggested_name: "ahk"
 ---
 
 # FIS Folder Index: ahk
 
-**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 4  ·  **Dominant**: text (50%)
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 5  ·  **Dominant**: text (40%)
 
 ## Allowed actions
 - index

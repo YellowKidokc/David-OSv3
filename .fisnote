@@ -1,21 +1,21 @@
 ---
 fis_schema: "folder-index.v1"
-folder_id: "FLD-20260717-fc9f1dc6"
+folder_id: "FLD-20260723-fc9f1dc6"
 folder: "GitHub\David-OS-tagger-publish"
 folder_class: "project"
 confidence: 0.6
 dependency_risk: 0.0
 dominant_family: "text"
-dominant_ratio: 0.417
-file_count: 12
-classified_at: "2026-07-17T20:45:35"
+dominant_ratio: 0.385
+file_count: 13
+classified_at: "2026-07-23T09:30:45"
 allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
 suggested_name: "david-os-tagger-publish"
 ---
 
 # FIS Folder Index: David-OS-tagger-publish
 
-**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 12  ·  **Dominant**: text (42%)
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 13  ·  **Dominant**: text (38%)
 
 ## Allowed actions
 - index

@@ -1,14 +1,14 @@
 ---
 fis_schema: "folder-index.v1"
-folder_id: "FLD-20260717-b94fbcda"
+folder_id: "FLD-20260723-b94fbcda"
 folder: "GitHub\David-OS-tagger-publish\api\file_intelligence_hub\workers"
 folder_class: "project"
 confidence: 0.6
 dependency_risk: 0.333
 dominant_family: "code"
-dominant_ratio: 1.0
-file_count: 12
-classified_at: "2026-07-17T20:45:40"
+dominant_ratio: 0.923
+file_count: 13
+classified_at: "2026-07-23T09:30:46"
 allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
 suggested_name: "workers"
 system_markers: ["dir:__pycache__"]
@@ -16,7 +16,7 @@ system_markers: ["dir:__pycache__"]
 
 # FIS Folder Index: workers
 
-**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 12  ·  **Dominant**: code (100%)
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 13  ·  **Dominant**: code (92%)
 
 ## Allowed actions
 - index

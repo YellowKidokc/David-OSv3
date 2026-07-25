@@ -12,21 +12,30 @@ import {
   Code,
   Lightbulb,
   Flame,
+  Command,
+  Plus,
+  X,
 } from 'lucide-react';
 
 /*
   PromptsPanel — a full prompt library.
   Categories, search, one-click copy to composer.
   Categories match David's command vocabulary and daily workflow.
+  Custom prompts persist to localStorage (topOfMind.customPrompts.v1).
 */
+
+const CUSTOM_PROMPTS_KEY = 'topOfMind.customPrompts.v1';
 
 const CATEGORIES = [
   { id: 'analysis', label: 'Analysis', icon: BrainCircuit },
+  { id: 'research', label: 'Research', icon: Search },
   { id: 'writing', label: 'Writing', icon: FileText },
   { id: 'code', label: 'Code', icon: Code },
   { id: 'strategy', label: 'Strategy', icon: Target },
   { id: 'creative', label: 'Creative', icon: Lightbulb },
   { id: 'debate', label: 'Debate', icon: Flame },
+  { id: 'ops', label: 'Hub Ops', icon: Command },
+  { id: 'custom', label: 'Custom', icon: Plus },
 ];
 
 const PROMPTS = [
@@ -69,18 +78,44 @@ const PROMPTS = [
   { id: 'd2', category: 'debate', label: "Devil's advocate", text: "Play devil's advocate against this position. Raise the 3 strongest objections. Do not hold back.", tags: ['critical', 'objections'] },
   { id: 'd3', category: 'debate', label: 'Synthesize', text: 'Both sides have merit. Synthesize a position that captures the truth in each, resolves the tension, and moves the conversation forward.', tags: ['synthesis', 'resolution'] },
   { id: 'd4', category: 'debate', label: 'What would change your mind', text: 'For this belief/position: what specific evidence or argument would change your mind? If nothing would, say that and explain why.', tags: ['epistemic', 'honesty'] },
+
+  // Research (Theophysics / derivation workflow)
+  { id: 'r1', category: 'research', label: 'Derive it', text: 'Take this claim from intuition to derivation. State the axioms, show each step formally, and flag any step that relies on assumption rather than proof.', tags: ['derivation', 'formal'] },
+  { id: 'r2', category: 'research', label: 'Pressure test (R5)', text: 'Run this through a hostile rigor pass. Try to break it. Find the weakest axiom, the leakiest inference, and the claim most likely to embarrass me in front of experts. Do not be polite.', tags: ['r5', 'adversarial'] },
+  { id: 'r3', category: 'research', label: 'Probe the axiom', text: 'PROBE this axiom before release: is it load-bearing? Is it falsifiable? What observation would kill it? What cheaper axiom would do the same work?', tags: ['probe', 'axiom'] },
+  { id: 'r4', category: 'research', label: 'Lossless compression', text: 'Compress this session into a lossless artifact an AI can reconstruct full context from in a new conversation. Preserve decisions, open threads, naming, and tone. Optimize for fidelity, not readability.', tags: ['continuity', 'compression'] },
+  { id: 'r5', category: 'research', label: 'Isomorphism check', text: 'Map this structure onto its isomorphisms across domains (physics, theology, information). For each mapping: what survives the mapping exactly, and where does the analogy break?', tags: ['isomorphism', 'structure'] },
+
+  // Hub Ops
+  { id: 'o1', category: 'ops', label: 'Filesystem intake', text: '/api filesystem intake ', tags: ['fis', 'slash'] },
+  { id: 'o2', category: 'ops', label: 'Near-dup scan', text: '/api filesystem neardup', tags: ['fis', 'slash'] },
+  { id: 'o3', category: 'ops', label: 'Classify file', text: '/api nlp classify ', tags: ['nlp', 'slash'] },
+  { id: 'o4', category: 'ops', label: 'Send to channel', text: '/api comm send codex "', tags: ['mattermost', 'slash'] },
+  { id: 'o5', category: 'ops', label: 'Broadcast', text: '/api comm broadcast ', tags: ['mattermost', 'slash'] },
 ];
+
+function loadCustomPrompts() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(CUSTOM_PROMPTS_KEY) || '[]');
+    return Array.isArray(saved) ? saved : [];
+  } catch { return []; }
+}
 
 export function PromptsPanel({ onCopyToComposer }) {
   const [activeCategory, setActiveCategory] = useState('analysis');
   const [search, setSearch] = useState('');
   const [copiedId, setCopiedId] = useState(null);
+  const [customPrompts, setCustomPrompts] = useState(loadCustomPrompts);
+  const [formOpen, setFormOpen] = useState(false);
+  const [draft, setDraft] = useState({ label: '', text: '', tags: '' });
+
+  const allPrompts = useMemo(() => [...PROMPTS, ...customPrompts], [customPrompts]);
 
   const filtered = useMemo(() => {
-    let list = PROMPTS.filter((p) => p.category === activeCategory);
+    let list = allPrompts.filter((p) => p.category === activeCategory);
     if (search.trim()) {
       const q = search.toLowerCase();
-      list = PROMPTS.filter(
+      list = allPrompts.filter(
         (p) =>
           p.label.toLowerCase().includes(q) ||
           p.text.toLowerCase().includes(q) ||
@@ -88,7 +123,7 @@ export function PromptsPanel({ onCopyToComposer }) {
       );
     }
     return list;
-  }, [activeCategory, search]);
+  }, [allPrompts, activeCategory, search]);
 
   const handleCopy = (prompt) => {
     onCopyToComposer?.(prompt.text);
@@ -96,13 +131,38 @@ export function PromptsPanel({ onCopyToComposer }) {
     setTimeout(() => setCopiedId(null), 1200);
   };
 
+  const persistCustom = (next) => {
+    setCustomPrompts(next);
+    localStorage.setItem(CUSTOM_PROMPTS_KEY, JSON.stringify(next));
+  };
+
+  const saveCustomPrompt = () => {
+    const label = draft.label.trim();
+    const text = draft.text.trim();
+    if (!label || !text) return;
+    const prompt = {
+      id: `custom-${Date.now()}`,
+      category: 'custom',
+      label,
+      text,
+      tags: draft.tags.split(',').map((t) => t.trim()).filter(Boolean),
+      custom: true,
+    };
+    persistCustom([...customPrompts, prompt]);
+    setDraft({ label: '', text: '', tags: '' });
+    setFormOpen(false);
+    setActiveCategory('custom');
+  };
+
+  const deleteCustomPrompt = (id) => persistCustom(customPrompts.filter((p) => p.id !== id));
+
   return (
     <section className="prompts-panel">
       <div className="prompts-header">
         <h3>
           <Sparkles size={15} /> Prompt Library
         </h3>
-        <p>{PROMPTS.length} prompts across {CATEGORIES.length} categories</p>
+        <p>{allPrompts.length} prompts across {CATEGORIES.length} categories</p>
       </div>
 
       <div className="prompts-search">
@@ -117,12 +177,42 @@ export function PromptsPanel({ onCopyToComposer }) {
             Clear
           </button>
         )}
+        <button className="prompts-new" onClick={() => setFormOpen(!formOpen)}>
+          <Plus size={13} /> New
+        </button>
       </div>
+
+      {formOpen && (
+        <div className="prompt-form">
+          <input
+            value={draft.label}
+            onChange={(e) => setDraft({ ...draft, label: e.target.value })}
+            placeholder="Prompt name (e.g. Morning triage)"
+          />
+          <textarea
+            value={draft.text}
+            onChange={(e) => setDraft({ ...draft, text: e.target.value })}
+            placeholder="Prompt text — this is what lands in the composer."
+            rows={3}
+          />
+          <div className="prompt-form-row">
+            <input
+              value={draft.tags}
+              onChange={(e) => setDraft({ ...draft, tags: e.target.value })}
+              placeholder="tags, comma separated"
+            />
+            <button className="tm-primary" onClick={saveCustomPrompt} disabled={!draft.label.trim() || !draft.text.trim()}>
+              Save prompt
+            </button>
+            <button onClick={() => setFormOpen(false)}><X size={12} /> Cancel</button>
+          </div>
+        </div>
+      )}
 
       <div className="prompts-categories">
         {CATEGORIES.map((cat) => {
           const Icon = cat.icon;
-          const count = PROMPTS.filter((p) => p.category === cat.id).length;
+          const count = allPrompts.filter((p) => p.category === cat.id).length;
           return (
             <button
               key={cat.id}
@@ -171,13 +261,18 @@ export function PromptsPanel({ onCopyToComposer }) {
               >
                 <MessageSquare size={12} /> Copy
               </button>
+              {p.custom && (
+                <button onClick={() => deleteCustomPrompt(p.id)} title="Delete custom prompt">
+                  <X size={12} /> Delete
+                </button>
+              )}
             </div>
           </div>
         ))}
         {!filtered.length && (
           <div className="prompts-empty">
             <Search size={32} strokeWidth={1} />
-            <p>No prompts match &quot;{search}&quot;</p>
+            <p>{activeCategory === 'custom' && !search ? 'No custom prompts yet — hit + New above.' : <>No prompts match &quot;{search}&quot;</>}</p>
           </div>
         )}
       </div>

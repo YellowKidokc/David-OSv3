@@ -5,10 +5,12 @@ import { ChatView } from './components/chat/ChatView';
 import { Composer } from './components/chat/Composer';
 import { SourceFilter } from './components/chat/SourceFilter';
 import { PromptsPanel } from './components/prompts/PromptsPanel';
+import { SettingsPanel } from './components/settings/SettingsPanel';
 import { ClipboardWorkspace } from './components/ClipboardWorkspace';
 import { ConversationOSPanel } from './components/ConversationOSPanel';
 import { ObjectRegistryPage } from './components/ObjectRegistryPage';
 import './styles.css';
+import './theme-void.css';
 
 const ACTIVE_AGENT_KEY = 'topOfMind.activeAgentId';
 const OP_FAMILY_KEY = 'topOfMind.operationFamily';
@@ -246,11 +248,15 @@ function ApiShelfPanel({ setNotice }) {
   </section>;
 }
 
-// ---- Settings (unchanged) ----
-function ApiSettings({ online, setOnline, notice }) {
-  const [url, setUrl] = useState(topOfMindApi.baseUrl);
-  async function test() { topOfMindApi.setBaseUrl(url); try { await topOfMindApi.test(); setOnline(true); } catch { setOnline(false); } }
-  return <section className="panel settings"><h3>API Settings</h3><input value={url} onChange={(e)=>setUrl(e.target.value)} placeholder="http://127.0.0.1:10000"/><button onClick={()=>{topOfMindApi.setBaseUrl(url); test();}}>Save + Test</button><span className={`status ${online?'ok':'bad'}`}>{online ? 'online' : 'offline'}</span>{notice && <p>{notice}</p>}</section>;
+// ---- Theme helpers (void black default; slate restores original look) ----
+const THEME_KEY = 'topOfMind.theme';
+const FONT_KEY = 'topOfMind.fontSize';
+function applyThemeFromStorage() {
+  const theme = localStorage.getItem(THEME_KEY) || 'void';
+  document.body.classList.toggle('theme-void', theme !== 'slate');
+  document.body.classList.toggle('theme-slate', theme === 'slate');
+  const font = localStorage.getItem(FONT_KEY) || 'standard';
+  document.documentElement.style.fontSize = font === 'compact' ? '14px' : font === 'large' ? '18px' : '16px';
 }
 
 // ---- Sidebar (unchanged) ----
@@ -520,15 +526,18 @@ function App() {
 
   const setActiveAgentId = (id) => { setActiveAgentIdState(id); localStorage.setItem(ACTIVE_AGENT_KEY, id); };
 
+  useEffect(() => { applyThemeFromStorage(); }, []);
+
   useEffect(() => { const onKey = (event) => { if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); setCommandOpen(true); } }; window.addEventListener('keydown', onKey); return () => window.removeEventListener('keydown', onKey); }, []);
 
-  // Load messages on mount + polling
+  // Load messages on mount + polling (interval configurable in Settings → Workspace)
   useEffect(()=>{
+    const pollMs = Math.max(1000, Number(localStorage.getItem('topOfMind.pollMs')) || 4000);
     topOfMindApi.getSources().then(d=>{const s=arr(d,'sources'); const custom = JSON.parse(localStorage.getItem(CUSTOM_AGENTS_KEY) || '[]'); if(s.length || custom.length) setSources([...s, ...custom]); setOnline(true);}).catch(e=>{const custom = JSON.parse(localStorage.getItem(CUSTOM_AGENTS_KEY) || '[]'); if(custom.length) setSources((current)=>[...current, ...custom]); setOnline(false); setNotice(e.message);});
     topOfMindApi.getFolders().then(d=>setFolders(arr(d,'folders'))).catch(()=>{});
     const loadMessages = () => topOfMindApi.getMessages(75).then(d=>{setMessages(arr(d,'messages')); setOnline(true);}).catch(()=>setOnline(false));
     loadMessages();
-    const timer = setInterval(loadMessages, 4000);
+    const timer = setInterval(loadMessages, pollMs);
     return () => clearInterval(timer);
   },[]);
 
@@ -725,7 +734,7 @@ function App() {
           {active === 'apis' && <ApiShelfPanel setNotice={setNotice} />}
           {active === 'memory' && <SearchPanel title="Memory search" modeToggle onSearch={(q,m)=>topOfMindApi.searchMemory(q,m==='vector'?'vector':undefined)} />}
           {active === 'files' && <SearchPanel title="File cache search" onSearch={(q)=>topOfMindApi.searchFileCache(q)} />}
-          {active === 'settings' && <ApiSettings online={online} setOnline={setOnline} notice={notice} />}
+          {active === 'settings' && <SettingsPanel online={online} setOnline={setOnline} setNotice={setNotice} />}
           {active === 'operator' && (
             <section className="panel">
               <h3>Operator drafts</h3>

@@ -1,6 +1,6 @@
 ---
 fis_schema: "folder-index.v1"
-folder_id: "FLD-20260723-62bd8a94"
+folder_id: "FLD-20260726-62bd8a94"
 folder: "GitHub\David-OS-tagger-publish\docs\schemas"
 folder_class: "project"
 confidence: 0.6
@@ -8,7 +8,7 @@ dependency_risk: 0.0
 dominant_family: "text"
 dominant_ratio: 0.714
 file_count: 7
-classified_at: "2026-07-23T09:30:50"
+classified_at: "2026-07-26T08:59:04"
 allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
 suggested_name: "schemas"
 ---

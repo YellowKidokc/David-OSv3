@@ -1,6 +1,6 @@
 ---
 fis_schema: "folder-index.v1"
-folder_id: "FLD-20260723-8344aba7"
+folder_id: "FLD-20260726-8344aba7"
 folder: "GitHub\David-OS-tagger-publish\config\rules"
 folder_class: "dump"
 confidence: 0.85
@@ -8,7 +8,7 @@ dependency_risk: 0.0
 dominant_family: "code"
 dominant_ratio: 0.947
 file_count: 19
-classified_at: "2026-07-23T09:30:47"
+classified_at: "2026-07-26T08:59:04"
 allowed_actions: ["triage", "quarantine", "group_obvious", "dedupe", "rename_high_confidence"]
 suggested_name: "dump_rules"
 ---

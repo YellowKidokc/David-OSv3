@@ -1,0 +1,28 @@
+---
+fis_schema: "folder-index.v1"
+folder_id: "FLD-20260727-39980b11"
+folder: "GitHub\David-OS\apps\top-of-mind-pwa\assets"
+folder_class: "project"
+confidence: 0.6
+dependency_risk: 0.0
+dominant_family: "code"
+dominant_ratio: 1.0
+file_count: 2
+classified_at: "2026-07-27T19:42:45"
+allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
+suggested_name: "assets"
+---
+
+# FIS Folder Index: assets
+
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 2  ·  **Dominant**: code (100%)
+
+## Allowed actions
+- index
+- rename_internal
+- subfolder_sort
+- archive_exports
+
+**Suggested name**: `assets`  (not applied — review before use)
+
+<!-- FIS folder-index.v1: parseable note; safe to regenerate. -->

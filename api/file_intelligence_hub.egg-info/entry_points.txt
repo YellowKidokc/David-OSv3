@@ -1,7 +1,0 @@
-[console_scripts]
-fihub-api = file_intelligence_hub.cli:api_main
-fihub-health = file_intelligence_hub.cli:health_main
-fihub-poll = file_intelligence_hub.watchers.runner:main
-fihub-top = file_intelligence_hub.cli:top_main
-fihub-watch = file_intelligence_hub.watchers.native:main
-fihub-worker = file_intelligence_hub.workers.runner:main

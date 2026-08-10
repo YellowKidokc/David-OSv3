@@ -2,3 +2,23 @@ tools/prompt-launcher/.playwright-profile/
 tools/prompt-launcher/node_modules/
 tools/prompt-launcher/research_exports/
 tools/prompt-launcher/config.local.json
+
+# Local runtime state and generated files
+*.log
+*.err.log
+*.out.log
+*.pyc
+__pycache__/
+.pytest_cache/
+*.egg-info/
+
+# SQLite/runtime databases stay local
+*.sqlite
+*.sqlite3
+*.sqlite3-shm
+*.sqlite3-wal
+*.db
+*.db-shm
+*.db-wal
+api/.data/
+api/logs/

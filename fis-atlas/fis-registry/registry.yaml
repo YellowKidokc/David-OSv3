@@ -70,6 +70,18 @@ workflows:
     name: Verified corpus aggregation
     sequence: [L, I, U, D, C, V, G]
     organization: "04"
+  W9:
+    name: Cross-format visual slide recovery
+    sequence: [L, I, S, D, C, V]      # scan -> phash -> cluster -> propose -> copy -> verify
+    match_method: perceptual_hash_then_confirm
+    scope: {images: [D, H, Z], documents_pdf: [H]}
+    output: {matched: Matched, unmatched: Unmatched, ambiguous: Review}
+    naming: family_projection          # A011-01P.pdf / -01N.png / -01W.webp
+    ruling: D22
+    policy: "02"                        # copy, preserve originals
+
+paths_ext:
+  MATCHED: H:/Recovered_Slides/Matched
 
 decisions:
   D14:
@@ -79,6 +91,15 @@ decisions:
       derivatives: [.html, .pdf, .docx]
     scope: Genesis to Quantum
     ruled_by: David Lowe
+  D22:
+    question: In a pdf->png->webp slide chain, which representation is the source?
+    ruling:
+      source: .pdf
+      render: .png
+      derivative: .webp
+    scope: slide_exports
+    ruled_by: David Lowe
+    supersedes: null
 
 # root-set = WHERE to search (immutable; changed membership -> new code, never edit)
 root_sets:

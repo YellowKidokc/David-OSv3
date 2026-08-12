@@ -43,6 +43,9 @@ class ObjectRecord:
     modified: Optional[float] = None
     accessed: Optional[float] = None
 
+    # --- Identity (two kinds) ---
+    perceptual_hash: Optional[int] = None   # SECOND identity: family/"same-looking", not exact bytes
+
     # --- What is it? ---
     content_type: str = "unknown"     # markdown|image|archive|code|empty_folder|...
     detected_role: str = "unknown"    # draft|reference|project_file|receipt|export|backup|temp

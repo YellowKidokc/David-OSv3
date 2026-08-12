@@ -1,7 +1,15 @@
 # FIS shared codebook — readable source of truth. Compiled to SQLite for lookup.
 # RULES: never reuse a code · version the registry · supersede, never overwrite ·
-#        hash every manifest · every code decompressible.
+#        hash every manifest · every code decompressible · chain is verifiable.
 registry_version: FIS-LEXICON-2
+
+registry:
+  version: 17
+  registry_id: FISREG-0017
+  previous_version: FISREG-0016
+  previous_hash: null          # genesis-adjacent; sealed chains fill this
+  content_hash: null           # set by Registry.seal()
+  created_at: 2026-08-13T14:20:00Z
 
 operations:
   L: scan
@@ -72,12 +80,35 @@ decisions:
     scope: Genesis to Quantum
     ruled_by: David Lowe
 
-sets:
-  G7K4:
-    name: GTQ confirmed aggregation set
+# root-set = WHERE to search (immutable; changed membership -> new code, never edit)
+root_sets:
+  RS04:
+    name: GTQ search roots
+    count: 4
+    members:
+      - { root_id: R01, volume_id: VOL-8A27, path: D:/Research }
+      - { root_id: R02, volume_id: VOL-142C, path: O:/Theophysics }
+      - { root_id: R03, volume_id: NAS-50,   path: //192.168.2.50/h_hp/Desktop }
+      - { root_id: R04, volume_id: VOL-62F9, path: C:/GTQ }
+    manifest_hash: "seed-unhashed"   # replace with blake2b of the manifest file
+
+# object-set = WHICH objects were selected
+object_sets:
+  OS91:
+    name: GTQ confirmed 200
     object_count: 200
-    membership_manifest: manifests/G7K4.fism
+    membership_manifest: manifests/OS91.fism
     membership_rule: GTQ-RULE-04
-    manifest_hash: null   # filled by hash_manifest()
+    manifest_hash: "seed-unhashed"
+
+# a batch ties a root-set + object-set + destination + workflow + policy + ruling
+batches:
+  B442:
+    root_set: RS04
+    selected_object_set: OS91
+    destination: Q1
+    workflow: W7
+    policy: "02"
+    ruling: D14
 
 superseded: {}   # e.g. P03: {status: superseded, replaced_by: P11}

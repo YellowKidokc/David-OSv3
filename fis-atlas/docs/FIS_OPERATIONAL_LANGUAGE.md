@@ -63,29 +63,55 @@ decisions:
          ruled_by: David Lowe }
 ```
 
-## The 24-character capsule (fixed positions)
+## Statement vs Capsule — never the same object
 
-| Positions | Meaning |
-|---:|---|
-| 1 | schema version |
-| 2–5 | node / collection id |
-| 6–9 | set / manifest id |
-| 10 | operation |
-| 11–12 | source-root code |
-| 13–14 | destination-root code |
-| 15–17 | policy code |
-| 18–19 | time-window code |
-| 20–21 | result code |
-| 22–24 | integrity check |
+Two distinct objects, never sharing a field:
 
-The readable statement form:
-
+**Statement** — readable, *reversible* through the registry, describes one event:
 ```
-F2 W7 G7K4 01,02,03,04>05 O4 P2 D14 V3
+S:2:B442:RS04/OS91>Q1:W7:P2:D14:V3
 ```
-> Under schema 2, run verified-aggregation workflow W7 on set G7K4, collecting
-> roots 01–04 into 05, organizing series-then-format, preserving originals,
-> applying ruling D14, result completed-and-verified.
+> schema 2: batch B442 searched root-set RS04, operated on object-set OS91,
+> collected into Q1, workflow W7, policy P2, ruling D14, result V3.
+
+**History Capsule** — tamper-evident *fingerprint*, NOT reversible:
+```
+H:7K4M9XC2Q8NDPH6RV3WJT5AZ
+```
+Chained hash proving which exact history produced the current state:
+```
+C_n = Trunc_120( HASH( "FIS-HISTORY-v2" || C_{n-1} || R_v || E_n || M_n ) )
+```
+Short form (24-char Crockford Base32 = 120 bits) is for citation; verification
+uses the full 256-bit digest. Hash is BLAKE3 when available, else stdlib BLAKE2b.
+
+## The registry is itself a chain
+
+Every release is an immutable, hash-chained object; events bind to the exact
+version used to interpret them; nothing executes unless the chain verifies:
+```
+R_v = HASH( "FIS-REGISTRY-v2" || R_{v-1} || Canonical(Registry_v) )
+```
+
+## Root-set vs object-set vs batch
+
+- **root-set** (`RS04`) = *where* to search — immutable; changed membership needs
+  a new code (`RS05`), never a silent edit. Uses volume ids, not just drive letters.
+- **object-set** (`OS91`) = *which* objects were selected (hashed manifest).
+- **batch** (`B442`) ties root-set + object-set + destination + workflow + policy + ruling.
+
+## Decisions are immutable citations
+
+`D14` behaves like a commit, not a mutable row. To change a ruling you add `D21`
+that `supersedes: D14`; historical events still decompress under `D14`.
+
+| Object | Function | Reversible? | Tamper-evident? |
+|---|---|---:|---:|
+| Statement | compact operational sentence | Yes | No (standing alone) |
+| Registry | dictionary that decodes statements | Yes | Yes, chained |
+| Manifest | immutable membership definition | Yes | Yes, hashed |
+| Decision | durable customer ruling | Yes | Yes, hashed |
+| Capsule | fingerprint of the chained history | **No** | Yes |
 
 ## Non-negotiable registry rules
 

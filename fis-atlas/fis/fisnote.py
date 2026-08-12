@@ -137,8 +137,12 @@ def emit_all(atlas: Atlas, out_dir: Path, in_place: bool = False) -> list[Path]:
             note = render_fisnote(f, children)
         if reg is not None:
             try:
-                cap = _reg.folder_capsule(reg, f.object_id, f.risk)
-                note += (f"\n\n<!-- FIS capsule {cap} :: {reg.decompress(cap)} -->")
+                from . import history as _hist
+                event = f"scan:{f.object_id}:{f.folder_class}:{f.risk}".encode()
+                cap = _hist.next_capsule(previous_full="", registry_hash=reg.registry_hash(),
+                                         event_bytes=event, manifest_hashes=[])
+                note += (f"\n\n<!-- FIS reg {reg.registry_id} "
+                         f"{reg.registry_hash()[:12]} · {cap.short} -->")
             except Exception:
                 pass
         if in_place:

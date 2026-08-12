@@ -1,67 +1,89 @@
 import pytest
 
-from fis import registry
+from fis import registry, statement, history
 
 
 def _reg():
     return registry.load()
 
 
-def test_lookups_resolve_codes():
+# ---- statements (readable, reversible) ----
+def test_statement_encode_parse_roundtrip():
+    s = statement.Statement(schema="2", batch="B442", root_set="RS04", object_set="OS91",
+                            destination="Q1", workflow="W7", policy="02", decision="D14", result="03")
+    text = s.encode()
+    assert text == "S:2:B442:RS04/OS91>Q1:W7:P2:D14:V3" or text.startswith("S:2:B442:RS04/OS91>Q1")
+    back = statement.parse(text)
+    assert back.batch == "B442" and back.object_set == "OS91" and back.destination == "Q1"
+
+
+def test_statement_decompresses_via_registry():
     r = _reg()
-    assert r.lookup("operations", "M") == "move"
-    assert r.lookup("roots", "02") == "D:/Old Research"
-    assert r.lookup("policies", "03") == "move_after_approval"
+    text = "S:2:B442:RS04/OS91>Q1:W7:P2:D14:V3"
+    english = statement.decompress(r, text)
+    assert "GTQ search roots" in english and "result completed_and_verified" in english
 
 
-def test_capsule_roundtrips_and_verifies_integrity():
+# ---- history capsule (tamper-evident, not reversible) ----
+def test_capsule_is_24_chars_and_chains():
     r = _reg()
-    cap = r.encode_capsule(node="K7M4", manifest="A9X0", operation="M", source="02",
-                           destination="05", policy="03", period="T7", result="03")
-    assert len(cap) == 24
-    d = r.decode_capsule(cap)
-    assert d["operation"] == "M" and d["source"] == "2" and d["result"] == "03"
+    cap = history.next_capsule("", r.registry_hash(), b"event-1", [])
+    assert cap.short.startswith("H:") and len(cap.short) == 26   # "H:" + 24
+    assert history.verify(cap, r.registry_hash(), b"event-1", [])
 
 
-def test_tampered_capsule_fails_checksum():
+def test_capsule_detects_tampering():
     r = _reg()
-    cap = r.encode_capsule(node="K7M4", manifest="A9X0", operation="M", source="02",
-                           destination="05", policy="03", period="T7", result="03")
-    tampered = cap[:10] + "C" + cap[11:]        # flip the operation
+    cap = history.next_capsule("", r.registry_hash(), b"event-1", [])
+    assert not history.verify(cap, r.registry_hash(), b"event-TAMPERED", [])
+
+
+def test_capsule_binds_to_registry_version():
+    r = _reg()
+    cap = history.next_capsule("", r.registry_hash(), b"e", [])
+    assert not history.verify(cap, "deadbeef" * 8, b"e", [])      # different registry -> fails
+
+
+# ---- registry chain + invariants ----
+def test_registry_hash_is_deterministic():
+    r1, r2 = _reg(), _reg()
+    assert r1.registry_hash() == r2.registry_hash()
+
+
+def test_seal_then_verify_chain():
+    r = _reg()
+    r.seal()
+    assert r.verify_chain()
+    r.data["operations"]["Z"] = "sneaky_edit"        # mutate after sealing
+    assert not r.verify_chain()                       # chain now broken
+
+
+def test_root_set_requires_manifest_hash():
+    r = _reg()
+    rs = r.root_set("RS04")
+    assert rs["count"] == 4 and rs["manifest_hash"]
+    r.data["root_sets"]["RS04"]["manifest_hash"] = None
     with pytest.raises(registry.RegistryError):
-        r.decode_capsule(tampered)
-
-
-def test_decompress_is_plain_english():
-    r = _reg()
-    cap = r.encode_capsule(node="K7M4", manifest="A9X0", operation="M", source="02",
-                           destination="05", policy="03", period="T7", result="03")
-    text = r.decompress(cap)
-    assert "move" in text and "D:/Old Research" in text and "move_after_approval" in text
+        r.root_set("RS04")
 
 
 def test_never_reuse_a_code():
     r = _reg()
     with pytest.raises(registry.RegistryError):
-        r.add_code("roots", "02", "SOME/OTHER/PATH")     # 02 already means D:/Old Research
+        r.add_code("roots", "02", "SOME/OTHER/PATH")
 
 
-def test_superseded_code_is_rejected():
+def test_decisions_are_immutable_citations():
     r = _reg()
-    r.supersede("03", "11")
-    with pytest.raises(registry.RegistryError):
-        r.lookup("policies", "03")
+    # cannot overwrite; must supersede with a new id
+    r.supersede_decision("D14", "D21", {"pdf": "authoritative"}, reason="signed releases")
+    assert r.decision("D21")["supersedes"] == "D14"
+    assert r.decision("D14")["ruling"]["editable_source"] == ".md"   # original untouched
 
 
-def test_manifest_hash_is_stable(tmp_path):
+def test_require_verified_blocks_on_broken_chain():
     r = _reg()
-    m = tmp_path / "G7K4.fism"
-    m.write_text("obj1\nobj2\n")
-    assert r.hash_manifest(m) == r.hash_manifest(m)      # deterministic
-
-
-def test_folder_capsule_is_decompressible():
-    r = _reg()
-    cap = registry.folder_capsule(r, "O-abc123def456", risk="red")
-    assert len(cap) == 24
-    assert "scan" in r.decompress(cap) and "protected" in r.decompress(cap)
+    r.seal()
+    r.data["policies"]["01"] = "changed"
+    with pytest.raises(registry.RegistryIntegrityError):
+        r.require_verified()

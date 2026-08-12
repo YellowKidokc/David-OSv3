@@ -1,21 +1,12 @@
-"""FIS operational language — the shared codebook.
+"""FIS registry — the chained dictionary that gives statements their meaning.
 
-Loads the YAML registry (readable source of truth), compiles a SQLite index,
-encodes/decodes the fixed 24-char capsule, and decompresses any code to plain
-English. Enforces the non-negotiable rules: never reuse a code, supersede rather
-than overwrite, hash every manifest, every code decompressible.
+The registry is not mutable background infrastructure: every release is an
+immutable, versioned, hash-chained object. Events bind to the exact registry
+version used to interpret them. Nothing enters execution unless the chain
+verifies. Statements (statement.py) are readable; capsules (history.py) are
+fingerprints; this module is the dictionary + the chain + the invariants.
 
-Capsule layout (24 chars, fixed positions):
-    1      schema version
-    2-5    node / collection id
-    6-9    set / manifest id
-    10     operation
-    11-12  source-root code
-    13-14  destination-root code
-    15-17  policy code
-    18-19  time-window code
-    20-21  result code
-    22-24  integrity check (derived)
+    R_v = HASH( "FIS-REGISTRY-v2" || R_{v-1} || Canonical(Registry_v) )
 """
 from __future__ import annotations
 
@@ -30,16 +21,22 @@ except Exception:                       # pragma: no cover
     yaml = None
 
 DEFAULT_REGISTRY = Path(__file__).parent.parent / "fis-registry" / "registry.yaml"
-
-FIELDS = [("version", 1, 1), ("node", 2, 5), ("manifest", 6, 9), ("operation", 10, 10),
-          ("source", 11, 12), ("destination", 13, 14), ("policy", 15, 17),
-          ("period", 18, 19), ("result", 20, 21), ("checksum", 22, 24)]
-KIND_TABLE = {"operation": "operations", "source": "roots", "destination": "roots",
-              "policy": "policies", "period": "periods", "result": "results"}
+REGISTRY_PREFIX = b"FIS-REGISTRY-v2"
 
 
 class RegistryError(ValueError):
     pass
+
+
+class RegistryIntegrityError(RegistryError):
+    pass
+
+
+def _is_hex(s: str) -> bool:
+    try:
+        bytes.fromhex(s); return True
+    except (ValueError, TypeError):
+        return False
 
 
 class Registry:
@@ -50,10 +47,40 @@ class Registry:
         self.data = yaml.safe_load(self.path.read_text(encoding="utf-8"))
         self.version = self.data.get("registry_version", "FIS-LEXICON-?")
 
+    # ---- identity + chain ----
+    @property
+    def registry_id(self) -> str:
+        return (self.data.get("registry") or {}).get("registry_id", "FISREG-????")
+
+    def registry_hash(self) -> str:
+        """R_v — binds every event to this exact registry version."""
+        chain = dict(self.data.get("registry") or {})
+        prev = chain.get("previous_hash") or ""
+        content = {k: v for k, v in self.data.items() if k != "registry"}
+        chain_meta = {k: v for k, v in chain.items() if k != "content_hash"}
+        canon = json.dumps({"content": content, "chain": chain_meta},
+                           sort_keys=True, default=str).encode()
+        material = REGISTRY_PREFIX + (bytes.fromhex(prev) if _is_hex(prev) else prev.encode()) + canon
+        return hashlib.blake2b(material, digest_size=32).hexdigest()
+
+    def verify_chain(self) -> bool:
+        declared = (self.data.get("registry") or {}).get("content_hash")
+        if declared and declared not in (None, "null"):
+            return declared == self.registry_hash()
+        return True                     # unsealed registry is allowed pre-seal
+
+    def seal(self) -> str:
+        h = self.registry_hash()
+        self.data.setdefault("registry", {})["content_hash"] = h
+        return h
+
+    def require_verified(self):
+        if not self.verify_chain():
+            raise RegistryIntegrityError("Registry verification failed; execution blocked.")
+
     # ---- lookups ----
     def lookup(self, kind: str, code: str) -> str:
         table = self.data.get(kind, {})
-        # tolerate zero-padding differences (003 <-> 03 <-> 3)
         bare = code.lstrip("0") or "0"
         for c in (code, bare, bare.zfill(2), bare.zfill(3)):
             if c in table:
@@ -62,14 +89,35 @@ class Registry:
         if code not in table:
             raise RegistryError(f"unknown {kind} code: {code!r}")
         if self._superseded(code):
-            raise RegistryError(f"code {code} is superseded by {self.data['superseded'][code]['replaced_by']}")
+            raise RegistryError(f"code {code} superseded by "
+                                f"{self.data['superseded'][code]['replaced_by']}")
         val = table[code]
         return val["name"] if isinstance(val, dict) and "name" in val else val
+
+    def root_set(self, code: str) -> dict:
+        rs = (self.data.get("root_sets") or {}).get(code)
+        if rs is None:
+            raise RegistryError(f"unknown root_set: {code}")
+        if not rs.get("manifest_hash"):
+            raise RegistryError(f"root_set {code} has no manifest_hash (RULE: hash every manifest)")
+        return rs
+
+    def object_set(self, code: str) -> dict:
+        os_ = (self.data.get("object_sets") or {}).get(code)
+        if os_ is None:
+            raise RegistryError(f"unknown object_set: {code}")
+        return os_
+
+    def decision(self, code: str) -> dict:
+        d = (self.data.get("decisions") or {}).get(code)
+        if d is None:
+            raise RegistryError(f"unknown decision: {code}")
+        return d
 
     def _superseded(self, code: str) -> bool:
         return code in (self.data.get("superseded") or {})
 
-    # ---- registry rules ----
+    # ---- invariants ----
     def add_code(self, kind: str, code: str, value):
         table = self.data.setdefault(kind, {})
         if code in table and table[code] != value:
@@ -80,71 +128,29 @@ class Registry:
         self.data.setdefault("superseded", {})[code] = {"status": "superseded",
                                                          "replaced_by": replaced_by}
 
-    def hash_manifest(self, manifest_path: str | Path) -> str:
-        h = hashlib.sha256(Path(manifest_path).read_bytes()).hexdigest()
-        return h
-
-    # ---- capsule ----
-    def encode_capsule(self, node: str, manifest: str, operation: str, source: str,
-                       destination: str, policy: str, period: str, result: str) -> str:
-        body = (f"{self._vchar()}{node:0>4.4}{manifest:0>4.4}{operation:.1}"
-                f"{source:0>2.2}{destination:0>2.2}{policy:0>3.3}{period:0>2.2}{result:0>2.2}")
-        return body + self._checksum(body)
-
-    def _vchar(self) -> str:
-        # "FIS-LEXICON-2" -> "2"
-        return self.version.rsplit("-", 1)[-1][:1] or "1"
+    def supersede_decision(self, old: str, new_id: str, new_ruling: dict, reason: str):
+        """Decisions are immutable citations: never edit D14, add D21 that supersedes it."""
+        if new_id in (self.data.get("decisions") or {}):
+            raise RegistryError(f"decision {new_id} already exists (immutable)")
+        self.data.setdefault("decisions", {})[new_id] = {
+            "supersedes": old, "reason": reason, "ruling": new_ruling}
 
     @staticmethod
-    def _checksum(body: str) -> str:
-        return hashlib.sha256(body.encode()).hexdigest()[:3].upper()
+    def hash_manifest(manifest_path: str | Path) -> str:
+        return hashlib.blake2b(Path(manifest_path).read_bytes(), digest_size=32).hexdigest()
 
-    def decode_capsule(self, capsule: str) -> dict:
-        if len(capsule) != 24:
-            raise RegistryError(f"capsule must be 24 chars, got {len(capsule)}")
-        body, check = capsule[:21], capsule[21:]
-        if self._checksum(body) != check:
-            raise RegistryError("capsule integrity check failed")
-        out = {}
-        for name, a, b in FIELDS:
-            out[name] = capsule[a - 1:b].strip("0") if name in ("source", "destination") else capsule[a - 1:b]
-        return out
-
-    def decompress(self, capsule: str) -> str:
-        d = self.decode_capsule(capsule)
-        def safe(kind, code):
-            try:
-                return self.lookup(kind, code)
-            except RegistryError:
-                return f"?{code}"
-        parts = [
-            f"schema {d['version']}",
-            f"operation {safe('operations', d['operation'])}",
-            f"from {safe('roots', d['source'])}",
-            f"to {safe('roots', d['destination'])}",
-            f"policy {safe('policies', d['policy'])}",
-            f"result {safe('results', d['result'])}",
-        ]
-        return " · ".join(parts)
-
-
-def folder_capsule(reg: "Registry", object_id: str, risk: str) -> str:
-    """A decompressible capsule stamped at the bottom of a folder's .fisnote."""
-    node = (object_id or "N000").replace("-", "")[-4:].upper().ljust(4, "0")
-    policy = "06" if risk == "red" else "01"           # protected vs observe-only
-    period = next(iter(reg.data.get("periods", {})), "T0")
-    return reg.encode_capsule(node=node, manifest="0000", operation="L",
-                              source="00", destination="00", policy=policy,
-                              period=period, result="00")
-
-    # ---- SQLite compiled index ----
+    # ---- compiled index ----
     def compile_sqlite(self, db_path: str | Path):
         conn = sqlite3.connect(str(db_path))
-        conn.execute("CREATE TABLE IF NOT EXISTS registry_entries(kind TEXT, code TEXT, value TEXT, PRIMARY KEY(kind,code))")
-        for kind in ("operations", "roots", "paths", "strategies", "policies", "results", "periods"):
+        conn.execute("CREATE TABLE IF NOT EXISTS registry_entries"
+                     "(kind TEXT, code TEXT, value TEXT, PRIMARY KEY(kind,code))")
+        for kind in ("operations", "roots", "paths", "strategies", "policies",
+                     "results", "periods", "workflows"):
             for code, val in (self.data.get(kind) or {}).items():
                 conn.execute("INSERT OR REPLACE INTO registry_entries VALUES(?,?,?)",
                              (kind, str(code), json.dumps(val)))
+        conn.execute("INSERT OR REPLACE INTO registry_entries VALUES('meta','registry_hash',?)",
+                     (json.dumps(self.registry_hash()),))
         conn.commit(); conn.close()
 
 

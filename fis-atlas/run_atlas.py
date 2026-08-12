@@ -36,6 +36,14 @@ def main(argv):
     jpath.write_text(json.dumps(atlas.to_dict(), indent=2, default=str), encoding="utf-8")
     print(f"  atlas JSON -> {jpath}")
 
+    # SQLite store (the brain) — always written
+    from fis.store import Store
+    st = Store(out / "atlas.db")
+    stats = st.save_atlas(atlas)
+    st.close()
+    print(f"  SQLite store -> {out / 'atlas.db'}  "
+          f"({stats['objects_written']} written, {stats['objects_unchanged']} unchanged via mtime)")
+
     for c in atlas.clusters:
         print(f"    · {c.label}")
 

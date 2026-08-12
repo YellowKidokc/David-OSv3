@@ -1,0 +1,21 @@
+# Reusable job template. Fill the {{blanks}} and it compiles to a FileJob.
+# Every "find a series across drives, collect, flatten, dedupe, organize" task
+# is THIS template with different inputs.
+template_id: T-AGGREGATE-1
+name: "Aggregate {{concept}}"
+operations: [scan, aggregate, flatten, deduplicate, organize, report]
+strategy: series_then_format
+# --- fill these ---
+params:
+  concept: "Genesis to Quantum"      # what to find
+  aliases: ["GTQ", "Genesis to Quantum", "Genesis-to-Quantum"]
+  roots: []                          # drives/folders to scan (fill in)
+  destination: ""                    # where the collection goes (fill in)
+# --- safe defaults ---
+accept_threshold: 0.6
+review_threshold: 0.2
+preserve_originals: true             # copy, never move, until verified
+flatten: true
+exact_dedupe: true
+apply: false                         # preview-only until approved
+approved: false

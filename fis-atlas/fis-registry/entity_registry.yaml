@@ -1,0 +1,18 @@
+# Canonical entity names + aliases — the memory of names (prevents drift).
+# The naming engine resolves any alias to the ONE canonical entity.
+canonical_entities:
+  LOGOS_PRINCIPLE:
+    aliases: [Paper 01, The Logos Principle, Logos Field Paper, LOGOS_FIELD]
+    primary_chi_factor: K
+  MASTER_EQUATION_KERNEL:
+    aliases: ["χ kernel", chi local, corrected master equation, MEK]
+    primary_chi_factor: C
+  NO_DRIFT_TOPOLOGY:
+    aliases: [no drift kernel, topology skeleton, NDT]
+    primary_chi_factor: C
+  GRACE_EXTERNALITY:
+    aliases: [grace externality, external grounding, Law 01 grace]
+    primary_chi_factor: G
+  GENESIS_TO_QUANTUM:
+    aliases: [GTQ, Genesis to Quantum, Genesis-to-Quantum]
+    primary_chi_factor: C

@@ -1,3 +1,4 @@
+# fis-op: gov
 """SQLite store — the brain (the cache you always wanted).
 
 State lives here, not in scattered JSON. Scanning later means querying this DB

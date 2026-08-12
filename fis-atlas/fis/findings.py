@@ -1,3 +1,4 @@
+# fis-op: gov
 """The finding compiler (David's spec) — the missing middle between scanner and report.
 
 Turns verified observations into arguments. Every finding uses the five-part

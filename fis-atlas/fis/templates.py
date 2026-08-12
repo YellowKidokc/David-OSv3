@@ -1,3 +1,4 @@
+# fis-op: dec
 """Job templates — one reusable recipe, fill in the blanks.
 
 A template is a parameterized JobSpec. "Find a series across drives, collect,

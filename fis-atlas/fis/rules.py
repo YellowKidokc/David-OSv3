@@ -1,3 +1,4 @@
+# fis-op: dec
 """Decide (dec) — the rule grammar. Rules are DATA, not hardcoded.
 
 Grammar (one rule per line, '#' comments):

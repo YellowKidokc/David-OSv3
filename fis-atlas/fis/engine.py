@@ -1,3 +1,4 @@
+# fis-op: pipeline
 """fis_engine — the universal file-job pipeline.
 
 Every operation (search, copy, move, aggregate, flatten, dedupe, organize,

@@ -1,3 +1,4 @@
+# fis-op: dec
 """Workflows (routines) — compose independent primitives into one backend op.
 
 A workflow does NOT reimplement search/cut/dedupe. It CALLS the isolated

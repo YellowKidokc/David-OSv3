@@ -1,3 +1,4 @@
+# fis-op: idn
 """Central identity + lineage registry — the load-bearing store.
 
 A path is a file's current ADDRESS, not its identity. The registry assigns a

@@ -1,3 +1,4 @@
+# fis-op: dec
 """Escalation ladder (David's rule): tools first, model last.
 
 The model does NOT engage on the first sign of trouble. Deterministic tools +

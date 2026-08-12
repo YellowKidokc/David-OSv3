@@ -1,3 +1,4 @@
+# fis-op: gov
 """Layered report render (spec): Layer 1 answer · Layer 2 explanation · Layer 3 receipts.
 
 Renders the report_model into the gold-on-black house style. Dependency-free.

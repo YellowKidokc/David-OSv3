@@ -1,3 +1,4 @@
+# fis-op: und
 """Understand (und) — intelligence at the source.
 
 A light comprehender each node can call to READ enough of its files to know

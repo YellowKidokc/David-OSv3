@@ -1,3 +1,4 @@
+# fis-op: lok
 """Look (lok) — walk a tree into raw ObjectRecords. Read-only. Never mutates.
 
 Also computes the folder tree stats (children, descendants, size, type dist).

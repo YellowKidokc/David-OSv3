@@ -1,3 +1,4 @@
+# fis-op: und
 """Understand (und) — infer role, sensitivity, activity, risk, permission.
 
 Red flags are checked FIRST and fail closed (spec): a programming/system/secret

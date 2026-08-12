@@ -1,3 +1,4 @@
+# fis-op: gov
 """Render the atlas as a gold-on-black HTML page (David's end style).
 Self-contained, no external assets. Preview-only view.
 """

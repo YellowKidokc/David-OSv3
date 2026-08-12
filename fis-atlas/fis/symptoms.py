@@ -1,3 +1,4 @@
+# fis-op: und
 """The symptom registry as orchestration (David's spec).
 
 Every folder passes through this: if it matches a symptom's description, the

@@ -1,3 +1,4 @@
+# fis-op: gov
 """FIS Statements — the readable, reversible operational sentence.
 
     S:2:B442:RS04/OS91>Q1:W7:P2:D14:V3

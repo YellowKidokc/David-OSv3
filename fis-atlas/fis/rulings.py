@@ -1,3 +1,4 @@
+# fis-op: lrn
 """Ruling -> policy -> future prediction (David's spec).
 
 Closes the loop: a customer answer to a high-value question becomes a bounded,

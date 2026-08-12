@@ -1,3 +1,4 @@
+# fis-op: und
 """Corpus-scale node model (David's spec).
 
 A large research root becomes a `corpus_root` whose note is the CONSTITUTION +

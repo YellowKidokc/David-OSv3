@@ -1,3 +1,4 @@
+# fis-op: und
 """The folder-level interview (spec) — ask about the WHOLE folder, then cluster,
 never 200 questions. These configure scope + permission before the scan acts.
 """

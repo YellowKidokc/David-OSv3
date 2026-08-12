@@ -1,3 +1,4 @@
+# fis-op: sim
 """Similarity (sim) — group objects into diagnostic clusters.
 
 Groups OVERLAP: an object can be a duplicate AND a markdown AND ambiguous.

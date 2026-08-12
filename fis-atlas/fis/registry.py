@@ -1,3 +1,4 @@
+# fis-op: gov
 """FIS registry — the chained dictionary that gives statements their meaning.
 
 The registry is not mutable background infrastructure: every release is an

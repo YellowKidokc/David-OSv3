@@ -1,3 +1,4 @@
+# fis-op: gov
 """File Operations catalog — each op is a first-class thing with its own WARNINGS.
 
 A GUI/Excel button for an operation shows what it does AND what to watch out for

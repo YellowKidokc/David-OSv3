@@ -1,3 +1,4 @@
+# fis-op: aut
 """Node agent — the per-folder wake/scan/escalate/ping loop.
 
 This is the "every folder wakes up and handles itself" feeling you wanted,

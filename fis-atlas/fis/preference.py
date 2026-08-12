@@ -1,3 +1,4 @@
+# fis-op: lrn
 """Preference learning (lrn) — learns YOU from approvals.
 
 Two learners, per the ruling:

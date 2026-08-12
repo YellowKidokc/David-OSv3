@@ -1,3 +1,4 @@
+# fis-op: dec
 """Anomaly + question engine (David's spec).
 
     symptom -> anomaly -> hypothesis -> question -> (ruling -> policy)

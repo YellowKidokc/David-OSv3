@@ -36,6 +36,26 @@ def is_same_picture(a: int, b: int, threshold: int = 10) -> bool:
     return hamming(a, b) <= threshold
 
 
+def calibrate(same_pairs: list[tuple[int, int]],
+              diff_pairs: list[tuple[int, int]] | None = None) -> dict:
+    """Set the aperture from DATA, not a guess. Feed it perceptual-hash pairs you
+    KNOW are the same picture (a PNG + its WebP + its PDF page) and, ideally,
+    pairs you know are different. Returns the measured distances and a recommended
+    threshold: just above the largest 'same' distance, and below the smallest
+    'different' distance if they separate cleanly.
+    """
+    same = sorted(hamming(a, b) for a, b in same_pairs)
+    diff = sorted(hamming(a, b) for a, b in (diff_pairs or []))
+    same_max = same[-1] if same else 0
+    diff_min = diff[0] if diff else 64
+    separable = same_max < diff_min
+    rec = (same_max + 1) if separable else None
+    return {"same_distances": same, "diff_distances": diff,
+            "same_max": same_max, "diff_min": diff_min,
+            "separable": separable, "recommended_threshold": rec,
+            "note": "recommended = largest same-distance + 1 (only trustworthy if separable)"}
+
+
 # ---- optional real backends (guarded) -------------------------------------
 def available() -> bool:
     try:

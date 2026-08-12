@@ -127,8 +127,17 @@ def windowed_associations(seeds: list[str], docs: list[str], window: int = 8,
 
 
 def aperture_window(level: str) -> int:
-    """Map an aperture name to a window size. tight<normal<wide<open."""
+    """Map an aperture name to a window size. tight<normal<wide<open.
+    NOTE: these presets are starting points, not tested truth — sweep and look."""
     return APERTURE.get(level, APERTURE["normal"])
+
+
+def aperture_sweep(seeds: list[str], docs: list[str],
+                   windows=(3, 8, 15, 30), top: int = 8) -> dict[int, list[tuple]]:
+    """Run several apertures so you can SEE how the cluster changes and pick by
+    eye, instead of trusting a preset. Returns {window: [top associations]}."""
+    return {w: [a.as_tuple() for a in windowed_associations(seeds, docs, window=w, top=top)]
+            for w in windows}
 
 
 def familiarize(seed_lexicon: dict[str, list[str]], docs: list[str],

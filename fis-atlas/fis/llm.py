@@ -17,6 +17,34 @@ import urllib.request
 OLLAMA_URL = "http://localhost:11434"
 DEFAULT_MODEL = "qwen2.5:0.5b"
 
+# ── The model capability contract (David's rule: it must know STRICTLY what it
+# can and cannot do). Enforced, not documentation. ────────────────────────────
+MODEL_CAN = {
+    "select_question_template",
+    "fill_template_variables",
+    "phrase_question",
+    "explain_evidence_plainly",
+    "summarize_findings",
+    "interpret_free_text_answer",
+    "propose_rule_from_ruling",     # PROPOSE only — a human ruling still admits it
+}
+MODEL_CANNOT = {
+    "invent_policy", "decide_authority", "promote_canonical", "admit_bridge",
+    "set_standing", "change_permissions", "override_guardrail",
+    "execute_action", "move_file", "rename_file", "delete_file", "archive_file",
+}
+
+
+class CapabilityError(PermissionError):
+    pass
+
+
+def enforce(capability: str) -> None:
+    """Deny any capability outside the allow-list. Fail closed on unknowns."""
+    if capability in MODEL_CANNOT or capability not in MODEL_CAN:
+        raise CapabilityError(
+            f"model is not permitted to '{capability}'. Allowed: {sorted(MODEL_CAN)}")
+
 
 def available(timeout: float = 0.6) -> bool:
     try:
@@ -36,6 +64,7 @@ class OllamaQuestioner:
 
         The caller treats None as 'use the deterministic template'.
         """
+        enforce("select_question_template")     # contract check, fail-closed
         if not available():
             return None
         prompt = (
@@ -53,6 +82,9 @@ class OllamaQuestioner:
             with urllib.request.urlopen(req, timeout=30) as r:
                 out = json.loads(r.read())
             parsed = json.loads(out.get("response", "{}"))
+            # reject any attempt to smuggle an action/policy past the contract
+            if any(k in parsed for k in ("action", "policy", "execute", "command", "authority")):
+                return None
             tmpl = parsed.get("template")
             if tmpl in allowed_templates:
                 return {"template": tmpl, "variables": parsed.get("variables", {})}

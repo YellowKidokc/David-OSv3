@@ -1,0 +1,6 @@
+anomaly_id,symptom_id,anomaly_family,observed_condition,possible_meanings,default_assumption,question_template_id,answer_type,affected_actions,severity,blocking,ruling_scope,memory_key
+ANOM-AUTH,I01/N-canon,authority,"Multiple territories/files assert canonical/gold/final authority","one governs corpus | each governs its domain | GOLD=outputs not sources | names unreliable","authority unresolved — treat all as candidates",Q-AUTH-001,choice,"rename;move;archive;dedupe;publish",high,TRUE,corpus,canon_marker_policy
+ANOM-DERIV,C02,provenance,"Same stem in Markdown AND a generated format (html/xlsx/pdf)","md is source | source varies | independent docs","treat Markdown as source",Q-DERIV-001,path_selection,"dedupe;archive;rename",medium,FALSE,cluster,source_of_stem
+ANOM-MIRROR,C01,duplication,"Exact duplicates across locations","intentional mirrors | one location governs","keep all until a location is chosen",Q-MIRROR-001,choice,"dedupe;archive",medium,FALSE,cluster,mirror_policy
+ANOM-LIFE,T01,lifecycle,"Files inactive for a long time","completed | abandoned | preserved","flag for archive review",Q-LIFE-001,choice,"archive",low,FALSE,folder,lifecycle_policy
+ANOM-ROLE,S04,structure,"Folder has several plausible purposes","several candidate roles","hold as mixed until ruled",Q-ROLE-001,choice,"move;rename",medium,FALSE,folder,folder_role

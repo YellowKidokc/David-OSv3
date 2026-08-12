@@ -1,0 +1,7 @@
+template_id,customer_facing_question,answer_type
+Q-AUTH-001,"These files all appear to claim final authority. Which one governs?",choice
+Q-DERIV-001,"These files appear to be generated from another source. Which file is editable source?",path_selection
+Q-MIRROR-001,"The same material appears in several locations. Is that intentional mirroring?",choice
+Q-LIFE-001,"These files have been inactive a long time. Completed, abandoned, or preserved?",choice
+Q-ROLE-001,"FIS sees several possible purposes for this folder. Which description is closest?",choice
+Q-BOUND-001,"Private-looking material appears inside a publication folder. Is that intentional?",yes_no

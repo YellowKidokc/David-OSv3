@@ -75,9 +75,31 @@ def build_atlas(root: str, rules_path: str | None = None, max_objects: int = 200
     return atlas
 
 
-def build_report(atlas: Atlas) -> dict:
-    """Anomaly detection -> finding compiler -> report_model.json (the middle layer)."""
-    from . import anomaly, findings
-    anomalies, questions = anomaly.detect(atlas)
+def build_report(atlas: Atlas, rulings_path: str | None = None) -> dict:
+    """Anomaly detection -> apply learned policies -> finding compiler -> report_model."""
+    from . import anomaly, findings, rulings as rul
+    anomalies, _ = anomaly.detect(atlas)
+
+    # apply learned policies: already-ruled anomalies stop re-asking (the memory loop)
+    resolved = []
+    rpath = rulings_path or (Path("_atlas_out") / "rulings.jsonl")
+    store = rul.RulingStore(rpath)
+
+    def names_for(a):
+        ids = set(a.evidence_ids)
+        out = [o.name for o in atlas.objects.values() if o.object_id in ids]
+        out += [f.name for f in atlas.folders.values() if f.object_id in ids]
+        return out
+
+    if store.policies:
+        anomalies, resolved = store.apply(anomalies, names_for)
+
+    # rebuild questions from surviving anomalies (preserve priority order)
+    _, questions = anomaly.detect(atlas)
+    live_ids = {a.anomaly_id for a in anomalies}
+    questions = [q for q in questions if q.anomaly_id in live_ids]
+
     finds = findings.compile_findings(atlas, anomalies)
-    return findings.build_report_model(atlas, finds, questions)
+    model = findings.build_report_model(atlas, finds, questions)
+    model["resolved_by_policy"] = resolved
+    return model

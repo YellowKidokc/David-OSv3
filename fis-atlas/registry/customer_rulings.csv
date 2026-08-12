@@ -1,0 +1,4 @@
+decision_id,question_id,anomaly_id,selected_answer,edited_answer,scope,applies_to_pattern,exceptions,confidence_after,policy_created,approved_by,timestamp,supersedes
+# schema only — live rulings are appended to _atlas_out/rulings.jsonl (append-only)
+# example row FIS would write after a ruling:
+DEC-EXAMPLE,Q-ANOM-001,ANOM-001,"GOLD folders contain publication-ready outputs, not sources","",corpus,"GOLD|PUBLICATION_GOLD|UNIFICATION_GOLD","",1.0,POL-EXAMPLE,user,2026-08-12T00:00:00,

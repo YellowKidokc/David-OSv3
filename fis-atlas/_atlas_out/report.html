@@ -1,0 +1,142 @@
+<!doctype html><meta charset="utf-8"><title>FIS Report — D:\GitHub\David-OS\file-intelligence-system</title>
+<style>
+:root{--bg:#0a0a0a;--panel:#121110;--line:#242220;--ink:#ececec;--mut:#8f8a83;--dim:#5c5852;--gold:#e0b34a;
+--serif:Georgia,serif;--mono:ui-monospace,Consolas,monospace}
+body{margin:0;background:radial-gradient(1000px 400px at 50% -80px,rgba(224,179,74,.06),transparent),var(--bg);
+color:var(--ink);font-family:var(--mono);font-size:13px;padding:24px 30px 80px;max-width:1000px;margin:auto}
+h1{font-family:var(--serif);font-size:34px;margin:0} h1 .g{color:var(--gold);font-style:italic}
+h2{font-family:var(--serif);font-size:22px;margin:30px 0 6px;border-bottom:1px solid var(--line);padding-bottom:5px}
+.layer{color:var(--dim);letter-spacing:2px;font-size:10px;text-transform:uppercase;margin-top:26px}
+.find{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--gold);
+border-radius:8px;padding:14px 16px;margin:10px 0}
+.claim{font-weight:700;font-size:14px;margin-bottom:8px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 18px;font-size:12px}
+.grid b{color:var(--gold);display:block;font-size:10px;text-transform:uppercase;letter-spacing:1px}
+.grid span{color:var(--dim)} .meta{color:var(--dim);font-size:11px;margin-top:8px} .dim{color:var(--dim)}
+.q{background:var(--panel);border:1px solid #3a2f16;border-radius:8px;padding:14px 16px;margin:10px 0}
+.qh{font-weight:700;color:var(--gold)} .q ul{margin:8px 0} .q li{color:var(--mut);margin:3px 0}
+.tiles{display:flex;gap:12px;margin:14px 0}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 16px}
+.tile .n{font-size:20px;font-weight:700} .tile .l{font-size:11px;color:var(--dim)}
+</style>
+<h1>Corpus <span class="g">report.</span></h1>
+<div class="dim">D:\GitHub\David-OS\file-intelligence-system · report-only · nothing executed · audience: owner</div>
+<div class="tiles">
+  <div class="tile"><div class="n">855</div><div class="l">files</div></div>
+  <div class="tile"><div class="n">197</div><div class="l">folders</div></div>
+  <div class="tile"><div class="n">0.17 GB</div><div class="l">size</div></div>
+  <div class="tile"><div class="n">5</div><div class="l">findings</div></div>
+  <div class="tile"><div class="n">3</div><div class="l">open questions</div></div>
+</div>
+
+<div class="layer">Layer 1 — the answer (read this first)</div>
+<h2>Executive summary</h2>
+<div class="find" style="border-left-color:#e0913a">
+          <div class="claim">Canonical authority is distributed across competing claims.</div>
+          <div class="grid">
+            <div><b>Evidence</b><span class="dim">37 observations</span></div>
+            <div><b>Interpretation</b>Several territories/files assert overlapping canonical/gold/final authority.</div>
+            <div><b>Consequence</b>Auto rename/move/dedupe could separate a source from its derivative or elevate an obsolete version.</div>
+            <div><b>Action</b>Run a non-mutating authority + dependency audit; produce a human ruling queue.</div>
+          </div>
+          <div class="meta">high · confidence 0.94
+            · Block path-changing automation until authority is resolved.</div>
+        </div><div class="find" style="border-left-color:#e0913a">
+          <div class="claim">Canonical status cannot be inferred from filenames.</div>
+          <div class="grid">
+            <div><b>Evidence</b><span class="dim">5 observations</span></div>
+            <div><b>Interpretation</b>GOLD / CANONICAL / SOURCE_OF_TRUTH / FINAL are evidence of intent, not proof, and several coexist.</div>
+            <div><b>Consequence</b>Trusting a name would hard-code the wrong authority.</div>
+            <div><b>Action</b>Establish authority via references, modification history, and a user ruling.</div>
+          </div>
+          <div class="meta">high · confidence 0.90
+            </div>
+        </div><div class="find" style="border-left-color:#e0913a">
+          <div class="claim">Automatic reorganization currently has excessive blast radius.</div>
+          <div class="grid">
+            <div><b>Evidence</b><span class="dim">10 observations</span></div>
+            <div><b>Interpretation</b>Code, canonical material, generated outputs, and data coexist in scope.</div>
+            <div><b>Consequence</b>A single automated pass could break dependencies across unrelated systems.</div>
+            <div><b>Action</b>Operate report-only until dependencies and authority are mapped.</div>
+          </div>
+          <div class="meta">high · confidence 0.90
+            · mutating_automation_enabled = false</div>
+        </div>
+
+<div class="layer">Layer 2 — the explanation</div>
+<h2>All findings — claim · evidence · interpretation · consequence · action</h2>
+<div class="find" style="border-left-color:#e0913a">
+          <div class="claim">Canonical authority is distributed across competing claims.</div>
+          <div class="grid">
+            <div><b>Evidence</b><span class="dim">37 observations</span></div>
+            <div><b>Interpretation</b>Several territories/files assert overlapping canonical/gold/final authority.</div>
+            <div><b>Consequence</b>Auto rename/move/dedupe could separate a source from its derivative or elevate an obsolete version.</div>
+            <div><b>Action</b>Run a non-mutating authority + dependency audit; produce a human ruling queue.</div>
+          </div>
+          <div class="meta">high · confidence 0.94
+            · Block path-changing automation until authority is resolved.</div>
+        </div><div class="find" style="border-left-color:#e0913a">
+          <div class="claim">Canonical status cannot be inferred from filenames.</div>
+          <div class="grid">
+            <div><b>Evidence</b><span class="dim">5 observations</span></div>
+            <div><b>Interpretation</b>GOLD / CANONICAL / SOURCE_OF_TRUTH / FINAL are evidence of intent, not proof, and several coexist.</div>
+            <div><b>Consequence</b>Trusting a name would hard-code the wrong authority.</div>
+            <div><b>Action</b>Establish authority via references, modification history, and a user ruling.</div>
+          </div>
+          <div class="meta">high · confidence 0.90
+            </div>
+        </div><div class="find" style="border-left-color:#d8c24a">
+          <div class="claim">A large share of the corpus may be generated or reproducible.</div>
+          <div class="grid">
+            <div><b>Evidence</b><span class="dim">0 observations</span></div>
+            <div><b>Interpretation</b>Markdown sources appear alongside html/xlsx/pdf exports of the same stems.</div>
+            <div><b>Consequence</b>Duplicate/archive decisions made before linking source→derivative would lose the source of truth.</div>
+            <div><b>Action</b>Link derivatives to sources before any dedupe or archive.</div>
+          </div>
+          <div class="meta">medium · confidence 0.60
+            </div>
+        </div><div class="find" style="border-left-color:#e0913a">
+          <div class="claim">Automatic reorganization currently has excessive blast radius.</div>
+          <div class="grid">
+            <div><b>Evidence</b><span class="dim">10 observations</span></div>
+            <div><b>Interpretation</b>Code, canonical material, generated outputs, and data coexist in scope.</div>
+            <div><b>Consequence</b>A single automated pass could break dependencies across unrelated systems.</div>
+            <div><b>Action</b>Operate report-only until dependencies and authority are mapped.</div>
+          </div>
+          <div class="meta">high · confidence 0.90
+            · mutating_automation_enabled = false</div>
+        </div><div class="find" style="border-left-color:#6f9e6a">
+          <div class="claim">224 files are exact duplicates.</div>
+          <div class="grid">
+            <div><b>Evidence</b><span class="dim">20 observations</span></div>
+            <div><b>Interpretation</b>Identical content exists in multiple locations.</div>
+            <div><b>Consequence</b>Edits risk landing on the wrong copy; storage is wasted.</div>
+            <div><b>Action</b>Choose a governing location per group, then quarantine the rest.</div>
+          </div>
+          <div class="meta">low · confidence 0.95
+            </div>
+        </div>
+
+<h2>Questions that need a human ruling</h2>
+<div class="q">
+          <div class="qh">These territories/files all appear to claim authority. Which description is closest?</div>
+          <ul><li>One territory governs the complete corpus</li><li>Each territory governs its own domain</li><li>GOLD folders are publication outputs, not sources</li><li>None of these names reliably indicate current authority</li><li>I&#x27;m not sure — show me three examples</li></ul>
+          <div class="meta">🔒 blocks action · scope corpus · affects 81 objects
+             · priority 18.66 · would affect: rename, move, archive, dedupe, publish</div>
+        </div><div class="q">
+          <div class="qh">The same material appears in several locations. Is that intentional mirroring?</div>
+          <ul><li>Intentional mirrors (working/backup/publication)</li><li>One location should govern; the rest are stale</li><li>I&#x27;m not sure — show me three examples</li></ul>
+          <div class="meta">non-blocking · scope cluster · affects 224 objects
+             · priority 4.234 · would affect: dedupe, archive</div>
+        </div><div class="q">
+          <div class="qh">These appear to be generated from another source. Which is the editable source?</div>
+          <ul><li>Markdown is the editable source, others are generated</li><li>The source varies by project</li><li>These are independent documents</li><li>I&#x27;m not sure — show me three examples</li></ul>
+          <div class="meta">non-blocking · scope cluster · affects 3 objects
+             · priority 1.806 · would affect: dedupe, archive, rename</div>
+        </div>
+
+<div class="layer">Layer 3 — the receipts</div>
+<h2>Report model</h2>
+<p class="dim">Every sentence above traces to this structured model
+(5 findings, 3 questions). Exported as
+<b>report_model.json</b> — the object a Quarto/Typst renderer would consume next.</p>

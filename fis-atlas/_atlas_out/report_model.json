@@ -1,0 +1,203 @@
+{
+  "report_question": "What is the condition of this corpus and what should happen next?",
+  "audience": "owner",
+  "scope": {
+    "files": 855,
+    "folders": 197,
+    "bytes": 170603627
+  },
+  "findings": [
+    {
+      "finding_id": "FND-001",
+      "claim": "Canonical authority is distributed across competing claims.",
+      "evidence_ids": [
+        "O-8d36cb2dd2b5",
+        "O-1346e6fe08bd",
+        "O-1a76fa7f2b28",
+        "O-f11105184a3d",
+        "O-8cf601ec23fa",
+        "O-f04aa1505135",
+        "O-03c94111bca3",
+        "O-d7358cfbf393",
+        "O-72e50b42f355",
+        "O-6b102a7c2bf5",
+        "O-233b3a87a7ac",
+        "O-78082cefb7f2",
+        "O-4bff1fffb05e",
+        "O-fcf9b34d7ff8",
+        "O-cae964ca3f56",
+        "O-a75652620430",
+        "O-083c2d2603ff",
+        "O-75abb6ac532e",
+        "O-b8837461571c",
+        "O-fcc3dbb4515b",
+        "O-9e91138271a0",
+        "O-7f3b4efe0e23",
+        "O-d94faa6d8e25",
+        "O-baead52c5d03",
+        "O-5fc5514dd451",
+        "O-8b04b778e87e",
+        "O-0088aa9e1b7f",
+        "O-560ee3a75eae",
+        "O-aedddb189f69",
+        "O-a14a66e987f1",
+        "O-33031f996a76",
+        "O-ac430cea4b12",
+        "O-68bffffb981a",
+        "O-e4bb7158a430",
+        "O-c46bf23346e4",
+        "O-3af99b6b00b0",
+        "O-9466c5e45320"
+      ],
+      "interpretation": "Several territories/files assert overlapping canonical/gold/final authority.",
+      "consequence": "Auto rename/move/dedupe could separate a source from its derivative or elevate an obsolete version.",
+      "recommended_action": "Run a non-mutating authority + dependency audit; produce a human ruling queue.",
+      "severity": "high",
+      "confidence": 0.94,
+      "automation_effect": "Block path-changing automation until authority is resolved."
+    },
+    {
+      "finding_id": "FND-002",
+      "claim": "Canonical status cannot be inferred from filenames.",
+      "evidence_ids": [
+        "O-8d36cb2dd2b5",
+        "O-1346e6fe08bd",
+        "O-1a76fa7f2b28",
+        "O-f11105184a3d",
+        "O-8cf601ec23fa"
+      ],
+      "interpretation": "GOLD / CANONICAL / SOURCE_OF_TRUTH / FINAL are evidence of intent, not proof, and several coexist.",
+      "consequence": "Trusting a name would hard-code the wrong authority.",
+      "recommended_action": "Establish authority via references, modification history, and a user ruling.",
+      "severity": "high",
+      "confidence": 0.9,
+      "automation_effect": ""
+    },
+    {
+      "finding_id": "FND-003",
+      "claim": "A large share of the corpus may be generated or reproducible.",
+      "evidence_ids": [],
+      "interpretation": "Markdown sources appear alongside html/xlsx/pdf exports of the same stems.",
+      "consequence": "Duplicate/archive decisions made before linking source\u2192derivative would lose the source of truth.",
+      "recommended_action": "Link derivatives to sources before any dedupe or archive.",
+      "severity": "medium",
+      "confidence": 0.6,
+      "automation_effect": "",
+      "_warning": "finding has no evidence \u2014 would be an invented narrative"
+    },
+    {
+      "finding_id": "FND-004",
+      "claim": "Automatic reorganization currently has excessive blast radius.",
+      "evidence_ids": [
+        "O-09c92b59b099",
+        "O-5ebb01a755e2",
+        "O-814310e4c1a9",
+        "O-41d517ff17bf",
+        "O-89a5be865a62",
+        "O-4b79e6826b23",
+        "O-9e91138271a0",
+        "O-5bb8c447123f",
+        "O-928e49e273bb",
+        "O-a32cba9e7471"
+      ],
+      "interpretation": "Code, canonical material, generated outputs, and data coexist in scope.",
+      "consequence": "A single automated pass could break dependencies across unrelated systems.",
+      "recommended_action": "Operate report-only until dependencies and authority are mapped.",
+      "severity": "high",
+      "confidence": 0.9,
+      "automation_effect": "mutating_automation_enabled = false"
+    },
+    {
+      "finding_id": "FND-005",
+      "claim": "224 files are exact duplicates.",
+      "evidence_ids": [
+        "O-b1e5c4c0b301",
+        "O-af34bd429f6e",
+        "O-6cc27a6c1640",
+        "O-39e2dc401007",
+        "O-f666a8a5060b",
+        "O-27db00f0e082",
+        "O-42de363d8f56",
+        "O-34b97fdb9aad",
+        "O-c9311cbe010a",
+        "O-0287ff38cfeb",
+        "O-6d2c665b2307",
+        "O-f8d6e574fba1",
+        "O-f38357e87522",
+        "O-673e7c66cc17",
+        "O-55830b67fd3c",
+        "O-ad19a3e8232a",
+        "O-6230860364ca",
+        "O-0c801671de72",
+        "O-53bc197154d2",
+        "O-c21a5adb1292"
+      ],
+      "interpretation": "Identical content exists in multiple locations.",
+      "consequence": "Edits risk landing on the wrong copy; storage is wasted.",
+      "recommended_action": "Choose a governing location per group, then quarantine the rest.",
+      "severity": "low",
+      "confidence": 0.95,
+      "automation_effect": ""
+    }
+  ],
+  "open_questions": [
+    {
+      "question_id": "Q-ANOM-001",
+      "question": "These territories/files all appear to claim authority. Which description is closest?",
+      "priority": 18.66,
+      "blocking": true,
+      "ruling_scope": "corpus",
+      "affected_count": 81,
+      "blocking_actions": [
+        "rename",
+        "move",
+        "archive",
+        "dedupe",
+        "publish"
+      ],
+      "options": [
+        "One territory governs the complete corpus",
+        "Each territory governs its own domain",
+        "GOLD folders are publication outputs, not sources",
+        "None of these names reliably indicate current authority",
+        "I'm not sure \u2014 show me three examples"
+      ]
+    },
+    {
+      "question_id": "Q-ANOM-003",
+      "question": "The same material appears in several locations. Is that intentional mirroring?",
+      "priority": 4.234,
+      "blocking": false,
+      "ruling_scope": "cluster",
+      "affected_count": 224,
+      "blocking_actions": [
+        "dedupe",
+        "archive"
+      ],
+      "options": [
+        "Intentional mirrors (working/backup/publication)",
+        "One location should govern; the rest are stale",
+        "I'm not sure \u2014 show me three examples"
+      ]
+    },
+    {
+      "question_id": "Q-ANOM-002",
+      "question": "These appear to be generated from another source. Which is the editable source?",
+      "priority": 1.806,
+      "blocking": false,
+      "ruling_scope": "cluster",
+      "affected_count": 3,
+      "blocking_actions": [
+        "dedupe",
+        "archive",
+        "rename"
+      ],
+      "options": [
+        "Markdown is the editable source, others are generated",
+        "The source varies by project",
+        "These are independent documents",
+        "I'm not sure \u2014 show me three examples"
+      ]
+    }
+  ]
+}

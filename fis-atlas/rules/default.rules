@@ -1,0 +1,23 @@
+# FIS-Atlas default rules — edit this file to change behaviour, never the engine.
+# Grammar:  WHEN <field> <op> <value> [AND ...] THEN <action> [= destination]
+
+# Programming/secret material is sealed by classification; these are belt-and-suspenders.
+WHEN risk is red THEN protect
+WHEN sensitivity is secret THEN protect
+
+# Screenshots and auto-named images -> a single unsorted bucket (one rule, not 200 clicks)
+WHEN content_type is image AND name matches (screenshot|img_|clipto|sharex) THEN move = Media/Unsorted
+WHEN content_type is image THEN move = Media/Unsorted
+
+# Archives out of the working area
+WHEN content_type is archive THEN archive = _Archives
+
+# Messy-but-safe documents get a clean rename proposal
+WHEN content_type is markdown AND detected_role is draft THEN rename
+WHEN content_type is document THEN rename
+
+# Abandoned material -> review, don't auto-touch
+WHEN activity is abandoned THEN review
+
+# Unknown blobs always reach a human
+WHEN content_type is unknown THEN review

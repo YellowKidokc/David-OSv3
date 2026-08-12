@@ -1,0 +1,17 @@
+domain: obsidian
+weight: 1.0
+terms:
+  - wikilink
+  - backlink
+  - dataview
+  - frontmatter
+  - vault
+  - canvas
+  - graph view
+  - daily note
+  - callout
+  - zettelkasten
+  - templater
+  - "[[ ]]"
+  - tag
+  - yaml property

@@ -1,0 +1,23 @@
+domain: day_trading
+weight: 1.0
+terms:
+  - rsi
+  - macd
+  - candlestick
+  - support
+  - resistance
+  - moving average
+  - breakout
+  - volume
+  - bullish
+  - bearish
+  - stop loss
+  - ticker
+  - options
+  - calls
+  - puts
+  - volatility
+  - ema
+  - fibonacci
+  - swing
+  - pre-market

@@ -50,7 +50,7 @@ def phash_image(path: str) -> int | None:
     try:
         from PIL import Image
         img = Image.open(path).convert("L").resize((DHASH_SIDE + 1, DHASH_SIDE))
-        gray = list(img.getdata())
+        gray = list(img.tobytes())
         return dhash_from_gray(gray, DHASH_SIDE + 1, DHASH_SIDE)
     except Exception:
         return None
@@ -60,7 +60,10 @@ def phash_pdf_pages(path: str, max_pages: int = 60) -> list[int]:
     """Render each PDF page and perceptual-hash it (PyMuPDF). [] if unavailable."""
     out = []
     try:
-        import fitz  # PyMuPDF
+        try:
+            import pymupdf as fitz          # newer name
+        except Exception:
+            import fitz                      # older name
         from PIL import Image
         doc = fitz.open(path)
         for i, page in enumerate(doc):
@@ -69,7 +72,7 @@ def phash_pdf_pages(path: str, max_pages: int = 60) -> list[int]:
             pix = page.get_pixmap(matrix=fitz.Matrix(0.3, 0.3))
             img = Image.frombytes("RGB", (pix.width, pix.height), pix.samples)
             img = img.convert("L").resize((DHASH_SIDE + 1, DHASH_SIDE))
-            out.append(dhash_from_gray(list(img.getdata()), DHASH_SIDE + 1, DHASH_SIDE))
+            out.append(dhash_from_gray(list(img.tobytes()), DHASH_SIDE + 1, DHASH_SIDE))
     except Exception:
         return out
     return out

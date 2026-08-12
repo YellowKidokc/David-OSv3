@@ -18,12 +18,15 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
-from fis import corpus_learn
+from fis import corpus_learn, classifier_seed
 
+# The NLP classifier vocabulary is ALWAYS part of the run (pulled from the
+# X-drive theophysics_scorer) + the God/character seeds for this corpus.
 SEED_LEXICON = {
-    "GOD": ["god", "lord", "yahweh", "elohim", "almighty"],
+    "GOD": ["god", "lord", "yahweh", "elohim", "almighty", "christ", "father"],
     "CHARACTER_OF_GOD": ["holy", "righteous", "just", "merciful", "faithful",
                          "sovereign", "love", "grace", "goodness", "wrath"],
+    **classifier_seed.seed_lexicon(),
 }
 
 
@@ -66,28 +69,41 @@ def main(argv):
     if not argv:
         print(__doc__); return 1
     folder = argv[0]
+    aperture = "normal"
+    for a in argv[1:]:
+        if a.startswith("--aperture="):
+            aperture = a.split("=", 1)[1]
+    window = corpus_learn.aperture_window(aperture)
+
     out_root = Path("_atlas_out") / "tagger" / Path(folder).name
+    if out_root.exists():                       # delete prior run's info first
+        import shutil
+        shutil.rmtree(out_root)
     (out_root / "NOT_LOGGED").mkdir(parents=True, exist_ok=True)
     (out_root / "LOGGED_TO_MASTER").mkdir(parents=True, exist_ok=True)
     stamp = datetime.now(timezone.utc).isoformat(timespec="seconds")
 
     docs = read_docs(folder)
-    print(f"Corpus: {len(docs)} readable files from {folder}")
+    print(f"Corpus: {len(docs)} files · aperture={aperture} (±{window} words) · "
+          f"{len(SEED_LEXICON)} classifier categories")
 
-    proposals = corpus_learn.familiarize(SEED_LEXICON, docs, min_count=2, top=40)
-
-    # write associations CSV into NOT_LOGGED (not yet in the master lexicon)
+    # PROXIMITY clustering: how many words before/after the seed each term sits.
     csv_path = out_root / "NOT_LOGGED" / "associations.csv"
+    shown = 0
     with csv_path.open("w", newline="", encoding="utf-8-sig") as f:
         w = csv.writer(f)
-        w.writerow(["category", "term", "co_count", "lift", "tier", "logged_to_master"])
-        for cat, rows in proposals.items():
-            for term, co, lift in rows:
-                w.writerow([cat, term, co, lift, "inferred", "no"])
+        w.writerow(["category", "term", "count", "avg_distance", "proximity_score",
+                    "aperture", "tier", "logged_to_master"])
+        for cat, seeds in SEED_LEXICON.items():
+            rows = corpus_learn.windowed_associations(seeds, docs, window=window, min_count=2, top=40)
+            for a in rows:
+                w.writerow([cat, a.term, a.count, round(a.avg_distance, 2),
+                            round(a.score, 3), aperture, "inferred", "no"])
+            if rows and shown < 6:
+                shown += 1
+                top = ", ".join(f"{a.term}(~{a.avg_distance:.0f})" for a in rows[:6])
+                print(f"    {cat}: {top}")
     print(f"  associations -> {csv_path}")
-    for cat, rows in proposals.items():
-        top = ", ".join(t for t, _, _ in rows[:8])
-        print(f"    {cat}: {top}")
 
     # API test: names of God
     names = ollama_names_of_god()

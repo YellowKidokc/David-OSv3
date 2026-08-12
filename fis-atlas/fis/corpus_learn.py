@@ -19,7 +19,11 @@ STOPWORDS = set("the a an and or of to in on for is are was were be this that wi
                 "by from it its into we you they he she our your their not no will can may "
                 "should would could i me my do does did has have had but if then so than "
                 "which who what when where how all any some more most other such only own "
-                "same very just also there here about over under out up down".split())
+                "same very just also there here about over under out up down "
+                "because why cannot without built called made using thing state still "
+                "even well going get got like way need want see look come know been "
+                "one two three first make take give go say said much many both each "
+                "these those them your his her him thing things something everything".split())
 
 _TOK = re.compile(r"[a-zA-Z][a-zA-Z\-']{2,}")
 
@@ -72,6 +76,59 @@ def associated_terms(seeds: list[str], docs: list[str], min_count: int = 2,
         out.append(Association(term=t, co_count=co, lift=lift))
     out.sort(key=lambda a: (a.lift, a.co_count), reverse=True)
     return out[:top]
+
+
+# ---- proximity clustering + aperture (how many words before/after the seed) ----
+APERTURE = {"tight": 3, "normal": 8, "wide": 15, "open": 30}
+
+
+def _token_list(text: str) -> list[str]:
+    return [m.group().lower() for m in _TOK.finditer(text)]
+
+
+@dataclass
+class WindowAssoc:
+    term: str
+    count: int             # times it appeared within the window of a seed
+    avg_distance: float    # avg words before/after the seed
+    score: float           # count / avg_distance  (frequent AND close ranks high)
+
+    def as_tuple(self):
+        return (self.term, self.count, round(self.avg_distance, 2), round(self.score, 3))
+
+
+def windowed_associations(seeds: list[str], docs: list[str], window: int = 8,
+                          min_count: int = 2, top: int = 40) -> list[WindowAssoc]:
+    """Associations by PROXIMITY. `window` is the aperture: how many words before/
+    after the seed to accept. Small window = closed aperture (only definite,
+    tightly-bound words); large window = open aperture (accept more, looser)."""
+    seeds_l = {s.lower() for s in seeds}
+    count: Counter = Counter()
+    dist_sum: Counter = Counter()
+    for d in docs:
+        toks = _token_list(d)
+        seed_pos = [i for i, t in enumerate(toks) if t in seeds_l]
+        for sp in seed_pos:
+            lo, hi = max(0, sp - window), min(len(toks), sp + window + 1)
+            for j in range(lo, hi):
+                t = toks[j]
+                if j == sp or t in seeds_l or t in STOPWORDS or len(t) < 3:
+                    continue
+                count[t] += 1
+                dist_sum[t] += abs(j - sp)
+    out = []
+    for t, c in count.items():
+        if c < min_count:
+            continue
+        avg = dist_sum[t] / c
+        out.append(WindowAssoc(t, c, avg, c / max(0.5, avg)))
+    out.sort(key=lambda a: a.score, reverse=True)
+    return out[:top]
+
+
+def aperture_window(level: str) -> int:
+    """Map an aperture name to a window size. tight<normal<wide<open."""
+    return APERTURE.get(level, APERTURE["normal"])
 
 
 def familiarize(seed_lexicon: dict[str, list[str]], docs: list[str],

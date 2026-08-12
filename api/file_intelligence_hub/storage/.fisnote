@@ -1,6 +1,6 @@
 ---
 fis_schema: "folder-index.v1"
-folder_id: "FLD-20260726-39f54e2d"
+folder_id: "FLD-20260811-39f54e2d"
 folder: "GitHub\David-OS-tagger-publish\api\file_intelligence_hub\storage"
 folder_class: "project"
 confidence: 0.6
@@ -8,7 +8,7 @@ dependency_risk: 0.333
 dominant_family: "code"
 dominant_ratio: 0.909
 file_count: 11
-classified_at: "2026-07-26T08:59:03"
+classified_at: "2026-08-11T10:08:55"
 allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
 suggested_name: "storage"
 system_markers: ["dir:__pycache__"]

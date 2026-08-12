@@ -9,54 +9,65 @@ def test_hamming_and_same_picture():
 
 
 def test_dhash_is_deterministic():
-    gray = [i % 7 for i in range(9 * 8)]          # 9x8
+    gray = [i % 7 for i in range(9 * 8)]
     assert visual.dhash_from_gray(gray, 9, 8) == visual.dhash_from_gray(gray, 9, 8)
 
 
-def test_same_picture_across_formats_groups_pdf_png_webp():
+def test_pdf_page_and_images_group_but_pdf_stays_a_pointer():
     base = 0xA1B2C3D4E5F60718
     items = [
-        VisualItem("O1", "H:/deck.pdf", "pdf", base, page=1),
-        VisualItem("O2", "D:/slide.png", "png", base ^ 0b11, page=1),        # tiny diff
-        VisualItem("O3", "Z:/slide.webp", "webp", base ^ 0b101, page=1),     # tiny diff
-        VisualItem("O4", "D:/unrelated.png", "png", 0x0F0F0F0F0F0F0F0F, page=1),
+        VisualItem("PG", "pdf_page", base, page=3, document_id="D004"),   # page 3 of a deck
+        VisualItem("O2", "png", base ^ 0b11, page=3, path="D:/slide_03.png"),
+        VisualItem("O3", "webp", base ^ 0b101, page=3, path="Z:/slide_03.webp"),
+        VisualItem("O4", "png", 0x0F0F0F0F0F0F0F0F, page=1, path="D:/unrelated.png"),
     ]
-    fams = match.build_families(items, threshold=10)
-    assert len(fams) == 1                          # the pdf/png/webp collapse to ONE family
-    fam = fams[0]
-    assert {m.fmt for m in fam.members} == {"pdf", "png", "webp"}
-    assert "O4" not in {m.object_id for m in fam.members}   # unrelated stays out
+    groups = match.build_groups(items, threshold=10)
+    assert len(groups) == 1
+    g = groups[0]
+    reps = {m.representation for m in g.members}
+    assert reps == {"pdf_page", "png", "webp"}
+    # the pdf member is a POINTER to (document, page), never the whole deck
+    m = g.manifest()["members"]
+    pdf = [x for x in m if x["representation"] == "pdf_page"][0]
+    assert pdf["document"] == "D004" and pdf["page"] == 3 and "path" not in pdf
+    names = g.names()
+    assert names["PG"].endswith(".pdf-page.json")     # pointer file, not G011-A.pdf
 
 
-def test_family_naming_is_projection():
-    base = 0x1234567890ABCDEF
+def test_document_identity_is_separate_from_visual_group():
+    deck = match.Document(doc_id="D004", path="H:/deck.pdf", pages=12)
+    assert deck.doc_id == "D004" and deck.pages == 12
+    # a 12-page deck is ONE document but can appear in many visual groups
+    slide1, slide2 = 0x0000FFFF0000FFFF, 0xFFFF0000FFFF0000   # 32 bits apart
     items = [
-        VisualItem("O1", "a.pdf", "pdf", base, page=1),
-        VisualItem("O2", "a.png", "png", base, page=1),
-        VisualItem("O3", "a.webp", "webp", base, page=1),
+        VisualItem("PG1", "pdf_page", slide1, page=1, document_id="D004"),
+        VisualItem("I1", "png", slide1, page=1, path="a.png"),
+        VisualItem("PG2", "pdf_page", slide2, page=2, document_id="D004"),
+        VisualItem("I2", "png", slide2, page=2, path="b.png"),
     ]
-    fam = match.build_families(items, threshold=2)[0]
-    names = fam.names()
-    assert names["O1"].endswith("01P.pdf")
-    assert names["O2"].endswith("01N.png")
-    assert names["O3"].endswith("01W.webp")
-    # the shared A### identifies the slide; the last letter is the representation
-    assert all(n.startswith(fam.family_id + "-01") for n in names.values())
-    # identity lives in the manifest, not the filename
-    assert fam.manifest()["members"][0]["role"] in ("source", "render", "derivative")
+    groups = match.build_groups(items, threshold=2)
+    assert len(groups) == 2                            # two slides -> two groups
+    docs = {mm["document"] for g in groups for mm in g.manifest()["members"]
+            if mm["representation"] == "pdf_page"}
+    assert docs == {"D004"}                            # same deck, two visual identities
 
 
-def test_lone_image_is_not_a_family():
-    items = [VisualItem("O1", "x.png", "png", 0x1111, page=1)]
-    assert match.build_families(items) == []
-
-
-def test_stage_plan_is_copy_preview_only():
+def test_stage_plan_copies_images_but_points_pdf_pages():
     base = 0x2222
-    items = [VisualItem("O1", "a.pdf", "pdf", base), VisualItem("O2", "a.png", "png", base)]
-    plan = match.stage_plan(match.build_families(items, threshold=2), "H:/Recovered")
-    assert all(p["action"] == "copy" for p in plan)          # never move on discovery
-    assert all("/Matched/" in p["to"] for p in plan)
+    items = [
+        VisualItem("PG", "pdf_page", base, page=1, document_id="D001"),
+        VisualItem("O2", "png", base, page=1, path="a.png"),
+    ]
+    plan = match.stage_plan(match.build_groups(items, threshold=2), "H:/Recovered")
+    kinds = {p["action"] for p in plan}
+    assert kinds == {"write_pointer", "copy"}          # pdf pointer, image copy
+    assert not any(p.get("from", "").endswith(".pdf") for p in plan)   # deck never copied
+    ptr = [p for p in plan if p["action"] == "write_pointer"][0]
+    assert ptr["points_to"] == {"document": "D001", "page": 1}
+
+
+def test_lone_image_is_not_a_group():
+    assert match.build_groups([VisualItem("O1", "png", 0x1111, path="x.png")]) == []
 
 
 def test_w9_and_d22_registered():

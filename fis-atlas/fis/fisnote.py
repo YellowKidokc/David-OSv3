@@ -117,6 +117,14 @@ def render_fisnote(f: FolderRecord, children: list[ObjectRecord]) -> str:
 
 
 def emit_all(atlas: Atlas, out_dir: Path, in_place: bool = False) -> list[Path]:
+    # best-effort operational-language capsule (needs the registry + PyYAML)
+    reg = None
+    try:
+        from . import registry as _reg
+        reg = _reg.load()
+    except Exception:
+        reg = None
+
     written = []
     root_path = atlas.root
     for f in atlas.folders.values():
@@ -127,6 +135,12 @@ def emit_all(atlas: Atlas, out_dir: Path, in_place: bool = False) -> list[Path]:
         else:
             children = [o for o in atlas.objects.values() if o.parent == f.full_path]
             note = render_fisnote(f, children)
+        if reg is not None:
+            try:
+                cap = _reg.folder_capsule(reg, f.object_id, f.risk)
+                note += (f"\n\n<!-- FIS capsule {cap} :: {reg.decompress(cap)} -->")
+            except Exception:
+                pass
         if in_place:
             target = Path(f.full_path) / ".fisnote"
         else:

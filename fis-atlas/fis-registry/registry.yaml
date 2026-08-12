@@ -1,0 +1,83 @@
+# FIS shared codebook — readable source of truth. Compiled to SQLite for lookup.
+# RULES: never reuse a code · version the registry · supersede, never overwrite ·
+#        hash every manifest · every code decompressible.
+registry_version: FIS-LEXICON-2
+
+operations:
+  L: scan
+  I: identify_and_hash
+  U: classify
+  S: compare_and_cluster
+  C: copy
+  M: move
+  R: rename
+  A: archive
+  Q: quarantine
+  D: deduplicate_in_collection
+  V: verify
+  G: generate_report
+
+roots:
+  "01": C:/Research
+  "02": D:/Old Research
+  "03": O:/Theophysics
+  "04": //192.168.2.50/h_hp/Desktop
+  "05": O:/GTQ_AGGREGATE
+
+paths:
+  Q1: O:/GTQ_AGGREGATE
+  Q2: O:/GTQ_AGGREGATE/01_GENESIS
+  Q3: O:/GTQ_AGGREGATE/02_PHYSICS
+  Q4: O:/GTQ_AGGREGATE/03_QUANTUM
+  Q5: O:/GTQ_AGGREGATE/_REVIEW
+
+strategies:
+  "01": flat
+  "02": by_extension
+  "03": semantic_categories
+  "04": series_then_format
+  "05": preserve_existing_structure
+
+policies:
+  "01": observe_only
+  "02": copy_preserve_originals
+  "03": move_after_approval
+  "04": exact_dedupe_inside_aggregate
+  "05": archive_after_approval
+  "06": protected_research_corpus
+
+results:
+  "00": proposed
+  "01": approved
+  "02": partially_completed
+  "03": completed_and_verified
+  "04": blocked
+  "05": rolled_back
+
+periods:
+  T7: 2026-08-13
+
+workflows:
+  W7:
+    name: Verified corpus aggregation
+    sequence: [L, I, U, D, C, V, G]
+    organization: "04"
+
+decisions:
+  D14:
+    question: Which format normally governs?
+    ruling:
+      editable_source: .md
+      derivatives: [.html, .pdf, .docx]
+    scope: Genesis to Quantum
+    ruled_by: David Lowe
+
+sets:
+  G7K4:
+    name: GTQ confirmed aggregation set
+    object_count: 200
+    membership_manifest: manifests/G7K4.fism
+    membership_rule: GTQ-RULE-04
+    manifest_hash: null   # filled by hash_manifest()
+
+superseded: {}   # e.g. P03: {status: superseded, replaced_by: P11}

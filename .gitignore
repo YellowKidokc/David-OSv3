@@ -22,3 +22,7 @@ __pycache__/
 *.db-wal
 api/.data/
 api/logs/
+
+# Local preservation archives created during worktree cleanup
+ZZZ/
+ZZZ_ARCHIVE_CLEANUP_2026-08-13/

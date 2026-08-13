@@ -1,10 +1,9 @@
 {
-  "bucket_id": "bank-vectorized-docs",
-  "label": "Vectorized Docs",
-  "owner": "operator",
-  "visibility": "project",
-  "allowed_agents": ["operator", "codex", "claude", "gemini", "kimi", "gpt"],
-  "vector_namespace": "bank-vectorized-docs",
-  "requires_approval_to_share": false
+  "bucket": "Vectorized_Docs",
+  "hub": "ai-hub",
+  "description": "Documents that have been vectorized and embedded into the memory_items table for semantic search.",
+  "node_types": ["doc", "embedding", "vector"],
+  "auto_vectorize": true,
+  "tags": ["vectorized", "embedding", "ai-hub"],
+  "created_at": "2026-07-14"
 }
-

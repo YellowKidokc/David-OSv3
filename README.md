@@ -48,7 +48,6 @@ RAW EXPORT → PARSE → SEGMENT → CUT → SCORE → VAULT → EXPLORE
 - AHK overlays for Claude.ai
 - FIS (File Intelligence System)
 - Comms hub API (comms.dlowehomelab.com)
-- Local MCP Hub (`apps/mcp-hub`) for SiYuan knowledge tools, HTTP chat/AHK access, and remote MCP proxying
 - Tagger for YAML frontmatter + OKF compliance
 
 ### Deployment Target

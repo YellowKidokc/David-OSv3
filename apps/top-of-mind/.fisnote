@@ -1,21 +1,21 @@
 ---
 fis_schema: "folder-index.v1"
-folder_id: "FLD-20260727-d3abc3f7"
-folder: "GitHub\David-OS\apps\top-of-mind-pwa"
+folder_id: "FLD-20260812-5f4b7dd0"
+folder: "GitHub\David-OS\apps\top-of-mind"
 folder_class: "project"
 confidence: 0.6
 dependency_risk: 0.0
-dominant_family: "media"
+dominant_family: "text"
 dominant_ratio: 0.333
-file_count: 6
-classified_at: "2026-07-27T19:42:45"
+file_count: 9
+classified_at: "2026-08-12T20:17:13"
 allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
-suggested_name: "top-of-mind-pwa"
+suggested_name: "top-of-mind"
 ---
 
-# FIS Folder Index: top-of-mind-pwa
+# FIS Folder Index: top-of-mind
 
-**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 6  ·  **Dominant**: media (33%)
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 9  ·  **Dominant**: text (33%)
 
 ## Allowed actions
 - index
@@ -23,6 +23,6 @@ suggested_name: "top-of-mind-pwa"
 - subfolder_sort
 - archive_exports
 
-**Suggested name**: `top-of-mind-pwa`  (not applied — review before use)
+**Suggested name**: `top-of-mind`  (not applied — review before use)
 
 <!-- FIS folder-index.v1: parseable note; safe to regenerate. -->

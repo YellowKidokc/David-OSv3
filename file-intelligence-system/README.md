@@ -1,25 +1,55 @@
 # File Intelligence System (David-OS)
 
-This is the single container for your final intelligence system.
+This is the single container for the file intelligence system.
+**This README describes what is ACTUALLY on disk as of 2026-07-21.**
+(The previous README described a `segments/` layout that was never built —
+that layout is now the migration TARGET; see ARCHITECTURE-AND-GAPS.md.)
 
-## Segments
+## File-action authority (unchanged, binding)
 
-Open these directly in order:
+This system observes and proposes. Human approval is recorded in the Excel
+`MovePlan` workbook, and `..\engine\excel_actions` is the separate executor.
+The workbook and one-click preview/execute launchers live in
+`..\tools\excel-file-mover`.
 
-- `segments/01-core-intelligence-hub/` ? modern control-plane (`file_intelligence_hub` API, jobs, rules, workers, watchers).
-- `segments/02-legacy-fis/` ? full legacy FIS stack (classifier, renamer, DB schemas, NLP, scoring, UI).
-- `segments/03-watcher-control-plane/` ? global watcher that discovers files/folders and emits inspect jobs.
-- `segments/04-continuous-sync/` ? low-resource continuous sync monitor to drive/backup targets.
-- `segments/05-file-integrity-monitor/` ? legacy file-integrity monitor implementation from your existing BOOT UP set.
+## What is actually here — use this table
 
-## Companion folders (legacy snapshots)
+| Folder / file | What it is | Status |
+|---|---|---|
+| `fis_cross_folder_scan.py` | Structural fingerprint scanner (SHA-256 + domain vector + cosine). Proven at 41k+ files. Used by the 2026-07-21 corpus gap scan. | **CANONICAL — working** |
+| `fis_near_dup.py` | Near-duplicate + family scanner (fine-grained). Second stage after the coarse scan. | **CANONICAL — working** |
+| `fis_intake_router.py` | Repeatable intake router. | **CANONICAL — working** |
+| `file-intelligence-system-master/` | The full FIS product: NLP classify, rename, learn-from-corrections, Postgres-backed intelligence layer. The "big system". | CANONICAL — the future core |
+| `continuous-scanner/` | Low-resource continuous scan monitor (CORTEX flow). Has the caching/watch loop the root scanners lack. | CANONICAL — not yet wired to the root scanners |
+| `watchers/global-watcher/` | Global watcher: discovers files/folders, emits inspect jobs to `jobs/incoming`. | CANONICAL — working |
+| `1files/` | Chi-dashboard prototype (CHI_BUILD_SPEC + server.py + index.html). | PROTOTYPE |
+| `unified-system/` | Launch + wiring NOTES only (no code). Documents the legacy-fis vs fihub-source choice. | DOCS |
+| `Local-File-Organizer-main/` | Third-party open-source project (vendored for reference). NOT David's code. | VENDORED — reference only |
+| `organize/` | Third-party "organize" rule-based file automation tool (vendored). NOT David's code. | VENDORED — reference only |
+| `cross-folder-scan-report.json` | Output of a prior 41,280-file scan. | ARTIFACT |
+| `_fis_cache/` (created by gap scan wrapper) | mtime-keyed fingerprint cache. | ARTIFACT |
 
-- `legacy-fis/` and `fihub-source/` hold source snapshots used to seed the new segment layout.
-- `watchers/`, `continuous-scanner/`, and `unified-system/` are legacy-arrangement mirrors kept for compatibility during migration.
-- `README.md` files in each segment explain launch and wiring.
+## The one dangerous fact
 
-## Entry points
+Live David-OS code imports FIS modules from OUTSIDE this folder:
 
-- `D:\GitHub\David-OS\fis\README.md` maps here for quick discovery from your existing workflow.
-- `segments/03-watcher-control-plane/global/request_file_inspect.py` is the manual "inspect this file now" bridge.
-- `segments/03-watcher-control-plane/global/request_file_inspect.bat` for quick invocation.
+- `engine\cluster_engine.py` -> `fis_near_dup` (here — fine)
+- `engine\tagger.py` -> `fis_namer` (**lives in `..\_salvage_boot_up\FIS\`**)
+- `tagger\filetagger_chi_v2.py` -> `fis_classifier` (**also `_salvage_boot_up`**)
+
+Production code depends on a salvage folder. Fixing this is Phase 1 of the
+migration plan — do not delete `_salvage_boot_up` until it's done.
+
+## Quick start (today, as-is)
+
+- Corpus gap analysis: the wrapper lives at
+  `C:\Users\David\Desktop\FTP AI Work Packets 2026-07-21\00_CONTROL_BOARD\fis_corpus_gap_scan.py`
+  (imports `fis_cross_folder_scan` from here; adds caching + progress +
+  per-donor selection; Excel export via `gap_report_to_excel.py` beside it).
+- Fine-grained duplicate families: `python fis_near_dup.py`
+- Full product (classify/rename/learn): see `file-intelligence-system-master/README.md`
+
+## Where this is going
+
+Target structure, gap list, migration phases, and productization notes:
+**ARCHITECTURE-AND-GAPS.md** (this folder).

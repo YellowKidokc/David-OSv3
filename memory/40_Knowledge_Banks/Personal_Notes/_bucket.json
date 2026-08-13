@@ -1,10 +1,9 @@
 {
-  "bucket_id": "bank-personal-notes",
-  "label": "Personal Notes Knowledge Bank",
-  "owner": "operator",
-  "visibility": "private",
-  "allowed_agents": ["operator", "codex"],
-  "vector_namespace": "bank-personal-notes",
-  "requires_approval_to_share": true
+  "bucket": "Personal_Notes",
+  "hub": "framework",
+  "description": "Personal notes, journal entries, and insights for the David-OS knowledge graph.",
+  "node_types": ["note", "insight", "journal"],
+  "auto_vectorize": true,
+  "tags": ["personal", "notes", "framework"],
+  "created_at": "2026-07-14"
 }
-

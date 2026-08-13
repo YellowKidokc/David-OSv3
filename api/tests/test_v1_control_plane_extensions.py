@@ -1,7 +1,7 @@
 import json
 
 from file_intelligence_hub.config.folder_profiles import FolderProfileRegistry
-from file_intelligence_hub.storage.db import Database, current_version
+from file_intelligence_hub.storage.db import Database, SCHEMA_VERSION, current_version
 from file_intelligence_hub.storage.job_repo import JobRepo
 from file_intelligence_hub.watchers.runner import PollingWatcher
 from file_intelligence_hub.workers.classify_worker import classify_file
@@ -71,6 +71,6 @@ def test_polling_watcher_detects_create_and_feeds_manager(tmp_path):
 def test_schema_version_migration_is_recorded(tmp_path):
     db = Database(tmp_path / "hub.sqlite3")
 
-    assert current_version(db.conn) == 10
+    assert current_version(db.conn) == SCHEMA_VERSION
     rows = db.conn.execute("SELECT version FROM schema_migrations ORDER BY version").fetchall()
-    assert [row["version"] for row in rows] == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    assert [row["version"] for row in rows] == list(range(1, SCHEMA_VERSION + 1))

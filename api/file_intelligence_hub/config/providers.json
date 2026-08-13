@@ -1,0 +1,59 @@
+{
+  "providers": [
+    {
+      "id": "deepseek",
+      "label": "DeepSeek",
+      "base_url": "https://api.deepseek.com",
+      "model": "deepseek-v4-flash",
+      "key_env": "DEEPSEEK_API_KEY",
+      "key": "",
+      "priority": 200,
+      "enabled": true,
+      "auto_approved": false,
+      "tags": [
+        "external",
+        "paid"
+      ],
+      "notes": "Default external provider. Requires DEEPSEEK_API_KEY env var."
+    },
+    {
+      "id": "ollama-local",
+      "label": "Ollama Local",
+      "base_url": "http://127.0.0.1:11434/v1",
+      "model": "llama3.2:3b",
+      "key_env": "",
+      "key": "",
+      "priority": 100,
+      "enabled": true,
+      "auto_approved": true,
+      "tags": [
+        "local",
+        "free",
+        "self-hosted"
+      ],
+      "notes": "Local Ollama instance. No API key needed."
+    },
+    {
+      "id": "openai",
+      "label": "OpenAI",
+      "base_url": "https://api.openai.com/v1",
+      "model": "gpt-4o",
+      "key_env": "OPENAI_API_KEY",
+      "key": "",
+      "priority": 300,
+      "enabled": false,
+      "auto_approved": false,
+      "tags": [
+        "external",
+        "paid"
+      ],
+      "notes": "OpenAI API. Requires OPENAI_API_KEY env var."
+    }
+  ],
+  "default_provider": "deepseek",
+  "fallback_order": [
+    "deepseek",
+    "ollama-local",
+    "openai"
+  ]
+}

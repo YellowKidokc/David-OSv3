@@ -16,7 +16,7 @@ def is_authorized(path: str, headers: Headers, token: str | None) -> bool:
     """Return whether a request path/headers pair satisfies token policy."""
     if not token or path in PUBLIC_PATHS:
         return True
-    supplied = headers.get("x-api-token")
+    supplied = headers.get("x-api-token") or headers.get("x-fihub-token")
     authorization = headers.get("authorization", "")
     if authorization.lower().startswith("bearer "):
         supplied = authorization[7:].strip()

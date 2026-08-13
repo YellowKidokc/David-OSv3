@@ -21,8 +21,13 @@ router = APIRouter(prefix="/agents", tags=["agents"])
 
 
 class AgentSendRequest(BaseModel):
-    agent_id: str
-    body: str
+    agent_id: str | None = None
+    body: str | None = None
+    target: str | dict[str, object] | None = None
+    message: str | None = None
+    action: str | None = None
+    route_only: bool = False
+    dry_run: bool = False
     from_id: str = "operator"
     from_label: str = "Operator"
     role: str = "user"          # message is FROM the operator/hub TO the agent
@@ -45,13 +50,32 @@ def list_agents() -> dict[str, object]:
 
 @router.post("/send")
 def agent_send(request: AgentSendRequest) -> dict[str, object]:
+    agent_id = request.agent_id
+    if not agent_id and isinstance(request.target, str):
+        agent_id = request.target
+    if not agent_id and isinstance(request.target, dict):
+        agent_id = str(request.target.get("id") or request.target.get("source_id") or request.target.get("name") or "unknown")
+    body = request.body or request.message
+    if not agent_id:
+        raise HTTPException(status_code=422, detail="agent_id or target is required")
+    if not body:
+        raise HTTPException(status_code=422, detail="body or message is required")
+
     metadata = dict(request.metadata)
-    metadata.update({"target_agent_id": request.agent_id, "delivery": "pending"})
+    metadata.update(
+        {
+            "target_agent_id": agent_id,
+            "delivery": "pending",
+            "action": request.action or "agent_send",
+            "route_only": request.route_only,
+            "dry_run": request.dry_run,
+        }
+    )
     try:
         message = _repo().post_message(
             source_id=request.from_id,
             source_label=request.from_label,
-            body=request.body,
+            body=body,
             role=request.role,
             wall=request.wall,
             folder=request.folder,
@@ -60,4 +84,4 @@ def agent_send(request: AgentSendRequest) -> dict[str, object]:
         )
     except Exception as exc:  # noqa: BLE001 - surface storage errors as 400
         raise HTTPException(status_code=400, detail=str(exc)) from exc
-    return {"message": message, "target_agent_id": request.agent_id, "delivery": "pending"}
+    return {"message": message, "target_agent_id": agent_id, "delivery": "pending"}

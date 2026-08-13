@@ -1,4 +1,9 @@
-"""OpenAI-compatible local router endpoints for Mattermost Agents."""
+"""OpenAI-compatible local router endpoints for Mattermost Agents.
+
+Refactored July 14, 2026: Replaced hardcoded DeepSeek forwarding with
+pluggable provider router (services/provider_router.py). Any OpenAI-compatible
+endpoint (Ollama, LM Studio, OpenAI, DeepSeek, etc.) works via config/providers.json.
+"""
 from __future__ import annotations
 
 import json
@@ -19,10 +24,12 @@ from pydantic import BaseModel, Field
 from file_intelligence_hub.storage.db import Database
 from file_intelligence_hub.storage.memory_repo import MemoryRepo
 from file_intelligence_hub.storage.top_of_mind_repo import TopOfMindRepo
+from file_intelligence_hub.services.provider_router import send, get_registry
 
 DEFAULT_DB_PATH = Path(os.environ.get("FIHUB_DB_PATH", ".data/file-intelligence-hub.sqlite3"))
 DEFAULT_MODEL = os.environ.get("TOP_OF_MIND_ROUTER_MODEL", "top-of-mind-router")
-DEEPSEEK_DEFAULT_MODEL = "deepseek-v4-flash"
+DEEPSEEK_MODEL = os.environ.get("DEEPSEEK_MODEL", "deepseek-chat")
+DEEPSEEK_BASE_URL = os.environ.get("DEEPSEEK_BASE_URL", "https://api.deepseek.com/v1").rstrip("/")
 
 router = APIRouter(prefix="/v1", tags=["openai-compatible"])
 
@@ -163,6 +170,17 @@ def _memory_repo() -> MemoryRepo:
     return MemoryRepo(db.conn)
 
 
+def _metadata_bool(metadata: dict[str, Any] | None, key: str, default: bool = False) -> bool:
+    if not metadata or key not in metadata:
+        return default
+    value = metadata.get(key)
+    if isinstance(value, bool):
+        return value
+    if isinstance(value, str):
+        return value.strip().lower() in {"1", "true", "yes", "y", "on"}
+    return bool(value)
+
+
 def _content_to_text(content: str | list[dict[str, Any]] | None) -> str:
     if content is None:
         return ""
@@ -197,9 +215,9 @@ def _target_from_text(text: str) -> tuple[Persona | None, str, str]:
             if lowered == token:
                 return persona, "", f"prompt-prefix:{token}"
             if lowered.startswith(token + " "):
-                return persona, stripped[len(token) :].strip(), f"prompt-prefix:{token}"
+                return persona, stripped[len(token):].strip(), f"prompt-prefix:{token}"
             if token.endswith(":") and lowered.startswith(token):
-                return persona, stripped[len(token) :].strip(), f"prompt-prefix:{token}"
+                return persona, stripped[len(token):].strip(), f"prompt-prefix:{token}"
     return None, stripped, "default"
 
 
@@ -254,97 +272,102 @@ def _add_persona_system_message(messages: list[ChatMessage], persona: Persona) -
     return [ChatMessage(role="system", content=f"{persona.instructions}\n\n{safety}"), *messages]
 
 
-def _requested_provider(metadata: dict[str, Any] | None) -> str:
-    provider = str((metadata or {}).get("provider") or "").strip().lower()
-    if provider in {"deepseek", "ollama-local", "ollama", "openai", "router-placeholder"}:
-        return "ollama-local" if provider == "ollama" else provider
-    if os.environ.get("DEEPSEEK_API_KEY"):
-        return "deepseek"
-    return "router-placeholder"
+def _messages_to_dicts(messages: list[ChatMessage]) -> list[dict[str, Any]]:
+    return [
+        {"role": m.role, "content": _content_to_text(m.content)}
+        for m in messages
+        if _content_to_text(m.content).strip()
+    ]
 
 
-def _truthy(value: Any) -> bool:
-    if isinstance(value, bool):
-        return value
-    if isinstance(value, str):
-        return value.strip().lower() in {"1", "true", "yes", "on"}
-    return bool(value)
+def _call_deepseek(messages: list[ChatMessage]) -> str:
+    """Legacy DeepSeek hook kept for older clients and tests.
 
+    The provider registry is the canonical path now. This helper remains as a
+    compatibility bridge for environments that only configure DEEPSEEK_API_KEY.
+    """
+    key = os.environ.get("DEEPSEEK_API_KEY", "").strip()
+    if not key:
+        raise RuntimeError("DEEPSEEK_API_KEY is not configured")
 
-def _knowledge_query(messages: list[ChatMessage], metadata: dict[str, Any]) -> str:
-    value = metadata.get("knowledge_query")
-    if isinstance(value, str) and value.strip():
-        return value.strip()
-    return _latest_user_message(messages)
-
-
-def _retrieve_knowledge_items(messages: list[ChatMessage], metadata: dict[str, Any]) -> list[dict[str, Any]]:
-    if not _truthy(metadata.get("use_knowledge_bank")):
-        return []
-    query = _knowledge_query(messages, metadata).strip()
-    if not query:
-        return []
-    mode = str(metadata.get("knowledge_mode") or "text").strip().lower()
-    limit_raw = metadata.get("knowledge_limit", 5)
+    payload = {
+        "model": DEEPSEEK_MODEL,
+        "messages": _messages_to_dicts(messages),
+        "stream": False,
+    }
+    data = json.dumps(payload).encode("utf-8")
+    request = Request(
+        f"{DEEPSEEK_BASE_URL}/chat/completions",
+        data=data,
+        headers={"Content-Type": "application/json", "Authorization": f"Bearer {key}"},
+        method="POST",
+    )
     try:
-        limit = int(limit_raw)
+        with urlopen(request, timeout=60.0) as response:
+            response_body = json.loads(response.read().decode("utf-8"))
+    except HTTPError as exc:
+        detail = exc.read().decode("utf-8", errors="replace")[:500]
+        raise RuntimeError(f"DeepSeek HTTP {exc.code}: {detail}") from exc
+    except URLError as exc:
+        raise RuntimeError(f"DeepSeek request failed: {exc.reason}") from exc
+    except TimeoutError as exc:
+        raise RuntimeError("DeepSeek request timed out") from exc
+
+    try:
+        return str(response_body["choices"][0]["message"]["content"])
+    except (KeyError, IndexError, TypeError) as exc:
+        raise RuntimeError("unexpected response shape from DeepSeek") from exc
+
+
+def _knowledge_bank_context(prompt: str, metadata: dict[str, Any] | None) -> tuple[str, list[dict[str, Any]]]:
+    if not _metadata_bool(metadata, "use_knowledge_bank", False):
+        return "", []
+
+    query = str((metadata or {}).get("knowledge_query") or prompt or "").strip()
+    if not query:
+        return "", []
+
+    mode = str((metadata or {}).get("knowledge_mode") or "text").strip().lower()
+    try:
+        limit = int((metadata or {}).get("knowledge_limit") or 5)
     except (TypeError, ValueError):
         limit = 5
     limit = max(1, min(limit, 10))
+
     repo = _memory_repo()
-    if mode == "vector":
-        return repo.vector_search(query, limit=limit)
-    return repo.search(query, limit=limit)
+    try:
+        items = repo.vector_search(query, limit=limit) if mode == "vector" else repo.search(query, limit=limit)
+    except Exception:
+        items = repo.search(query, limit=limit)
 
-
-def _knowledge_system_message(items: list[dict[str, Any]]) -> ChatMessage | None:
     if not items:
-        return None
-    lines = [
-        "Use the following Knowledge Bank context only when relevant. Cite item titles or source metadata when you rely on them.",
-    ]
-    for index, item in enumerate(items, start=1):
-        body = str(item.get("body") or "").replace("\n", " ").strip()
-        if len(body) > 500:
-            body = body[:497] + "..."
-        tags = ", ".join(str(tag) for tag in (item.get("tags") or []))
-        source = item.get("source") or "memory"
-        folder = item.get("folder") or "Memory"
-        lines.append(
-            f"[{index}] {item.get('title') or 'Untitled'} | "
-            f"source={source} | folder={folder} | tags={tags} | body={body}"
-        )
-    return ChatMessage(role="system", content="\n".join(lines))
+        return "", []
 
-
-def _knowledge_metadata(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    payload = []
+    clipped_items: list[dict[str, Any]] = []
+    blocks: list[str] = []
     for item in items:
-        payload.append({
+        body = str(item.get("body") or "").strip()
+        if len(body) > 900:
+            body = body[:897] + "..."
+        title = str(item.get("title") or f"Memory {item.get('id')}")
+        folder = str(item.get("folder") or "Memory")
+        tags = ", ".join(str(tag) for tag in (item.get("tags") or []))
+        blocks.append(f"- {title} [{folder}{'; ' + tags if tags else ''}]\n{body}")
+        clipped_items.append({
             "id": item.get("id"),
-            "title": item.get("title"),
-            "source": item.get("source"),
-            "folder": item.get("folder"),
+            "title": title,
+            "folder": folder,
             "tags": item.get("tags") or [],
             "score": item.get("score"),
-            "metadata": item.get("metadata") or {},
         })
-    return payload
 
-
-def _response_input_to_messages(request: ResponsesRequest) -> list[ChatMessage]:
-    messages: list[ChatMessage] = []
-    if request.instructions:
-        messages.append(ChatMessage(role="system", content=request.instructions))
-    if isinstance(request.input, str):
-        messages.append(ChatMessage(role="user", content=request.input))
-    elif isinstance(request.input, list):
-        for item in request.input:
-            if isinstance(item, ResponseInputItem):
-                messages.append(ChatMessage(role=item.role or "user", content=item.content))
-            elif isinstance(item, dict):
-                messages.append(ChatMessage(role=str(item.get("role") or "user"), content=item.get("content")))
-    return messages
+    context = (
+        "Use the following Knowledge Bank notes as local context. "
+        "Treat them as project memory, not as guaranteed scripture or external fact. "
+        "If they conflict with the user's message, say so briefly.\n\n"
+        + "\n\n".join(blocks)
+    )
+    return context, clipped_items
 
 
 def _build_router_reply(
@@ -352,13 +375,14 @@ def _build_router_reply(
     model: str,
     request_metadata: dict[str, Any] | None = None,
 ) -> tuple[str, dict[str, Any]]:
-    request_metadata = request_metadata or {}
-    knowledge_items = _retrieve_knowledge_items(messages, request_metadata)
     persona, routed_messages, route_reason = _select_persona(messages, request_metadata)
-    knowledge_message = _knowledge_system_message(knowledge_items)
-    if knowledge_message:
-        routed_messages = [knowledge_message, *routed_messages]
     prompt = _latest_user_message(messages)
+    knowledge_context, knowledge_items = _knowledge_bank_context(prompt, request_metadata)
+    if knowledge_context:
+        if routed_messages and routed_messages[0].role == "system":
+            routed_messages = [routed_messages[0], ChatMessage(role="system", content=knowledge_context), *routed_messages[1:]]
+        else:
+            routed_messages = [ChatMessage(role="system", content=knowledge_context), *routed_messages]
     repo = _repo()
     repo.upsert_source(
         "mattermost-ai",
@@ -379,51 +403,96 @@ def _build_router_reply(
             "persona": persona.id,
             "persona_label": persona.label,
             "route_reason": route_reason,
-            "request_metadata": request_metadata,
+            "request_metadata": request_metadata or {},
+            "knowledge_items": knowledge_items,
             "messages": [message.model_dump() for message in messages],
         },
     )
-    requested_provider = _requested_provider(request_metadata)
+
+    # ── Provider routing (replaces hardcoded DeepSeek) ────────────────
+    content = ""
     provider_metadata: dict[str, Any] = {
-        "provider": requested_provider,
+        "provider": "none",
         "persona": persona.id,
         "persona_label": persona.label,
         "route_reason": route_reason,
-        "knowledge_items": _knowledge_metadata(knowledge_items),
+        "knowledge_items": knowledge_items,
     }
-    content = ""
-    if requested_provider == "deepseek" and os.environ.get("DEEPSEEK_API_KEY"):
+
+    if os.environ.get("DEEPSEEK_API_KEY", "").strip():
         try:
             content = _call_deepseek(routed_messages)
             provider_metadata = {
                 "provider": "deepseek",
-                "model": os.environ.get("DEEPSEEK_MODEL", DEEPSEEK_DEFAULT_MODEL),
+                "provider_label": "DeepSeek",
+                "model": DEEPSEEK_MODEL,
                 "persona": persona.id,
                 "persona_label": persona.label,
                 "route_reason": route_reason,
-                "knowledge_items": _knowledge_metadata(knowledge_items),
+                "knowledge_items": knowledge_items,
             }
         except RuntimeError as exc:
             provider_metadata = {
                 "provider": "deepseek",
                 "error": str(exc),
-                "knowledge_items": _knowledge_metadata(knowledge_items),
+                "persona": persona.id,
+                "persona_label": persona.label,
+                "route_reason": route_reason,
+                "knowledge_items": knowledge_items,
             }
             content = (
-                "Top of Mind router received the Mattermost request, but DeepSeek forwarding failed. "
+                "Top of Mind router received the request, but the DeepSeek compatibility path failed. "
                 f"Router error: {exc}"
             )
-    if not content:
-        content = (
-            "Top of Mind router is online. "
-            "I received the Mattermost request and saved it into the AI Crew stream. "
-            "Set DEEPSEEK_API_KEY on the 2828 router to enable real downstream answers."
-        )
-        if prompt:
-            clipped = prompt.replace("\n", " ").strip()
-            if len(clipped) > 240:
-                clipped = clipped[:237] + "..."
-            content += f"\n\nReceived: {clipped}"
+    else:
+        registry = get_registry()
+        default_provider = registry.default_provider()
+        requested_provider = None
+        if request_metadata:
+            provider_value = request_metadata.get("provider")
+            if isinstance(provider_value, str) and provider_value.strip():
+                requested_provider = provider_value.strip()
+
+        if default_provider:
+            try:
+                content, provider_metadata = send(
+                    _messages_to_dicts(routed_messages),
+                    provider_id=requested_provider,
+                    model=model if model != DEFAULT_MODEL else None,
+                    fallback=True,
+                )
+                provider_metadata = {
+                    **provider_metadata,
+                    "persona": persona.id,
+                    "persona_label": persona.label,
+                    "route_reason": route_reason,
+                    "knowledge_items": knowledge_items,
+                }
+            except RuntimeError as exc:
+                provider_metadata = {
+                    "provider": default_provider.id if default_provider else "none",
+                    "error": str(exc),
+                    "persona": persona.id,
+                    "persona_label": persona.label,
+                    "route_reason": route_reason,
+                    "knowledge_items": knowledge_items,
+                }
+                content = (
+                    "Top of Mind router received the request, but the provider chain failed. "
+                    f"Router error: {exc}"
+                )
+        else:
+            content = (
+                "Top of Mind router is online. "
+                "I received the request and saved it into the AI Crew stream. "
+                "Add a provider via POST /providers to enable real downstream answers."
+            )
+            if prompt:
+                clipped = prompt.replace("\n", " ").strip()
+                if len(clipped) > 240:
+                    clipped = clipped[:237] + "..."
+                content += f"\n\nReceived: {clipped}"
+
     reply = repo.post_message(
         source_id="top-of-mind-router",
         source_label="Top of Mind Router",
@@ -434,49 +503,6 @@ def _build_router_reply(
         metadata={"request_message_id": stored["id"], "model": model, **provider_metadata},
     )
     return content, {"request_message_id": stored["id"], "reply_message_id": reply["id"], **provider_metadata}
-
-
-def _call_deepseek(messages: list[ChatMessage]) -> str:
-    api_key = os.environ.get("DEEPSEEK_API_KEY", "").strip()
-    if not api_key:
-        raise RuntimeError("DEEPSEEK_API_KEY is not set")
-    base_url = os.environ.get("DEEPSEEK_BASE_URL", "https://api.deepseek.com").rstrip("/")
-    model = os.environ.get("DEEPSEEK_MODEL", DEEPSEEK_DEFAULT_MODEL)
-    payload = {
-        "model": model,
-        "messages": [
-            {"role": message.role, "content": _content_to_text(message.content)}
-            for message in messages
-            if _content_to_text(message.content).strip()
-        ],
-        "stream": False,
-    }
-    if not payload["messages"]:
-        payload["messages"] = [{"role": "user", "content": ""}]
-    data = json.dumps(payload).encode("utf-8")
-    request = Request(
-        f"{base_url}/chat/completions",
-        data=data,
-        headers={
-            "Authorization": f"Bearer {api_key}",
-            "Content-Type": "application/json",
-        },
-        method="POST",
-    )
-    try:
-        with urlopen(request, timeout=float(os.environ.get("DEEPSEEK_TIMEOUT_SECONDS", "60"))) as response:
-            response_body = json.loads(response.read().decode("utf-8"))
-    except HTTPError as exc:
-        detail = exc.read().decode("utf-8", errors="replace")[:500]
-        raise RuntimeError(f"HTTP {exc.code}: {detail}") from exc
-    except URLError as exc:
-        raise RuntimeError(str(exc.reason)) from exc
-    except TimeoutError as exc:
-        raise RuntimeError("request timed out") from exc
-    try:
-        return str(response_body["choices"][0]["message"]["content"])
-    except (KeyError, IndexError, TypeError) as exc:
-        raise RuntimeError("unexpected DeepSeek response shape") from exc
 
 
 def _chat_payload(content: str, model: str, metadata: dict[str, Any]) -> dict[str, Any]:
@@ -529,17 +555,26 @@ async def _stream_chat(content: str, model: str) -> AsyncIterator[str]:
 
 @router.get("/models")
 def list_models() -> dict[str, Any]:
-    return {
-        "object": "list",
-        "data": [
-            {
-                "id": DEFAULT_MODEL,
+    registry = get_registry()
+    providers = registry.list()
+    models = [{
+        "id": DEFAULT_MODEL,
+        "object": "model",
+        "created": 0,
+        "owned_by": "top-of-mind",
+    }]
+    for p in providers:
+        if p.enabled:
+            model_id = f"{p.id}/{p.model}" if p.model != "auto" else p.id
+            if model_id == DEFAULT_MODEL:
+                continue
+            models.append({
+                "id": model_id,
                 "object": "model",
                 "created": 0,
-                "owned_by": "top-of-mind",
-            }
-        ],
-    }
+                "owned_by": p.id,
+            })
+    return {"object": "list", "data": models}
 
 
 @router.get("/top-of-mind/personas")
@@ -592,3 +627,18 @@ def responses(request: ResponsesRequest):
         "output_text": content,
         "top_of_mind": metadata,
     }
+
+
+def _response_input_to_messages(request: ResponsesRequest) -> list[ChatMessage]:
+    messages: list[ChatMessage] = []
+    if request.instructions:
+        messages.append(ChatMessage(role="system", content=request.instructions))
+    if isinstance(request.input, str):
+        messages.append(ChatMessage(role="user", content=request.input))
+    elif isinstance(request.input, list):
+        for item in request.input:
+            if isinstance(item, ResponseInputItem):
+                messages.append(ChatMessage(role=item.role or "user", content=item.content))
+            elif isinstance(item, dict):
+                messages.append(ChatMessage(role=str(item.get("role") or "user"), content=item.get("content")))
+    return messages

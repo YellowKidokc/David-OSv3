@@ -1,0 +1,17 @@
+# Preference-engine ensemble. Each engine predicts P(approve) for a naming
+# proposal; we don't know which is best, so run several and compare (cli compare).
+#
+# mode:
+#   blend    weighted average of every available + trained engine
+#   cascade  first confident engine wins, else defer to the next ("wire one into
+#            another"); confidence = |score - 0.5| >= cascade_margin
+mode: blend
+cascade_margin: 0.15
+
+engines:
+  frequency:             { enabled: true,  weight: 0.5 }   # dependency-free baseline
+  river:                 { enabled: true,  weight: 1.0 }   # online logistic (River)
+  sklearn_gbdt:          { enabled: true,  weight: 1.0 }   # batch gradient-boosted trees
+  vowpal_wabbit:         { enabled: true,  weight: 0.8 }   # online (VW), logistic link
+  markov:                { enabled: true,  weight: 0.8 }   # two-class Markov sequence classifier
+  recommenders_lightgbm: { enabled: false, weight: 1.0 }   # needs: pip install lightgbm recommenders

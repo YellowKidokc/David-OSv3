@@ -1,0 +1,45 @@
+# Domain keyword maps. The classifier scores each domain by keyword hits in the
+# filename + extracted text, then the chi engine refines. Edit freely.
+# code: 2-letter DOMAIN code used in proposed file names.
+domains:
+  TH:
+    name: Theophysics / Theology
+    keywords: [theophysics, theophys, logos, chi factor, coherence, falsif, master equation,
+               grace, scripture, gospel, sermon, theology, god, christ, jesus, spirit, sin, salvation]
+  PH:
+    name: Physics
+    keywords: [physics, quantum, entropy, relativity, gravity, particle, field, mass, energy,
+               string theory, thermodynamics]
+  CS:
+    name: Consciousness
+    keywords: [consciousness, awareness, sentience, qualia, mind, cognition]
+  EP:
+    name: Epistemology
+    keywords: [epistemology, knowledge, truth, justification, regress, falsifiability, method]
+  DT:
+    name: Day Trading / Data
+    keywords: [premarket, backtest, watchlist, ticker, pnl, options, day trade, trade log,
+               futures, breakout, liquidity, stop loss, entry, setup, risk]
+  CD:
+    name: Code / Dev
+    keywords: [python, javascript, typescript, fastapi, autohotkey, ahk, node, react,
+               daemon, server, api, classifier, database, sqlite, schema, config]
+  LG:
+    name: Legal / Law
+    keywords: [legal, contract, clause, statute, litigation, attorney, agreement, arbitration,
+               dispute, liability, notice, termination]
+  KG:
+    name: Knowledge Graph
+    keywords: [knowledge graph, graphify, axiom, claim, corpus, ontology, taxonomy]
+  EV:
+    name: Evidence / Research
+    keywords: [evidence, audit, statistical, falsifiable, peer-review, study, citation, dataset]
+  AI:
+    name: Artificial Intelligence
+    keywords: [llm, embedding, vector database, nlp, classifier, model, prompt, agent]
+  MD:
+    name: Media
+    keywords: [screenshot, recording, render, thumbnail, image, video, audio]
+  GN:
+    name: General
+    keywords: []

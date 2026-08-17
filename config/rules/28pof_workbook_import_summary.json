@@ -1,0 +1,30 @@
+{
+  "schema": "top-ai-fis.28pof_workbook_import.v1",
+  "source_workbook": "\\\\192.168.2.50\\h_hp\\Desktop\\28pof_hub_architecture_with_templates.xlsx",
+  "sheets": {
+    "Symptom Registry": {
+      "output": "D:\\GitHub\\TOP AI FIS\\config\\rules\\symptom_registry.28pof.v1.json",
+      "records": 40
+    },
+    "Detection Functions": {
+      "output": "D:\\GitHub\\TOP AI FIS\\config\\rules\\detection_functions.28pof.v1.json",
+      "records": 40
+    },
+    "Severity Scale": {
+      "output": "D:\\GitHub\\TOP AI FIS\\config\\rules\\severity_scale.28pof.v1.json",
+      "records": 4
+    },
+    "Folder Profiles": {
+      "output": "D:\\GitHub\\TOP AI FIS\\config\\rules\\folder_profiles.28pof.v1.json",
+      "records": 15
+    },
+    "Review Gates": {
+      "output": "D:\\GitHub\\TOP AI FIS\\config\\rules\\review_gates.28pof.v1.json",
+      "records": 16
+    },
+    "Build Order": {
+      "output": "D:\\GitHub\\TOP AI FIS\\config\\rules\\build_order.28pof.v1.json",
+      "records": 22
+    }
+  }
+}

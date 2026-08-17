@@ -1,0 +1,28 @@
+---
+fis_schema: "folder-index.v1"
+folder_id: "FLD-20260817-fd69c802"
+folder: "GitHub\David-OS-v2\engine"
+folder_class: "project"
+confidence: 0.6
+dependency_risk: 0.0
+dominant_family: "code"
+dominant_ratio: 0.952
+file_count: 21
+classified_at: "2026-08-17T12:58:35"
+allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
+suggested_name: "engine"
+---
+
+# FIS Folder Index: engine
+
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 21  ·  **Dominant**: code (95%)
+
+## Allowed actions
+- index
+- rename_internal
+- subfolder_sort
+- archive_exports
+
+**Suggested name**: `engine`  (not applied — review before use)
+
+<!-- FIS folder-index.v1: parseable note; safe to regenerate. -->

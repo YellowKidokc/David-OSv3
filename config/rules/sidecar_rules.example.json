@@ -1,0 +1,18 @@
+{
+  "protected_extensions": [".fmeta", ".chi", ".fisnote", ".fistag", ".fisdead"],
+  "file_sidecars": {
+    "metadata": ".fmeta",
+    "classification": ".chi",
+    "metadata_classification": ".fmeta.chi"
+  },
+  "folder_sidecars": {
+    "metadata": ".folder.fmeta"
+  },
+  "rules": {
+    "never_delete_protected_sidecars_without_approval": true,
+    "sidecars_are_plain_text": true,
+    "do_not_embed_executable_code_in_files": true,
+    "index_sidecars_into_sqlite": true
+  }
+}
+

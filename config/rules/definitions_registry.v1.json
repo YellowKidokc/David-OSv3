@@ -1,0 +1,175 @@
+{
+  "schema": "definitions-registry.v1",
+  "description": "THE DEFINITIONS DATABASE. One entry per named theorem/concept/term. fis_canon_scan.py auto-merges these with canon_rules.json on every scan: canonical_statement propagates into each folder's .fisnote, regex patterns catch known misstatements, nlp_keywords route matching paragraphs to the :8700 contradiction model with canonical_statement as the hypothesis, and disagreements come back in the 09_TO_REVIEW report. Add an entry = the whole corpus is guarded. Fill statements in over time; status draft = tracked but soft, binding = enforced, retired = ignored.",
+  "updated": "2026-08-04",
+  "definitions": [
+    {
+      "id": "DEF-GODEL",
+      "term": "Godel incompleteness",
+      "version": "2026-08-04.1",
+      "status": "binding",
+      "canonical_statement": "Any CONSISTENT, effectively axiomatized formal system that interprets enough arithmetic cannot prove its own consistency. Self-reference is not the criterion. Godel gives unprovability-from-within, not an external ground.",
+      "common_misstatements": [
+        "any system powerful enough to reference itself",
+        "Godel proved the ground must be external"
+      ],
+      "patterns": [
+        {
+          "regex": "powerful\\s+enough\\s+to\\s+reference\\s+itself.{0,80}(consisten|prove)",
+          "message": "Godel misstated: self-reference given as the criterion.",
+          "next_step": "Restate: consistent, effectively axiomatized, interprets enough arithmetic."
+        }
+      ],
+      "nlp_keywords": [
+        "godel",
+        "gödel",
+        "incompleteness"
+      ],
+      "source_ruling": "Reviewer correction 2026-08-04",
+      "severity": "blocker"
+    },
+    {
+      "id": "DEF-SHANNON",
+      "term": "Shannon channel capacity",
+      "version": "2026-08-04.1",
+      "status": "binding",
+      "canonical_statement": "C = B*log2(1+S/N): non-negative, approaches zero as noise grows, never inverts. Inversion claims need a separately stated mechanism.",
+      "common_misstatements": [
+        "the channel inverts",
+        "capacity goes negative"
+      ],
+      "patterns": [
+        {
+          "regex": "channel\\s+inverts|capacity\\s+(goes|becomes)\\s+negative",
+          "message": "Shannon-form capacity cannot invert/go negative.",
+          "next_step": "State a mechanism or soften to capacity-collapse."
+        }
+      ],
+      "nlp_keywords": [
+        "shannon",
+        "channel capacity",
+        "log2"
+      ],
+      "source_ruling": "Judgment Layer review 2026-08-04",
+      "severity": "review"
+    },
+    {
+      "id": "DEF-NOETHER",
+      "term": "Noether's theorem",
+      "version": "2026-08-04.1",
+      "status": "binding",
+      "canonical_statement": "Every DIFFERENTIABLE (continuous) symmetry of the ACTION corresponds to a conservation law. Not unqualified 'every symmetry'; not discrete symmetries.",
+      "common_misstatements": [
+        "every symmetry gives a conservation law"
+      ],
+      "patterns": [
+        {
+          "regex": "every\\s+symmetry\\s+(gives|yields|produces|implies)\\s+a?\\s*conservation",
+          "message": "Noether overstated.",
+          "next_step": "Qualify: continuous symmetry of the action."
+        }
+      ],
+      "nlp_keywords": [
+        "noether",
+        "conservation law"
+      ],
+      "source_ruling": "Definition guard 2026-08-04",
+      "severity": "review"
+    },
+    {
+      "id": "DEF-SECOND-LAW",
+      "term": "Second Law of Thermodynamics",
+      "version": "2026-08-04.1",
+      "status": "draft",
+      "canonical_statement": "FILL IN: entropy of an ISOLATED system never decreases; open systems can locally decrease entropy by exporting it.",
+      "common_misstatements": [],
+      "patterns": [],
+      "nlp_keywords": [
+        "second law",
+        "entropy never",
+        "isolated system"
+      ],
+      "source_ruling": "",
+      "severity": "review"
+    },
+    {
+      "id": "DEF-BELL",
+      "term": "Bell's theorem",
+      "version": "2026-08-04.1",
+      "status": "draft",
+      "canonical_statement": "FILL IN: rules out LOCAL hidden-variable theories; does not prove nonlocal signaling or consciousness effects.",
+      "common_misstatements": [],
+      "patterns": [],
+      "nlp_keywords": [
+        "bell's theorem",
+        "bell inequality",
+        "hidden variable"
+      ],
+      "source_ruling": "",
+      "severity": "review"
+    },
+    {
+      "id": "DEF-OBSERVER",
+      "term": "Observer / measurement in QM",
+      "version": "2026-08-04.1",
+      "status": "draft",
+      "canonical_statement": "FILL IN: measurement = interaction with a macroscopic apparatus/environment (decoherence); 'observer' does not per se mean a conscious mind in standard QM.",
+      "common_misstatements": [],
+      "patterns": [],
+      "nlp_keywords": [
+        "observer effect",
+        "measurement problem",
+        "collapse"
+      ],
+      "source_ruling": "",
+      "severity": "review"
+    },
+    {
+      "id": "DEF-ENTROPY",
+      "term": "Entropy (information vs thermodynamic)",
+      "version": "2026-08-04.1",
+      "status": "draft",
+      "canonical_statement": "FILL IN: Shannon entropy (information) vs Boltzmann/Gibbs entropy (thermodynamic) - related but not interchangeable; 'disorder' is a heuristic, not the definition.",
+      "common_misstatements": [],
+      "patterns": [],
+      "nlp_keywords": [
+        "entropy",
+        "disorder",
+        "shannon entropy"
+      ],
+      "source_ruling": "",
+      "severity": "review"
+    },
+    {
+      "id": "DEF-ISOMORPHISM",
+      "term": "Isomorphism",
+      "version": "2026-08-04.1",
+      "status": "binding",
+      "canonical_statement": "An isomorphism is a BIJECTIVE structure-preserving map between two structures; it is by definition invertible. A one-directional or 'tridirectional' isomorphism is a category error. One-way structure-preserving = homomorphism; shared property lists without a defined map = correspondence, not isomorphism. Theophysics usage: say 'structural correspondence' or 'property correspondence with a grounding chain' until a formal map is defined.",
+      "common_misstatements": [
+        "tridirectional isomorphism",
+        "one-directional isomorphism",
+        "isomorphism the arrow never reverses"
+      ],
+      "patterns": [
+        {
+          "regex": "tridirectional\\s+isomorphism",
+          "message": "'Tridirectional isomorphism' is a category error (isomorphisms are invertible).",
+          "next_step": "Rename: tridirectional property correspondence with a one-way grounding chain."
+        },
+        {
+          "regex": "(one.?directional|one.?way)\\s+isomorphism",
+          "message": "Isomorphisms are bijective/invertible by definition.",
+          "next_step": "Use homomorphism or correspondence."
+        }
+      ],
+      "nlp_keywords": [
+        "isomorphism",
+        "structure-preserving",
+        "bijective"
+      ],
+      "source_ruling": "REVIEW-PROPERTIES-OF-GOD-AND-MATH.md 2026-08-04",
+      "severity": "blocker"
+    }
+  ]
+}

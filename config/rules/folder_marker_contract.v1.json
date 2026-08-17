@@ -1,0 +1,93 @@
+{
+  "schema": "top-ai-fis.folder_marker_contract.v1",
+  "purpose": "Canonical marker files the scanner recognizes on every scan.",
+  "write_policy": {
+    "default": "write_only_inside_user_approved_roots",
+    "do_not_write_inside": [
+      "system_folders",
+      "do_not_touch_roots",
+      "protected_roots_unless_user_allows",
+      "package_dependency_folders",
+      "cache_folders",
+      "virtualenv_folders"
+    ],
+    "first_scan_mode": "create_or_update_markers_after_inventory",
+    "never_hide_as_executable": true
+  },
+  "folder_markers": [
+    {
+      "filename": ".folder.fmeta",
+      "format": "json",
+      "visibility": "normally_hidden_by_shell",
+      "purpose": "Machine-readable folder profile: role, safety policy, counts, hashes, source scan id, and scanner version.",
+      "required": true,
+      "sqlite_table_targets": ["folder_scans", "file_records", "file_labels"]
+    },
+    {
+      "filename": "FIS_FOLDER_INDEX.fisnote",
+      "format": "markdown_with_frontmatter",
+      "visibility": "human_readable",
+      "purpose": "Human-readable inventory of files in the folder, file families, tags, and move status.",
+      "required": true,
+      "sqlite_table_targets": ["folder_scans", "file_records"]
+    },
+    {
+      "filename": "FIS_FOLDER_DIAGNOSIS.chi",
+      "format": "markdown_or_yaml",
+      "visibility": "human_and_machine_readable",
+      "purpose": "Folder symptom diagnosis, confidence, recommended plan, and risk explanation.",
+      "required": true,
+      "sqlite_table_targets": ["folder_scans", "file_labels", "action_proposals"]
+    }
+  ],
+  "file_sidecars": [
+    {
+      "extension": ".fmeta",
+      "attach_to": "source_file",
+      "purpose": "File metadata, hashes, source path, timestamps, scanner confidence, and reader results."
+    },
+    {
+      "extension": ".chi",
+      "attach_to": "source_file",
+      "purpose": "Meaning/domain/coherence labels from CHI and NLP pipelines."
+    },
+    {
+      "extension": ".fisnote",
+      "attach_to": "source_file_or_folder",
+      "purpose": "Human-readable notes, operator decisions, and review comments."
+    },
+    {
+      "extension": ".fisdead",
+      "attach_to": "candidate_for_delete_or_deprecated_item",
+      "purpose": "Deletion/deprecation marker. A cleanup job must import and review this before anything is removed."
+    }
+  ],
+  "protected_extensions": [".fmeta", ".chi", ".fisnote", ".fistag", ".fisdead"],
+  "scan_rules": [
+    "Read marker files before classifying the folder.",
+    "If markers are stale, rescan and update rather than ignoring them.",
+    "If sidecar exists without source file, classify as orphan_sidecar and send to review.",
+    "If source file exists without sidecar in an approved root, propose or create sidecars depending on automation level.",
+    "Before delete/archive, pull all protected extensions into SQLite and require a ledger entry."
+  ],
+  "minimal_folder_profile": {
+    "folder_id": "generated-stable-id",
+    "path": "absolute-folder-path",
+    "role": "unknown",
+    "safety_zone": "working",
+    "symptoms": [],
+    "counts": {
+      "files": 0,
+      "folders": 0,
+      "bytes": 0
+    },
+    "last_scan_id": null,
+    "last_scan_at": null,
+    "action_policy": {
+      "rename": "suggest_first",
+      "move": "approval_required",
+      "delete": "blocked_or_delete_later_only",
+      "archive": "approval_required"
+    }
+  }
+}

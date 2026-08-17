@@ -1,0 +1,25 @@
+{
+  "defaults": {
+    "folder_role": "general",
+    "watch_enabled": true,
+    "review_only": true,
+    "protected": false,
+    "parser_preferences": ["deterministic"],
+    "routing_hints": {},
+    "thresholds": {
+      "auto_approve_rename_confidence": 0.98
+    }
+  },
+  "profiles": [
+    {
+      "path": "/path/to/watch",
+      "folder_role": "inbox",
+      "watch_enabled": true,
+      "review_only": true,
+      "protected": false,
+      "parser_preferences": ["text", "mime"],
+      "routing_hints": {"queue": "default"},
+      "thresholds": {"auto_approve_rename_confidence": 0.99}
+    }
+  ]
+}

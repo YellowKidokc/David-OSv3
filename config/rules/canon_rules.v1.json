@@ -1,0 +1,420 @@
+{
+  "schema": "canon-rules.v1",
+  "description": "CENTRAL CANONIZATION REGISTRY. This is the single place David declares what canon IS (equation forms, law dictionary, variable meanings, grammar). Edit 'statement' + 'patterns' here; fis_canon_scan.py disperses these rules into every folder's .fisnote CANONIZATION section and red-flags text that contradicts them. Scans NEVER modify content files - they only report. Each ruling carries its own version + status (binding/draft/retired); scan reports cite ruling versions so old reports stay intelligible after canon changes. A third scan verdict NEEDS_CANON_DECISION marks text the registry does not yet rule on.",
+  "updated": "2026-08-06",
+  "rulings": [
+    {
+      "id": "EQ-PRODUCT-FORM",
+      "title": "Master Equation canonical product form",
+      "statement": "July 29 canon: chi(X) = C_W[ product over the nine normalized factors X_i ]; C_W is the wrapper outside the product, not a tenth factor. Spacetime-integral forms and MTL examples are source material unless re-ruled; any C-inside / ten-factor product is retired drift.",
+      "severity": "blocker",
+      "patterns": [
+        {
+          "regex": "[GMESTKRQF]\\s*[\\u00b7*]\\s*C(?:_?phys)?\\s*\\)\\s*d",
+          "message": "C appears inside the product integral (retired ten-factor form).",
+          "next_step": "Replace with the wrapped nine-factor form."
+        }
+      ],
+      "nlp_keywords": [
+        "master equation",
+        "chi(w)",
+        "product form",
+        "nine-factor",
+        "ten-factor",
+        "integral"
+      ],
+      "version": "2026-08-06.1",
+      "status": "binding",
+      "source_ruling": "D:\\GitHub\\ai-crew\\THEOPHYSICS\\MASTER_EQUATION_UNIFIED_2026-07-29.md; D:\\GitHub\\David-OS\\file-intelligence-system\\canon-sources\\JULY_29_MASTER_EQUATION_CANON_PACKET.md"
+    },
+    {
+      "id": "DICT-7-8",
+      "title": "Law dictionary: Law 7 = Quantum/Faith, Law 8 = Relativity/Grace-Frame",
+      "statement": "Retired by July 29 eponym-key ruling for the Master Equation layer. Bare law numbers are ambiguous across legacy systems; scan by eponym pair instead.",
+      "severity": "blocker",
+      "patterns": [
+        {
+          "regex": "law\\s*0?7\\b[ \\t]{0,3}[=:\\-\\u2014]?[ \\t]{0,3}(?:is|are|=|:)?[ \\t]{0,10}relativ",
+          "message": "Law 7 asserted as Relativity.",
+          "next_step": "Change label to Quantum/Faith or mark passage historical/superseded."
+        },
+        {
+          "regex": "law\\s*0?8\\b[ \\t]{0,3}[=:\\-\\u2014]?[ \\t]{0,3}(?:is|are|=|:)?[ \\t]{0,10}quantum",
+          "message": "Law 8 asserted as Quantum.",
+          "next_step": "Change label to Relativity/Grace-Frame or mark passage historical/superseded."
+        },
+        {
+          "regex": "relativ\\w*\\s*\\(\\s*law\\s*0?7\\s*\\)",
+          "message": "Relativity tagged as Law 7.",
+          "next_step": "Retag to Law 8."
+        },
+        {
+          "regex": "quantum\\s*\\(\\s*law\\s*0?8\\s*\\)",
+          "message": "Quantum tagged as Law 8.",
+          "next_step": "Retag to Law 7."
+        }
+      ],
+      "nlp_keywords": [
+        "law 7",
+        "law 07",
+        "law 8",
+        "law 08"
+      ],
+      "version": "2026-08-06.1",
+      "status": "retired",
+      "source_ruling": "Superseded by MASTER_EQUATION_UNIFIED_2026-07-29.md Appendix B numbering translation"
+    },
+    {
+      "id": "DICT-4-9",
+      "title": "Law dictionary: Law 4 = Strong Force/Love, Law 9 = Weak Force/Moral Conservation",
+      "statement": "Retired by July 29 eponym-key ruling for the Master Equation layer. Strong/Love is Yukawa-Agape; Weak/Moral Conservation is Fermi-Conservation. Do not rely on bare law numbers.",
+      "severity": "blocker",
+      "patterns": [
+        {
+          "regex": "law\\s*0?4\\b[ \\t]{0,3}[=:\\-\\u2014]?[ \\t]{0,10}weak\\s*force",
+          "message": "Law 4 asserted as Weak Force.",
+          "next_step": "Move Weak Force language to Law 9 or rewrite Law 4 as Strong Force/Love."
+        },
+        {
+          "regex": "law\\s*0?9\\b[ \\t]{0,3}[=:\\-\\u2014]?[ \\t]{0,10}strong\\s*force",
+          "message": "Law 9 asserted as Strong Force.",
+          "next_step": "Move Strong Force language to Law 4 or rewrite Law 9 as Weak Force/Moral Conservation."
+        }
+      ],
+      "nlp_keywords": [
+        "law 4",
+        "law 04",
+        "law 9",
+        "law 09"
+      ],
+      "version": "2026-08-06.1",
+      "status": "retired",
+      "source_ruling": "Superseded by MASTER_EQUATION_UNIFIED_2026-07-29.md Appendix B numbering translation"
+    },
+    {
+      "id": "VARDICT",
+      "title": "Variable dictionary for the nine factors",
+      "statement": "July 29 canon keys laws by eponym pair. Nine factors are Newton-Grace, Newton-Momentum, Maxwell-Truth, Yukawa-Agape, Clausius-Judgment, Shannon-Logos, Heisenberg-Faith, Fermi-Conservation, plus wrapper Coherence-Christ outside the product. R is proper acceleration in the July 29 ruling, with boundary-condition Choice A preserved in contestation.",
+      "severity": "blocker",
+      "patterns": [
+        {
+          "regex": "S\\s*=\\s*Entropy\\b",
+          "message": "S defined as Entropy.",
+          "next_step": "S = Strong Force/Love; entropy belongs to T or local sigma."
+        },
+        {
+          "regex": "K\\s*=\\s*Thermo",
+          "message": "K defined as Thermodynamics.",
+          "next_step": "K = Logos/Knowledge; thermodynamics is T."
+        },
+        {
+          "regex": "Q\\s*=\\s*Noether",
+          "message": "Q defined as Noether.",
+          "next_step": "Q = Quantum/Faith."
+        },
+        {
+          "regex": "F\\s*=\\s*Decoherence",
+          "message": "F defined as Decoherence.",
+          "next_step": "F = Weak Force/Moral Conservation."
+        }
+      ],
+      "nlp_keywords": [
+        "s =",
+        "k =",
+        "q =",
+        "f =",
+        "variable table",
+        "stands for"
+      ],
+      "version": "2026-08-06.1",
+      "status": "binding",
+      "source_ruling": "D:\\GitHub\\ai-crew\\THEOPHYSICS\\MASTER_EQUATION_UNIFIED_2026-07-29.md"
+    },
+    {
+      "id": "PAIRS",
+      "title": "Canonical eponym pairs and open P5",
+      "statement": "July 29 canon: use eponym pairs as the unique keys. Holds: Newton-Grace <-> Einstein-Frame; Newton-Momentum <-> Fermi-Conservation; Yukawa-Agape <-> Heisenberg-Faith; Clausius-Judgment <-> Shannon-Logos. Maxwell-Truth / P5 is OPEN after the wrapper ruling; do not silently keep Truth <-> Coherence as a peer symmetry pair.",
+      "severity": "blocker",
+      "patterns": [
+        {
+          "regex": "\\b1\\s*[\\u2194]\\s*7\\b|\\b2\\s*[\\u2194]\\s*8\\b",
+          "message": "Symmetry pair drift.",
+          "next_step": "Correct the pair table or mark passage historical/superseded."
+        },
+        {
+          "regex": "Truth\\s*(?:<->|↔|\\u2194)\\s*(?:Christ|Coherence)|(?:Christ|Coherence)\\s*(?:<->|↔|\\u2194)\\s*Truth",
+          "message": "P5 treated as a closed peer symmetry pair.",
+          "next_step": "Mark historical or rewrite as open: herald relation / pair retirement / David-rules pending."
+        }
+      ],
+      "nlp_keywords": [
+        "symmetry pair",
+        "pairs:",
+        "paired with"
+      ],
+      "version": "2026-08-06.1",
+      "status": "binding",
+      "source_ruling": "D:\\GitHub\\ai-crew\\THEOPHYSICS\\MASTER_EQUATION_UNIFIED_2026-07-29.md Part 0 / P5 problem"
+    },
+    {
+      "id": "COUNT-9-WRAPPER",
+      "title": "Nine laws plus wrapper",
+      "statement": "July 29 canon: there are nine laws plus the wrapper. Coherence-Christ is W, a wrapper/definition-level operator, not Law 10 and not a peer law. The product has nine factors inside C_W.",
+      "severity": "blocker",
+      "patterns": [
+        {
+          "regex": "ten\\s+(?:peer\\s+)?laws|law\\s*10\\b.{0,80}(?:Coherence|Christ)|Coherence\\s*[- ]\\s*Christ.{0,80}(?:peer\\s+)?law",
+          "message": "Coherence-Christ treated as a tenth peer law.",
+          "next_step": "Rewrite as nine laws plus wrapper, or mark the passage historical/superseded."
+        },
+        {
+          "regex": "prod(?:uct)?\\s*(?:over|of)?\\s*(?:the\\s*)?10|\\u220f\\s*(?:_\\s*)?\\{?\\s*(?:i\\s*=\\s*)?1\\s*(?:\\^|to)\\s*10",
+          "message": "Ten-factor product form detected.",
+          "next_step": "Use nine normalized factors inside C_W; the wrapper is outside the product."
+        }
+      ],
+      "nlp_keywords": [
+        "ten laws",
+        "law 10",
+        "coherence-christ",
+        "wrapper",
+        "ten-factor",
+        "nine laws"
+      ],
+      "version": "2026-08-06.1",
+      "status": "binding",
+      "source_ruling": "D:\\GitHub\\ai-crew\\THEOPHYSICS\\MASTER_EQUATION_UNIFIED_2026-07-29.md Ruling 2"
+    },
+    {
+      "id": "R-PROPER-ACCELERATION",
+      "title": "R parameter is proper acceleration",
+      "statement": "July 29 canon: R(t) is proper acceleration, deviation from geodesic/free fall, with units of acceleration. Choice A (R as boundary condition) remains preserved in contestation, not silently promoted.",
+      "severity": "blocker",
+      "patterns": [
+        {
+          "regex": "R\\s*(?:=|is|means)\\s*(?:resistance|boundary\\s+condition|dimensionless\\s+boundary)",
+          "message": "R defined as resistance/boundary condition without contestation.",
+          "next_step": "Use R = proper acceleration, or explicitly mark boundary-condition Choice A as contested/historical."
+        },
+        {
+          "regex": "R\\s*(?:has\\s*)?\\[?\\s*(?:dimensionless|unitless)\\s*\\]?",
+          "message": "R treated as dimensionless in the governing July 29 layer.",
+          "next_step": "Use proper acceleration units, or identify this as older Choice A material."
+        }
+      ],
+      "nlp_keywords": [
+        "proper acceleration",
+        "boundary condition",
+        "resistance",
+        "R(t)",
+        "R parameter"
+      ],
+      "version": "2026-08-06.1",
+      "status": "binding",
+      "source_ruling": "D:\\GitHub\\ai-crew\\THEOPHYSICS\\MASTER_EQUATION_UNIFIED_2026-07-29.md Ruling 1"
+    },
+    {
+      "id": "GRACE-TWO-OPERATIONS",
+      "title": "Grace has geometry and impulse operations",
+      "statement": "July 29 canon names the tension instead of hiding it: Law I grace is grace-as-geometry / zero proper acceleration / free fall; Law II grace is grace-as-impulse / transient external force redirecting momentum. The impulse ends and the new geodesic trajectory persists.",
+      "severity": "review",
+      "patterns": [
+        {
+          "regex": "grace\\s+is\\s+(?:only|just)\\s+(?:force|geometry|free\\s+fall)",
+          "message": "Grace collapsed to one operation.",
+          "next_step": "Preserve the July 29 two-operation distinction: geometry in Law I, impulse in Law II."
+        },
+        {
+          "regex": "Law\\s*I.{0,120}Law\\s*II.{0,120}(?:contradict|contradiction).{0,120}(?:resolved|no\\s+problem)",
+          "message": "Law I / Law II grace tension may be flattened.",
+          "next_step": "Name the tension and cite the transient/sustained resolution."
+        }
+      ],
+      "nlp_keywords": [
+        "grace",
+        "proper acceleration",
+        "free fall",
+        "impulse",
+        "Law I",
+        "Law II"
+      ],
+      "version": "2026-08-06.1",
+      "status": "binding",
+      "source_ruling": "D:\\GitHub\\ai-crew\\THEOPHYSICS\\MASTER_EQUATION_UNIFIED_2026-07-29.md Ruling 1 live tension"
+    },
+    {
+      "id": "EPONYM-KEYS",
+      "title": "Eponym pairs are canonical keys",
+      "statement": "July 29 canon: cite the eponym pair, not a bare number. Bare law numbers are ambiguous across the ten-law canon, Kimi skeleton, and July 29 9+W ruling.",
+      "severity": "review",
+      "patterns": [
+        {
+          "regex": "\\bLaw\\s*(?:I{1,3}|IV|V?I{0,3}|[1-9]|10)\\b(?![^\\n]{0,80}(Newton|Maxwell|Yukawa|Clausius|Shannon|Heisenberg|Fermi|Coherence|Grace|Momentum|Truth|Agape|Judgment|Logos|Faith|Conservation|Christ))",
+          "message": "Bare law number without eponym key.",
+          "next_step": "Add the eponym pair or mark as legacy numbering."
+        }
+      ],
+      "nlp_keywords": [
+        "law",
+        "eponym",
+        "numbering",
+        "Newton-Grace",
+        "Fermi-Conservation"
+      ],
+      "version": "2026-08-06.1",
+      "status": "binding",
+      "source_ruling": "D:\\GitHub\\ai-crew\\THEOPHYSICS\\MASTER_EQUATION_UNIFIED_2026-07-29.md Appendix B"
+    },
+    {
+      "id": "RETIREMENT-REGISTRY",
+      "title": "Retired and contested claims stay visible",
+      "statement": "July 29 canon preserves retired claims and contested decisions. Retired examples include ten-factor chi products, exit-code-0 spiritual-proof language, Nobel-level verified-unification language, and all-nine-fruits-from-one-Hamiltonian. Contested examples include R Choice A, P5, central-field repair, Law II parent placement, and fruits tiering.",
+      "severity": "review",
+      "patterns": [
+        {
+          "regex": "exit\\s+code\\s+0.{0,120}(?:proves|verified).{0,120}(?:spiritual|God|mechanics|unification)",
+          "message": "Lean/compile result overclaimed as spiritual proof.",
+          "next_step": "State that Lean verifies structure, not naming or theological identity."
+        },
+        {
+          "regex": "Nobel\\s+Prize.{0,120}(?:verified|proven|unification)",
+          "message": "Retired Nobel-level verified-unification claim.",
+          "next_step": "Retire or scope to internal mathematical consistency only."
+        },
+        {
+          "regex": "all\\s+nine\\s+fruits.{0,120}(?:one\\s+Hamiltonian|single\\s+Hamiltonian|derived)",
+          "message": "Retired all-nine-fruits-from-one-Hamiltonian claim.",
+          "next_step": "Use July 29 two-tier fruits ruling: three derived, six lenses."
+        }
+      ],
+      "nlp_keywords": [
+        "retired",
+        "contested",
+        "exit code 0",
+        "Nobel",
+        "fruits",
+        "Hamiltonian"
+      ],
+      "version": "2026-08-06.1",
+      "status": "binding",
+      "source_ruling": "D:\\GitHub\\ai-crew\\THEOPHYSICS\\MASTER_EQUATION_UNIFIED_2026-07-29.md Parts V-VI"
+    },
+    {
+      "id": "COUNT-56",
+      "title": "Derived-terms count is 58",
+      "statement": "Use 58 derived terms unless a new ruling changes the count.",
+      "severity": "review",
+      "patterns": [
+        {
+          "regex": "56\\s+Derived\\s+Terms",
+          "message": "Unreconciled 56 Derived Terms banner.",
+          "next_step": "Update the count to 58 or mark historical."
+        }
+      ],
+      "nlp_keywords": [
+        "derived terms"
+      ],
+      "version": "2026-08-04.1",
+      "status": "binding",
+      "source_ruling": "canon_gate_v3 ruling"
+    },
+    {
+      "id": "EQ-CHANNEL-CAPACITY",
+      "version": "2026-08-04.1",
+      "status": "draft",
+      "title": "Judgment-layer channel capacity form",
+      "statement": "C = A * log2(1 + T/D). Capacity falls toward zero as drift D grows; the equation does NOT by itself produce inversion (D>T flips no sign) - inversion claims need a separate stated mechanism or softened language.",
+      "source_ruling": "THE-JUDGMENT-LAYER-CANONICAL_1.md (2026-08-04); David to ratify exact form",
+      "severity": "review",
+      "patterns": [
+        {
+          "regex": "log_?2\\s*\\(\\s*1\\s*\\+\\s*D\\s*/\\s*T\\s*\\)",
+          "message": "Channel capacity written with D/T (drift over truth) - canonical is T/D.",
+          "next_step": "Confirm intended ratio; canonical draft form is log2(1 + T/D)."
+        }
+      ],
+      "nlp_keywords": [
+        "channel capacity",
+        "log2",
+        "drift",
+        "t/d",
+        "judgment layer"
+      ]
+    },
+    {
+      "id": "DEF-GODEL",
+      "version": "2026-08-04.1",
+      "status": "binding",
+      "title": "Godel incompleteness - correct statement",
+      "statement": "Godel's second incompleteness theorem: any CONSISTENT, effectively axiomatized formal system that interprets enough arithmetic cannot prove its own consistency. Self-reference is NOT the criterion ('powerful enough to reference itself' is a misstatement). Godel gives unprovability-from-within; he does NOT by himself establish an external ground - use the regress argument for that.",
+      "source_ruling": "Reviewer correction to THE-JUDGMENT-LAYER-CANONICAL_1.md Section X, 2026-08-04",
+      "severity": "blocker",
+      "patterns": [
+        {
+          "regex": "powerful\\s+enough\\s+to\\s+reference\\s+itself.{0,80}(consisten|prove)",
+          "message": "Godel misstated: self-reference given as the criterion.",
+          "next_step": "Restate: consistent, effectively axiomatized system interpreting enough arithmetic."
+        },
+        {
+          "regex": "Gödel\\s+proved.{0,60}(ground\\s+must\\s+be\\s+external|external\\s+ground)",
+          "message": "Godel cited as proving an external ground - he gives unprovability-from-within only.",
+          "next_step": "Attribute the external-ground step to the regress argument, not Godel."
+        },
+        {
+          "regex": "any\\s+system\\s+(that|which)?\\s*(can\\s+)?reference\\s+itself\\s+cannot\\s+prove",
+          "message": "Godel misstated: self-reference as criterion.",
+          "next_step": "Fix per canonical statement."
+        }
+      ],
+      "nlp_keywords": [
+        "godel",
+        "gödel",
+        "incompleteness",
+        "prove its own consistency"
+      ]
+    },
+    {
+      "id": "DEF-SHANNON",
+      "version": "2026-08-04.1",
+      "status": "binding",
+      "title": "Shannon capacity - correct behavior",
+      "statement": "C = B*log2(1+S/N) (or A*log2(1+T/D) in Theophysics use) is always NON-NEGATIVE and approaches zero as noise/drift grows. It never goes negative and never 'inverts' the signal; inversion claims require a separately stated mechanism.",
+      "source_ruling": "Judgment Layer review 2026-08-04; ties to EQ-CHANNEL-CAPACITY",
+      "severity": "review",
+      "patterns": [
+        {
+          "regex": "channel\\s+inverts|capacity\\s+(goes|becomes)\\s+negative",
+          "message": "Shannon-form capacity cannot invert/go negative.",
+          "next_step": "State a separate inversion mechanism or soften to capacity-collapse language."
+        }
+      ],
+      "nlp_keywords": [
+        "shannon",
+        "channel capacity",
+        "log2",
+        "signal-to-noise"
+      ]
+    },
+    {
+      "id": "DEF-NOETHER",
+      "version": "2026-08-04.1",
+      "status": "binding",
+      "title": "Noether's theorem - correct statement",
+      "statement": "Noether's (first) theorem: every DIFFERENTIABLE symmetry of the ACTION of a physical system with conservative forces corresponds to a conservation law. It applies to continuous symmetries of the action - not 'every symmetry gives a conservation law' unqualified, and not discrete symmetries.",
+      "source_ruling": "Definition guard added 2026-08-04",
+      "severity": "review",
+      "patterns": [
+        {
+          "regex": "every\\s+symmetry\\s+(gives|yields|produces|implies)\\s+a?\\s*conservation",
+          "message": "Noether overstated: needs continuous/differentiable symmetry of the action.",
+          "next_step": "Qualify: continuous symmetry of the action."
+        }
+      ],
+      "nlp_keywords": [
+        "noether",
+        "conservation law",
+        "symmetry"
+      ]
+    }
+  ]
+}

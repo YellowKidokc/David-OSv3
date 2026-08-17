@@ -1,0 +1,32 @@
+# File naming scheme:  DOMAIN__CT__tag1-tag2[-tag3]__YYYYMMDD__ST.ext
+# Every field is a short code so names are grep-able, sortable, machine-parseable.
+separator: "__"
+tag_separator: "-"
+max_tags: 3
+date_format: "%Y%m%d"
+max_filename_length: 180
+
+# Decision thresholds (blended with the River preference engine once it has data).
+auto_approve_threshold: 0.72   # PROPOSE-ONLY system never auto-renames; this only
+queue_threshold: 0.45          # marks a proposal "auto_approve" vs "queue" vs "skip"
+
+# content_type -> 3-letter CT code
+ct_codes:
+  document: DOC
+  code: COD
+  data: DAT
+  note: NOT
+  config: CFG
+  paper: PAP
+  image: IMG
+  video: VID
+  audio: AUD
+  binary: BIN
+
+# status -> 2-letter code
+status_codes:
+  draft: DR
+  active: AC
+  final: FN
+  archive: AR
+  review: RV

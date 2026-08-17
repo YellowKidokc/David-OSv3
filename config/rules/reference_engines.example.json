@@ -1,0 +1,47 @@
+{
+  "engines": [
+    {
+      "engine_id": "suffix-signature-v1",
+      "type": "deterministic",
+      "enabled": true,
+      "weight": 1.0
+    },
+    {
+      "engine_id": "folder-context-v1",
+      "type": "deterministic",
+      "enabled": true,
+      "weight": 0.8
+    },
+    {
+      "engine_id": "sidecar-tags-v1",
+      "type": "metadata",
+      "enabled": true,
+      "weight": 1.2
+    },
+    {
+      "engine_id": "keyword-nlp-v1",
+      "type": "local-nlp",
+      "enabled": true,
+      "weight": 0.9
+    },
+    {
+      "engine_id": "vector-similarity-v1",
+      "type": "vector",
+      "enabled": true,
+      "weight": 0.9
+    },
+    {
+      "engine_id": "ai-classifier-fallback",
+      "type": "external-ai",
+      "enabled": false,
+      "weight": 1.0,
+      "requires_approval": true
+    }
+  ],
+  "consensus": {
+    "min_confidence_to_auto_label": 0.82,
+    "min_engines_for_consensus": 2,
+    "if_disagreement": "needs_review"
+  }
+}
+

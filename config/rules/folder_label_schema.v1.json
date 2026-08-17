@@ -1,0 +1,124 @@
+{
+  "schema": "top-ai-fis.folder_label_schema.v1",
+  "purpose": "Deterministic folder labels built from folder history, child file facts, scanner results, and ledger events.",
+  "principle": "A folder label does not invent meaning. It aggregates and restates evidence from files, events, scans, and operator rules.",
+  "folder_marker_filename": ".folder.fmeta",
+  "deterministic_sections": {
+    "identity": [
+      "folder_id",
+      "current_path",
+      "current_name",
+      "first_seen_at",
+      "last_seen_at",
+      "previous_names",
+      "previous_paths",
+      "parent_path",
+      "node_ids_seen"
+    ],
+    "history": [
+      "created_or_first_seen_at",
+      "first_scanned_at",
+      "last_scanned_at",
+      "scan_count",
+      "rename_count",
+      "move_count",
+      "file_in_count",
+      "file_out_count",
+      "file_delete_proposal_count",
+      "file_soft_delete_count",
+      "archive_proposal_count",
+      "restore_count",
+      "last_change_at"
+    ],
+    "inventory": [
+      "file_count",
+      "folder_count",
+      "total_bytes",
+      "extension_counts",
+      "kind_counts",
+      "largest_files",
+      "oldest_files",
+      "newest_files"
+    ],
+    "classification_rollup": [
+      "domain_counts",
+      "top_domains",
+      "classification_counts",
+      "semantic_variable_totals",
+      "dominant_semantic_variables",
+      "top_coord_hashes",
+      "confidence_summary"
+    ],
+    "symptoms_and_anomalies": [
+      "symptom_counts",
+      "anomaly_count",
+      "anomalies",
+      "critical_findings",
+      "unknown_extension_count",
+      "duplicate_cluster_count",
+      "orphan_sidecar_count",
+      "program_root_markers"
+    ],
+    "policy": [
+      "role",
+      "safety_zone",
+      "labels",
+      "importance",
+      "protected_reason",
+      "action_policy",
+      "review_policy"
+    ],
+    "provenance": [
+      "source",
+      "scanner_version",
+      "ruleset_versions",
+      "input_sources",
+      "derived_from_file_count",
+      "derived_from_event_count"
+    ]
+  },
+  "rollup_rules": {
+    "extension_counts": "Count child file extensions exactly.",
+    "kind_counts": "Count child file deterministic kind values.",
+    "domain_counts": "Count child file meta.domain values from file labels or semantic results.",
+    "top_domains": "Sort domain_counts by count descending, then alphabetically; keep top 20.",
+    "classification_counts": "Count child file status/category/classification labels.",
+    "semantic_variable_totals": "Sum child file semantic vector values by variable.",
+    "dominant_semantic_variables": "Sort semantic_variable_totals descending; keep top 5.",
+    "symptom_counts": "Count scanner symptom ids detected for this folder and child files.",
+    "anomalies": "List only evidence-backed anomalies from scanner symptoms, unknown extensions, secret candidates, orphan sidecars, duplicate clusters, program roots, and policy conflicts.",
+    "importance": "Use explicit operator/user policy first; otherwise infer only from labels such as canonical, protected, project, archive, program_root, or high child-file importance counts.",
+    "role": "Use explicit folder profile first; otherwise derive from deterministic evidence such as program markers, extension distribution, domain distribution, and path hints.",
+    "action_policy": "Most restrictive child/folder label wins."
+  },
+  "minimum_marker": {
+    "schema": "top-ai-fis.folder_marker.v1",
+    "folder_id": "stable-generated-id",
+    "current_path": "absolute-folder-path",
+    "current_name": "folder-name",
+    "first_seen_at": null,
+    "last_scanned_at": null,
+    "scan_count": 0,
+    "file_count": 0,
+    "folder_count": 0,
+    "total_bytes": 0,
+    "extension_counts": {},
+    "top_domains": [],
+    "classification_counts": {},
+    "symptom_counts": {},
+    "anomaly_count": 0,
+    "anomalies": [],
+    "role": "unknown",
+    "safety_zone": "working",
+    "labels": [],
+    "action_policy": {
+      "scan": "allowed",
+      "hash": "allowed",
+      "classify": "allowed",
+      "rename": "suggest_first",
+      "move": "review_required",
+      "archive": "review_required",
+      "delete": "blocked"
+    }
+  }
+}

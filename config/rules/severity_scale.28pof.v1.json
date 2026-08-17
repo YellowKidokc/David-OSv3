@@ -1,0 +1,36 @@
+{
+  "schema": "top-ai-fis.severity_scale.28pof.v1",
+  "source_workbook": "\\\\192.168.2.50\\h_hp\\Desktop\\28pof_hub_architecture_with_templates.xlsx",
+  "source_sheet": "Severity Scale",
+  "record_count": 4,
+  "records": [
+    {
+      "severity": "low",
+      "meaning": "Cosmetic / organizational",
+      "risk_level": "No data loss risk",
+      "fix_policy": "Auto-fixable in most cases",
+      "review_cadence": "Review batch monthly"
+    },
+    {
+      "severity": "medium",
+      "meaning": "Functional impact",
+      "risk_level": "Potential confusion",
+      "fix_policy": "Needs human review",
+      "review_cadence": "Review batch weekly"
+    },
+    {
+      "severity": "high",
+      "meaning": "Structural risk",
+      "risk_level": "Potential data loss or broken references",
+      "fix_policy": "Requires careful planning",
+      "review_cadence": "Address within 48 hours"
+    },
+    {
+      "severity": "critical",
+      "meaning": "Security or integrity risk",
+      "risk_level": "Active danger of data loss, exposure, or breakage",
+      "fix_policy": "NEVER auto-fix",
+      "review_cadence": "Address immediately"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "reader_order": [
+    "filename-path-extension",
+    "magic-signature",
+    "sidecar-reader",
+    "lightweight-metadata",
+    "text-extractor",
+    "office-extractor",
+    "pdf-extractor",
+    "ocr-fallback",
+    "media-metadata",
+    "ai-fallback"
+  ],
+  "readers": [
+    {
+      "reader_id": "filename-path-extension",
+      "extensions": ["*"],
+      "cost": "free",
+      "enabled": true
+    },
+    {
+      "reader_id": "lightweight-metadata",
+      "extensions": [".pdf", ".docx", ".xlsx", ".csv", ".png", ".jpg", ".jpeg", ".gif"],
+      "cost": "free",
+      "enabled": true
+    },
+    {
+      "reader_id": "text-extractor",
+      "extensions": [".txt", ".md", ".csv", ".json", ".yaml", ".yml", ".html", ".py", ".js", ".ts", ".css", ".log"],
+      "cost": "free",
+      "enabled": true
+    },
+    {
+      "reader_id": "pdf-extractor",
+      "extensions": [".pdf"],
+      "cost": "local-optional",
+      "enabled": false,
+      "notes": "Enable when pypdf/pdfplumber is installed."
+    },
+    {
+      "reader_id": "office-extractor",
+      "extensions": [".docx", ".xlsx", ".pptx"],
+      "cost": "local-optional",
+      "enabled": false,
+      "notes": "Enable when python-docx/openpyxl/pptx support is installed."
+    },
+    {
+      "reader_id": "ocr-fallback",
+      "extensions": [".png", ".jpg", ".jpeg", ".pdf"],
+      "cost": "expensive",
+      "enabled": false,
+      "notes": "Use only when text extraction fails or filename is poor."
+    },
+    {
+      "reader_id": "ai-fallback",
+      "extensions": ["*"],
+      "cost": "external",
+      "enabled": false,
+      "requires_approval": true
+    }
+  ],
+  "unknown_policy": {
+    "create_action_proposal": "needs_reader",
+    "never_delete_unknowns": true,
+    "save_signature_bytes": 64,
+    "save_folder_context": true
+  }
+}
+

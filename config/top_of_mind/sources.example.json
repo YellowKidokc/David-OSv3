@@ -1,0 +1,36 @@
+{
+  "sources": [
+    {
+      "source_id": "kimi-cli",
+      "label": "Kimi",
+      "kind": "cli",
+      "priority": 4,
+      "metadata": {
+        "input_mode": "window-text",
+        "notes": "Command-line Kimi can post checkpoints and questions here."
+      }
+    },
+    {
+      "source_id": "codex",
+      "label": "Codex",
+      "kind": "api",
+      "priority": 5,
+      "metadata": {
+        "input_mode": "api",
+        "notes": "Codex can read the shared stream and publish decisions or summaries."
+      }
+    },
+    {
+      "source_id": "clipboard",
+      "label": "Clipboard",
+      "kind": "clipboard",
+      "priority": 6,
+      "metadata": {
+        "input_mode": "autohotkey",
+        "notes": "AutoHotkey can save selected text or prompt snippets into the stream."
+      }
+    }
+  ],
+  "folders": ["Main", "Research", "Code", "Faith", "Media", "Clipboard"],
+  "walls": ["main", "wall-1", "wall-2", "wall-3"]
+}

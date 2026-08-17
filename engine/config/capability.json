@@ -1,0 +1,78 @@
+{
+  "theophysics": {
+    "tier": "ORIGINAL",
+    "required_sources": [],
+    "access": "have",
+    "route_available": "process_deep",
+    "route_blocked": "block_pending"
+  },
+  "personal": {
+    "tier": "PERSONAL",
+    "required_sources": [],
+    "access": "have",
+    "route_available": "process_local",
+    "route_blocked": "block_pending"
+  },
+  "technical_software": {
+    "tier": "PERSONAL",
+    "required_sources": [],
+    "access": "have",
+    "route_available": "process_local",
+    "route_blocked": "block_pending"
+  },
+  "academic_research": {
+    "tier": "BUSINESS",
+    "required_sources": [
+      "web_search",
+      "scholar_api"
+    ],
+    "access": "partial",
+    "route_available": "process_deep",
+    "route_blocked": "process_shallow"
+  },
+  "business_generic": {
+    "tier": "BUSINESS",
+    "required_sources": [
+      "web_search",
+      "public_registries"
+    ],
+    "access": "partial",
+    "route_available": "process_deep",
+    "route_blocked": "process_shallow"
+  },
+  "medical": {
+    "tier": "REGULATED",
+    "required_sources": [
+      "licensed_clinical_db"
+    ],
+    "access": "missing",
+    "route_available": "process_deep",
+    "route_blocked": "block_pending"
+  },
+  "legal": {
+    "tier": "REGULATED",
+    "required_sources": [
+      "case_law_db"
+    ],
+    "access": "missing",
+    "route_available": "process_deep",
+    "route_blocked": "block_pending"
+  },
+  "financial": {
+    "tier": "REGULATED",
+    "required_sources": [
+      "market_data_api",
+      "filings_api"
+    ],
+    "access": "missing",
+    "route_available": "process_deep",
+    "route_blocked": "block_pending"
+  },
+  "uncategorized": {
+    "tier": "UNKNOWN",
+    "required_sources": [],
+    "access": "have",
+    "route_available": "review",
+    "route_blocked": "block_pending"
+  }
+}

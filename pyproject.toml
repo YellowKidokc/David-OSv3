@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "david-os"
+version = "2.0.0"
+description = "Personal infrastructure: file intelligence, message hub, memory, multi-node coordination"
+requires-python = ">=3.11"
+dependencies = ["fastapi>=0.110", "pydantic>=2", "uvicorn>=0.29", "watchdog>=4", "openpyxl>=3.1", "psycopg[binary]>=3.2"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[project.scripts]
+dos-api = "hub.cli:api_main"
+dos-health = "hub.cli:health_main"
+dos-top = "hub.cli:top_main"
+dos-watch = "hub.watchers.native:main"
+dos-poll = "hub.watchers.runner:main"
+dos-worker = "hub.workers.runner:main"
+
+[tool.setuptools.packages.find]
+include = ["hub*", "engine*", "agents*", "pipeline*"]

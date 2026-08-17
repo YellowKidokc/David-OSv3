@@ -1,0 +1,232 @@
+{
+  "schema": "top-ai-fis.onboarding_questions.v1",
+  "source_notes": [
+    "Derived from D:\\DONT TOUCH BOOT UP\\PICS\\Opus 4.8\\FIS.txt consultant-style question flow.",
+    "Purpose: make the first install safe before the scanner proposes moves, renames, archives, or deletes."
+  ],
+  "runtime_model": {
+    "scan_can_start_while_questions_run": true,
+    "scanner_mode_during_onboarding": "observe_index_and_profile_only",
+    "allowed_first_actions": [
+      "scan",
+      "hash",
+      "inventory",
+      "classify",
+      "write_sidecars_inside_approved_roots",
+      "write_folder_markers_inside_approved_roots",
+      "create_proposals"
+    ],
+    "blocked_first_actions": [
+      "delete",
+      "move",
+      "rename",
+      "archive",
+      "overwrite",
+      "public_publish",
+      "share_private_memory"
+    ]
+  },
+  "core_questions": [
+    {
+      "id": "environment_type",
+      "order": 1,
+      "question": "Is this personal, business, research, creative, or mixed?",
+      "answer_type": "single_choice",
+      "choices": ["personal", "business", "research", "creative", "mixed", "not_sure"],
+      "feeds": ["file_profile.environment_type", "classifier.mode"]
+    },
+    {
+      "id": "allowed_roots_first",
+      "order": 2,
+      "question": "What folders are we allowed to inspect first?",
+      "answer_type": "path_list",
+      "feeds": ["file_profile.allowed_roots", "scanner.scope.allowed_roots"]
+    },
+    {
+      "id": "do_not_touch",
+      "order": 3,
+      "question": "What folders, file types, or patterns should I never touch?",
+      "answer_type": "path_or_pattern_list",
+      "feeds": ["file_profile.do_not_touch", "scanner.scope.blocked_patterns"]
+    },
+    {
+      "id": "important_files",
+      "order": 4,
+      "question": "What files or folders are most important to you, the ones you do not ever want to lose?",
+      "answer_type": "path_or_description_list",
+      "feeds": ["file_profile.important_files", "safety.protected_roots"]
+    },
+    {
+      "id": "goal_today",
+      "order": 5,
+      "question": "What is the goal today: clean, organize, rename, dedupe, archive, understand, or protect?",
+      "answer_type": "multi_choice",
+      "choices": ["clean", "organize", "rename", "dedupe", "archive", "understand", "protect"],
+      "feeds": ["session.goal", "proposal.priority"]
+    },
+    {
+      "id": "daily_folders",
+      "order": 6,
+      "question": "What folders do you use every day?",
+      "answer_type": "path_list",
+      "feeds": ["file_profile.working_roots", "safety.active_working_roots"]
+    },
+    {
+      "id": "primary_domains",
+      "order": 7,
+      "question": "What kinds of files do you expect here: documents, photos, videos, code, AI chats, research, trading, taxes, legal, website files, or something else?",
+      "answer_type": "tag_list",
+      "feeds": ["file_profile.primary_domains", "classifier.domain_hints"]
+    },
+    {
+      "id": "sensitive_classes",
+      "order": 8,
+      "question": "Are there legally sensitive, financial, medical, client, tax, password, key, or credential files?",
+      "answer_type": "tag_list",
+      "feeds": ["safety.sensitive_classes", "proposal.requires_review"]
+    },
+    {
+      "id": "project_roots",
+      "order": 9,
+      "question": "Which folders are active projects or programs that should not be moved, renamed, or flattened?",
+      "answer_type": "path_list",
+      "feeds": ["safety.project_roots", "scanner.project_root_overrides"]
+    },
+    {
+      "id": "backup_locations",
+      "order": 10,
+      "question": "Where are your backups or mirrors: Synology, laptop, desktop, external drive, Syncthing, cloud, or none?",
+      "answer_type": "path_or_service_list",
+      "feeds": ["file_profile.backup_locations", "sync.mirror_roots"]
+    },
+    {
+      "id": "source_of_truth",
+      "order": 11,
+      "question": "If the same file exists in multiple places, which place usually wins?",
+      "answer_type": "path_or_rule",
+      "feeds": ["dedupe.source_of_truth", "sync.conflict_policy"]
+    },
+    {
+      "id": "duplicate_keeper_policy",
+      "order": 12,
+      "question": "For duplicates, do you prefer newest, oldest, largest, specific folder, or manual review?",
+      "answer_type": "single_choice",
+      "choices": ["manual_review", "newest", "oldest", "largest", "source_of_truth_folder"],
+      "default": "manual_review",
+      "feeds": ["dedupe.keeper_policy"]
+    },
+    {
+      "id": "rename_style",
+      "order": 13,
+      "question": "How should renamed files look: Title Case, lowercase-with-dashes, lowercase_with_underscores, date-first, or keep original mostly intact?",
+      "answer_type": "single_choice",
+      "choices": ["keep_original_mostly", "title_case", "lowercase_dash", "lowercase_underscore", "date_first"],
+      "default": "keep_original_mostly",
+      "feeds": ["rename.style"]
+    },
+    {
+      "id": "date_policy",
+      "order": 14,
+      "question": "When useful, should dates come from file modified time, created time, document metadata, folder context, or manual review?",
+      "answer_type": "ranked_choice",
+      "choices": ["manual_review", "document_metadata", "created_time", "modified_time", "folder_context"],
+      "feeds": ["rename.date_policy"]
+    },
+    {
+      "id": "ai_material_policy",
+      "order": 15,
+      "question": "How should AI conversation exports be grouped: by model, project, date, source app, or manual review?",
+      "answer_type": "multi_choice",
+      "choices": ["manual_review", "model", "project", "date", "source_app"],
+      "feeds": ["ai_sessions.grouping_policy"]
+    },
+    {
+      "id": "media_policy",
+      "order": 16,
+      "question": "For images and video, are these family photos, screenshots, site assets, generated images, reference images, or mixed?",
+      "answer_type": "multi_choice",
+      "choices": ["family_photos", "screenshots", "site_assets", "generated_images", "reference_images", "mixed"],
+      "feeds": ["media.domain_hints", "classifier.media_hints"]
+    },
+    {
+      "id": "business_context",
+      "order": 17,
+      "question": "If this is business, what workflows or departments matter: admin, accounting, clients, contracts, operations, marketing, projects, HR, legal, archives?",
+      "answer_type": "multi_choice_or_text",
+      "choices": ["admin", "accounting", "clients", "contracts", "operations", "marketing", "projects", "hr", "legal", "archives"],
+      "feeds": ["business.lanes"]
+    },
+    {
+      "id": "retention_needs",
+      "order": 18,
+      "question": "Are there files with compliance, legal retention, tax retention, or audit requirements?",
+      "answer_type": "text_or_tag_list",
+      "feeds": ["safety.retention_classes", "archive.retention_policy"]
+    },
+    {
+      "id": "public_private_boundary",
+      "order": 19,
+      "question": "Which folders are public/published, and which folders must never be mixed into public output?",
+      "answer_type": "path_list_pair",
+      "feeds": ["safety.public_roots", "safety.private_roots", "publish.boundary_rules"]
+    },
+    {
+      "id": "automation_comfort",
+      "order": 20,
+      "question": "How aggressive should automation be: report only, suggest actions, require approval, or allow safe rules?",
+      "answer_type": "single_choice",
+      "choices": ["report_only", "suggest_actions", "approval_required", "allow_safe_rules"],
+      "default": "approval_required",
+      "feeds": ["session.automation_level", "safety.default_action_policy"]
+    }
+  ],
+  "evidence_based_followups": [
+    {
+      "trigger": "many_excel_files",
+      "question": "I found a lot of Excel files. Are these accounting, trading, inventory, research, or client records?"
+    },
+    {
+      "trigger": "project_root_danger",
+      "question": "I found project folders with code dependencies. Should I protect those from rename and move?"
+    },
+    {
+      "trigger": "ai_session_debris",
+      "question": "I found AI conversation exports. Do you want those grouped by model, project, or date?"
+    },
+    {
+      "trigger": "media_dump",
+      "question": "I found images or video. Are these family photos, screenshots, site assets, generated images, reference images, or mixed?"
+    },
+    {
+      "trigger": "duplicate_cluster",
+      "question": "I found duplicates. Should I prefer newest, oldest, largest, source-of-truth folder, or manual review?"
+    }
+  ],
+  "default_profile_template": {
+    "file_profile": {
+      "environment_type": "mixed",
+      "primary_domains": [],
+      "important_files": [],
+      "do_not_touch": [
+        "C:\\Windows",
+        "C:\\Program Files",
+        "C:\\Program Files (x86)",
+        "AppData",
+        ".git",
+        "node_modules",
+        ".venv",
+        "*.db",
+        "*.sqlite",
+        ".env"
+      ],
+      "allowed_roots": [],
+      "default_safety": {
+        "execution_mode": "preview_only",
+        "deletion_policy": "delete_later_quarantine",
+        "rename_policy": "suggest_first",
+        "move_policy": "approval_required",
+        "ledger_required": true
+      }
+    }
+  }
+}

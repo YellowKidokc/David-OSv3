@@ -1,0 +1,328 @@
+{
+  "schema": "top-ai-fis.detection_functions.28pof.v1",
+  "source_workbook": "\\\\192.168.2.50\\h_hp\\Desktop\\28pof_hub_architecture_with_templates.xlsx",
+  "source_sheet": "Detection Functions",
+  "record_count": 40,
+  "records": [
+    {
+      "function_name": "detect_ext_swamp()",
+      "symptom_id": "S01",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_version_sprawl()",
+      "symptom_id": "S02",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_depth_explosion()",
+      "symptom_id": "S03",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_flat_overload()",
+      "symptom_id": "S04",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_orphan_sidecar()",
+      "symptom_id": "S05",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_naming_collision()",
+      "symptom_id": "S06",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_project_scatter()",
+      "symptom_id": "S07",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_phantom_refs()",
+      "symptom_id": "S08",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_duplicates()",
+      "symptom_id": "C01",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_format_redundancy()",
+      "symptom_id": "C02",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_draft_graveyard()",
+      "symptom_id": "C03",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_doc_chaos()",
+      "symptom_id": "C04",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_media_dump()",
+      "symptom_id": "C05",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_unknown_blobs()",
+      "symptom_id": "C06",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_encoding_chaos()",
+      "symptom_id": "C07",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_incomplete_extract()",
+      "symptom_id": "C08",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_time_bombs()",
+      "symptom_id": "T01",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_burst_dump()",
+      "symptom_id": "T02",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_stale_pipeline()",
+      "symptom_id": "T03",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_abandoned_workspace()",
+      "symptom_id": "T04",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_program_root()",
+      "symptom_id": "I01",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_toolchain_residue()",
+      "symptom_id": "I02",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_config_leak()",
+      "symptom_id": "I03",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_sync_ghost()",
+      "symptom_id": "I04",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_repo_mix()",
+      "symptom_id": "I05",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_mirror_drift()",
+      "symptom_id": "I06",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_broken_shortcuts()",
+      "symptom_id": "I07",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_log_accumulation()",
+      "symptom_id": "I08",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_name_rot()",
+      "symptom_id": "N01",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_download_purgatory()",
+      "symptom_id": "N02",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_tiny_debris()",
+      "symptom_id": "N03",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_path_length()",
+      "symptom_id": "N04",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_untagged_canonical()",
+      "symptom_id": "R01",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_ai_debris()",
+      "symptom_id": "R02",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_cross_purpose()",
+      "symptom_id": "R03",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_mixed_provenance()",
+      "symptom_id": "R04",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_archive_pile()",
+      "symptom_id": "R05",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_chi_gaps()",
+      "symptom_id": "R06",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_law_holes()",
+      "symptom_id": "R07",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    },
+    {
+      "function_name": "detect_claim_gaps()",
+      "symptom_id": "R08",
+      "input": "folder_path",
+      "output": "SymptomResult[]",
+      "complexity": "O(n)",
+      "implemented": "No"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+# Folders, names, and extensions the scanner skips. Keeps the system from
+# re-processing its own sidecars and from walking dependency/system trees.
+skip_dirs:
+  - .git
+  - __pycache__
+  - .venv
+  - venv
+  - node_modules
+  - .obsidian
+  - System Volume Information
+  - $Recycle.Bin
+  - .trash
+  - salvaged
+skip_names:
+  - thumbs.db
+  - desktop.ini
+  - .ds_store
+skip_exts:
+  - .chi
+  - .fisnote
+  - .fmeta

@@ -1,0 +1,28 @@
+{
+  "rename_styles": [
+    {
+      "style": "title_case_spaces",
+      "example": "The Faith Is Coupling Theorem.pdf"
+    },
+    {
+      "style": "lower_snake",
+      "example": "the_faith_is_coupling_theorem.pdf"
+    },
+    {
+      "style": "date_lower_snake",
+      "example": "2026-07-03_faith_is_coupling_theorem.pdf"
+    },
+    {
+      "style": "lower_kebab",
+      "example": "faith-is-coupling-theorem.pdf"
+    }
+  ],
+  "defaults": {
+    "scripts": "lower_snake",
+    "site_articles": "title_case_spaces",
+    "exports": "date_lower_snake"
+  },
+  "spellcheck_before_suggesting": true,
+  "always_keep_original_in_history": true
+}
+

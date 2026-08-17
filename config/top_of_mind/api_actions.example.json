@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "groups": [
+    {"id": "folders", "label": "Folders", "sort_order": 10},
+    {"id": "watcher", "label": "Watcher", "sort_order": 20},
+    {"id": "messages", "label": "Top of Mind", "sort_order": 30}
+  ],
+  "actions": [
+    {
+      "id": "folders.search",
+      "group": "folders",
+      "label": "Search folders",
+      "method": "GET",
+      "endpoint": "/folders/search",
+      "input_schema": {"q": "string", "owner_id": "string?", "wall": "string?"},
+      "result_card": {"type": "folder_list", "title": "Matching folders"},
+      "ahk_binding": {"palette": "folders", "hotkey": ""}
+    },
+    {
+      "id": "folders.tree",
+      "group": "folders",
+      "label": "Folder tree",
+      "method": "GET",
+      "endpoint": "/folders/tree",
+      "input_schema": {"owner_id": "string?", "wall": "string?"},
+      "result_card": {"type": "folder_tree", "title": "Folder tree"},
+      "ahk_binding": {"palette": "folders", "hotkey": ""}
+    },
+    {
+      "id": "folders.create",
+      "group": "folders",
+      "label": "Create folder",
+      "method": "POST",
+      "endpoint": "/folders",
+      "default_payload": {"name": "", "parent_id": null, "tags": []},
+      "input_schema": {"name": "string", "parent_id": "number?", "tags": "string[0..3]"},
+      "result_card": {"type": "folder_detail", "title": "Created folder"},
+      "ahk_binding": {"palette": "folders", "hotkey": ""}
+    },
+    {
+      "id": "watcher.events",
+      "group": "watcher",
+      "label": "Submit watcher event",
+      "method": "POST",
+      "endpoint": "/jobs/file-events",
+      "default_payload": {"event_type": "created", "path": "", "source": "api-menu"},
+      "input_schema": {"event_type": "created|modified|moved|deleted", "path": "string", "dest_path": "string?"},
+      "result_card": {"type": "job_detail", "title": "Watcher job"},
+      "ahk_binding": {"palette": "watcher", "hotkey": ""}
+    },
+    {
+      "id": "messages.post",
+      "group": "messages",
+      "label": "Post message",
+      "method": "POST",
+      "endpoint": "/top-of-mind/messages",
+      "default_payload": {"source_id": "operator", "source_label": "Operator", "body": ""},
+      "input_schema": {"body": "string", "source_id": "string?"},
+      "result_card": {"type": "message_detail", "title": "Message"},
+      "ahk_binding": {"palette": "messages", "hotkey": ""}
+    }
+  ]
+}

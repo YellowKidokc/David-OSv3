@@ -1,0 +1,5 @@
+# Roots the pipeline scans. The MVP runs on demand (cli.py scan --roots ...).
+# A future watcher.py will subscribe to these for live events.
+roots:
+  - "./sample"
+default_file_types: [".md", ".txt", ".html", ".pdf", ".docx", ".py", ".csv", ".json"]

@@ -1,0 +1,34 @@
+{
+  "schema": "top-ai-fis.semantic_addressing.v1",
+  "source": "D:\\GitHub\\file-intelligence-system\\fis\\nlp",
+  "worker": "D:\\GitHub\\TOP AI FIS\\agents\\labelers\\semantic_addressing\\semantic_address_worker.py",
+  "variables": [
+    {"id": "G", "label": "Grace / Authority / Ground"},
+    {"id": "M", "label": "Moral / Mechanism / Action"},
+    {"id": "E", "label": "Epistemic / Entropy / Disorder"},
+    {"id": "S", "label": "Structural / Self / Identity"},
+    {"id": "T", "label": "Temporal / Time / Sequence"},
+    {"id": "K", "label": "Knowledge / Koinonia / Information"},
+    {"id": "R", "label": "Repentance / Relation / Bond"},
+    {"id": "Q", "label": "Qualia / Experience / Felt"},
+    {"id": "F", "label": "Faith / Trust"},
+    {"id": "C", "label": "Christological / Coherence / Completion"}
+  ],
+  "hash": {
+    "raw": "4-char Crockford base-32, 20-bit, 2 bits per variable",
+    "full": "[DOMINANT]-[RAW]-[MAGNITUDE][STATE]",
+    "example": "GKC-3K5A-3F"
+  },
+  "meta_enums": {
+    "context": ["PERSONAL", "BUSINESS"],
+    "domain": ["IDENTITY", "EMOTION", "RELATIONSHIP", "HEALTH", "FINANCE", "WORK", "LEARNING", "CREATION", "SPIRITUAL", "LIFESTYLE"],
+    "function": ["CAPTURE", "PLAN", "ACT", "TRACK", "ANALYZE", "DECIDE", "DOCUMENT"],
+    "state": ["ACTIVE", "PENDING", "COMPLETE", "ARCHIVED"]
+  },
+  "hub_integration": {
+    "run_after": ["file_intake", "file_extract"],
+    "write_to": ["file_labels", "vector_records", "memory_items", "sidecars_if_allowed"],
+    "review_gate": "low confidence or protected content follows folder profile policy",
+    "do_not_rebuild": ["semantic_scorer", "hash_codec", "meta_enums"]
+  }
+}

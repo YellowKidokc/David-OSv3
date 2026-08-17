@@ -1,0 +1,206 @@
+{
+  "schema": "top-ai-fis.build_order.28pof.v1",
+  "source_workbook": "\\\\192.168.2.50\\h_hp\\Desktop\\28pof_hub_architecture_with_templates.xlsx",
+  "source_sheet": "Build Order",
+  "record_count": 22,
+  "records": [
+    {
+      "order": "1",
+      "phase": "V0",
+      "build_item": "Create repo skeleton",
+      "files_endpoints": "api/, core/, storage/, workers/, adapters/, gui/, rules/, schemas/, prompts/",
+      "definition_of_done": "Folders exist with README stubs and import-safe package layout",
+      "depends_on": "None",
+      "why_this_order": "Lets prompts target small files instead of one giant ask."
+    },
+    {
+      "order": "2",
+      "phase": "V0",
+      "build_item": "SQLite schema + migrations",
+      "files_endpoints": "storage/schema.sql, storage/migrations.py, scripts/init_db.py",
+      "definition_of_done": "hub.db initializes with schema_version, jobs, files, folders, events",
+      "depends_on": "Repo skeleton",
+      "why_this_order": "Everything else needs durable state."
+    },
+    {
+      "order": "3",
+      "phase": "V0",
+      "build_item": "Pydantic schemas",
+      "files_endpoints": "schemas/job.py, schemas/file_record.py, schemas/folder.py, schemas/review.py",
+      "definition_of_done": "API/worker payloads validate and reject malformed JSON",
+      "depends_on": "Schema draft",
+      "why_this_order": "Prevents endpoint drift."
+    },
+    {
+      "order": "4",
+      "phase": "V1",
+      "build_item": "FastAPI app + jobs API",
+      "files_endpoints": "api/app.py, api/routes_jobs.py",
+      "definition_of_done": "Can create/get/claim/finish/fail/retry jobs",
+      "depends_on": "DB + schemas",
+      "why_this_order": "Every action becomes a job first."
+    },
+    {
+      "order": "5",
+      "phase": "V1",
+      "build_item": "Folder registry + policy engine",
+      "files_endpoints": "api/routes_folders.py, core/policy_engine.py, rules/*",
+      "definition_of_done": "Can register folder and return effective policy",
+      "depends_on": "Jobs API",
+      "why_this_order": "Folders need profiles, not scripts."
+    },
+    {
+      "order": "6",
+      "phase": "V1",
+      "build_item": "Watcher event intake",
+      "files_endpoints": "watchers/filesystem_watcher.py, api/routes_events.py",
+      "definition_of_done": "File created/changed/deleted event creates normalized event + job",
+      "depends_on": "Jobs API + folder registry",
+      "why_this_order": "Low-code automation begins here."
+    },
+    {
+      "order": "7",
+      "phase": "V1",
+      "build_item": "Resource gate",
+      "files_endpoints": "core/resource_gate.py, api/routes_workers.py",
+      "definition_of_done": "Heavy jobs pause when thresholds exceeded",
+      "depends_on": "Job manager",
+      "why_this_order": "Prevents automation from hurting machine usability."
+    },
+    {
+      "order": "8",
+      "phase": "V1",
+      "build_item": "File intake/hash/extract/classify",
+      "files_endpoints": "workers/hash_worker.py, extract_worker.py, classify_worker.py",
+      "definition_of_done": "Read-only scan produces files, hashes, excerpts, classifications",
+      "depends_on": "Watcher + storage repos",
+      "why_this_order": "Creates filecard evidence without touching files."
+    },
+    {
+      "order": "9",
+      "phase": "V1",
+      "build_item": "Review queue",
+      "files_endpoints": "core/review_gate.py, api/routes_review.py, gui/review_queue.py",
+      "definition_of_done": "Risky jobs create approval cards; approve/reject/defer works",
+      "depends_on": "Policy + jobs",
+      "why_this_order": "Safety valve before rename/move."
+    },
+    {
+      "order": "10",
+      "phase": "V1",
+      "build_item": "Rename suggest/apply",
+      "files_endpoints": "workers/rename_worker.py, api/routes_files.py, gui/rename_studio.py",
+      "definition_of_done": "Can suggest names, show GUI card, apply approved rename, rollback",
+      "depends_on": "Review queue + file classify",
+      "why_this_order": "Renaming is the first serious operator surface."
+    },
+    {
+      "order": "11",
+      "phase": "V1",
+      "build_item": "Folder health worker",
+      "files_endpoints": "workers/folder_health_worker.py, api/routes_folders.py, gui/folder_cleaning.py",
+      "definition_of_done": "Symptom scan returns findings and plan, no auto-clean",
+      "depends_on": "File inventory",
+      "why_this_order": "Connects the existing symptom registry to action planning."
+    },
+    {
+      "order": "12",
+      "phase": "V1",
+      "build_item": "Audit log + rollback",
+      "files_endpoints": "workers/rollback_worker.py, gui/audit_log.py",
+      "definition_of_done": "Every applied action has before/after; rollback works for rename/move",
+      "depends_on": "Actions table + rename/move",
+      "why_this_order": "Trust foundation."
+    },
+    {
+      "order": "13",
+      "phase": "V2",
+      "build_item": "Conversion worker",
+      "files_endpoints": "workers/convert_worker.py, adapters/pandoc_adapter.py, adapters/docling_adapter.py",
+      "definition_of_done": "Converts selected files while preserving originals",
+      "depends_on": "Review + file inventory",
+      "why_this_order": "High utility after safety is stable."
+    },
+    {
+      "order": "14",
+      "phase": "V2",
+      "build_item": "Duplicate analyzer",
+      "files_endpoints": "workers/duplicate_worker.py, similarity tables",
+      "definition_of_done": "Exact duplicates detected; near duplicate prototype optional",
+      "depends_on": "Hashes + search/extract",
+      "why_this_order": "Good cleanup value; deletion still blocked."
+    },
+    {
+      "order": "15",
+      "phase": "V2",
+      "build_item": "Search index",
+      "files_endpoints": "storage/search_repo.py, workers/search_index_worker.py, api/routes_search.py",
+      "definition_of_done": "FTS search over names/tags/summaries/excerpts",
+      "depends_on": "Filecards/classifications",
+      "why_this_order": "Makes the system fast."
+    },
+    {
+      "order": "16",
+      "phase": "V2",
+      "build_item": "Ollama adapter",
+      "files_endpoints": "adapters/ollama_adapter.py, prompts/*.md",
+      "definition_of_done": "Ollama task returns schema-valid JSON for rename/tag/folder summary",
+      "depends_on": "Prompt registry + AI results",
+      "why_this_order": "Local advisor after deterministic pipeline exists."
+    },
+    {
+      "order": "17",
+      "phase": "V2",
+      "build_item": "OpenAI adapter + extension resolver",
+      "files_endpoints": "adapters/openai_adapter.py, /extension/resolve",
+      "definition_of_done": "Unknown extension lookup uses safe metadata and caches result",
+      "depends_on": "AI job table + policy",
+      "why_this_order": "Outside knowledge without exposing private content."
+    },
+    {
+      "order": "18",
+      "phase": "V2",
+      "build_item": "Foldercards/filecards sidecar writer",
+      "files_endpoints": "workers/filecard_writer.py, folder_summary_worker.py",
+      "definition_of_done": "Writes hidden .pof sidecars or DB-only based on policy",
+      "depends_on": "Classify + folder summary",
+      "why_this_order": "Human-readable portable state."
+    },
+    {
+      "order": "19",
+      "phase": "V3",
+      "build_item": "Preference learning",
+      "files_endpoints": "core/preferences.py, learning endpoints, River optional",
+      "definition_of_done": "User edits create preference events and affect future suggestions",
+      "depends_on": "GUI correction flow",
+      "why_this_order": "Learning only after safe baseline."
+    },
+    {
+      "order": "20",
+      "phase": "V3",
+      "build_item": "Node agent/local queue/sync",
+      "files_endpoints": "node/node_agent.py, local_queue.py, sync_client.py",
+      "definition_of_done": "Desktop/laptop queue offline events and sync to Synology hub",
+      "depends_on": "Stable hub API",
+      "why_this_order": "Redundancy after core works."
+    },
+    {
+      "order": "21",
+      "phase": "V3",
+      "build_item": "Graph view",
+      "files_endpoints": "api/routes_graph.py, gui/graph_view.py",
+      "definition_of_done": "File movement/similarity graph renders from actions/edges",
+      "depends_on": "Actions + similarity",
+      "why_this_order": "Useful for diagnosing drift/anomaly."
+    },
+    {
+      "order": "22",
+      "phase": "V4",
+      "build_item": "Publish lane",
+      "files_endpoints": "workers/publish_worker.py, /publish/site-data",
+      "definition_of_done": "Approved outputs copy to site-data with manifest",
+      "depends_on": "Review + convert + search",
+      "why_this_order": "Public-facing work needs full audit first."
+    }
+  ]
+}

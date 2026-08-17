@@ -1,0 +1,138 @@
+{
+  "schema": "top-ai-fis.scanner_pipeline.v1",
+  "source_html": "\\\\192.168.2.50\\h_hp\\Desktop\\scanner_pipeline_explained.html",
+  "pipeline": [
+    "detect",
+    "label",
+    "diagnose",
+    "plan",
+    "create_jobs",
+    "review_gate",
+    "execute_approved_actions"
+  ],
+  "scanner_permissions": {
+    "allowed_by_default": [
+      "scan",
+      "hash",
+      "sample",
+      "classify",
+      "score_semantic_address",
+      "write_report",
+      "write_marker_if_profile_allows",
+      "create_action_proposal",
+      "create_job"
+    ],
+    "blocked_by_default": [
+      "delete",
+      "permanent_delete",
+      "move_without_approval",
+      "rename_without_approval",
+      "archive_without_approval",
+      "overwrite_original",
+      "change_extension"
+    ]
+  },
+  "questions": [
+    {"id": "Q01", "learns": "file_type_spread", "symptoms": ["S01"], "method": "count unique extensions per directory"},
+    {"id": "Q02", "learns": "duplicate_version_names", "symptoms": ["S02", "N01"], "method": "detect version/copy/final naming patterns"},
+    {"id": "Q03", "learns": "tree_depth", "symptoms": ["S03", "N04"], "method": "measure folder depth and sparse leaves"},
+    {"id": "Q04", "learns": "directory_width", "symptoms": ["S04"], "method": "count files per directory"},
+    {"id": "Q05", "learns": "orphan_sidecars", "symptoms": ["S05"], "method": "find marker/metadata files without parent files"},
+    {"id": "Q06", "learns": "name_collisions", "symptoms": ["S06"], "method": "case-insensitive and near-name collision checks"},
+    {"id": "Q07", "learns": "project_scatter", "symptoms": ["S07"], "method": "shared keyword and project marker detection across distant folders"},
+    {"id": "Q08", "learns": "broken_references", "symptoms": ["S08"], "method": "parse markdown/html links and check local targets"},
+    {"id": "Q09", "learns": "exact_duplicates", "symptoms": ["C01"], "method": "group by size then hash"},
+    {"id": "Q10", "learns": "format_redundancy", "symptoms": ["C02"], "method": "same stem across document formats"},
+    {"id": "Q11", "learns": "abandoned_drafts", "symptoms": ["C03"], "method": "draft/wip/temp naming plus age"},
+    {"id": "Q12", "learns": "mixed_documents", "symptoms": ["C04"], "method": "mixed office/document extensions in same folder"},
+    {"id": "Q13", "learns": "auto_named_media", "symptoms": ["C05", "N01"], "method": "IMG/DSC/Screenshot/VID/MOV patterns"},
+    {"id": "Q14", "learns": "unknown_file_types", "symptoms": ["C06"], "method": "extension not in known list"},
+    {"id": "Q15", "learns": "age_activity_mismatch", "symptoms": ["T01", "T02", "T04"], "method": "compare file age to folder activity and burst imports"},
+    {"id": "Q16", "learns": "program_root_markers", "symptoms": ["I01", "I05"], "method": "detect .git, package.json, pyproject.toml, venv, node_modules"},
+    {"id": "Q17", "learns": "credentials_or_secrets", "symptoms": ["I03"], "method": "detect .env, key, secret, token, sk-, AKIA-like patterns"},
+    {"id": "Q18", "learns": "sync_conflicts", "symptoms": ["I04", "I06"], "method": "detect sync-conflict/conflicted copy and mirror drift"},
+    {"id": "Q19", "learns": "missing_research_tags", "symptoms": ["R01", "R06"], "method": "check canonical/research files for semantic labels"},
+    {"id": "Q20", "learns": "semantic_identity", "symptoms": ["semantic_address"], "method": "run 10D semantic scorer and coordinate hash"}
+  ],
+  "severity_policy": {
+    "low": {"default_gate": "proposal_or_batch_review", "auto_execute": false},
+    "medium": {"default_gate": "review_required", "auto_execute": false},
+    "high": {"default_gate": "planning_required", "auto_execute": false},
+    "critical": {"default_gate": "blocked_and_alert", "auto_execute": false}
+  },
+  "action_policy": {
+    "classify": {"risk": "low", "default": "allowed_read_only"},
+    "write_sidecar": {"risk": "low", "default": "allowed_if_folder_profile_allows"},
+    "rename": {"risk": "medium", "default": "proposal_required", "never_change_extension": true},
+    "move": {"risk": "medium", "default": "proposal_required", "move_sidecars_together": true},
+    "archive": {"risk": "medium", "default": "proposal_required", "destination_pattern": ".archive/{date}/"},
+    "soft_delete": {"risk": "high", "default": "approval_required", "destination_pattern": ".trash/{date}/"},
+    "protect": {"risk": "critical", "default": "auto_mark_protected"},
+    "convert": {"risk": "medium", "default": "create_copy_only_never_overwrite"}
+  },
+  "large_folder_strategy": {
+    "threshold_file_count": 1000,
+    "flat_overload_threshold": 200,
+    "sample_policy": {
+      "first_alphabetical": 50,
+      "last_alphabetical": 50,
+      "middle_or_deterministic_sample": 50,
+      "include_top_size_percent": 5,
+      "always_include_extensions": [".env", ".key", ".pem", ".pfx", ".sqlite", ".db", ".chi", ".fmeta", ".fisnote", ".fisdead"],
+      "always_include_names": [".git", "package.json", "pyproject.toml", "requirements.txt", "Cargo.toml", "node_modules", ".venv", "venv"]
+    },
+    "cluster_naming": {
+      "pattern": "{category}_{domain}_{date_range}",
+      "case": "lowercase_underscores",
+      "system_prefixes": ["_unknown", "_duplicates", "_protected"],
+      "dominant_variable_words": {
+        "G": "grace",
+        "M": "ethics",
+        "E": "research",
+        "S": "code",
+        "T": "history",
+        "K": "community",
+        "R": "recovery",
+        "Q": "media",
+        "F": "faith",
+        "C": "theology"
+      }
+    }
+  },
+  "storage_contract": {
+    "per_file": [
+      "file_id",
+      "current_path",
+      "original_path",
+      "quick_hash",
+      "full_hash",
+      "extension",
+      "kind",
+      "semantic_vector",
+      "coord_hash_full",
+      "meta_classification",
+      "symptom_ids",
+      "proposed_actions"
+    ],
+    "per_folder": [
+      "folder_id",
+      "path",
+      "profile",
+      "file_count",
+      "dir_count",
+      "total_size",
+      "health_grade",
+      "health_score",
+      "symptom_counts",
+      "dominant_semantic_variables",
+      "proposed_structure",
+      "last_scanned",
+      "score_delta"
+    ],
+    "shared_memory_facts": [
+      "scan_{folder}_{date}",
+      "folder_role_{folder}",
+      "chi_dominant_{folder}"
+    ]
+  }
+}

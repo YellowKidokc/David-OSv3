@@ -1,0 +1,158 @@
+{
+  "schema": "top-ai-fis.label_enforcement.v1",
+  "purpose": "Persistent labels that enforce safety policy across scanner, watcher, jobs, review gates, and workers.",
+  "principle": "Labels are not decoration. A protected label must change what jobs are allowed to do.",
+  "label_sources": [
+    "user_onboarding_answers",
+    "folder_markers",
+    "file_sidecars",
+    "sqlite_index",
+    "scanner_symptoms",
+    "watcher_events",
+    "manual_operator_decisions",
+    "review_gate_decisions"
+  ],
+  "persistence_layers": {
+    "sqlite": {
+      "role": "source_of_truth_for_enforcement",
+      "tables": ["file_records", "folder_summaries", "desktop_file_cache", "review_items", "ledger_entries"],
+      "required": true
+    },
+    "folder_marker": {
+      "role": "portable_folder_memory",
+      "files": [".folder.fmeta", "FIS_FOLDER_INDEX.fisnote", "FIS_FOLDER_DIAGNOSIS.chi"],
+      "required_where_profile_allows": true
+    },
+    "file_sidecar": {
+      "role": "portable_file_memory",
+      "extensions": [".fmeta", ".chi", ".fisnote", ".fisdead"],
+      "required_where_profile_allows": false
+    }
+  },
+  "folder_labels": {
+    "protected": {
+      "meaning": "Folder may be scanned and indexed but not modified automatically.",
+      "set_by": ["user", "program_root_detector", "secret_detector", "folder_profile"],
+      "blocks": ["rename", "move", "archive", "delete", "bulk_restructure", "convert_overwrite"],
+      "allows": ["scan", "hash", "classify", "report", "create_review_proposal"]
+    },
+    "program_root": {
+      "meaning": "Folder contains app/code/project markers such as .git, package.json, pyproject.toml, node_modules, venv.",
+      "set_by": ["I01_program_root_danger"],
+      "implies": ["protected"],
+      "blocks": ["rename", "move", "archive", "delete", "bulk_restructure"],
+      "review_gate": "block_or_manual_only"
+    },
+    "do_not_delete": {
+      "meaning": "Nothing in this folder can be deleted by automation.",
+      "set_by": ["user", "folder_profile", "review_gate"],
+      "blocks": ["delete", "soft_delete", "empty_folder_cleanup"],
+      "allows": ["review_delete_proposal"]
+    },
+    "do_not_move": {
+      "meaning": "Files must stay in place unless the operator explicitly approves a move.",
+      "set_by": ["user", "folder_profile", "program_root_detector"],
+      "blocks": ["move", "archive", "bulk_restructure"]
+    },
+    "quarantine": {
+      "meaning": "Unknown, risky, suspicious, or unreadable content. Keep isolated and review.",
+      "set_by": ["C06_unknown_blobs", "I03_config_leak", "reader_failure"],
+      "blocks": ["delete", "rename", "share_to_agent", "publish", "bulk_move"],
+      "allows": ["scan", "hash", "manual_review", "security_alert"]
+    },
+    "inbox": {
+      "meaning": "High-change intake area. Suggestions are allowed, actions are review-first.",
+      "set_by": ["onboarding", "folder_profile"],
+      "blocks": ["delete_without_approval", "move_without_approval"],
+      "allows": ["scan", "hash", "classify", "rename_suggestion", "split_folder_proposal"]
+    },
+    "archive": {
+      "meaning": "Long-term storage. Favor read-only indexing and duplicate review.",
+      "set_by": ["folder_profile", "user"],
+      "blocks": ["bulk_rename", "delete_without_approval", "restructure_without_approval"],
+      "allows": ["scan", "hash", "dedupe_proposal"]
+    }
+  },
+  "file_labels": {
+    "protected": {
+      "meaning": "File may be indexed but not modified automatically.",
+      "blocks": ["rename", "move", "archive", "delete", "convert_overwrite"],
+      "allows": ["scan", "hash", "classify", "manual_review"]
+    },
+    "canonical": {
+      "meaning": "This file is the keeper/source-of-truth for a set.",
+      "blocks": ["delete", "archive", "overwrite"],
+      "allows": ["classify", "link_duplicates", "copy"]
+    },
+    "duplicate_candidate": {
+      "meaning": "File may be duplicate but keeper is not decided.",
+      "blocks": ["delete", "archive_without_keeper"],
+      "allows": ["duplicate_review", "keeper_selection_proposal"]
+    },
+    "unknown_extension": {
+      "meaning": "Extension is not recognized or file cannot be safely read.",
+      "blocks": ["delete", "rename", "share_to_agent", "publish"],
+      "allows": ["quarantine_review", "reader_detection"]
+    },
+    "secret_candidate": {
+      "meaning": "May contain credential/API token/private key.",
+      "blocks": ["share_to_agent", "publish", "copy_to_cloud", "delete_without_security_review"],
+      "allows": ["security_alert", "manual_review"]
+    },
+    "sidecar_protected": {
+      "meaning": "FIS metadata sidecar. Never treat as junk until imported into SQLite and reviewed.",
+      "extensions": [".fmeta", ".chi", ".fisnote", ".fistag", ".fisdead"],
+      "blocks": ["delete", "archive_without_parent_check"],
+      "allows": ["orphan_sidecar_review", "sqlite_import"]
+    },
+    "delete_candidate": {
+      "meaning": "Could be removed later, but only through reversible review.",
+      "blocks": ["permanent_delete"],
+      "allows": ["soft_delete_proposal", "archive_proposal", "manual_review"]
+    }
+  },
+  "conflict_resolution": {
+    "most_restrictive_wins": true,
+    "order": ["blocked", "manual_only", "review_required", "proposal_allowed", "auto_allowed"],
+    "examples": [
+      {
+        "labels": ["media_dump", "program_root"],
+        "result": "program_root wins; no restructuring"
+      },
+      {
+        "labels": ["duplicate_candidate", "canonical"],
+        "result": "canonical wins; do not archive/delete"
+      },
+      {
+        "labels": ["unknown_extension", "delete_candidate"],
+        "result": "unknown_extension wins; quarantine/review first"
+      }
+    ]
+  },
+  "review_gate_contract": {
+    "must_check_before": ["rename", "move", "archive", "soft_delete", "delete", "convert", "share_to_agent", "publish"],
+    "automatic_blocks": [
+      "program_root",
+      "protected",
+      "secret_candidate",
+      "unknown_extension",
+      "sidecar_protected_without_sqlite_import"
+    ],
+    "always_review": [
+      "delete",
+      "soft_delete",
+      "cross_drive_move",
+      "bulk_rename_over_threshold",
+      "bulk_move_over_threshold",
+      "low_confidence_classification",
+      "folder_restructure"
+    ],
+    "ledger_required_for": ["rename", "move", "archive", "soft_delete", "convert"]
+  },
+  "watcher_contract": {
+    "on_new_file": ["cache_file", "detect_program_root_context", "detect_protected_extension", "create_classify_job"],
+    "on_moved_file": ["record_old_and_new_path", "move_sidecar_links_in_sqlite", "require_review_if_cross_drive"],
+    "on_deleted_file_seen": ["record_missing", "do_not_purge_sidecars", "create_orphan_review"],
+    "on_marker_seen": ["read_marker_before_classification", "merge_with_sqlite_policy"]
+  }
+}

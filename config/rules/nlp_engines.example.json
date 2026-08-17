@@ -1,0 +1,47 @@
+{
+  "engines": [
+    {
+      "engine_id": "spacy-v1",
+      "type": "python-nlp",
+      "enabled": false,
+      "package": "spacy",
+      "default_model": "en_core_web_sm",
+      "features": [
+        "tokens",
+        "lemmas",
+        "part_of_speech",
+        "morphology",
+        "dependency_parse",
+        "noun_chunks",
+        "named_entities",
+        "sentence_boundaries",
+        "vectors_similarity_if_model_supports_vectors"
+      ],
+      "feeds": [
+        "chi_pipeline",
+        "chi_profiles",
+        "claim_jurisdiction",
+        "file_category_classifier",
+        "folder_category_classifier",
+        "rename_suggestions",
+        "knowledge_bank_chunks"
+      ],
+      "notes": "Optional. Do not require spaCy for baseline operation."
+    },
+    {
+      "engine_id": "wordnet-v1",
+      "type": "lexical-expansion",
+      "enabled": true,
+      "package": "nltk",
+      "feeds": ["chi_profiles", "keyword_expansion"]
+    },
+    {
+      "engine_id": "local-hash-vector-v1",
+      "type": "local-vector",
+      "enabled": true,
+      "module": "apps/api/file_intelligence_hub/workers/embedding_worker.py",
+      "feeds": ["memory_search", "reference_engine"]
+    }
+  ]
+}
+

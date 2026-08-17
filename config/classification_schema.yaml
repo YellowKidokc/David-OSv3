@@ -10,69 +10,86 @@
 
 # ─────────────────────────────────────────────
 # 1. CLAIM CLASSIFICATION (one-axiom system)
+#    pipeline_name: what DeepSeek returns
+#    display_name: what goes on the HTML tile
 # ─────────────────────────────────────────────
 claim_types:
   AXIOM:
+    display: "Starting Point"
+    code: "D"
     description: "Admitted without derivation. Only A0 (God) gets this."
     can_be_proven: false
-    example: "God is the self-existent ground of all reality"
   DEFINITION:
+    display: "Vocabulary"
+    code: "D"
     description: "Fixes vocabulary. Neither true nor false. Stipulative."
     can_be_proven: false
-    example: "Coherence C ∈ [0,1] measures alignment with ground"
   BOUNDARY:
+    display: "Constraint"
+    code: "D"
     description: "Restricts domain or admissible states."
     can_be_proven: false
-    example: "χ variables are non-negative and bounded"
   LEMMA:
+    display: "Supporting Step"
+    code: "L"
     description: "Derived supporting proposition."
     can_be_proven: true
-    example: "Distinction is the first act of a conscious ground"
   THEOREM:
+    display: "Established Result"
+    code: "T"
     description: "Derived load-bearing proposition."
     can_be_proven: true
-    example: "Coherence cannot self-increase (moral second law)"
   COROLLARY:
+    display: "Direct Consequence"
+    code: "L"
     description: "Direct consequence of a theorem."
     can_be_proven: true
-    example: "Self-flip impossible (corollary of moral second law)"
   MODEL:
+    display: "Mathematical Model"
+    code: "PM"
     description: "Mathematical representation with parameters. Testable."
     can_be_proven: false
-    example: "dK/dt = -αχ(t) coupling model"
   HYPOTHESIS:
+    display: "Proposed — Untested"
+    code: "BR"
     description: "Proposed but untested claim."
     can_be_proven: false
-    example: "Consciousness admits degrees proportional to Φ"
   PREDICTION:
+    display: "Testable Prediction"
+    code: "E"
     description: "Prospective testable consequence."
     can_be_proven: false
-    example: "Synchronized structural breaks 1968-1973 across all domains"
   PROTOCOL:
+    display: "Method / Procedure"
+    code: "PM"
     description: "Experimental or methodological procedure."
     can_be_proven: false
-    example: "Isomorphic Event Density (IED) evaluation protocol"
   EVIDENCE:
+    display: "Empirical Evidence"
+    code: "E"
     description: "Empirical or historical claim with data."
     can_be_proven: false
-    example: "PEAR-LAB at 6.35σ, GCP at 6σ"
   BRIDGE:
+    display: "Cross-Domain Bridge"
+    code: "BR"
     description: "Cross-domain structural mapping. Labeled, not promoted."
     can_be_proven: false
     grade_range: "C0-C6 / A-D"
-    example: "Von Neumann chain ↔ Watcher closure (L2→L3 transport)"
   IDENTIFICATION:
+    display: "Theological Identification"
+    code: "C"
     description: "Theological identification applied to a structural role."
     can_be_proven: false
-    example: "Terminal observer = God (bridge claim)"
   OPEN:
+    display: "Open Question"
+    code: "BR"
     description: "Unresolved question. Honest gap."
     can_be_proven: false
-    example: "How does mutual knowing become phenomenal consciousness?"
   CLOSURE:
+    display: "System Boundary"
+    code: "M"
     description: "Terminal claim about the system itself."
     can_be_proven: false
-    example: "The framework is constraint-class (Noether), not electroweak-class"
 
 # ─────────────────────────────────────────────
 # 2. PROOF LABELS (from Lane 4 atom pipeline)
@@ -539,3 +556,156 @@ deepseek_classification_prompt: |
 # Total epistemic layers: 4
 # Total engine tag codes: 20
 # ═══════════════════════════════════════════════════════════════
+
+# ─────────────────────────────────────────────
+# 19. DOMAIN-NEUTRAL QUESTIONS (DG layer)
+#     These produce the plain-language outputs
+#     that go on the HTML tiles instead of
+#     academic schema names.
+# ─────────────────────────────────────────────
+dg_questions:
+  q1_before:
+    display: "What must exist before this?"
+    description: "Dependencies — what this claim presupposes"
+    tile_label: "Requires"
+  q2_capability:
+    display: "What can this do that nothing before it could?"
+    description: "The genuinely new thing this claim introduces"
+    tile_label: "Introduces"
+  q3_collapse:
+    display: "What breaks if this is removed?"
+    description: "Downstream damage — blast radius"
+    tile_label: "If Removed"
+  q4_translation:
+    display: "What does this look like in another domain?"
+    description: "Cross-domain mapping — same structure, different vocabulary"
+    tile_label: "Translates To"
+
+# ─────────────────────────────────────────────
+# 20. PROOF CLASS CODES (plain language)
+# ─────────────────────────────────────────────
+proof_classes:
+  D:
+    display: "Definition"
+    description: "Fixes vocabulary"
+  S:
+    display: "Scripture / Tradition"
+    description: "Sourced from scripture or theological tradition"
+  L:
+    display: "Logical Consequence"
+    description: "Follows from prior steps"
+  M:
+    display: "Metaphysical Argument"
+    description: "Argued from first principles"
+  H:
+    display: "Historical Evidence"
+    description: "Grounded in historical data"
+  E:
+    display: "Empirical Observation"
+    description: "Backed by measurement or experiment"
+  BR:
+    display: "Bridge Hypothesis"
+    description: "Cross-domain mapping — declared, not proven"
+  T:
+    display: "Formal Theorem"
+    description: "Proven in a formal system"
+  C:
+    display: "Confession"
+    description: "Statement of faith commitment"
+  PM:
+    display: "Philosophical Model"
+    description: "Systematic argument from reason"
+  PH:
+    display: "Physics-Register Claim"
+    description: "Claim made in the language of physics"
+
+# ─────────────────────────────────────────────
+# 21. DISPLAY GRADES (A-F, plain language)
+# ─────────────────────────────────────────────
+display_grades:
+  A:
+    display: "Established"
+    description: "Established inside its proper register"
+    color: "#22c55e"
+  B:
+    display: "Strong — Not Final"
+    description: "Strong model or argument, not yet final"
+    color: "#d1a922"
+  C:
+    display: "Valid Bridge"
+    description: "Valid bridge or correspondence"
+    color: "#4a9eff"
+  D:
+    display: "Speculative"
+    description: "Speculative but useful"
+    color: "#94a3b8"
+  E:
+    display: "Underdeveloped"
+    description: "Weak or underdeveloped"
+    color: "#f59e0b"
+  F:
+    display: "Rejected"
+    description: "Rejected or retired"
+    color: "#ef4444"
+
+# ─────────────────────────────────────────────
+# 22. CLAIM NODE SCHEMA (for HTML tiles)
+#     This is the per-claim data structure that
+#     populates each "node of truth" on the page.
+# ─────────────────────────────────────────────
+claim_node_schema:
+  id: "Unique identifier (tp:lane4/axioms/ax-001-existence)"
+  framework: "Which framework this belongs to (theophysics, dg, hebun-zanabun)"
+  title: "Human-readable title"
+  claim: "The actual claim in one sentence"
+  dg_layer: "Which DG layer (ontological, informational, coherence, etc.)"
+  domain_layer: "Which domain (theology, physics, mathematics, etc.)"
+  object_types:
+    layer: "What structural layer this occupies"
+    capability: "What new capability this introduces"
+    state: "Current state of this claim"
+  depends_on: "List of upstream claim IDs"
+  translates_to: "Cross-domain equivalent (if bridge exists)"
+  constraint: "What this constrains downstream"
+  q1_before: "Plain answer: what must exist before this?"
+  q2_capability: "Plain answer: what can this do that nothing before it could?"
+  q3_collapse: "Plain answer: what breaks if removed?"
+  q4_translation: "Plain answer: what does it look like in another domain?"
+  proof_class: "D / S / L / M / H / E / BR / T / C / PM / PH"
+  grade: "A-F"
+  lean_status: "verified / partial / unverified / failed"
+  lean_file: "Path to Lean source if exists"
+  source_trace: "Where this claim originated"
+  objections: "Known objections and their status"
+  kill_conditions: "What would falsify this"
+  chi_variables: "Which Master Equation variables are engaged"
+  primary_law: "L01-L10 or null"
+  epistemic_layer: "L1-L4"
+  notes: "Free-form notes"
+
+# ─────────────────────────────────────────────
+# 23. PUBLIC LANGUAGE RULES
+#     What to say and what not to say.
+# ─────────────────────────────────────────────
+public_language:
+  never_say:
+    - "DG proves Christianity"
+    - "DG proves Islam"
+    - "DG proves physics reduces to theology"
+    - "DG proves the Trinity"
+    - "DG proves God"
+    - "The framework has been proven"
+    - "This is scientifically established"
+  say_instead:
+    - "DG is a proposed formal grammar for layered necessity"
+    - "Theophysics is one instantiation of DG"
+    - "The grammar tests whether a framework preserves its dependencies"
+    - "Each claim is graded inside its proper register"
+    - "Bridge claims are labeled, not promoted"
+    - "Kill conditions are named, not hidden"
+  honest_boundary: |
+    This document does not prove God, Christ, Trinity, the Master Equation,
+    consciousness, or morality. It provides a grammar for comparison.
+    It tests whether claimed derivations are admissible, whether dependencies
+    are preserved, whether translations are honest, and whether independent
+    frameworks share more than vocabulary.

@@ -1,0 +1,541 @@
+# ═══════════════════════════════════════════════════════════════
+# THEOPHYSICS UNIFIED CLASSIFICATION SCHEMA
+# ═══════════════════════════════════════════════════════════════
+# POF 2828 | August 17, 2026
+# Master YAML for all classification, scoring, and tagging systems.
+# Used by: FIS HTML, atom pipeline, smart tagger, chi evaluator,
+#          DeepSeek API calls, Kimi template nodes, GUI tools.
+# Location: D:\GitHub\David-OSv3\config\classification_schema.yaml
+# ═══════════════════════════════════════════════════════════════
+
+# ─────────────────────────────────────────────
+# 1. CLAIM CLASSIFICATION (one-axiom system)
+# ─────────────────────────────────────────────
+claim_types:
+  AXIOM:
+    description: "Admitted without derivation. Only A0 (God) gets this."
+    can_be_proven: false
+    example: "God is the self-existent ground of all reality"
+  DEFINITION:
+    description: "Fixes vocabulary. Neither true nor false. Stipulative."
+    can_be_proven: false
+    example: "Coherence C ∈ [0,1] measures alignment with ground"
+  BOUNDARY:
+    description: "Restricts domain or admissible states."
+    can_be_proven: false
+    example: "χ variables are non-negative and bounded"
+  LEMMA:
+    description: "Derived supporting proposition."
+    can_be_proven: true
+    example: "Distinction is the first act of a conscious ground"
+  THEOREM:
+    description: "Derived load-bearing proposition."
+    can_be_proven: true
+    example: "Coherence cannot self-increase (moral second law)"
+  COROLLARY:
+    description: "Direct consequence of a theorem."
+    can_be_proven: true
+    example: "Self-flip impossible (corollary of moral second law)"
+  MODEL:
+    description: "Mathematical representation with parameters. Testable."
+    can_be_proven: false
+    example: "dK/dt = -αχ(t) coupling model"
+  HYPOTHESIS:
+    description: "Proposed but untested claim."
+    can_be_proven: false
+    example: "Consciousness admits degrees proportional to Φ"
+  PREDICTION:
+    description: "Prospective testable consequence."
+    can_be_proven: false
+    example: "Synchronized structural breaks 1968-1973 across all domains"
+  PROTOCOL:
+    description: "Experimental or methodological procedure."
+    can_be_proven: false
+    example: "Isomorphic Event Density (IED) evaluation protocol"
+  EVIDENCE:
+    description: "Empirical or historical claim with data."
+    can_be_proven: false
+    example: "PEAR-LAB at 6.35σ, GCP at 6σ"
+  BRIDGE:
+    description: "Cross-domain structural mapping. Labeled, not promoted."
+    can_be_proven: false
+    grade_range: "C0-C6 / A-D"
+    example: "Von Neumann chain ↔ Watcher closure (L2→L3 transport)"
+  IDENTIFICATION:
+    description: "Theological identification applied to a structural role."
+    can_be_proven: false
+    example: "Terminal observer = God (bridge claim)"
+  OPEN:
+    description: "Unresolved question. Honest gap."
+    can_be_proven: false
+    example: "How does mutual knowing become phenomenal consciousness?"
+  CLOSURE:
+    description: "Terminal claim about the system itself."
+    can_be_proven: false
+    example: "The framework is constraint-class (Noether), not electroweak-class"
+
+# ─────────────────────────────────────────────
+# 2. PROOF LABELS (from Lane 4 atom pipeline)
+# ─────────────────────────────────────────────
+proof_labels:
+  NOT_ESTABLISHED: "No verification attempted or completed"
+  ISOMORPHIC_EVENT_CANDIDATE: "Cross-domain structural match identified, not verified"
+  BRIDGE_DECLARED: "Bridge claim made, labeled as such"
+  LEAN_GUARDRAIL_SUPPORTED: "Lean 4 verification of structural property (not theological content)"
+  LEAN_FULL_VERIFIED: "Lean 4 compilation with zero sorry/admit/axioms"
+  PYTHON_RUNTIME_SUPPORTED: "Python computation confirms numerical claim"
+  ABDUCTIVELY_FAVORED: "Best available explanation given evidence"
+  NARRATIVE_ANCHOR: "Structural role in the argument, not independently provable"
+  QUARANTINE: "Under review — may be overclaim or error"
+  RERUN_OWED: "Previous verification outdated, needs re-run"
+  RETIRED: "Withdrawn — superseded or falsified"
+
+
+# ─────────────────────────────────────────────
+# 3. MASTER EQUATION VARIABLES (χ vector)
+# ─────────────────────────────────────────────
+chi_variables:
+  G:
+    name: "Grace"
+    physics: "Gravitational potential"
+    theology: "Grace / unmerited favor"
+    law: 1
+    equation: "G_μν + Λg_μν = 8πT_μν"
+    anti: "Sin / gravitational collapse"
+  M:
+    name: "Moral Alignment"
+    physics: "Momentum / force"
+    theology: "Will / repentance / conversion"
+    law: 2
+    equation: "F = ma"
+    anti: "Coercion / inertia"
+  E:
+    name: "Truth Signal"
+    physics: "Electromagnetic field"
+    theology: "Truth / witness / light"
+    law: 3
+    equation: "∇×E = -∂B/∂t"
+    anti: "Deception / darkness"
+  S_eff:
+    name: "Entropy"
+    physics: "Thermodynamic entropy"
+    theology: "Judgment / justice / mercy"
+    law: 5
+    equation: "dS/dt ≥ 0"
+    anti: "Heat death / enabling"
+  T:
+    name: "Time / Kairos"
+    physics: "Temporal dimension"
+    theology: "Moral time / kairos vs chronos"
+    law: 8
+    equation: "ds² = -c²dt² + dx²"
+    anti: "Frame lock / temporal collapse"
+  K:
+    name: "Knowledge / Logos"
+    physics: "Information channel capacity"
+    theology: "Logos / revelation / scripture"
+    law: 6
+    equation: "C = A·log₂(1 + T/D)"
+    anti: "Chaos / noise / confusion"
+  R:
+    name: "Relational Frame"
+    physics: "Reference frame / gauge"
+    theology: "Covenant / bond / relation"
+    law: 8
+    equation: "Lorentz transform"
+    anti: "Isolation / broken relation"
+  Q:
+    name: "Quantum Uncertainty"
+    physics: "Quantum superposition"
+    theology: "Faith / trust / surrender"
+    law: 7
+    equation: "ΔxΔp ≥ ℏ/2"
+    anti: "Doubt / control / measurement anxiety"
+  F:
+    name: "Faith / Fruit"
+    physics: "Strong force / Yukawa"
+    theology: "Fruits of the Spirit (9 terms)"
+    law: 4
+    equation: "V(r) = -αs/r + k·r"
+    anti: "Captivity / anti-fruits"
+  C_W:
+    name: "Coherence Wrapper / Christ"
+    physics: "Coherence measure"
+    theology: "Christ / completion / Kingdom"
+    law: 10
+    equation: "C* = 1 (sovereign, not derivative)"
+    anti: "Decoherence (derivative, not sovereign)"
+    special: "C IS χ. Law 10 is asymmetric — no internal duality."
+
+
+# ─────────────────────────────────────────────
+# 4. TEN LAWS (canonical, no-drift)
+# ─────────────────────────────────────────────
+ten_laws:
+  L01:
+    physics: "Gravitation (GR)"
+    theology: "Sin ↔ Grace"
+    symmetry: "↔"
+    type: "symmetric"
+  L02:
+    physics: "Motion (F=ma)"
+    theology: "Sin Nature ↔ Grace-as-Force"
+    symmetry: "↔"
+    type: "symmetric"
+  L03:
+    physics: "Electromagnetism"
+    theology: "Truth ↔ Deception"
+    symmetry: "↔"
+    type: "symmetric"
+  L04:
+    physics: "Strong Force"
+    theology: "Love ↔ Captivity"
+    symmetry: "↔"
+    type: "symmetric"
+    derived_family: "Fruits of the Spirit (9 terms)"
+  L05:
+    physics: "Thermodynamics"
+    theology: "Judgment ↔ Heat Death"
+    symmetry: "↔"
+    type: "symmetric"
+    derived_family: "Justice/Mercy R(offense,α)"
+  L06:
+    physics: "Information/Shannon"
+    theology: "Logos ↔ Chaos"
+    symmetry: "↔"
+    type: "symmetric"
+  L07:
+    physics: "Quantum"
+    theology: "Faith ↔ Doubt/Control"
+    symmetry: "↔"
+    type: "symmetric"
+  L08:
+    physics: "Relativity"
+    theology: "Grace ↔ Frame Lock"
+    symmetry: "↔"
+    type: "symmetric"
+  L09:
+    physics: "Weak Force"
+    theology: "Moral Conservation (directional)"
+    symmetry: "asymmetric"
+    type: "asymmetric — breaks parity, preserves time-translation"
+    noether: "∇βTαβ = 0 derived independently of GR Bianchi"
+    derived_family: "Atonement tensor, three-body decay"
+  L10:
+    physics: "Coherence"
+    theology: "Christ ↔ Decoherence"
+    symmetry: "asymmetric"
+    type: "asymmetric — C IS χ, decoherence is derivative"
+    special: "Coherence is sovereign. No internal duality."
+
+# ─────────────────────────────────────────────
+# 5. DOMAIN DISTRIBUTION (for pie chart / scoring)
+# ─────────────────────────────────────────────
+domains:
+  theology:
+    color: "#d1a922"
+    description: "Claims grounded in theological tradition and scripture"
+  physics:
+    color: "#4a9eff"
+    description: "Claims using physical law, equations, experimental data"
+  mathematics:
+    color: "#7b68ee"
+    description: "Formal proofs, theorems, category theory, Lean verification"
+  cross-domain:
+    color: "#2dd4bf"
+    description: "Bridges between two or more domains"
+  evidence:
+    color: "#22c55e"
+    description: "Empirical data, statistical results, experimental outcomes"
+  consciousness:
+    color: "#f472b6"
+    description: "Observer, measurement, phenomenal experience, qualia"
+  speculative:
+    color: "#94a3b8"
+    description: "Exploratory claims not yet tested or classified"
+  information:
+    color: "#06b6d4"
+    description: "Shannon theory, channel capacity, encoding"
+  moral-decline:
+    color: "#ef4444"
+    description: "Cross-domain institutional/cultural decay evidence"
+  psychology:
+    color: "#a78bfa"
+    description: "Mental health, recovery, cognitive science"
+  economics:
+    color: "#f59e0b"
+    description: "Monetary policy, Federal Reserve, market structure"
+  education:
+    color: "#10b981"
+    description: "Transmission failure, curriculum, pedagogy"
+  history:
+    color: "#8b5cf6"
+    description: "American coherence collapse, civilizational patterns"
+
+
+# ─────────────────────────────────────────────
+# 6. CHI COHERENCE SCORE (for the radar tile)
+# ─────────────────────────────────────────────
+chi_score:
+  raw_score:
+    range: [0, 10]
+    description: "Sum of chi variable hits weighted by depth"
+  normalized:
+    range: [0, 10]
+    description: "Raw score normalized to [0,10]"
+  fruits_score:
+    range: "n/9"
+    description: "How many of the 9 Fruits are present"
+    fruits:
+      - { greek: "agapē", english: "Love", equation: "V(r) at minimum" }
+      - { greek: "chara", english: "Joy", equation: "ω = ω₀ (resonance)" }
+      - { greek: "eirēnē", english: "Peace", equation: "ΣF = 0" }
+      - { greek: "hypomonē", english: "Patience", equation: "C = dQ/dT (high)" }
+      - { greek: "chrēstotēs", english: "Kindness", equation: "E_activation → min" }
+      - { greek: "agathōsynē", english: "Goodness", equation: "W_out > W_in" }
+      - { greek: "pistis", english: "Faithfulness", equation: "∂L/∂t = 0 (Noether)" }
+      - { greek: "prautēs", english: "Gentleness", equation: "F = k·F_needed, k≤1" }
+      - { greek: "enkrateia", english: "Self-Control", equation: "u(t) = -K·e(t) PID" }
+
+# ─────────────────────────────────────────────
+# 7. ISOMORPHISM DETECTION (for the bridge tile)
+# ─────────────────────────────────────────────
+isomorphism:
+  mapping_types:
+    isomorphism: "Structure-preserving bijection with inverse"
+    functor: "Structure-preserving map (one direction, category-theoretic)"
+    transport: "Canonical one-way structural transport (compiled)"
+    projection: "One-way map with information loss"
+    analogy: "Surface similarity without structural preservation"
+    partial: "Incomplete mapping — some properties preserved, some not"
+    none: "No structural correspondence found"
+  bridge_grades:
+    C6: "Full compiled isomorphism (Lean verified both directions)"
+    C5: "Compiled transport (Lean verified one direction + non-converse)"
+    C4: "Structural match with formal spec (not yet compiled)"
+    C3: "Strong structural parallel with explicit maps"
+    C2: "Moderate structural parallel"
+    C1: "Weak analogy with some structural features"
+    C0: "Label only — no structural evidence"
+  letter_grades:
+    A: "Compiled and verified"
+    B: "Strong structural evidence, formal spec exists"
+    C: "Moderate evidence, bridge declared"
+    D: "Weak evidence or analogy only"
+    "—": "No evidence or not assessed"
+  detection_counts:
+    cross_domain_bridges: "Number of unique domain-pair bridges"
+    physics_processes: "Number of physics equations with theological mappings"
+    trinity_mappings: "Number of structural Trinity correspondences"
+    master_eq_variables: "n/10 — how many χ variables are engaged"
+
+# ─────────────────────────────────────────────
+# 8. AXIOM COVERAGE (for the coverage tile)
+# ─────────────────────────────────────────────
+axiom_coverage:
+  total_axioms: 188
+  one_axiom_reclassification:
+    axiom: 1
+    everything_else: "definition, lemma, theorem, corollary, bridge, model, hypothesis, prediction, protocol, evidence, identification, open, closure"
+  coverage_score: "n/188 — how many axioms are touched by this document"
+
+
+# ─────────────────────────────────────────────
+# 9. CLAIMS & KILL CONDITIONS (for the claims tile)
+# ─────────────────────────────────────────────
+claims:
+  claim_types:
+    load_bearing: "If this fails, downstream structure falls"
+    supporting: "Strengthens the argument but is not essential"
+    decorative: "Illustrative, not structural"
+    speculative: "Proposed, not yet tested"
+  kill_condition_types:
+    empirical: "An experiment or observation that would falsify"
+    logical: "A logical contradiction that would invalidate"
+    structural: "A structural failure that would collapse the chain"
+    definitional: "The definition itself is incoherent or circular"
+  contradiction_check:
+    internal: "Does the document contradict itself?"
+    external: "Does it contradict established canon?"
+    cross_domain: "Does the bridge claim violate a constraint in either domain?"
+
+# ─────────────────────────────────────────────
+# 10. VERIFICATION & PROOF STATUS (for the top bar)
+# ─────────────────────────────────────────────
+verification:
+  tabs:
+    - "Verification"
+    - "Proofs"
+    - "Math Translation"
+  proof_status:
+    verified: "Lean 4 compiled, zero sorry/admit"
+    partial: "Some components verified, others pending"
+    unverified: "No formal verification attempted"
+    failed: "Verification attempted and failed"
+  lean_audit_fields:
+    sorry_count: 0
+    admit_count: 0
+    user_axiom_count: 0
+    unsafe_count: 0
+    propext_only: true
+    lake_build_pass: true
+
+# ─────────────────────────────────────────────
+# 11. MATH TRANSLATION LAYER
+# ─────────────────────────────────────────────
+math_translation:
+  three_layers:
+    equation: "The formal mathematical expression"
+    plain_english: "Term-by-term translation directly underneath"
+    isomorphism_proof: "Both equations side by side with the mapping"
+  presentation:
+    physics_column: "The physics equation with standard notation"
+    translation_column: "What each term means in plain English"
+    theology_column: "The theological reading of the same structure"
+  notation:
+    chi: "χ — coherence field (Master Equation output)"
+    sigma: "σ — moral sign (+1 aligned, -1 misaligned)"
+    W: "W — free will coupling parameter"
+    G_grace: "G = G₀·e^(∫r(t')dt')·(1-R(t)) — grace function"
+    C_star: "C* = 1 — coherence sovereign value"
+    S_eff: "S_eff — effective entropy"
+    Phi: "Φ — consciousness integration measure"
+
+# ─────────────────────────────────────────────
+# 12. DOCUMENT STATUS & LIFECYCLE
+# ─────────────────────────────────────────────
+document_status:
+  draft: "In progress, not reviewed"
+  reviewed: "AI or human reviewed, not approved"
+  approved: "Reviewed and approved for use"
+  canon_candidate: "Proposed for canon, pending vote"
+  canon: "Ratified as canonical"
+  retired: "Superseded or withdrawn"
+  quarantine: "Under review for possible overclaim"
+  archived: "Preserved but not active"
+
+# ─────────────────────────────────────────────
+# 13. REGISTER (declaration vs canon)
+# ─────────────────────────────────────────────
+registers:
+  declaration:
+    description: "Public articles, testimony, Substack — unhedged in body"
+    hedge_location: "Once in the frame, not in every sentence"
+  canon:
+    description: "Blue sheets, ballots, Lean claims — graded and gated"
+    hedge_location: "Inline, per-claim"
+  default: "declaration"
+
+# ─────────────────────────────────────────────
+# 14. BLAST RADIUS (for flagging)
+# ─────────────────────────────────────────────
+blast_radius:
+  INERT: "True but nothing rests on it"
+  LOCAL: "Fix it, nothing downstream moves"
+  STRUCTURAL: "Named things above it fall — interrupt"
+
+
+# ─────────────────────────────────────────────
+# 15. EPISTEMIC LAYERS (L1-L4)
+# ─────────────────────────────────────────────
+epistemic_layers:
+  L1:
+    name: "Empirical"
+    description: "Observable, measurable, replicable"
+    examples: ["PEAR-LAB 6.35σ", "GCP 6σ", "PROP-COSMOS 5.7σ"]
+  L2:
+    name: "Formal / Mathematical"
+    description: "Provable in a formal system (Lean, ZFC, category theory)"
+    examples: ["Cantor diagonal", "L2→L3 transport", "Brouwer fixed point"]
+  L3:
+    name: "Structural / Philosophical"
+    description: "Argued from structure, not formally provable"
+    examples: ["Personhood step (P6)", "Act requires agent", "Three roles"]
+  L4:
+    name: "Theological / Identificatory"
+    description: "Bridge from structure to Person — revelation, not proof"
+    examples: ["Terminal observer = God", "Three roles = Trinity", "C* = Christ"]
+
+# ─────────────────────────────────────────────
+# 16. SERIES / COLLECTION METADATA
+# ─────────────────────────────────────────────
+series:
+  fields:
+    series_name: "Name of the series"
+    series_position: "Position in the series (1-based)"
+    series_total: "Total documents in the series"
+    series_type: "sequential | thematic | mixed"
+    series_domain: "Primary domain of the series"
+    series_law: "Primary law if applicable"
+
+# ─────────────────────────────────────────────
+# 17. FIS TAG SYSTEM (for HTML and search)
+# ─────────────────────────────────────────────
+fis_tags:
+  tag_layers:
+    tag_domain: "Which domain (theology, physics, etc.)"
+    tag_subtopic: "Which subtopic within domain"
+    tag_specific: "Most specific distinguishing term"
+    tag_unique: "Corpus-aware disambiguator (rare in global corpus)"
+  engine_codes:
+    CSN: "consciousness"
+    COH: "coherence"
+    GRC: "grace"
+    MRL: "moral"
+    ENT: "entropy"
+    FTH: "faith"
+    QNT: "quantum"
+    KNW: "knowledge"
+    REL: "relation"
+    LGS: "logos"
+    TMP: "time"
+    FSL: "falsification"
+    CHI: "chi-field"
+    PRF: "proof"
+    AXM: "axiom"
+    WEB: "html/web"
+    DBS: "database"
+    CFG: "config"
+    SRV: "server/api"
+    CLF: "classifier"
+
+# ─────────────────────────────────────────────
+# 18. DEEPSEEK API CALL TEMPLATE
+# ─────────────────────────────────────────────
+deepseek_classification_prompt: |
+  You are classifying a proposition from the Theophysics research framework.
+  There is exactly ONE axiom: God. Everything else earns its classification.
+
+  Given the raw statement material below, return a JSON object:
+  {
+    "claim_type": "<from claim_types>",
+    "proof_label": "<from proof_labels>",
+    "domain": "<from domains>",
+    "chi_variables": ["<list of engaged chi variables>"],
+    "primary_law": "<L01-L10 or null>",
+    "epistemic_layer": "<L1-L4>",
+    "bridge_grade": "<C0-C6 or null>",
+    "kill_conditions": ["<list of falsification conditions>"],
+    "depends_on": ["<list of upstream claim IDs>"],
+    "series_hint": "<detected series name or null>",
+    "tags": {
+      "domain": "<tag_domain>",
+      "subtopic": "<tag_subtopic>",
+      "specific": "<tag_specific>",
+      "unique": "<tag_unique>"
+    }
+  }
+
+# ═══════════════════════════════════════════════════════════════
+# END OF SCHEMA
+# ═══════════════════════════════════════════════════════════════
+# Total sections: 18
+# Total claim types: 14
+# Total proof labels: 11
+# Total chi variables: 10
+# Total laws: 10
+# Total domains: 13
+# Total bridge grades: 7
+# Total epistemic layers: 4
+# Total engine tag codes: 20
+# ═══════════════════════════════════════════════════════════════

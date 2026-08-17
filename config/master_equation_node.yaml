@@ -1,0 +1,445 @@
+# ═══════════════════════════════════════════════════════════════
+# MASTER EQUATION NODE STANDARD
+# ═══════════════════════════════════════════════════════════════
+# Companion to claim_node_schema. This standardizes how every
+# Master Equation variable, term, and dynamic gets represented
+# as a truth-bearing node with mirror search and bridge tests.
+# Location: D:\GitHub\David-OSv3\config\master_equation_node.yaml
+# ═══════════════════════════════════════════════════════════════
+
+# ─────────────────────────────────────────────
+# THE EQUATION
+# ─────────────────────────────────────────────
+master_equation:
+  canonical_form: "χ(X) = C_W[ ∏ᵢ Xᵢ ]"
+  dynamic_form: "dX/dt = W∇χ(X) + η(X,t)"
+  domain: "[0,1]⁹"
+  zero_rule: "If any Xᵢ = 0, χ = 0 (multiplicative — one zero kills everything)"
+  wrapper: "C_W is identity for now; zero-preserving"
+
+# ─────────────────────────────────────────────
+# VARIABLE NODE TEMPLATE
+# Each χ variable gets this structure.
+# ─────────────────────────────────────────────
+variable_node:
+  id: ""
+  variable: ""
+  name: ""
+  physics_reading: ""
+  theology_reading: ""
+  law: ""
+  equation: ""
+  anti_term: ""
+  natural_mirror:
+    question: "What process in nature does this variable describe that would exist without humans?"
+    process: ""
+    preserved_structure: ""
+    human_independent: null
+    failure_condition: ""
+  bridge:
+    source_domain: "physics"
+    target_domain: "theology"
+    mapping_type: ""
+    preserved: []
+    lost: []
+    grade: ""
+  display:
+    tile_label: ""
+    color: ""
+    icon: ""
+
+
+# ─────────────────────────────────────────────
+# ALL 10 VARIABLES — FILLED NODES
+# ─────────────────────────────────────────────
+variables:
+
+  G:
+    id: "meq:var/G"
+    variable: "G"
+    name: "Grace"
+    physics_reading: "Gravitational potential — curvature of spacetime caused by mass-energy"
+    theology_reading: "Unmerited favor — external restoration force that operates on the system from outside"
+    law: "L01"
+    equation: "G_μν + Λg_μν = 8πT_μν"
+    anti_term: "Sin — gravitational collapse past horizon"
+    natural_mirror:
+      question: "What process in nature pulls things toward a center without the thing earning it?"
+      process: "Gravitational attraction — mass curves spacetime, objects fall without effort or merit"
+      preserved_structure: "External field acts on object; object cannot generate the field itself; field strength ∝ source mass"
+      human_independent: true
+      failure_condition: "Find a gravitational system where the attracted object generates its own curvature sufficient to escape"
+    bridge:
+      source_domain: "physics"
+      target_domain: "theology"
+      mapping_type: "structural correspondence"
+      preserved: ["external source", "field acts on object", "object cannot self-generate", "proportional to source"]
+      lost: ["quantitative predictions", "tensor structure"]
+      grade: "B3"
+    display:
+      tile_label: "Grace"
+      color: "#d1a922"
+
+  M:
+    id: "meq:var/M"
+    variable: "M"
+    name: "Moral Alignment"
+    physics_reading: "Momentum — mass × velocity, conserved under translation symmetry"
+    theology_reading: "Will / direction — the moral momentum of a person, changed only by external force"
+    law: "L02"
+    equation: "F = ma → dp/dt = F"
+    anti_term: "Coercion — forced change of momentum without consent"
+    natural_mirror:
+      question: "What process in nature changes direction only when acted on by an outside force?"
+      process: "Inertia — an object in motion stays in motion unless acted upon (Newton's first law)"
+      preserved_structure: "State persists without intervention; change requires external force; force and change are proportional"
+      human_independent: true
+      failure_condition: "Find a physical system that spontaneously changes its momentum without any external force"
+    bridge:
+      source_domain: "physics"
+      target_domain: "theology"
+      mapping_type: "structural correspondence"
+      preserved: ["persistence without intervention", "external force required for change", "proportionality"]
+      lost: ["vector decomposition", "frame dependence"]
+      grade: "B3"
+    display:
+      tile_label: "Will"
+      color: "#22c55e"
+
+  E:
+    id: "meq:var/E"
+    variable: "E"
+    name: "Truth Signal"
+    physics_reading: "Electromagnetic field — self-propagating wave carrying information at c"
+    theology_reading: "Truth / witness / light — self-propagating signal that reveals what is there"
+    law: "L03"
+    equation: "∇×E = -∂B/∂t (Maxwell)"
+    anti_term: "Deception — signal that misrepresents what is there"
+    natural_mirror:
+      question: "What process in nature carries information about the source without distorting it?"
+      process: "Light — electromagnetic radiation propagates unchanged through vacuum, carries spectral signature of source"
+      preserved_structure: "Self-propagating; source-faithful; speed is invariant across frames; cannot be stopped in vacuum"
+      human_independent: true
+      failure_condition: "Find an electromagnetic wave that systematically misrepresents its source spectrum"
+    bridge:
+      source_domain: "physics"
+      target_domain: "theology"
+      mapping_type: "structural correspondence"
+      preserved: ["self-propagation", "source fidelity", "frame invariance", "cannot be halted"]
+      lost: ["polarization", "wavelength specifics"]
+      grade: "B3"
+    display:
+      tile_label: "Truth"
+      color: "#4a9eff"
+
+
+  S_eff:
+    id: "meq:var/S"
+    variable: "S_eff"
+    name: "Entropy"
+    physics_reading: "Thermodynamic entropy — disorder measure, always increasing in closed systems"
+    theology_reading: "Judgment / justice / mercy — the ledger that never forgets"
+    law: "L05"
+    equation: "dS/dt ≥ 0 (second law)"
+    anti_term: "Heat death — maximum entropy, no structure, no information, no life"
+    natural_mirror:
+      question: "What process in nature always moves in one direction and cannot be reversed internally?"
+      process: "Heat flow — thermal energy moves from hot to cold, never spontaneously reverses"
+      preserved_structure: "Irreversible; directional; internal reversal impossible; only external work can restore order"
+      human_independent: true
+      failure_condition: "Find a closed thermodynamic system that spontaneously decreases its entropy"
+    bridge:
+      source_domain: "physics"
+      target_domain: "theology"
+      mapping_type: "structural correspondence"
+      preserved: ["irreversibility", "directionality", "internal reversal impossible", "external input required for restoration"]
+      lost: ["temperature-specific dynamics", "Boltzmann constant"]
+      grade: "B4"
+    display:
+      tile_label: "Judgment"
+      color: "#ef4444"
+
+  T:
+    id: "meq:var/T"
+    variable: "T"
+    name: "Time / Kairos"
+    physics_reading: "Temporal dimension — the parameter along which change unfolds"
+    theology_reading: "Moral time — chronos (clock) vs kairos (significant moment); σ determines record quality"
+    law: "L08"
+    equation: "ds² = -c²dt² + dx² (metric signature)"
+    anti_term: "Frame lock — inability to recognize moral time within physical time"
+    natural_mirror:
+      question: "What process in nature distinguishes mere duration from significant transition?"
+      process: "Phase transitions — water at 99°C and 100°C are one degree apart in chronos but a phase boundary in kairos"
+      preserved_structure: "Continuous parameter with discrete thresholds; same clock, different significance at critical points"
+      human_independent: true
+      failure_condition: "Find a phase transition that does not involve a qualitative threshold within continuous change"
+    bridge:
+      source_domain: "physics"
+      target_domain: "theology"
+      mapping_type: "structural correspondence"
+      preserved: ["continuous parameter", "discrete thresholds", "qualitative change at critical points"]
+      lost: ["Lorentz transformation specifics", "light cone structure"]
+      grade: "B2"
+    display:
+      tile_label: "Time"
+      color: "#f59e0b"
+
+  K:
+    id: "meq:var/K"
+    variable: "K"
+    name: "Knowledge / Logos"
+    physics_reading: "Information channel capacity — maximum rate of reliable communication"
+    theology_reading: "Logos / revelation — the structured speech of God that carries meaning without loss"
+    law: "L06"
+    equation: "C = A·log₂(1 + T/D) (Shannon)"
+    anti_term: "Chaos / noise — signal drowned by entropy, meaning destroyed"
+    natural_mirror:
+      question: "What process in nature carries structured information with error correction?"
+      process: "DNA replication — genetic code copies with proofreading enzymes achieving <1 error per billion bases"
+      preserved_structure: "Structured code; error correction; faithful transmission; degradation without maintenance"
+      human_independent: true
+      failure_condition: "Find a DNA replication system that does not use error correction and maintains fidelity"
+    bridge:
+      source_domain: "physics"
+      target_domain: "theology"
+      mapping_type: "structural correspondence"
+      preserved: ["structured code", "error correction", "faithful transmission", "degradation without maintenance"]
+      lost: ["nucleotide specifics", "polymerase chemistry"]
+      grade: "B3"
+    display:
+      tile_label: "Logos"
+      color: "#7b68ee"
+
+
+  R:
+    id: "meq:var/R"
+    variable: "R"
+    name: "Relational Frame"
+    physics_reading: "Reference frame — coordinate system from which observations are made"
+    theology_reading: "Covenant / bond — the relational context that determines meaning"
+    law: "L08"
+    equation: "Lorentz transform: x' = γ(x - vt)"
+    anti_term: "Isolation — broken relation, no frame, no meaning"
+    natural_mirror:
+      question: "What process in nature requires a relational context to produce a measurement?"
+      process: "Relative motion — velocity has no meaning without a reference frame; all measurement is relational"
+      preserved_structure: "No absolute measurement; meaning requires relation; frame determines observation"
+      human_independent: true
+      failure_condition: "Find a physical measurement that has meaning without any reference frame"
+    bridge:
+      source_domain: "physics"
+      target_domain: "theology"
+      mapping_type: "structural correspondence"
+      preserved: ["meaning requires relation", "no absolute isolated measurement", "frame determines observation"]
+      lost: ["velocity addition formula", "gamma factor"]
+      grade: "B3"
+    display:
+      tile_label: "Relation"
+      color: "#06b6d4"
+
+  Q:
+    id: "meq:var/Q"
+    variable: "Q"
+    name: "Quantum Uncertainty"
+    physics_reading: "Quantum superposition — system exists in multiple states until measured"
+    theology_reading: "Faith / trust — commitment before full knowledge; the leap that collapses possibility into actuality"
+    law: "L07"
+    equation: "ΔxΔp ≥ ℏ/2 (Heisenberg)"
+    anti_term: "Doubt / control — demanding certainty before commitment; refusing to collapse the wave"
+    natural_mirror:
+      question: "What process in nature requires commitment to resolve indeterminacy?"
+      process: "Quantum measurement — superposed electron has no definite spin until measured; measurement is irreversible"
+      preserved_structure: "Indeterminate before commitment; commitment resolves; irreversible once resolved; cannot uncommit"
+      human_independent: true
+      failure_condition: "Find a quantum measurement that can be undone to restore the original superposition"
+    bridge:
+      source_domain: "physics"
+      target_domain: "theology"
+      mapping_type: "structural correspondence"
+      preserved: ["indeterminacy before commitment", "resolution through act", "irreversibility"]
+      lost: ["Hilbert space formalism", "Born rule probabilities"]
+      grade: "B3"
+    display:
+      tile_label: "Faith"
+      color: "#a78bfa"
+
+  F:
+    id: "meq:var/F"
+    variable: "F"
+    name: "Faith / Fruit"
+    physics_reading: "Strong force / Yukawa potential — short-range binding that holds nuclei together"
+    theology_reading: "Fruits of the Spirit — nine observable outputs of aligned coherence"
+    law: "L04"
+    equation: "V(r) = -αs/r + k·r (Yukawa + confinement)"
+    anti_term: "Captivity — confinement without the attractive minimum; bondage without love"
+    natural_mirror:
+      question: "What process in nature produces stable bound states with observable properties?"
+      process: "Nuclear binding — protons and neutrons held by strong force; stable nuclei have specific properties (mass, spin, decay modes)"
+      preserved_structure: "Binding produces stability; stability produces observable properties; properties are discrete, not continuous"
+      human_independent: true
+      failure_condition: "Find a stable nucleus that does not exhibit discrete, measurable properties"
+    bridge:
+      source_domain: "physics"
+      target_domain: "theology"
+      mapping_type: "structural correspondence"
+      preserved: ["binding → stability", "stability → observable outputs", "outputs are discrete"]
+      lost: ["quark dynamics", "color charge"]
+      grade: "B4"
+    display:
+      tile_label: "Fruit"
+      color: "#10b981"
+
+  C_W:
+    id: "meq:var/C"
+    variable: "C_W"
+    name: "Coherence / Christ"
+    physics_reading: "Coherence measure — degree to which a system's parts align constructively"
+    theology_reading: "Christ — the one in whom all things hold together (Col 1:17); sovereign, not derivative"
+    law: "L10"
+    equation: "C* = 1 (the coherence ceiling — the system fully aligned)"
+    anti_term: "Decoherence — loss of phase relations, collapse of constructive interference"
+    special: "Law 10 is ASYMMETRIC. C IS χ. Decoherence is derivative. Coherence is sovereign. No internal duality."
+    natural_mirror:
+      question: "What process in nature holds all parts of a system in constructive alignment?"
+      process: "Laser coherence — all photons in phase, same frequency, same direction; one mode dominates all others"
+      preserved_structure: "One mode governs all parts; parts do not self-organize without the mode; removal of mode → immediate decoherence"
+      human_independent: true
+      failure_condition: "Find a laser that maintains coherence after the gain medium is removed"
+    bridge:
+      source_domain: "physics"
+      target_domain: "theology"
+      mapping_type: "structural identification (L4)"
+      preserved: ["one mode governs all", "parts cannot self-cohere", "removal → decoherence", "sovereign not emergent"]
+      lost: ["photon statistics", "cavity specifics"]
+      grade: "B4 (physics) / L4 identification (theology)"
+    display:
+      tile_label: "Christ"
+      color: "#d1a922"
+
+
+# ═══════════════════════════════════════════════════════════════
+# TRINITY NODE STANDARD
+# ═══════════════════════════════════════════════════════════════
+
+trinity:
+  structure:
+    description: "Three irreducible roles, one being. Two objects and one operation. 2+1, not 1+1+1."
+    father:
+      role: "Source of possibility — Being — I AM"
+      structural: "The set from which elements are drawn"
+      natural_mirror:
+        process: "Existence of a state space — the set of possible configurations must exist before any selection"
+        preserved: "Priority without temporal precedence; source without being consumed"
+        human_independent: true
+        failure_condition: "Find a selection process that does not presuppose a space of possibilities"
+    son:
+      role: "Principle of structure — Logos — Distinction"
+      structural: "The operation that distinguishes elements within the set"
+      natural_mirror:
+        process: "Symmetry breaking — a uniform field differentiates into distinct states (Higgs mechanism, crystallization)"
+        preserved: "Undifferentiated → differentiated; structure from uniformity; naming from namelessness"
+        human_independent: true
+        failure_condition: "Find a symmetry-breaking process that does not introduce distinguishable states"
+    spirit:
+      role: "Act of actualization — Relation — the operation that selects"
+      structural: "The third that is a DIFFERENT KIND — not another element but the operation itself"
+      natural_mirror:
+        process: "Quantum measurement / wavefunction collapse — the act that selects one outcome from the superposition"
+        preserved: "Act, not rule; irreversible; produces definite outcome from indefinite state; requires agent or mechanism"
+        human_independent: true
+        failure_condition: "Find a measurement/collapse process that is fully described by a rule without an actualizing mechanism"
+    unity:
+      description: "Three can be one without collapse because two are objects and one is the operation between them"
+      mathematical: "A group with two generators and one composition law is one algebraic structure with three irreducible components"
+      natural_mirror:
+        process: "The integers under addition: {0, 1, +} — the identity, the generator, and the operation. Three roles, one structure."
+        preserved: "Remove any one and the structure ceases to function; none is reducible to the others"
+        human_independent: true
+
+  epistemic_status:
+    chain_from_measurement: "Compiled (L2↔L3 transport, commit 1a9bae3)"
+    three_roles: "Derived from constraint (P4)"
+    personhood: "Philosophical (P6 — act requires agent). Kill condition: objective-collapse models"
+    identification: "Theological (L4 bridge). The math earns the structure; the name comes from revelation"
+
+
+# ═══════════════════════════════════════════════════════════════
+# ISOMORPHISM NODE STANDARD
+# ═══════════════════════════════════════════════════════════════
+
+isomorphism_node:
+  template:
+    id: ""
+    source_domain: ""
+    target_domain: ""
+    source_structure: ""
+    target_structure: ""
+    mapping_type: ""  # from classification_schema.yaml section 7
+    direction: ""     # A→B, B→A, or A↔B
+    preserved:
+      nodes: []
+      edges: []
+      operations: []
+      constraints: []
+      ordering: []
+    lost:
+      nodes: []
+      edges: []
+      operations: []
+    introduced: []    # structure in target not present in source
+    forbidden: []     # mappings explicitly ruled out
+    natural_mirror:
+      question: "What human-independent process exhibits this same structural relationship?"
+      process: ""
+      human_independent: null
+      failure_condition: ""
+    bridge_grade: ""  # B0-B5 from expansion rules
+    lean_status: ""
+    lean_file: ""
+    rival_mappings:
+      - description: ""
+        defeated_by: ""
+    kill_conditions: []
+    display:
+      tile_label: ""
+      grade_display: ""  # "Compiled Transport" not "C5"
+      color: ""
+
+  # ─── API MIRROR SEARCH QUESTION ───────────
+  # This is the question DeepSeek asks for every
+  # claim, variable, or bridge:
+  mirror_search_prompt: |
+    For the following claim or structural relationship, answer:
+
+    1. NATURAL MIRROR: What process in the physical world has the
+       same relational structure? Name the specific process, not
+       a category.
+
+    2. HUMAN INDEPENDENCE: Would this process continue to exist
+       and exhibit this structure if all humans disappeared?
+
+    3. PRESERVED STRUCTURE: What specific relation, operation,
+       ordering, or constraint is the same in both?
+
+    4. FAILURE CONDITION: What observation would break this
+       correspondence?
+
+    5. RIVAL MAPPING: Is there another natural process that fits
+       equally well? If so, name it and say why the proposed
+       mirror is preferred.
+
+    Return JSON:
+    {
+      "natural_process": "",
+      "human_independent": true/false,
+      "preserved_structure": [],
+      "failure_condition": "",
+      "rival_process": "",
+      "rival_defeated_by": "",
+      "confidence": 0-10
+    }
+
+# ═══════════════════════════════════════════════════════════════
+# END
+# ═══════════════════════════════════════════════════════════════

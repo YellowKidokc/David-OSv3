@@ -1,0 +1,28 @@
+---
+fis_schema: "folder-index.v1"
+folder_id: "FLD-20260817-7c2b28a4"
+folder: "GitHub\David-OS\file-intelligence-system\reports"
+folder_class: "project"
+confidence: 0.6
+dependency_risk: 0.0
+dominant_family: "other"
+dominant_ratio: 0.714
+file_count: 7
+classified_at: "2026-08-17T12:54:17"
+allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
+suggested_name: "reports"
+---
+
+# FIS Folder Index: reports
+
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 7  ·  **Dominant**: other (71%)
+
+## Allowed actions
+- index
+- rename_internal
+- subfolder_sort
+- archive_exports
+
+**Suggested name**: `reports`  (not applied — review before use)
+
+<!-- FIS folder-index.v1: parseable note; safe to regenerate. -->

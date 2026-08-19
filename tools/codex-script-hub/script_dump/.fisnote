@@ -1,0 +1,28 @@
+---
+fis_schema: "folder-index.v1"
+folder_id: "FLD-20260817-6be63c62"
+folder: "GitHub\David-OS\tools\codex-script-hub\script_dump"
+folder_class: "project"
+confidence: 0.6
+dependency_risk: 0.0
+dominant_family: "code"
+dominant_ratio: 1.0
+file_count: 2
+classified_at: "2026-08-17T12:54:42"
+allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
+suggested_name: "script_dump"
+---
+
+# FIS Folder Index: script_dump
+
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 2  ·  **Dominant**: code (100%)
+
+## Allowed actions
+- index
+- rename_internal
+- subfolder_sort
+- archive_exports
+
+**Suggested name**: `script_dump`  (not applied — review before use)
+
+<!-- FIS folder-index.v1: parseable note; safe to regenerate. -->

@@ -1,0 +1,29 @@
+---
+fis_schema: "folder-index.v1"
+folder_id: "FLD-20260817-0f89405c"
+folder: "GitHub\David-OS\agents\labelers"
+folder_class: "project"
+confidence: 0.6
+dependency_risk: 0.333
+dominant_family: "code"
+dominant_ratio: 0.75
+file_count: 8
+classified_at: "2026-08-17T12:54:14"
+allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
+suggested_name: "labelers"
+system_markers: ["dir:__pycache__"]
+---
+
+# FIS Folder Index: labelers
+
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 8  ·  **Dominant**: code (75%)
+
+## Allowed actions
+- index
+- rename_internal
+- subfolder_sort
+- archive_exports
+
+**Suggested name**: `labelers`  (not applied — review before use)
+
+<!-- FIS folder-index.v1: parseable note; safe to regenerate. -->

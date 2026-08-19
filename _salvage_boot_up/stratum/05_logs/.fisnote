@@ -1,0 +1,28 @@
+---
+fis_schema: "folder-index.v1"
+folder_id: "FLD-20260817-6368a04b"
+folder: "GitHub\David-OS\_salvage_boot_up\stratum\05_logs"
+folder_class: "project"
+confidence: 0.6
+dependency_risk: 0.0
+dominant_family: "text"
+dominant_ratio: 0.75
+file_count: 4
+classified_at: "2026-08-17T12:57:52"
+allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
+suggested_name: "05_logs"
+---
+
+# FIS Folder Index: 05_logs
+
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 4  ·  **Dominant**: text (75%)
+
+## Allowed actions
+- index
+- rename_internal
+- subfolder_sort
+- archive_exports
+
+**Suggested name**: `05_logs`  (not applied — review before use)
+
+<!-- FIS folder-index.v1: parseable note; safe to regenerate. -->

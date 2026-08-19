@@ -1,0 +1,28 @@
+---
+fis_schema: "folder-index.v1"
+folder_id: "FLD-20260817-f98dc93e"
+folder: "GitHub\David-OS\file-intelligence-system\_nlp_runs\20260805-021022_gold-claims-math-framework-spiritual-core_c6c3dec88f_Archive_Archive_Theophysics_Case_for_Christ_GOLD_TOP_120_NLP_PACKET.md"
+folder_class: "project"
+confidence: 0.6
+dependency_risk: 0.0
+dominant_family: "text"
+dominant_ratio: 0.6
+file_count: 5
+classified_at: "2026-08-17T12:54:18"
+allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
+suggested_name: "20260805-021022_gold-claims-math-framework-spiritual-core_c6c3dec88f_archive_archive_theophysics_case_for_christ_gold_top_120_nlp_packet-md"
+---
+
+# FIS Folder Index: 20260805-021022_gold-claims-math-framework-spiritual-core_c6c3dec88f_Archive_Archive_Theophysics_Case_for_Christ_GOLD_TOP_120_NLP_PACKET.md
+
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 5  ·  **Dominant**: text (60%)
+
+## Allowed actions
+- index
+- rename_internal
+- subfolder_sort
+- archive_exports
+
+**Suggested name**: `20260805-021022_gold-claims-math-framework-spiritual-core_c6c3dec88f_archive_archive_theophysics_case_for_christ_gold_top_120_nlp_packet-md`  (not applied — review before use)
+
+<!-- FIS folder-index.v1: parseable note; safe to regenerate. -->

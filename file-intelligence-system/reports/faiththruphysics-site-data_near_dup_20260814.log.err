@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "D:\GitHub\David-OS\file-intelligence-system\fis_near_dup.py", line 454, in <module>
+    run(a.roots, a.threshold, a.out)
+  File "D:\GitHub\David-OS\file-intelligence-system\fis_near_dup.py", line 306, in run
+    **presentation_features(raw, path, roots),
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\GitHub\David-OS\file-intelligence-system\fis_near_dup.py", line 209, in presentation_features
+    lower = raw.lower()
+            ^^^^^^^^^^^
+MemoryError

@@ -1,0 +1,28 @@
+---
+fis_schema: "folder-index.v1"
+folder_id: "FLD-20260817-28f5fec7"
+folder: "GitHub\David-OS\docs\architecture"
+folder_class: "project"
+confidence: 0.6
+dependency_risk: 0.0
+dominant_family: "text"
+dominant_ratio: 0.923
+file_count: 13
+classified_at: "2026-08-17T12:54:17"
+allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
+suggested_name: "architecture"
+---
+
+# FIS Folder Index: architecture
+
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 13  ·  **Dominant**: text (92%)
+
+## Allowed actions
+- index
+- rename_internal
+- subfolder_sort
+- archive_exports
+
+**Suggested name**: `architecture`  (not applied — review before use)
+
+<!-- FIS folder-index.v1: parseable note; safe to regenerate. -->

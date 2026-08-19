@@ -1,0 +1,28 @@
+---
+fis_schema: "folder-index.v1"
+folder_id: "FLD-20260817-c8c3e6c8"
+folder: "GitHub\David-OS\core"
+folder_class: "project"
+confidence: 0.6
+dependency_risk: 0.0
+dominant_family: "text"
+dominant_ratio: 0.8
+file_count: 10
+classified_at: "2026-08-17T12:54:16"
+allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
+suggested_name: "core"
+---
+
+# FIS Folder Index: core
+
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 10  ·  **Dominant**: text (80%)
+
+## Allowed actions
+- index
+- rename_internal
+- subfolder_sort
+- archive_exports
+
+**Suggested name**: `core`  (not applied — review before use)
+
+<!-- FIS folder-index.v1: parseable note; safe to regenerate. -->

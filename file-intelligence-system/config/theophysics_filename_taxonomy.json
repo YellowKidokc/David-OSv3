@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "grammar_id": "theophysics-domain-type-v1",
+  "pattern": "{DOMAIN}_{TYPE}_{title-slug}_{YYYYMMDD}.{ext}",
+  "case": {"domain": "upper", "type": "upper", "slug": "lower-kebab", "extension": "preserve"},
+  "domains": {
+    "PHY": "Physics", "THE": "Theology", "TPH": "Theophysics", "MEQ": "Master Equation",
+    "LAW": "Ten Laws", "CON": "Consciousness", "GRC": "Grace", "INF": "Information Theory",
+    "FRM": "Formal / Lean / Proofs", "AXM": "Axioms", "ETH": "Ethics / Moral", "COS": "Cosmology",
+    "ALN": "AI Alignment / Logos Code", "OPS": "Infrastructure / Tools", "PUB": "Publication / Website"
+  },
+  "aliases": {
+    "information": "INF", "information theory": "INF", "infrastructure": "OPS", "tools": "OPS",
+    "master equation": "MEQ", "master eq": "MEQ", "theophysics": "TPH", "theology": "THE",
+    "physics": "PHY", "consciousness": "CON", "grace": "GRC", "formal": "FRM", "lean": "FRM",
+    "proof": "FRM", "axiom": "AXM", "ethics": "ETH", "moral": "ETH", "cosmology": "COS",
+    "alignment": "ALN", "publication": "PUB", "website": "PUB"
+  },
+  "types": {
+    "ART": "Article", "PAP": "Paper", "DRV": "Derivation", "PRF": "Proof", "BRF": "Brief",
+    "SPE": "Spec", "AUD": "Audit", "SRC": "Source of Truth", "DFT": "Draft", "NOD": "Node file",
+    "MAP": "Map / Index / Router", "TMP": "Template", "DAT": "Data", "STY": "Story",
+    "VIZ": "Visualization", "LOG": "Session log / transcript"
+  },
+  "type_aliases": {
+    "article": "ART", "paper": "PAP", "derivation": "DRV", "proof": "PRF", "brief": "BRF",
+    "spec": "SPE", "audit": "AUD", "source": "SRC", "source of truth": "SRC", "draft": "DFT",
+    "node": "NOD", "map": "MAP", "index": "MAP", "router": "MAP", "template": "TMP",
+    "data": "DAT", "story": "STY", "visualization": "VIZ", "session log": "LOG", "transcript": "LOG",
+    "document": "ART"
+  },
+  "compatibility": {"legacy_prefixes": ["LOSS__", "MEQ__"], "legacy_mode_env": "FIS_NAMING_GRAMMAR=legacy", "default_mode": "canonical"}
+}

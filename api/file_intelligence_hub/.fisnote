@@ -1,0 +1,29 @@
+---
+fis_schema: "folder-index.v1"
+folder_id: "FLD-20260817-29df0dd9"
+folder: "GitHub\David-OS\api\file_intelligence_hub"
+folder_class: "project"
+confidence: 0.6
+dependency_risk: 0.333
+dominant_family: "code"
+dominant_ratio: 0.667
+file_count: 3
+classified_at: "2026-08-17T12:54:15"
+allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
+suggested_name: "file_intelligence_hub"
+system_markers: ["dir:__pycache__"]
+---
+
+# FIS Folder Index: file_intelligence_hub
+
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 3  ·  **Dominant**: code (67%)
+
+## Allowed actions
+- index
+- rename_internal
+- subfolder_sort
+- archive_exports
+
+**Suggested name**: `file_intelligence_hub`  (not applied — review before use)
+
+<!-- FIS folder-index.v1: parseable note; safe to regenerate. -->

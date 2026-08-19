@@ -1,0 +1,3956 @@
+{
+  "crawled": 353,
+  "seen": 3270,
+  "queued_remaining": 2870,
+  "status": {
+    "200": 353
+  },
+  "prefixes": [
+    [
+      "/mda",
+      67
+    ],
+    [
+      "/moral-decline",
+      53
+    ],
+    [
+      "/one-page-stories",
+      49
+    ],
+    [
+      "/isomorphism",
+      35
+    ],
+    [
+      "/genesis-to-quantum",
+      30
+    ],
+    [
+      "/master-equation",
+      23
+    ],
+    [
+      "/proof-explorer",
+      16
+    ],
+    [
+      "/cross-domain",
+      14
+    ],
+    [
+      "/Axiom%20Layer",
+      10
+    ],
+    [
+      "/formal-papers",
+      5
+    ],
+    [
+      "/convergence-series",
+      4
+    ],
+    [
+      "/",
+      3
+    ],
+    [
+      "/duality-project",
+      3
+    ],
+    [
+      "/lean4",
+      3
+    ],
+    [
+      "/MDA%20final%20David",
+      3
+    ],
+    [
+      "/glossary",
+      2
+    ],
+    [
+      "/podcast",
+      2
+    ],
+    [
+      "/proof-architecture",
+      2
+    ],
+    [
+      "/convergence-deep",
+      2
+    ],
+    [
+      "/consciousness",
+      2
+    ],
+    [
+      "/blue",
+      2
+    ],
+    [
+      "/media",
+      2
+    ],
+    [
+      "/website",
+      1
+    ],
+    [
+      "/summary_large_image",
+      1
+    ],
+    [
+      "/equation",
+      1
+    ],
+    [
+      "/rigor",
+      1
+    ],
+    [
+      "/audio",
+      1
+    ],
+    [
+      "/three-truths",
+      1
+    ],
+    [
+      "/three-gates",
+      1
+    ],
+    [
+      "/revolution-of-truth",
+      1
+    ],
+    [
+      "/the-bidirectional-audit",
+      1
+    ],
+    [
+      "/${s.href}",
+      1
+    ],
+    [
+      "/${a.audio}",
+      1
+    ],
+    [
+      "/${a.href}",
+      1
+    ],
+    [
+      "/${a.soon",
+      1
+    ],
+    [
+      "/${it.href}",
+      1
+    ],
+    [
+      "/subdomains",
+      1
+    ],
+    [
+      "/Convergence_Series",
+      1
+    ],
+    [
+      "/Logos_Papers",
+      1
+    ],
+    [
+      "/core-articles",
+      1
+    ],
+    [
+      "/Rigor%20Bible.html",
+      1
+    ],
+    [
+      "/Rigor%20MDA.html",
+      1
+    ],
+    [
+      "/logo-stories",
+      1
+    ]
+  ],
+  "broken": [],
+  "errors": [
+    {
+      "url": "https://faiththruphysics.com/width=device-width, initial-scale=1.0",
+      "error": "URL can't contain control characters. '/width=device-width, initial-scale=1.0' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/One equation. Every domain. Ten variables. The mathematics of coherence \u2014 from quantum mechanics to the character of God.",
+      "error": "URL can't contain control characters. '/One equation. Every domain. Ten variables. The mathematics of coherence \u2014 from quantum mechanics to the character of God.' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/Faith Through Physics \u2014 David Lowe",
+      "error": "URL can't contain control characters. '/Faith Through Physics \u2014 David Lowe' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/One Equation. Every Domain. The Same Structure. Faith Through Physics.",
+      "error": "URL can't contain control characters. '/One Equation. Every Domain. The Same Structure. Faith Through Physics.' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/equation/width=device-width, initial-scale=1.0",
+      "error": "URL can't contain control characters. '/equation/width=device-width, initial-scale=1.0' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/equation/A canonical interactive explorer for the Lowe Coherence Lagrangian: ten locked factors, corrected entropy term, and the C/chi distinction.",
+      "error": "URL can't contain control characters. '/equation/A canonical interactive explorer for the Lowe Coherence Lagrangian: ten locked factors, corrected entropy term, and the C/chi distinction.' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/equation/${FACTOR_LINKS[factor.key]?.variable ||",
+      "error": "URL can't contain control characters. '/equation/${FACTOR_LINKS[factor.key]?.variable ||' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/equation/${FACTOR_LINKS[factor.key]?.law ||",
+      "error": "URL can't contain control characters. '/equation/${FACTOR_LINKS[factor.key]?.law ||' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/master-equation/width=device-width, initial-scale=1.0",
+      "error": "URL can't contain control characters. '/master-equation/width=device-width, initial-scale=1.0' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/master-equation/A canonical interactive explorer for the Lowe Coherence Lagrangian: ten locked factors, corrected entropy term, and the C/chi distinction.",
+      "error": "URL can't contain control characters. '/master-equation/A canonical interactive explorer for the Lowe Coherence Lagrangian: ten locked factors, corrected entropy term, and the C/chi distinction.' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/01-story-thread/width=device-width, initial-scale=1.0",
+      "error": "URL can't contain control characters. '/moral-decline/01-story-thread/width=device-width, initial-scale=1.0' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/01-story-thread/The decline of America told through five generations of one family \u2014 the men who lived each turn of the curve.",
+      "error": "URL can't contain control characters. '/moral-decline/01-story-thread/The decline of America told through five generations of one family \u2014 the men who lived each turn of the curve.' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/01-story-thread/The Lowe Family \u2014 Five Generations | Moral Decline of America",
+      "error": "URL can't contain control characters. '/moral-decline/01-story-thread/The Lowe Family \u2014 Five Generations | Moral Decline of America' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/03-evidence-chronology/width=device-width, initial-scale=1.0",
+      "error": "URL can't contain control characters. '/moral-decline/03-evidence-chronology/width=device-width, initial-scale=1.0' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/03-evidence-chronology/The coherence curve read straight from the data \u2014 1900 to 2025, era by era.",
+      "error": "URL can't contain control characters. '/moral-decline/03-evidence-chronology/The coherence curve read straight from the data \u2014 1900 to 2025, era by era.' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/03-evidence-chronology/America, Decade by Decade | Moral Decline of America",
+      "error": "URL can't contain control characters. '/moral-decline/03-evidence-chronology/America, Decade by Decade | Moral Decline of America' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/02-method-and-metrics/width=device-width, initial-scale=1.0",
+      "error": "URL can't contain control characters. '/moral-decline/02-method-and-metrics/width=device-width, initial-scale=1.0' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/02-method-and-metrics/The \u03c7 coherence factor, the nine domains, and the statistical spine behind the entire argument.",
+      "error": "URL can't contain control characters. '/moral-decline/02-method-and-metrics/The \u03c7 coherence factor, the nine domains, and the statistical spine behind the entire argument.' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/02-method-and-metrics/How to Measure a Moral System | Moral Decline of America",
+      "error": "URL can't contain control characters. '/moral-decline/02-method-and-metrics/How to Measure a Moral System | Moral Decline of America' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/06-recovery-and-synthesis/width=device-width, initial-scale=1.0",
+      "error": "URL can't contain control characters. '/moral-decline/06-recovery-and-synthesis/width=device-width, initial-scale=1.0' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/06-recovery-and-synthesis/What the equation says about reversing decline \u2014 for a single person, and for a nation.",
+      "error": "URL can't contain control characters. '/moral-decline/06-recovery-and-synthesis/What the equation says about reversing decline \u2014 for a single person, and for a nation.' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/06-recovery-and-synthesis/Is There a Way Back? | Moral Decline of America",
+      "error": "URL can't contain control characters. '/moral-decline/06-recovery-and-synthesis/Is There a Way Back? | Moral Decline of America' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/06-recovery-and-synthesis/MDA-053-the-question.html",
+      "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/width=device-width, initial-scale=1",
+      "error": "URL can't contain control characters. '/moral-decline/width=device-width, initial-scale=1' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/The physics of societal collapse. 61 articles tracing America",
+      "error": "URL can't contain control characters. '/moral-decline/The physics of societal collapse. 61 articles tracing America' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/width=device-width, initial-scale=1.0",
+      "error": "URL can't contain control characters. '/one-page-stories/width=device-width, initial-scale=1.0' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/28 one-page stories making the Faith Through Physics framework accessible: physics as story, theology as structure, salvation as phase transition.",
+      "error": "URL can't contain control characters. '/one-page-stories/28 one-page stories making the Faith Through Physics framework accessible: physics as story, theology as structure, salvation as phase transition.' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/width=device-width, initial-scale=1.0",
+      "error": "URL can't contain control characters. '/one-page-stories/truth-and-pushback/width=device-width, initial-scale=1.0' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/repair-and-order/width=device-width, initial-scale=1.0",
+      "error": "URL can't contain control characters. '/one-page-stories/repair-and-order/width=device-width, initial-scale=1.0' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/cross-domain/width=device-width, initial-scale=1.0",
+      "error": "URL can't contain control characters. '/cross-domain/width=device-width, initial-scale=1.0' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/duality-project/width=device-width, initial-scale=1.0",
+      "error": "URL can't contain control characters. '/duality-project/width=device-width, initial-scale=1.0' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/proof-explorer/width=device-width, initial-scale=1.0",
+      "error": "URL can't contain control characters. '/proof-explorer/width=device-width, initial-scale=1.0' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/proof-explorer/Navigate formal proofs, axiom layers, claims, evidence, and falsification tests for the Faith Through Physics framework.",
+      "error": "URL can't contain control characters. '/proof-explorer/Navigate formal proofs, axiom layers, claims, evidence, and falsification tests for the Faith Through Physics framework.' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/Axiom%20Layer/width=device-width, initial-scale=1.0",
+      "error": "URL can't contain control characters. '/Axiom%20Layer/width=device-width, initial-scale=1.0' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/Axiom%20Layer/The axioms of the Faith Through Physics framework: pre-system Truth, three primitive terms, three presuppositions, and the 15-point Iron Chain.",
+      "error": "URL can't contain control characters. '/Axiom%20Layer/The axioms of the Faith Through Physics framework: pre-system Truth, three primitive terms, three presuppositions, and the 15-point Iron Chain.' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/Axiom%20Layer/Axioms \u2014 Faith Through Physics Axiom Layer",
+      "error": "URL can't contain control characters. '/Axiom%20Layer/Axioms \u2014 Faith Through Physics Axiom Layer' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/Axiom%20Layer/From Truth beneath the floor to the 15-point Iron Chain. Every load-bearing starting claim of the framework.",
+      "error": "URL can't contain control characters. '/Axiom%20Layer/From Truth beneath the floor to the 15-point Iron Chain. Every load-bearing starting claim of the framework.' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/rigor/width=device-width, initial-scale=1.0",
+      "error": "URL can't contain control characters. '/rigor/width=device-width, initial-scale=1.0' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/rigor/The formal measurement backbone of Faith Through Physics: USPF signal persistence and MDA coherence diagnostics. Same math. Two domains.",
+      "error": "URL can't contain control characters. '/rigor/The formal measurement backbone of Faith Through Physics: USPF signal persistence and MDA coherence diagnostics. Same math. Two domains.' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/audio/width=device-width, initial-scale=1.0",
+      "error": "URL can't contain control characters. '/audio/width=device-width, initial-scale=1.0' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/audio/All narrated content from the Faith Through Physics Research Initiative. Podcast episodes, Genesis to Quantum read-alouds, family stories, and formal papers.",
+      "error": "URL can't contain control characters. '/audio/All narrated content from the Faith Through Physics Research Initiative. Podcast episodes, Genesis to Quantum read-alouds, family stories, and formal papers.' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/glossary/width=device-width, initial-scale=1.0",
+      "error": "URL can't contain control characters. '/glossary/width=device-width, initial-scale=1.0' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/glossary/Rigorous terminology bridging physics, theology, and mathematics. Every term defined at the intersection of the physical and the divine.",
+      "error": "URL can't contain control characters. '/glossary/Rigorous terminology bridging physics, theology, and mathematics. Every term defined at the intersection of the physical and the divine.' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/podcast/width=device-width, initial-scale=1.0",
+      "error": "URL can't contain control characters. '/podcast/width=device-width, initial-scale=1.0' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/podcast/The official podcast of the Faith Through Physics Research Initiative. Ten episodes walking the full framework \u2014 from the coherence metric to the American collapse.",
+      "error": "URL can't contain control characters. '/podcast/The official podcast of the Faith Through Physics Research Initiative. Ten episodes walking the full framework \u2014 from the coherence metric to the American collapse.' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/width=device-width, initial-scale=1.0",
+      "error": "URL can't contain control characters. '/isomorphism/width=device-width, initial-scale=1.0' (found at least ' ')"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/Cross-domain structural mappings between physics, theology, and mathematics.",
+      "error": "URL can't contain control characters. '/isomorphism/Cross-domain structural mappings between physics, theology, and mathematics.' (found at least ' ')"
+    }
+  ],
+  "external": [
+    [
+      "pub-5b15c954dc1642f18573a365cf6dc2c5.r2.dev",
+      570
+    ],
+    [
+      "zenodo.org",
+      385
+    ],
+    [
+      "fonts.googleapis.com",
+      354
+    ],
+    [
+      "cdnjs.cloudflare.com",
+      352
+    ],
+    [
+      "static.cloudflareinsights.com",
+      351
+    ],
+    [
+      "cdn.jsdelivr.net",
+      182
+    ],
+    [
+      "analytics.faiththruphysics.com",
+      73
+    ],
+    [
+      "fonts.gstatic.com",
+      45
+    ],
+    [
+      "www.pewresearch.org",
+      18
+    ],
+    [
+      "cdn.tailwindcss.com",
+      14
+    ],
+    [
+      "en.wikipedia.org",
+      13
+    ],
+    [
+      "r2.faiththruphysics.com",
+      11
+    ],
+    [
+      "www.cdc.gov",
+      9
+    ],
+    [
+      "news.gallup.com",
+      9
+    ],
+    [
+      "audio.faiththruphysics.com",
+      8
+    ],
+    [
+      "podcast.faiththruphysics.com",
+      8
+    ],
+    [
+      "nces.ed.gov",
+      8
+    ],
+    [
+      "www.pbs.org",
+      8
+    ],
+    [
+      "equation.faiththruphysics.com",
+      7
+    ],
+    [
+      "glossary.faiththruphysics.com",
+      7
+    ],
+    [
+      "proof-explorer.faiththruphysics.com",
+      7
+    ],
+    [
+      "pmc.ncbi.nlm.nih.gov",
+      6
+    ],
+    [
+      "media.faiththruphysics.com",
+      5
+    ],
+    [
+      "www.irp.wisc.edu",
+      5
+    ],
+    [
+      "academic.oup.com",
+      4
+    ],
+    [
+      "www.loc.gov",
+      4
+    ],
+    [
+      "www.census.gov",
+      3
+    ],
+    [
+      "gss.norc.org",
+      3
+    ],
+    [
+      "www.congress.gov",
+      3
+    ],
+    [
+      "www.infoplease.com",
+      3
+    ],
+    [
+      "magazine.columbia.edu",
+      3
+    ],
+    [
+      "www.researchgate.net",
+      3
+    ],
+    [
+      "groups.etown.edu",
+      3
+    ],
+    [
+      "amishamerica.com",
+      3
+    ],
+    [
+      "link.springer.com",
+      2
+    ],
+    [
+      "gssdataexplorer.norc.org",
+      2
+    ],
+    [
+      "fiveable.me",
+      2
+    ],
+    [
+      "www.sfu.ca",
+      2
+    ],
+    [
+      "plato.stanford.edu",
+      2
+    ],
+    [
+      "datatrekresearch.com",
+      2
+    ],
+    [
+      "web.as.miami.edu",
+      2
+    ],
+    [
+      "www.oclc.org",
+      2
+    ],
+    [
+      "www.hhs.gov",
+      2
+    ],
+    [
+      "lifestyle.sustainability-directory.com",
+      2
+    ],
+    [
+      "www.harvarddesignmagazine.org",
+      2
+    ],
+    [
+      "www.scientific.net",
+      2
+    ],
+    [
+      "www.bgsu.edu",
+      2
+    ],
+    [
+      "thetrustproject.org",
+      2
+    ],
+    [
+      "www.psychiatry.org",
+      2
+    ],
+    [
+      "www.apa.org",
+      2
+    ]
+  ],
+  "urls": [
+    {
+      "url": "https://faiththruphysics.com",
+      "status": 200,
+      "final": "https://faiththruphysics.com",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 1,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 0,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/${a.audio}",
+      "status": 200,
+      "final": "https://faiththruphysics.com/${a.audio}",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 1,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/${a.href}",
+      "status": 200,
+      "final": "https://faiththruphysics.com/${a.href}",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 1,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/${a.soon",
+      "status": 200,
+      "final": "https://faiththruphysics.com/${a.soon",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 1,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/${it.href}",
+      "status": 200,
+      "final": "https://faiththruphysics.com/${it.href}",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 1,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/${s.href}",
+      "status": 200,
+      "final": "https://faiththruphysics.com/${s.href}",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 1,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/Axiom%20Layer/article",
+      "status": 200,
+      "final": "https://faiththruphysics.com/Axiom%20Layer/article",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/Axiom%20Layer/axioms-closure.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/Axiom%20Layer/axioms-closure",
+      "ctype": "text/html",
+      "bytes": 33122,
+      "depth": 2,
+      "title": "Closure &amp; Omega \u2014 Proof Explorer \u2014 Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/Axiom%20Layer/axioms-layer-0-core.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/Axiom%20Layer/axioms-layer-0-core",
+      "ctype": "text/html",
+      "bytes": 34799,
+      "depth": 1,
+      "title": "Canonical Axiom Foundation \u2014 Proof Explorer"
+    },
+    {
+      "url": "https://faiththruphysics.com/Axiom%20Layer/axioms-layer-3-extended.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/Axiom%20Layer/axioms-layer-3-extended",
+      "ctype": "text/html",
+      "bytes": 32075,
+      "depth": 2,
+      "title": "Extended Boundary Model \u2014 Proof Explorer"
+    },
+    {
+      "url": "https://faiththruphysics.com/Axiom%20Layer/axioms.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/Axiom%20Layer/axioms",
+      "ctype": "text/html",
+      "bytes": 36883,
+      "depth": 1,
+      "title": "Axioms | Axiom Layer \u2014 Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/Axiom%20Layer/definitions.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/Axiom%20Layer/definitions",
+      "ctype": "text/html",
+      "bytes": 35223,
+      "depth": 2,
+      "title": "Definitions | Axiom Layer \u2014 Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/Axiom%20Layer/index.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/Axiom%20Layer/",
+      "ctype": "text/html",
+      "bytes": 11323,
+      "depth": 2,
+      "title": "Axiom Layer | Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/Axiom%20Layer/lemmas.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/Axiom%20Layer/lemmas",
+      "ctype": "text/html",
+      "bytes": 37018,
+      "depth": 2,
+      "title": "Lemmas | Axiom Layer \u2014 Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/Axiom%20Layer/theorems.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/Axiom%20Layer/theorems",
+      "ctype": "text/html",
+      "bytes": 37672,
+      "depth": 2,
+      "title": "Theorems | Axiom Layer \u2014 Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/Convergence_Series/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/Convergence_Series/",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/Logos_Papers/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/Logos_Papers/",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/MDA%20final%20David/00-entry-and-series-map/index.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/MDA%20final%20David/00-entry-and-series-map/index.html",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/MDA%20final%20David/02-method-and-metrics/MDA-007-nine-domains.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/MDA%20final%20David/02-method-and-metrics/MDA-007-nine-domains.html",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/MDA%20final%20David/02-method-and-metrics/MDA-038-coherence-metric.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/MDA%20final%20David/02-method-and-metrics/MDA-038-coherence-metric.html",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/Rigor%20Bible.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/Rigor%20Bible.html",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/Rigor%20MDA.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/Rigor%20MDA.html",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/audio/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/audio/",
+      "ctype": "text/html",
+      "bytes": 48172,
+      "depth": 1,
+      "title": "Faith Through Physics Audio \u2014 Story, Debate & Deep Audio"
+    },
+    {
+      "url": "https://faiththruphysics.com/blue/god-in-the-equations.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/blue/god-in-the-equations",
+      "ctype": "text/html",
+      "bytes": 86048,
+      "depth": 2,
+      "title": "God in the Equations | The Ten Laws \u00b7 David Lowe"
+    },
+    {
+      "url": "https://faiththruphysics.com/blue/gold-standard-test-battery.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/blue/gold-standard-test-battery",
+      "ctype": "text/html",
+      "bytes": 69072,
+      "depth": 1,
+      "title": "Gold Standard Test Battery | David Lowe"
+    },
+    {
+      "url": "https://faiththruphysics.com/consciousness/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/consciousness/",
+      "ctype": "text/html",
+      "bytes": 12184,
+      "depth": 2,
+      "title": "Consciousness \u2014 The \u03c7-Field &amp; the Hard Problem | Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/consciousness/index.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/consciousness/",
+      "ctype": "text/html",
+      "bytes": 12184,
+      "depth": 1,
+      "title": "Consciousness \u2014 The \u03c7-Field &amp; the Hard Problem | Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/convergence-deep/cdt-01-math-is-moral.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/convergence-deep/cdt-01-math-is-moral",
+      "ctype": "text/html",
+      "bytes": 92380,
+      "depth": 1,
+      "title": "Math Is Moral | Deep Theory CDT-01 | Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/convergence-deep/index.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/convergence-deep/",
+      "ctype": "text/html",
+      "bytes": 14623,
+      "depth": 1,
+      "title": "The Convergence: Deep Theory | Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/convergence-series/cns-01-the-playing-field.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/convergence-series/cns-01-the-playing-field",
+      "ctype": "text/html",
+      "bytes": 46929,
+      "depth": 1,
+      "title": "01 \u00b7 The Playing Field \u2014 The Convergence Series"
+    },
+    {
+      "url": "https://faiththruphysics.com/convergence-series/cns-02-the-evidence.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/convergence-series/cns-02-the-evidence",
+      "ctype": "text/html",
+      "bytes": 48829,
+      "depth": 1,
+      "title": "02 \u00b7 The Evidence \u2014 The Convergence Series"
+    },
+    {
+      "url": "https://faiththruphysics.com/convergence-series/cns-05-the-judgment-layer.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/convergence-series/cns-05-the-judgment-layer",
+      "ctype": "text/html",
+      "bytes": 49648,
+      "depth": 1,
+      "title": "05 \u00b7 The Judgment Layer \u2014 The Convergence Series"
+    },
+    {
+      "url": "https://faiththruphysics.com/convergence-series/index.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/convergence-series/",
+      "ctype": "text/html",
+      "bytes": 15071,
+      "depth": 1,
+      "title": "The Convergence Series | Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/core-articles/we-ran-the-tests.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/core-articles/we-ran-the-tests.html",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/cross-domain/01-an-introduction-to-theophysics.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/cross-domain/01-an-introduction-to-theophysics",
+      "ctype": "text/html",
+      "bytes": 64328,
+      "depth": 2,
+      "title": "An Introduction to Faith Through Physics \u2014 David Lowe"
+    },
+    {
+      "url": "https://faiththruphysics.com/cross-domain/02-the-coherence-metric.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/cross-domain/02-the-coherence-metric",
+      "ctype": "text/html",
+      "bytes": 62099,
+      "depth": 2,
+      "title": "The Coherence Metric \u2014 David Lowe"
+    },
+    {
+      "url": "https://faiththruphysics.com/cross-domain/03-the-only-top-down-framework.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/cross-domain/03-the-only-top-down-framework",
+      "ctype": "text/html",
+      "bytes": 60812,
+      "depth": 2,
+      "title": "The Only Top-Down Framework \u2014 David Lowe"
+    },
+    {
+      "url": "https://faiththruphysics.com/cross-domain/04-the-american-coherence-collapse.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/cross-domain/04-the-american-coherence-collapse",
+      "ctype": "text/html",
+      "bytes": 65348,
+      "depth": 2,
+      "title": "The American Coherence Collapse \u2014 David Lowe"
+    },
+    {
+      "url": "https://faiththruphysics.com/cross-domain/05-fruits-of-the-spirit.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/cross-domain/05-fruits-of-the-spirit",
+      "ctype": "text/html",
+      "bytes": 79629,
+      "depth": 2,
+      "title": "Semantic Evolution of the \"Fruits of the Spirit\" \u2014 David Lowe"
+    },
+    {
+      "url": "https://faiththruphysics.com/cross-domain/06-the-scientific-method-redux.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/cross-domain/06-the-scientific-method-redux",
+      "ctype": "text/html",
+      "bytes": 42376,
+      "depth": 2,
+      "title": "The Scientific Method Redux \u2014 David Lowe"
+    },
+    {
+      "url": "https://faiththruphysics.com/cross-domain/07-master-coherence-analysis.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/cross-domain/07-master-coherence-analysis",
+      "ctype": "text/html",
+      "bytes": 56820,
+      "depth": 2,
+      "title": "Master Coherence Analysis \u2014 David Lowe"
+    },
+    {
+      "url": "https://faiththruphysics.com/cross-domain/08-the-thermodynamics-of-grace.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/cross-domain/08-the-thermodynamics-of-grace",
+      "ctype": "text/html",
+      "bytes": 42697,
+      "depth": 2,
+      "title": "The Thermodynamics of Grace \u2014 David Lowe"
+    },
+    {
+      "url": "https://faiththruphysics.com/cross-domain/09-church-debris-audit.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/cross-domain/09-church-debris-audit",
+      "ctype": "text/html",
+      "bytes": 72002,
+      "depth": 2,
+      "title": "The Church Debris Audit \u2014 David Lowe"
+    },
+    {
+      "url": "https://faiththruphysics.com/cross-domain/10-cliodynamic-analysis-great-demoralization.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/cross-domain/10-cliodynamic-analysis-great-demoralization",
+      "ctype": "text/html",
+      "bytes": 59620,
+      "depth": 2,
+      "title": "Predictive Threshold Detection \u2014 David Lowe"
+    },
+    {
+      "url": "https://faiththruphysics.com/cross-domain/11-constitutional-overlay-analysis.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/cross-domain/11-constitutional-overlay-analysis",
+      "ctype": "text/html",
+      "bytes": 59538,
+      "depth": 2,
+      "title": "The Great Unraveling \u2014 David Lowe"
+    },
+    {
+      "url": "https://faiththruphysics.com/cross-domain/12-reverse-sequence-hypothesis.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/cross-domain/12-reverse-sequence-hypothesis",
+      "ctype": "text/html",
+      "bytes": 59470,
+      "depth": 2,
+      "title": "Civilizational Negentropy: The Reverse Sequence Hypothesis \u2014 David Lowe"
+    },
+    {
+      "url": "https://faiththruphysics.com/cross-domain/index.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/cross-domain/",
+      "ctype": "text/html",
+      "bytes": 14390,
+      "depth": 1,
+      "title": "Cross-Domain Analysis \u2014 Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/duality-project/dp-00-the-null-hypothesis.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/duality-project/dp-00-the-null-hypothesis",
+      "ctype": "text/html",
+      "bytes": 58833,
+      "depth": 1,
+      "title": "DP-00 | The Null Hypothesis \u2014 The One: Duality Project"
+    },
+    {
+      "url": "https://faiththruphysics.com/duality-project/dp-000-the-assignment.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/duality-project/dp-000-the-assignment",
+      "ctype": "text/html",
+      "bytes": 45118,
+      "depth": 2,
+      "title": "DP-000 | The Assignment \u2014 The One: Duality Project"
+    },
+    {
+      "url": "https://faiththruphysics.com/duality-project/dp-01-candle-in-the-void.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/duality-project/dp-01-candle-in-the-void",
+      "ctype": "text/html",
+      "bytes": 55304,
+      "depth": 2,
+      "title": "DP-01 | The Candle in the Void \u2014 The One: Duality Project"
+    },
+    {
+      "url": "https://faiththruphysics.com/duality-project/index.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/cross-domain/",
+      "ctype": "text/html",
+      "bytes": 14390,
+      "depth": 1,
+      "title": "Cross-Domain Analysis \u2014 Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/equation/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/equation/",
+      "ctype": "text/html",
+      "bytes": 47204,
+      "depth": 1,
+      "title": "Master Equation Explorer \u2014 Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/formal-papers/index.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/formal-papers/",
+      "ctype": "text/html",
+      "bytes": 8453,
+      "depth": 1,
+      "title": "The Algorithmic Foundations of Reality ? Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/formal-papers/paper-01-logos-principle.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/formal-papers/paper-01-logos-principle.html",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/formal-papers/paper-02-quantum-bridge.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/formal-papers/paper-02-quantum-bridge.html",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/formal-papers/paper-03-algorithm-of-reality.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/formal-papers/paper-03-algorithm-of-reality.html",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/formal-papers/paper-04-hard-problem.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/formal-papers/paper-04-hard-problem.html",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/genesis-to-quantum/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/genesis-to-quantum/",
+      "ctype": "text/html",
+      "bytes": 58764,
+      "depth": 2,
+      "title": "Genesis to Quantum \u2014 The Core Series"
+    },
+    {
+      "url": "https://faiththruphysics.com/genesis-to-quantum/gtq-01-measurement-collapsed-reality.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/genesis-to-quantum/gtq-01-measurement-collapsed-reality",
+      "ctype": "text/html",
+      "bytes": 88347,
+      "depth": 1,
+      "title": "Article 01: The Measurement That Collapsed Reality \u2014 Genesis to Quantum"
+    },
+    {
+      "url": "https://faiththruphysics.com/genesis-to-quantum/gtq-02-the-first-quantum-state.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/genesis-to-quantum/gtq-02-the-first-quantum-state",
+      "ctype": "text/html",
+      "bytes": 44179,
+      "depth": 1,
+      "title": "GTQ-02 The First Quantum State \u2014 Genesis to Quantum"
+    },
+    {
+      "url": "https://faiththruphysics.com/genesis-to-quantum/gtq-03-free-will-two-frames.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/genesis-to-quantum/gtq-03-free-will-two-frames",
+      "ctype": "text/html",
+      "bytes": 82625,
+      "depth": 1,
+      "title": "Article 03: Free Will in Two Frames \u2014 Genesis to Quantum"
+    },
+    {
+      "url": "https://faiththruphysics.com/genesis-to-quantum/gtq-03a-macarthur-and-the-equation.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/genesis-to-quantum/gtq-03a-macarthur-and-the-equation",
+      "ctype": "text/html",
+      "bytes": 44560,
+      "depth": 1,
+      "title": "GTQ 03A: MacArthur and the Equation | Genesis to Quantum"
+    },
+    {
+      "url": "https://faiththruphysics.com/genesis-to-quantum/gtq-03b-the-three-pathways.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/genesis-to-quantum/gtq-03b-the-three-pathways",
+      "ctype": "text/html",
+      "bytes": 51856,
+      "depth": 1,
+      "title": "The Three Pathways \u2014 Genesis to Quantum"
+    },
+    {
+      "url": "https://faiththruphysics.com/genesis-to-quantum/gtq-03c-why-god-drowned-everybody.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/genesis-to-quantum/gtq-03c-why-god-drowned-everybody",
+      "ctype": "text/html",
+      "bytes": 50343,
+      "depth": 1,
+      "title": "Why God Drowned Everybody \u2014 Genesis to Quantum"
+    },
+    {
+      "url": "https://faiththruphysics.com/genesis-to-quantum/gtq-04-the-day-time-began.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/genesis-to-quantum/gtq-04-the-day-time-began",
+      "ctype": "text/html",
+      "bytes": 136718,
+      "depth": 1,
+      "title": "Article 04: The Day Time Began \u2014 Genesis to Quantum"
+    },
+    {
+      "url": "https://faiththruphysics.com/genesis-to-quantum/gtq-04b-how-lies-kill.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/genesis-to-quantum/gtq-04b-how-lies-kill",
+      "ctype": "text/html",
+      "bytes": 54614,
+      "depth": 1,
+      "title": "How Lies Kill \u2014 Genesis to Quantum"
+    },
+    {
+      "url": "https://faiththruphysics.com/genesis-to-quantum/gtq-05a-trinity-mechanism.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/genesis-to-quantum/gtq-05a-trinity-mechanism",
+      "ctype": "text/html",
+      "bytes": 50587,
+      "depth": 1,
+      "title": "The Trinity Mechanism \u2014 Genesis to Quantum"
+    },
+    {
+      "url": "https://faiththruphysics.com/genesis-to-quantum/gtq-06-why-reality-needs-three.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/genesis-to-quantum/gtq-06-why-reality-needs-three",
+      "ctype": "text/html",
+      "bytes": 52390,
+      "depth": 1,
+      "title": "Article 06: Why Reality Needs Three \u2014 Genesis to Quantum"
+    },
+    {
+      "url": "https://faiththruphysics.com/genesis-to-quantum/gtq-14-physics-broken-in-two.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/genesis-to-quantum/gtq-14-physics-broken-in-two",
+      "ctype": "text/html",
+      "bytes": 42237,
+      "depth": 1,
+      "title": "GTQ-14 Why Physics Is Broken in Two \u2014 Genesis to Quantum"
+    },
+    {
+      "url": "https://faiththruphysics.com/genesis-to-quantum/gtq-16-photon-isnt-watching.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/genesis-to-quantum/gtq-16-photon-isnt-watching",
+      "ctype": "text/html",
+      "bytes": 43777,
+      "depth": 1,
+      "title": "GTQ-16 The Photon Isn't Watching You Back \u2014 Genesis to Quantum"
+    },
+    {
+      "url": "https://faiththruphysics.com/genesis-to-quantum/gtq-17-ran-the-numbers.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/genesis-to-quantum/gtq-17-ran-the-numbers",
+      "ctype": "text/html",
+      "bytes": 42307,
+      "depth": 1,
+      "title": "GTQ-17 We Actually Ran the Numbers \u2014 Genesis to Quantum"
+    },
+    {
+      "url": "https://faiththruphysics.com/genesis-to-quantum/gtq-18-eraser-and-the-cross.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/genesis-to-quantum/gtq-18-eraser-and-the-cross",
+      "ctype": "text/html",
+      "bytes": 43802,
+      "depth": 1,
+      "title": "GTQ-18 The Eraser and the Cross \u2014 Genesis to Quantum"
+    },
+    {
+      "url": "https://faiththruphysics.com/genesis-to-quantum/gtq-19-temporal-trap.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/genesis-to-quantum/gtq-19-temporal-trap",
+      "ctype": "text/html",
+      "bytes": 42043,
+      "depth": 1,
+      "title": "GTQ-19 The Temporal Trap \u2014 Genesis to Quantum"
+    },
+    {
+      "url": "https://faiththruphysics.com/genesis-to-quantum/gtq-20-how-god-restores.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/genesis-to-quantum/gtq-20-how-god-restores",
+      "ctype": "text/html",
+      "bytes": 42038,
+      "depth": 1,
+      "title": "GTQ-20 How God Restores \u2014 Genesis to Quantum"
+    },
+    {
+      "url": "https://faiththruphysics.com/genesis-to-quantum/gtq-21-science-behind-restoration.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/genesis-to-quantum/gtq-21-science-behind-restoration",
+      "ctype": "text/html",
+      "bytes": 41999,
+      "depth": 1,
+      "title": "GTQ-21 The Science Behind the Restoration \u2014 Genesis to Quantum"
+    },
+    {
+      "url": "https://faiththruphysics.com/genesis-to-quantum/gtq-22-same-god-both-testaments.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/genesis-to-quantum/gtq-22-same-god-both-testaments",
+      "ctype": "text/html",
+      "bytes": 61369,
+      "depth": 1,
+      "title": "GTQ-22 The Same God in Both Testaments \u2014 Genesis to Quantum"
+    },
+    {
+      "url": "https://faiththruphysics.com/genesis-to-quantum/gtq-23-regime-dependent-theology.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/genesis-to-quantum/gtq-23-regime-dependent-theology",
+      "ctype": "text/html",
+      "bytes": 41951,
+      "depth": 1,
+      "title": "GTQ-23 The Structural Case for Regime-Dependent Theology \u2014 Genesis to Quantum"
+    },
+    {
+      "url": "https://faiththruphysics.com/genesis-to-quantum/gtq-24-societies-die-same-way.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/genesis-to-quantum/gtq-24-societies-die-same-way",
+      "ctype": "text/html",
+      "bytes": 41471,
+      "depth": 1,
+      "title": "GTQ-24 Societies Die the Same Way People Do \u2014 Genesis to Quantum"
+    },
+    {
+      "url": "https://faiththruphysics.com/genesis-to-quantum/gtq-25-counter-move.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/genesis-to-quantum/gtq-25-counter-move",
+      "ctype": "text/html",
+      "bytes": 60675,
+      "depth": 1,
+      "title": "GTQ-25 The Counter-Move \u2014 Genesis to Quantum"
+    },
+    {
+      "url": "https://faiththruphysics.com/genesis-to-quantum/gtq-26-pattern-is-the-signal.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/genesis-to-quantum/gtq-26-pattern-is-the-signal",
+      "ctype": "text/html",
+      "bytes": 41986,
+      "depth": 1,
+      "title": "GTQ-26 Why the Pattern Is the Signal \u2014 Genesis to Quantum"
+    },
+    {
+      "url": "https://faiththruphysics.com/genesis-to-quantum/index.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/genesis-to-quantum/",
+      "ctype": "text/html",
+      "bytes": 58764,
+      "depth": 1,
+      "title": "Genesis to Quantum \u2014 The Core Series"
+    },
+    {
+      "url": "https://faiththruphysics.com/genesis-to-quantum/intro/gtq-01-measurement-collapsed-reality.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/genesis-to-quantum/intro/gtq-01-measurement-collapsed-reality.html",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/genesis-to-quantum/intro/gtq-01a-collapse-threshold.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/genesis-to-quantum/intro/gtq-01a-collapse-threshold.html",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/genesis-to-quantum/intro/gtq-02-the-first-quantum-state.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/genesis-to-quantum/intro/gtq-02-the-first-quantum-state.html",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/genesis-to-quantum/intro/gtq-03-free-will-two-frames.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/genesis-to-quantum/intro/gtq-03-free-will-two-frames.html",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/genesis-to-quantum/intro/gtq-04-the-day-time-began.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/genesis-to-quantum/intro/gtq-04-the-day-time-began.html",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/genesis-to-quantum/intro/gtq-05-the-substrate-fractured.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/genesis-to-quantum/intro/gtq-05-the-substrate-fractured.html",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/glossary/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/glossary/",
+      "ctype": "text/html",
+      "bytes": 114256,
+      "depth": 1,
+      "title": "FAITH THROUGH PHYSICS \u2014 Glossary of the Fractured Substrate"
+    },
+    {
+      "url": "https://faiththruphysics.com/glossary/index.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/glossary/",
+      "ctype": "text/html",
+      "bytes": 114256,
+      "depth": 2,
+      "title": "FAITH THROUGH PHYSICS \u2014 Glossary of the Fractured Substrate"
+    },
+    {
+      "url": "https://faiththruphysics.com/index.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 1,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/",
+      "ctype": "text/html",
+      "bytes": 57662,
+      "depth": 1,
+      "title": "Isomorphism Explorer \u2014 Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-000_24_property_identity.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-000_24_property_identity",
+      "ctype": "text/html",
+      "bytes": 76700,
+      "depth": 2,
+      "title": "ISO-000 \u00b7 The 24-Property Structural Identity \u00b7 Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-001_trinity_mathematical_structure.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-001_trinity_mathematical_structure",
+      "ctype": "text/html",
+      "bytes": 80401,
+      "depth": 2,
+      "title": "ISO-001_Trinity_Mathematical_Structure"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-002_terminus_sui_grace.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-002_terminus_sui_grace",
+      "ctype": "text/html",
+      "bytes": 86596,
+      "depth": 2,
+      "title": "ISO-002_Terminus_Sui_Grace"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-003_entropy_sin.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-003_entropy_sin",
+      "ctype": "text/html",
+      "bytes": 96630,
+      "depth": 2,
+      "title": "ISO-003_Entropy_Sin"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-004_quantum_collapse_fall.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-004_quantum_collapse_fall",
+      "ctype": "text/html",
+      "bytes": 87753,
+      "depth": 2,
+      "title": "ISO-004_Quantum_Collapse_Fall"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-005_fiat_phantom_energy.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-005_fiat_phantom_energy",
+      "ctype": "text/html",
+      "bytes": 101300,
+      "depth": 2,
+      "title": "ISO-005_Fiat_Phantom_Energy"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-006_information_primacy.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-006_information_primacy",
+      "ctype": "text/html",
+      "bytes": 89391,
+      "depth": 2,
+      "title": "ISO-006_Information_Primacy"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-007_self_grounding_substrate.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-007_self_grounding_substrate",
+      "ctype": "text/html",
+      "bytes": 91024,
+      "depth": 2,
+      "title": "ISO-007_Self_Grounding_Substrate"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-008_coherence_order.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-008_coherence_order",
+      "ctype": "text/html",
+      "bytes": 91461,
+      "depth": 2,
+      "title": "ISO-008_Coherence_Order"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-009_compression_simplicity.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-009_compression_simplicity",
+      "ctype": "text/html",
+      "bytes": 91286,
+      "depth": 2,
+      "title": "ISO-009_Compression_Simplicity"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-010_observer_participation.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-010_observer_participation",
+      "ctype": "text/html",
+      "bytes": 93758,
+      "depth": 2,
+      "title": "ISO-010_Observer_Participation"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-011_superposition_collapse.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-011_superposition_collapse",
+      "ctype": "text/html",
+      "bytes": 97659,
+      "depth": 2,
+      "title": "ISO-011_Superposition_Collapse"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-012_sign_operator.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-012_sign_operator",
+      "ctype": "text/html",
+      "bytes": 82624,
+      "depth": 2,
+      "title": "ISO-012 &middot; Sign Operator &middot; Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-013_grace_operator.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-013_grace_operator",
+      "ctype": "text/html",
+      "bytes": 81744,
+      "depth": 2,
+      "title": "ISO-013 &middot; Grace Operator &middot; Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-014_soul_field.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-014_soul_field",
+      "ctype": "text/html",
+      "bytes": 92305,
+      "depth": 2,
+      "title": "ISO-014_Soul_Field"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-015_moral_physics.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-015_moral_physics",
+      "ctype": "text/html",
+      "bytes": 77212,
+      "depth": 2,
+      "title": "ISO-015 &middot; Moral Physics &middot; Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-016_eschatological_attractors.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-016_eschatological_attractors",
+      "ctype": "text/html",
+      "bytes": 69005,
+      "depth": 2,
+      "title": "ISO-016 &middot; Eschatological Attractors &middot; Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-017_quantum_gravity_unification.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-017_quantum_gravity_unification",
+      "ctype": "text/html",
+      "bytes": 93542,
+      "depth": 2,
+      "title": "ISO-017_Quantum_Gravity_Unification"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-018_cosmological_grace.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-018_cosmological_grace",
+      "ctype": "text/html",
+      "bytes": 74541,
+      "depth": 2,
+      "title": "ISO-018 &middot; Cosmological Grace &middot; Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-019_boundary_conditions.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-019_boundary_conditions",
+      "ctype": "text/html",
+      "bytes": 96583,
+      "depth": 2,
+      "title": "ISO-019_Boundary_Conditions"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-020_ai_consciousness.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-020_ai_consciousness",
+      "ctype": "text/html",
+      "bytes": 91860,
+      "depth": 2,
+      "title": "ISO-020_AI_Consciousness"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-021_falsifiability_architecture.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-021_falsifiability_architecture",
+      "ctype": "text/html",
+      "bytes": 90356,
+      "depth": 2,
+      "title": "ISO-021_Falsifiability_Architecture"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-022_ten_laws_integration.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-022_ten_laws_integration",
+      "ctype": "text/html",
+      "bytes": 93308,
+      "depth": 2,
+      "title": "ISO-022_Ten_Laws_Integration"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-023_consilience.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-023_consilience",
+      "ctype": "text/html",
+      "bytes": 93081,
+      "depth": 2,
+      "title": "ISO-023_Consilience"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-024_worldview_uniqueness.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-024_worldview_uniqueness",
+      "ctype": "text/html",
+      "bytes": 97201,
+      "depth": 2,
+      "title": "ISO-024_Worldview_Uniqueness"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-025_immunology_soteriology.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-025_immunology_soteriology",
+      "ctype": "text/html",
+      "bytes": 91197,
+      "depth": 2,
+      "title": "ISO-025_Immunology_Soteriology"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-026_addiction_sin_bondage.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-026_addiction_sin_bondage",
+      "ctype": "text/html",
+      "bytes": 93550,
+      "depth": 2,
+      "title": "ISO-026_Addiction_Sin_Bondage"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-027_epidemiology_sin_propagation.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-027_epidemiology_sin_propagation",
+      "ctype": "text/html",
+      "bytes": 95182,
+      "depth": 2,
+      "title": "ISO-027_Epidemiology_Sin_Propagation"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-028_ecology_ecclesiology.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-028_ecology_ecclesiology",
+      "ctype": "text/html",
+      "bytes": 78709,
+      "depth": 2,
+      "title": "ISO-028 &middot; Ecology &harr; Ecclesiology &middot; Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-029_music_theory_trinitarian_harmony.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-029_music_theory_trinitarian_harmony",
+      "ctype": "text/html",
+      "bytes": 89955,
+      "depth": 2,
+      "title": "ISO-029_Music_Theory_Trinitarian_Harmony"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-030_genetics_scriptural_transmission.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-030_genetics_scriptural_transmission",
+      "ctype": "text/html",
+      "bytes": 90526,
+      "depth": 2,
+      "title": "ISO-030_Genetics_Scriptural_Transmission"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-031_network_science_ecclesiology.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-031_network_science_ecclesiology",
+      "ctype": "text/html",
+      "bytes": 92949,
+      "depth": 2,
+      "title": "ISO-031_Network_Science_Ecclesiology"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-032_attachment_theory_prayer_worship.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-032_attachment_theory_prayer_worship",
+      "ctype": "text/html",
+      "bytes": 95692,
+      "depth": 2,
+      "title": "ISO-032_Attachment_Theory_Prayer_Worship"
+    },
+    {
+      "url": "https://faiththruphysics.com/isomorphism/iso-033_pharmacology_grace_mechanics.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/isomorphism/iso-033_pharmacology_grace_mechanics",
+      "ctype": "text/html",
+      "bytes": 96100,
+      "depth": 2,
+      "title": "ISO-033_Pharmacology_Grace_Mechanics"
+    },
+    {
+      "url": "https://faiththruphysics.com/lean4/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/lean4/",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/lean4/lean4-corpus.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/lean4/lean4-corpus",
+      "ctype": "text/html",
+      "bytes": 150164,
+      "depth": 1,
+      "title": "The Lean 4 Corpus \u2014 Faith Through Physics Research Initiative"
+    },
+    {
+      "url": "https://faiththruphysics.com/lean4/lean4-index.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/lean4/lean4-index",
+      "ctype": "text/html",
+      "bytes": 35021,
+      "depth": 1,
+      "title": "Lean 4 Formal Verification \u2014 Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/logo-stories/index.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/logo-stories/index.html",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/master-equation/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/master-equation/",
+      "ctype": "text/html",
+      "bytes": 44152,
+      "depth": 1,
+      "title": "Master Equation Explorer \u2014 Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/master-equation/O-09_Variables-and-Laws/law-01-G-grace.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/master-equation/O-09_Variables-and-Laws/law-01-G-grace",
+      "ctype": "text/html",
+      "bytes": 31429,
+      "depth": 2,
+      "title": "Law 01: G \u2014 Grace | Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/master-equation/O-09_Variables-and-Laws/law-02-M-meaning.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/master-equation/O-09_Variables-and-Laws/law-02-M-meaning",
+      "ctype": "text/html",
+      "bytes": 31117,
+      "depth": 2,
+      "title": "Law 02: M \u2014 Meaning | Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/master-equation/O-09_Variables-and-Laws/law-03-E-truth.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/master-equation/O-09_Variables-and-Laws/law-03-E-truth",
+      "ctype": "text/html",
+      "bytes": 30193,
+      "depth": 2,
+      "title": "Law 03: E \u2014 Truth | Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/master-equation/O-09_Variables-and-Laws/law-04-S-entropy.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/master-equation/O-09_Variables-and-Laws/law-04-S-entropy",
+      "ctype": "text/html",
+      "bytes": 30121,
+      "depth": 2,
+      "title": "Law 04: S \u2014 Entropy/Judgment | Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/master-equation/O-09_Variables-and-Laws/law-05-T-logos.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/master-equation/O-09_Variables-and-Laws/law-05-T-logos",
+      "ctype": "text/html",
+      "bytes": 30419,
+      "depth": 2,
+      "title": "Law 05: T \u2014 Logos | Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/master-equation/O-09_Variables-and-Laws/law-06-K-love.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/master-equation/O-09_Variables-and-Laws/law-06-K-love",
+      "ctype": "text/html",
+      "bytes": 30171,
+      "depth": 2,
+      "title": "Law 06: K \u2014 Love | Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/master-equation/O-09_Variables-and-Laws/law-07-R-relationship.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/master-equation/O-09_Variables-and-Laws/law-07-R-relationship",
+      "ctype": "text/html",
+      "bytes": 30060,
+      "depth": 2,
+      "title": "Law 07: R \u2014 Relationship | Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/master-equation/O-09_Variables-and-Laws/law-08-Q-faith.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/master-equation/O-09_Variables-and-Laws/law-08-Q-faith",
+      "ctype": "text/html",
+      "bytes": 29929,
+      "depth": 2,
+      "title": "Law 08: Q \u2014 Faith | Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/master-equation/O-09_Variables-and-Laws/law-09-F-sin.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/master-equation/O-09_Variables-and-Laws/law-09-F-sin",
+      "ctype": "text/html",
+      "bytes": 30044,
+      "depth": 2,
+      "title": "Law 09: F \u2014 Sin/Weak Force | Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/master-equation/O-09_Variables-and-Laws/law-10-C-coherence.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/master-equation/O-09_Variables-and-Laws/law-10-C-coherence",
+      "ctype": "text/html",
+      "bytes": 31614,
+      "depth": 2,
+      "title": "Law 10: C \u2014 Coherence/Christ | Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/master-equation/index.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/master-equation/",
+      "ctype": "text/html",
+      "bytes": 44152,
+      "depth": 1,
+      "title": "Master Equation Explorer \u2014 Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/master-equation/meq-01-G-grace.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/master-equation/meq-01-G-grace",
+      "ctype": "text/html",
+      "bytes": 19998,
+      "depth": 2,
+      "title": "Redirecting to Master Equation"
+    },
+    {
+      "url": "https://faiththruphysics.com/master-equation/meq-02-M-meaning.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/master-equation/meq-02-M-meaning",
+      "ctype": "text/html",
+      "bytes": 20004,
+      "depth": 2,
+      "title": "Redirecting to Master Equation"
+    },
+    {
+      "url": "https://faiththruphysics.com/master-equation/meq-03-E-truth.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/master-equation/meq-03-E-truth",
+      "ctype": "text/html",
+      "bytes": 19998,
+      "depth": 2,
+      "title": "Redirecting to Master Equation"
+    },
+    {
+      "url": "https://faiththruphysics.com/master-equation/meq-04-S-entropy.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/master-equation/meq-04-S-entropy",
+      "ctype": "text/html",
+      "bytes": 20004,
+      "depth": 2,
+      "title": "Redirecting to Master Equation"
+    },
+    {
+      "url": "https://faiththruphysics.com/master-equation/meq-05-T-logos.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/master-equation/meq-05-T-logos",
+      "ctype": "text/html",
+      "bytes": 19998,
+      "depth": 2,
+      "title": "Redirecting to Master Equation"
+    },
+    {
+      "url": "https://faiththruphysics.com/master-equation/meq-06-K-love.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/master-equation/meq-06-K-love",
+      "ctype": "text/html",
+      "bytes": 19995,
+      "depth": 2,
+      "title": "Redirecting to Master Equation"
+    },
+    {
+      "url": "https://faiththruphysics.com/master-equation/meq-07-R-relationship.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/master-equation/meq-07-R-relationship",
+      "ctype": "text/html",
+      "bytes": 20019,
+      "depth": 2,
+      "title": "Redirecting to Master Equation"
+    },
+    {
+      "url": "https://faiththruphysics.com/master-equation/meq-08-Q-faith.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/master-equation/meq-08-Q-faith",
+      "ctype": "text/html",
+      "bytes": 19998,
+      "depth": 2,
+      "title": "Redirecting to Master Equation"
+    },
+    {
+      "url": "https://faiththruphysics.com/master-equation/meq-09-F-sin.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/master-equation/meq-09-F-sin",
+      "ctype": "text/html",
+      "bytes": 19992,
+      "depth": 2,
+      "title": "Redirecting to Master Equation"
+    },
+    {
+      "url": "https://faiththruphysics.com/master-equation/meq-10-C-coherence.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/master-equation/meq-10-C-coherence",
+      "ctype": "text/html",
+      "bytes": 20010,
+      "depth": 2,
+      "title": "Redirecting to Master Equation"
+    },
+    {
+      "url": "https://faiththruphysics.com/master-equation/meq-Formalism.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/master-equation/meq-Formalism",
+      "ctype": "text/html",
+      "bytes": 19995,
+      "depth": 2,
+      "title": "Redirecting to Master Equation"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/",
+      "ctype": "text/html",
+      "bytes": 70559,
+      "depth": 2,
+      "title": "Is America in Moral Decline? The Physics of Cultural Decoherence"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/01-story-thread/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/01-story-thread/",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/01-story-thread/MDA-001-story-introduction",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/01-story-thread/MDA-001-story-introduction",
+      "ctype": "text/html",
+      "bytes": 51085,
+      "depth": 2,
+      "title": "Introduction \u2014 The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/01-story-thread/MDA-002-samuel-1900",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/01-story-thread/MDA-002-samuel-1900",
+      "ctype": "text/html",
+      "bytes": 40603,
+      "depth": 2,
+      "title": "Story 01: Samuel (1900) \u2014 The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/01-story-thread/MDA-008-henry-1926",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/01-story-thread/MDA-008-henry-1926",
+      "ctype": "text/html",
+      "bytes": 64983,
+      "depth": 2,
+      "title": "Part II: Henry (1926) -- The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/01-story-thread/MDA-012-william-1950",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/01-story-thread/MDA-012-william-1950",
+      "ctype": "text/html",
+      "bytes": 65267,
+      "depth": 2,
+      "title": "Part III: William (1950) -- The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/01-story-thread/MDA-016-thomas-1974",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/01-story-thread/MDA-016-thomas-1974",
+      "ctype": "text/html",
+      "bytes": 63823,
+      "depth": 2,
+      "title": "Part IV: Thomas (1974) -- The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/01-story-thread/MDA-031-jacob-1998",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/01-story-thread/MDA-031-jacob-1998",
+      "ctype": "text/html",
+      "bytes": 61029,
+      "depth": 2,
+      "title": "Part V: Jacob (1998) -- The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/01-story-thread/MDA-050-jacob-2025",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/01-story-thread/MDA-050-jacob-2025",
+      "ctype": "text/html",
+      "bytes": 69314,
+      "depth": 2,
+      "title": "Part VI: Jacob (2025) -- The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/02-method-and-metrics/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/02-method-and-metrics/",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/02-method-and-metrics/MDA-003-measuring-moral-health",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/02-method-and-metrics/MDA-003-measuring-moral-health",
+      "ctype": "text/html",
+      "bytes": 48829,
+      "depth": 2,
+      "title": "Part 1: What If We Could Measure Moral Health? \u2014 The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/02-method-and-metrics/MDA-006-research-method",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/02-method-and-metrics/MDA-006-research-method",
+      "ctype": "text/html",
+      "bytes": 56124,
+      "depth": 2,
+      "title": "Research Method \u2014 The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/02-method-and-metrics/MDA-007-nine-domains",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/02-method-and-metrics/MDA-007-nine-domains",
+      "ctype": "text/html",
+      "bytes": 58242,
+      "depth": 2,
+      "title": "Part 2: The Nine Domains \u2014 The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/02-method-and-metrics/MDA-037-biaxiosum-audit",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/02-method-and-metrics/MDA-037-biaxiosum-audit",
+      "ctype": "text/html",
+      "bytes": 61402,
+      "depth": 2,
+      "title": "The Biaxiosum Audit \u2014 The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/02-method-and-metrics/MDA-038-coherence-metric",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/02-method-and-metrics/MDA-038-coherence-metric",
+      "ctype": "text/html",
+      "bytes": 73273,
+      "depth": 2,
+      "title": "The Coherence Metric \u2014 A Physics-Based Framework for Measuring Structural Integrity"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/02-method-and-metrics/MDA-039-physics-of-coherence",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/02-method-and-metrics/MDA-039-physics-of-coherence",
+      "ctype": "text/html",
+      "bytes": 42843,
+      "depth": 2,
+      "title": "The Physics of Coherence - The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/02-method-and-metrics/MDA-040-statistical-synthesis",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/02-method-and-metrics/MDA-040-statistical-synthesis",
+      "ctype": "text/html",
+      "bytes": 38639,
+      "depth": 2,
+      "title": "The Moral Decay of America: Statistical Synthesis"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/02-method-and-metrics/MDA-041-statistical-spine",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/02-method-and-metrics/MDA-041-statistical-spine",
+      "ctype": "text/html",
+      "bytes": 38713,
+      "depth": 2,
+      "title": "The Statistical Spine \u2014 Moral Decline of America | Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/03-evidence-chronology/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/03-evidence-chronology/",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/03-evidence-chronology/MDA-005-empirical-evidence",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/03-evidence-chronology/MDA-005-empirical-evidence",
+      "ctype": "text/html",
+      "bytes": 39219,
+      "depth": 2,
+      "title": "The Empirical Evidence \u2014 The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/03-evidence-chronology/MDA-009-the-1900-baseline",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/03-evidence-chronology/MDA-009-the-1900-baseline",
+      "ctype": "text/html",
+      "bytes": 54206,
+      "depth": 2,
+      "title": "Part 3: The 1900 Baseline \u2014 The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/03-evidence-chronology/MDA-010-pre-modern-baseline",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/03-evidence-chronology/MDA-010-pre-modern-baseline",
+      "ctype": "text/html",
+      "bytes": 78004,
+      "depth": 2,
+      "title": "The Pre-Modern Baseline (1900\u20131919) \u2014 The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/03-evidence-chronology/MDA-011-collective-security-1930",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/03-evidence-chronology/MDA-011-collective-security-1930",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/03-evidence-chronology/MDA-013-peak-coherence-1940",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/03-evidence-chronology/MDA-013-peak-coherence-1940",
+      "ctype": "text/html",
+      "bytes": 67633,
+      "depth": 2,
+      "title": "1940-1949: Peak Coherence \u2014 The Crucible of Consensus"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/03-evidence-chronology/MDA-014-fissure-1950",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/03-evidence-chronology/MDA-014-fissure-1950",
+      "ctype": "text/html",
+      "bytes": 59204,
+      "depth": 2,
+      "title": "The Fissure in Conformity (1950\u20131960) \u2014 The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/03-evidence-chronology/MDA-015-long-decline",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/03-evidence-chronology/MDA-015-long-decline",
+      "ctype": "text/html",
+      "bytes": 51915,
+      "depth": 2,
+      "title": "Part 4: The Long Decline (1900-1965) \u2014 The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/03-evidence-chronology/MDA-017-unraveling-1960",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/03-evidence-chronology/MDA-017-unraveling-1960",
+      "ctype": "text/html",
+      "bytes": 67478,
+      "depth": 2,
+      "title": "1960\u20131967: The Unraveling \u2014 The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/03-evidence-chronology/MDA-018-great-decoupling-1968",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/03-evidence-chronology/MDA-018-great-decoupling-1968",
+      "ctype": "text/html",
+      "bytes": 66426,
+      "depth": 2,
+      "title": "The Great Decoupling (1968\u20131973) \u2014 The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/03-evidence-chronology/MDA-019-current-state-2024",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/03-evidence-chronology/MDA-019-current-state-2024",
+      "ctype": "text/html",
+      "bytes": 66342,
+      "depth": 2,
+      "title": "2024\u20132025: The Current State \u2014 Where Coherence Still Lives"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/04-collapse-mechanisms/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/04-collapse-mechanisms/",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/04-collapse-mechanisms/MDA-020-phase-transition",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/04-collapse-mechanisms/MDA-020-phase-transition",
+      "ctype": "text/html",
+      "bytes": 53762,
+      "depth": 2,
+      "title": "Part 5: The Phase Transition (1968-1973) \u2014 The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/04-collapse-mechanisms/MDA-021-anatomy-of-phase-transition",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/04-collapse-mechanisms/MDA-021-anatomy-of-phase-transition",
+      "ctype": "text/html",
+      "bytes": 39169,
+      "depth": 2,
+      "title": "The Anatomy of a Phase Transition \u2014 The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/04-collapse-mechanisms/MDA-022-cascade",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/04-collapse-mechanisms/MDA-022-cascade",
+      "ctype": "text/html",
+      "bytes": 53514,
+      "depth": 2,
+      "title": "Part 6: The Cascade (1973-2024) \u2014 The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/04-collapse-mechanisms/MDA-023-coherence-cascade",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/04-collapse-mechanisms/MDA-023-coherence-cascade",
+      "ctype": "text/html",
+      "bytes": 38921,
+      "depth": 2,
+      "title": "The Coherence Cascade: Words Fail First"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/04-collapse-mechanisms/MDA-024-semantic-collapse",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/04-collapse-mechanisms/MDA-024-semantic-collapse",
+      "ctype": "text/html",
+      "bytes": 39715,
+      "depth": 2,
+      "title": "The Semantic Precursor \u2014 How Language Fails First | Moral Decline of America (03/10)"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/04-collapse-mechanisms/MDA-025-cognitive-decline",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/04-collapse-mechanisms/MDA-025-cognitive-decline",
+      "ctype": "text/html",
+      "bytes": 39727,
+      "depth": 2,
+      "title": "The Cognitive Decline \u2014 The Great SAT Score Turnover | Moral Decline of America (04/10)"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/04-collapse-mechanisms/MDA-026-spiritual-collapse",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/04-collapse-mechanisms/MDA-026-spiritual-collapse",
+      "ctype": "text/html",
+      "bytes": 39645,
+      "depth": 2,
+      "title": "The Spiritual & Psychological Collapse | Moral Decline of America (05/10)"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/04-collapse-mechanisms/MDA-027-signal-went-dark",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/04-collapse-mechanisms/MDA-027-signal-went-dark",
+      "ctype": "text/html",
+      "bytes": 38885,
+      "depth": 2,
+      "title": "The Signal Went Dark \u2014 Institutional Truth Collapse | Moral Decline of America (06/10)"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/04-collapse-mechanisms/MDA-028-phantom-money",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/04-collapse-mechanisms/MDA-028-phantom-money",
+      "ctype": "text/html",
+      "bytes": 43742,
+      "depth": 2,
+      "title": "Phantom Money, Phantom Morals \u2014 Economic Collapse | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/04-collapse-mechanisms/MDA-029-observer-collapsed",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/04-collapse-mechanisms/MDA-029-observer-collapsed",
+      "ctype": "text/html",
+      "bytes": 39463,
+      "depth": 2,
+      "title": "The Observer Collapsed \u2014 Individual Identity Dissolution | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/04-collapse-mechanisms/MDA-030-trinity-mechanism",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/04-collapse-mechanisms/MDA-030-trinity-mechanism",
+      "ctype": "text/html",
+      "bytes": 71847,
+      "depth": 2,
+      "title": "The Trinity-Wave Collapse Mechanism \u2014 Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/04-collapse-mechanisms/MDA-032-why-bad-is-easier",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/04-collapse-mechanisms/MDA-032-why-bad-is-easier",
+      "ctype": "text/html",
+      "bytes": 59114,
+      "depth": 2,
+      "title": "Why the Bad Is Easier Than the Good \u2014 The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/04-collapse-mechanisms/MDA-033-entropic-society",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/04-collapse-mechanisms/MDA-033-entropic-society",
+      "ctype": "text/html",
+      "bytes": 93645,
+      "depth": 2,
+      "title": "The Entropic Society \u2014 Technology, Obsolescence, and the Devaluation of American Moral Capital"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/04-collapse-mechanisms/MDA-034-technology-entropy",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/04-collapse-mechanisms/MDA-034-technology-entropy",
+      "ctype": "text/html",
+      "bytes": 44812,
+      "depth": 2,
+      "title": "The Entropic Society \u2014 Technology, Obsolescence, and Moral Decline"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/04-collapse-mechanisms/MDA-035-great-reconfiguration",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/04-collapse-mechanisms/MDA-035-great-reconfiguration",
+      "ctype": "text/html",
+      "bytes": 87335,
+      "depth": 2,
+      "title": "The Great Reconfiguration \u2014 A Century of Structural Change in American Christianity"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/04-collapse-mechanisms/MDA-036-regulatory-impulse-1900",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/04-collapse-mechanisms/MDA-036-regulatory-impulse-1900",
+      "ctype": "text/html",
+      "bytes": 93582,
+      "depth": 2,
+      "title": "The Regulatory Impulse \u2014 Moral Foundation 1900\u20131910"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/05-amish-and-case-studies/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/05-amish-and-case-studies/",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/05-amish-and-case-studies/MDA-042-amish-exception-THE-CLAIM",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/05-amish-and-case-studies/MDA-042-amish-exception-THE-CLAIM",
+      "ctype": "text/html",
+      "bytes": 56206,
+      "depth": 2,
+      "title": "The Amish Exception \u2014 Decline Was Not Inevitable"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/05-amish-and-case-studies/MDA-043-amish-proof-THE-PROOF",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/05-amish-and-case-studies/MDA-043-amish-proof-THE-PROOF",
+      "ctype": "text/html",
+      "bytes": 46796,
+      "depth": 2,
+      "title": "The Amish Proof \u2014 A Control Group for Coherence | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/05-amish-and-case-studies/MDA-044-amish-control-study-THE-METHOD",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/05-amish-and-case-studies/MDA-044-amish-control-study-THE-METHOD",
+      "ctype": "text/html",
+      "bytes": 64412,
+      "depth": 2,
+      "title": "Amish vs. America: The Control Study \u2014 The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/05-amish-and-case-studies/MDA-045-amish-control-group-THE-DATA",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/05-amish-and-case-studies/MDA-045-amish-control-group-THE-DATA",
+      "ctype": "text/html",
+      "bytes": 38890,
+      "depth": 2,
+      "title": "The Amish Anomaly \u2014 A Control Group for American Moral Decay"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/05-amish-and-case-studies/MDA-046-amish-demographics-THE-NUMBERS",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/05-amish-and-case-studies/MDA-046-amish-demographics-THE-NUMBERS",
+      "ctype": "text/html",
+      "bytes": 38773,
+      "depth": 2,
+      "title": "Demographics & Growth \u2014 The Amish Ascension"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/05-amish-and-case-studies/MDA-047-amish-tech-filter-THE-FILTER",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/05-amish-and-case-studies/MDA-047-amish-tech-filter-THE-FILTER",
+      "ctype": "text/html",
+      "bytes": 60006,
+      "depth": 2,
+      "title": "The Technological Filter \u2014 The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/05-amish-and-case-studies/MDA-048-ordnung-algorithm-THE-MECHANISM",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/05-amish-and-case-studies/MDA-048-ordnung-algorithm-THE-MECHANISM",
+      "ctype": "text/html",
+      "bytes": 88853,
+      "depth": 2,
+      "title": "The Amish Ordnung as System Algorithm \u2014 The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/05-amish-and-case-studies/MDA-049-coherence-factory-THE-SYNTHESIS",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/05-amish-and-case-studies/MDA-049-coherence-factory-THE-SYNTHESIS",
+      "ctype": "text/html",
+      "bytes": 57794,
+      "depth": 2,
+      "title": "The Coherence Factory \u2014 The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/05-amish-and-case-studies/MDA-051-korea-experiment",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/05-amish-and-case-studies/MDA-051-korea-experiment",
+      "ctype": "text/html",
+      "bytes": 57291,
+      "depth": 2,
+      "title": "Part 8: The Korea Experiment \u2014 The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/06-recovery-and-synthesis/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/06-recovery-and-synthesis/",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/06-recovery-and-synthesis/MDA-052-individual-recovery",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/06-recovery-and-synthesis/MDA-052-individual-recovery",
+      "ctype": "text/html",
+      "bytes": 58276,
+      "depth": 2,
+      "title": "Part 9: Individual Recovery \u2014 The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/06-recovery-and-synthesis/MDA-053-the-question",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/06-recovery-and-synthesis/MDA-053-the-question",
+      "ctype": "text/html",
+      "bytes": 59610,
+      "depth": 2,
+      "title": "Part 10: The Question \u2014 The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/06-recovery-and-synthesis/MDA-054-way-back",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/06-recovery-and-synthesis/MDA-054-way-back",
+      "ctype": "text/html",
+      "bytes": 39141,
+      "depth": 2,
+      "title": "The Way Back \u2014 Recovery Physics | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/90-appendices-and-source-packets/MDA-900-appendix-original-introduction",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/90-appendices-and-source-packets/MDA-900-appendix-original-introduction",
+      "ctype": "text/html",
+      "bytes": 39141,
+      "depth": 2,
+      "title": "Introduction & FACTS Framework \u2014 The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/90-appendices-and-source-packets/MDA-901-appendix-america-index",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/90-appendices-and-source-packets/MDA-901-appendix-america-index",
+      "ctype": "text/html",
+      "bytes": 39882,
+      "depth": 2,
+      "title": "The Moral Decline of America \u2014 Series Index | Faith Through Physics Institute"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/90-appendices-and-source-packets/MDA-902-appendix-trans-domain-analysis",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/90-appendices-and-source-packets/MDA-902-appendix-trans-domain-analysis",
+      "ctype": "text/html",
+      "bytes": 40514,
+      "depth": 2,
+      "title": "The Moral Decline of America \u2014 A Trans-Domain Analysis"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/90-appendices-and-source-packets/MDA-903-appendix-series-home",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/90-appendices-and-source-packets/MDA-903-appendix-series-home",
+      "ctype": "text/html",
+      "bytes": 46013,
+      "depth": 2,
+      "title": "Is America in Moral Decline? The Physics of Cultural Decoherence"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/90-appendices-and-source-packets/MDA-904-appendix-sample",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/90-appendices-and-source-packets/MDA-904-appendix-sample",
+      "ctype": "text/html",
+      "bytes": 39032,
+      "depth": 2,
+      "title": "The Moral Decline of America (1958\u20132025) \u2014 Sample"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/90-appendices-and-source-packets/MDA-905-appendix-timeline",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/90-appendices-and-source-packets/MDA-905-appendix-timeline",
+      "ctype": "text/html",
+      "bytes": 44277,
+      "depth": 2,
+      "title": "Timeline of American Moral Decline \u2014 Historical Analysis (1900\u2013Present)"
+    },
+    {
+      "url": "https://faiththruphysics.com/mda/90-appendices-and-source-packets/MDA-906-appendix-93-year-floor",
+      "status": 200,
+      "final": "https://faiththruphysics.com/mda/90-appendices-and-source-packets/MDA-906-appendix-93-year-floor",
+      "ctype": "text/html",
+      "bytes": 75712,
+      "depth": 2,
+      "title": "The 93-Year Floor | Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/media/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/media/",
+      "ctype": "text/html",
+      "bytes": 16214,
+      "depth": 2,
+      "title": "Faith Through Physics Media Library"
+    },
+    {
+      "url": "https://faiththruphysics.com/media/index.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/media/",
+      "ctype": "text/html",
+      "bytes": 16214,
+      "depth": 2,
+      "title": "Faith Through Physics Media Library"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/",
+      "ctype": "text/html",
+      "bytes": 29658,
+      "depth": 2,
+      "title": "Moral Decline of America \u2014 Faith thru Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/00-entry-and-series-map/index.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/00-entry-and-series-map/",
+      "ctype": "text/html",
+      "bytes": 75075,
+      "depth": 2,
+      "title": "The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/01-story-thread/MDA-001-story-introduction.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/01-story-thread/MDA-001-story-introduction",
+      "ctype": "text/html",
+      "bytes": 38601,
+      "depth": 2,
+      "title": "An American Story | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/01-story-thread/MDA-002-samuel-1900.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/01-story-thread/MDA-002-samuel-1900",
+      "ctype": "text/html",
+      "bytes": 38625,
+      "depth": 2,
+      "title": "When Distance Still Had Moral Weight | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/01-story-thread/MDA-008-henry-1926.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/01-story-thread/MDA-008-henry-1926",
+      "ctype": "text/html",
+      "bytes": 38607,
+      "depth": 2,
+      "title": "When Voices Entered the Home | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/01-story-thread/MDA-012-william-1950.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/01-story-thread/MDA-012-william-1950",
+      "ctype": "text/html",
+      "bytes": 38617,
+      "depth": 2,
+      "title": "When Comfort Replaced Necessity | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/01-story-thread/MDA-016-thomas-1974.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/01-story-thread/MDA-016-thomas-1974",
+      "ctype": "text/html",
+      "bytes": 38601,
+      "depth": 2,
+      "title": "When Freedom Became Exit | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/01-story-thread/MDA-031-jacob-1998.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/01-story-thread/MDA-031-jacob-1998",
+      "ctype": "text/html",
+      "bytes": 38595,
+      "depth": 2,
+      "title": "When Place Disappeared | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/01-story-thread/MDA-050-jacob-2025.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/01-story-thread/MDA-050-jacob-2025",
+      "ctype": "text/html",
+      "bytes": 38615,
+      "depth": 2,
+      "title": "When Constraint Had to Be Chosen | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/01-story-thread/index.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/01-story-thread/",
+      "ctype": "text/html",
+      "bytes": 13164,
+      "depth": 1,
+      "title": "The Lowe Family \u2014 Five Generations | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/01-story-thread/website",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/01-story-thread/website",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/02-method-and-metrics/MDA-003-measuring-moral-health.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/02-method-and-metrics/MDA-003-measuring-moral-health",
+      "ctype": "text/html",
+      "bytes": 38655,
+      "depth": 2,
+      "title": "Can We Measure Moral Health? | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/02-method-and-metrics/MDA-006-research-method.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/02-method-and-metrics/MDA-006-research-method",
+      "ctype": "text/html",
+      "bytes": 38629,
+      "depth": 2,
+      "title": "How We Measure Decline | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/02-method-and-metrics/MDA-007-nine-domains.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/02-method-and-metrics/MDA-007-nine-domains",
+      "ctype": "text/html",
+      "bytes": 38625,
+      "depth": 2,
+      "title": "What America Is Made Of | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/02-method-and-metrics/MDA-037-biaxiosum-audit.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/02-method-and-metrics/MDA-037-biaxiosum-audit",
+      "ctype": "text/html",
+      "bytes": 38623,
+      "depth": 2,
+      "title": "The Biaxiosum Audit | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/02-method-and-metrics/MDA-038-coherence-metric.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/02-method-and-metrics/MDA-038-coherence-metric",
+      "ctype": "text/html",
+      "bytes": 38627,
+      "depth": 2,
+      "title": "The Coherence Metric | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/02-method-and-metrics/MDA-039-physics-of-coherence.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/02-method-and-metrics/MDA-039-physics-of-coherence",
+      "ctype": "text/html",
+      "bytes": 38643,
+      "depth": 2,
+      "title": "The Physics of Coherence | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/02-method-and-metrics/MDA-040-statistical-synthesis.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/02-method-and-metrics/MDA-040-statistical-synthesis",
+      "ctype": "text/html",
+      "bytes": 123788,
+      "depth": 2,
+      "title": "Moral Decline by the Numbers | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/02-method-and-metrics/MDA-041-statistical-spine.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/02-method-and-metrics/MDA-041-statistical-spine",
+      "ctype": "text/html",
+      "bytes": 38774,
+      "depth": 2,
+      "title": "The Statistical Spine | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/02-method-and-metrics/index.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/02-method-and-metrics/",
+      "ctype": "text/html",
+      "bytes": 12244,
+      "depth": 1,
+      "title": "How to Measure a Moral System | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/02-method-and-metrics/website",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/02-method-and-metrics/website",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/03-evidence-chronology/MDA-005-empirical-evidence.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/03-evidence-chronology/MDA-005-empirical-evidence",
+      "ctype": "text/html",
+      "bytes": 38639,
+      "depth": 2,
+      "title": "The Empirical Evidence | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/03-evidence-chronology/MDA-009-the-1900-baseline.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/03-evidence-chronology/MDA-009-the-1900-baseline",
+      "ctype": "text/html",
+      "bytes": 38627,
+      "depth": 2,
+      "title": "The 1900 Baseline | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/03-evidence-chronology/MDA-010-pre-modern-baseline.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/03-evidence-chronology/MDA-010-pre-modern-baseline",
+      "ctype": "text/html",
+      "bytes": 38643,
+      "depth": 2,
+      "title": "The Pre-Modern Baseline | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/03-evidence-chronology/MDA-011-collective-security-1930.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/03-evidence-chronology/MDA-011-collective-security-1930",
+      "ctype": "text/html",
+      "bytes": 38667,
+      "depth": 2,
+      "title": "The Age of Collective Security | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/03-evidence-chronology/MDA-013-peak-coherence-1940.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/03-evidence-chronology/MDA-013-peak-coherence-1940",
+      "ctype": "text/html",
+      "bytes": 38647,
+      "depth": 1,
+      "title": "The Crucible of Consensus | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/03-evidence-chronology/MDA-014-fissure-1950.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/03-evidence-chronology/MDA-014-fissure-1950",
+      "ctype": "text/html",
+      "bytes": 38633,
+      "depth": 1,
+      "title": "The Fissure in Conformity | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/03-evidence-chronology/MDA-015-long-decline.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/03-evidence-chronology/MDA-015-long-decline",
+      "ctype": "text/html",
+      "bytes": 38615,
+      "depth": 2,
+      "title": "The Long Decline | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/03-evidence-chronology/MDA-017-unraveling-1960.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/03-evidence-chronology/MDA-017-unraveling-1960",
+      "ctype": "text/html",
+      "bytes": 38631,
+      "depth": 2,
+      "title": "The Unraveling Begins | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/03-evidence-chronology/MDA-018-great-decoupling-1968.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/03-evidence-chronology/MDA-018-great-decoupling-1968",
+      "ctype": "text/html",
+      "bytes": 38641,
+      "depth": 1,
+      "title": "The Great Decoupling | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/03-evidence-chronology/MDA-019-current-state-2024.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/03-evidence-chronology/MDA-019-current-state-2024",
+      "ctype": "text/html",
+      "bytes": 38649,
+      "depth": 2,
+      "title": "Where Coherence Still Lives | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/03-evidence-chronology/index.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/03-evidence-chronology/",
+      "ctype": "text/html",
+      "bytes": 13258,
+      "depth": 1,
+      "title": "America, Decade by Decade | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/03-evidence-chronology/website",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/03-evidence-chronology/website",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/04-collapse-mechanisms/MDA-021-anatomy-of-phase-transition.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/04-collapse-mechanisms/MDA-021-anatomy-of-phase-transition",
+      "ctype": "text/html",
+      "bytes": 38671,
+      "depth": 1,
+      "title": "Anatomy of a Phase Transition | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/04-collapse-mechanisms/MDA-027-signal-went-dark.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/04-collapse-mechanisms/MDA-027-signal-went-dark",
+      "ctype": "text/html",
+      "bytes": 66539,
+      "depth": 1,
+      "title": "The Signal Went Dark | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/04-collapse-mechanisms/MDA-028-phantom-money.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/04-collapse-mechanisms/MDA-028-phantom-money",
+      "ctype": "text/html",
+      "bytes": 93949,
+      "depth": 1,
+      "title": "Phantom Money, Phantom Morals | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/04-collapse-mechanisms/MDA-029-observer-collapsed.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/04-collapse-mechanisms/MDA-029-observer-collapsed",
+      "ctype": "text/html",
+      "bytes": 75403,
+      "depth": 1,
+      "title": "The Observer Collapsed | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/04-collapse-mechanisms/index.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/04-collapse-mechanisms/",
+      "ctype": "text/html",
+      "bytes": 15650,
+      "depth": 2,
+      "title": "How the Systems Failed | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/05-amish-and-case-studies/MDA-045-amish-control-group-THE-DATA.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/05-amish-and-case-studies/MDA-045-amish-control-group-THE-DATA",
+      "ctype": "text/html",
+      "bytes": 39152,
+      "depth": 1,
+      "title": "The Amish Anomaly | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/05-amish-and-case-studies/index.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/05-amish-and-case-studies/",
+      "ctype": "text/html",
+      "bytes": 13265,
+      "depth": 2,
+      "title": "The Control Group | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/06-recovery-and-synthesis/MDA-052-individual-recovery.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/06-recovery-and-synthesis/MDA-052-individual-recovery",
+      "ctype": "text/html",
+      "bytes": 38647,
+      "depth": 2,
+      "title": "Individual Recovery | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/06-recovery-and-synthesis/MDA-054-way-back.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/06-recovery-and-synthesis/MDA-054-way-back",
+      "ctype": "text/html",
+      "bytes": 66726,
+      "depth": 2,
+      "title": "The Way Back | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/06-recovery-and-synthesis/index.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/06-recovery-and-synthesis/",
+      "ctype": "text/html",
+      "bytes": 10829,
+      "depth": 1,
+      "title": "Is There a Way Back? | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/06-recovery-and-synthesis/website",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/06-recovery-and-synthesis/website",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/90-appendices-and-source-packets/index.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/90-appendices-and-source-packets/",
+      "ctype": "text/html",
+      "bytes": 12102,
+      "depth": 2,
+      "title": "Appendices & Source Packets | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/index.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/",
+      "ctype": "text/html",
+      "bytes": 29658,
+      "depth": 1,
+      "title": "Moral Decline of America \u2014 Faith thru Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/mda-09-amish-proof.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/mda-09-amish-proof",
+      "ctype": "text/html",
+      "bytes": 46771,
+      "depth": 2,
+      "title": "The Amish Proof \u2014 A Control Group for Coherence | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/mda-10-way-back.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/mda-10-way-back",
+      "ctype": "text/html",
+      "bytes": 39123,
+      "depth": 2,
+      "title": "The Way Back \u2014 Recovery Physics | Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/mda-facts-paper.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/mda-facts-paper",
+      "ctype": "text/html",
+      "bytes": 72499,
+      "depth": 1,
+      "title": "The Coherence Decay of American Society \u2014 FACTS Paper"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/mda-proof-packet.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/mda-proof-packet.html",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/mda-the-empirical-evidence.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/mda-the-empirical-evidence",
+      "ctype": "text/html",
+      "bytes": 60809,
+      "depth": 2,
+      "title": "The Empirical Evidence \u2014 The Moral Decline of America"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/mda-the-regulatory-impulse-1900.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/mda-the-regulatory-impulse-1900",
+      "ctype": "text/html",
+      "bytes": 93590,
+      "depth": 2,
+      "title": "The Regulatory Impulse \u2014 Moral Foundation 1900\u20131910"
+    },
+    {
+      "url": "https://faiththruphysics.com/moral-decline/stories/index.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/moral-decline/stories/",
+      "ctype": "text/html",
+      "bytes": 26822,
+      "depth": 1,
+      "title": "The Lowe Family Stories \u2014 Five Generations of American Decline"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/",
+      "ctype": "text/html",
+      "bytes": 37361,
+      "depth": 2,
+      "title": "One-Page Stories \u2014 Faith thru Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/Math%20all/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/Math%20all/",
+      "ctype": "text/html",
+      "bytes": 13974,
+      "depth": 2,
+      "title": "Math All \u2014 One-Page Stories | Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/Templeton/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/Templeton/",
+      "ctype": "text/html",
+      "bytes": 13318,
+      "depth": 2,
+      "title": "Templeton & Formal Papers \u2014 One-Page Stories | Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/breakdown-and-coherence/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/breakdown-and-coherence/",
+      "ctype": "text/html",
+      "bytes": 13241,
+      "depth": 2,
+      "title": "Breakdown & Coherence \ufffd One-Page Stories | Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/breakdown-and-coherence/The%20Fracture%20Point-interlude.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/breakdown-and-coherence/The%20Fracture%20Point-interlude",
+      "ctype": "text/html",
+      "bytes": 33001,
+      "depth": 2,
+      "title": "The Fracture Point - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/character-of-god-from-physics.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/character-of-god-from-physics-interlude",
+      "ctype": "text/html",
+      "bytes": 33323,
+      "depth": 2,
+      "title": "The Character of God - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/index.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/",
+      "ctype": "text/html",
+      "bytes": 37361,
+      "depth": 1,
+      "title": "One-Page Stories \u2014 Faith thru Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/it-from-bit-from-logos.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/it-from-bit-from-logos-interlude",
+      "ctype": "text/html",
+      "bytes": 33306,
+      "depth": 2,
+      "title": "It From Bit From Logos - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/language-evidence/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/language-evidence/",
+      "ctype": "text/html",
+      "bytes": 11387,
+      "depth": 2,
+      "title": "Language Evidence \ufffd One-Page Stories | Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/measure-and-judgment/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/measure-and-judgment/",
+      "ctype": "text/html",
+      "bytes": 13882,
+      "depth": 2,
+      "title": "Measure & Judgment \u2014 One-Page Stories | Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/measure-and-judgment/7q_reverse-interlude.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/measure-and-judgment/7q_reverse-interlude",
+      "ctype": "text/html",
+      "bytes": 33023,
+      "depth": 2,
+      "title": "Prove by Destruction - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/measure-and-judgment/holding-god-accountable-interlude.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/measure-and-judgment/holding-god-accountable-interlude",
+      "ctype": "text/html",
+      "bytes": 33024,
+      "depth": 1,
+      "title": "Holding God Accountable - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/measure-and-judgment/the-93-year-floor.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/measure-and-judgment/the-93-year-floor",
+      "ctype": "text/html",
+      "bytes": 70506,
+      "depth": 1,
+      "title": "The 93-Year Floor | Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/measure-and-judgment/the-seven-questions-interlude.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/measure-and-judgment/the-seven-questions-interlude",
+      "ctype": "text/html",
+      "bytes": 33015,
+      "depth": 2,
+      "title": "The Seven Questions - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/measure-and-judgment/we-ran-the-tests-interlude.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/measure-and-judgment/we-ran-the-tests-interlude",
+      "ctype": "text/html",
+      "bytes": 33018,
+      "depth": 1,
+      "title": "We Ran the Tests - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/one-offs/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/one-offs/",
+      "ctype": "text/html",
+      "bytes": 11123,
+      "depth": 2,
+      "title": "One-Offs \u2014 One-Page Stories | Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/repair-and-order/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/repair-and-order/",
+      "ctype": "text/html",
+      "bytes": 14537,
+      "depth": 2,
+      "title": "Repair & Order \u2014 One-Page Stories | Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/repair-and-order/genesis-quantum-event-interlude.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/repair-and-order/genesis-quantum-event-interlude",
+      "ctype": "text/html",
+      "bytes": 33013,
+      "depth": 2,
+      "title": "Genesis as Quantum Event - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/repair-and-order/heaven-hell-attractor-states-interlude.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/repair-and-order/heaven-hell-attractor-states-interlude",
+      "ctype": "text/html",
+      "bytes": 33057,
+      "depth": 1,
+      "title": "Heaven and Hell as Attractor States - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/repair-and-order/salvation-algorithm-interlude.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/repair-and-order/salvation-algorithm-interlude",
+      "ctype": "text/html",
+      "bytes": 33008,
+      "depth": 1,
+      "title": "The Salvation Algorithm - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/repair-and-order/salvation-narrative-10-laws-interlude.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/repair-and-order/salvation-narrative-10-laws-interlude",
+      "ctype": "text/html",
+      "bytes": 33047,
+      "depth": 2,
+      "title": "Salvation as a Ten-Law Phase Transition - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/repair-and-order/salvation-phase-transition-interlude.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/repair-and-order/salvation-phase-transition-interlude",
+      "ctype": "text/html",
+      "bytes": 33038,
+      "depth": 1,
+      "title": "Salvation Is a Phase Transition - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/repair-and-order/ten-laws-full-treatment-interlude.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/repair-and-order/ten-laws-full-treatment-interlude",
+      "ctype": "text/html",
+      "bytes": 33036,
+      "depth": 1,
+      "title": "The Ten Laws - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/repair-and-order/trinity-grace-interlude.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/repair-and-order/trinity-grace-interlude",
+      "ctype": "text/html",
+      "bytes": 33016,
+      "depth": 2,
+      "title": "Trinity and Grace - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/repair-and-order/why-grace-from-outside-interlude.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/repair-and-order/why-grace-from-outside-interlude",
+      "ctype": "text/html",
+      "bytes": 33019,
+      "depth": 1,
+      "title": "Why Grace Has to Come from Outside - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/starting-point/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/starting-point/",
+      "ctype": "text/html",
+      "bytes": 13999,
+      "depth": 2,
+      "title": "Starting Point \u2014 One-Page Stories | Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/starting-point/the-floor-beneath-the-floor-interlude.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/starting-point/the-floor-beneath-the-floor-interlude",
+      "ctype": "text/html",
+      "bytes": 33334,
+      "depth": 2,
+      "title": "The Floor Beneath the Floor - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/starting-point/the-floor-beneath-the-floor.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/starting-point/the-floor-beneath-the-floor",
+      "ctype": "text/html",
+      "bytes": 32790,
+      "depth": 1,
+      "title": "The Floor Beneath the Floor | Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/the-same-equation.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/the-same-equation-interlude",
+      "ctype": "text/html",
+      "bytes": 33341,
+      "depth": 2,
+      "title": "The Same Equation - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/the-scientific-method-redux.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/the-scientific-method-redux.html",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/theophysics-the-full-explanation.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/theophysics-the-full-explanation-interlude",
+      "ctype": "text/html",
+      "bytes": 33395,
+      "depth": 2,
+      "title": "Faith Through Physics: The Full Explanation - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/",
+      "ctype": "text/html",
+      "bytes": 16362,
+      "depth": 2,
+      "title": "Truth & Pushback \u2014 One-Page Stories | Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/Formalism-interlude.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/Formalism-interlude",
+      "ctype": "text/html",
+      "bytes": 33342,
+      "depth": 2,
+      "title": "The Master Equation - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/The_Logos_Thesis_v3-interlude.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/The_Logos_Thesis_v3-interlude",
+      "ctype": "text/html",
+      "bytes": 33295,
+      "depth": 1,
+      "title": "The Logos Thesis - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/character-of-adversary-from-physics-interlude.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/character-of-adversary-from-physics-interlude",
+      "ctype": "text/html",
+      "bytes": 33340,
+      "depth": 1,
+      "title": "The Character of the Adversary - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/character-of-adversary-interlude.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/character-of-adversary-interlude",
+      "ctype": "text/html",
+      "bytes": 33334,
+      "depth": 2,
+      "title": "The Character of the Adversary - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/character-of-god-from-physics-interlude.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/character-of-god-from-physics-interlude",
+      "ctype": "text/html",
+      "bytes": 33323,
+      "depth": 1,
+      "title": "The Character of God - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/character-of-god-interlude.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/character-of-god-interlude",
+      "ctype": "text/html",
+      "bytes": 33286,
+      "depth": 2,
+      "title": "The Character of God - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/everybodys-got-it-wrong-interlude.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/everybodys-got-it-wrong-interlude",
+      "ctype": "text/html",
+      "bytes": 33344,
+      "depth": 1,
+      "title": "Everybody's Got It Wrong - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/it-from-bit-from-logos-interlude.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/it-from-bit-from-logos-interlude",
+      "ctype": "text/html",
+      "bytes": 33306,
+      "depth": 1,
+      "title": "It From Bit From Logos - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/no-drift-law-synthesis-interlude.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/no-drift-law-synthesis-interlude",
+      "ctype": "text/html",
+      "bytes": 33331,
+      "depth": 1,
+      "title": "No-Drift Law Synthesis - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/the-24-anti-properties-interlude.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/the-24-anti-properties-interlude",
+      "ctype": "text/html",
+      "bytes": 33343,
+      "depth": 1,
+      "title": "The 24 Anti-Properties - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/the-attack-surface-interlude.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/the-attack-surface-interlude",
+      "ctype": "text/html",
+      "bytes": 33297,
+      "depth": 1,
+      "title": "The Attack Surface - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/the-father-as-source-field-interlude.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/the-father-as-source-field-interlude",
+      "ctype": "text/html",
+      "bytes": 33331,
+      "depth": 2,
+      "title": "The Father as Source Field - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/the-god-stories-index.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/the-god-stories-index.html",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/the-prism-paper-interlude.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/the-prism-paper-interlude",
+      "ctype": "text/html",
+      "bytes": 33317,
+      "depth": 2,
+      "title": "The Prism - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/the-same-equation-interlude.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/the-same-equation-interlude",
+      "ctype": "text/html",
+      "bytes": 33341,
+      "depth": 1,
+      "title": "The Same Equation - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/theophysics-the-full-explanation-interlude.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/truth-and-pushback/theophysics-the-full-explanation-interlude",
+      "ctype": "text/html",
+      "bytes": 33395,
+      "depth": 1,
+      "title": "Faith Through Physics: The Full Explanation - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/one-page-stories/why-grace-from-outside.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/one-page-stories/repair-and-order/why-grace-from-outside-interlude",
+      "ctype": "text/html",
+      "bytes": 33019,
+      "depth": 2,
+      "title": "Why Grace Has to Come from Outside - Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/podcast/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/podcast/",
+      "ctype": "text/html",
+      "bytes": 24673,
+      "depth": 1,
+      "title": "The Faith Through Physics Podcast \u2014 Physics, Theology & the Coherence Equation"
+    },
+    {
+      "url": "https://faiththruphysics.com/podcast/feed.xml",
+      "status": 200,
+      "final": "https://faiththruphysics.com/podcast/feed.xml",
+      "ctype": "application/xml",
+      "bytes": 7758,
+      "depth": 2,
+      "title": "The Theophysics Podcast"
+    },
+    {
+      "url": "https://faiththruphysics.com/proof-architecture/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/proof-architecture/",
+      "ctype": "text/html",
+      "bytes": 14548,
+      "depth": 1,
+      "title": "The Proof Architecture \u2014 Series Index"
+    },
+    {
+      "url": "https://faiththruphysics.com/proof-architecture/index.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/proof-architecture/",
+      "ctype": "text/html",
+      "bytes": 14548,
+      "depth": 1,
+      "title": "The Proof Architecture \u2014 Series Index"
+    },
+    {
+      "url": "https://faiththruphysics.com/proof-explorer/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/proof-explorer/",
+      "ctype": "text/html",
+      "bytes": 30834,
+      "depth": 1,
+      "title": "Proof Explorer \u2014 Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/proof-explorer/00_GENESIS-TO-QUANTUM-black-axiom-snapshot.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/proof-explorer/00_GENESIS-TO-QUANTUM-black-axiom-snapshot.html",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/proof-explorer/axioms-closure.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/proof-explorer/axioms-closure.html",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/proof-explorer/axioms-layer-0-core.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/Axiom%20Layer/axioms-layer-0-core",
+      "ctype": "text/html",
+      "bytes": 34799,
+      "depth": 2,
+      "title": "Canonical Axiom Foundation \u2014 Proof Explorer"
+    },
+    {
+      "url": "https://faiththruphysics.com/proof-explorer/axioms-layer-2-derived.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/proof-explorer/axioms-layer-2-derived.html",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/proof-explorer/axioms-layer-3-extended.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/proof-explorer/axioms-layer-3-extended.html",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/proof-explorer/fp-005-enhanced.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/proof-explorer/fp-005-enhanced.html",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/proof-explorer/fp-005.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/proof-explorer/fp-005.html",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/proof-explorer/index.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/proof-explorer/",
+      "ctype": "text/html",
+      "bytes": 30834,
+      "depth": 2,
+      "title": "Proof Explorer \u2014 Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/proof-explorer/mda-grades.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/proof-explorer/mda-grades",
+      "ctype": "text/html",
+      "bytes": 31430,
+      "depth": 2,
+      "title": "MDA Grade Registry \u2014 Proof Explorer"
+    },
+    {
+      "url": "https://faiththruphysics.com/proof-explorer/mda-proof-layer-data.json",
+      "status": 200,
+      "final": "https://faiththruphysics.com/proof-explorer/mda-proof-layer-data.json",
+      "ctype": "application/json",
+      "bytes": 10153,
+      "depth": 2,
+      "title": ""
+    },
+    {
+      "url": "https://faiththruphysics.com/proof-explorer/mda-proof-packet.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/proof-explorer/mda-proof-packet",
+      "ctype": "text/html",
+      "bytes": 106816,
+      "depth": 2,
+      "title": "Moral Decline of America \u2014 Series Proof Packet"
+    },
+    {
+      "url": "https://faiththruphysics.com/proof-explorer/mda-scorecards/PI_MDA-004-facts-framework.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/proof-explorer/mda-scorecards/PI_MDA-004-facts-framework",
+      "ctype": "text/html",
+      "bytes": 40795,
+      "depth": 2,
+      "title": "Paper Intelligence: MDA-004-facts-framework"
+    },
+    {
+      "url": "https://faiththruphysics.com/proof-explorer/mda-scorecards/PI_MDA-045-amish-control-group-THE-DATA.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/proof-explorer/mda-scorecards/PI_MDA-045-amish-control-group-THE-DATA",
+      "ctype": "text/html",
+      "bytes": 41005,
+      "depth": 2,
+      "title": "Paper Intelligence: MDA-045-amish-control-group-THE-DATA"
+    },
+    {
+      "url": "https://faiththruphysics.com/proof-explorer/mda-scorecards/PI_MDA-054-way-back.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/proof-explorer/mda-scorecards/PI_MDA-054-way-back",
+      "ctype": "text/html",
+      "bytes": 40769,
+      "depth": 2,
+      "title": "Paper Intelligence: MDA-054-way-back"
+    },
+    {
+      "url": "https://faiththruphysics.com/proof-explorer/mda-scorecards/PI_MDA-902-appendix-trans-domain-analysis.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/proof-explorer/mda-scorecards/PI_MDA-902-appendix-trans-domain-analysis",
+      "ctype": "text/html",
+      "bytes": 40912,
+      "depth": 2,
+      "title": "Paper Intelligence: MDA-902-appendix-trans-domain-analysis"
+    },
+    {
+      "url": "https://faiththruphysics.com/proof-explorer/mda-scorecards/PI_MDA-906-appendix-93-year-floor.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/proof-explorer/mda-scorecards/PI_MDA-906-appendix-93-year-floor",
+      "ctype": "text/html",
+      "bytes": 40809,
+      "depth": 2,
+      "title": "Paper Intelligence: MDA-906-appendix-93-year-floor"
+    },
+    {
+      "url": "https://faiththruphysics.com/revolution-of-truth/index.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/revolution-of-truth/",
+      "ctype": "text/html",
+      "bytes": 14259,
+      "depth": 1,
+      "title": "De Revolutionibus Veritatis | On the Revolutions of Truth"
+    },
+    {
+      "url": "https://faiththruphysics.com/rigor/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/rigor/",
+      "ctype": "text/html",
+      "bytes": 15518,
+      "depth": 1,
+      "title": "Rigor \u2014 Faith Through Physics Measurement Framework"
+    },
+    {
+      "url": "https://faiththruphysics.com/subdomains/",
+      "status": 200,
+      "final": "https://faiththruphysics.com/subdomains/",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 2,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/summary_large_image",
+      "status": 200,
+      "final": "https://faiththruphysics.com/summary_large_image",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 1,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    },
+    {
+      "url": "https://faiththruphysics.com/the-bidirectional-audit/index.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/the-bidirectional-audit/",
+      "ctype": "text/html",
+      "bytes": 14935,
+      "depth": 1,
+      "title": "The Bidirectional \u2014 Faith Through Physics"
+    },
+    {
+      "url": "https://faiththruphysics.com/three-gates/the-three-gates.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/three-gates/the-three-gates",
+      "ctype": "text/html",
+      "bytes": 63127,
+      "depth": 1,
+      "title": "The Three Gates \u2014 Prerequisite Framework for TikTok Apologetics"
+    },
+    {
+      "url": "https://faiththruphysics.com/three-truths/index.html",
+      "status": 200,
+      "final": "https://faiththruphysics.com/three-truths/",
+      "ctype": "text/html",
+      "bytes": 33285,
+      "depth": 1,
+      "title": "The Unavoidable Conclusion"
+    },
+    {
+      "url": "https://faiththruphysics.com/website",
+      "status": 200,
+      "final": "https://faiththruphysics.com/website",
+      "ctype": "text/html",
+      "bytes": 142801,
+      "depth": 1,
+      "title": "Faith Through Physics - One Equation. Every Domain."
+    }
+  ],
+  "remaining": [
+    "https://faiththruphysics.com/isomorphism/iso-034_control_theory_providence.html",
+    "https://faiththruphysics.com/isomorphism/iso-035_cryptography_mystery_revelation.html",
+    "https://faiththruphysics.com/isomorphism/iso-036_fluid_dynamics_pneumatology.html",
+    "https://faiththruphysics.com/isomorphism/iso-037_beer_lambert_transaction_extraction.html",
+    "https://faiththruphysics.com/isomorphism/iso-038_fulbright_isomorphism.html",
+    "https://faiththruphysics.com/isomorphism/trinity-001_universal_domain.html",
+    "https://faiththruphysics.com/isomorphism/process-001_bec_soteriology.html",
+    "https://faiththruphysics.com/isomorphism/aaa-000_classification_framework.html",
+    "https://faiththruphysics.com/isomorphism/aaa-001_mathematical_boundary_conditions.html",
+    "https://faiththruphysics.com/isomorphism/aaa-002_bec_soteriology_audit.html",
+    "https://faiththruphysics.com/isomorphism/aaa-003_promotion_checklist.html",
+    "https://faiththruphysics.com/isomorphism/iso-001_gravity_sin.html",
+    "https://faiththruphysics.com/isomorphism/iso-002_strong_force_covenant.html",
+    "https://faiththruphysics.com/isomorphism/iso-003_em_truth.html",
+    "https://faiththruphysics.com/isomorphism/iso-004_weak_force_free_will.html",
+    "https://faiththruphysics.com/isomorphism/iso-006-008_info_qm_gr.html",
+    "https://faiththruphysics.com/isomorphism/iso-009-010_cosmology_coherence.html",
+    "https://faiththruphysics.com/isomorphism/iso-011_superposition_mystery.html",
+    "https://faiththruphysics.com/isomorphism/iso-022_lagrangian_unity.html",
+    "https://faiththruphysics.com/isomorphism/iso-026_addiction_sin.html",
+    "https://faiththruphysics.com/isomorphism/iso-012_sign_eigenvalue.html",
+    "https://faiththruphysics.com/isomorphism/iso-013_grace_projection.html",
+    "https://faiththruphysics.com/isomorphism/iso-015_coherence_virtue.html",
+    "https://faiththruphysics.com/isomorphism/iso-016_logistic_attractor.html",
+    "https://faiththruphysics.com/isomorphism/iso-018_dynamic_grace.html",
+    "https://faiththruphysics.com/isomorphism/iso-027_sir_hamartiology.html",
+    "https://faiththruphysics.com/isomorphism/iso-028_shannon_ecclesiology.html",
+    "https://faiththruphysics.com/isomorphism/iso-030_central_dogma_scripture.html",
+    "https://faiththruphysics.com/isomorphism/iso-031_scalefree_growth.html",
+    "https://faiththruphysics.com/isomorphism/iso-032_attachment_prayer.html",
+    "https://faiththruphysics.com/isomorphism/iso-033_hill_equation_grace.html",
+    "https://faiththruphysics.com/isomorphism/iso-036_navierstokes_pneuma.html",
+    "https://faiththruphysics.com/isomorphism/iso-037_beer_lambert.html",
+    "https://faiththruphysics.com/isomorphism/iso-017_modified_einstein.html",
+    "https://faiththruphysics.com/isomorphism/iso-019_boundary_covenant.html",
+    "https://faiththruphysics.com/proof-architecture/width=device-width, initial-scale=1.0",
+    "https://faiththruphysics.com/proof-architecture/pa-00-bundle-viewer.html",
+    "https://faiththruphysics.com/proof-architecture/pa-01-unavoidable-conclusion.html",
+    "https://faiththruphysics.com/proof-architecture/pa-02-foundation.html",
+    "https://faiththruphysics.com/proof-architecture/pa-03-ontological-tree.html",
+    "https://faiththruphysics.com/proof-architecture/pa-04-bifurcation.html",
+    "https://faiththruphysics.com/proof-architecture/pa-05-structural-isomorphism.html",
+    "https://faiththruphysics.com/proof-architecture/pa-06-subsystems.html",
+    "https://faiththruphysics.com/proof-architecture/pa-07-closure.html",
+    "https://faiththruphysics.com/proof-architecture/pa-08-falsification.html",
+    "https://faiththruphysics.com/proof-architecture/pa-09-propagation-map.html",
+    "https://faiththruphysics.com/proof-architecture/pa-10-evidence.html",
+    "https://faiththruphysics.com/proof-architecture/pa-11-testable-predictions.html",
+    "https://faiththruphysics.com/proof-architecture/pa-12-proof-explorer.html",
+    "https://faiththruphysics.com/proof-architecture/pa-13-logical-framework.html",
+    "https://faiththruphysics.com/lean4/width=device-width, initial-scale=1.0",
+    "https://faiththruphysics.com/lean4/Machine-verified proofs for the Faith Through Physics framework. 25 modules. 102+ theorems. Zero sorry. The kernel doesn",
+    "https://faiththruphysics.com/lean4/Lean 4 Formal Verification \u2014 Faith Through Physics",
+    "https://faiththruphysics.com/lean4/Machine-verified proofs backing every structural claim in the framework. Zero incomplete proofs.",
+    "https://faiththruphysics.com/lean4/website",
+    "https://faiththruphysics.com/subdomains/equation/",
+    "https://faiththruphysics.com/subdomains/glossary/",
+    "https://faiththruphysics.com/three-truths/width=device-width, initial-scale=1.0",
+    "https://faiththruphysics.com/three-truths/finetuning.html",
+    "https://faiththruphysics.com/three-truths/triad.html",
+    "https://faiththruphysics.com/three-truths/terminus.html",
+    "https://faiththruphysics.com/three-truths/godel.html",
+    "https://faiththruphysics.com/three-truths/entropy.html",
+    "https://faiththruphysics.com/three-truths/landauer.html",
+    "https://faiththruphysics.com/three-truths/inversion.html",
+    "https://faiththruphysics.com/three-truths/biology.html",
+    "https://faiththruphysics.com/three-truths/hubble.html",
+    "https://faiththruphysics.com/three-truths/propcosmos.html",
+    "https://faiththruphysics.com/three-truths/prayer.html",
+    "https://faiththruphysics.com/three-truths/irony.html",
+    "https://faiththruphysics.com/three-gates/width=device-width, initial-scale=1.0",
+    "https://faiththruphysics.com/convergence-series/",
+    "https://faiththruphysics.com/cross-domain/",
+    "https://faiththruphysics.com/blue/",
+    "https://faiththruphysics.com/three-gates/",
+    "https://faiththruphysics.com/genesis-to-quantum/width=device-width, initial-scale=1.0",
+    "https://faiththruphysics.com/genesis-to-quantum/A nine-part investigation mapping Genesis onto quantum mechanics, information theory, and thermodynamics. Each article derives a testable structural prediction from Scripture \u2014 then checks it against published physics.",
+    "https://faiththruphysics.com/genesis-to-quantum/David Lowe",
+    "https://faiththruphysics.com/genesis-to-quantum/Genesis to Quantum \u2014 The Core Series",
+    "https://faiththruphysics.com/genesis-to-quantum/Nine articles mapping Genesis onto quantum mechanics, information theory, and thermodynamics. Testable structural predictions derived from Scripture, checked against published physics.",
+    "https://faiththruphysics.com/genesis-to-quantum/website",
+    "https://faiththruphysics.com/genesis-to-quantum/summary_large_image",
+    "https://faiththruphysics.com/genesis-to-quantum/Nine articles mapping Genesis onto quantum mechanics, information theory, and thermodynamics.",
+    "https://faiththruphysics.com/master_story_index.html",
+    "https://faiththruphysics.com/genesis-to-quantum/bridges.html",
+    "https://faiththruphysics.com/genesis-to-quantum/gtq-01a-collapse-threshold.html",
+    "https://faiththruphysics.com/genesis-to-quantum/gtq-04a-the-decoherence-curve.html",
+    "https://faiththruphysics.com/genesis-to-quantum/gtq-05-the-substrate-fractured.html",
+    "https://faiththruphysics.com/genesis-to-quantum/gtq-05b-trinity-timeline.html",
+    "https://faiththruphysics.com/genesis-to-quantum/gtq-05c-why-physics-is-broken-in-two.html",
+    "https://faiththruphysics.com/genesis-to-quantum/gtq-07-the-photon-isnt-watching.html",
+    "https://faiththruphysics.com/genesis-to-quantum/gtq-07a-empirical-testing.html",
+    "https://faiththruphysics.com/genesis-to-quantum/gtq-08-god-doesnt-need-a-clock.html",
+    "https://faiththruphysics.com/genesis-to-quantum/gtq-08a-the-temporal-trap.html",
+    "https://faiththruphysics.com/genesis-to-quantum/gtq-08b-how-god-restores.html",
+    "https://faiththruphysics.com/genesis-to-quantum/gtq-08c-science-behind-restoration.html",
+    "https://faiththruphysics.com/genesis-to-quantum/gtq-09-same-god-both-testaments.html",
+    "https://faiththruphysics.com/genesis-to-quantum/gtq-09a-regime-dependent-theology.html",
+    "https://faiththruphysics.com/genesis-to-quantum/gtq-09b-civilizational-decay.html",
+    "https://faiththruphysics.com/genesis-to-quantum/gtq-10-the-counter-move.html",
+    "https://faiththruphysics.com/genesis-to-quantum/gtq-10a-why-the-pattern-is-the-signal.html",
+    "https://faiththruphysics.com/genesis-to-quantum/gtq-02-collapse-threshold.html",
+    "https://faiththruphysics.com/convergence-deep/width=device-width, initial-scale=1.0",
+    "https://faiththruphysics.com/convergence-deep/cdt-02-the-maxwell-moment.html",
+    "https://faiththruphysics.com/convergence-deep/cdt-03-the-energy-that-doesnt-run-out.html",
+    "https://faiththruphysics.com/convergence-deep/cdt-04-the-map-that-drew-itself.html",
+    "https://faiththruphysics.com/convergence-deep/cdt-05-the-24-anti-properties.html",
+    "https://faiththruphysics.com/convergence-deep/cdt-06-it-from-bit-from-logos.html",
+    "https://faiththruphysics.com/consciousness/width=device-width, initial-scale=1.0",
+    "https://faiththruphysics.com/consciousness/consciousness-constraint-argument.html",
+    "https://faiththruphysics.com/consciousness/consciousness-coherence-bridge.html",
+    "https://faiththruphysics.com/consciousness/consciousness-chi-field-action.html",
+    "https://faiththruphysics.com/consciousness/consciousness-grace-source-term.html",
+    "https://faiththruphysics.com/consciousness/consciousness-reality-assessment.html",
+    "https://faiththruphysics.com/consciousness/consciousness-scientific-convergence.html",
+    "https://faiththruphysics.com/consciousness/consciousness-evidence-predictions.html",
+    "https://faiththruphysics.com/consciousness/consciousness-free-will-evil.html",
+    "https://faiththruphysics.com/consciousness/consciousness-parallel-laws.html",
+    "https://faiththruphysics.com/consciousness/consciousness-ontological-taxonomy.html",
+    "https://faiththruphysics.com/formal-papers/width=device-width, initial-scale=1.0",
+    "https://faiththruphysics.com/formal-papers/Ten formal papers grouped into five thematic folders for podcast bundling and series navigation.",
+    "https://faiththruphysics.com/formal-papers/01_foundations/index.html",
+    "https://faiththruphysics.com/formal-papers/02_truth_and_force/index.html",
+    "https://faiththruphysics.com/formal-papers/03_measurement_and_judgment/index.html",
+    "https://faiththruphysics.com/formal-papers/04_redemption_and_order/index.html",
+    "https://faiththruphysics.com/formal-papers/05_entropy_and_coherence/index.html",
+    "https://faiththruphysics.com/Axiom%20Layer/Truth beneath the system, three primitive terms, three presuppositions, fifteen conceptual Iron Chain axioms, and seven derived chain claims.",
+    "https://faiththruphysics.com/Axiom%20Layer/Canonical Axiom Foundation \u2014 Truth, Primitives, Presuppositions, Iron Chain",
+    "https://faiththruphysics.com/Axiom%20Layer/From Distinction and Substrate to the Trinity. The floor beneath all Faith Through Physics claims.",
+    "https://faiththruphysics.com/Axiom%20Layer/summary_large_image",
+    "https://faiththruphysics.com/Axiom%20Layer/axioms-layer-2-derived.html",
+    "https://faiththruphysics.com/convergence-series/width=device-width, initial-scale=1.0",
+    "https://faiththruphysics.com/cdn-cgi/l/email-protection",
+    "https://faiththruphysics.com/one-page-stories/measure-and-judgment/width=device-width, initial-scale=1.0",
+    "https://faiththruphysics.com/one-page-stories/starting-point/width=device-width, initial-scale=1.0",
+    "https://faiththruphysics.com/blue/width=device-width, initial-scale=1.0",
+    "https://faiththruphysics.com/blue/i-didnt-write-the-math.html",
+    "https://faiththruphysics.com/blue/lowe-coherence-lagrangian.html",
+    "https://faiththruphysics.com/blue/the-same-equation.html",
+    "https://faiththruphysics.com/blue/six_proofs.html",
+    "https://faiththruphysics.com/blue/maxwell-truth-isomorphism.html",
+    "https://faiththruphysics.com/blue/math-is-moral.html",
+    "https://faiththruphysics.com/blue/evolution-probe.html",
+    "https://faiththruphysics.com/moral-decline/width=device-width, initial-scale=1.0",
+    "https://faiththruphysics.com/revolution-of-truth/width=device-width, initial-scale=1.0",
+    "https://faiththruphysics.com/revolution-of-truth/drv-00-the-argument.html",
+    "https://faiththruphysics.com/revolution-of-truth/drv-01-the-architecture.html",
+    "https://faiththruphysics.com/revolution-of-truth/drv-02-the-lock.html",
+    "https://faiththruphysics.com/revolution-of-truth/drv-03-the-cost-of-denial.html",
+    "https://faiththruphysics.com/revolution-of-truth/drv-04-the-key.html",
+    "https://faiththruphysics.com/revolution-of-truth/drv-06-the-cycle.html",
+    "https://faiththruphysics.com/convergence-series/cns-03-why-math-works.html",
+    "https://faiththruphysics.com/convergence-series/cns-04-the-paradigm-graveyard.html",
+    "https://faiththruphysics.com/convergence-series/cns-06-the-priority-of-goodness.html",
+    "https://faiththruphysics.com/convergence-series/cns-07-the-verdict.html",
+    "https://faiththruphysics.com/the-bidirectional-audit/width=device-width, initial-scale=1.0",
+    "https://faiththruphysics.com/the-bidirectional-audit/tba-01-the-bidirectional.html",
+    "https://faiththruphysics.com/moral-decline/04-collapse-mechanisms/width=device-width, initial-scale=1.0",
+    "https://faiththruphysics.com/moral-decline/05-amish-and-case-studies/width=device-width, initial-scale=1.0",
+    "https://faiththruphysics.com/moral-decline/stories/width=device-width, initial-scale=1.0",
+    "https://faiththruphysics.com/moral-decline/stories/mda-story-00-introduction.html",
+    "https://faiththruphysics.com/moral-decline/stories/mda-story-01-samuel-1900.html",
+    "https://faiththruphysics.com/moral-decline/stories/mda-story-02-henry-1926.html",
+    "https://faiththruphysics.com/moral-decline/stories/mda-story-03-william-1950.html",
+    "https://faiththruphysics.com/moral-decline/stories/mda-story-04-thomas-1974.html",
+    "https://faiththruphysics.com/moral-decline/stories/mda-story-05-jacob-1998.html",
+    "https://faiththruphysics.com/moral-decline/stories/mda-story-06-jacob-2025.html",
+    "https://faiththruphysics.com/moral-decline/mda-01-introduction.html",
+    "https://faiththruphysics.com/moral-decline/mda-02-phase-transition.html",
+    "https://faiththruphysics.com/moral-decline/mda-03-semantic-collapse.html",
+    "https://faiththruphysics.com/moral-decline/mda-04-cognitive-decline.html",
+    "https://faiththruphysics.com/moral-decline/mda-05-spiritual-collapse.html",
+    "https://faiththruphysics.com/moral-decline/mda-06-signal-went-dark.html",
+    "https://faiththruphysics.com/moral-decline/mda-07-phantom-money.html",
+    "https://faiththruphysics.com/moral-decline/mda-08-observer-collapsed.html",
+    "https://faiththruphysics.com/moral-decline/mda-of-america.html",
+    "https://faiththruphysics.com/moral-decline/mda-technology-entropy-moral-decline.html",
+    "https://faiththruphysics.com/moral-decline/mda-timeline-american-moral-decline.html",
+    "https://faiththruphysics.com/moral-decline/stories/mda-COHERENCE_CASCADE.html",
+    "https://faiththruphysics.com/moral-decline/stories/mda-STATISTICAL_SYNTHESIS.html",
+    "https://faiththruphysics.com/genesis-to-quantum/read",
+    "https://faiththruphysics.com/genesis-to-quantum/deep",
+    "https://faiththruphysics.com/genesis-to-quantum/debate",
+    "https://faiththruphysics.com/genesis-to-quantum/critique",
+    "https://faiththruphysics.com/master-equation/O-09_Variables-and-Laws/width=device-width, initial-scale=1.0",
+    "https://faiththruphysics.com/media/width=device-width, initial-scale=1.0",
+    "https://faiththruphysics.com/media/Searchable media catalog for Faith Through Physics audio, video, images, and documents.",
+    "https://faiththruphysics.com/media/${item.publicUrl}",
+    "https://faiththruphysics.com/master-equation/0; url=/equation/",
+    "https://faiththruphysics.com/moral-decline/01-story-thread/One equation. Every domain. Ten variables. The mathematics of coherence \u2014 from quantum mechanics to the character of God.",
+    "https://faiththruphysics.com/moral-decline/01-story-thread/Faith Through Physics \u2014 David Lowe",
+    "https://faiththruphysics.com/moral-decline/01-story-thread/One Equation. Every Domain. The Same Structure. Faith Through Physics.",
+    "https://faiththruphysics.com/moral-decline/01-story-thread/summary_large_image",
+    "https://faiththruphysics.com/moral-decline/01-story-thread/moral-decline/01-story-thread/index.html",
+    "https://faiththruphysics.com/moral-decline/01-story-thread/moral-decline/03-evidence-chronology/index.html",
+    "https://faiththruphysics.com/moral-decline/01-story-thread/moral-decline/02-method-and-metrics/index.html",
+    "https://faiththruphysics.com/moral-decline/01-story-thread/moral-decline/06-recovery-and-synthesis/index.html",
+    "https://faiththruphysics.com/moral-decline/01-story-thread/moral-decline/index.html",
+    "https://faiththruphysics.com/moral-decline/01-story-thread/one-page-stories/index.html",
+    "https://faiththruphysics.com/moral-decline/01-story-thread/one-page-stories/truth-and-pushback/theophysics-the-full-explanation-interlude.html"
+  ]
+}

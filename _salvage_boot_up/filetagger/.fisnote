@@ -1,0 +1,28 @@
+---
+fis_schema: "folder-index.v1"
+folder_id: "FLD-20260817-a76c31aa"
+folder: "GitHub\David-OS\_salvage_boot_up\filetagger"
+folder_class: "project"
+confidence: 0.6
+dependency_risk: 0.0
+dominant_family: "other"
+dominant_ratio: 1.0
+file_count: 8
+classified_at: "2026-08-17T12:57:52"
+allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
+suggested_name: "filetagger"
+---
+
+# FIS Folder Index: filetagger
+
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 8  ·  **Dominant**: other (100%)
+
+## Allowed actions
+- index
+- rename_internal
+- subfolder_sort
+- archive_exports
+
+**Suggested name**: `filetagger`  (not applied — review before use)
+
+<!-- FIS folder-index.v1: parseable note; safe to regenerate. -->

@@ -1,0 +1,28 @@
+---
+fis_schema: "folder-index.v1"
+folder_id: "FLD-20260817-d7b1707c"
+folder: "GitHub\David-OS\file-intelligence-system\_nlp_runs\20260805-015614_claims-math-framework-spiritual-core-rewrite_C_theophysics_00_Canonical_PRODUCTION_v1.0_01_MASTER_EQUATION_CORE"
+folder_class: "project"
+confidence: 0.6
+dependency_risk: 0.0
+dominant_family: "text"
+dominant_ratio: 0.6
+file_count: 5
+classified_at: "2026-08-17T12:54:18"
+allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
+suggested_name: "20260805-015614_claims-math-framework-spiritual-core-rewrite_c_theophysics_00_canonical_production_v1-0_01_master_equation_core"
+---
+
+# FIS Folder Index: 20260805-015614_claims-math-framework-spiritual-core-rewrite_C_theophysics_00_Canonical_PRODUCTION_v1.0_01_MASTER_EQUATION_CORE
+
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 5  ·  **Dominant**: text (60%)
+
+## Allowed actions
+- index
+- rename_internal
+- subfolder_sort
+- archive_exports
+
+**Suggested name**: `20260805-015614_claims-math-framework-spiritual-core-rewrite_c_theophysics_00_canonical_production_v1-0_01_master_equation_core`  (not applied — review before use)
+
+<!-- FIS folder-index.v1: parseable note; safe to regenerate. -->

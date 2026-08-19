@@ -1,0 +1,28 @@
+---
+fis_schema: "folder-index.v1"
+folder_id: "FLD-20260817-6e22c44b"
+folder: "GitHub\David-OS\file-intelligence-system\_nlp_runs\20260805-014917_core-claims-math-framework-spiritual_C_Users_David_Documents_Codex_2026-08-04_oka_work_nlp_launcher_test"
+folder_class: "project"
+confidence: 0.6
+dependency_risk: 0.0
+dominant_family: "other"
+dominant_ratio: 0.5
+file_count: 4
+classified_at: "2026-08-17T12:54:18"
+allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
+suggested_name: "20260805-014917_core-claims-math-framework-spiritual_c_users_david_documents_codex_2026-08-04_oka_work_nlp_launcher_test"
+---
+
+# FIS Folder Index: 20260805-014917_core-claims-math-framework-spiritual_C_Users_David_Documents_Codex_2026-08-04_oka_work_nlp_launcher_test
+
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 4  ·  **Dominant**: other (50%)
+
+## Allowed actions
+- index
+- rename_internal
+- subfolder_sort
+- archive_exports
+
+**Suggested name**: `20260805-014917_core-claims-math-framework-spiritual_c_users_david_documents_codex_2026-08-04_oka_work_nlp_launcher_test`  (not applied — review before use)
+
+<!-- FIS folder-index.v1: parseable note; safe to regenerate. -->

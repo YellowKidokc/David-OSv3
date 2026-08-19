@@ -1,0 +1,30 @@
+---
+fis_schema: "folder-index.v1"
+folder_id: "FLD-20260817-2a79e5a2"
+folder: "GitHub\David-OS\fis-atlas\registry"
+folder_class: "document"
+confidence: 0.75
+dependency_risk: 0.0
+dominant_family: "document"
+dominant_ratio: 0.75
+file_count: 4
+classified_at: "2026-08-17T12:54:19"
+allowed_actions: ["rename", "extract", "classify", "move", "dedupe", "version_rank"]
+suggested_name: "document_registry"
+---
+
+# FIS Folder Index: registry
+
+**Class**: document  ·  **Confidence**: 75%  ·  **Files**: 4  ·  **Dominant**: document (75%)
+
+## Allowed actions
+- rename
+- extract
+- classify
+- move
+- dedupe
+- version_rank
+
+**Suggested name**: `document_registry`  (not applied — review before use)
+
+<!-- FIS folder-index.v1: parseable note; safe to regenerate. -->

@@ -1,0 +1,28 @@
+---
+fis_schema: "folder-index.v1"
+folder_id: "FLD-20260817-646df7e2"
+folder: "GitHub\David-OS\file-intelligence-system\_rail_runs\theophysics_20260805-014110\D_GitHub_Faith-through-physics-atoms__runtime_opus_story_handoff"
+folder_class: "project"
+confidence: 0.6
+dependency_risk: 0.0
+dominant_family: "text"
+dominant_ratio: 0.8
+file_count: 5
+classified_at: "2026-08-17T12:54:18"
+allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
+suggested_name: "d_github_faith-through-physics-atoms__runtime_opus_story_handoff"
+---
+
+# FIS Folder Index: D_GitHub_Faith-through-physics-atoms__runtime_opus_story_handoff
+
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 5  ·  **Dominant**: text (80%)
+
+## Allowed actions
+- index
+- rename_internal
+- subfolder_sort
+- archive_exports
+
+**Suggested name**: `d_github_faith-through-physics-atoms__runtime_opus_story_handoff`  (not applied — review before use)
+
+<!-- FIS folder-index.v1: parseable note; safe to regenerate. -->

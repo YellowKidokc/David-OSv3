@@ -1,0 +1,28 @@
+---
+fis_schema: "folder-index.v1"
+folder_id: "FLD-20260817-711c88b5"
+folder: "GitHub\David-OS\docs\operations"
+folder_class: "project"
+confidence: 0.6
+dependency_risk: 0.0
+dominant_family: "text"
+dominant_ratio: 0.75
+file_count: 4
+classified_at: "2026-08-17T12:54:17"
+allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
+suggested_name: "operations"
+---
+
+# FIS Folder Index: operations
+
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 4  ·  **Dominant**: text (75%)
+
+## Allowed actions
+- index
+- rename_internal
+- subfolder_sort
+- archive_exports
+
+**Suggested name**: `operations`  (not applied — review before use)
+
+<!-- FIS folder-index.v1: parseable note; safe to regenerate. -->

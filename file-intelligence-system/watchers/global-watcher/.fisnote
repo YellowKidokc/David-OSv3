@@ -1,0 +1,29 @@
+---
+fis_schema: "folder-index.v1"
+folder_id: "FLD-20260817-7a16d43a"
+folder: "GitHub\David-OS\file-intelligence-system\watchers\global-watcher"
+folder_class: "project"
+confidence: 0.6
+dependency_risk: 0.333
+dominant_family: "code"
+dominant_ratio: 0.625
+file_count: 8
+classified_at: "2026-08-17T12:54:18"
+allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
+suggested_name: "global-watcher"
+system_markers: ["requirements.txt"]
+---
+
+# FIS Folder Index: global-watcher
+
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 8  ·  **Dominant**: code (62%)
+
+## Allowed actions
+- index
+- rename_internal
+- subfolder_sort
+- archive_exports
+
+**Suggested name**: `global-watcher`  (not applied — review before use)
+
+<!-- FIS folder-index.v1: parseable note; safe to regenerate. -->

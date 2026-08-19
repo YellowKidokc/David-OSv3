@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FIS — Naming Approvals</title>
+<style>
+:root{--bg:#0d1117;--surface:#161b22;--s2:#1c2230;--border:#2a3140;--text:#e6e9ef;
+--dim:#b9c2d0;--muted:#7d8797;--gold:#d4af37;--green:#22c55e;--red:#e26464;--blue:#6eb2ff;
+--mono:'JetBrains Mono',Consolas,monospace;--sans:'Segoe UI',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--dim);font-family:var(--sans);padding:1.5rem;max-width:980px;margin:0 auto}
+h1{color:#fff;font-weight:400;font-size:1.3rem}
+.kicker{font-family:var(--mono);font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold)}
+.stats{display:flex;gap:1.5rem;margin:.8rem 0 1.4rem;font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+.stats b{color:var(--gold);font-weight:600}
+.card{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--gold);
+border-radius:0 9px 9px 0;padding:.9rem 1rem;margin-bottom:.7rem;display:grid;gap:.45rem}
+.card.done-a{border-left-color:var(--green);opacity:.45}
+.card.done-r{border-left-color:var(--red);opacity:.45}
+.path{font-family:var(--mono);font-size:.62rem;color:var(--muted);word-break:break-all}
+.names{display:grid;grid-template-columns:1fr auto 1fr;gap:.6rem;align-items:center}
+.name{font-family:var(--mono);font-size:.8rem;padding:.4rem .55rem;border-radius:6px;background:var(--s2);
+border:1px solid var(--border);word-break:break-all}
+.name.new{color:var(--gold);border-color:rgba(212,175,55,.4)}
+.arrow{color:var(--muted)}
+.meta{display:flex;gap:.5rem;flex-wrap:wrap;font-family:var(--mono);font-size:.58rem}
+.chip{background:var(--s2);border:1px solid var(--border);border-radius:4px;padding:.1rem .4rem;color:var(--muted)}
+.chip.pred{color:var(--blue);border-color:rgba(110,178,255,.35)}
+.actions{display:flex;gap:.5rem;align-items:center}
+button{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;padding:.42rem .8rem;border-radius:6px;
+border:1.5px solid;background:transparent;cursor:pointer;transition:.15s}
+.approve{color:var(--green);border-color:var(--green)}.approve:hover{background:rgba(34,197,94,.12)}
+.reject{color:var(--red);border-color:var(--red)}.reject:hover{background:rgba(226,100,100,.12)}
+.edit{color:var(--blue);border-color:var(--blue)}.edit:hover{background:rgba(110,178,255,.12)}
+.editbox{font-family:var(--mono);font-size:.78rem;width:100%;padding:.4rem .55rem;border-radius:6px;
+background:#090909;border:1px solid var(--gold);color:var(--gold);display:none}
+.empty{text-align:center;padding:3rem;color:var(--muted);font-family:var(--mono);font-size:.8rem}
+.keys{font-family:var(--mono);font-size:.58rem;color:var(--muted);margin-top:1.2rem}
+.keys b{color:var(--dim)}
+</style>
+</head>
+<body>
+<div class="kicker">File Intelligence System · POF 2828</div>
+<h1>Naming Approvals</h1>
+<div class="stats">
+  <span>pending <b id="nPending">–</b></span>
+  <span>session: approved <b id="nA">0</b> · rejected <b id="nR">0</b> · edited <b id="nE">0</b></span>
+  <span id="engineState"></span>
+  <button class="approve" style="margin-left:auto" onclick="approveAll()">✓✓ Approve all shown</button>
+  <button class="approve" onclick="approveAllPending()">Approve all pending</button>
+</div>
+<div id="list"></div>
+<div class="keys">Keys on top card: <b>A</b> approve · <b>R</b> reject · <b>E</b> edit · <b>Enter</b> save edit.
+Every decision is ledgered and teaches the preference engine.</div>
+
+<script>
+let proposals = [], session = {a:0,r:0,e:0};
+
+async function load(){
+  const r = await fetch('/api/proposals').then(x=>x.json());
+  proposals = r.proposals;
+  document.getElementById('nPending').textContent = r.count;
+  document.getElementById('engineState').textContent =
+    r.engine ? 'preference engine: LEARNING' : 'preference engine: offline (ledger only)';
+  render();
+}
+
+function render(){
+  const el = document.getElementById('list');
+  if(!proposals.length){ el.innerHTML = '<div class="empty">Inbox zero. The system awaits new proposals.</div>'; return; }
+  el.innerHTML = proposals.map((p,i)=>`
+  <div class="card" id="card-${p.id}">
+    <div class="path">${esc(p.path||'')}</div>
+    <div class="names">
+      <div class="name">${esc(p.current_name||'(unnamed)')}</div>
+      <div class="arrow">→</div>
+      <div class="name new" id="nm-${p.id}">${esc(p.proposed_name||'')}</div>
+    </div>
+    <input class="editbox" id="ed-${p.id}" value="${esc(p.proposed_name||'')}">
+    <div class="meta">
+      ${chip(p.folder_class)}${chip(p.domain)}${chip(p.ct)}${chip(p.status)}
+      ${(p.tags||[]).slice(0,6).map(chip).join('')}
+      ${p.confidence!=null?chip('conf '+p.confidence):''}
+      ${p.predicted_approval!=null?`<span class="chip pred">model says ${(p.predicted_approval*100)|0}% approve</span>`:''}
+    </div>
+    <div class="actions">
+      <button class="approve" onclick="decide('${p.id}','approved')">✓ Approve</button>
+      <button class="reject" onclick="decide('${p.id}','rejected')">✗ Reject</button>
+      <button class="edit" onclick="toggleEdit('${p.id}')">✎ Edit</button>
+    </div>
+  </div>`).join('');
+}
+
+function chip(v){ return v?`<span class="chip">${esc(String(v))}</span>`:''; }
+function esc(s){ return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+function toggleEdit(id){
+  const box = document.getElementById('ed-'+id);
+  box.style.display = box.style.display==='block' ? 'none' : 'block';
+  if(box.style.display==='block'){ box.focus();
+    box.onkeydown = e => { if(e.key==='Enter') decide(id,'edited',box.value); };
+  }
+}
+
+async function decide(id, decision, finalName){
+  const body = {id, decision};
+  if(decision==='edited') body.final_name = finalName || document.getElementById('ed-'+id).value;
+  const r = await fetch('/api/decide',{method:'POST',headers:{'Content-Type':'application/json'},
+    body: JSON.stringify(body)}).then(x=>x.json());
+  if(!r.ok) return alert('decision failed');
+  session[decision[0]]++;
+  document.getElementById('nA').textContent=session.a;
+  document.getElementById('nR').textContent=session.r;
+  document.getElementById('nE').textContent=session.e;
+  const card = document.getElementById('card-'+id);
+  card.className = 'card ' + (decision==='rejected'?'done-r':'done-a');
+  setTimeout(()=>{ proposals = proposals.filter(p=>p.id!==id);
+    document.getElementById('nPending').textContent = proposals.length; render(); }, 350);
+}
+
+async function approveAll(){
+  if(!proposals.length) return;
+  if(!confirm(`Approve all ${proposals.length} shown proposals? Each teaches the engine.`)) return;
+  for(const p of [...proposals]){
+    await fetch('/api/decide',{method:'POST',headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({id:p.id, decision:'approved'})});
+    session.a++;
+  }
+  document.getElementById('nA').textContent=session.a;
+  load();
+}
+
+async function approveAllPending(){
+  const count = Number(document.getElementById('nPending').textContent || '0');
+  if(!count) return;
+  if(!confirm(`Approve all ${count} pending proposals? This records approvals only; file execution remains separate.`)) return;
+  const r = await fetch('/api/approve_all',{method:'POST'}).then(x=>x.json());
+  if(!r.ok) return alert('bulk approval failed');
+  session.a += r.approved || 0;
+  document.getElementById('nA').textContent=session.a;
+  await load();
+}
+
+document.addEventListener('keydown', e=>{
+  if(e.target.tagName==='INPUT') return;
+  const top = proposals[0]; if(!top) return;
+  if(e.key==='a'||e.key==='A') decide(top.id,'approved');
+  if(e.key==='r'||e.key==='R') decide(top.id,'rejected');
+  if(e.key==='e'||e.key==='E') toggleEdit(top.id);
+});
+
+load();
+setInterval(load, 30000);
+</script>
+</body>
+</html>

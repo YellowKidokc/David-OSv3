@@ -328,6 +328,13 @@ class ScriptHub(QMainWindow):
         self.add_root_button.clicked.connect(self.add_root_dialog)
         header_layout.addWidget(self.add_root_button)
 
+        self.fis_pipeline_button = QPushButton("FIS Pipeline")
+        self.fis_pipeline_button.setToolTip(
+            "Scan + HTML + doc-types + lossless address + lossless format proposals"
+        )
+        self.fis_pipeline_button.clicked.connect(self.run_fis_pipeline)
+        header_layout.addWidget(self.fis_pipeline_button)
+
         outer.addWidget(header)
 
         filter_bar = QFrame()
@@ -747,6 +754,40 @@ class ScriptHub(QMainWindow):
             self.statusBar().showMessage("Pick a script first")
             return
         self.run_script(self.current_entry)
+
+    def run_fis_pipeline(self) -> None:
+        if self.process and self.process.state() != QProcess.NotRunning:
+            QMessageBox.warning(self, "Script running", "A script is already running. Stop it first.")
+            return
+        folder = QFileDialog.getExistingDirectory(self, "Folder to run the FIS pipeline on")
+        if not folder:
+            return
+        fis = Path(r"D:\GitHub\David-OS\file-intelligence-system")
+        scanner = fis / "fis_folder_memory.py"
+        if not scanner.exists():
+            QMessageBox.warning(self, "FIS missing", f"Cannot find {scanner}")
+            return
+        args = [
+            str(scanner),
+            folder,
+            "--tree",
+            "--html",
+            "--doc-types",
+            "--no-local-ai",
+        ]
+        self.process = QProcess(self)
+        self.process.setProcessChannelMode(QProcess.SeparateChannels)
+        self.process.readyReadStandardOutput.connect(self._read_stdout)
+        self.process.readyReadStandardError.connect(self._read_stderr)
+        self.process.finished.connect(self._process_finished)
+        self.process.errorOccurred.connect(self._process_error)
+        self.process.setWorkingDirectory(str(fis))
+        self.console.banner("FIS pipeline")
+        self.console.write("Outputs: scan, FIS.html, doc_type, lossless address, lossless format proposals\n")
+        self.console.write(f"Folder: {folder}\n")
+        self.console.write(f"Command: {sys.executable} {' '.join(args)}\n\n")
+        self.statusBar().showMessage("Running FIS pipeline...")
+        self.process.start(sys.executable, args)
 
     def run_script(self, entry: ScriptEntry) -> None:
         if self.process and self.process.state() != QProcess.NotRunning:

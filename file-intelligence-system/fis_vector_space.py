@@ -219,8 +219,23 @@ def folder_page_for(path: Path) -> str:
     return page.as_uri() if page.exists() else ""
 
 
+# Path segments that mark machine-generated dependency or build trees. Scans
+# run before these were excluded left such rows in the registry; filtering here
+# keeps them out of the views without deleting anything from the record.
+BUILD_TREE_MARKERS = (
+    r"\.lake" + "\\", r"\.elan" + "\\", "node_modules\\", "__pycache__\\",
+    "\\.git\\", "\\.venv\\", "\\.tox\\", "\\.gradle\\",
+)
+
+
+def is_build_artifact(path: str) -> bool:
+    low = path.lower().replace("/", "\\")
+    return any(m.lower() in low for m in BUILD_TREE_MARKERS)
+
+
 def load_points(db_path: Path = DB_DEFAULT, path_prefix: str = "",
-                include_untyped: bool = False, with_notes: bool = False) -> list[dict]:
+                include_untyped: bool = False, with_notes: bool = False,
+                include_build: bool = False) -> list[dict]:
     """
     Read the registry and return one placed point per file.
 
@@ -247,6 +262,8 @@ def load_points(db_path: Path = DB_DEFAULT, path_prefix: str = "",
 
     points = []
     for row in conn.execute(sql, params):
+        if not include_build and is_build_artifact(row["path"]):
+            continue
         try:
             local = json.loads(row["local_classification_json"] or "{}")
         except (json.JSONDecodeError, TypeError):

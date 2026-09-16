@@ -1,0 +1,748 @@
+{
+  "source_id": "A0_FIRST_ATOM_BIG_BANG",
+  "run_mode": "test",
+  "reverse_reconstruction": {
+    "b0_observed": "The universe is transparent; light travels freely; the CMB is visible; hydrogen atoms exist.",
+    "b1_repeated_pattern": "Binding events release energy; structure formation is accompanied by entropy increase.",
+    "b2_invariant": "Distinction stability requires a binding mechanism; information requires stable distinctions.",
+    "b3_operation": "Binding of particles (electron to proton) creates stable distinctions and releases photons.",
+    "b4_constraints": [
+      "Energy density must be low enough for binding.",
+      "Strong force coupling constant must be fine-tuned.",
+      "Thermodynamic laws must hold."
+    ],
+    "b5_dependencies": [
+      "Recombination depends on cooling of the universe.",
+      "Stable hydrogen depends on strong force coupling.",
+      "Transparency depends on electron binding."
+    ],
+    "b6_minimal_structure": "Existence + Distinction + Binding -> Stable Information + Released Energy",
+    "b7_candidate_ground": "The physical process of recombination is the ground for the projection of A1.3 (Information) and T3.1 (Coherence cannot self-increase).",
+    "b8_competing_grounds": [
+      "Alternative: The Big Bang itself as the ground for A1.1.",
+      "Alternative: Nucleosynthesis as the first stable distinction.",
+      "Alternative: The CMB as evidence of information storage without binding."
+    ],
+    "inference_chain": [
+      {
+        "step": "Observed transparency and CMB.",
+        "kind": "INDUCTIVE"
+      },
+      {
+        "step": "Pattern of binding releasing energy.",
+        "kind": "INDUCTIVE"
+      },
+      {
+        "step": "Invariant: stable distinction requires binding.",
+        "kind": "ABDUCTIVE"
+      },
+      {
+        "step": "Operation: binding creates stable distinctions.",
+        "kind": "DEDUCTIVE"
+      },
+      {
+        "step": "Constraints: fine-tuning and thermodynamics.",
+        "kind": "COMPARATIVE"
+      },
+      {
+        "step": "Minimal structure: Existence + Distinction + Binding -> Information + Energy.",
+        "kind": "ABDUCTIVE"
+      },
+      {
+        "step": "Candidate ground: recombination as projection of A1.3.",
+        "kind": "ABDUCTIVE"
+      }
+    ]
+  },
+  "convergence": {
+    "identities_match": true,
+    "distinctions_match": true,
+    "relations_match": true,
+    "operations_match": true,
+    "dependencies_match": true,
+    "constraints_match": true,
+    "invariants_match": true,
+    "overall": "converged",
+    "divergence_points": []
+  },
+  "minimal_convergence": true,
+  "unique_recovery": true,
+  "why_closure_gate": {
+    "why_ladder": {
+      "descriptive": "The universe became transparent because electrons bound to protons, releasing photons.",
+      "structural": "Binding creates stable distinctions, which are necessary for information storage and transmission.",
+      "boundary": "This applies only after sufficient cooling; before that, energy density prevents binding.",
+      "grounding": "The physical process of recombination is the projection of the ontological axiom A1.3 (Information = registered distinction)."
+    },
+    "explanation_types": [
+      "causal",
+      "structural",
+      "ontological"
+    ],
+    "closure_levels": {
+      "performative": true,
+      "deductive": "partial",
+      "structural": true,
+      "explanatory": true,
+      "empirical": "partial",
+      "open": false
+    },
+    "non_restatement_test": "pass",
+    "gate_outcome": "WHY_PARTIAL",
+    "closure_level_name": "structural",
+    "honest_boundary": "The explanation is structurally coherent and empirically consistent, but the ontological grounding (A1.3) is not formally derived; it remains an interpretive mapping."
+  },
+  "claim_ledger": [
+    {
+      "id": "C001",
+      "verbatim": "The early universe was not made of atoms.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "root",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C002",
+      "verbatim": "In the first microseconds, quarks and gluons existed in a plasma too hot for binding.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "root",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C003",
+      "verbatim": "No stable structures. No persistent distinctions.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C004",
+      "verbatim": "Everything that formed was immediately destroyed by the energy density.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C005",
+      "verbatim": "Three minutes in: nucleosynthesis.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "root",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C006",
+      "verbatim": "Protons and neutrons bind into helium, deuterium, trace lithium.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C007",
+      "verbatim": "But electrons are still free  -  the universe is a hot plasma where light cannot travel because photons scatter off free electrons constantly.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C008",
+      "verbatim": "No signal can propagate. No information can be stored durably. The universe is opaque.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C009",
+      "verbatim": "380,000 years in: recombination.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "root",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C010",
+      "verbatim": "The universe cools enough for free electrons to bind to protons.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C011",
+      "verbatim": "Hydrogen forms.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C012",
+      "verbatim": "For the first time, a distinction is STABLE  -  this electron belongs to this proton, not that one.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C013",
+      "verbatim": "And the photons, released from their scattering prison, travel freely for the first time.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C014",
+      "verbatim": "The universe becomes transparent.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C015",
+      "verbatim": "Light can carry information.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C016",
+      "verbatim": "Those photons are still visible.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C017",
+      "verbatim": "The cosmic microwave background  -  the oldest light in the universe  -  is literally the receipt from the universe's first act of stable information storage.",
+      "claim_type": "assertion",
+      "grade": "overstatement",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": "Empirical evidence that CMB is a 'receipt' of information storage; likely metaphorical.",
+      "convergence_supported": false
+    },
+    {
+      "id": "C018",
+      "verbatim": "A1.1 (Existence) does not \"happen\" at the Big Bang.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "root",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C019",
+      "verbatim": "A1.1 is ontologically primitive  -  it grounds the Big Bang, it is not produced by it.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C020",
+      "verbatim": "But the Big Bang is what A1.1 LOOKS LIKE from inside the physical layer.",
+      "claim_type": "bridge",
+      "grade": "needs_derivation",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": "Formal derivation from A1.1 to Big Bang as physical projection.",
+      "convergence_supported": true
+    },
+    {
+      "id": "C021",
+      "verbatim": "A1.2 (Distinction) projects physically as particle differentiation.",
+      "claim_type": "bridge",
+      "grade": "needs_derivation",
+      "connection_status": "root",
+      "final_status": "test_only",
+      "resolution_needed": "Formal derivation from A1.2 to particle differentiation.",
+      "convergence_supported": true
+    },
+    {
+      "id": "C022",
+      "verbatim": "The quark-gluon plasma is undifferentiated  -  distinction exists but cannot stabilize.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C023",
+      "verbatim": "Recombination is the moment distinction HOLDS.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C024",
+      "verbatim": "The electron is not the proton. The binding is not the separation. This is not that  -  and for the first time, the universe can remember the difference.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C025",
+      "verbatim": "A1.3 (Information = registered distinction) projects as the first stable hydrogen atom.",
+      "claim_type": "bridge",
+      "grade": "needs_derivation",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": "Formal derivation from A1.3 to hydrogen as information storage.",
+      "convergence_supported": true
+    },
+    {
+      "id": "C026",
+      "verbatim": "A registered distinction IS information (the axiom chain's derivation).",
+      "claim_type": "derivation_step",
+      "grade": "supported",
+      "connection_status": "root",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C027",
+      "verbatim": "Hydrogen is the universe's first durable information storage  -  this electron bound to this proton, a fact the universe will not forget.",
+      "claim_type": "assertion",
+      "grade": "overstatement",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": "Clarify 'durable information storage' and 'fact the universe will not forget'.",
+      "convergence_supported": false
+    },
+    {
+      "id": "C028",
+      "verbatim": "T3.1 (Coherence cannot self-increase) projects as the photon release.",
+      "claim_type": "bridge",
+      "grade": "needs_derivation",
+      "connection_status": "root",
+      "final_status": "test_only",
+      "resolution_needed": "Formal derivation from T3.1 to photon release.",
+      "convergence_supported": true
+    },
+    {
+      "id": "C029",
+      "verbatim": "When the electron binds to the proton, energy is released as a photon.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C030",
+      "verbatim": "Structure gained, entropy paid.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C031",
+      "verbatim": "The binding is not free.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C032",
+      "verbatim": "The CMB is the cost-of-coherence written across the entire sky.",
+      "claim_type": "assertion",
+      "grade": "overstatement",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": "Clarify 'cost-of-coherence' as metaphor; CMB is evidence of recombination, not necessarily 'cost'.",
+      "convergence_supported": false
+    },
+    {
+      "id": "C033",
+      "verbatim": "Every binding event in physics has this signature  -  something gains coherence, something else gets released.",
+      "claim_type": "assertion",
+      "grade": "overstatement",
+      "connection_status": "root",
+      "final_status": "test_only",
+      "resolution_needed": "Provide evidence for 'every binding event' claim.",
+      "convergence_supported": false
+    },
+    {
+      "id": "C034",
+      "verbatim": "Law 5 (thermodynamics) says you cannot get structure without paying entropy somewhere else.",
+      "claim_type": "evidence_cite",
+      "grade": "supported",
+      "connection_status": "root",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C035",
+      "verbatim": "Law 4 (strong force) says binding has a cost  -  confinement.",
+      "claim_type": "evidence_cite",
+      "grade": "supported",
+      "connection_status": "root",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C036",
+      "verbatim": "Hydrogen is the first transaction. Order purchased, light released.",
+      "claim_type": "assertion",
+      "grade": "overstatement",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": "Clarify 'first transaction' and 'order purchased' as metaphorical.",
+      "convergence_supported": false
+    },
+    {
+      "id": "C037",
+      "verbatim": "The receipt (CMB) is still visible 13.8 billion years later.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C038",
+      "verbatim": "The axiom chain has an open time node: A1.1 + A1.2 + TR -> TIME, with TR reserved for David to specify.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "root",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C039",
+      "verbatim": "Recombination gives a candidate for TR: actualization.",
+      "claim_type": "prediction",
+      "grade": "needs_evidence",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": "Empirical or theoretical support for TR = actualization.",
+      "convergence_supported": true
+    },
+    {
+      "id": "C040",
+      "verbatim": "Existence + Distinction alone give the POSSIBILITY of information.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "root",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C041",
+      "verbatim": "The moment particles actually bind  -  that's actualization, and the photon's timestamp IS the first tick of physical time.",
+      "claim_type": "assertion",
+      "grade": "overstatement",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": "Clarify 'photon's timestamp IS the first tick of physical time'.",
+      "convergence_supported": false
+    },
+    {
+      "id": "C042",
+      "verbatim": "David's Aug 9 ruling says time is \"what the Trinity's coupling produces.\"",
+      "claim_type": "evidence_cite",
+      "grade": "supported",
+      "connection_status": "root",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C043",
+      "verbatim": "The first coupling that produces a durable result in the physical universe is recombination.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C044",
+      "verbatim": "The photon's release marks the first moment the universe has a RECORD  -  and a record is what makes time real rather than merely possible.",
+      "claim_type": "assertion",
+      "grade": "overstatement",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": "Clarify 'record makes time real'.",
+      "convergence_supported": false
+    },
+    {
+      "id": "C045",
+      "verbatim": "Before recombination, the universe is opaque  -  photons scatter, no signal propagates, no information travels.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C046",
+      "verbatim": "After recombination, the universe is transparent  -  light carries information freely.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C047",
+      "verbatim": "A5.1 says distinctions must be registerable by an observer to be actualized.",
+      "claim_type": "evidence_cite",
+      "grade": "supported",
+      "connection_status": "root",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C048",
+      "verbatim": "Before transparency, the universe cannot observe itself  -  every photon is scattered before it can carry a message.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C049",
+      "verbatim": "After transparency, observation becomes possible.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C050",
+      "verbatim": "The universe's first act of seeing is the CMB.",
+      "claim_type": "assertion",
+      "grade": "overstatement",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": "Clarify 'universe's first act of seeing' as metaphorical.",
+      "convergence_supported": false
+    },
+    {
+      "id": "C051",
+      "verbatim": "At recombination, the universe crosses the threshold from \"distinctions exist but cannot be observed\" to \"distinctions are observable and therefore actualizable.\"",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C052",
+      "verbatim": "The observer requirement (A5.1) and the information requirement (A1.3) both activate at the same moment in the physical timeline.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C053",
+      "verbatim": "The strong force coupling constant being off by 1% would mean no stable hydrogen.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "root",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C054",
+      "verbatim": "No hydrogen means no first registered distinction.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C055",
+      "verbatim": "A1.3 never projects into physics.",
+      "claim_type": "assertion",
+      "grade": "supported",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C056",
+      "verbatim": "The fine-tuning numbers protect the axiom chain's physical projection  -  they are the tolerances within which existence + distinction can produce stable information.",
+      "claim_type": "assertion",
+      "grade": "overstatement",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": "Clarify 'protect the axiom chain's physical projection'.",
+      "convergence_supported": false
+    },
+    {
+      "id": "C057",
+      "verbatim": "The Big Bang IS A1.1 (ontological primitives don't \"happen\")",
+      "claim_type": "boundary",
+      "grade": "needs_derivation",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": "Formal derivation from A1.1 to Big Bang as identity.",
+      "convergence_supported": true
+    },
+    {
+      "id": "C058",
+      "verbatim": "Recombination IS A1.3 (the axiom is ontologically prior; recombination is its physical projection)",
+      "claim_type": "boundary",
+      "grade": "needs_derivation",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": "Formal derivation from A1.3 to recombination as identity.",
+      "convergence_supported": true
+    },
+    {
+      "id": "C059",
+      "verbatim": "The CMB proves T3.1 (the CMB is consistent with T3.1; consistency is not proof)",
+      "claim_type": "boundary",
+      "grade": "supported",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    },
+    {
+      "id": "C060",
+      "verbatim": "TR = actualization is established (it's a candidate, formation-stage, reserved for David)",
+      "claim_type": "boundary",
+      "grade": "supported",
+      "connection_status": "connected",
+      "final_status": "test_only",
+      "resolution_needed": null,
+      "convergence_supported": true
+    }
+  ],
+  "ledger_summary": {
+    "total_claims": 60,
+    "resolved": 0,
+    "carry_forward": 0,
+    "killed": 0,
+    "orphan_carry": 0,
+    "test_only": 60
+  },
+  "final_record": {
+    "source_id": "A0_FIRST_ATOM_BIG_BANG",
+    "title": "The First Atom: Big Bang as Physical Projection of Ontological Axioms",
+    "logical_role": "BRIDGE",
+    "ontological_domain": [
+      "physics",
+      "ontology",
+      "information theory",
+      "theology"
+    ],
+    "epistemic_status": "abductively_favored",
+    "proof_label": "NOT_ESTABLISHED",
+    "gate_outcome": "WHY_PARTIAL",
+    "closure_level": "structural",
+    "honest_boundary": "The explanation is structurally coherent and empirically consistent, but the ontological grounding (A1.3) is not formally derived; it remains an interpretive mapping.",
+    "overstatement_risks": [
+      "C017: CMB as 'receipt' of information storage",
+      "C027: Hydrogen as 'durable information storage'",
+      "C032: CMB as 'cost-of-coherence'",
+      "C033: 'Every binding event' claim",
+      "C036: 'First transaction'",
+      "C041: 'photon's timestamp IS the first tick of physical time'",
+      "C044: 'record makes time real'",
+      "C050: 'universe's first act of seeing'",
+      "C056: 'fine-tuning numbers protect the axiom chain'"
+    ],
+    "kill_conditions": [
+      "If the strong force coupling constant is not fine-tuned to 1% for hydrogen stability, the projection fails.",
+      "If recombination is not the first stable distinction, the mapping to A1.3 fails.",
+      "If the CMB is not consistent with T3.1, the bridge fails."
+    ],
+    "claim_count": 60,
+    "orphan_claims": 0,
+    "plain_summary": "This source interprets the Big Bang and recombination as physical projections of ontological axioms (Existence, Distinction, Information). It argues that recombination marks the first stable distinction and thus the first durable information storage, with the CMB as evidence. The explanation is structurally coherent but relies on metaphorical language and lacks formal derivations for the axiom-to-physics mappings."
+  },
+  "pill": "C",
+  "_meta": {
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "source_file": "D:\\GitHub\\David-OS\\file-intelligence-system\\notes\\atoms\\A0_FIRST_ATOM_BIG_BANG.md",
+    "pill": "pill_C",
+    "mode": "test"
+  }
+}

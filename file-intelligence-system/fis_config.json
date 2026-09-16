@@ -1,0 +1,9 @@
+{
+  "canon_standing_threshold": 0.75,
+  "doc_type_confidence_min": 0.60,
+  "chi_sum_min": 1,
+  "write_canon_sidecar_on_trigger": true,
+  "approval_page_size": 500,
+  "keyword_registry": "D:\\\\_FIS_STATE\\\\keyword_registry.json",
+  "sidecar_archive": "D:\\\\_FIS_ROOT_SIDECAR_ARCHIVE"
+}

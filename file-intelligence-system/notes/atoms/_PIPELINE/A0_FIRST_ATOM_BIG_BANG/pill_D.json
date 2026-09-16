@@ -1,0 +1,1078 @@
+{
+  "source_id": "A0_FIRST_ATOM_BIG_BANG",
+  "run_mode": "test",
+  "master_equation_coverage": {
+    "variables_touched": [
+      "E",
+      "S_eff",
+      "T",
+      "K",
+      "R",
+      "F",
+      "C_W"
+    ],
+    "variables_absent": [
+      "G",
+      "M",
+      "Q"
+    ],
+    "coverage_ratio": 0.7,
+    "zero_rule_invoked": false
+  },
+  "law_coverage": {
+    "laws_touched": [
+      {
+        "law_number": 4,
+        "physics_side": true,
+        "theology_side": false,
+        "symmetry_noted": false,
+        "bridge_grade_claimed": null,
+        "bridge_grade_earned": "B1"
+      },
+      {
+        "law_number": 5,
+        "physics_side": true,
+        "theology_side": false,
+        "symmetry_noted": false,
+        "bridge_grade_claimed": null,
+        "bridge_grade_earned": "B1"
+      },
+      {
+        "law_number": 6,
+        "physics_side": true,
+        "theology_side": false,
+        "symmetry_noted": false,
+        "bridge_grade_claimed": null,
+        "bridge_grade_earned": "B1"
+      },
+      {
+        "law_number": 8,
+        "physics_side": true,
+        "theology_side": false,
+        "symmetry_noted": false,
+        "bridge_grade_claimed": null,
+        "bridge_grade_earned": "B1"
+      },
+      {
+        "law_number": 10,
+        "physics_side": true,
+        "theology_side": false,
+        "symmetry_noted": false,
+        "bridge_grade_claimed": null,
+        "bridge_grade_earned": "B1"
+      }
+    ],
+    "laws_absent": [
+      1,
+      2,
+      3,
+      7,
+      9
+    ],
+    "coverage_ratio": 0.5
+  },
+  "trinity_coverage": {
+    "father_referenced": false,
+    "son_referenced": false,
+    "spirit_referenced": false,
+    "unity_mechanism": null,
+    "2_plus_1_noted": false,
+    "perichoresis_noted": false,
+    "four_debts_referenced": false,
+    "four_debts_resolved": false
+  },
+  "axiom_coverage": {
+    "a0_subclauses_touched": [
+      "A0.1",
+      "A0.2",
+      "A0.3",
+      "A0.4",
+      "A0.5",
+      "A0.6",
+      "A0.7",
+      "A0.8",
+      "A0.9",
+      "A0.10",
+      "A0.11",
+      "A0.12",
+      "A0.13",
+      "A0.14",
+      "A0.15"
+    ],
+    "a0_subclauses_absent": [],
+    "k0_referenced": true,
+    "k1_referenced": false,
+    "k2_referenced": false,
+    "derivation_tree_nodes_touched": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "derivation_tree_coverage": 1.0
+  },
+  "fruits_coverage": {
+    "fruits_named": [],
+    "fruits_absent": [
+      "Love",
+      "Joy",
+      "Peace",
+      "Patience",
+      "Kindness",
+      "Goodness",
+      "Faithfulness",
+      "Gentleness",
+      "Self-Control"
+    ],
+    "equations_cited": false,
+    "anti_fruits_named": [],
+    "phase_form_cited": false,
+    "coverage_ratio": 0.0
+  },
+  "convergence_instances": {
+    "instances_referenced": [
+      "Big Bang"
+    ],
+    "n_equals_3_tested": false
+  },
+  "shannon_layer": {
+    "referenced": true,
+    "channel_equation_cited": false,
+    "no_drift_condition_noted": false
+  },
+  "claim_framework_map": [
+    {
+      "claim_id": "C001",
+      "framework_elements": [
+        "A0.1",
+        "A0.2",
+        "A0.3",
+        "A0.4",
+        "A0.5",
+        "A0.6",
+        "A0.7",
+        "A0.8",
+        "A0.9",
+        "A0.10",
+        "A0.11",
+        "A0.12",
+        "A0.13",
+        "A0.14",
+        "A0.15"
+      ],
+      "alignment": "restates",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C002",
+      "framework_elements": [
+        "A0.1",
+        "A0.2",
+        "A0.3",
+        "A0.4",
+        "A0.5",
+        "A0.6",
+        "A0.7",
+        "A0.8",
+        "A0.9",
+        "A0.10",
+        "A0.11",
+        "A0.12",
+        "A0.13",
+        "A0.14",
+        "A0.15"
+      ],
+      "alignment": "restates",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C003",
+      "framework_elements": [
+        "A0.1",
+        "A0.2",
+        "A0.3",
+        "A0.4",
+        "A0.5",
+        "A0.6",
+        "A0.7",
+        "A0.8",
+        "A0.9",
+        "A0.10",
+        "A0.11",
+        "A0.12",
+        "A0.13",
+        "A0.14",
+        "A0.15"
+      ],
+      "alignment": "restates",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C004",
+      "framework_elements": [
+        "A0.1",
+        "A0.2",
+        "A0.3",
+        "A0.4",
+        "A0.5",
+        "A0.6",
+        "A0.7",
+        "A0.8",
+        "A0.9",
+        "A0.10",
+        "A0.11",
+        "A0.12",
+        "A0.13",
+        "A0.14",
+        "A0.15"
+      ],
+      "alignment": "restates",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C005",
+      "framework_elements": [
+        "A0.1",
+        "A0.2",
+        "A0.3",
+        "A0.4",
+        "A0.5",
+        "A0.6",
+        "A0.7",
+        "A0.8",
+        "A0.9",
+        "A0.10",
+        "A0.11",
+        "A0.12",
+        "A0.13",
+        "A0.14",
+        "A0.15"
+      ],
+      "alignment": "restates",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C006",
+      "framework_elements": [
+        "A0.1",
+        "A0.2",
+        "A0.3",
+        "A0.4",
+        "A0.5",
+        "A0.6",
+        "A0.7",
+        "A0.8",
+        "A0.9",
+        "A0.10",
+        "A0.11",
+        "A0.12",
+        "A0.13",
+        "A0.14",
+        "A0.15"
+      ],
+      "alignment": "restates",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C007",
+      "framework_elements": [
+        "A0.1",
+        "A0.2",
+        "A0.3",
+        "A0.4",
+        "A0.5",
+        "A0.6",
+        "A0.7",
+        "A0.8",
+        "A0.9",
+        "A0.10",
+        "A0.11",
+        "A0.12",
+        "A0.13",
+        "A0.14",
+        "A0.15"
+      ],
+      "alignment": "restates",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C008",
+      "framework_elements": [
+        "A0.1",
+        "A0.2",
+        "A0.3",
+        "A0.4",
+        "A0.5",
+        "A0.6",
+        "A0.7",
+        "A0.8",
+        "A0.9",
+        "A0.10",
+        "A0.11",
+        "A0.12",
+        "A0.13",
+        "A0.14",
+        "A0.15"
+      ],
+      "alignment": "restates",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C009",
+      "framework_elements": [
+        "A0.1",
+        "A0.2",
+        "A0.3",
+        "A0.4",
+        "A0.5",
+        "A0.6",
+        "A0.7",
+        "A0.8",
+        "A0.9",
+        "A0.10",
+        "A0.11",
+        "A0.12",
+        "A0.13",
+        "A0.14",
+        "A0.15"
+      ],
+      "alignment": "restates",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C010",
+      "framework_elements": [
+        "A0.1",
+        "A0.2",
+        "A0.3",
+        "A0.4",
+        "A0.5",
+        "A0.6",
+        "A0.7",
+        "A0.8",
+        "A0.9",
+        "A0.10",
+        "A0.11",
+        "A0.12",
+        "A0.13",
+        "A0.14",
+        "A0.15"
+      ],
+      "alignment": "restates",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C011",
+      "framework_elements": [
+        "A0.1",
+        "A0.2",
+        "A0.3",
+        "A0.4",
+        "A0.5",
+        "A0.6",
+        "A0.7",
+        "A0.8",
+        "A0.9",
+        "A0.10",
+        "A0.11",
+        "A0.12",
+        "A0.13",
+        "A0.14",
+        "A0.15"
+      ],
+      "alignment": "restates",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C012",
+      "framework_elements": [
+        "A0.1",
+        "A0.2",
+        "A0.3",
+        "A0.4",
+        "A0.5",
+        "A0.6",
+        "A0.7",
+        "A0.8",
+        "A0.9",
+        "A0.10",
+        "A0.11",
+        "A0.12",
+        "A0.13",
+        "A0.14",
+        "A0.15"
+      ],
+      "alignment": "restates",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C013",
+      "framework_elements": [
+        "A0.1",
+        "A0.2",
+        "A0.3",
+        "A0.4",
+        "A0.5",
+        "A0.6",
+        "A0.7",
+        "A0.8",
+        "A0.9",
+        "A0.10",
+        "A0.11",
+        "A0.12",
+        "A0.13",
+        "A0.14",
+        "A0.15"
+      ],
+      "alignment": "restates",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C014",
+      "framework_elements": [
+        "A0.1",
+        "A0.2",
+        "A0.3",
+        "A0.4",
+        "A0.5",
+        "A0.6",
+        "A0.7",
+        "A0.8",
+        "A0.9",
+        "A0.10",
+        "A0.11",
+        "A0.12",
+        "A0.13",
+        "A0.14",
+        "A0.15"
+      ],
+      "alignment": "restates",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C015",
+      "framework_elements": [
+        "A0.1",
+        "A0.2",
+        "A0.3",
+        "A0.4",
+        "A0.5",
+        "A0.6",
+        "A0.7",
+        "A0.8",
+        "A0.9",
+        "A0.10",
+        "A0.11",
+        "A0.12",
+        "A0.13",
+        "A0.14",
+        "A0.15"
+      ],
+      "alignment": "restates",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C016",
+      "framework_elements": [
+        "A0.1",
+        "A0.2",
+        "A0.3",
+        "A0.4",
+        "A0.5",
+        "A0.6",
+        "A0.7",
+        "A0.8",
+        "A0.9",
+        "A0.10",
+        "A0.11",
+        "A0.12",
+        "A0.13",
+        "A0.14",
+        "A0.15"
+      ],
+      "alignment": "restates",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C017",
+      "framework_elements": [
+        "E",
+        "K",
+        "C_W",
+        "Law 6",
+        "Law 10"
+      ],
+      "alignment": "extends",
+      "overstatement_risk": "CMB as 'receipt' is metaphorical; not literal information storage."
+    },
+    {
+      "claim_id": "C018",
+      "framework_elements": [
+        "A0.1"
+      ],
+      "alignment": "agrees",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C019",
+      "framework_elements": [
+        "A0.1"
+      ],
+      "alignment": "agrees",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C020",
+      "framework_elements": [
+        "A0.1",
+        "Big Bang"
+      ],
+      "alignment": "extends",
+      "overstatement_risk": "No formal derivation from A1.1 to Big Bang."
+    },
+    {
+      "claim_id": "C021",
+      "framework_elements": [
+        "A0.3",
+        "A0.4"
+      ],
+      "alignment": "extends",
+      "overstatement_risk": "No formal derivation from A1.2 to particle differentiation."
+    },
+    {
+      "claim_id": "C022",
+      "framework_elements": [
+        "A0.3",
+        "A0.4"
+      ],
+      "alignment": "agrees",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C023",
+      "framework_elements": [
+        "A0.3",
+        "A0.4"
+      ],
+      "alignment": "agrees",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C024",
+      "framework_elements": [
+        "A0.3",
+        "A0.4"
+      ],
+      "alignment": "agrees",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C025",
+      "framework_elements": [
+        "A0.6",
+        "K",
+        "Law 6"
+      ],
+      "alignment": "extends",
+      "overstatement_risk": "No formal derivation from A1.3 to hydrogen as information storage."
+    },
+    {
+      "claim_id": "C026",
+      "framework_elements": [
+        "A0.6",
+        "K"
+      ],
+      "alignment": "agrees",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C027",
+      "framework_elements": [
+        "A0.6",
+        "K",
+        "Law 6"
+      ],
+      "alignment": "extends",
+      "overstatement_risk": "Hydrogen as 'durable information storage' is metaphorical."
+    },
+    {
+      "claim_id": "C028",
+      "framework_elements": [
+        "C_W",
+        "Law 10"
+      ],
+      "alignment": "extends",
+      "overstatement_risk": "No formal derivation from T3.1 to photon release."
+    },
+    {
+      "claim_id": "C029",
+      "framework_elements": [
+        "Law 5"
+      ],
+      "alignment": "agrees",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C030",
+      "framework_elements": [
+        "S_eff",
+        "Law 5"
+      ],
+      "alignment": "agrees",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C031",
+      "framework_elements": [
+        "S_eff",
+        "Law 5"
+      ],
+      "alignment": "agrees",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C032",
+      "framework_elements": [
+        "S_eff",
+        "C_W",
+        "Law 5",
+        "Law 10"
+      ],
+      "alignment": "extends",
+      "overstatement_risk": "CMB as 'cost-of-coherence' is metaphorical."
+    },
+    {
+      "claim_id": "C033",
+      "framework_elements": [
+        "C_W",
+        "Law 10"
+      ],
+      "alignment": "extends",
+      "overstatement_risk": "Claim about 'every binding event' is unsubstantiated."
+    },
+    {
+      "claim_id": "C034",
+      "framework_elements": [
+        "Law 5"
+      ],
+      "alignment": "agrees",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C035",
+      "framework_elements": [
+        "Law 4"
+      ],
+      "alignment": "agrees",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C036",
+      "framework_elements": [
+        "C_W",
+        "Law 5",
+        "Law 10"
+      ],
+      "alignment": "extends",
+      "overstatement_risk": "Metaphorical 'first transaction'."
+    },
+    {
+      "claim_id": "C037",
+      "framework_elements": [
+        "E",
+        "K"
+      ],
+      "alignment": "agrees",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C038",
+      "framework_elements": [
+        "T",
+        "A0.1",
+        "A0.2",
+        "A0.3",
+        "A0.4"
+      ],
+      "alignment": "extends",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C039",
+      "framework_elements": [
+        "T",
+        "A0.1",
+        "A0.2",
+        "A0.3",
+        "A0.4"
+      ],
+      "alignment": "extends",
+      "overstatement_risk": "TR = actualization is a candidate, not established."
+    },
+    {
+      "claim_id": "C040",
+      "framework_elements": [
+        "A0.1",
+        "A0.2",
+        "A0.3",
+        "A0.4",
+        "K"
+      ],
+      "alignment": "agrees",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C041",
+      "framework_elements": [
+        "T",
+        "A0.1",
+        "A0.2",
+        "A0.3",
+        "A0.4"
+      ],
+      "alignment": "extends",
+      "overstatement_risk": "Photon's timestamp as first tick of physical time is metaphorical."
+    },
+    {
+      "claim_id": "C042",
+      "framework_elements": [
+        "T",
+        "Trinity"
+      ],
+      "alignment": "agrees",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C043",
+      "framework_elements": [
+        "T",
+        "A0.1",
+        "A0.2",
+        "A0.3",
+        "A0.4"
+      ],
+      "alignment": "agrees",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C044",
+      "framework_elements": [
+        "T",
+        "K"
+      ],
+      "alignment": "extends",
+      "overstatement_risk": "Record makes time real is metaphorical."
+    },
+    {
+      "claim_id": "C045",
+      "framework_elements": [
+        "E",
+        "K"
+      ],
+      "alignment": "agrees",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C046",
+      "framework_elements": [
+        "E",
+        "K"
+      ],
+      "alignment": "agrees",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C047",
+      "framework_elements": [
+        "A0.14",
+        "A0.15"
+      ],
+      "alignment": "agrees",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C048",
+      "framework_elements": [
+        "E",
+        "K"
+      ],
+      "alignment": "agrees",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C049",
+      "framework_elements": [
+        "E",
+        "K"
+      ],
+      "alignment": "agrees",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C050",
+      "framework_elements": [
+        "E",
+        "K"
+      ],
+      "alignment": "extends",
+      "overstatement_risk": "Universe's first act of seeing is metaphorical."
+    },
+    {
+      "claim_id": "C051",
+      "framework_elements": [
+        "A0.14",
+        "A0.15",
+        "E",
+        "K"
+      ],
+      "alignment": "agrees",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C052",
+      "framework_elements": [
+        "A0.14",
+        "A0.15",
+        "E",
+        "K"
+      ],
+      "alignment": "agrees",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C053",
+      "framework_elements": [
+        "Law 4"
+      ],
+      "alignment": "agrees",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C054",
+      "framework_elements": [
+        "Law 4",
+        "K"
+      ],
+      "alignment": "agrees",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C055",
+      "framework_elements": [
+        "A0.6",
+        "K"
+      ],
+      "alignment": "agrees",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C056",
+      "framework_elements": [
+        "Law 4",
+        "A0.6",
+        "K"
+      ],
+      "alignment": "extends",
+      "overstatement_risk": "Fine-tuning numbers 'protect' the axiom chain is metaphorical."
+    },
+    {
+      "claim_id": "C057",
+      "framework_elements": [
+        "A0.1",
+        "Big Bang"
+      ],
+      "alignment": "extends",
+      "overstatement_risk": "No formal derivation from A1.1 to Big Bang as identity."
+    },
+    {
+      "claim_id": "C058",
+      "framework_elements": [
+        "A0.6",
+        "K",
+        "Recombination"
+      ],
+      "alignment": "extends",
+      "overstatement_risk": "No formal derivation from A1.3 to recombination as identity."
+    },
+    {
+      "claim_id": "C059",
+      "framework_elements": [
+        "C_W",
+        "Law 10"
+      ],
+      "alignment": "agrees",
+      "overstatement_risk": null
+    },
+    {
+      "claim_id": "C060",
+      "framework_elements": [
+        "T",
+        "A0.1",
+        "A0.2",
+        "A0.3",
+        "A0.4"
+      ],
+      "alignment": "agrees",
+      "overstatement_risk": null
+    }
+  ],
+  "framework_gaps": [
+    {
+      "element": "Trinity structure (Father, Son, Spirit)",
+      "severity": "critical",
+      "explanation": "The document does not reference the Trinity at all, despite the framework's central role."
+    },
+    {
+      "element": "Four Debts",
+      "severity": "critical",
+      "explanation": "The document does not address the Four Debts or how A0 pays them."
+    },
+    {
+      "element": "Fruits of the Spirit",
+      "severity": "critical",
+      "explanation": "No mention of the nine fruits or their equations."
+    },
+    {
+      "element": "Laws 1, 2, 3, 7, 9",
+      "severity": "notable",
+      "explanation": "These laws are not touched, especially Law 9 (moral conservation) which is derived."
+    },
+    {
+      "element": "Master Equation variables G, M, Q",
+      "severity": "notable",
+      "explanation": "Grace, Moral Alignment, and Quantum Uncertainty are absent."
+    },
+    {
+      "element": "Shannon base layer equation",
+      "severity": "minor",
+      "explanation": "The document references information but does not cite the channel equation or no-drift condition."
+    },
+    {
+      "element": "Convergence instances other than Big Bang",
+      "severity": "minor",
+      "explanation": "Only Big Bang is referenced; other instances are not mentioned."
+    }
+  ],
+  "overstatements": [
+    {
+      "claim_id": "C017",
+      "what_is_claimed": "CMB is literally the receipt from the universe's first act of stable information storage.",
+      "what_is_supported": "CMB is evidence of recombination and transparency.",
+      "gap": "Metaphorical language presented as literal."
+    },
+    {
+      "claim_id": "C027",
+      "what_is_claimed": "Hydrogen is the universe's first durable information storage.",
+      "what_is_supported": "Hydrogen formation is a stable physical structure.",
+      "gap": "Information storage is metaphorical; no formal definition."
+    },
+    {
+      "claim_id": "C032",
+      "what_is_claimed": "CMB is the cost-of-coherence written across the entire sky.",
+      "what_is_supported": "CMB is consistent with entropy increase during recombination.",
+      "gap": "Cost-of-coherence is metaphorical."
+    },
+    {
+      "claim_id": "C033",
+      "what_is_claimed": "Every binding event in physics has this signature.",
+      "what_is_supported": "Some binding events release energy.",
+      "gap": "Universal claim not substantiated."
+    },
+    {
+      "claim_id": "C036",
+      "what_is_claimed": "Hydrogen is the first transaction. Order purchased, light released.",
+      "what_is_supported": "Hydrogen formation releases photons.",
+      "gap": "Transaction language is metaphorical."
+    },
+    {
+      "claim_id": "C041",
+      "what_is_claimed": "The photon's timestamp IS the first tick of physical time.",
+      "what_is_supported": "Recombination is a candidate for TR.",
+      "gap": "Not established; overstates a candidate."
+    },
+    {
+      "claim_id": "C044",
+      "what_is_claimed": "A record is what makes time real rather than merely possible.",
+      "what_is_supported": "Records allow time to be measured.",
+      "gap": "Ontological claim not derived."
+    },
+    {
+      "claim_id": "C050",
+      "what_is_claimed": "The universe's first act of seeing is the CMB.",
+      "what_is_supported": "Observation becomes possible after transparency.",
+      "gap": "Seeing is metaphorical."
+    },
+    {
+      "claim_id": "C056",
+      "what_is_claimed": "The fine-tuning numbers protect the axiom chain's physical projection.",
+      "what_is_supported": "Fine-tuning is necessary for hydrogen formation.",
+      "gap": "Protection is metaphorical; no formal link."
+    }
+  ],
+  "kill_condition_status": [
+    {
+      "condition": "Find a moral event where the ledger closes without invisible remainder",
+      "status": "undefeated",
+      "evidence": null
+    },
+    {
+      "condition": "Find a closed system that spontaneously decreases entropy",
+      "status": "undefeated",
+      "evidence": null
+    },
+    {
+      "condition": "Find a quantum measurement undoable to restore superposition",
+      "status": "undefeated",
+      "evidence": null
+    },
+    {
+      "condition": "Show n=2 or n=4 solves any convergence instance as well as n=3",
+      "status": "undefeated",
+      "evidence": null
+    },
+    {
+      "condition": "Show a self-grounding substrate that is impersonal and generates normativity",
+      "status": "undefeated",
+      "evidence": null
+    },
+    {
+      "condition": "Find a two-party solution to the justice-mercy-freedom optimization",
+      "status": "undefeated",
+      "evidence": null
+    }
+  ],
+  "derivation_status_check": {
+    "claims_derived_status_match": false,
+    "mismatches": [
+      "C028 claims T3.1 projects as photon release, but Law 10 is not derived.",
+      "C034 cites Law 5 as thermodynamics, but Law 5 is derived for justice/mercy, not general thermodynamics.",
+      "C035 cites Law 4 as strong force, but Law 4 is derived for fruits, not confinement."
+    ]
+  },
+  "summary": {
+    "total_framework_coverage": 0.35,
+    "strongest_alignment": "The document's mapping of Existence and Distinction to physical processes aligns with A0.1-A0.4 and the derivation tree's early nodes.",
+    "weakest_point": "Complete absence of Trinity structure, Fruits, and most laws; overstatements in metaphorical language.",
+    "honest_boundary": "The document provides a structurally coherent interpretive mapping but does not formally derive any framework elements; it remains at analogy level (B1)."
+  },
+  "pill": "D",
+  "_meta": {
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "source_file": "D:\\GitHub\\David-OS\\file-intelligence-system\\notes\\atoms\\A0_FIRST_ATOM_BIG_BANG.md",
+    "pill": "pill_D",
+    "mode": "test"
+  }
+}

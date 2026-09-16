@@ -1,0 +1,64 @@
+schema_version: canon-orionbelt-mapping/0.1
+status: SPECIFICATION_ONLY
+executable_obml: false
+authority: READ_ONLY_PROJECTION
+
+source:
+  canonical_system: Faith-through-physics-atoms Canon Engine
+  live_database: D:\GitHub\Faith-through-physics-atoms\_canon\index.sqlite
+  direct_live_connection: FORBIDDEN_UNTIL_APPROVED
+  planned_materialization: human-approved read-only projection
+
+objects:
+  AtomFamily:
+    source: atoms
+    identity: atom_id
+  AtomVersion:
+    source: current_atom_versions
+    identity: atom_version_id
+  CandidateMembership:
+    source: candidate_graph_atoms
+    authority: candidate_only
+  AdmittedMembership:
+    source: admitted_graph_atoms
+    authority: human_ruling_required
+  EdgeVersion:
+    source: edge_versions
+    identity: edge_version_id
+  Receipt:
+    source: receipts
+    identity: receipt_id
+  OpenItem:
+    source: open_items
+    identity: open_item_id
+
+dimensions:
+  - object_type
+  - lifecycle_state
+  - proof_class
+  - register_code
+  - ic_grade
+  - why_outcome
+  - legacy_proof_label
+  - one_axiom_classification
+  - graph_name
+
+guardrails:
+  - id: CANDIDATE_ADMITTED_FIREWALL
+    rule: candidate membership never implies admitted membership
+  - id: PROOF_INTERPRETATION_FIREWALL
+    rule: proof class never implies physical or theological applicability
+  - id: LEGACY_PROOF_LABEL_PRESERVATION
+    rule: legacy_proof_label is never overwritten
+  - id: ONE_AXIOM_INDEPENDENCE
+    rule: one_axiom_classification remains independent of legacy_proof_label
+  - id: NO_CANON_WRITES
+    rule: all OrionBelt-facing database credentials and projections are read-only
+
+blocked_until:
+  - canonical query views are ratified
+  - read-only projection path is selected
+  - OBML model is generated and independently validated
+  - unsafe join and authority-crossing negative controls pass
+  - license/deployment review is recorded
+

@@ -1,0 +1,39 @@
+{
+  "corpus": {
+    "corpus_sha256": "f28d244eadc26246483b0fa20cd7e46fae5c7d6769228d3abe3014b1ba0e8e66",
+    "created_utc": "2026-08-19T07:21:14Z",
+    "file_count": 1,
+    "source_root": "D:\\GitHub\\David-OS\\file-intelligence-system\\canon\\MASTER_EQUATION_LOSSLESS_AI_MANIFEST.md",
+    "target_compact_ratio": 21.0,
+    "total_source_bytes": 12840
+  },
+  "engine": "lossless-packer-1.0.0",
+  "files": [
+    {
+      "compression_ratio": 15.16,
+      "is_text": true,
+      "mime_type": "text/markdown",
+      "packet_file": "packets/6e616625-b5e4-534f-a2aa-02f2dbb4b5e0.llp.zip",
+      "packet_id": "6e616625-b5e4-534f-a2aa-02f2dbb4b5e0",
+      "payload_profile": "formal_system",
+      "relative_path": "MASTER_EQUATION_LOSSLESS_AI_MANIFEST.md",
+      "source_bytes": 12840,
+      "source_sha256": "682fd68c2decd005ec31fcb04d5b2e687f0ac69eba850469d59a391d46c1833c"
+    }
+  ],
+  "format": "LLP-1.0",
+  "future_layers": {
+    "L0": "original bytes",
+    "L1": "deterministic structural extraction",
+    "L2": "compact operational index (~21:1 target)",
+    "L3": "NSE payload by profile",
+    "L4": "cross-document synthesis",
+    "rule": "layers above L0 must not modify L0"
+  },
+  "lossless_contract": {
+    "canonical_layer": "source bytes stored inside each packet",
+    "derived_layer": "L1 extraction + compact index + NSE envelope",
+    "semantic_summary": "NOT lossless; L0 remains attached",
+    "verification": "SHA-256"
+  }
+}

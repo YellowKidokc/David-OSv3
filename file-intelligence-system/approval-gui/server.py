@@ -34,12 +34,17 @@ DECISIONS = DATA / "fis_decisions.jsonl"
 PORT = 10778
 
 # Optional: live preference engine (learns on every decision)
-sys.path.insert(0, str(HERE.parent.parent / "_salvage_boot_up" / "FIS"))
+sys.path.insert(0, str(HERE.parent))
+sys.path.insert(0, str(HERE.parent.parent / "engine"))
 try:
-    from fis_preference_engine import PreferenceEngine
-    ENGINE = PreferenceEngine()
+    from preference.ensemble import get_ensemble
+    ENGINE = get_ensemble()
 except Exception:
-    ENGINE = None
+    try:
+        from fis_preference_engine import PreferenceEngine
+        ENGINE = PreferenceEngine()
+    except Exception:
+        ENGINE = None
 
 # Optional: X-drive Markov chains (P07) - second learner, fails silently offline
 try:
@@ -107,6 +112,7 @@ class Handler(BaseHTTPRequestHandler):
         self.send_response(code)
         self.send_header("Content-Type", ctype)
         self.send_header("Content-Length", str(len(data)))
+        self.send_header("Access-Control-Allow-Origin", "*")
         self.end_headers()
         self.wfile.write(data)
 
@@ -115,8 +121,19 @@ class Handler(BaseHTTPRequestHandler):
             self._send(200, (HERE / "index.html").read_bytes(), "text/html; charset=utf-8")
         elif self.path == "/api/proposals":
             items = pending()
-            self._send(200, {"count": len(items), "proposals": items[:200],
+            self._send(200, {"count": len(items), "proposals": items[:500],
                              "engine": bool(ENGINE)})
+        elif self.path.startswith("/api/decide"):
+            from urllib.parse import parse_qs, urlparse
+            qs = parse_qs(urlparse(self.path).query)
+            pid = (qs.get("id") or [""])[0]
+            decision = (qs.get("decision") or [""])[0]
+            if decision not in ("approved", "rejected", "edited") or not pid:
+                return self._send(400, {"error": "need id + decision"})
+            prop = next((p for p in read_jsonl(PROPOSALS) if p.get("id") == pid), None)
+            if prop:
+                append_decision(prop, decision, (qs.get("final_name") or [None])[0])
+            self._send(200, {"ok": True, "id": pid, "decision": decision})
         else:
             self._send(404, {"error": "not found"})
 

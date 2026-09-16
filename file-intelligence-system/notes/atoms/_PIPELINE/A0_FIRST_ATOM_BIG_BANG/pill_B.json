@@ -1,0 +1,658 @@
+{
+  "source_id": "A0_FIRST_ATOM_BIG_BANG",
+  "run_mode": "test",
+  "claim_grades": [
+    {
+      "id": "C001",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "root",
+      "connected_to": [],
+      "carry_forward": false
+    },
+    {
+      "id": "C002",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "root",
+      "connected_to": [],
+      "carry_forward": false
+    },
+    {
+      "id": "C003",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "connected",
+      "connected_to": [
+        "C002"
+      ],
+      "carry_forward": false
+    },
+    {
+      "id": "C004",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "connected",
+      "connected_to": [
+        "C002"
+      ],
+      "carry_forward": false
+    },
+    {
+      "id": "C005",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "root",
+      "connected_to": [],
+      "carry_forward": false
+    },
+    {
+      "id": "C006",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "connected",
+      "connected_to": [
+        "C005"
+      ],
+      "carry_forward": false
+    },
+    {
+      "id": "C007",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "connected",
+      "connected_to": [
+        "C006"
+      ],
+      "carry_forward": false
+    },
+    {
+      "id": "C008",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "connected",
+      "connected_to": [
+        "C007"
+      ],
+      "carry_forward": false
+    },
+    {
+      "id": "C009",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "root",
+      "connected_to": [],
+      "carry_forward": false
+    },
+    {
+      "id": "C010",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "connected",
+      "connected_to": [
+        "C009"
+      ],
+      "carry_forward": false
+    },
+    {
+      "id": "C011",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "connected",
+      "connected_to": [
+        "C010"
+      ],
+      "carry_forward": false
+    },
+    {
+      "id": "C012",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "connected",
+      "connected_to": [
+        "C011"
+      ],
+      "carry_forward": false
+    },
+    {
+      "id": "C013",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "connected",
+      "connected_to": [
+        "C011"
+      ],
+      "carry_forward": false
+    },
+    {
+      "id": "C014",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "connected",
+      "connected_to": [
+        "C013"
+      ],
+      "carry_forward": false
+    },
+    {
+      "id": "C015",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "connected",
+      "connected_to": [
+        "C014"
+      ],
+      "carry_forward": false
+    },
+    {
+      "id": "C016",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "connected",
+      "connected_to": [
+        "C013"
+      ],
+      "carry_forward": false
+    },
+    {
+      "id": "C017",
+      "grade": "overstatement",
+      "resolution_needed": "Empirical evidence that CMB is a 'receipt' of information storage; likely metaphorical.",
+      "connection_status": "connected",
+      "connected_to": [
+        "C016"
+      ],
+      "carry_forward": true
+    },
+    {
+      "id": "C018",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "root",
+      "connected_to": [],
+      "carry_forward": false
+    },
+    {
+      "id": "C019",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "connected",
+      "connected_to": [
+        "C018"
+      ],
+      "carry_forward": false
+    },
+    {
+      "id": "C020",
+      "grade": "needs_derivation",
+      "resolution_needed": "Formal derivation from A1.1 to Big Bang as physical projection.",
+      "connection_status": "connected",
+      "connected_to": [
+        "C019"
+      ],
+      "carry_forward": true
+    },
+    {
+      "id": "C021",
+      "grade": "needs_derivation",
+      "resolution_needed": "Formal derivation from A1.2 to particle differentiation.",
+      "connection_status": "root",
+      "connected_to": [],
+      "carry_forward": true
+    },
+    {
+      "id": "C022",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "connected",
+      "connected_to": [
+        "C021"
+      ],
+      "carry_forward": false
+    },
+    {
+      "id": "C023",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "connected",
+      "connected_to": [
+        "C021",
+        "C012"
+      ],
+      "carry_forward": false
+    },
+    {
+      "id": "C024",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "connected",
+      "connected_to": [
+        "C023"
+      ],
+      "carry_forward": false
+    },
+    {
+      "id": "C025",
+      "grade": "needs_derivation",
+      "resolution_needed": "Formal derivation from A1.3 to hydrogen as information storage.",
+      "connection_status": "connected",
+      "connected_to": [
+        "C023"
+      ],
+      "carry_forward": true
+    },
+    {
+      "id": "C026",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "root",
+      "connected_to": [],
+      "carry_forward": false
+    },
+    {
+      "id": "C027",
+      "grade": "overstatement",
+      "resolution_needed": "Clarify 'durable information storage' and 'fact the universe will not forget'.",
+      "connection_status": "connected",
+      "connected_to": [
+        "C025",
+        "C026"
+      ],
+      "carry_forward": true
+    },
+    {
+      "id": "C028",
+      "grade": "needs_derivation",
+      "resolution_needed": "Formal derivation from T3.1 to photon release.",
+      "connection_status": "root",
+      "connected_to": [],
+      "carry_forward": true
+    },
+    {
+      "id": "C029",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "connected",
+      "connected_to": [
+        "C011"
+      ],
+      "carry_forward": false
+    },
+    {
+      "id": "C030",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "connected",
+      "connected_to": [
+        "C029"
+      ],
+      "carry_forward": false
+    },
+    {
+      "id": "C031",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "connected",
+      "connected_to": [
+        "C030"
+      ],
+      "carry_forward": false
+    },
+    {
+      "id": "C032",
+      "grade": "overstatement",
+      "resolution_needed": "Clarify 'cost-of-coherence' as metaphor; CMB is evidence of recombination, not necessarily 'cost'.",
+      "connection_status": "connected",
+      "connected_to": [
+        "C030",
+        "C017"
+      ],
+      "carry_forward": true
+    },
+    {
+      "id": "C033",
+      "grade": "overstatement",
+      "resolution_needed": "Provide evidence for 'every binding event' claim.",
+      "connection_status": "root",
+      "connected_to": [],
+      "carry_forward": true
+    },
+    {
+      "id": "C034",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "root",
+      "connected_to": [],
+      "carry_forward": false
+    },
+    {
+      "id": "C035",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "root",
+      "connected_to": [],
+      "carry_forward": false
+    },
+    {
+      "id": "C036",
+      "grade": "overstatement",
+      "resolution_needed": "Clarify 'first transaction' and 'order purchased' as metaphorical.",
+      "connection_status": "connected",
+      "connected_to": [
+        "C033"
+      ],
+      "carry_forward": true
+    },
+    {
+      "id": "C037",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "connected",
+      "connected_to": [
+        "C017"
+      ],
+      "carry_forward": false
+    },
+    {
+      "id": "C038",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "root",
+      "connected_to": [],
+      "carry_forward": false
+    },
+    {
+      "id": "C039",
+      "grade": "needs_evidence",
+      "resolution_needed": "Empirical or theoretical support for TR = actualization.",
+      "connection_status": "connected",
+      "connected_to": [
+        "C038"
+      ],
+      "carry_forward": true
+    },
+    {
+      "id": "C040",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "root",
+      "connected_to": [],
+      "carry_forward": false
+    },
+    {
+      "id": "C041",
+      "grade": "overstatement",
+      "resolution_needed": "Clarify 'photon's timestamp IS the first tick of physical time'.",
+      "connection_status": "connected",
+      "connected_to": [
+        "C039",
+        "C029"
+      ],
+      "carry_forward": true
+    },
+    {
+      "id": "C042",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "root",
+      "connected_to": [],
+      "carry_forward": false
+    },
+    {
+      "id": "C043",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "connected",
+      "connected_to": [
+        "C042"
+      ],
+      "carry_forward": false
+    },
+    {
+      "id": "C044",
+      "grade": "overstatement",
+      "resolution_needed": "Clarify 'record makes time real'.",
+      "connection_status": "connected",
+      "connected_to": [
+        "C041"
+      ],
+      "carry_forward": true
+    },
+    {
+      "id": "C045",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "connected",
+      "connected_to": [
+        "C008"
+      ],
+      "carry_forward": false
+    },
+    {
+      "id": "C046",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "connected",
+      "connected_to": [
+        "C014"
+      ],
+      "carry_forward": false
+    },
+    {
+      "id": "C047",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "root",
+      "connected_to": [],
+      "carry_forward": false
+    },
+    {
+      "id": "C048",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "connected",
+      "connected_to": [
+        "C045"
+      ],
+      "carry_forward": false
+    },
+    {
+      "id": "C049",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "connected",
+      "connected_to": [
+        "C046"
+      ],
+      "carry_forward": false
+    },
+    {
+      "id": "C050",
+      "grade": "overstatement",
+      "resolution_needed": "Clarify 'universe's first act of seeing' as metaphorical.",
+      "connection_status": "connected",
+      "connected_to": [
+        "C049",
+        "C017"
+      ],
+      "carry_forward": true
+    },
+    {
+      "id": "C051",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "connected",
+      "connected_to": [
+        "C047",
+        "C049"
+      ],
+      "carry_forward": false
+    },
+    {
+      "id": "C052",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "connected",
+      "connected_to": [
+        "C051",
+        "C025"
+      ],
+      "carry_forward": false
+    },
+    {
+      "id": "C053",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "root",
+      "connected_to": [],
+      "carry_forward": false
+    },
+    {
+      "id": "C054",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "connected",
+      "connected_to": [
+        "C053"
+      ],
+      "carry_forward": false
+    },
+    {
+      "id": "C055",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "connected",
+      "connected_to": [
+        "C054"
+      ],
+      "carry_forward": false
+    },
+    {
+      "id": "C056",
+      "grade": "overstatement",
+      "resolution_needed": "Clarify 'protect the axiom chain's physical projection'.",
+      "connection_status": "connected",
+      "connected_to": [
+        "C053"
+      ],
+      "carry_forward": true
+    },
+    {
+      "id": "C057",
+      "grade": "needs_derivation",
+      "resolution_needed": "Formal derivation from A1.1 to Big Bang as identity.",
+      "connection_status": "connected",
+      "connected_to": [
+        "C019"
+      ],
+      "carry_forward": true
+    },
+    {
+      "id": "C058",
+      "grade": "needs_derivation",
+      "resolution_needed": "Formal derivation from A1.3 to recombination as identity.",
+      "connection_status": "connected",
+      "connected_to": [
+        "C025"
+      ],
+      "carry_forward": true
+    },
+    {
+      "id": "C059",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "connected",
+      "connected_to": [
+        "C032"
+      ],
+      "carry_forward": false
+    },
+    {
+      "id": "C060",
+      "grade": "supported",
+      "resolution_needed": null,
+      "connection_status": "connected",
+      "connected_to": [
+        "C039"
+      ],
+      "carry_forward": false
+    }
+  ],
+  "orphan_claim_count": 0,
+  "classification": {
+    "logical_role": {
+      "primary": "BRIDGE",
+      "secondary": "INTERPRETATION",
+      "confidence": "medium"
+    },
+    "ontological_domain": {
+      "domains": [
+        "physics",
+        "ontology",
+        "information theory",
+        "theology"
+      ],
+      "primary_domain": "physics",
+      "cross_domain": true
+    },
+    "inquiry_level": "supra",
+    "relation_to_A0": "interpretive",
+    "epistemic_status": "abductively_favored",
+    "proof_label": "NOT_ESTABLISHED",
+    "q14_role_answers": {
+      "introducing_vocabulary": true,
+      "fixing_meaning": true,
+      "admitted_without_derivation": false,
+      "restricting_states": true,
+      "licensing_inference": true,
+      "derived": false,
+      "connecting_domains": true,
+      "reporting_evidence": true,
+      "still_unresolved": true
+    }
+  },
+  "generated_clarifications": [
+    {
+      "ambiguity": "The claim that the CMB is a 'receipt' of information storage is metaphorical; it needs clarification whether it is a literal or figurative statement.",
+      "question": "Is the CMB literally a receipt of information storage, or is this a metaphor",
+      "answer": "The document uses 'receipt' metaphorically; the CMB is evidence of recombination, not a literal receipt.",
+      "resolves_to": "overstatement"
+    },
+    {
+      "ambiguity": "The claim that 'the photon's timestamp IS the first tick of physical time' is ambiguous; it could be a literal claim about time's origin or a metaphorical statement.",
+      "question": "Is the photon's release literally the first tick of physical time, or is this a metaphor",
+      "answer": "The document suggests it as a candidate for TR, not an established fact; it is a metaphorical interpretation.",
+      "resolves_to": "overstatement"
+    },
+    {
+      "ambiguity": "The claim that 'the universe's first act of seeing is the CMB' is ambiguous; it could be literal or metaphorical.",
+      "question": "Is the CMB literally the universe's first act of seeing, or is this a metaphor",
+      "answer": "The document uses 'seeing' metaphorically; it means observation becomes possible, not literal sight.",
+      "resolves_to": "overstatement"
+    }
+  ],
+  "overstatement_risks": [
+    "C017: CMB as 'receipt' of information storage",
+    "C027: Hydrogen as 'durable information storage'",
+    "C032: CMB as 'cost-of-coherence'",
+    "C033: 'Every binding event' claim",
+    "C036: 'First transaction'",
+    "C041: 'photon's timestamp IS the first tick of physical time'",
+    "C044: 'record makes time real'",
+    "C050: 'universe's first act of seeing'",
+    "C056: 'fine-tuning numbers protect the axiom chain'"
+  ],
+  "kill_conditions": [
+    "If the strong force coupling constant is not fine-tuned to 1% for hydrogen stability, the projection fails.",
+    "If recombination is not the first stable distinction, the mapping to A1.3 fails.",
+    "If the CMB is not consistent with T3.1, the bridge fails."
+  ],
+  "pill": "B",
+  "_meta": {
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "source_file": "D:\\GitHub\\David-OS\\file-intelligence-system\\notes\\atoms\\A0_FIRST_ATOM_BIG_BANG.md",
+    "pill": "pill_B",
+    "mode": "test"
+  }
+}

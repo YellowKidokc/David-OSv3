@@ -1,0 +1,192 @@
+{
+  "chunks": [
+    {
+      "byte_count": 239,
+      "end_byte": 239,
+      "filename": "MASTER_EQUATION_CHI__CANONICAL_LOCAL_AND_INTEGRATED_FORM__R3__P001-OF-018__PREAMBLE.md",
+      "heading": "PREAMBLE",
+      "index": 1,
+      "sha256": "0816dcdf007fa3774ec5292a398340d56565de5acc89507558d55e0efa7bae0f",
+      "start_byte": 0
+    },
+    {
+      "byte_count": 272,
+      "end_byte": 511,
+      "filename": "MASTER_EQUATION_CHI__CANONICAL_LOCAL_AND_INTEGRATED_FORM__R3__P002-OF-018__0._PURPOSE.md",
+      "heading": "0. PURPOSE",
+      "index": 2,
+      "sha256": "1bb95401ce9cb61881b51099ee8fcc5bb084a995db5706cf596e63914e11cc51",
+      "start_byte": 239
+    },
+    {
+      "byte_count": 454,
+      "end_byte": 965,
+      "filename": "MASTER_EQUATION_CHI__CANONICAL_LOCAL_AND_INTEGRATED_FORM__R3__P003-OF-018__1._NABLA_ADDRESS.md",
+      "heading": "1. NABLA ADDRESS",
+      "index": 3,
+      "sha256": "027dbd9097e6dece5f03486c1cb5714610a96819c3d0da6f5ece78a03d15b62a",
+      "start_byte": 511
+    },
+    {
+      "byte_count": 157,
+      "end_byte": 1122,
+      "filename": "MASTER_EQUATION_CHI__CANONICAL_LOCAL_AND_INTEGRATED_FORM__R3__P004-OF-018__2._CORE_EQUATION.md",
+      "heading": "2. CORE EQUATION",
+      "index": 4,
+      "sha256": "2b3f80886e0e37bfb721a6581a683628a28ae2be0267e93b9fe11afb120b7e46",
+      "start_byte": 965
+    },
+    {
+      "byte_count": 482,
+      "end_byte": 1604,
+      "filename": "MASTER_EQUATION_CHI__CANONICAL_LOCAL_AND_INTEGRATED_FORM__R3__P005-OF-018__3._FORMAL_OBJECT_IDENTITY.md",
+      "heading": "3. FORMAL OBJECT IDENTITY",
+      "index": 5,
+      "sha256": "e7dc609c8646863dbfdb477ae4fc7efbd210c52473fa069f55465c064980800d",
+      "start_byte": 1122
+    },
+    {
+      "byte_count": 3104,
+      "end_byte": 4708,
+      "filename": "MASTER_EQUATION_CHI__CANONICAL_LOCAL_AND_INTEGRATED_FORM__R3__P006-OF-018__4._VARIABLE_REGISTRY.md",
+      "heading": "4. VARIABLE REGISTRY",
+      "index": 6,
+      "sha256": "fad1bfe59d98b97eb7b4473cddbc5c5e0a7c87873a51571bad9fdde77a12c45a",
+      "start_byte": 1604
+    },
+    {
+      "byte_count": 1589,
+      "end_byte": 6297,
+      "filename": "MASTER_EQUATION_CHI__CANONICAL_LOCAL_AND_INTEGRATED_FORM__R3__P007-OF-018__5._NO-DRIFT_GATES.md",
+      "heading": "5. NO-DRIFT GATES",
+      "index": 7,
+      "sha256": "7e0e4991bd5432b8d5521877bd278d65f8378774ca90814a8041d3b5f4aef82b",
+      "start_byte": 4708
+    },
+    {
+      "byte_count": 624,
+      "end_byte": 6921,
+      "filename": "MASTER_EQUATION_CHI__CANONICAL_LOCAL_AND_INTEGRATED_FORM__R3__P008-OF-018__6._STRUCTURAL_SEMANTICS.md",
+      "heading": "6. STRUCTURAL SEMANTICS",
+      "index": 8,
+      "sha256": "9df95795eef6bf319addb6a0254d55618c91921ce9458d626d0c2f023a52c1f5",
+      "start_byte": 6297
+    },
+    {
+      "byte_count": 528,
+      "end_byte": 7449,
+      "filename": "MASTER_EQUATION_CHI__CANONICAL_LOCAL_AND_INTEGRATED_FORM__R3__P009-OF-018__7._COLLAPSE_LOGIC.md",
+      "heading": "7. COLLAPSE LOGIC",
+      "index": 9,
+      "sha256": "8c7d210e4258f464b093f8c6bae239badb43655b848be5d148b282c6da718709",
+      "start_byte": 6921
+    },
+    {
+      "byte_count": 522,
+      "end_byte": 7971,
+      "filename": "MASTER_EQUATION_CHI__CANONICAL_LOCAL_AND_INTEGRATED_FORM__R3__P010-OF-018__8._RESTORATION_LOGIC.md",
+      "heading": "8. RESTORATION LOGIC",
+      "index": 10,
+      "sha256": "699da9b9ba3a011f512a561c7b0eb40fd71c09ee94bbf04387c097ba305ad556",
+      "start_byte": 7449
+    },
+    {
+      "byte_count": 633,
+      "end_byte": 8604,
+      "filename": "MASTER_EQUATION_CHI__CANONICAL_LOCAL_AND_INTEGRATED_FORM__R3__P011-OF-018__9._LOSSLESSNESS_RELATION.md",
+      "heading": "9. LOSSLESSNESS RELATION",
+      "index": 11,
+      "sha256": "476400202ba6d0957d42ef1ca387d7561fa7a974ebd0a27d166e1dd3909dcf0d",
+      "start_byte": 7971
+    },
+    {
+      "byte_count": 813,
+      "end_byte": 9417,
+      "filename": "MASTER_EQUATION_CHI__CANONICAL_LOCAL_AND_INTEGRATED_FORM__R3__P012-OF-018__10._CLAIM_STATUS_MAP.md",
+      "heading": "10. CLAIM STATUS MAP",
+      "index": 12,
+      "sha256": "abdf1f828627ac86db334d637f35ce85fd047fe2c93f9f81b445e619ae49f72a",
+      "start_byte": 8604
+    },
+    {
+      "byte_count": 684,
+      "end_byte": 10101,
+      "filename": "MASTER_EQUATION_CHI__CANONICAL_LOCAL_AND_INTEGRATED_FORM__R3__P013-OF-018__11._LEAN_BOUNDARY.md",
+      "heading": "11. LEAN BOUNDARY",
+      "index": 13,
+      "sha256": "482749fa88a23886f409c4936acfe2dca666b391bd87e058292fb04800661e5f",
+      "start_byte": 9417
+    },
+    {
+      "byte_count": 755,
+      "end_byte": 10856,
+      "filename": "MASTER_EQUATION_CHI__CANONICAL_LOCAL_AND_INTEGRATED_FORM__R3__P014-OF-018__12._FAILURE_CONDITIONS.md",
+      "heading": "12. FAILURE CONDITIONS",
+      "index": 14,
+      "sha256": "beb359615e3d77c34f93f24fc6b5e8aa42b3311e5c826c6b762b4fae55ddd43b",
+      "start_byte": 10101
+    },
+    {
+      "byte_count": 470,
+      "end_byte": 11326,
+      "filename": "MASTER_EQUATION_CHI__CANONICAL_LOCAL_AND_INTEGRATED_FORM__R3__P015-OF-018__13._ALLOWED_PUBLIC_WORDING.md",
+      "heading": "13. ALLOWED PUBLIC WORDING",
+      "index": 15,
+      "sha256": "b1cfb64c0f2994b43ca63f4a52711b1aee822173a4083a6af7eb54fbc7c47a37",
+      "start_byte": 10856
+    },
+    {
+      "byte_count": 345,
+      "end_byte": 11671,
+      "filename": "MASTER_EQUATION_CHI__CANONICAL_LOCAL_AND_INTEGRATED_FORM__R3__P016-OF-018__14._FORBIDDEN_PUBLIC_WORDING.md",
+      "heading": "14. FORBIDDEN PUBLIC WORDING",
+      "index": 16,
+      "sha256": "825fcdbefc08328e5ba2c1a52f628883e2ef16b50037bd66bb17fcd82784312d",
+      "start_byte": 11326
+    },
+    {
+      "byte_count": 537,
+      "end_byte": 12208,
+      "filename": "MASTER_EQUATION_CHI__CANONICAL_LOCAL_AND_INTEGRATED_FORM__R3__P017-OF-018__15._MINIMAL_RECONSTRUCTION.md",
+      "heading": "15. MINIMAL RECONSTRUCTION",
+      "index": 17,
+      "sha256": "5b620243a78f9bf98d2e31d8188393acfec4ada937b61cdae9d064fa54ff7f05",
+      "start_byte": 11671
+    },
+    {
+      "byte_count": 632,
+      "end_byte": 12840,
+      "filename": "MASTER_EQUATION_CHI__CANONICAL_LOCAL_AND_INTEGRATED_FORM__R3__P018-OF-018__16._AI_INGEST_SUMMARY.md",
+      "heading": "16. AI INGEST SUMMARY",
+      "index": 18,
+      "sha256": "be9167e2da5b25ec02e928eb919245c7f0da17f0782708cd0303d1e16323aefa",
+      "start_byte": 12208
+    }
+  ],
+  "engine": "lossless-splitter-1.0.0",
+  "format": "LLS-1.0",
+  "identity": {
+    "base_slug": "MASTER_EQUATION_CHI__CANONICAL_LOCAL_AND_INTEGRATED_FORM__R3",
+    "namespace": "MASTER_EQUATION_CHI",
+    "risk": "R3",
+    "title": "MASTER_EQUATION_LOSSLESS_AI_MANIFEST",
+    "variant": "CANONICAL_LOCAL_AND_INTEGRATED_FORM"
+  },
+  "reconstruction": {
+    "algorithm": "concatenate chunks in ascending index order",
+    "expected_sha256": "682fd68c2decd005ec31fcb04d5b2e687f0ac69eba850469d59a391d46c1833c",
+    "verified": true
+  },
+  "source": {
+    "byte_count": 12840,
+    "filename": "MASTER_EQUATION_LOSSLESS_AI_MANIFEST.md",
+    "relative_path": "MASTER_EQUATION_LOSSLESS_AI_MANIFEST.md",
+    "sha256": "682fd68c2decd005ec31fcb04d5b2e687f0ac69eba850469d59a391d46c1833c"
+  },
+  "split": {
+    "chunk_count": 18,
+    "heading_level": 2,
+    "max_bytes": 120000,
+    "mode": "heading"
+  }
+}

@@ -28,12 +28,121 @@ from fis_namer import (
 )
 from fis_classifier import (CHI_SIGNALS, DOMAIN_SIGNALS, LAW_SIGNALS,
                             classify_file, classify_document_type)
+from fis_sidecar import classify_canon_standing, maybe_write_canon_sidecar, make_action_proposal
+from fis_dup_heuristic import folder_dup_report, semantic_html
 
 
 SCHEMA = "folder-memory.v2"
-IGNORED_DIRS = {".git", ".fis", "node_modules", "__pycache__", ".pytest_cache", ".mypy_cache", ".venv", "venv"}
+IGNORED_DIRS = {
+    ".git", ".fis", "node_modules", "__pycache__", ".pytest_cache", ".mypy_cache", ".venv", "venv",
+    # Machine-generated dependency and build trees. Without .lake, a single Lean
+    # project contributes its entire vendored Mathlib to the registry - one scan
+    # of Cannon pulled in 4,310 .lean files plus ~470 .olean/.trace/.hash
+    # artifacts, which is toolchain, not corpus, and it swamps every view built
+    # on top of the registry.
+    ".lake", ".elan", ".svn", ".hg", ".tox", ".gradle", ".idea", ".vs", ".next", ".nuxt",
+    # Obsidian vault machinery: editor config, embedding caches, session logs.
+    # These are tooling state, not corpus, and .smart-env in particular can
+    # outnumber a vault's actual notes.
+    ".obsidian", ".smart-env", ".claudian", ".trash",
+}
+GENERATED_HTML_MARKERS = (
+    "FIS FOLDER BRAIN / STATIC LOCAL VIEW",
+    "FIS FOLDER BRAIN v2 / RECURSIVE SEMANTIC VIEW",
+)
+
+# Paths that are ALWAYS excluded regardless of any flag.
+# These are system, toolchain, or managed roots that should never be walked.
+SYSTEM_EXCLUDE_PATHS: set[str] = {
+    # Windows system
+    r"c:\windows",
+    r"c:\program files",
+    r"c:\program files (x86)",
+    r"c:\programdata",
+    r"c:\recovery",
+    r"c:\system volume information",
+    r"c:\$recycle.bin",
+    r"c:\users\all users",
+    r"c:\users\default",
+    # Common app data noise
+    r"appdata\local\temp",
+    r"appdata\locallow",
+    r"appdata\roaming\microsoft",
+    # System folders on ANY drive — permission denied on every machine
+    "system volume information",
+    "$recycle.bin",
+    "system32",
+    "syswow64",
+}
+
+def _is_system_excluded(path: Path) -> bool:
+    """Return True if path matches a hardcoded system exclusion."""
+    p = str(path.resolve()).lower()
+    # Check full-path prefixes (drive-specific entries)
+    for ex in SYSTEM_EXCLUDE_PATHS:
+        if ex.startswith(("a:", "b:", "c:", "d:", "e:", "f:", "g:", "h:",
+                          "i:", "j:", "k:", "l:", "m:", "n:", "o:", "p:",
+                          "q:", "r:", "s:", "t:", "u:", "v:", "w:", "x:",
+                          "y:", "z:", "\\\\")):
+            if p == ex or p.startswith(ex + "\\") or p.startswith(ex + "/"):
+                return True
+        else:
+            # Drive-agnostic: match any path component
+            if f"\\{ex}" in p or f"/{ex}" in p:
+                return True
+    return False
+
+def _find_vault_containers(root: Path) -> set[str]:
+    """
+    Walk root shallowly to find Obsidian vault containers.
+    Returns the set of PARENT folders of vault roots (lowercased).
+    A vault root contains a .obsidian subfolder.
+    The parent is excluded because David's pattern is:
+        Container/          <- overflow files live here too
+            VaultName/      <- .obsidian lives here
+    """
+    containers: set[str] = set()
+    # Known content folder names — never exclude these even if a vault lives inside
+    CONTENT_ROOTS = {
+        "01_axioms", "00_axioms", "axioms", "canon", "00_canonical",
+        "github", "documents", "desktop", "downloads", "projects",
+    }
+    try:
+        for dirpath, dirnames, _ in __import__("os").walk(str(root)):
+            dp = Path(dirpath)
+            if ".obsidian" in dirnames:
+                parent = dp.parent
+                parent_name = parent.name.lower()
+                # Only climb to parent if parent looks like a vault container,
+                # not if it's a known content root or the scan root itself.
+                if (str(parent.resolve()).lower() != str(root.resolve()).lower()
+                        and parent_name not in CONTENT_ROOTS):
+                    containers.add(str(parent.resolve()).lower())
+                else:
+                    # Just exclude the vault folder itself
+                    containers.add(str(dp.resolve()).lower())
+                dirnames.clear()
+                continue
+            dirnames[:] = [d for d in dirnames if d.lower() not in IGNORED_DIRS]
+    except (PermissionError, OSError):
+        pass
+    return containers
+APPROVAL_GUI_DIR = Path(__file__).resolve().parent / "approval-gui"
+APPROVAL_GUI_URL = "http://127.0.0.1:10778"
+SKIP_FILES = {".fisnote", "fis.html", "fis_folder_index.html", "fis.lossless.json", "corpus.llmanifest.json", "thumbs.db", "desktop.ini", ".ds_store"}
 FIS_HTML_FILENAME = "FIS.html"
-SKIP_FILES = {".fisnote", "fis.html", "fis_folder_index.html", "thumbs.db", "desktop.ini", ".ds_store"}
+
+# Canonical Theophysics document roots are source-only.  FIS may inventory
+# them, but generated HTML must live outside these production trees.
+HTML_PROTECTED_PATH_FRAGMENTS = (
+    "\\__new\\theophysics.new\\___axiom",
+    "\\__new\\theophysics.new\\master eq",
+)
+
+
+def html_output_is_protected(folder: Path) -> bool:
+    normalized = str(folder.resolve()).replace("/", "\\").casefold()
+    return any(fragment in normalized for fragment in HTML_PROTECTED_PATH_FRAGMENTS)
 GENERATED_FILE_NOTE_MARKER = "FIS file-memory.v2: generated sidecar view"
 MEQ_VARIABLE_TAGS = {
     "G": ["G", "grace"],
@@ -69,9 +178,26 @@ def item_id(path: Path, prefix: str) -> str:
 
 
 def file_hash(path: Path) -> str:
+    """Content hash for text-scale files; metadata digest for huge binaries.
+
+    Fast scans were stalling on Desktop installers and zip packs. Inventory still
+    records the file; fingerprint just isn't a full SHA of a 200MB .exe.
+    """
+    suffix = path.suffix.lower()
+    try:
+        stat = path.stat()
+    except OSError:
+        return "unreadable"
+    skip_exts = {".exe", ".msi", ".dll", ".iso", ".zip", ".7z", ".rar", ".gz", ".tar",
+                 ".mp4", ".mov", ".mkv", ".avi", ".wav", ".flac", ".pdf"}
+    if suffix in skip_exts or stat.st_size > 8 * 1024 * 1024:
+        return hashlib.sha256(f"{path.resolve()}|{stat.st_size}|{stat.st_mtime_ns}".encode()).hexdigest()
     h = hashlib.sha256()
     with path.open("rb") as handle:
-        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+        while True:
+            chunk = handle.read(64 * 1024)
+            if not chunk:
+                break
             h.update(chunk)
     return h.hexdigest()
 
@@ -84,7 +210,12 @@ def relative_link(source_folder: Path, target: Path) -> str:
         return target.as_uri()
 
 
-def markdown_label(value: str) -> str:
+def read_text_head(path: Path, limit: int = 16000) -> str:
+    try:
+        with path.open("r", encoding="utf-8", errors="ignore") as handle:
+            return handle.read(limit)
+    except OSError:
+        return ""
     """Keep literal filenames readable without allowing them to break a link."""
     return value.replace("\\", "\\\\").replace("[", "\\[").replace("]", "\\]")
 
@@ -244,12 +375,92 @@ def local_keywords(path: Path, classification: dict[str, object]) -> list[str]:
     return [tag for tag in tags if not (tag.lower() in seen or seen.add(tag.lower()))][:20]
 
 
+def queue_rename_proposal(file_id: str, path: Path, proposal: dict, standing: dict | None = None) -> None:
+    """Append a lossless-format proposal for the approval GUI. Never renames."""
+    if standing is not None and not standing.get("lossless_trigger"):
+        return
+    proposed = (proposal or {}).get("proposed_name") or ""
+    current = path.name
+    if not proposed or proposed.lower() == current.lower():
+        return
+    if (proposal or {}).get("decision") == "skip":
+        return
+    proposals_path = APPROVAL_GUI_DIR / "fis_proposals.jsonl"
+    try:
+        if proposals_path.exists():
+            with proposals_path.open("r", encoding="utf-8", errors="replace") as handle:
+                for line in handle:
+                    if f'"id": "{file_id}"' in line or f'"id":"{file_id}"' in line:
+                        return
+        APPROVAL_GUI_DIR.mkdir(parents=True, exist_ok=True)
+        entry = make_action_proposal(
+            action_type="rename",
+            target=path,
+            before=current,
+            after=proposed,
+            score=float((standing or {}).get("canon_score") or proposal.get("chi_confidence") or 0),
+            rule_id="lossless_format_on_standing",
+            extra={
+                "id": file_id,
+                "path": str(path),
+                "current_name": current,
+                "proposed_name": proposed,
+                "folder_class": "",
+                "domain": proposal.get("domain_code", ""),
+                "ct": proposal.get("ct_code") or proposal.get("type_code", ""),
+                "status": proposal.get("status_code", ""),
+                "tags": proposal.get("tags") or [],
+                "confidence": proposal.get("chi_confidence") or 0.0,
+                "decision_hint": proposal.get("decision", "queue"),
+                "auto_act": False,
+            },
+        )
+        with proposals_path.open("a", encoding="utf-8") as handle:
+            handle.write(json.dumps(entry, ensure_ascii=False) + "\n")
+    except OSError:
+        return
+
+
+def path_drive(value: str) -> str:
+    try:
+        return Path(value).drive.upper() or value[:2].upper()
+    except (OSError, ValueError):
+        return ""
+
+
+def related_corpus_rows(conn: sqlite3.Connection, row: sqlite3.Row, limit: int = 6) -> list[sqlite3.Row]:
+    """Same fingerprint or lossless address, including files on other drives."""
+    fingerprint = row["content_fingerprint"] or ""
+    address = row["lossless_address"] or ""
+    if not fingerprint and not address:
+        return []
+    clauses, params = ["file_id != ?"], [row["file_id"]]
+    or_parts = []
+    if fingerprint:
+        or_parts.append("content_fingerprint = ?")
+        params.append(fingerprint)
+    if address:
+        or_parts.append("lossless_address = ?")
+        params.append(address)
+    clauses.append("(" + " OR ".join(or_parts) + ")")
+    return list(conn.execute(
+        f"SELECT file_id, path, name, lossless_address, lossless_format, proposed_name, domain, doc_type "
+        f"FROM file_memory WHERE {' AND '.join(clauses)} LIMIT ?",
+        (*params, limit),
+    ).fetchall())
+
+
 def direct_files(folder: Path) -> list[Path]:
     return sorted(
         p for p in folder.iterdir()
         if p.is_file()
         and p.name.lower() not in SKIP_FILES
         and not p.name.lower().endswith(".fisnote")
+        and not p.name.lower().endswith(".canon.sidecar.json")
+        and not p.name.lower().endswith(".chi")
+        and not p.name.lower().endswith(".fmeta")
+        and not p.name.lower().endswith(".fistag")
+        and not p.name.lower().endswith(".llp.zip")
         and not p.name.startswith(".fisnote.legacy.")
     )
 
@@ -260,8 +471,9 @@ def direct_children(folder: Path) -> list[Path]:
 
 def init_db(db_path: Path) -> sqlite3.Connection:
     db_path.parent.mkdir(parents=True, exist_ok=True)
-    conn = sqlite3.connect(db_path)
+    conn = sqlite3.connect(db_path, timeout=180)
     conn.execute("PRAGMA journal_mode=WAL")
+    conn.execute("PRAGMA busy_timeout=180000")
     conn.executescript(
         """
         CREATE TABLE IF NOT EXISTS folder_memory (
@@ -289,7 +501,8 @@ def init_db(db_path: Path) -> sqlite3.Connection:
             local_classification_json TEXT NOT NULL DEFAULT '{}', keywords_json TEXT NOT NULL DEFAULT '[]',
             keywords_text TEXT NOT NULL DEFAULT '',
             ai_enrichment_json TEXT NOT NULL DEFAULT '{}', ai_model TEXT, ai_reviewed_at TEXT,
-            ai_source_fingerprint TEXT, proposed_name TEXT, proposed_name_detail TEXT NOT NULL DEFAULT '{}'
+            ai_source_fingerprint TEXT, proposed_name TEXT, proposed_name_detail TEXT NOT NULL DEFAULT '{}',
+            lossless_format TEXT, lossless_format_detail TEXT NOT NULL DEFAULT '{}'
         );
         CREATE INDEX IF NOT EXISTS idx_file_memory_folder ON file_memory(folder_id);
         CREATE INDEX IF NOT EXISTS idx_file_memory_fingerprint ON file_memory(content_fingerprint);
@@ -317,6 +530,14 @@ def init_db(db_path: Path) -> sqlite3.Connection:
         "ALTER TABLE file_memory ADD COLUMN type_scores_json TEXT NOT NULL DEFAULT '{}'",
         "ALTER TABLE file_memory ADD COLUMN type_evidence_json TEXT NOT NULL DEFAULT '[]'",
         "ALTER TABLE file_memory ADD COLUMN doc_type_scanned_at TEXT",
+        "ALTER TABLE file_memory ADD COLUMN canon_standing TEXT NOT NULL DEFAULT 'UNSCANNED'",
+        "ALTER TABLE file_memory ADD COLUMN canon_score REAL NOT NULL DEFAULT 0.0",
+        "ALTER TABLE file_memory ADD COLUMN drift_flags TEXT NOT NULL DEFAULT '[]'",
+        "ALTER TABLE file_memory ADD COLUMN promotion_candidate INTEGER NOT NULL DEFAULT 0",
+        "ALTER TABLE file_memory ADD COLUMN lossless_format TEXT",
+        "ALTER TABLE file_memory ADD COLUMN lossless_format_detail TEXT NOT NULL DEFAULT '{}'",
+        "ALTER TABLE folder_memory ADD COLUMN lossless_format TEXT",
+        "ALTER TABLE folder_memory ADD COLUMN lossless_format_detail TEXT NOT NULL DEFAULT '{}'",
     ):
         try:
             conn.execute(statement)
@@ -334,7 +555,11 @@ def ensure_compat_views(conn: sqlite3.Connection) -> None:
     for name in ("files", "folders"):
         row = conn.execute("SELECT type FROM sqlite_master WHERE name=?", (name,)).fetchone()
         if row and row[0] == "view":
-            conn.execute(f"DROP VIEW {name}")
+            try:
+                conn.execute(f"DROP VIEW {name}")
+            except sqlite3.OperationalError:
+                # Another scan holds the writer lock; keep the existing view.
+                continue
     conn.executescript(
         """
         CREATE VIEW IF NOT EXISTS files AS
@@ -346,7 +571,11 @@ def ensure_compat_views(conn: sqlite3.Connection) -> None:
                 fm.lossless_address AS internal_address,
                 fm.lossless_address AS lossless_address,
                 fm.proposed_name AS proposed_name,
+                fm.lossless_format AS lossless_format,
                 fm.format AS format,
+                fm.doc_type AS doc_type,
+                fm.canon_standing AS canon_standing,
+                fm.canon_score AS canon_score,
                 fm.item_type AS role,
                 fm.domain AS domain,
                 fm.keywords_text AS keywords,
@@ -365,6 +594,7 @@ def ensure_compat_views(conn: sqlite3.Connection) -> None:
                 name AS name,
                 compressed_name AS fis_descriptor,
                 lossless_address AS lossless_address,
+                lossless_format AS lossless_format,
                 folder_type AS folder_type,
                 domain AS domain,
                 file_count AS file_count,
@@ -382,16 +612,19 @@ def upsert_folder(conn: sqlite3.Connection, folder: Path, files: list[Path], chi
     folder_type = directory_kind(folder)
     name_detail = folder_name_code(folder, files, folder_type)
     lossless_detail = folder_lossless_address(folder, files)
+    folder_format = name_detail["code"]
     conn.execute(
-        """INSERT INTO folder_memory(folder_id,path,name,folder_type,file_count,child_folder_count,created_at,last_scanned,compressed_name,compressed_name_detail,lossless_address,lossless_address_detail)
-           VALUES(?,?,?,?,?,?,?,?,?,?,?,?)
+        """INSERT INTO folder_memory(folder_id,path,name,folder_type,file_count,child_folder_count,created_at,last_scanned,compressed_name,compressed_name_detail,lossless_address,lossless_address_detail,lossless_format,lossless_format_detail)
+           VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)
            ON CONFLICT(path) DO UPDATE SET name=excluded.name, folder_type=excluded.folder_type,
              file_count=excluded.file_count, child_folder_count=excluded.child_folder_count,
              last_scanned=excluded.last_scanned, compressed_name=excluded.compressed_name,
              compressed_name_detail=excluded.compressed_name_detail, lossless_address=excluded.lossless_address,
-             lossless_address_detail=excluded.lossless_address_detail""",
+             lossless_address_detail=excluded.lossless_address_detail,
+             lossless_format=excluded.lossless_format, lossless_format_detail=excluded.lossless_format_detail""",
         (fid, str(folder), folder.name, folder_type, len(files), len(children), created, now(),
-         name_detail["code"], json.dumps(name_detail), lossless_detail["address"], json.dumps(lossless_detail)),
+         name_detail["code"], json.dumps(name_detail), lossless_detail["address"], json.dumps(lossless_detail),
+         folder_format, json.dumps({"kind": "folder_descriptor", "source": "compressed_name"})),
     )
     return fid
 
@@ -414,12 +647,17 @@ def upsert_file(conn: sqlite3.Connection, folder_id: str, path: Path) -> None:
         "chi_confidence": classification.get("confidence", 0.0),
         "sample": " ".join(keywords),
     })
+    standing = classify_canon_standing(path, classification, proposal)
+    proposal = {**proposal, "chi_confidence": classification.get("confidence", 0.0)}
+    lossless_fmt = proposal.get("proposed_name") or ""
     conn.execute(
         """INSERT INTO file_memory(file_id,folder_id,path,name,item_type,format,reading_level,
              has_topbar,has_audio,has_equations,has_claims,content_fingerprint,last_modified,size_bytes,last_scanned,
              lossless_address,lossless_address_detail,local_classification_json,keywords_json,keywords_text,proposed_name,proposed_name_detail,
-             doc_type,type_confidence,type_scores_json,type_evidence_json,doc_type_scanned_at)
-           VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+             lossless_format,lossless_format_detail,
+             doc_type,type_confidence,type_scores_json,type_evidence_json,doc_type_scanned_at,
+             canon_standing,canon_score,drift_flags,promotion_candidate)
+           VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
            ON CONFLICT(path) DO UPDATE SET folder_id=excluded.folder_id, name=excluded.name,
              item_type=excluded.item_type, format=excluded.format, has_topbar=excluded.has_topbar,
              has_audio=excluded.has_audio, has_equations=excluded.has_equations, has_claims=excluded.has_claims,
@@ -429,17 +667,31 @@ def upsert_file(conn: sqlite3.Connection, folder_id: str, path: Path) -> None:
              local_classification_json=excluded.local_classification_json, keywords_json=excluded.keywords_json,
              keywords_text=excluded.keywords_text,
              proposed_name=excluded.proposed_name, proposed_name_detail=excluded.proposed_name_detail,
+             lossless_format=excluded.lossless_format, lossless_format_detail=excluded.lossless_format_detail,
              doc_type=excluded.doc_type, type_confidence=excluded.type_confidence,
              type_scores_json=excluded.type_scores_json, type_evidence_json=excluded.type_evidence_json,
-             doc_type_scanned_at=excluded.doc_type_scanned_at""",
+             doc_type_scanned_at=excluded.doc_type_scanned_at,
+             canon_standing=excluded.canon_standing, canon_score=excluded.canon_score,
+             drift_flags=excluded.drift_flags, promotion_candidate=excluded.promotion_candidate""",
         (item_id(path, "FIL"), folder_id, str(path), path.name, inferred_type(path), path.suffix.lower().lstrip(".") or "none",
          reading_level(path), *(int(v) for v in features.values()), file_hash(path),
          datetime.fromtimestamp(stat.st_mtime, UTC).replace(microsecond=0).isoformat(), stat.st_size, now(),
          address["address"], json.dumps(address), json.dumps(classification), json.dumps(keywords),
-         ", ".join(keywords), proposal.get("proposed_name"), json.dumps(proposal),
+         ", ".join(keywords), lossless_fmt, json.dumps(proposal),
+         lossless_fmt, json.dumps({"grammar_id": proposal.get("grammar_id"), "decision": proposal.get("decision")}),
          classification.get("doc_type", "UNSCANNED"), float(classification.get("type_confidence", 0.0) or 0.0),
-         json.dumps(classification.get("type_scores", {})), json.dumps(classification.get("type_evidence", [])), now()),
+         json.dumps(classification.get("type_scores", {})), json.dumps(classification.get("type_evidence", [])), now(),
+         standing["canon_standing"], float(standing["canon_score"]), json.dumps(standing["drift_flags"]),
+         int(standing["promotion_candidate"])),
     )
+    queue_rename_proposal(item_id(path, "FIL"), path, proposal, standing)
+    maybe_write_canon_sidecar(path, classification, standing, {
+        "source_path": str(path),
+        "source_name": path.name,
+        "filename_grammar": "unclassified",
+        "domain_code": None,
+        "type_code": None,
+    })
 
 
 DOC_TYPE_SAMPLE_BYTES = 20000
@@ -634,6 +886,10 @@ def compact_meta(record: sqlite3.Row) -> list[str]:
     ]
 
 
+def markdown_label(name: str) -> str:
+    """Escape brackets in a name so it's safe inside a Markdown link label."""
+    return name.replace("[", "\\[").replace("]", "\\]")
+
 def render_note(conn: sqlite3.Connection, folder: Path) -> str:
     conn.row_factory = sqlite3.Row
     record = conn.execute("SELECT * FROM folder_memory WHERE path=?", (str(folder),)).fetchone()
@@ -758,7 +1014,7 @@ def write_file_notes(conn: sqlite3.Connection, folders: list[Path]) -> tuple[int
         _, rows = live_file_rows(conn, folder)
         for row in rows:
             note = file_note_path(Path(row["path"]))
-            existing = note.read_text(encoding="utf-8", errors="ignore") if note.exists() else ""
+            existing = read_text_head(note) if note.exists() else ""
             if existing and GENERATED_FILE_NOTE_MARKER not in existing:
                 skipped += 1
                 continue
@@ -774,7 +1030,7 @@ def cleanup_stale_file_notes(folders: list[Path]) -> int:
             if note.name == ".fisnote" or note.name.startswith(".fisnote.legacy."):
                 continue
             try:
-                existing = note.read_text(encoding="utf-8", errors="ignore")
+                existing = read_text_head(note)
             except OSError:
                 continue
             if GENERATED_FILE_NOTE_MARKER not in existing:
@@ -807,15 +1063,19 @@ def wipe_existing_fisnotes(root: Path) -> int:
     return removed
 
 
-def live_file_rows(conn: sqlite3.Connection, folder: Path) -> tuple[sqlite3.Row, list[sqlite3.Row]]:
+def live_file_rows(conn: sqlite3.Connection, folder: Path) -> tuple[sqlite3.Row | None, list[sqlite3.Row]]:
     conn.row_factory = sqlite3.Row
     record = conn.execute("SELECT * FROM folder_memory WHERE path=?", (str(folder),)).fetchone()
+    if record is None:
+        record = conn.execute("SELECT * FROM folder_memory WHERE path=?", (str(folder.resolve()),)).fetchone()
+    if record is None:
+        return None, []
     current_paths = {str(path) for path in direct_files(folder)}
     rows = [
         row for row in conn.execute(
             "SELECT * FROM file_memory WHERE folder_id=? ORDER BY name COLLATE NOCASE", (record["folder_id"],)
         ).fetchall()
-        if row["path"] in current_paths
+        if row["path"] in current_paths or Path(row["path"]).name in {Path(p).name for p in current_paths}
     ]
     return record, rows
 
@@ -894,6 +1154,8 @@ def render_file_html(folder: Path, row: sqlite3.Row) -> str:
     law = local.get("law", {})
     fields = [
         ("FIS file ID", row["file_id"]), ("Lossless address", row["lossless_address"]),
+        ("Lossless format", row["proposed_name"] or "UNRESOLVED"),
+        ("Doc type", row["doc_type"] if "doc_type" in row.keys() else "UNSCANNED"),
         ("Proposed compressed name", row["proposed_name"] or "UNRESOLVED"),
         ("Source fingerprint", row["content_fingerprint"]), ("Source path", row["path"]),
         ("Type / format", f"{row['item_type']} / {row['format']}"),
@@ -923,19 +1185,90 @@ def render_file_html(folder: Path, row: sqlite3.Row) -> str:
 </style></head><body><main><div class=\"eyebrow\">FIS FILE DOSSIER / GENERATED VIEW</div><h1>{escape(row['name'])}</h1><p class=\"muted\">Classification interior for one source file. Unresolved fields remain visible rather than guessed.</p><div class=\"actions\"><a href=\"{escape(relative_link(file_dossier_path(folder, row).parent, folder / FIS_HTML_FILENAME), quote=True)}\">Back to folder</a><a href=\"{escape(source_link, quote=True)}\">Open original source</a></div><h2>All current classification fields</h2><table><tbody>{rows}<tr><th>Presentation markers</th><td><code>{escape(presentation)}</code></td></tr></tbody></table><p class=\"muted\">Generated from the FIS registry. This dossier does not alter or duplicate the source.</p></main></body></html>"""
 
 
-def render_inline_file_block(folder: Path, row: sqlite3.Row) -> str:
+def row_lossless_format(row: sqlite3.Row) -> str:
+    keys = row.keys()
+    if "lossless_format" in keys and row["lossless_format"]:
+        return row["lossless_format"]
+    return (row["proposed_name"] or "") if "proposed_name" in keys else ""
+
+
+def write_lossless_ledger(folder: Path, record: sqlite3.Row, files: list[sqlite3.Row]) -> Path:
+    """One ledger per folder. Never a sidecar on each source file."""
+    payload = {
+        "schema": "fis-lossless-format.v1",
+        "propose_only": True,
+        "folder": str(folder),
+        "folder_lossless_address": record["lossless_address"] if "lossless_address" in record.keys() else "",
+        "folder_lossless_format": record["lossless_format"] if "lossless_format" in record.keys() else (record["compressed_name"] or ""),
+        "generated": now(),
+        "files": [
+            {
+                "name": row["name"],
+                "path": row["path"],
+                "lossless_address": row["lossless_address"] or "",
+                "lossless_format": row_lossless_format(row),
+                "sha256": row["content_fingerprint"] or "",
+                "doc_type": row["doc_type"] if "doc_type" in row.keys() else "",
+            }
+            for row in files
+        ],
+        "dup_heuristic": folder_dup_report(files),
+    }
+    dest = folder / "FIS.lossless.json"
+    dest.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    return dest
+
+
+def render_inline_file_block(folder: Path, row: sqlite3.Row, related: list[sqlite3.Row] | None = None) -> str:
     path = Path(row["path"])
     source_link = relative_link(folder, path)
     keywords = json.loads(row["keywords_json"] or "[]")
     local = json.loads(row["local_classification_json"] or "{}")
+    proposal = json.loads(row["proposed_name_detail"] or "{}")
     chi = local.get("chi", {})
     domain = local.get("domain", {})
     law = local.get("law", {})
     features = ", ".join(label for field, label in (("has_topbar", "topbar"), ("has_audio", "audio"), ("has_equations", "math"), ("has_claims", "claims")) if row[field]) or "plain"
     chi_text = ", ".join(f"{key}:{value}" for key, value in chi.items() if value) or "none"
+    proposed = row_lossless_format(row)
+    standing_label = row["canon_standing"] if "canon_standing" in row.keys() else "UNSCANNED"
+    qualifies = (
+        standing_label in {"OK", "CANDIDATE"}
+        and bool(proposed)
+        and proposed.lower() != (row["name"] or "").lower()
+        and proposal.get("decision") != "skip"
+    )
+    format_cell = (
+        f"<code class=\"proposed\">{escape(proposed or 'UNRESOLVED')}</code>"
+        + (
+            f"<span class=\"rename-actions\">"
+            f"<a class=\"rename-link\" href=\"{APPROVAL_GUI_URL}/api/decide?id={escape(row['file_id'], quote=True)}&amp;decision=approved\">approve</a>"
+            f"<a class=\"rename-link skip\" href=\"{APPROVAL_GUI_URL}/api/decide?id={escape(row['file_id'], quote=True)}&amp;decision=rejected\">skip</a>"
+            f"</span>"
+            if qualifies else "<span class=\"muted\"> ledger only</span>"
+        )
+    )
+    doc_type = row["doc_type"] if "doc_type" in row.keys() else "UNSCANNED"
+    type_conf = row["type_confidence"] if "type_confidence" in row.keys() else 0
+    related_html = ""
+    if related:
+        items = []
+        here_drive = path_drive(row["path"])
+        for other in related:
+            other_link = relative_link(folder, Path(other["path"]))
+            label = f"{other['name']} [{other['lossless_address'] or 'no-address'}]"
+            if path_drive(other["path"]) != here_drive:
+                label += f" · {path_drive(other['path']) or 'other'}"
+            items.append(f"<li><a href=\"{escape(other_link, quote=True)}\">{escape(label)}</a></li>")
+        related_html = (
+            "<tr><th>Corpus links</th><td><ul class=\"corpus\">"
+            + "".join(items)
+            + "</ul><span class=\"muted\">Same fingerprint or lossless address, including other drives.</span></td></tr>"
+        )
     fields = [
+        ("Canon standing", standing_label),
         ("Internal address", row["lossless_address"]),
-        ("Proposed compressed name", row["proposed_name"] or "UNRESOLVED"),
+        ("Lossless format", proposed or "UNRESOLVED"),
         ("SHA-256", row["content_fingerprint"]),
         ("Source path", row["path"]),
         ("Type / format", f"{row['item_type']} / {row['format']}"),
@@ -960,13 +1293,16 @@ def render_inline_file_block(folder: Path, row: sqlite3.Row) -> str:
     machine_rows = location_row + "".join(
         f"<tr><th>{escape(label)}</th><td><code>{escape(str(value or 'UNRESOLVED'))}</code></td></tr>"
         for label, value in fields
-    )
-    search_blob = " ".join(str(value or "") for _, value in fields)
+    ) + related_html
+    search_blob = " ".join(str(value or "") for _, value in fields) + " " + str(doc_type or "")
     return (
         f"<details id=\"{escape(row['file_id'], quote=True)}\" class=\"file-block\" data-search=\"{escape((row['name'] + ' ' + search_blob).lower(), quote=True)}\">"
         f"<summary><span class=\"file-name\">{escape(row['name'])}</span>"
         f"<code>{escape(row['lossless_address'] or '')}</code>"
-        f"<span>{escape(row['format'])}</span><span>{escape(row['item_type'])}</span>"
+        f"<span class=\"lossless-format\">{format_cell}</span>"
+        f"<span>{escape(str(doc_type or 'UNSCANNED'))}</span>"
+        f"<span>{escape(str(standing_label))}</span>"
+        f"<span>{escape(row['item_type'])}</span>"
         f"<span>{escape(', '.join(keywords[:6])) or 'none'}</span>"
         f"<a class=\"source-link\" href=\"{escape(source_link, quote=True)}\">source</a></summary>"
         f"<div class=\"machine\"><table><tbody>{machine_rows}</tbody></table></div></details>"
@@ -1010,10 +1346,12 @@ def render_html(conn: sqlite3.Connection, folder: Path) -> str:
     score_html = render_score_tiles(folder, folder_scores(folder, files))
     formats = Counter(row["format"] for row in files)
     count_text = " | ".join(f"{escape(fmt)}: {count}" for fmt, count in sorted(formats.items())) or "none"
-    file_blocks = [render_inline_file_block(folder, row) for row in files]
+    file_blocks = [render_inline_file_block(folder, row, related_corpus_rows(conn, row)) for row in files]
     meq_identity = master_equation_identity(folder, record)
     descriptor = meq_identity["name"] if meq_identity else (record["compressed_name"] or "UNRESOLVED")
     verification = meq_identity["verification"] if meq_identity else descriptor_verification(record)
+    dups = folder_dup_report(files)
+    capsule = semantic_html(record, files, children, dups)
     child_rows = []
     sidebar_children = []
     for child in children:
@@ -1036,7 +1374,7 @@ def render_html(conn: sqlite3.Connection, folder: Path) -> str:
         )
     sidebar = "".join([
         f"<div class=\"side-title\">{escape(record['name'])}</div>",
-        "<a href=\"#overview\">Overview</a><a href=\"#files\">Files</a><a href=\"#folders\">Folders</a><a href=\"#scores\">Signals</a><a href=\"#context\">Audit context</a>",
+        "<a href=\"#overview\">Overview</a><a href=\"#semantic\">Semantic capsule</a><a href=\"#health\">Health</a><a href=\"#files\">Files</a><a href=\"#folders\">Folders</a><a href=\"#relationships\">Relationships</a><a href=\"#scores\">Signals</a><a href=\"#context\">Audit context</a>",
         "<div class=\"side-label\">Child folders</div>",
         "".join(sidebar_children) or "<span class=\"child pending\">None</span>",
         "<div class=\"side-label\">Record</div><a href=\"#context\">Machine context</a>",
@@ -1054,26 +1392,64 @@ h1{{font:600 34px Georgia,serif;margin:5px 0 8px}}h2{{font-size:13px;text-transf
 .summary{{display:grid;grid-template-columns:repeat(4,minmax(140px,1fr));gap:7px;margin:14px 0}}.metric{{border:1px solid var(--line);padding:8px 9px;background:var(--panel)}}.metric b{{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px}}
 .score-grid{{display:grid;grid-template-columns:repeat(6,minmax(120px,1fr));gap:8px}}.score-tile{{margin:0;border:1px solid var(--line);background:var(--panel);min-height:104px;padding:10px}}.score-tile summary{{list-style:none;cursor:pointer}}.score-tile summary::-webkit-details-marker{{display:none}}.score-tile strong{{display:block;color:var(--accent);font:600 28px Georgia,serif}}.score-tile span{{font:11px ui-monospace,Consolas,monospace;text-transform:uppercase;color:var(--muted)}}.score-tile p{{font-size:12px;color:var(--muted)}}.score-tile ul{{padding-left:17px;font-size:12px}}
 table{{width:100%;border-collapse:collapse;background:var(--panel)}}th,td{{border:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}}th{{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px}}a{{color:#72b7ff;text-decoration:none}}a:hover{{text-decoration:underline}}code{{font-size:12px;color:#d6e5f5;word-break:break-word}}
-input[type=search]{{width:min(440px,100%);margin:0;padding:9px 10px;border:1px solid var(--line);background:#0d1117;color:var(--text);border-radius:3px}}.file-controls{{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:0 0 8px}}button{{border:1px solid var(--line);background:var(--panel);color:var(--text);padding:8px 10px;border-radius:3px;cursor:pointer}}button:hover{{border-color:var(--accent)}}.file-list{{display:grid;gap:4px}}.file-block{{border:1px solid var(--line);background:var(--panel);padding:0}}.file-block summary{{display:grid;grid-template-columns:minmax(220px,1.7fr) minmax(180px,1.4fr) 58px 90px minmax(170px,1fr) 58px;gap:8px;align-items:center;padding:7px 9px;list-style:none;cursor:pointer}}.file-block summary::-webkit-details-marker{{display:none}}.file-block[open] summary{{border-bottom:1px solid var(--line);background:#0f141b}}.file-name{{font-weight:600;color:var(--text)}}.source-link{{justify-self:end;font-size:12px}}.machine{{padding:8px 10px 10px}}.machine table{{background:#0d1117}}.machine th{{width:190px}}.machine td,.machine th{{padding:6px 8px}}.file-head{{display:grid;grid-template-columns:minmax(220px,1.7fr) minmax(180px,1.4fr) 58px 90px minmax(170px,1fr) 58px;gap:8px;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px;margin:0 0 4px;padding:0 10px}}
-details{{border:1px solid var(--line);padding:10px;background:var(--panel)}}summary{{cursor:pointer;color:var(--muted)}}@media(max-width:800px){{.layout{{display:block;padding:16px}}.sidebar{{position:relative;top:auto;max-height:none;margin-bottom:16px}}.summary{{grid-template-columns:repeat(2,1fr)}}table{{display:block;overflow:auto;white-space:nowrap}}}}
+input[type=search]{{width:min(440px,100%);margin:0;padding:9px 10px;border:1px solid var(--line);background:#0d1117;color:var(--text);border-radius:3px}}.file-controls{{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:0 0 8px}}button{{border:1px solid var(--line);background:var(--panel);color:var(--text);padding:8px 10px;border-radius:3px;cursor:pointer}}button:hover{{border-color:var(--accent)}}.file-list{{display:grid;gap:4px}}.file-block{{border:1px solid var(--line);background:var(--panel);padding:0}}.file-block summary{{display:grid;grid-template-columns:minmax(180px,1.4fr) minmax(140px,1.1fr) minmax(140px,1.1fr) 80px 80px 70px minmax(120px,1fr) 50px;gap:8px;align-items:center;padding:7px 9px;list-style:none;cursor:pointer}}.file-block summary::-webkit-details-marker{{display:none}}.file-block[open] summary{{border-bottom:1px solid var(--line);background:#0f141b}}.file-name{{font-weight:600;color:var(--text)}}.source-link{{justify-self:end;font-size:12px}}.machine{{padding:8px 10px 10px}}.machine table{{background:#0d1117}}.machine th{{width:190px}}.machine td,.machine th{{padding:6px 8px}}.file-head{{display:grid;grid-template-columns:minmax(180px,1.4fr) minmax(140px,1.1fr) minmax(140px,1.1fr) 80px 80px 70px minmax(120px,1fr) 50px;gap:8px;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px;margin:0 0 4px;padding:0 10px}}
+.proposed{{color:#f1d37a}}.rename-actions{{display:flex;gap:6px;margin-top:2px}}.rename-link{{font-size:11px}}.corpus{{margin:0;padding-left:18px}}
+details{{border:1px solid var(--line);padding:10px;background:var(--panel)}}summary{{cursor:pointer;color:var(--muted)}}
+.top-grid{{display:grid;grid-template-columns:1.4fr 1fr;gap:12px;margin:14px 0}}.card{{border:1px solid var(--line);background:var(--panel);padding:12px}}.card h3{{margin:0 0 7px;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--accent)}}.kv{{display:grid;grid-template-columns:150px 1fr;gap:4px 10px;font-size:12px}}.kv b{{color:var(--muted);font-weight:600}}.badges{{display:flex;gap:6px;flex-wrap:wrap;margin:7px 0}}.badge{{border:1px solid var(--line);padding:3px 6px;font:11px ui-monospace,Consolas,monospace;background:#0d1117}}.health-grid{{display:grid;grid-template-columns:repeat(4,minmax(130px,1fr));gap:8px}}.health{{border:1px solid var(--line);background:var(--panel);padding:10px}}.health b{{display:block;font-size:20px;font-family:Georgia,serif;color:var(--accent)}}.health span{{font-size:11px;color:var(--muted);text-transform:uppercase}}.section-note{{font-size:12px;color:var(--muted);margin-top:-6px}}.signal-table td:nth-child(3){{font-family:ui-monospace,Consolas,monospace}}
+@media(max-width:800px){{.layout{{display:block;padding:16px}}.sidebar{{position:relative;top:auto;max-height:none;margin-bottom:16px}}.summary{{grid-template-columns:repeat(2,1fr)}}table{{display:block;overflow:auto;white-space:nowrap}}}}
 </style></head><body><div class=\"layout\"><aside class=\"sidebar\">{sidebar}</aside><main id=\"overview\">
-<div class=\"eyebrow\">FIS FOLDER BRAIN / STATIC LOCAL VIEW</div><h1>{escape(record['name'])}</h1>
+<div class=\"eyebrow\">FIS FOLDER BRAIN v2 / RECURSIVE SEMANTIC VIEW</div><h1>{escape(record['name'])}</h1>
 <div class=\"identity\"><code>{escape(descriptor)}</code><span>{escape(verification)}</span></div>
 <p class=\"muted\">{escape(record['purpose'])}</p>
 <div class=\"summary\"><div class=\"metric\"><b>Lossless Address</b><code>{escape(record['lossless_address'] or '')}</code></div><div class=\"metric\"><b>Contents</b>{count_text}</div><div class=\"metric\"><b>State</b>{escape(record['status'])} / {len(files)} files</div><div class=\"metric\"><b>Scan</b><code>{escape(record['last_scanned'] or '')}</code></div></div>
+{capsule}
 <details id=\"context\"><summary>Machine context and audit fields</summary><pre>{escape(json.dumps(dict(record), indent=2, ensure_ascii=False))}</pre></details>
-<h2 id=\"files\">Files Here</h2><div class=\"file-controls\"><input id=\"file-search\" type=\"search\" placeholder=\"Find by name, address, type, or keyword\" aria-label=\"Filter files\"><button id=\"toggle-files\" type=\"button\">Open all</button></div><div class=\"file-head\"><span>File</span><span>Internal address</span><span>Format</span><span>Role</span><span>Keywords</span><span>Open</span></div><div id=\"file-rows\" class=\"file-list\">{''.join(file_blocks)}</div>
+<h2 id=\"files\">Files Here</h2><div class=\"file-controls\"><input id=\"file-search\" type=\"search\" placeholder=\"Find by name, address, type, or keyword\" aria-label=\"Filter files\"><button id=\"toggle-files\" type=\"button\">Open all</button></div><div class=\"file-head\"><span>File</span><span>Internal address</span><span>Lossless format</span><span>Doc type</span><span>Standing</span><span>Role</span><span>Keywords</span><span>Open</span></div><div id=\"file-rows\" class=\"file-list\">{''.join(file_blocks)}</div>
 <h2 id=\"folders\">Child Folders</h2><table><thead><tr><th>Folder</th><th>Type</th><th>Files</th><th>Address</th><th>View</th></tr></thead><tbody>{''.join(child_rows) or '<tr><td colspan="5" class="muted">No child folders.</td></tr>'}</tbody></table>{score_html}
 <p class=\"muted\">Generated from the FIS registry. Source files remain in place; this page is an index, not a replacement.</p>
-</main></div><script>const q=document.getElementById('file-search');const blocks=[...document.querySelectorAll('.file-block')];q?.addEventListener('input',()=>{{const v=q.value.toLowerCase();blocks.forEach(b=>b.hidden=!(b.dataset.search||b.innerText.toLowerCase()).includes(v));}});const toggle=document.getElementById('toggle-files');toggle?.addEventListener('click',()=>{{const visible=blocks.filter(b=>!b.hidden);const openSome=visible.some(b=>!b.open);visible.forEach(b=>b.open=openSome);toggle.textContent=openSome?'Close all':'Open all';}});document.querySelectorAll('.source-link').forEach(a=>a.addEventListener('click',e=>e.stopPropagation()));</script></body></html>"""
+</main></div><script>const q=document.getElementById('file-search');const blocks=[...document.querySelectorAll('.file-block')];q?.addEventListener('input',()=>{{const v=q.value.toLowerCase();blocks.forEach(b=>b.hidden=!(b.dataset.search||b.innerText.toLowerCase()).includes(v));}});const toggle=document.getElementById('toggle-files');toggle?.addEventListener('click',()=>{{const visible=blocks.filter(b=>!b.hidden);const openSome=visible.some(b=>!b.open);visible.forEach(b=>b.open=openSome);toggle.textContent=openSome?'Close all':'Open all';}});document.querySelectorAll('.source-link,.rename-link').forEach(a=>a.addEventListener('click',e=>e.stopPropagation()));</script></body></html>"""
 
 
-def folders_to_scan(root: Path, recursive: bool) -> Iterable[Path]:
+def folders_to_scan(
+    root: Path,
+    recursive: bool,
+    extra_excludes: set[str] | None = None,
+) -> Iterable[Path]:
+    """Yield root and (if recursive) all permitted descendant directories.
+
+    Exclusion priority:
+      1. SYSTEM_EXCLUDE_PATHS — always blocked
+      2. Obsidian vault containers — auto-detected via .obsidian marker
+      3. extra_excludes — user-supplied paths (lowercased absolute strings)
+      4. IGNORED_DIRS — folder name matches (toolchain, build artifacts)
+    """
+    extra_excludes = extra_excludes or set()
+
+    def _is_excluded(p: Path) -> bool:
+        pl = str(p.resolve()).lower()
+        if _is_system_excluded(p):
+            return True
+        if pl in extra_excludes or any(
+            pl == ex or pl.startswith(ex + "\\") or pl.startswith(ex + "/")
+            for ex in extra_excludes
+        ):
+            return True
+        return any(part.lower() in IGNORED_DIRS for part in p.parts)
+
+    if _is_excluded(root):
+        return
     yield root
     if recursive:
-        for path in root.rglob("*"):
-            if path.is_dir() and not any(part.lower() in IGNORED_DIRS for part in path.parts):
-                yield path
+        import os
+        for dirpath, dirnames, _ in os.walk(str(root)):
+            dp = Path(dirpath)
+            # Prune excluded dirs in-place so os.walk doesn't descend into them
+            dirnames[:] = [
+                d for d in dirnames
+                if not _is_excluded(dp / d)
+            ]
+            for d in dirnames:
+                yield dp / d
 
 
 def scan(
@@ -1088,24 +1464,56 @@ def scan(
     file_notes: bool = False,
     cleanup_stale: bool = False,
     wipe_fisnotes: bool = False,
+    extra_excludes: set[str] | None = None,
+    preview: bool = False,
 ) -> tuple[int, int, int, int, int, int, int, int]:
-    wiped = wipe_existing_fisnotes(root) if wipe_fisnotes else 0
+    """Run a FIS scan.
+
+    preview=True is a completely read-only pass: it enumerates folders, counts
+    files, prints what would be scanned, and returns without writing anything —
+    no fisnotes, no HTML, no ledger, no DB writes.
+    """
+    extra_excludes = extra_excludes or set()
+    wiped = wipe_existing_fisnotes(root) if (wipe_fisnotes and not preview) else 0
     conn = init_db(db_path)
     conn.row_factory = sqlite3.Row
-    folders = [folder for folder in folders_to_scan(root, recursive) if folder.exists()]
-    for folder in folders:
+    print(f"FIS scan{'  [PREVIEW — read only]' if preview else ''} enumerating folders under {root} ...", flush=True)
+    folders = [folder for folder in folders_to_scan(root, recursive, extra_excludes) if folder.exists()]
+    print(f"FIS scan: {len(folders)} folders under {root}  (html={html} write={write} local_ai={local_ai} preview={preview})", flush=True)
+
+    if preview:
+        total_files = 0
+        print("  PREVIEW — folders that would be scanned:", flush=True)
+        for folder in folders:
+            try:
+                fc = len(list(direct_files(folder)))
+            except (PermissionError, OSError):
+                fc = -1  # access denied
+            total_files += max(fc, 0)
+            if fc == -1:
+                print(f"    {folder}  (ACCESS DENIED)", flush=True)
+            elif fc > 10000:
+                print(f"    {folder}  ({fc:,} files — LARGE)", flush=True)
+            else:
+                print(f"    {folder}  ({fc} files)", flush=True)
+        print(f"  PREVIEW TOTAL: {len(folders)} folders, {total_files:,} files. Nothing written.", flush=True)
+        conn.close()
+        return len(folders), total_files, 0, 0, 0, 0, 0, wiped
+    for index, folder in enumerate(folders, 1):
         files, children = direct_files(folder), direct_children(folder)
         fid = upsert_folder(conn, folder, files, children)
         for file in files:
             upsert_file(conn, fid, file)
-    conn.commit()
+        if index % 5 == 0 or index == len(folders):
+            conn.commit()
+            print(f"  [{index}/{len(folders)}] {folder}  ({len(files)} files)", flush=True)
     enriched = failed = 0
     if local_ai:
         enriched, failed = enrich_local_ai(conn, ai_limit, ai_model)
     if write:
         for folder in folders:
             note = folder / ".fisnote"
-            existing = note.read_text(encoding="utf-8", errors="ignore") if note.exists() else ""
+            existing = read_text_head(note) if note.exists() else ""
             if note.exists() and "fis_schema: folder-memory.v2" not in existing:
                 backup = folder / f".fisnote.legacy.{datetime.now().strftime('%Y%m%d_%H%M%S')}"
                 shutil.copy2(note, backup)
@@ -1113,14 +1521,32 @@ def scan(
     file_notes_written = file_notes_skipped = 0
     if file_notes:
         file_notes_written, file_notes_skipped = write_file_notes(conn, folders)
+    for folder in reversed(folders):
+        try:
+            rec, rows = live_file_rows(conn, folder)
+            if rec is None:
+                print(f"  skip ledger (folder not in registry): {folder}", flush=True)
+                continue
+            ledger = write_lossless_ledger(folder, rec, rows)
+            print(f"  wrote {ledger}", flush=True)
+        except OSError as exc:
+            print(f"  skip ledger ({exc}): {folder}", flush=True)
     if html:
         # Children first means the root sidebar only links to pages that exist.
         for folder in reversed(folders):
             page = folder / FIS_HTML_FILENAME
-            existing = page.read_text(encoding="utf-8", errors="ignore") if page.exists() else ""
-            if existing and "FIS FOLDER BRAIN / STATIC LOCAL VIEW" not in existing:
-                raise RuntimeError(f"Refusing to overwrite non-generated page: {page}")
-            page.write_text(render_html(conn, folder), encoding="utf-8")
+            if html_output_is_protected(folder):
+                print(f"  skip html (protected source tree): {page}", flush=True)
+                continue
+            try:
+                existing = read_text_head(page) if page.exists() else ""
+                if existing and not any(marker in existing for marker in GENERATED_HTML_MARKERS):
+                    print(f"  skip html (not generated marker): {page}", flush=True)
+                    continue
+                page.parent.mkdir(parents=True, exist_ok=True)
+                page.write_text(render_html(conn, folder), encoding="utf-8")
+            except OSError as exc:
+                print(f"  skip html ({exc}): {page}", flush=True)
     stale_removed = cleanup_stale_file_notes(folders) if cleanup_stale else 0
     conn.close()
     return (
@@ -1159,6 +1585,14 @@ def main() -> int:
                         help="Re-score document types even where one is already recorded")
     parser.add_argument("--doc-types-limit", type=int, default=0,
                         help="Maximum records to score in this document-type pass (0 = no limit)")
+    # ── Track A safety additions ────────────────────────────────────────────
+    parser.add_argument("--exclude", action="append", default=[], metavar="PATH",
+                        help="Exclude this path and everything under it. "
+                             "Repeatable: --exclude D:/foo --exclude Z:/bar. "
+                             "Obsidian vault containers are auto-detected and always excluded.")
+    parser.add_argument("--preview", action="store_true",
+                        help="Read-only preview: enumerate folders and count files, "
+                             "print what would be scanned, write nothing at all.")
     args = parser.parse_args()
     root = args.folder.resolve()
     if not root.is_dir():
@@ -1174,9 +1608,24 @@ def main() -> int:
               f"db={args.db.resolve()}")
         return 0
 
+    # Build exclusion set: user --exclude paths + hardcoded theophysics vaults
+    extra_excludes: set[str] = set()
+    for ex in args.exclude:
+        extra_excludes.add(str(Path(ex).resolve()).lower())
+    # Always exclude the two canonical Theophysics vault paths
+    for vp in (r"Z:\_Theophysics_v3", r"\\dlowenas\zobsidian\__New"):
+        extra_excludes.add(str(Path(vp)).lower())
+    # Auto-detect Obsidian vault containers under root
+    extra_excludes.update(_find_vault_containers(root))
+    if extra_excludes:
+        print(f"FIS scan: {len(extra_excludes)} path(s) excluded:", flush=True)
+        for ex in sorted(extra_excludes):
+            print(f"  exclude: {ex}", flush=True)
+
     folders, files, enriched, failed, notes, note_skips, stale, wiped = scan(
         root, args.db.resolve(), args.tree, args.write, args.html, args.local_ai,
-        args.ai_limit, args.ai_model, args.file_notes, args.cleanup_stale, args.wipe_fisnotes,
+        args.ai_limit, args.ai_model, args.file_notes, args.cleanup_stale,
+        args.wipe_fisnotes, extra_excludes=extra_excludes, preview=args.preview,
     )
     mode = "wrote generated views" if args.write or args.html or args.file_notes else "registry-only dry run"
     print(

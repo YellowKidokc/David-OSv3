@@ -1,0 +1,35 @@
+{
+  "schema_version": "david-os-integration/1.0",
+  "integration_id": "david-os:orionbelt",
+  "status": "SPECIFICATION_ONLY",
+  "authority": "READ_ONLY_PROJECTION",
+  "upstream": {
+    "repository": "https://github.com/ralforion/orionbelt-semantic-layer.git",
+    "local_path": "D:\\GitHub\\orionbelt-semantic-layer",
+    "tag": "v2.26.0",
+    "commit": "3a35445437deecb924fdb6eab28e6a8acefd935a",
+    "license": "BSL-1.1"
+  },
+  "canon": {
+    "repository": "D:\\GitHub\\Faith-through-physics-atoms",
+    "live_database": "D:\\GitHub\\Faith-through-physics-atoms\\_canon\\index.sqlite",
+    "connection_policy": "NO_DIRECT_CONNECTION_UNTIL_APPROVED",
+    "planned_input": "HUMAN_APPROVED_READ_ONLY_PROJECTION",
+    "source_of_truth": true
+  },
+  "capabilities": {
+    "query": "PLANNED",
+    "mcp": "PLANNED",
+    "dashboard": "PLANNED",
+    "canon_write": "FORBIDDEN",
+    "classification_write": "FORBIDDEN",
+    "admission_write": "FORBIDDEN"
+  },
+  "field_guards": {
+    "proof_label": "PRESERVE_UNCHANGED",
+    "one_axiom_classification": "INDEPENDENT_FIELD",
+    "candidate_admitted_boundary": "REQUIRED",
+    "ai_output": "UNRULED_PROPOSAL_ONLY"
+  }
+}
+

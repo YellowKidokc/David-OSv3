@@ -1,0 +1,37 @@
+{
+  "chunk_total": 18,
+  "engine": "lossless-splitter-1.0.0",
+  "file_count": 1,
+  "format": "LLS-1.0",
+  "rules": {
+    "exact_reconstruction": true,
+    "name_enrichment": [
+      "V field",
+      "R field",
+      "part index",
+      "heading"
+    ],
+    "naming_priority": [
+      "N field",
+      "first H1",
+      "original filename"
+    ],
+    "source_mutation": false
+  },
+  "source_root": "D:\\GitHub\\David-OS\\file-intelligence-system\\canon\\MASTER_EQUATION_LOSSLESS_AI_MANIFEST.md",
+  "sources": [
+    {
+      "chunk_count": 18,
+      "identity": {
+        "base_slug": "MASTER_EQUATION_CHI__CANONICAL_LOCAL_AND_INTEGRATED_FORM__R3",
+        "namespace": "MASTER_EQUATION_CHI",
+        "risk": "R3",
+        "title": "MASTER_EQUATION_LOSSLESS_AI_MANIFEST",
+        "variant": "CANONICAL_LOCAL_AND_INTEGRATED_FORM"
+      },
+      "source_manifest": "MASTER_EQUATION_LOSSLESS_AI_MANIFEST__SPLIT/MASTER_EQUATION_CHI__CANONICAL_LOCAL_AND_INTEGRATED_FORM__R3__split_manifest.json",
+      "source_path": "MASTER_EQUATION_LOSSLESS_AI_MANIFEST.md",
+      "source_sha256": "682fd68c2decd005ec31fcb04d5b2e687f0ac69eba850469d59a391d46c1833c"
+    }
+  ]
+}

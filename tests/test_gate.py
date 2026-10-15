@@ -65,3 +65,31 @@ def test_decision_json_shape_stable():
     j = d.to_json()
     assert set(j) == {"verdict", "fired_rules", "required_guardrails"}
     json.dumps(j)  # must be JSON-serializable (Rust contract)
+
+def test_blocked_floor_blocks_mutations():
+    d = make_gate({"approval_floor": "blocked"}).evaluate("rename", ["a/b.txt"], {"batch_size": 1})
+    assert d.verdict == g.BLOCK
+    assert any("approval_floor" in r["rule_id"] for r in d.fired_rules)
+
+def test_auto_after_threshold_allows_small_batch():
+    d = make_gate({"approval_floor": "auto_after_threshold"}).evaluate(
+        "rename", ["a/b.txt"], {"batch_size": 1})
+    assert d.verdict == g.ALLOW  # thresholds (review gates) didn't fire; floor permits
+
+def test_profile_protected_flag_reaches_action_conditions():
+    d = make_gate({"protected": True, "approval_floor": "preview_only"}).evaluate(
+        "rename", ["a/b.txt"], {"batch_size": 1})
+    assert d.verdict == g.ASK
+    assert any("protected" in r["reason"].lower() for r in d.fired_rules)
+
+def test_no_profile_uses_action_default_floor():
+    # rulebook says rename/move/delete default to approval_required; with no profile
+    # the folder is unknown, so the action default is the floor — never ALLOW a mutation blind
+    for action in ("rename", "move", "archive", "delete_later"):
+        d = make_gate().evaluate(action, ["a/b.txt"], {"batch_size": 1})
+        assert d.verdict in (g.ASK, g.BLOCK), action
+
+def test_explicit_profile_floor_beats_action_default():
+    d = make_gate({"approval_floor": "preview_only"}).evaluate(
+        "move", ["a/b.txt"], {"batch_size": 1})
+    assert d.verdict == g.PREVIEW

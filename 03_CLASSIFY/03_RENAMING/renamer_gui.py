@@ -262,7 +262,7 @@ class Renamer(tk.Tk):
                                   verdict="ask", choice="approve_once")
         rows = [(self.props[k], self.final(k), "rename") for k in todo]
         rows += [(self.props[k], "", "reject") for k in self.rejected]
-        run, done, errors = eng.apply(self.root_folder, rows)
+        run, done, errors = eng.apply(self.root_folder, rows, override=True)
         msg = f"Renamed {done} file(s). Run id: {run}"
         if errors:
             msg += "\n\nErrors:\n" + "\n".join(errors[:15])

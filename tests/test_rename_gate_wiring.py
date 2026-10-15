@@ -33,5 +33,34 @@ def test_apply_clean_batch_still_works(tmp_path):
     f = tmp_path / "a.md"
     f.write_text("x", encoding="utf-8")
     rows = [(_proposal(f, "b.md"), "b.md", "rename")]
+    run_id, count, errors = eng.apply(tmp_path, rows, override=True)  # user approved in the dialog
+    assert count == 1 and (tmp_path / "b.md").exists()
+
+
+def test_apply_ask_batch_requires_explicit_override(tmp_path):
+    # no profile on tmp_path -> action default floor (approval_required) -> ASK;
+    # the engine is the last line of defense and must not run ASK batches blind
+    f = tmp_path / "a.md"
+    f.write_text("x", encoding="utf-8")
+    rows = [(_proposal(f, "b.md"), "b.md", "rename")]
     run_id, count, errors = eng.apply(tmp_path, rows)
+    assert count == 0 and not (tmp_path / "b.md").exists()
+    assert errors and any("approval" in e.lower() for e in errors)
+    run_id, count, errors = eng.apply(tmp_path, rows, override=True)
+    assert count == 1 and (tmp_path / "b.md").exists()
+
+
+def test_corrupt_profile_registry_fails_closed(tmp_path, monkeypatch):
+    def boom(*a, **k):
+        raise ValueError("corrupt json")
+    monkeypatch.setattr(eng._Profiles, "load", boom)
+    f = tmp_path / "a.md"
+    f.write_text("x", encoding="utf-8")
+    rows = [(_proposal(f, "b.md"), "b.md", "rename")]
+    # corrupt registry -> ASK-everything -> no blind rename
+    run_id, count, errors = eng.apply(tmp_path, rows)
+    assert count == 0 and not (tmp_path / "b.md").exists()
+    assert errors and any("load error" in e.lower() for e in errors)
+    # the error is visible in the fired rules, and a human override may still proceed
+    run_id, count, errors = eng.apply(tmp_path, rows, override=True)
     assert count == 1 and (tmp_path / "b.md").exists()

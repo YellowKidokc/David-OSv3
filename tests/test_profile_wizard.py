@@ -24,9 +24,24 @@ def test_build_profile_maps_answers():
     q = {"core_questions": [], "evidence_based_followups": [],
          "default_profile_template": {"file_profile": {"default_safety": {"execution_mode": "preview_only"}}}}
     prof = pc.build_profile(Path("D:/x"), {"environment_type": "research",
-                                           "automation_comfort": "require_approval"}, q)
+                                           "automation_comfort": "approval_required"}, q)
     assert prof["folder_role"] == "research"
     assert prof["approval_floor"] == "approval_required"
+
+def test_build_profile_comfort_choices_from_questionnaire():
+    # real questionnaire choices, not invented tokens
+    assert pc.build_profile(Path("D:/x"), {"automation_comfort": "allow_safe_rules"}, {})["approval_floor"] == "auto_after_threshold"
+    assert pc.build_profile(Path("D:/x"), {"automation_comfort": "report_only"}, {})["approval_floor"] == "preview_only"
+    assert pc.build_profile(Path("D:/x"), {"automation_comfort": "suggest_actions"}, {})["approval_floor"] == "suggest_only"
+
+def test_do_not_touch_none_blocks_nothing():
+    prof = pc.build_profile(Path("D:/x"), {"do_not_touch": "none"}, {})
+    assert "blocked_actions" not in prof
+
+def test_do_not_touch_paths_kept_as_hints_not_blanket_block():
+    prof = pc.build_profile(Path("D:/x"), {"do_not_touch": "C:/Windows, *.env"}, {})
+    assert "blocked_actions" not in prof
+    assert prof["routing_hints"]["do_not_touch"] == ["C:/Windows", "*.env"]
 
 def test_write_profile_creates_entry_and_marker(tmp_path):
     profiles = tmp_path / "folder_profiles.json"
@@ -54,3 +69,19 @@ def test_partial_answers_write_nothing(tmp_path):
     profiles = tmp_path / "folder_profiles.json"
     pc.build_profile(tmp_path, {"environment_type": "mixed"}, {"core_questions": []})
     assert not profiles.exists()
+
+def test_write_profile_dedupes_case_insensitively(tmp_path):
+    profiles = tmp_path / "folder_profiles.json"
+    target = tmp_path / "vault"; target.mkdir()
+    pc.write_profile(target, {"path": str(target), "folder_role": "research"}, profiles, {}, {})
+    pc.write_profile(target, {"path": str(target).upper(), "folder_role": "research"}, profiles, {}, {})
+    saved = json.loads(profiles.read_text(encoding="utf-8"))
+    assert len(saved["profiles"]) == 1  # same folder, one entry, on a case-insensitive OS
+
+def test_write_profile_refuses_corrupt_registry(tmp_path):
+    import pytest
+    profiles = tmp_path / "folder_profiles.json"
+    profiles.write_text("{truncated", encoding="utf-8")
+    target = tmp_path / "vault"; target.mkdir()
+    with pytest.raises(ValueError, match="corrupt"):
+        pc.write_profile(target, {"path": str(target)}, profiles, {}, {})

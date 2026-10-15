@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import datetime as dt
 import json
+import os
 from collections import Counter
 from pathlib import Path
 
@@ -60,9 +61,10 @@ def suggest_answers(questionnaire: dict, evidence: dict) -> dict:
 def build_profile(root, answers: dict, questionnaire: dict) -> dict:
     """Map questionnaire answers onto folder_profiles.json fields (Task 2 shape)."""
     env = answers.get("environment_type", "mixed")
-    comfort = answers.get("automation_comfort", "require_approval")
+    comfort = answers.get("automation_comfort", "approval_required")
     floor = {"report_only": "preview_only", "suggest_actions": "suggest_only",
-             "require_approval": "approval_required"}.get(comfort, "approval_required")
+             "approval_required": "approval_required", "require_approval": "approval_required",
+             "allow_safe_rules": "auto_after_threshold"}.get(comfort, "approval_required")
     profile = {
         "path": str(root),
         "folder_role": env,
@@ -73,22 +75,35 @@ def build_profile(root, answers: dict, questionnaire: dict) -> dict:
         "routing_hints": {},
         "parser_preferences": ["deterministic"],
     }
-    if answers.get("do_not_touch"):
-        profile["blocked_actions"] = ["delete", "move", "rename", "archive"]
+    dnt = answers.get("do_not_touch")
+    items = ([x.strip() for x in dnt.split(",")] if isinstance(dnt, str) else list(dnt or []))
+    items = [x for x in items if x and x.lower() not in ("none", "nothing", "n/a", "no", "-")]
+    if items:
+        # a path/pattern list, not a blanket block on the folder — the gate reads
+        # routing_hints when per-path do-not-touch enforcement lands
+        profile["routing_hints"]["do_not_touch"] = items
     return profile
 
 
 def write_profile(root, profile: dict, profiles_path, answers: dict, evidence: dict) -> None:
-    """The only writer. Appends/updates the registry entry; writes the marker unless
-    the folder is a project root (marker contract: never write inside those)."""
+    """The only writer. Appends/updates the registry entry (atomically, deduped
+    case-insensitively); writes the marker unless the folder is a project root
+    (marker contract: never write inside those)."""
     root = Path(root)
     profiles_path = Path(profiles_path)
     data = {"profiles": []}
     if profiles_path.exists():
-        data = json.loads(profiles_path.read_text(encoding="utf-8"))
-    data["profiles"] = [p for p in data["profiles"] if p.get("path") != str(root)]
+        try:
+            data = json.loads(profiles_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as e:
+            raise ValueError(f"folder profile registry is corrupt: {profiles_path}: {e}") from e
+    root_key = os.path.normcase(str(root))
+    data["profiles"] = [p for p in data["profiles"]
+                        if os.path.normcase(str(p.get("path", ""))) != root_key]
     data["profiles"].append(profile)
-    profiles_path.write_text(json.dumps(data, indent=1) + "\n", encoding="utf-8")
+    tmp = profiles_path.with_name(profiles_path.name + ".tmp")
+    tmp.write_text(json.dumps(data, indent=1) + "\n", encoding="utf-8")
+    os.replace(tmp, profiles_path)
 
     names = {p.name.lower() for p in root.iterdir()} if root.is_dir() else set()
     if not (names & PROJECT_MARKERS):

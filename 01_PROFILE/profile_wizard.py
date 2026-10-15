@@ -46,8 +46,12 @@ class ProfileWizard(QWizard):
     def accept(self):  # Finish — the ONLY write
         answers = {p.qid: p.edit.text().strip() for p in self.pages if p.edit.text().strip()}
         profile = pc.build_profile(self.root, answers, self.quiz)
-        pc.write_profile(self.root, profile, REPO / "config" / "folder_profiles.json",
-                         answers, self.evidence)
+        try:
+            pc.write_profile(self.root, profile, REPO / "config" / "folder_profiles.json",
+                             answers, self.evidence)
+        except ValueError as e:
+            QMessageBox.critical(self, "Profile not written", str(e))
+            return
         QMessageBox.information(self, "Profiled",
                                 f"{self.root} is now profiled as '{profile['folder_role']}'.")
         super().accept()

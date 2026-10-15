@@ -166,14 +166,26 @@ class Gate:
                                              f"exceeds threshold '{row.get('default_threshold')}'"}])
         return None
 
+    def _action_default_floor(self, action_id: str) -> str | None:
+        ac = (self.rules.get("action_conditions.v1.json") or {}).get("records", [])
+        row = next((r for r in ac if r.get("action_id") == action_id), None)
+        return (row or {}).get("approval_default")
+
     def _approval_floor(self, action_id: str) -> Decision | None:
-        floor = self.profile.get("approval_floor") or "preview_only"
-        if action_id in MUTATING and floor in ("approval_required",):
+        # An explicit profile floor wins; without a profile the rulebook's own
+        # per-action default is the floor, so unknown folders are never blind-allowed.
+        floor = self.profile.get("approval_floor") or self._action_default_floor(action_id) or "preview_only"
+        if action_id in MUTATING and floor == "blocked":
+            return Decision(BLOCK, [{"rule_id": "profile.approval_floor",
+                                     "reason": "profile declares this folder blocked for mutations"}])
+        if action_id in MUTATING and floor == "approval_required":
             return Decision(ASK, [{"rule_id": "profile.approval_floor",
-                                   "reason": f"profile requires approval for mutations ({floor})"}])
+                                   "reason": f"approval required for mutations ({floor})"}])
         if action_id in MUTATING and floor in ("preview_only", "suggest_only"):
             return Decision(PREVIEW, [{"rule_id": "profile.approval_floor",
                                        "reason": f"profile floor is {floor}"}])
+        # auto_after_threshold: the review-gate thresholds above ARE the threshold;
+        # batches under them may proceed
         return None
 
     # -- the stack -----------------------------------------------------------
@@ -182,6 +194,7 @@ class Gate:
         ctx = dict(context or {})
         paths = [str(p) for p in target_paths]
         ctx.setdefault("batch_size", len(paths))
+        ctx.setdefault("protected", bool(self.profile.get("protected")))
 
         if self.load_error:  # fail closed
             return Decision(ASK, [{"rule_id": "gate.load_error",

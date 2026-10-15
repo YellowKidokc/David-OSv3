@@ -1,0 +1,102 @@
+{
+ "schema": "top-ai-fis.guardrails.v1",
+ "source_workbook": "FIS_Rule_Automation_Grammar.xlsx",
+ "records": [
+  {
+   "guardrail_id": "GR-001",
+   "name": "Never touch system folders",
+   "severity": "critical",
+   "description": "Blocks Windows, Program Files, ProgramData, AppData unless explicitly whitelisted.",
+   "applies_to": "all destructive actions",
+   "default_behavior": "blocked"
+  },
+  {
+   "guardrail_id": "GR-002",
+   "name": "Never delete directly",
+   "severity": "critical",
+   "description": "Deletion always routes to delete-later quarantine with hold period.",
+   "applies_to": "delete/delete_later",
+   "default_behavior": "enforced"
+  },
+  {
+   "guardrail_id": "GR-003",
+   "name": "Protect project roots",
+   "severity": "critical",
+   "description": "Detect .git, package.json, node_modules, venv, lockfiles, solution/project files.",
+   "applies_to": "move/rename/delete/archive",
+   "default_behavior": "review_required"
+  },
+  {
+   "guardrail_id": "GR-004",
+   "name": "Protect secrets/config",
+   "severity": "critical",
+   "description": ".env, keys, tokens, credentials, config DBs never auto-publish/move/delete.",
+   "applies_to": "all public/destructive actions",
+   "default_behavior": "blocked"
+  },
+  {
+   "guardrail_id": "GR-005",
+   "name": "Write ledger for every action",
+   "severity": "high",
+   "description": "Before/after path, hash, confidence, user decision, timestamp.",
+   "applies_to": "all actions",
+   "default_behavior": "required"
+  },
+  {
+   "guardrail_id": "GR-006",
+   "name": "Preview before action",
+   "severity": "high",
+   "description": "Show exact before/after plan before execution.",
+   "applies_to": "move/copy/rename/archive/delete_later",
+   "default_behavior": "required"
+  },
+  {
+   "guardrail_id": "GR-007",
+   "name": "Confidence gate",
+   "severity": "high",
+   "description": "Below review threshold = review only; above auto threshold = still block if risky.",
+   "applies_to": "classify/routing",
+   "default_behavior": "enforced"
+  },
+  {
+   "guardrail_id": "GR-008",
+   "name": "Hash before duplicate decisions",
+   "severity": "high",
+   "description": "No duplicate keeper/delete-later decision without hash or content check.",
+   "applies_to": "dedupe/delete_later",
+   "default_behavior": "required"
+  },
+  {
+   "guardrail_id": "GR-009",
+   "name": "Protect public/private boundary",
+   "severity": "high",
+   "description": "Never publish private/source/client/credential files.",
+   "applies_to": "publish/sync",
+   "default_behavior": "blocked"
+  },
+  {
+   "guardrail_id": "GR-010",
+   "name": "Max files per run",
+   "severity": "medium",
+   "description": "Automation stops if file count exceeds threshold unless user overrides.",
+   "applies_to": "automation",
+   "default_behavior": "required"
+  },
+  {
+   "guardrail_id": "GR-011",
+   "name": "Rollback plan required",
+   "severity": "medium",
+   "description": "Move/rename/archive must write rollback rows before execution.",
+   "applies_to": "move/rename/archive",
+   "default_behavior": "required"
+  },
+  {
+   "guardrail_id": "GR-012",
+   "name": "Skip low-confidence actions",
+   "severity": "medium",
+   "description": "Actions on low-confidence files become suggestions only.",
+   "applies_to": "all actions",
+   "default_behavior": "suggest_only"
+  }
+ ]
+}

@@ -1,0 +1,146 @@
+{
+ "schema": "top-ai-fis.action_conditions.v1",
+ "source_workbook": "FIS_Rule_Automation_Grammar.xlsx",
+ "records": [
+  {
+   "action_id": "scan",
+   "required_inputs": "source_root, scan_depth",
+   "required_preconditions": "source exists",
+   "blocked_if": "system root without explicit scope",
+   "required_guardrails": "GR-001,GR-005",
+   "minimum_view": "tree/details",
+   "approval_default": "preview_only",
+   "notes": "Read-only only."
+  },
+  {
+   "action_id": "classify",
+   "required_inputs": "inventory rows",
+   "required_preconditions": "scan complete",
+   "blocked_if": "missing inventory",
+   "required_guardrails": "GR-005,GR-007",
+   "minimum_view": "details/grouped",
+   "approval_default": "preview_only",
+   "notes": "Can run without content extraction."
+  },
+  {
+   "action_id": "tag",
+   "required_inputs": "file_set, tag_name",
+   "required_preconditions": "classification or user tag exists",
+   "blocked_if": "protected flag only if tag would override protection",
+   "required_guardrails": "GR-005",
+   "minimum_view": "details",
+   "approval_default": "suggest_only",
+   "notes": "DB/sidecar only."
+  },
+  {
+   "action_id": "rename",
+   "required_inputs": "file_set, proposed_name",
+   "required_preconditions": "confidence >= review_threshold or user supplied",
+   "blocked_if": "protected/project_root/filename collision",
+   "required_guardrails": "GR-003,GR-005,GR-006,GR-011",
+   "minimum_view": "details/preview",
+   "approval_default": "approval_required",
+   "notes": "Always rollback-capable."
+  },
+  {
+   "action_id": "move",
+   "required_inputs": "file_set, target_path",
+   "required_preconditions": "target exists or create approved",
+   "blocked_if": "protected/project_root/private-public risk",
+   "required_guardrails": "GR-003,GR-005,GR-006,GR-011",
+   "minimum_view": "dual_pane/preview",
+   "approval_default": "approval_required",
+   "notes": "Exact before/after paths required."
+  },
+  {
+   "action_id": "copy",
+   "required_inputs": "file_set, target_path",
+   "required_preconditions": "target exists or create approved",
+   "blocked_if": "disk space insufficient",
+   "required_guardrails": "GR-005,GR-006",
+   "minimum_view": "dual_pane",
+   "approval_default": "suggest_only",
+   "notes": "Verify after copy."
+  },
+  {
+   "action_id": "archive",
+   "required_inputs": "file_set, archive_root",
+   "required_preconditions": "inactive/archive criteria met",
+   "blocked_if": "active/protected/project_root without approval",
+   "required_guardrails": "GR-005,GR-006,GR-011",
+   "minimum_view": "tree/preview",
+   "approval_default": "approval_required",
+   "notes": "Archive manifest required."
+  },
+  {
+   "action_id": "delete_later",
+   "required_inputs": "file_set, quarantine_folder",
+   "required_preconditions": "hash/keeper review when duplicate",
+   "blocked_if": "protected/no hash/no ledger",
+   "required_guardrails": "GR-002,GR-005,GR-006,GR-008",
+   "minimum_view": "review_queue",
+   "approval_default": "approval_required",
+   "notes": "Never direct delete."
+  },
+  {
+   "action_id": "protect",
+   "required_inputs": "file_set, protection_reason",
+   "required_preconditions": "risk signal or user selection",
+   "blocked_if": "none",
+   "required_guardrails": "GR-005",
+   "minimum_view": "details",
+   "approval_default": "preview_only",
+   "notes": "Blocks incompatible actions."
+  },
+  {
+   "action_id": "dedupe",
+   "required_inputs": "duplicate_group",
+   "required_preconditions": "hash/content comparison",
+   "blocked_if": "no keeper selected",
+   "required_guardrails": "GR-002,GR-005,GR-006,GR-008",
+   "minimum_view": "compare",
+   "approval_default": "approval_required",
+   "notes": "Outputs keepers + delete-later candidates."
+  },
+  {
+   "action_id": "create_sidecar",
+   "required_inputs": "source_file",
+   "required_preconditions": "source readable or metadata available",
+   "blocked_if": "source missing",
+   "required_guardrails": "GR-005",
+   "minimum_view": "details",
+   "approval_default": "suggest_only",
+   "notes": "Writes .chi beside or in sidecar folder."
+  },
+  {
+   "action_id": "report",
+   "required_inputs": "scan/classification DB",
+   "required_preconditions": "data exists",
+   "blocked_if": "none",
+   "required_guardrails": "GR-005",
+   "minimum_view": "dashboard",
+   "approval_default": "preview_only",
+   "notes": "Should precede execution."
+  },
+  {
+   "action_id": "schedule",
+   "required_inputs": "trigger, selection_rules, action_sequence",
+   "required_preconditions": "guardrails assigned",
+   "blocked_if": "unsafe actions without approval",
+   "required_guardrails": "GR-005,GR-006,GR-010",
+   "minimum_view": "settings",
+   "approval_default": "approval_required",
+   "notes": "Disabled until approved."
+  },
+  {
+   "action_id": "run_script",
+   "required_inputs": "script_path, file_set",
+   "required_preconditions": "script exists and is whitelisted",
+   "blocked_if": "destructive script/no preview/no test run",
+   "required_guardrails": "GR-005,GR-006,GR-010",
+   "minimum_view": "terminal",
+   "approval_default": "approval_required",
+   "notes": "High risk."
+  }
+ ]
+}

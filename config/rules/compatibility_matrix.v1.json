@@ -1,0 +1,198 @@
+{
+ "schema": "top-ai-fis.compatibility_matrix.v1",
+ "source_workbook": "FIS_Rule_Automation_Grammar.xlsx",
+ "records": [
+  {
+   "action_or_signal_a": "scan",
+   "action_b": "classify",
+   "compatibility": "Yes",
+   "condition": "Scan must precede classification.",
+   "risk": "low",
+   "reason": "classification needs inventory"
+  },
+  {
+   "action_or_signal_a": "scan",
+   "action_b": "move",
+   "compatibility": "No",
+   "condition": "Cannot move before inventory/safety.",
+   "risk": "high",
+   "reason": "unknown risk"
+  },
+  {
+   "action_or_signal_a": "hash",
+   "action_b": "dedupe",
+   "compatibility": "Required",
+   "condition": "Hash required for exact duplicate decisions.",
+   "risk": "high",
+   "reason": "prevents false duplicate deletion"
+  },
+  {
+   "action_or_signal_a": "dedupe",
+   "action_b": "delete_later",
+   "compatibility": "Conditional",
+   "condition": "Only after keeper review and hash evidence.",
+   "risk": "critical",
+   "reason": "delete-later not direct delete"
+  },
+  {
+   "action_or_signal_a": "rename",
+   "action_b": "move",
+   "compatibility": "Conditional",
+   "condition": "Allowed if both previewed and rollback ledger exists.",
+   "risk": "medium",
+   "reason": "two path changes"
+  },
+  {
+   "action_or_signal_a": "copy",
+   "action_b": "move",
+   "compatibility": "Conditional",
+   "condition": "Copy can precede move as backup.",
+   "risk": "medium",
+   "reason": "safer migration"
+  },
+  {
+   "action_or_signal_a": "archive",
+   "action_b": "report",
+   "compatibility": "Yes",
+   "condition": "Archive should produce manifest/report.",
+   "risk": "low",
+   "reason": "audit trail"
+  },
+  {
+   "action_or_signal_a": "protect",
+   "action_b": "move",
+   "compatibility": "Blocks",
+   "condition": "Protected items cannot move automatically.",
+   "risk": "critical",
+   "reason": "do-not-touch policy"
+  },
+  {
+   "action_or_signal_a": "protect",
+   "action_b": "rename",
+   "compatibility": "Blocks",
+   "condition": "Protected items cannot rename automatically.",
+   "risk": "critical",
+   "reason": "do-not-touch policy"
+  },
+  {
+   "action_or_signal_a": "protect",
+   "action_b": "delete_later",
+   "compatibility": "Blocks",
+   "condition": "Protected items cannot be deleted by automation.",
+   "risk": "critical",
+   "reason": "do-not-touch policy"
+  },
+  {
+   "action_or_signal_a": "classify",
+   "action_b": "tag",
+   "compatibility": "Yes",
+   "condition": "Tag can store classification safely.",
+   "risk": "low",
+   "reason": "metadata only"
+  },
+  {
+   "action_or_signal_a": "tag",
+   "action_b": "move",
+   "compatibility": "Yes",
+   "condition": "Tags can guide move preview.",
+   "risk": "medium",
+   "reason": "requires approval"
+  },
+  {
+   "action_or_signal_a": "create_sidecar",
+   "action_b": "update_sidecar",
+   "compatibility": "Yes",
+   "condition": "Create if missing, update if stale.",
+   "risk": "low",
+   "reason": "metadata lifecycle"
+  },
+  {
+   "action_or_signal_a": "sidecar_missing",
+   "action_b": "create_sidecar",
+   "compatibility": "Yes",
+   "condition": "Missing sidecar triggers create.",
+   "risk": "low",
+   "reason": "profile generation"
+  },
+  {
+   "action_or_signal_a": "sidecar_stale",
+   "action_b": "update_sidecar",
+   "compatibility": "Yes",
+   "condition": "Stale sidecar triggers update.",
+   "risk": "low",
+   "reason": "profile refresh"
+  },
+  {
+   "action_or_signal_a": "ocr",
+   "action_b": "classify",
+   "compatibility": "Yes",
+   "condition": "OCR improves content classification.",
+   "risk": "low",
+   "reason": "adds text"
+  },
+  {
+   "action_or_signal_a": "transcribe",
+   "action_b": "classify",
+   "compatibility": "Yes",
+   "condition": "Transcript improves audio classification.",
+   "risk": "low",
+   "reason": "adds text"
+  },
+  {
+   "action_or_signal_a": "run_script",
+   "action_b": "delete_later",
+   "compatibility": "No",
+   "condition": "Scripts cannot trigger delete directly.",
+   "risk": "critical",
+   "reason": "safety"
+  },
+  {
+   "action_or_signal_a": "publish",
+   "action_b": "public_private_boundary_risk",
+   "compatibility": "Blocks",
+   "condition": "Publish blocked if private risk present.",
+   "risk": "critical",
+   "reason": "privacy"
+  },
+  {
+   "action_or_signal_a": "sync",
+   "action_b": "mirror_drift",
+   "compatibility": "Conditional",
+   "condition": "Sync only after compare and source-of-truth selection.",
+   "risk": "high",
+   "reason": "prevents overwrite"
+  },
+  {
+   "action_or_signal_a": "backup",
+   "action_b": "delete_later",
+   "compatibility": "Required",
+   "condition": "Backup before deletion/quarantine of important files.",
+   "risk": "high",
+   "reason": "recovery"
+  },
+  {
+   "action_or_signal_a": "compare",
+   "action_b": "sync",
+   "compatibility": "Required",
+   "condition": "Compare before sync.",
+   "risk": "high",
+   "reason": "source/target drift"
+  },
+  {
+   "action_or_signal_a": "report",
+   "action_b": "execute",
+   "compatibility": "Preferred",
+   "condition": "Report before execution for enterprise workflows.",
+   "risk": "low",
+   "reason": "client signoff"
+  },
+  {
+   "action_or_signal_a": "review",
+   "action_b": "learn",
+   "compatibility": "Yes",
+   "condition": "Approved/rejected actions train preferences.",
+   "risk": "low",
+   "reason": "preference loop"
+  }
+ ]
+}

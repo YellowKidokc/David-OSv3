@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import datetime as dt
 import sys
+import uuid
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]
@@ -34,7 +35,7 @@ from taxonomy_validator import VALID_STANDING  # noqa: E402
 
 # keys this tool writes itself — original blocks with these names are replaced
 MANAGED = {"sidecar", "subject", "source", "source_file", "standing",
-           "folder_class", "tags", "adapted_from", "adapted_at"}
+           "folder_class", "tags", "adapted_from", "adapted_at", "uuid"}
 
 
 def _split_blocks(fm_lines: list[str]) -> list[list[str]]:
@@ -82,10 +83,18 @@ def convert_card_text(text: str, stem: str) -> str | None:
                         if k in old and _block_value(old[k])), "")
     source = Path(source_file).stem if source_file else ""
 
+    # permanent identity: keep the card's own uuid if it has one; otherwise mint
+    # a deterministic one so re-running the adapter never double-mints
+    card_uuid = _block_value(old["uuid"]) if "uuid" in old else ""
+    if not card_uuid:
+        card_uuid = str(uuid.uuid5(uuid.NAMESPACE_URL,
+                                   f"david-os:mim.v1:{source_file or stem}"))
+
     out = [
         "---",
         "sidecar: mim.v1",
         f"subject: {stem}",
+        f"uuid: {card_uuid}",
         f'source: "[[{source}]]"' if source else "source:",
         f'source_file: "{source_file}"' if source_file else "source_file:",
         f"standing: {standing}" if standing else "standing:",

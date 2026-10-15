@@ -20,6 +20,18 @@ def test_evidence_detects_code_project(tmp_path):
     ev = pc.scan_evidence(tmp_path)
     assert ev["has_project_markers"] is True
 
+def test_scan_is_bounded_so_the_wizard_never_hangs(tmp_path):
+    # a deep, wide tree must come back fast and say it bailed
+    d = tmp_path
+    for i in range(8):
+        d = d / f"d{i}"
+        d.mkdir()
+        for j in range(20):
+            (d / f"f{j}.md").write_text("x", encoding="utf-8")
+    ev = pc.scan_evidence(tmp_path)
+    assert ev["file_count"] <= 5000
+    assert "scan_truncated" in ev
+
 def test_build_profile_maps_answers():
     q = {"core_questions": [], "evidence_based_followups": [],
          "default_profile_template": {"file_profile": {"default_safety": {"execution_mode": "preview_only"}}}}

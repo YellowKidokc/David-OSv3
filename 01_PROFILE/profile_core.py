@@ -28,16 +28,44 @@ def load_questionnaire(path) -> dict:
 
 
 def scan_evidence(root) -> dict:
-    """Read-only look at a folder. Returns plain JSON-shaped facts."""
+    """Read-only look at a folder. Returns plain JSON-shaped facts.
+
+    Bounded on purpose: the wizard window can't appear until this returns, so a
+    huge tree (Desktop, a drive root, a NAS share) must not hang it. Depth and
+    file-count caps keep it to a quick skim; `scan_truncated` says we bailed.
+    """
+    MAX_DEPTH, MAX_VISITED = 3, 5000
     root = Path(root)
     names = {p.name.lower() for p in root.iterdir()} if root.is_dir() else set()
-    exts = Counter(p.suffix.lower() for p in root.rglob("*") if p.is_file())
+    exts: Counter = Counter()
+    visited = 0
+    truncated = False
+    stack = [(root, 0)]
+    while stack and not truncated:
+        folder, depth = stack.pop()
+        try:
+            entries = list(folder.iterdir())
+        except OSError:
+            continue
+        for p in entries:
+            try:
+                if p.is_file():
+                    exts[p.suffix.lower()] += 1
+                    visited += 1
+                elif depth < MAX_DEPTH and not p.name.startswith((".git", "node_modules")):
+                    stack.append((p, depth + 1))
+            except OSError:
+                continue  # corrupted/unreadable entry — skip it, don't kill the scan
+            if visited >= MAX_VISITED:
+                truncated = True
+                break
     return {
         "has_obsidian": ".obsidian" in names,
         "has_project_markers": bool(names & PROJECT_MARKERS),
         "has_api_records": any(p.is_dir() and p.name == "_API" for p in root.iterdir()) if root.is_dir() else False,
         "top_extensions": exts.most_common(8),
         "file_count": sum(exts.values()),
+        "scan_truncated": truncated,
     }
 
 

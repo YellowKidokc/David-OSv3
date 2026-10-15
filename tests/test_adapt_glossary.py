@@ -131,6 +131,24 @@ def test_convert_folder_skips_stamped_counts_failures_never_touches_source(tmp_p
     assert (src / "Wheeler.md").read_text(encoding="utf-8") == GLOSSARY_CARD
 
 
+def test_uuid_minted_deterministically_and_existing_uuid_kept(tmp_path):
+    _, fields1, _ = _roundtrip(tmp_path, GLOSSARY_CARD)
+    minted = fields1["uuid"]
+    assert minted, "a card with no uuid must get one"
+    # same input -> same uuid (re-running the adapter never double-mints)
+    assert adapt_cards.convert_card_text(GLOSSARY_CARD, "Wheeler").split("\n")[3] == f"uuid: {minted}"
+
+    _, fields2, _ = _roundtrip(tmp_path, '''---
+uuid: 3be6f05a-6374-5536-bf7c-2dbb05a27a55
+status: draft
+---
+
+# X
+''')
+    assert fields2["uuid"] == "3be6f05a-6374-5536-bf7c-2dbb05a27a55", \
+        "a card's existing uuid is its identity — never replaced"
+
+
 def test_card_diagnosis_distinguishes_legacy_card_from_no_frontmatter(tmp_path):
     legacy = tmp_path / "Wheeler.md"
     legacy.write_text(GLOSSARY_CARD, encoding="utf-8")

@@ -24,7 +24,13 @@
         "protected": {"type": "boolean"},
         "parser_preferences": {"type": "array", "items": {"type": "string"}},
         "routing_hints": {"type": "object"},
-        "thresholds": {"type": "object", "additionalProperties": {"type": "number"}}
+        "thresholds": {"type": "object", "additionalProperties": {"type": "number"}},
+        "allowed_actions": {"type": "array", "items": {"type": "string"}},
+        "blocked_actions": {"type": "array", "items": {"type": "string"}},
+        "irrelevant_actions": {"type": "array", "items": {"type": "string"}},
+        "sidecar_writer": {"type": "string"},
+        "report_type": {"type": "string"},
+        "approval_floor": {"type": "string", "enum": ["preview_only", "suggest_only", "approval_required", "auto_after_threshold", "blocked"]}
       }
     },
     "profileWithPath": {

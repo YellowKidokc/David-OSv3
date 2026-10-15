@@ -2,13 +2,18 @@
 from __future__ import annotations
 
 import json
+import os
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
 DEFAULT_PROFILE_PATH = Path("config/folder_profiles.json")
 SCHEMA_PATH = Path("schemas/folder_profiles.schema.json")
-PROFILE_KEYS = {"path", "folder_role", "watch_enabled", "review_only", "protected", "parser_preferences", "routing_hints", "thresholds"}
+PROFILE_KEYS = {"path", "folder_role", "watch_enabled", "review_only", "protected", "parser_preferences", "routing_hints", "thresholds",
+                "allowed_actions", "blocked_actions", "irrelevant_actions",
+                "sidecar_writer", "report_type", "approval_floor"}
+
+APPROVAL_FLOORS = {"preview_only", "suggest_only", "approval_required", "auto_after_threshold", "blocked"}
 
 
 class FolderProfileConfigError(ValueError):
@@ -25,6 +30,12 @@ class FolderProfile:
     parser_preferences: list[str] = field(default_factory=list)
     routing_hints: dict[str, Any] = field(default_factory=dict)
     thresholds: dict[str, float] = field(default_factory=dict)
+    allowed_actions: tuple[str, ...] = ()
+    blocked_actions: tuple[str, ...] = ()
+    irrelevant_actions: tuple[str, ...] = ()
+    sidecar_writer: str = "default"
+    report_type: str = "default"
+    approval_floor: str = "preview_only"
 
     @classmethod
     def from_dict(cls, data: dict[str, Any], defaults: "FolderProfile | None" = None) -> "FolderProfile":
@@ -38,6 +49,12 @@ class FolderProfile:
             parser_preferences=list(data.get("parser_preferences", base.parser_preferences)),
             routing_hints=dict(data.get("routing_hints", base.routing_hints)),
             thresholds={key: float(value) for key, value in dict(data.get("thresholds", base.thresholds)).items()},
+            allowed_actions=tuple(data.get("allowed_actions", base.allowed_actions)),
+            blocked_actions=tuple(data.get("blocked_actions", base.blocked_actions)),
+            irrelevant_actions=tuple(data.get("irrelevant_actions", base.irrelevant_actions)),
+            sidecar_writer=str(data.get("sidecar_writer", base.sidecar_writer)),
+            report_type=str(data.get("report_type", base.report_type)),
+            approval_floor=str(data.get("approval_floor", base.approval_floor)),
         )
 
     def to_payload(self) -> dict[str, Any]:
@@ -50,6 +67,12 @@ class FolderProfile:
             "parser_preferences": self.parser_preferences,
             "routing_hints": self.routing_hints,
             "thresholds": self.thresholds,
+            "allowed_actions": list(self.allowed_actions),
+            "blocked_actions": list(self.blocked_actions),
+            "irrelevant_actions": list(self.irrelevant_actions),
+            "sidecar_writer": self.sidecar_writer,
+            "report_type": self.report_type,
+            "approval_floor": self.approval_floor,
         }
 
 
@@ -73,15 +96,14 @@ class FolderProfileRegistry:
         return [Path(profile.path) for profile in self.profiles if profile.watch_enabled and profile.path != "*"]
 
     def match(self, file_path: str | Path) -> FolderProfile:
-        candidate = Path(file_path).resolve()
+        candidate = os.path.normcase(str(Path(file_path).resolve()))
         best: tuple[int, FolderProfile] | None = None
         for profile in self.profiles:
-            root = Path(profile.path).expanduser().resolve()
-            try:
-                candidate.relative_to(root)
-            except ValueError:
+            root_path = Path(profile.path).expanduser().resolve()
+            root = os.path.normcase(str(root_path))
+            if candidate != root and not candidate.startswith(root + os.sep):
                 continue
-            score = len(root.parts)
+            score = len(root_path.parts)
             if best is None or score > best[0]:
                 best = (score, profile)
         return best[1] if best else self.default
@@ -124,6 +146,14 @@ def _validate_profile(profile: Any, location: str, *, require_path: bool) -> Non
         thresholds = profile["thresholds"]
         if not isinstance(thresholds, dict) or not all(isinstance(value, (int, float)) for value in thresholds.values()):
             raise FolderProfileConfigError(f"{location}.thresholds must be an object of numbers")
+    for key in ("allowed_actions", "blocked_actions", "irrelevant_actions"):
+        if key in profile and not _is_string_list(profile[key]):
+            raise FolderProfileConfigError(f"{location}.{key} must be a list of strings")
+    for key in ("sidecar_writer", "report_type"):
+        if key in profile and not isinstance(profile[key], str):
+            raise FolderProfileConfigError(f"{location}.{key} must be a string")
+    if "approval_floor" in profile and profile["approval_floor"] not in APPROVAL_FLOORS:
+        raise FolderProfileConfigError(f"{location}.approval_floor must be one of {sorted(APPROVAL_FLOORS)}")
 
 
 def _is_string_list(value: Any) -> bool:

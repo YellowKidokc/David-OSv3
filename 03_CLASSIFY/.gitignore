@@ -1,0 +1,6 @@
+00_SHARED/data/key.txt
+00_SHARED/data/deepseek_cache.json
+00_SHARED/data/review_log.csv
+__pycache__/
+00_SHARED/data/blind_test_with_papers.json
+03_RENAMING/data/

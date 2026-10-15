@@ -1,21 +1,21 @@
 ---
 fis_schema: "folder-index.v1"
-folder_id: "FLD-20260817-546695e5"
-folder: "GitHub\David-OS-v2\docs"
+folder_id: "FLD-20260907-7a577775"
+folder: "GitHub\David-OSv3\docs"
 folder_class: "project"
 confidence: 0.6
 dependency_risk: 0.0
 dominant_family: "text"
-dominant_ratio: 0.833
-file_count: 6
-classified_at: "2026-08-17T12:58:34"
+dominant_ratio: 0.857
+file_count: 7
+classified_at: "2026-09-07T15:05:03"
 allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
 suggested_name: "docs"
 ---
 
 # FIS Folder Index: docs
 
-**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 6  ·  **Dominant**: text (83%)
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 7  ·  **Dominant**: text (86%)
 
 ## Allowed actions
 - index

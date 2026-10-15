@@ -1,0 +1,359 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}</style><style>:root{color-scheme:light dark;--md-bg:#fff;--md-text:rgba(0,0,0,.8);--md-muted:rgba(0,0,0,.6);--md-fill:rgba(0,0,0,.04);--md-fill-strong:rgba(0,0,0,.06);--md-rule:rgba(0,0,0,.1);--md-rule-strong:rgba(0,0,0,.16);--md-link:hsl(210 100% 45%)}@media (prefers-color-scheme:dark){:root:where(:not([data-theme="light"])){--md-bg:#0d0d0d;--md-text:rgba(255,255,255,.85);--md-muted:rgba(255,255,255,.6);--md-fill:rgba(255,255,255,.06);--md-fill-strong:rgba(255,255,255,.09);--md-rule:rgba(255,255,255,.14);--md-rule-strong:rgba(255,255,255,.22);--md-link:hsl(210 100% 72%)}}:root[data-theme="dark"]{color-scheme:dark;--md-bg:#0d0d0d;--md-text:rgba(255,255,255,.85);--md-muted:rgba(255,255,255,.6);--md-fill:rgba(255,255,255,.06);--md-fill-strong:rgba(255,255,255,.09);--md-rule:rgba(255,255,255,.14);--md-rule-strong:rgba(255,255,255,.22);--md-link:hsl(210 100% 72%)}:root[data-theme="light"]{color-scheme:light}@media print{:root,:root[data-theme="dark"]{color-scheme:light;--md-bg:#fff;--md-text:rgba(0,0,0,.8);--md-muted:rgba(0,0,0,.6);--md-fill:rgba(0,0,0,.04);--md-fill-strong:rgba(0,0,0,.06);--md-rule:rgba(0,0,0,.1);--md-rule-strong:rgba(0,0,0,.16);--md-link:hsl(210 100% 45%)}}body{background:var(--md-bg);color:var(--md-text);max-width:720px;margin:0 auto;padding:32px;display:flex;flex-direction:column;gap:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'SF Pro','Segoe UI',sans-serif;overflow-wrap:break-word}body>:first-child{margin-top:0}h1,h2,h3,h4,h5,h6{margin:6px 0 0;line-height:1.25;font-weight:600;text-wrap:balance}h1{font-size:1.35em}h2{font-size:1.15em;color:var(--md-muted)}h3,h4,h5,h6{font-size:1em}p,ul,ol,blockquote,table,pre,hr{margin:0}strong{font-weight:600}a{color:var(--md-link);text-decoration:none}a:hover{text-decoration:underline}ul,ol{display:flex;flex-direction:column;gap:6px;padding-left:22px}ul{list-style:disc}ol{list-style:decimal}:is(li,td,th)>*+:is(p,ul,ol,blockquote){margin-top:6px}blockquote{display:flex;flex-direction:column;gap:10px;border-left:2px solid var(--md-rule);padding-left:10px;color:var(--md-muted)}:not(pre)>code{background:var(--md-fill);padding:1px 3px;border-radius:4px;font:.92em 'SF Mono',ui-monospace,Menlo,Consolas,monospace}a>code{background:none;color:inherit}pre{background:var(--md-fill);padding:10px 12px;border-radius:6px;overflow-x:auto;font:12px/1.5 'SF Mono',ui-monospace,Menlo,Consolas,monospace;margin-block:4px}pre code{background:none;padding:0;font:inherit}table{width:100%;border-collapse:separate;border-spacing:2px;font:inherit}th,td{padding:6px 8px;border-radius:3px;text-align:left;vertical-align:top}th{background:var(--md-fill-strong);font-weight:600}td{background:var(--md-fill)}:is(th,td) :not(pre)>code{background:transparent}hr{border:0;border-top:1px solid var(--md-rule-strong);margin-block:10px}img{max-width:100%;height:auto;border-radius:4px}</style>
+</head><body>
+<h1>Filesystem Prediction Engine — System Specification</h1>
+<p><strong>POF 2828 | September 25, 2026</strong>
+<strong>Status: Design Phase — Open for Multi-AI Review</strong>
+<strong>Parent Project: David-OS (D:\GitHub\David-OS)</strong>
+<strong>Layer: Prediction Harness</strong></p>
+<hr>
+<h2>1. Problem Statement</h2>
+<p>Every file operation a user performs — copy, move, delete, rename, save, paste — is conditioned on context that repeats. Workflows are non-random. The question is whether a lightweight system can learn the topology of a user's filesystem behavior well enough to predict the next operation before the user performs it, and whether that prediction can be made reliable enough to act on.</p>
+<p>This specification describes a system that:</p>
+<ol>
+<li>Monitors every file and folder operation across the user's filesystem in real time.</li>
+<li>Encodes those operations as weighted edges in a persistent graph where every file and folder is a node.</li>
+<li>Runs multiple competing prediction models against the same event stream to determine which architecture predicts best under which conditions.</li>
+<li>Surfaces predictions with calibrated confidence scores that reflect actual historical reliability, not raw model output.</li>
+</ol>
+<p>The system is designed to be handed to multiple AI collaborators for independent implementation proposals. Each collaborator should address the four open questions in Section 6.</p>
+<hr>
+<h2>2. Architecture Overview</h2>
+<p>The system has four layers:</p>
+<h3>Layer 1: The Watcher</h3>
+<p>A daemon that hooks into the Windows filesystem notification system (ReadDirectoryChangesW or the Python <code>watchdog</code> library) and logs every event. The watcher is always-on, low-overhead, and writes to a local SQLite database.</p>
+<p><strong>Event schema (one row per operation):</strong></p>
+<pre><code>event_id        TEXT    -- UUID
+timestamp       REAL    -- Unix epoch, millisecond precision
+event_type      TEXT    -- CREATE | MODIFY | MOVE | COPY | DELETE | RENAME | CLIPBOARD_COPY | CLIPBOARD_PASTE
+source_path     TEXT    -- Full path of the source file/folder
+dest_path       TEXT    -- Full path of the destination (for MOVE, COPY, RENAME; NULL otherwise)
+file_extension  TEXT    -- e.g. &#34;.md&#34;, &#34;.html&#34;, &#34;.pdf&#34;
+file_size       INT    -- Bytes (at time of event)
+parent_dir      TEXT    -- Immediate parent directory of source
+session_id      TEXT    -- Groups events by work session (gap &gt; 30 min = new session)
+day_of_week     INT    -- 0-6
+hour_of_day     INT    -- 0-23
+active_window   TEXT    -- Foreground application at time of event (via Win32 GetForegroundWindow)
+</code></pre>
+<p><strong>Scope:</strong> All local drives the user works on. Exclude system directories (Windows, Program Files), hidden directories (.git internals, .obsidian cache), and any path matching a user-defined exclusion list. The FIS exclusion list already exists (<code>.lake</code>, <code>.obsidian</code>, <code>.smart-env</code>, <code>.claudian</code>, <code>.trash</code>) and should be inherited.</p>
+<p><strong>Clipboard integration:</strong> Hook the Win32 clipboard chain. When a file path hits the clipboard (copy operation in Explorer), log a CLIPBOARD_COPY event. When a paste occurs, log CLIPBOARD_PASTE with the destination. This is the primary trigger for real-time prediction: the moment something is copied, the system should already be ranking likely destinations.</p>
+<h3>Layer 2: The Node Graph</h3>
+<p>Every file and folder on the monitored filesystem is a node. The graph is persistent (SQLite or PostgreSQL) and survives reboots.</p>
+<p><strong>Node properties:</strong></p>
+<pre><code>node_id         TEXT    -- Canonical full path (normalized)
+node_type       TEXT    -- FILE | FOLDER
+extension       TEXT    -- File extension (NULL for folders)
+first_seen      REAL    -- Timestamp of first observed operation
+last_seen       REAL    -- Timestamp of most recent operation
+total_events    INT    -- Total operations involving this node
+</code></pre>
+<p><strong>Edge properties:</strong></p>
+<p>Each node has a limited number of edges to other nodes (initially capped at 10 per node, expandable). Each edge has multiple weight channels — one per operation type:</p>
+<pre><code>source_node     TEXT    -- node_id
+target_node     TEXT    -- node_id
+weight_copy     REAL    -- Accumulated weight for COPY operations between these nodes
+weight_move     REAL    -- Accumulated weight for MOVE operations
+weight_rename   REAL    -- Accumulated weight for RENAME operations
+weight_delete   REAL    -- Accumulated weight for DELETE proximity (co-deletion within session)
+weight_coacccess REAL   -- Accumulated weight for co-access (touched in same session)
+weight_sequential REAL  -- Accumulated weight for sequential access (B follows A within N seconds)
+last_updated    REAL    -- Timestamp
+decay_factor    REAL    -- Time-decay multiplier (recent events weighted higher)
+</code></pre>
+<p><strong>Update rule (Hebbian):</strong> When an operation occurs between node A and node B:</p>
+<ol>
+<li>If an edge exists, increment the appropriate weight channel: <code>w_new = w_old + learning_rate × recency_bonus</code></li>
+<li>If no edge exists and the node has fewer than max_edges, create one.</li>
+<li>If no edge exists and the node is at max_edges, replace the weakest edge only if the new signal exceeds a threshold.</li>
+<li>Apply time-decay to all edges on every update: <code>w_decayed = w × decay_rate^(time_since_last_update)</code></li>
+</ol>
+<p>The graph learns the user's <em>usage topology</em> — which files and folders are functionally related through behavior, regardless of where they sit in the directory hierarchy. Two files in completely different directory trees that are always touched together will develop strong edges.</p>
+<h3>Layer 3: The Prediction Models (Competing)</h3>
+<p>This is the core design question. Rather than choosing one prediction architecture, the system runs multiple models in parallel against the same event stream, in shadow mode, and measures which one predicts best under which conditions. Every model produces a prediction for every event. Every prediction is scored against what actually happens. The winner earns the right to surface predictions to the user.</p>
+<p><strong>The models to implement and compare (see Section 4 for full descriptions):</strong></p>
+<ol>
+<li>First-order Markov chain (IPAM / Davison-Hirsh)</li>
+<li>Higher-order Markov chain (Jacobs-Blockeel variable-length)</li>
+<li>Context-enriched Markov (Korvemaker-Greiner: + time-of-day, day-of-week, error codes)</li>
+<li>LSTM sequence model</li>
+<li>Graph neural network over the node graph</li>
+<li>Hybrid: Markov verb prediction + graph noun prediction</li>
+<li>Frequency baseline (most common operation for this file/folder)</li>
+<li>Recency baseline (repeat the last operation on this file/folder)</li>
+</ol>
+<p>Each model outputs:</p>
+<pre><code>predicted_event_type    TEXT    -- The operation it expects next
+predicted_target_path   TEXT    -- The file/folder it expects to be involved
+confidence              REAL   -- 0.0 to 1.0
+</code></pre>
+<h3>Layer 4: The Meta-Predictor and Binary Gate</h3>
+<p>The meta-predictor watches each model's track record. For each model, in each context bucket (time-of-day, operation type, directory, session phase), it records:</p>
+<ul>
+<li>How often the model's predictions were correct</li>
+<li>How well-calibrated the model's confidence scores are (does &quot;80% confident&quot; actually mean right 80% of the time?)</li>
+</ul>
+<p>This produces a <strong>reliability score</strong> per model per context. The final prediction is not just &quot;Model X says MOVE to _OPUS_5 at 73% confidence&quot; — it's &quot;Model X says MOVE to _OPUS_5 at 73% confidence, AND Model X's 73% confidence in this context has historically been correct 81% of the time, giving a calibrated score of 0.59.&quot;</p>
+<p>The <strong>binary gate</strong> collapses this to a yes/no decision for action. The formula:</p>
+<pre><code>gate_score = raw_confidence × historical_reliability_in_this_context
+</code></pre>
+<p>Above a user-set threshold (e.g., 0.85): the system can auto-suggest or auto-execute.
+Below threshold: silent logging only. The system watches and learns but doesn't surface anything.</p>
+<p>The prediction history itself becomes training data for the meta-predictor — every prediction that was made, what actually happened, and the context in which it occurred. This is the self-correcting loop: the system learns when to trust itself.</p>
+<hr>
+<h2>3. Prior Art — Existing Approaches</h2>
+<p>The following are the documented approaches to user action prediction. Each one represents a different way to encode the information. The system should implement all of them behind a uniform interface and let measured performance decide the winner.</p>
+<h3>3.1 IPAM — Incremental Probabilistic Action Modeling</h3>
+<p><strong>Source:</strong> Davison &amp; Hirsh, &quot;Predicting Sequences of User Actions,&quot; AAAI 1998.</p>
+<p><strong>Method:</strong> First-order Markov model. Stores conditional probabilities P(next_action | last_action). After each observation, updates:</p>
+<ul>
+<li>P'(x|y) = α × P(x|y) + (1−α) for x = current observation, y = last observation</li>
+<li>P'(x|y) = α × P(x|y) for all other x</li>
+</ul>
+<p>α ≈ 0.8 recommended. Achieves ~38% online accuracy on UNIX command prediction across 77 users.</p>
+<p><strong>Strengths:</strong> Trivially simple. No training phase. Learns online. Tiny memory footprint. Immediate deployment.</p>
+<p><strong>Weaknesses:</strong> Single-step context window. Cannot learn multi-step patterns. No contextual features (time, file type, etc.).</p>
+<p><strong>Encoding:</strong> Flat probability table. Action vocabulary × Action vocabulary matrix.</p>
+<h3>3.2 Variable-Length Markov (Jacobs-Blockeel Extension)</h3>
+<p><strong>Source:</strong> Jacobs &amp; Blockeel, building on IPAM.</p>
+<p><strong>Method:</strong> Higher-order Markov. Dynamically extends context length when predictions are correct. If the sequence ...y₁y₀x was observed and the prediction for x was correct, stores longer context entries. Automatically finds the optimal context length per pattern.</p>
+<p><strong>Strengths:</strong> Captures multi-step sequences without fixed window size. Self-adjusting complexity.</p>
+<p><strong>Weaknesses:</strong> Database grows with context length. Can overfit to specific long sequences.</p>
+<p><strong>Encoding:</strong> Variable-length suffix tree of action sequences with associated probabilities.</p>
+<h3>3.3 Context-Enriched Markov (Korvemaker-Greiner)</h3>
+<p><strong>Source:</strong> Korvemaker &amp; Greiner, &quot;Predicting UNIX Command Lines: Adjusting to User Patterns,&quot; 2000.</p>
+<p><strong>Method:</strong> Extends IPAM with contextual features: error code from previous command, day of week, time of day. Predicts complete commands, not just command stubs.</p>
+<p><strong>Strengths:</strong> Context awareness without deep learning. Time-of-day and day-of-week are cheap, powerful features for habitual workflows.</p>
+<p><strong>Weaknesses:</strong> Feature engineering is manual. Doesn't scale to many context dimensions.</p>
+<p><strong>Encoding:</strong> Conditional probability tables keyed by (last_action, context_features).</p>
+<h3>3.4 LSTM Sequence Model</h3>
+<p><strong>Source:</strong> General deep learning literature. Relevant implementation: BlerinaRushiti/user-behavior-prediction-lstm (GitHub).</p>
+<p><strong>Method:</strong> Long Short-Term Memory neural network. Takes a sliding window of N previous events (typically 5-20), encodes each as a feature vector, and predicts the next event. Maintains a hidden state vector (128-512 floats) that carries compressed information across the sequence.</p>
+<p><strong>Strengths:</strong> Learns arbitrary-length temporal dependencies (in theory). Can discover patterns invisible to Markov models. Handles high-dimensional feature inputs natively.</p>
+<p><strong>Weaknesses:</strong> Requires training data (weeks of logged events). Computationally heavier. Hidden state is a lossy compression — it does NOT hold a map of the filesystem. Effective memory degrades beyond ~200-500 steps.</p>
+<p><strong>Encoding:</strong> Sequences of feature vectors. Each event encoded as [event_type_onehot, path_embedding, extension_onehot, hour, day_of_week, time_since_last_event].</p>
+<h3>3.5 Graph Neural Network over Node Graph</h3>
+<p><strong>Source:</strong> General GNN literature applied to the node graph from Layer 2.</p>
+<p><strong>Method:</strong> The node graph (5,000 nodes, weighted edges) IS the model. When an event occurs, activate the source node. Propagation flows through weighted edges. The highest-activation destination nodes are the prediction. Hebbian weight updates after each event.</p>
+<p><strong>Strengths:</strong> Knows the full filesystem topology. Can predict destinations for files it hasn't seen in the recent sequence, as long as they have edges. Learns structural relationships (co-access, sequential access) that sequence models miss. Tiny memory footprint (~200KB for 25,000 edges).</p>
+<p><strong>Weaknesses:</strong> No temporal dynamics — doesn't know about ordering or timing without additional features. Requires the node graph to be pre-built and maintained.</p>
+<p><strong>Encoding:</strong> Sparse adjacency matrix with multi-channel edge weights.</p>
+<h3>3.6 Hybrid: Markov Verb + Graph Noun</h3>
+<p><strong>Source:</strong> Proposed in this specification.</p>
+<p><strong>Method:</strong> The Markov chain predicts the operation type (the &quot;verb&quot; — copy, move, rename, delete). The graph network predicts the target file/folder (the &quot;noun&quot; — which node is the likely destination). The verb prediction selects which edge weight channel to use for the noun prediction.</p>
+<p><strong>Strengths:</strong> Decomposes the prediction into two simpler problems. Each component uses the architecture best suited to its sub-task.</p>
+<p><strong>Weaknesses:</strong> Assumes verb and noun are separable. In practice they may be entangled (the destination determines the operation type, not the other way around).</p>
+<p><strong>Encoding:</strong> Combined: Markov probability table for verbs + sparse graph for nouns.</p>
+<h3>3.7 Frequency Baseline</h3>
+<p><strong>Method:</strong> For each file/folder, predict the most common operation ever performed on it. If file X has been MOVED 40 times and COPIED 10 times, always predict MOVE.</p>
+<p><strong>Strengths:</strong> Dead simple. Surprisingly hard to beat for highly habitual operations.</p>
+<p><strong>Weaknesses:</strong> No context sensitivity. No temporal dynamics.</p>
+<p><strong>Encoding:</strong> Per-node operation frequency counts.</p>
+<h3>3.8 Recency Baseline</h3>
+<p><strong>Method:</strong> Predict that the next operation on a file will be the same as the last operation on that file.</p>
+<p><strong>Strengths:</strong> Captures short-term task repetition (when you're batch-renaming, the next operation is probably another rename).</p>
+<p><strong>Weaknesses:</strong> Fails at task transitions.</p>
+<p><strong>Encoding:</strong> Per-node last-operation register.</p>
+<hr>
+<h2>4. Encoding Structures — Uniform Comparison Framework</h2>
+<p>Every model above encodes information differently. To compare them fairly, each model must implement the same interface:</p>
+<pre><code class="language-python">class PredictionModel:
+    def name(self) -&gt; str:
+        &#34;&#34;&#34;Model identifier.&#34;&#34;&#34;
+
+    def observe(self, event: FileEvent) -&gt; None:
+        &#34;&#34;&#34;Ingest one event. Update internal state.&#34;&#34;&#34;
+
+    def predict(self, context: EventContext) -&gt; Prediction:
+        &#34;&#34;&#34;Given current context, predict the next event.&#34;&#34;&#34;
+
+    def score(self, prediction: Prediction, actual: FileEvent) -&gt; float:
+        &#34;&#34;&#34;Score a prediction against what actually happened. 0.0 = wrong, 1.0 = exact match.&#34;&#34;&#34;
+
+    def save_state(self, path: str) -&gt; None:
+        &#34;&#34;&#34;Persist model state to disk.&#34;&#34;&#34;
+
+    def load_state(self, path: str) -&gt; None:
+        &#34;&#34;&#34;Restore model state from disk.&#34;&#34;&#34;
+</code></pre>
+<pre><code class="language-python">@dataclass
+class FileEvent:
+    event_id: str
+    timestamp: float
+    event_type: str          # CREATE | MODIFY | MOVE | COPY | DELETE | RENAME
+    source_path: str
+    dest_path: Optional[str]
+    file_extension: str
+    file_size: int
+    parent_dir: str
+    session_id: str
+    day_of_week: int
+    hour_of_day: int
+    active_window: str
+
+@dataclass
+class Prediction:
+    predicted_event_type: str
+    predicted_target_path: str
+    confidence: float        # 0.0 to 1.0
+    model_name: str
+    context_hash: str        # Identifies the context bucket for meta-prediction
+
+@dataclass
+class EventContext:
+    last_n_events: List[FileEvent]   # Sliding window (configurable N)
+    current_clipboard: Optional[str] # File path on clipboard, if any
+    active_window: str
+    hour_of_day: int
+    day_of_week: int
+    session_duration: float          # Seconds since session start
+    session_event_count: int
+</code></pre>
+<p>Every model gets the same <code>EventContext</code>. Every model produces a <code>Prediction</code> in the same format. Every prediction is scored by the same <code>score()</code> function. The meta-predictor aggregates scores per model per context bucket.</p>
+<p><strong>Scoring function:</strong> Partial credit for partial matches.</p>
+<ul>
+<li>Exact match (correct event_type AND correct target_path): 1.0</li>
+<li>Correct event_type, wrong target_path: 0.5</li>
+<li>Correct target_path, wrong event_type: 0.3</li>
+<li>Both wrong: 0.0</li>
+</ul>
+<hr>
+<h2>5. Integration with David-OS</h2>
+<p>This system is a layer within the David-OS monorepo (D:\GitHub\David-OS) under the prediction harness. It should:</p>
+<ul>
+<li>Share the uniform event schema already planned for FIS, behavior/prediction harness, and OS-State layers.</li>
+<li>Inherit the FIS exclusion list for filesystem scanning.</li>
+<li>Use the existing SQLite/PostgreSQL infrastructure on the NAS (192.168.1.177:2665) for persistent storage.</li>
+<li>Respect the OS design principles: no background/resident programs unless explicitly appointed. The watcher daemon earns residency because filesystem events provably evaporate if not captured in real time. All other processing (model updates, meta-prediction, scoring) can run as batch jobs on the event log.</li>
+<li>The prediction harness direction already states: &quot;wire many prediction engines behind one uniform interface with shared statistics/telemetry, judge by measured hit-rate in shadow mode before letting any engine act.&quot; This specification is the detailed design for that direction.</li>
+</ul>
+<hr>
+<h2>6. Open Questions for Multi-AI Review</h2>
+<p>Each AI collaborator should address these independently:</p>
+<h3>Q1: System Architecture</h3>
+<p>How should this be structured as a system that can latch onto any process within two seconds of startup? What is the minimum daemon footprint? Should the watcher be a Windows service, a Python process, a compiled binary? How do we handle the cold-start problem (no historical data on first run)?</p>
+<h3>Q2: Recording with Minimum User Burden</h3>
+<p>The user should do nothing. The system should see the desktop, observe operations, and record them without any manual tagging, configuration, or intervention. What is the minimum viable recording setup that captures enough signal? Can we derive the clipboard state, active window, and session boundaries passively? What do we miss by going fully passive versus requiring occasional user input?</p>
+<h3>Q3: Encoding Comparison</h3>
+<p>Sections 3 and 4 describe eight candidate models and a uniform interface. Each collaborator should:</p>
+<ul>
+<li>Propose the implementation for each model (libraries, data structures, training procedures).</li>
+<li>Identify which models are likely to win under which conditions (sparse data vs. dense data, habitual workflows vs. exploratory workflows, small filesystem vs. large filesystem).</li>
+<li>Propose any additional models not listed here that should be in the comparison.</li>
+<li>Describe the meta-prediction architecture in detail: how exactly should the reliability calibration work? What context buckets should be used?</li>
+</ul>
+<h3>Q4: Metastasis Path</h3>
+<p>If the system works on filesystem events, how far can it extend into the rest of the operating system? The candidates for extension are:</p>
+<ul>
+<li>Clipboard operations (already specified)</li>
+<li>Window focus changes</li>
+<li>Process launches</li>
+<li>Browser tab activity</li>
+<li>Keystrokes within applications (security boundary — discuss trade-offs)</li>
+<li>Network activity correlation</li>
+<li>Application-internal state (Obsidian, VS Code, etc.)</li>
+</ul>
+<p>Each extension adds new node types and edge types to the same graph. What is the priority order? What are the diminishing returns? Where does the system hit a ceiling where more data does not improve prediction accuracy?</p>
+<hr>
+<h2>7. Success Criteria</h2>
+<p>The system succeeds if:</p>
+<ol>
+<li><strong>Within 1 week of passive recording:</strong> At least one model exceeds the frequency baseline on event_type prediction.</li>
+<li><strong>Within 1 month:</strong> At least one model achieves &gt;60% accuracy on event_type prediction and &gt;40% accuracy on combined event_type + target_path.</li>
+<li><strong>Within 3 months:</strong> The meta-predictor's calibrated confidence scores are within 10% of actual reliability (when it says 80%, it's right 70-90% of the time).</li>
+<li><strong>The system never acts without crossing the binary gate threshold.</strong> Silent logging and learning is the default. Action requires earned confidence.</li>
+</ol>
+<hr>
+<h2>8. References</h2>
+<ol>
+<li>Davison, B.D. &amp; Hirsh, H. (1997). &quot;Experiments in UNIX Command Prediction.&quot; AAAI.</li>
+<li>Davison, B.D. &amp; Hirsh, H. (1998). &quot;Predicting Sequences of User Actions.&quot; AAAI Workshop on Predicting the Future.</li>
+<li>Jacobs, N. &amp; Blockeel, H. (2001). Extension of IPAM to variable-length Markov models.</li>
+<li>Korvemaker, B. &amp; Greiner, R. (2000). &quot;Predicting UNIX Command Lines: Adjusting to User Patterns.&quot;</li>
+<li>Ganger, G.R. et al. (1999). &quot;Predicting File System Actions from Prior Events.&quot; ResearchGate.</li>
+<li>Cook, D.J. (2005). &quot;Online Sequential Prediction via Incremental Parsing.&quot; IEEE Intelligent Systems.</li>
+<li>LongNAP (2026). &quot;Learning Next Action Predictors from Human-Computer Interaction.&quot; arXiv:2603.05923.</li>
+<li>Singh, T.D. et al. (2020). &quot;Seq2Seq and Joint Learning Based Unix Command Line Prediction System.&quot; arXiv:2006.11558.</li>
+</ol>
+<hr>
+<h2>9. Architectural Amendment: The Command Line as Primary Prediction Surface</h2>
+<p><strong>Added September 25, 2026 — supersedes the passive-daemon-first approach in Sections 2-4.</strong></p>
+<p>The original architecture positions the prediction engine as a background daemon watching filesystem events. This amendment repositions it: the prediction engine lives <em>inside the command line interpreter</em>, sitting between intent and execution.</p>
+<h3>9.1 Why the Command Line</h3>
+<p>Every file operation — whether typed by the user, scripted, or issued by an LLM agent (Desktop Commander, Claude Code, bash) — passes through one choke point: the command line. This is the natural interception layer. The prediction engine doesn't watch events after they happen; it sees commands <em>before</em> they execute.</p>
+<p>This is especially critical for LLM-driven operations. When an AI agent issues <code>mv</code>, <code>cp</code>, <code>rm</code>, or <code>rename</code> commands on the user's behalf, the prediction engine:</p>
+<ol>
+<li>Sees the command before execution.</li>
+<li>Checks it against learned patterns for that file/folder.</li>
+<li>If the command matches a high-confidence pattern: execute silently.</li>
+<li>If the command is unusual (low weight, unseen destination, anomalous operation type): pause and surface the anomaly.</li>
+</ol>
+<p>This makes the prediction engine simultaneously a <strong>productivity tool</strong> (auto-completing likely destinations) and a <strong>safety layer</strong> (catching anomalous AI-issued commands before they touch the filesystem).</p>
+<h3>9.2 Shell Wrapper Architecture</h3>
+<p>The engine is implemented as a shell wrapper — a command interpreter that sits in front of the actual shell (PowerShell, cmd, bash, or any subprocess call). Every command passes through it.</p>
+<pre><code>[User / LLM Agent]
+        │
+        ▼
+┌──────────────────────────┐
+│   PREDICTION SHELL       │
+│                          │
+│  1. Parse incoming cmd   │
+│  2. Identify operation   │
+│     (move/copy/del/ren)  │
+│  3. Query prediction     │
+│     engine for this      │
+│     source file/folder   │
+│  4. Compare predicted    │
+│     destination vs.      │
+│     actual destination   │
+│  5. Score confidence     │
+│                          │
+│  IF confidence &gt; gate:   │
+│     → execute + log      │
+│  IF confidence = mid:    │
+│     → show prediction,   │
+│       ask confirm        │
+│  IF anomaly detected:    │
+│     → pause, flag,       │
+│       require confirm    │
+│                          │
+│  6. Log result           │
+│  7. Update weights       │
+└──────────────────────────┘
+        │
+        ▼
+   [Actual Shell Execution]
+        │
+        ▼
+   [Filesystem]
+</code></pre>
+<h3>9.3 Prediction Completion</h3>
+<p>When the user begins typing a command, the engine offers completions based on accumulated weights — not just path autocompletion (which any shell does), but <em>behavioral</em> completion:</p>
+<ul>
+<li>User types <code>move D:\DONT_TOUCH</code> → engine completes with the most likely destination based on historical patterns for files in that directory, weighted by time-of-day and session context.</li>
+<li>User types <code>cp </code> and pauses → engine shows the most likely source file based on what was recently modified, what's on the clipboard, and sequential-access patterns from the node graph.</li>
+<li>User types <code>del </code> → engine shows files most likely to be deleted based on patterns (temp files, intermediate outputs, files that always get deleted after a processing step).</li>
+</ul>
+<p>The completion is ranked by the gate_score (raw_confidence × historical_reliability). Only completions above a minimum threshold are shown.</p>
+<h3>9.4 LLM Safety Layer</h3>
+<p>When an LLM agent issues commands through the shell (Desktop Commander, Claude Code, any subprocess), the prediction engine applies a stricter gate:</p>
+<ul>
+<li><strong>Known pattern, high confidence:</strong> Execute. The LLM is doing what the user would do. No pause.</li>
+<li><strong>Known pattern, low confidence:</strong> Execute but log with a flag. Surface in the session summary.</li>
+<li><strong>Unknown pattern (file has never been moved to this destination, or operation type is novel for this file):</strong> Pause execution. Surface the command to the user with the message: &quot;This operation has no precedent in your workflow history. Confirm?&quot; This catches AI hallucinations, wrong paths, and accidental deletions before they happen.</li>
+<li><strong>Destructive operation (DELETE, overwrite) on a high-value node (many edges, high total_events):</strong> Always pause, regardless of confidence. High-value nodes are files the user touches frequently — they earned protection through usage, not manual configuration.</li>
+</ul>
+<h3>9.5 Integration with Existing AI Workflow</h3>
+<p>The prediction shell becomes the substrate that every AI collaborator's commands pass through. Whether it's Claude via Desktop Commander, Codex via terminal, or Gemini via a bridge script, the prediction engine sees and scores every command. Over time, it learns each AI's patterns too — not just the user's. It can flag when an AI agent's behavior deviates from its own historical patterns, which is a signal for session confusion, context loss, or adversarial injection.</p>
+<h3>9.6 Revised Open Question for Multi-AI Review</h3>
+<p><strong>Q5: Command Shell Design.</strong> Each collaborator should propose:</p>
+<ul>
+<li>The implementation language and framework for the shell wrapper (Python subprocess wrapper vs. PowerShell module vs. compiled interceptor).</li>
+<li>How to handle commands that don't map cleanly to file operations (cd, ls, grep, etc.) — should the engine attempt to predict these too, or only intercept file-mutating commands?</li>
+<li>How to minimize latency. The prediction lookup must be sub-100ms to avoid disrupting the user's flow. What data structures and caching strategies achieve this?</li>
+<li>How to handle the cold start when the engine has no history. Should it run in pure-observation mode for a training period, or can it bootstrap from the existing FIS registry and vault structure?</li>
+<li>How to surface predictions without being annoying. The engine should enhance the command line experience, not slow it down. What is the right UX for showing/hiding predictions?</li>
+</ul>
+<hr>
+<p><em>This document is a specification for multi-AI review. Each collaborator should read this independently, address the four open questions in Section 6, and propose a concrete implementation plan. The goal is convergence on the best architecture through independent analysis, not consensus through discussion.</em></p>
+
+</body></html>

@@ -2,7 +2,8 @@
 
 Step 03 of the David-OS sequence: **every paper gets classified before anything runs through the
 pipeline** — what it's called, what it is, how settled it is, and the sidecar that points to it.
-Steps 01 and 02 (before this) are not defined yet.
+Step 01 is `../01_PROFILE` (the doorway wizard — profile the folder first). Step 02 is not
+defined yet.
 
 ## Double-click
 
@@ -28,12 +29,16 @@ Each folder's README lists the tools that **already exist elsewhere** for that s
 `David-OSv3\engine\`, `C:\Theophysics_Tagger\`, Research-Acquisition, the NAS). They're live code
 other things run, so they're pointed to, not moved.
 
-## Ties into Prediction_GUI (not copied)
+## Prediction harness (vendored 2026-10-15)
 
-The engines live in `D:\GitHub\Prediction_GUI` (override with the `PREDICTION_GUI` environment
-variable). 03 imports from it and runs on its `.venv`. Added there, because they're engine-side:
-`engines/name_words/` and `harness/adapters/sidecars.py`. Classification ledgers
-(`classify_standing.db`, …) live in `Prediction_GUI\data\`, separate from the YouTube one.
+The engines live in `02_CLASSIFICATION\harness` + `02_CLASSIFICATION\engines` — moved out of the
+old standalone `D:\GitHub\Prediction_GUI` repo, which no longer exists on disk (history is on
+GitHub and in `ZZZ_DELETE\Prediction_GUI_repo.bundle`). Classification ledgers
+(`classify_standing.db`, …) live in `02_CLASSIFICATION\data\`, separate from the YouTube one.
+The `PREDICTION_GUI` environment variable still overrides the harness location if ever needed.
+
+Extra launchers: `PREDICT.bat` (engine scoreboard GUI), `INTAKE.bat` (register a dropped engine),
+`HARVEST_CHROME_YOUTUBE.bat` / `HARVEST_CLIPBOARD_DITTO.bat` / `WATCH_CLIPBOARD.bat` (event adapters).
 
 ## Order of operations (rulebook, end of Part C)
 
@@ -45,5 +50,6 @@ variable). 03 imports from it and runs on its `.venv`. Added there, because they
 
 ## Setup on a new machine
 
-Clone Prediction_GUI to `D:\GitHub\Prediction_GUI` (or set `PREDICTION_GUI`) and give it a `.venv`
-with `river` and `cpt`. DeepSeek needs `DEEPSEEK_API_KEY` (or `00_SHARED\data\key.txt`).
+Run `SETUP_PREDICTION.bat` once — it creates `03_CLASSIFY\.venv` with `river`, `cpt`,
+`scikit-learn` and `mabwiser` (see `requirements-prediction.txt`) and runs the smoke test.
+DeepSeek needs `DEEPSEEK_API_KEY` (or `00_SHARED\data\key.txt`).

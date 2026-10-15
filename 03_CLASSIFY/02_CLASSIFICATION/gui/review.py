@@ -16,7 +16,8 @@ every changed card is copied to sidecars/.review_backup/<timestamp>/.
 Every decision (accept, reject, edit) resolves the ledger, so the scoreboard
 learns which engine to trust. Ledger: data/classify_<facet>.db — kept apart
 from the YouTube ledger so the two never train on each other.
-The engines come from Prediction_GUI (PREDICTION_GUI env var, default D:/GitHub/Prediction_GUI).
+The engines live in 02_CLASSIFICATION (harness/, engines/) — vendored from the
+old Prediction_GUI repo (PREDICTION_GUI env var still overrides, default: local).
 """
 from __future__ import annotations
 
@@ -36,10 +37,10 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[2]             # 03_CLASSIFY
 SHARED = ROOT / "00_SHARED"                            # rulebook, validator, DeepSeek, data
-# The prediction engine lives in its own repo; 03 ties into it, never copies it.
-PGUI = Path(os.environ.get("PREDICTION_GUI", r"D:\GitHub\Prediction_GUI"))
+# The prediction harness is vendored into 02_CLASSIFICATION; env var override kept for emergencies.
+PGUI = Path(os.environ.get("PREDICTION_GUI", str(ROOT / "02_CLASSIFICATION")))
 if not (PGUI / "harness").is_dir():
-    raise SystemExit(f"Prediction_GUI not found at {PGUI} (set PREDICTION_GUI to its folder)")
+    raise SystemExit(f"Prediction harness not found at {PGUI} (expected 02_CLASSIFICATION\\harness)")
 sys.path.insert(0, str(PGUI))
 sys.path.insert(0, str(SHARED))
 
@@ -117,7 +118,7 @@ def current_value(facet: str, fields: dict[str, str], tags: list[str]) -> str:
 
 def card_problems(path: Path, fields: dict[str, str], tags: list[str], facet: str) -> list[str]:
     if not fields:
-        return ["not a readable mim.v1 card (frontmatter missing or broken) — open it"]
+        return [sc_adapter.card_diagnosis(path)]
     out = [f"missing field: {f}" for f in REQUIRED if not fields.get(f)]
     st = fields.get("standing", "")
     if st and st not in VALID["standing"]:
@@ -172,7 +173,7 @@ class Review(tk.Tk):
 
     def __init__(self, folder: str = DEFAULT_FOLDER) -> None:
         super().__init__()
-        self.title("Sidecar Review — Prediction_GUI")
+        self.title("Sidecar Review — 03_CLASSIFY")
         self.geometry("1300x820")
         self.rows: dict[str, Row] = {}
         self.runner: Runner | None = None

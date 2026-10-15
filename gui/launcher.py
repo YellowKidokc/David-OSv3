@@ -21,6 +21,8 @@ TOOLS = [
      "20 questions · evidence pre-fill · writes the folder's rules"),
     ("03 · Classify — Review sidecars", "../03_CLASSIFY/REVIEW.bat", "Every card · engine + DeepSeek suggestions · accept / reject / edit, one or all"),
     ("03 · Classify — Validate sidecars", "../03_CLASSIFY/VALIDATE.bat", "Check the AXIOM canon sidecars against TAG_TAXONOMY_v0.4"),
+    ("04 · Adapt — old cards → mim.v1", "../04_ADAPT/ADAPT.bat",
+     "Glossary/legacy cards get their stamp · mechanical fields only · judgment stays yours"),
     ("Drive Harvester", "drive_harvester.py", "Search all drives for a term · canon pins · fingerprint · flatten + sidecars"),
     ("Axiom Search & Export", "axiom_search_export.py", "Browse axioms already in the FIS registry"),
     ("FIS Search Workbench", "fis_search_workbench.py", "Search the FIS catalog"),

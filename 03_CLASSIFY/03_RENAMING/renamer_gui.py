@@ -237,13 +237,29 @@ class Renamer(tk.Tk):
         dupes = {n for n in finals if finals.count(n) > 1}
         if dupes:
             messagebox.showerror("Apply", "Two checked rows would get the same name:\n" + "\n".join(sorted(dupes)[:10])); return
+        gdec = eng._gate_decision("rename", [self.props[k].path for k in todo], Path(self.root_folder)) if todo else None
+        if gdec and gdec.verdict == "block":
+            messagebox.showerror("Blocked by rules",
+                                 "This batch breaks hard rules and cannot run:\n\n"
+                                 + "\n".join(f"{r['rule_id']}: {r['reason']}" for r in gdec.fired_rules))
+            return
+        warning = ""
+        if gdec and gdec.verdict == "ask":
+            warning = ("These rules fired:\n"
+                       + "\n".join(f"• {r['rule_id']}: {r['reason']}" for r in gdec.fired_rules)
+                       + "\n\nYes = approve this once · No = cancel\n\n")
         preview = "\n".join(f"{self.props[k].path.name}\n   → {self.final(k)}" for k in todo[:12])
         links = sum(self.props[k].links_in for k in todo)
         if not messagebox.askyesno("Apply — preview",
+                                   warning +
                                    f"Rename {len(todo)} file(s)?  ({len(self.rejected)} rejection(s) will be logged)\n"
                                    f"{links} [[link]](s) inside the folder will be updated to match.\n\n{preview}"
                                    + ("\n…" if len(todo) > 12 else "") + "\n\nEvery rename is logged and can be undone."):
             return
+        if gdec and gdec.verdict == "ask":
+            eng._ledger.log_event("gate_override", path=str(self.root_folder),
+                                  folder=str(self.root_folder), action_id="rename",
+                                  verdict="ask", choice="approve_once")
         rows = [(self.props[k], self.final(k), "rename") for k in todo]
         rows += [(self.props[k], "", "reject") for k in self.rejected]
         run, done, errors = eng.apply(self.root_folder, rows)

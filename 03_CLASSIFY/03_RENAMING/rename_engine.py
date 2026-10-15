@@ -33,6 +33,28 @@ LEDGER_COLS = ["run", "when", "root", "old_path", "new_path", "sha256", "confide
 NAMED = re.compile(r"^[A-Z]{3}__[A-Z]{3}__[a-z0-9_]+__\d{8}__[A-Z]{2}$")   # already in the scheme
 ROMAN = re.compile(r"^[ivx]+[a-z]?$")
 
+_REPO = HERE.parents[1]                      # David-OSv3
+for _p in (_REPO, _REPO / "engine"):
+    if str(_p) not in sys.path:
+        sys.path.insert(0, str(_p))
+import gate as _gate                          # noqa: E402
+import ledger as _ledger                      # noqa: E402
+from hub.config.folder_profiles import FolderProfileRegistry as _Profiles  # noqa: E402
+
+GATE_ERRORS: list[str] = []                   # details of the last blocked batch
+
+
+def _gate_decision(action_id: str, paths: list[Path], root: Path):
+    try:
+        reg = _Profiles.load(_REPO / "config" / "folder_profiles.json")
+        profile = reg.match(root).to_payload()
+    except Exception as e:                    # fail closed, loudly
+        profile = {}
+        GATE_ERRORS[:] = [f"profile load error: {e}"]
+    g = _gate.Gate.load(_REPO / "config" / "rules", profile)
+    return g.evaluate(action_id, [str(p) for p in paths],
+                      {"batch_size": len(paths)})
+
 
 @dataclass
 class Proposal:
@@ -236,6 +258,18 @@ def _rewrite_links(root: Path, stems: dict[str, str], backup: Path) -> dict[str,
 def apply(root: Path, rows: list[tuple[Proposal, str, str]]) -> tuple[str, int, list[str]]:
     """rows: (proposal, final_name, decision). decision 'rename' renames; others are only logged.
     Returns (run_id, renamed_count, errors)."""
+    GATE_ERRORS.clear()
+    mutating = [pr for pr, _final, dec in rows if dec == "rename"]
+    gdec = _gate_decision("rename", [pr.path for pr in mutating], root)
+    if gdec.verdict in (_gate.BLOCK, _gate.DROP):
+        GATE_ERRORS[:] = [f"{r['rule_id']}: {r['reason']}" for r in gdec.fired_rules]
+        _ledger.log_event("gate_decision", path=str(root), action_id="rename",
+                          verdict=gdec.verdict, fired=gdec.fired_rules)
+        return "", 0, list(GATE_ERRORS)
+    if gdec.verdict == _gate.ASK:
+        _ledger.log_event("gate_decision", path=str(root), action_id="rename",
+                          verdict="ask", fired=gdec.fired_rules)
+        # GUI collected per-row approvals already; ASK is advisory at this layer.
     run = dt.datetime.now().strftime("%Y%m%d-%H%M%S")
     backup = HERE / "data" / "link_backups" / run
     LEDGER.parent.mkdir(exist_ok=True)

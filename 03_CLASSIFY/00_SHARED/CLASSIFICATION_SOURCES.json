@@ -1,0 +1,1513 @@
+{
+ "_note": "Classification sources gathered 2026-10-23. Data lives in .data/classification (not in git). Hashes are sha256 prefixes. status is a working label, not canon.",
+ "sources": [
+  {
+   "family": "02_all_classifications_and_lookup_tables.csv",
+   "distinct_versions": 1,
+   "status": "identical copies",
+   "versions": [
+    {
+     "file": "02_ALL_CLASSIFICATIONS_AND_LOOKUP_TABLES.csv",
+     "sha256_12": "f147258953b0",
+     "size_kb": 17,
+     "newest": "2026-09-05",
+     "copies": 2,
+     "schema": {
+      "format": "csv",
+      "rows": 365,
+      "header": [
+       "﻿Category",
+       "Code_or_Value",
+       "Glyph_or_Symbol",
+       "Description_or_Meaning",
+       "Extra_Rules_or_Propagation"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "family": "03_axioms_192_full_classification_catalog.csv",
+   "distinct_versions": 1,
+   "status": "identical copies",
+   "versions": [
+    {
+     "file": "03_AXIOMS_192_FULL_CLASSIFICATION_CATALOG.csv",
+     "sha256_12": "ce0f1d8ea18d",
+     "size_kb": 33,
+     "newest": "2026-09-05",
+     "copies": 2,
+     "schema": {
+      "format": "csv",
+      "rows": 192,
+      "header": [
+       "﻿Axiom_ID",
+       "Preferred_Label",
+       "Mode",
+       "Classification",
+       "Status",
+       "Root_Anchor",
+       "Decision",
+       "Why_Rationale"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "family": "lexicon_master_v2_unified.xlsx",
+   "distinct_versions": 1,
+   "status": "identical copies",
+   "versions": [
+    {
+     "file": "LEXICON_MASTER_v2_UNIFIED.xlsx",
+     "sha256_12": "1360322c4d6b",
+     "size_kb": 146,
+     "newest": "2026-09-25",
+     "copies": 1,
+     "schema": {
+      "format": "xlsx",
+      "sheets": [
+       {
+        "sheet": "MASTER_TERM_REGISTRY",
+        "rows": 1797,
+        "cols": 20,
+        "header": []
+       },
+       {
+        "sheet": "CLASSIFICATION_AXES",
+        "rows": 21,
+        "cols": 6,
+        "header": []
+       },
+       {
+        "sheet": "JEV_INTEGRATION_SPEC",
+        "rows": 35,
+        "cols": 2,
+        "header": []
+       },
+       {
+        "sheet": "SHIBBOLETH_REFERENCE",
+        "rows": 13,
+        "cols": 4,
+        "header": []
+       },
+       {
+        "sheet": "SIX_NEEDS_REFERENCE",
+        "rows": 7,
+        "cols": 7,
+        "header": []
+       },
+       {
+        "sheet": "BELIEF_DERIVATION_LADDER",
+        "rows": 11,
+        "cols": 7,
+        "header": []
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "family": "lexicon_master_v2_unified_jev_scored.xlsx",
+   "distinct_versions": 1,
+   "status": "identical copies",
+   "versions": [
+    {
+     "file": "LEXICON_MASTER_v2_UNIFIED_JEV_SCORED.xlsx",
+     "sha256_12": "ceec96f323b8",
+     "size_kb": 187,
+     "newest": "2026-09-25",
+     "copies": 1,
+     "schema": {
+      "format": "xlsx",
+      "sheets": [
+       {
+        "sheet": "MASTER_TERM_REGISTRY",
+        "rows": 1797,
+        "cols": 20,
+        "header": [
+         "106",
+         "1.79",
+         "0.16"
+        ]
+       },
+       {
+        "sheet": "CLASSIFICATION_AXES",
+        "rows": 21,
+        "cols": 6,
+        "header": []
+       },
+       {
+        "sheet": "JEV_INTEGRATION_SPEC",
+        "rows": 35,
+        "cols": 2,
+        "header": []
+       },
+       {
+        "sheet": "SHIBBOLETH_REFERENCE",
+        "rows": 13,
+        "cols": 4,
+        "header": []
+       },
+       {
+        "sheet": "SIX_NEEDS_REFERENCE",
+        "rows": 7,
+        "cols": 7,
+        "header": []
+       },
+       {
+        "sheet": "BELIEF_DERIVATION_LADDER",
+        "rows": 11,
+        "cols": 7,
+        "header": []
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "family": "lexicon_v2.xlsx",
+   "distinct_versions": 1,
+   "status": "identical copies",
+   "versions": [
+    {
+     "file": "LEXICON_V2.xlsx",
+     "sha256_12": "8558f5b668cd",
+     "size_kb": 326,
+     "newest": "2026-10-18",
+     "copies": 4,
+     "schema": {
+      "format": "xlsx",
+      "sheets": [
+       {
+        "sheet": "MASTER_TERM_REGISTRY",
+        "rows": 2235,
+        "cols": 16,
+        "header": [
+         "This is the only part I don'",
+         "category",
+         "fruit_mapping",
+         "tier",
+         "weight",
+         "dialect",
+         "active",
+         "subcategory",
+         "source_sheets",
+         "semantic_register",
+         "belief_deriv_level",
+         "six_needs_served",
+         "polarity_stability",
+         "ai_detection"
+        ]
+       },
+       {
+        "sheet": "AAVE-Ebonics",
+        "rows": 597,
+        "cols": 6,
+        "header": []
+       },
+       {
+        "sheet": "MASTER_README",
+        "rows": 24,
+        "cols": 3,
+        "header": [
+         "Is it working Goodbye more w",
+         "role",
+         "notes"
+        ]
+       },
+       {
+        "sheet": "TEXT_GRADER",
+        "rows": 230,
+        "cols": 8,
+        "header": []
+       },
+       {
+        "sheet": "SUPRA_INFRAQUE",
+        "rows": 29,
+        "cols": 3,
+        "header": []
+       },
+       {
+        "sheet": "FRUIT_RETRIEVAL_LEXICON_V2",
+        "rows": 610,
+        "cols": 8,
+        "header": [
+         "Retrieval class",
+         "Meaning / scanner handling"
+        ]
+       },
+       {
+        "sheet": "SI_OBJECT_TYPES",
+        "rows": 24,
+        "cols": 3,
+        "header": [
+         "Field",
+         "Meaning"
+        ]
+       },
+       {
+        "sheet": "SI_CLASS_AXES",
+        "rows": 20,
+        "cols": 2,
+        "header": [
+         "Axis",
+         "Example terms"
+        ]
+       },
+       {
+        "sheet": "SI_RELATIONS",
+        "rows": 28,
+        "cols": 2,
+        "header": [
+         "Relation group",
+         "Edge types"
+        ]
+       },
+       {
+        "sheet": "SI_SCHEMA_TABLES",
+        "rows": 29,
+        "cols": 3,
+        "header": [
+         "Table",
+         "Purpose",
+         "Plane"
+        ]
+       },
+       {
+        "sheet": "SI_VALIDATION",
+        "rows": 48,
+        "cols": 2,
+        "header": [
+         "1",
+         "a claim with no canonical te"
+        ]
+       },
+       {
+        "sheet": "BFP_DG_GRAMMAR",
+        "rows": 33,
+        "cols": 3,
+        "header": [
+         "Phase",
+         "Step",
+         "What it asks"
+        ]
+       },
+       {
+        "sheet": "BFP_DG_PRIMITIVES",
+        "rows": 38,
+        "cols": 5,
+        "header": []
+       },
+       {
+        "sheet": "NAMING_TAXONOMY",
+        "rows": 69,
+        "cols": 2,
+        "header": []
+       },
+       {
+        "sheet": "SUBJECTIVE_INDEX",
+        "rows": 20,
+        "cols": 3,
+        "header": [
+         "sheet",
+         "priority",
+         "reason"
+        ]
+       },
+       {
+        "sheet": "Fruit Semantic Architecture",
+        "rows": 248,
+        "cols": 56,
+        "header": []
+       },
+       {
+        "sheet": "README",
+        "rows": 22,
+        "cols": 3,
+        "header": [
+         "sheet",
+         "source_file",
+         "notes"
+        ]
+       },
+       {
+        "sheet": "WISDOM_TERMS",
+        "rows": 27,
+        "cols": 4,
+        "header": [
+         "source_file",
+         "collection",
+         "item_index",
+         "term"
+        ]
+       },
+       {
+        "sheet": "KNOWLEDGE_TERMS",
+        "rows": 27,
+        "cols": 4,
+        "header": [
+         "source_file",
+         "collection",
+         "item_index",
+         "term"
+        ]
+       },
+       {
+        "sheet": "COHERENCE_TERMS",
+        "rows": 31,
+        "cols": 6,
+        "header": [
+         "source_file",
+         "collection",
+         "key",
+         "subkey",
+         "item_index",
+         "value"
+        ]
+       },
+       {
+        "sheet": "FRUITS",
+        "rows": 58,
+        "cols": 6,
+        "header": [
+         "source_file",
+         "collection",
+         "key",
+         "subkey",
+         "item_index",
+         "value"
+        ]
+       },
+       {
+        "sheet": "ME_VARS",
+        "rows": 68,
+        "cols": 6,
+        "header": [
+         "source_file",
+         "collection",
+         "key",
+         "subkey",
+         "item_index",
+         "value"
+        ]
+       },
+       {
+        "sheet": "CLAIM_TERMS",
+        "rows": 14,
+        "cols": 4,
+        "header": [
+         "source_file",
+         "collection",
+         "item_index",
+         "term"
+        ]
+       },
+       {
+        "sheet": "EVIDENCE_TERMS",
+        "rows": 14,
+        "cols": 4,
+        "header": [
+         "source_file",
+         "collection",
+         "item_index",
+         "term"
+        ]
+       },
+       {
+        "sheet": "FALSIFY_TERMS",
+        "rows": 11,
+        "cols": 4,
+        "header": [
+         "source_file",
+         "collection",
+         "item_index",
+         "term"
+        ]
+       },
+       {
+        "sheet": "DEPENDENCY_TERMS",
+        "rows": 10,
+        "cols": 4,
+        "header": [
+         "source_file",
+         "collection",
+         "item_index",
+         "term"
+        ]
+       },
+       {
+        "sheet": "HEDGE_TERMS",
+        "rows": 13,
+        "cols": 4,
+        "header": [
+         "source_file",
+         "collection",
+         "item_index",
+         "term"
+        ]
+       },
+       {
+        "sheet": "ABSOLUTE_TERMS",
+        "rows": 8,
+        "cols": 4,
+        "header": [
+         "source_file",
+         "collection",
+         "item_index",
+         "term"
+        ]
+       },
+       {
+        "sheet": "BRIDGE_TERMS",
+        "rows": 12,
+        "cols": 4,
+        "header": [
+         "source_file",
+         "collection",
+         "item_index",
+         "term"
+        ]
+       },
+       {
+        "sheet": "NEGATION_TERMS",
+        "rows": 8,
+        "cols": 4,
+        "header": [
+         "source_file",
+         "collection",
+         "item_index",
+         "term"
+        ]
+       },
+       {
+        "sheet": "FRUITS_LEX",
+        "rows": 38,
+        "cols": 6,
+        "header": [
+         "source_file",
+         "collection",
+         "key",
+         "subkey",
+         "item_index",
+         "value"
+        ]
+       },
+       {
+        "sheet": "ANTI_FRUITS",
+        "rows": 37,
+        "cols": 6,
+        "header": [
+         "source_file",
+         "collection",
+         "key",
+         "subkey",
+         "item_index",
+         "value"
+        ]
+       },
+       {
+        "sheet": "CHAR_ATTR_PATTERNS",
+        "rows": 115,
+        "cols": 6,
+        "header": [
+         "source_file",
+         "collection",
+         "key",
+         "subkey",
+         "item_index",
+         "value"
+        ]
+       },
+       {
+        "sheet": "FRUIT_BLEND",
+        "rows": 71,
+        "cols": 6,
+        "header": [
+         "source_file",
+         "collection",
+         "key",
+         "subkey",
+         "item_index",
+         "value"
+        ]
+       },
+       {
+        "sheet": "ANTI_FRUIT_MAP",
+        "rows": 32,
+        "cols": 6,
+        "header": [
+         "source_file",
+         "collection",
+         "key",
+         "subkey",
+         "item_index",
+         "value"
+        ]
+       },
+       {
+        "sheet": "LAW_KEYWORDS",
+        "rows": 98,
+        "cols": 6,
+        "header": [
+         "source_file",
+         "collection",
+         "key",
+         "subkey",
+         "item_index",
+         "value"
+        ]
+       },
+       {
+        "sheet": "DOC_TYPE_PATTERNS",
+        "rows": 30,
+        "cols": 6,
+        "header": [
+         "source_file",
+         "collection",
+         "key",
+         "subkey",
+         "item_index",
+         "value"
+        ]
+       },
+       {
+        "sheet": "SEMANTIC_BUCKETS",
+        "rows": 348,
+        "cols": 11,
+        "header": [
+         "term",
+         "bucket",
+         "subbucket",
+         "polarity",
+         "weight",
+         "danger_level",
+         "allowed_context",
+         "forbidden_context",
+         "recommended_action",
+         "source_note",
+         "example_safe_rewrite"
+        ]
+       },
+       {
+        "sheet": "LEXICON_ADDITIONS_README",
+        "rows": 7,
+        "cols": 4,
+        "header": [
+         "Section",
+         "What changed",
+         "How to use it",
+         "Notes"
+        ]
+       },
+       {
+        "sheet": "SEMANTIC_BUCKETS_SUMMARY",
+        "rows": 24,
+        "cols": 3,
+        "header": [
+         "Metric",
+         "Value",
+         "Notes"
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "family": "lexicons_master_enhanced.xlsx",
+   "distinct_versions": 2,
+   "status": "UNRESOLVED: versions differ, David chooses",
+   "versions": [
+    {
+     "file": "lexicons_master_enhanced__c7610e1f.xlsx",
+     "sha256_12": "c7610e1f9526",
+     "size_kb": 95,
+     "newest": "2026-06-22",
+     "copies": 1,
+     "schema": {
+      "format": "xlsx",
+      "sheets": [
+       {
+        "sheet": "MASTER_README",
+        "rows": 24,
+        "cols": 3,
+        "header": [
+         "Is it working Goodbye more w",
+         "role",
+         "notes"
+        ]
+       },
+       {
+        "sheet": "SUBJECTIVE_INDEX",
+        "rows": 20,
+        "cols": 3,
+        "header": [
+         "sheet",
+         "priority",
+         "reason"
+        ]
+       },
+       {
+        "sheet": "Fruit Semantic Architecture",
+        "rows": 248,
+        "cols": 56,
+        "header": []
+       },
+       {
+        "sheet": "README",
+        "rows": 22,
+        "cols": 3,
+        "header": [
+         "sheet",
+         "source_file",
+         "notes"
+        ]
+       },
+       {
+        "sheet": "WISDOM_TERMS",
+        "rows": 27,
+        "cols": 4,
+        "header": [
+         "source_file",
+         "collection",
+         "item_index",
+         "term"
+        ]
+       },
+       {
+        "sheet": "KNOWLEDGE_TERMS",
+        "rows": 27,
+        "cols": 4,
+        "header": [
+         "source_file",
+         "collection",
+         "item_index",
+         "term"
+        ]
+       },
+       {
+        "sheet": "COHERENCE_TERMS",
+        "rows": 31,
+        "cols": 6,
+        "header": [
+         "source_file",
+         "collection",
+         "key",
+         "subkey",
+         "item_index",
+         "value"
+        ]
+       },
+       {
+        "sheet": "FRUITS",
+        "rows": 58,
+        "cols": 6,
+        "header": [
+         "source_file",
+         "collection",
+         "key",
+         "subkey",
+         "item_index",
+         "value"
+        ]
+       },
+       {
+        "sheet": "ME_VARS",
+        "rows": 68,
+        "cols": 6,
+        "header": [
+         "source_file",
+         "collection",
+         "key",
+         "subkey",
+         "item_index",
+         "value"
+        ]
+       },
+       {
+        "sheet": "CLAIM_TERMS",
+        "rows": 14,
+        "cols": 4,
+        "header": [
+         "source_file",
+         "collection",
+         "item_index",
+         "term"
+        ]
+       },
+       {
+        "sheet": "EVIDENCE_TERMS",
+        "rows": 14,
+        "cols": 4,
+        "header": [
+         "source_file",
+         "collection",
+         "item_index",
+         "term"
+        ]
+       },
+       {
+        "sheet": "FALSIFY_TERMS",
+        "rows": 11,
+        "cols": 4,
+        "header": [
+         "source_file",
+         "collection",
+         "item_index",
+         "term"
+        ]
+       },
+       {
+        "sheet": "DEPENDENCY_TERMS",
+        "rows": 10,
+        "cols": 4,
+        "header": [
+         "source_file",
+         "collection",
+         "item_index",
+         "term"
+        ]
+       },
+       {
+        "sheet": "HEDGE_TERMS",
+        "rows": 13,
+        "cols": 4,
+        "header": [
+         "source_file",
+         "collection",
+         "item_index",
+         "term"
+        ]
+       },
+       {
+        "sheet": "ABSOLUTE_TERMS",
+        "rows": 8,
+        "cols": 4,
+        "header": [
+         "source_file",
+         "collection",
+         "item_index",
+         "term"
+        ]
+       },
+       {
+        "sheet": "BRIDGE_TERMS",
+        "rows": 12,
+        "cols": 4,
+        "header": [
+         "source_file",
+         "collection",
+         "item_index",
+         "term"
+        ]
+       },
+       {
+        "sheet": "NEGATION_TERMS",
+        "rows": 8,
+        "cols": 4,
+        "header": [
+         "source_file",
+         "collection",
+         "item_index",
+         "term"
+        ]
+       },
+       {
+        "sheet": "FRUITS_LEX",
+        "rows": 38,
+        "cols": 6,
+        "header": [
+         "source_file",
+         "collection",
+         "key",
+         "subkey",
+         "item_index",
+         "value"
+        ]
+       },
+       {
+        "sheet": "ANTI_FRUITS",
+        "rows": 37,
+        "cols": 6,
+        "header": [
+         "source_file",
+         "collection",
+         "key",
+         "subkey",
+         "item_index",
+         "value"
+        ]
+       },
+       {
+        "sheet": "CHAR_ATTR_PATTERNS",
+        "rows": 115,
+        "cols": 6,
+        "header": [
+         "source_file",
+         "collection",
+         "key",
+         "subkey",
+         "item_index",
+         "value"
+        ]
+       },
+       {
+        "sheet": "FRUIT_BLEND",
+        "rows": 71,
+        "cols": 6,
+        "header": [
+         "source_file",
+         "collection",
+         "key",
+         "subkey",
+         "item_index",
+         "value"
+        ]
+       },
+       {
+        "sheet": "ANTI_FRUIT_MAP",
+        "rows": 32,
+        "cols": 6,
+        "header": [
+         "source_file",
+         "collection",
+         "key",
+         "subkey",
+         "item_index",
+         "value"
+        ]
+       },
+       {
+        "sheet": "LAW_KEYWORDS",
+        "rows": 98,
+        "cols": 6,
+        "header": [
+         "source_file",
+         "collection",
+         "key",
+         "subkey",
+         "item_index",
+         "value"
+        ]
+       },
+       {
+        "sheet": "DOC_TYPE_PATTERNS",
+        "rows": 30,
+        "cols": 6,
+        "header": [
+         "source_file",
+         "collection",
+         "key",
+         "subkey",
+         "item_index",
+         "value"
+        ]
+       },
+       {
+        "sheet": "SEMANTIC_BUCKETS",
+        "rows": 348,
+        "cols": 11,
+        "header": [
+         "term",
+         "bucket",
+         "subbucket",
+         "polarity",
+         "weight",
+         "danger_level",
+         "allowed_context",
+         "forbidden_context",
+         "recommended_action",
+         "source_note",
+         "example_safe_rewrite"
+        ]
+       },
+       {
+        "sheet": "LEXICON_ADDITIONS_README",
+        "rows": 7,
+        "cols": 4,
+        "header": [
+         "Section",
+         "What changed",
+         "How to use it",
+         "Notes"
+        ]
+       },
+       {
+        "sheet": "SEMANTIC_BUCKETS_SUMMARY",
+        "rows": 24,
+        "cols": 3,
+        "header": [
+         "Metric",
+         "Value",
+         "Notes"
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "file": "lexicons_master_enhanced__28740c2c.xlsx",
+     "sha256_12": "28740c2ce375",
+     "size_kb": 93,
+     "newest": "2026-06-15",
+     "copies": 9,
+     "schema": {
+      "format": "xlsx",
+      "sheets": [
+       {
+        "sheet": "MASTER_README",
+        "rows": 24,
+        "cols": 3,
+        "header": [
+         "Is it working Goodbye more w",
+         "role",
+         "notes"
+        ]
+       },
+       {
+        "sheet": "SUBJECTIVE_INDEX",
+        "rows": 20,
+        "cols": 3,
+        "header": [
+         "sheet",
+         "priority",
+         "reason"
+        ]
+       },
+       {
+        "sheet": "Fruit Semantic Architecture",
+        "rows": 248,
+        "cols": 56,
+        "header": []
+       },
+       {
+        "sheet": "README",
+        "rows": 22,
+        "cols": 3,
+        "header": [
+         "sheet",
+         "source_file",
+         "notes"
+        ]
+       },
+       {
+        "sheet": "WISDOM_TERMS",
+        "rows": 27,
+        "cols": 4,
+        "header": [
+         "source_file",
+         "collection",
+         "item_index",
+         "term"
+        ]
+       },
+       {
+        "sheet": "KNOWLEDGE_TERMS",
+        "rows": 27,
+        "cols": 4,
+        "header": [
+         "source_file",
+         "collection",
+         "item_index",
+         "term"
+        ]
+       },
+       {
+        "sheet": "COHERENCE_TERMS",
+        "rows": 31,
+        "cols": 6,
+        "header": [
+         "source_file",
+         "collection",
+         "key",
+         "subkey",
+         "item_index",
+         "value"
+        ]
+       },
+       {
+        "sheet": "FRUITS",
+        "rows": 58,
+        "cols": 6,
+        "header": [
+         "source_file",
+         "collection",
+         "key",
+         "subkey",
+         "item_index",
+         "value"
+        ]
+       },
+       {
+        "sheet": "ME_VARS",
+        "rows": 68,
+        "cols": 6,
+        "header": [
+         "source_file",
+         "collection",
+         "key",
+         "subkey",
+         "item_index",
+         "value"
+        ]
+       },
+       {
+        "sheet": "CLAIM_TERMS",
+        "rows": 14,
+        "cols": 4,
+        "header": [
+         "source_file",
+         "collection",
+         "item_index",
+         "term"
+        ]
+       },
+       {
+        "sheet": "EVIDENCE_TERMS",
+        "rows": 14,
+        "cols": 4,
+        "header": [
+         "source_file",
+         "collection",
+         "item_index",
+         "term"
+        ]
+       },
+       {
+        "sheet": "FALSIFY_TERMS",
+        "rows": 11,
+        "cols": 4,
+        "header": [
+         "source_file",
+         "collection",
+         "item_index",
+         "term"
+        ]
+       },
+       {
+        "sheet": "DEPENDENCY_TERMS",
+        "rows": 10,
+        "cols": 4,
+        "header": [
+         "source_file",
+         "collection",
+         "item_index",
+         "term"
+        ]
+       },
+       {
+        "sheet": "HEDGE_TERMS",
+        "rows": 13,
+        "cols": 4,
+        "header": [
+         "source_file",
+         "collection",
+         "item_index",
+         "term"
+        ]
+       },
+       {
+        "sheet": "ABSOLUTE_TERMS",
+        "rows": 8,
+        "cols": 4,
+        "header": [
+         "source_file",
+         "collection",
+         "item_index",
+         "term"
+        ]
+       },
+       {
+        "sheet": "BRIDGE_TERMS",
+        "rows": 12,
+        "cols": 4,
+        "header": [
+         "source_file",
+         "collection",
+         "item_index",
+         "term"
+        ]
+       },
+       {
+        "sheet": "NEGATION_TERMS",
+        "rows": 8,
+        "cols": 4,
+        "header": [
+         "source_file",
+         "collection",
+         "item_index",
+         "term"
+        ]
+       },
+       {
+        "sheet": "FRUITS_LEX",
+        "rows": 38,
+        "cols": 6,
+        "header": [
+         "source_file",
+         "collection",
+         "key",
+         "subkey",
+         "item_index",
+         "value"
+        ]
+       },
+       {
+        "sheet": "ANTI_FRUITS",
+        "rows": 37,
+        "cols": 6,
+        "header": [
+         "source_file",
+         "collection",
+         "key",
+         "subkey",
+         "item_index",
+         "value"
+        ]
+       },
+       {
+        "sheet": "CHAR_ATTR_PATTERNS",
+        "rows": 115,
+        "cols": 6,
+        "header": [
+         "source_file",
+         "collection",
+         "key",
+         "subkey",
+         "item_index",
+         "value"
+        ]
+       },
+       {
+        "sheet": "FRUIT_BLEND",
+        "rows": 71,
+        "cols": 6,
+        "header": [
+         "source_file",
+         "collection",
+         "key",
+         "subkey",
+         "item_index",
+         "value"
+        ]
+       },
+       {
+        "sheet": "ANTI_FRUIT_MAP",
+        "rows": 32,
+        "cols": 6,
+        "header": [
+         "source_file",
+         "collection",
+         "key",
+         "subkey",
+         "item_index",
+         "value"
+        ]
+       },
+       {
+        "sheet": "LAW_KEYWORDS",
+        "rows": 98,
+        "cols": 6,
+        "header": [
+         "source_file",
+         "collection",
+         "key",
+         "subkey",
+         "item_index",
+         "value"
+        ]
+       },
+       {
+        "sheet": "DOC_TYPE_PATTERNS",
+        "rows": 30,
+        "cols": 6,
+        "header": [
+         "source_file",
+         "collection",
+         "key",
+         "subkey",
+         "item_index",
+         "value"
+        ]
+       },
+       {
+        "sheet": "SEMANTIC_BUCKETS",
+        "rows": 348,
+        "cols": 11,
+        "header": [
+         "term",
+         "bucket",
+         "subbucket",
+         "polarity",
+         "weight",
+         "danger_level",
+         "allowed_context",
+         "forbidden_context",
+         "recommended_action",
+         "source_note",
+         "example_safe_rewrite"
+        ]
+       },
+       {
+        "sheet": "LEXICON_ADDITIONS_README",
+        "rows": 7,
+        "cols": 4,
+        "header": [
+         "Section",
+         "What changed",
+         "How to use it",
+         "Notes"
+        ]
+       },
+       {
+        "sheet": "SEMANTIC_BUCKETS_SUMMARY",
+        "rows": 24,
+        "cols": 3,
+        "header": [
+         "Metric",
+         "Value",
+         "Notes"
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "family": "master-equation.rules.json",
+   "distinct_versions": 1,
+   "status": "identical copies",
+   "versions": [
+    {
+     "file": "master-equation.rules.json",
+     "sha256_12": "95fb16ab12f8",
+     "size_kb": 0,
+     "newest": "2026-08-25",
+     "copies": 7,
+     "schema": {
+      "format": "json",
+      "type": "object",
+      "keys": [
+       "autoFixThreshold",
+       "proposalThreshold",
+       "flagThreshold",
+       "distanceThreshold",
+       "protectedMarkers",
+       "contextCues"
+      ],
+      "n_keys": 6,
+      "list_lengths": {
+       "protectedMarkers": 3
+      }
+     }
+    }
+   ]
+  },
+  {
+   "family": "theophysics_cross_domain_lexicon.xlsx",
+   "distinct_versions": 1,
+   "status": "identical copies",
+   "versions": [
+    {
+     "file": "theophysics_cross_domain_lexicon.xlsx",
+     "sha256_12": "f38ab96d37e0",
+     "size_kb": 312,
+     "newest": "2026-06-23",
+     "copies": 3,
+     "schema": {
+      "format": "xlsx",
+      "sheets": [
+       {
+        "sheet": "README",
+        "rows": 23,
+        "cols": 1,
+        "header": []
+       },
+       {
+        "sheet": "COHERENCE_MASTER",
+        "rows": 329,
+        "cols": 4,
+        "header": []
+       },
+       {
+        "sheet": "DISCOHERENCE_MASTER",
+        "rows": 297,
+        "cols": 4,
+        "header": []
+       },
+       {
+        "sheet": "COHERENCE_FLAT",
+        "rows": 2731,
+        "cols": 6,
+        "header": []
+       },
+       {
+        "sheet": "DISCOHERENCE_FLAT",
+        "rows": 2109,
+        "cols": 6,
+        "header": []
+       },
+       {
+        "sheet": "NRC_COHERENCE",
+        "rows": 1,
+        "cols": 2,
+        "header": []
+       },
+       {
+        "sheet": "NRC_DISCOHERENCE",
+        "rows": 1,
+        "cols": 2,
+        "header": []
+       },
+       {
+        "sheet": "SENTIMENT_POSITIVE",
+        "rows": 1,
+        "cols": 2,
+        "header": []
+       },
+       {
+        "sheet": "SENTIMENT_NEGATIVE",
+        "rows": 1,
+        "cols": 2,
+        "header": []
+       },
+       {
+        "sheet": "INTENSIFIERS",
+        "rows": 1,
+        "cols": 2,
+        "header": []
+       },
+       {
+        "sheet": "NEGATION",
+        "rows": 1,
+        "cols": 2,
+        "header": []
+       },
+       {
+        "sheet": "DOMAIN_SUMMARY",
+        "rows": 24,
+        "cols": 3,
+        "header": [
+         "24",
+         "19"
+        ]
+       },
+       {
+        "sheet": "SEMANTIC_BUCKETS",
+        "rows": 4839,
+        "cols": 6,
+        "header": []
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "family": "typed-canon-reclassification.csv",
+   "distinct_versions": 1,
+   "status": "identical copies",
+   "versions": [
+    {
+     "file": "typed-canon-reclassification.csv",
+     "sha256_12": "65ca5328a964",
+     "size_kb": 262,
+     "newest": "2026-07-16",
+     "copies": 27,
+     "schema": {
+      "format": "csv",
+      "rows": 191,
+      "header": [
+       "﻿\"n\"",
+       "id",
+       "title",
+       "old_class",
+       "old_status",
+       "new_type",
+       "logical_force",
+       "domain",
+       "depends_on",
+       "enables",
+       "formalizable_in_lean",
+       "lean_kind",
+       "risk_level",
+       "claim",
+       "defeat_conditions",
+       "src"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "family": "typed-canon-reclassification.json",
+   "distinct_versions": 1,
+   "status": "identical copies",
+   "versions": [
+    {
+     "file": "typed-canon-reclassification.json",
+     "sha256_12": "ea40bd7b958f",
+     "size_kb": 336,
+     "newest": "2026-08-09",
+     "copies": 29,
+     "schema": {
+      "format": "json",
+      "type": "array",
+      "length": 191,
+      "item_keys": [
+       "n",
+       "id",
+       "title",
+       "old_class",
+       "old_status",
+       "new_type",
+       "logical_force",
+       "domain",
+       "depends_on",
+       "enables",
+       "formalizable_in_lean",
+       "lean_kind",
+       "risk_level",
+       "claim",
+       "defeat_conditions",
+       "src"
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "registered_in_place": [
+  {
+   "family": "classify_standing.db",
+   "where": "David-OSv3/03_CLASSIFY/02_CLASSIFICATION/data/",
+   "role": "existing David OS classification store (engines 10, events 51, predictions 6048)"
+  },
+  {
+   "family": "tagger.db",
+   "where": "C:/Theophysics_Tagger/02_INDEX/ (read-only, live DB, NOT copied)",
+   "role": "registry-based tagger: 132 documents, 13,085 tag_counts, 78,404 paragraph hits, 1,933 scripture refs, 1,159 tag embeddings"
+  },
+  {
+   "family": "keyword_registry.json",
+   "where": "David-OSv3/ (repo root; identical to D:/_FIS_STATE copy)",
+   "role": "keyword registry"
+  },
+  {
+   "family": "me_vocab.json",
+   "where": "pipeline-workflows/API/_system/config/",
+   "role": "DRAFT closed list of Master Equation ids (ten laws + ME-CORE/NONE/UNSURE)"
+  },
+  {
+   "family": "TAG_TAXONOMY_v0.4.md",
+   "where": "David-OSv3/03_CLASSIFY/00_SHARED/",
+   "role": "tag taxonomy v0.4 (already in David OS)"
+  }
+ ]
+}

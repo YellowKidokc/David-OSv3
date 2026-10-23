@@ -302,3 +302,29 @@ folders:
     kind: mixed
     note: "Transfer drive between computers — mixture of everything (incl. many UUID .sql dumps)"
     confirmed: true
+
+  # ── FIS roots to aggregate (Claude, 2026-10-23, from David's check that day) ──────────
+  # Aggregate = register, inventory, hash into .data/fis_understand.sqlite. Nothing is copied or moved.
+  # fis: register | skip | collection   (read by pipeline-workflows 10_FIS stations; the engine ignores it)
+  # All confirmed: false until David says otherwise.
+  - path: 'D:\_FIS_STATE'
+    fis: skip
+    note: "one file, keyword_registry.json, byte-identical to the one in David-OSv3"
+    confirmed: false
+  - path: 'D:\_FIS_ROOT_SIDECAR_ARCHIVE'
+    fis: register
+    note: "12,756 files; every path also exists in David-OSv3\\_FIS_ROOT_SIDECAR_ARCHIVE (90,534 files): expect exact copies"
+    confirmed: false
+  - path: 'D:\_FISNOTE_ARCHIVE_20260820_213241'
+    fis: register
+    note: "12,553 .fisnote snapshots + _manifest.txt of original D:\\GitHub\\... paths; the one distinct dataset"
+    confirmed: false
+  - path: 'D:\CHI PARTS'
+    fis: collection
+    collection: lean_build_artifacts
+    note: "508 MB of Lean build output (.lean/.olean/.hash/.trace): one collection, inventory only, skip stages 2+"
+    confirmed: false
+  - path: 'D:\FIS_REPORTS'
+    fis: skip
+    note: "argument-match dry-run reports, not FIS data"
+    confirmed: false

@@ -4,7 +4,9 @@
 Spec: docs/FIS_UNDERSTAND_PIPELINE.md.  Observe-only: nothing on disk is moved,
 renamed, or deleted.  Observations and inferences are stored separately.
 
-  python engine/understand.py scan  ROOT [ROOT ...] [--symptoms] [--blind] [--ollama MODEL]
+  python engine/understand.py scan  ROOT [ROOT ...] [--symptoms] [--blind] [--ollama MODEL] [--no-dupes]
+  python engine/understand.py dupes  [--scan ID] [--skip-root ROOT ...]      stage 3 on an existing scan
+  python engine/understand.py forge  [--scan ID] [--url URL] [--model M]      open questions -> Forge (names only)
   python engine/understand.py report [--scan ID]
   python engine/understand.py questions
   python engine/understand.py answer QID --kind documents --domain theophysics [--role ...] [--note ...]
@@ -167,7 +169,7 @@ def tokens_of(name: str) -> set[str]:
 
 
 def scan(roots: list[str], con: sqlite3.Connection, run_symptoms=False, blind=False, ollama_model=None,
-         max_files: int | None = None, log=print) -> int:
+         max_files: int | None = None, log=print, dedupe: bool = True) -> int:
     reg = load_registry()
     cur = con.execute("INSERT INTO scans(started, roots, options) VALUES (?,?,?)",
                       (now(), json.dumps(roots), json.dumps({"symptoms": run_symptoms, "blind": blind, "ollama": ollama_model})))
@@ -274,7 +276,8 @@ def scan(roots: list[str], con: sqlite3.Connection, run_symptoms=False, blind=Fa
         predict_folder(con, scan_id, f, depth, purpose_counts[f], total[f], total_ext[f], names[f],
                        markers.get(f, set()), nested_projects.get(f, []), reg, blind)
 
-    find_duplicates(con, scan_id, log)
+    if dedupe:
+        find_duplicates(con, scan_id, log)
     if run_symptoms:
         symptoms_for(con, scan_id, roots, log)
     if ollama_model:
@@ -367,19 +370,26 @@ def add_inference(con, scan_id, folder, facet, value, conf, source, evidence):
                 (scan_id, folder, facet, str(value), conf, source, json.dumps(evidence)))
 
 
-def find_duplicates(con, scan_id, log):
+def find_duplicates(con, scan_id, log, skip_roots=()):
+    """Stage 3: group by size, then SHA-256. Files under skip_roots are left out; a file that cannot be read
+    while hashing is recorded in `skipped` with the reason (never silently dropped)."""
+    skip = [norm(r) for r in skip_roots]
+    con.execute("DELETE FROM dup_groups WHERE scan_id=?", (scan_id,))     # rerunnable on the same scan
     groups = con.execute("SELECT size FROM files WHERE scan_id=? AND size>0 GROUP BY size HAVING COUNT(*)>1", (scan_id,)).fetchall()
     log(f"  hashing {len(groups):,} same-size groups …")
     for (size,) in groups:
         if size > HASH_MAX_BYTES:
             continue
-        paths = [p for (p,) in con.execute("SELECT path FROM files WHERE scan_id=? AND size=?", (scan_id, size))]
+        paths = [p for (p,) in con.execute("SELECT path FROM files WHERE scan_id=? AND size=?", (scan_id, size))
+                 if not any(norm(p) == r or norm(p).startswith(r + os.sep) for r in skip)]
         by_hash = defaultdict(list)
         for p in paths:
             h = sha256(p)
             if h:
                 by_hash[h].append(p)
                 con.execute("UPDATE files SET sha256=? WHERE scan_id=? AND path=?", (h, scan_id, p))
+            else:
+                con.execute("INSERT INTO skipped VALUES (?,?,?)", (scan_id, p, "unreadable while hashing"))
         for h, ps in by_hash.items():
             if len(ps) > 1:
                 con.execute("INSERT INTO dup_groups VALUES (?,?,?,?,?)", (scan_id, h, size, len(ps), json.dumps(ps)))
@@ -432,6 +442,41 @@ def escalate_ollama(con, scan_id, model, log, url="http://127.0.0.1:11434/api/ge
             log(f"  ollama failed for {folder}: {e}")
             break
     con.commit()
+
+
+def escalate_forge(con, scan_id, log=print, url=None, model="default", limit=25, dry_run=False) -> list[dict]:
+    """Same packet as escalate_ollama (folder name, file names, extension mix; never file contents), sent to Forge's
+    OpenAI-compatible endpoint. Answers are stored as shadow inferences with source=llm:forge. Returns the packets."""
+    url = (url or os.environ.get("FORGE_URL") or "http://127.0.0.1:8790").rstrip("/") + "/v1/chat/completions"
+    rows = con.execute("SELECT folder FROM questions WHERE scan_id=? AND status='open'", (scan_id,)).fetchall()
+    packets = []
+    for (folder,) in rows[:limit]:
+        sample = [n for (n,) in con.execute("SELECT name FROM files WHERE scan_id=? AND folder LIKE ? LIMIT 60", (scan_id, folder + "%"))]
+        ext = con.execute("SELECT ext_counts FROM folders WHERE scan_id=? AND path=?", (scan_id, folder)).fetchone()
+        packet = {"folder": folder, "ext_counts": json.loads(ext[0]) if ext else {}, "sample_file_names": sample}
+        packets.append(packet)
+        if dry_run:
+            continue
+        prompt = ("Classify this folder. Reply JSON only: {\"kind\": one of code|documents|pictures|video|audio|data|mixed|needs_sorting, "
+                  "\"domain\": short label, \"purpose\": one sentence, \"confidence\": 0-1}.\n" + json.dumps(packet))
+        body = {"model": model, "messages": [{"role": "user", "content": prompt}], "stream": False}
+        try:
+            req = urllib.request.Request(url, json.dumps(body).encode(), {"Content-Type": "application/json"})
+            resp = json.loads(urllib.request.urlopen(req, timeout=180).read())["choices"][0]["message"]["content"]
+            text = resp.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
+            ans = json.loads(text)
+            con.execute("INSERT INTO llm_requests VALUES (?,?,?,?,?,?,?)", (scan_id, folder, f"forge:{model}", json.dumps(packet), resp, "ok", now()))
+            if ans.get("kind"):
+                add_inference(con, scan_id, folder, "kind", ans["kind"], float(ans.get("confidence", 0.5)), f"llm:forge:{model}",
+                              [ans.get("purpose", "")])
+            if ans.get("domain"):
+                add_inference(con, scan_id, folder, "domain", ans["domain"], float(ans.get("confidence", 0.5)), f"llm:forge:{model}", [])
+        except Exception as e:
+            con.execute("INSERT INTO llm_requests VALUES (?,?,?,?,?,?,?)", (scan_id, folder, f"forge:{model}", json.dumps(packet), str(e), "error", now()))
+            log(f"  forge failed for {folder}: {e}")
+            break
+    con.commit()
+    return packets
 
 
 # ── reporting / questions ──────────────────────────────
@@ -496,7 +541,18 @@ def main(argv=None):
     s.add_argument("--blind", action="store_true", help="ignore the registry — measures prediction accuracy")
     s.add_argument("--ollama", metavar="MODEL", help="ask a LOCAL Ollama model about folders it could not classify")
     s.add_argument("--max-files", type=int)
+    s.add_argument("--no-dupes", action="store_true", help="stage 1 only: skip the size + SHA-256 pass (run `dupes` later)")
     s.add_argument("--db", default=str(DB_PATH))
+    d = sub.add_parser("dupes")
+    d.add_argument("--scan", type=int)
+    d.add_argument("--skip-root", action="append", default=[], help="leave files under this root out (e.g. a build-artifact collection)")
+    d.add_argument("--db", default=str(DB_PATH))
+    fg = sub.add_parser("forge")
+    fg.add_argument("--scan", type=int)
+    fg.add_argument("--url", help="Forge base URL (default FORGE_URL or http://127.0.0.1:8790)")
+    fg.add_argument("--model", default="default")
+    fg.add_argument("--dry-run", action="store_true", help="show the packets, send nothing")
+    fg.add_argument("--db", default=str(DB_PATH))
     r = sub.add_parser("report")
     r.add_argument("--scan", type=int)
     r.add_argument("--db", default=str(DB_PATH))
@@ -512,8 +568,14 @@ def main(argv=None):
     args = ap.parse_args(argv)
     con = connect(Path(args.db))
     if args.cmd == "scan":
-        sid = scan(args.roots, con, args.symptoms, args.blind, args.ollama, args.max_files)
+        sid = scan(args.roots, con, args.symptoms, args.blind, args.ollama, args.max_files, dedupe=not args.no_dupes)
         report(con, sid)
+    elif args.cmd == "dupes":
+        find_duplicates(con, args.scan or latest_scan(con), print, args.skip_root)
+        report(con, args.scan)
+    elif args.cmd == "forge":
+        for p in escalate_forge(con, args.scan or latest_scan(con), print, args.url, args.model, dry_run=args.dry_run):
+            print(json.dumps(p)[:300])
     elif args.cmd == "report":
         report(con, args.scan)
     elif args.cmd == "questions":

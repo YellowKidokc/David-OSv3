@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Top FIS - One Skinny Master Workflow</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap');
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0b0e14;
+  --panel: #121722;
+  --panel2: #171d2a;
+  --panel3: #20283a;
+  --line: #2a3347;
+  --line2: #38435c;
+  --gold: #d9a441;
+  --gold2: rgba(217, 164, 65, 0.14);
+  --blue: #60a5fa;
+  --cyan: #5fb3ae;
+  --green: #4ade80;
+  --purple: #a78bfa;
+  --red: #f87171;
+  --ink: #ebe7dd;
+  --muted: #9aa3b5;
+  --faint: #687285;
+  --r: 12px;
+}
+body {
+  background:
+    radial-gradient(circle at 18% 8%, rgba(96,165,250,0.12), transparent 30%),
+    linear-gradient(180deg, #0b0e14 0%, #07090d 100%);
+  color: var(--ink);
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
+  min-height: 100vh;
+  padding: 24px;
+}
+.shell {
+  max-width: 980px;
+  margin: 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(18, 23, 34, 0.96);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.45);
+}
+.top {
+  padding: 22px 28px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, #151b28, #101520);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: center;
+}
+.brand {
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--faint);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+h1 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 28px;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+h1 span { color: var(--gold); }
+.sub {
+  color: var(--muted);
+  max-width: 650px;
+  margin-top: 10px;
+}
+.status-card {
+  min-width: 210px;
+  background: var(--panel2);
+  border: 1px solid var(--line2);
+  border-radius: var(--r);
+  padding: 14px 16px;
+}
+.status-card .label {
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--faint);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin-bottom: 7px;
+}
+.status-card strong {
+  display: block;
+  color: var(--green);
+  font-size: 17px;
+}
+.summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid var(--line);
+  background: #0e131d;
+}
+.summary div {
+  padding: 14px 18px;
+  border-right: 1px solid var(--line);
+}
+.summary div:last-child { border-right: 0; }
+.summary b {
+  display: block;
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--gold);
+  font-size: 20px;
+}
+.summary span {
+  color: var(--faint);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.layout {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  min-height: 720px;
+}
+.rail {
+  border-right: 1px solid var(--line);
+  background: #0d111a;
+  padding: 20px 16px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  max-height: 860px;
+}
+.rail-title {
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--faint);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: 14px;
+}
+.nav-item {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 9px 8px;
+  color: var(--muted);
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.nav-item:hover { background: var(--panel); color: var(--ink); }
+.nav-item.active {
+  color: var(--gold);
+  background: var(--gold2);
+  border-color: rgba(217,164,65,0.32);
+}
+.nav-num {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line2);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+}
+.nav-item.active .nav-num {
+  background: var(--gold);
+  color: #111;
+  border-color: var(--gold);
+}
+.nav-text {
+  font-size: 12px;
+  line-height: 1.25;
+}
+.content {
+  padding: 26px 30px 34px;
+}
+.trust-banner {
+  border: 1px solid rgba(95,179,174,0.28);
+  background: rgba(95,179,174,0.08);
+  border-radius: var(--r);
+  padding: 16px 18px;
+  margin-bottom: 20px;
+}
+.trust-banner b { color: var(--cyan); }
+.stage {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+.stage.active {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 1px rgba(217,164,65,0.16), 0 12px 30px rgba(0,0,0,0.24);
+}
+.stage.complete {
+  border-color: rgba(74,222,128,0.42);
+}
+.stage-head {
+  display: grid;
+  grid-template-columns: 42px 1fr auto;
+  gap: 14px;
+  align-items: center;
+  padding: 16px 18px;
+  cursor: pointer;
+}
+.stage-num {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--panel2);
+  border: 1px solid var(--line2);
+  color: var(--gold);
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 700;
+}
+.stage.complete .stage-num {
+  color: #06120d;
+  background: var(--green);
+  border-color: var(--green);
+}
+.stage-kicker {
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--faint);
+  font-size: 10px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+.stage-name {
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--ink);
+  font-size: 17px;
+  font-weight: 700;
+}
+.stage-desc {
+  color: var(--muted);
+  font-size: 13px;
+}
+.badge {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  border: 1px solid var(--line2);
+  border-radius: 999px;
+  padding: 5px 8px;
+  color: var(--muted);
+}
+.stage.active .badge { color: var(--gold); border-color: rgba(217,164,65,0.42); }
+.stage-body {
+  display: none;
+  padding: 0 18px 18px 74px;
+}
+.stage.active .stage-body,
+.stage.expanded .stage-body { display: block; }
+.message {
+  background: var(--panel2);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 var(--r) var(--r) 0;
+  padding: 13px 15px;
+  margin: 6px 0 14px;
+}
+.message b { color: var(--gold); }
+.three {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.mini {
+  background: #0e131d;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 12px;
+}
+.mini .label {
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--faint);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 7px;
+}
+.mini p { color: var(--muted); font-size: 12.5px; }
+.mini strong { color: var(--ink); }
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+button {
+  border: 1px solid var(--line2);
+  background: var(--panel3);
+  color: var(--ink);
+  border-radius: 8px;
+  padding: 9px 11px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  cursor: pointer;
+}
+button.primary {
+  background: var(--gold);
+  color: #12100a;
+  border-color: var(--gold);
+  font-weight: 700;
+}
+button:hover { filter: brightness(1.08); }
+.footer {
+  border-top: 1px solid var(--line);
+  padding: 16px 18px;
+  color: var(--faint);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+@media (max-width: 860px) {
+  body { padding: 10px; }
+  .top { grid-template-columns: 1fr; }
+  .summary { grid-template-columns: repeat(2, 1fr); }
+  .layout { grid-template-columns: 1fr; }
+  .rail { position: static; height: auto; max-height: none; border-right: 0; border-bottom: 1px solid var(--line); }
+  .stage-body { padding-left: 18px; }
+  .three { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="top">
+    <div>
+      <div class="brand">Top FIS / Trust Runway</div>
+      <h1>One Skinny <span>Master Workflow</span></h1>
+      <p class="sub">A long guided page where the system earns file permissions step by step. The user answers, the scanner proves, the prediction engine explains, and nothing touches disk until the review gate says it is safe.</p>
+    </div>
+    <div class="status-card">
+      <div class="label">Operating Contract</div>
+      <strong>Ask, predict, prove</strong>
+      <p class="sub" style="margin-top:6px">Taking the user at their word first, then testing it against the file system.</p>
+    </div>
+  </header>
+
+  <section class="summary">
+    <div><b>12</b><span>Workflow stages</span></div>
+    <div><b>20</b><span>Preference questions</span></div>
+    <div><b>4</b><span>Core GUIs inside</span></div>
+    <div><b>0</b><span>Destructive actions</span></div>
+  </section>
+
+  <div class="layout">
+    <aside class="rail">
+      <div class="rail-title">Runway</div>
+      <div id="rail"></div>
+    </aside>
+
+    <main class="content">
+      <div class="trust-banner">
+        <b>Trust principle:</b> We are not pretending to know the user. We ask, convert answers into operating axioms, compare those axioms against the scan, then show exactly why every prediction follows.
+      </div>
+      <div id="stages"></div>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <span>Prototype: GUI/one-skinny-master-workflow.html</span>
+    <span>Next: wire to onboarding_questions.v1.json + scanner cache</span>
+  </footer>
+</div>
+
+<script>
+const STAGES = [
+  {
+    name: "Start Scan",
+    kicker: "Stage 01 / Observe",
+    desc: "Pick the first folder and begin a read-only background scan.",
+    status: "complete",
+    user: "You chose a real folder instead of a demo.",
+    belief: "This user wants proof on their own files before trusting the system.",
+    next: "Run read-only inventory, extension histogram, folder counts, and risk checks.",
+    message: "Great. We are starting with observation only. That means the first report can be honest without asking for permission to change anything."
+  },
+  {
+    name: "20 Questions",
+    kicker: "Stage 02 / Constitution",
+    desc: "Ask preference questions while the scanner is already working.",
+    status: "active",
+    user: "You said projects matter before raw file type.",
+    belief: "Project grouping should outrank extension grouping unless confidence is low.",
+    next: "Raise project signals in the prediction engine and lower pure extension-only moves.",
+    message: "Great. That tells us you think in projects first. We will prioritize project buckets before date or extension buckets unless the scan proves the folder is mostly a media dump."
+  },
+  {
+    name: "Build File Constitution",
+    kicker: "Stage 03 / Axioms",
+    desc: "Turn answers into explicit rules the user can inspect.",
+    status: "locked",
+    user: "You prefer review before delete and want program folders protected.",
+    belief: "Deletes and program-root changes require review every time.",
+    next: "Create review gates: delete, bulk move, cross-drive move, program root, unknown extension.",
+    message: "Good. We will treat protection as a rule, not a vibe. If a folder looks like code or a boot/system folder, it goes behind a locked gate."
+  },
+  {
+    name: "Compare Against Reality",
+    kicker: "Stage 04 / Evidence",
+    desc: "Use the scan to test where the user's answers match or conflict with the files.",
+    status: "locked",
+    user: "You said project-first, but Downloads contains mostly invoices and screenshots.",
+    belief: "This folder may need a hybrid project-plus-domain strategy.",
+    next: "Show mismatches clearly instead of silently changing the plan.",
+    message: "Nice. Your answers are the starting truth. The scan is the cross-check. Where they disagree, we show the disagreement instead of pretending."
+  },
+  {
+    name: "Folder Diagnosis",
+    kicker: "Stage 05 / Symptoms",
+    desc: "Label the folder: inbox, project, archive, media dump, program root, backup, or do-not-touch.",
+    status: "locked",
+    user: "This folder has mixed extensions, stale files, and several repeated names.",
+    belief: "It behaves like an inbox pile, not a finished project folder.",
+    next: "Recommend triage actions before deep renaming or structure changes.",
+    message: "Good catch point. If the folder is an inbox pile, we should not over-design it. First we separate what belongs, what is temporary, and what should never be touched."
+  },
+  {
+    name: "Naming Preference Readout",
+    kicker: "Stage 06 / Style",
+    desc: "Show clean_snake, clean_title, date_project_slug, and domain_date_type.",
+    status: "locked",
+    user: "You picked a naming style and the scan found the separator you already use.",
+    belief: "The fastest trust win is formatting names correctly before moving anything.",
+    next: "Precompute all naming suggestions in SQLite so switching schemas is instant.",
+    message: "Great. Naming is the first visible win. Even before we know every destination, we can show names that look like they belong to you."
+  },
+  {
+    name: "Prediction Board",
+    kicker: "Stage 07 / Trust Test",
+    desc: "Show user's likely action next to the system recommendation.",
+    status: "locked",
+    user: "You accept or reject predictions in front of the system.",
+    belief: "Corrections are training data, not failures.",
+    next: "Update frequency, recency, folder affinity, naming, and co-occurrence signals.",
+    message: "Perfect. Every correction sharpens the model. We are not asking you to trust hidden automation; we are asking you to judge visible predictions."
+  },
+  {
+    name: "Rename Studio",
+    kicker: "Stage 08 / Shape",
+    desc: "Preview names, collisions, spelling flags, and schema choices.",
+    status: "locked",
+    user: "You choose how future file names should look.",
+    belief: "A system-wide naming schema is a high-value user preference.",
+    next: "Apply the chosen naming schema to future suggestions and optional batch previews.",
+    message: "Great. This is where the system starts to feel fast. One naming decision can make hundreds of files look intentional."
+  },
+  {
+    name: "Move And Organize Plan",
+    kicker: "Stage 09 / Structure",
+    desc: "Propose folder movement and organization without executing it.",
+    status: "locked",
+    user: "You want a system that adapts to messy folder piles, not just prettier names.",
+    belief: "We need destination planning, folder roles, and adaptable structures.",
+    next: "Build project-first, business-first, personal-first, and hybrid structure options.",
+    message: "Exactly. Renaming is cosmetic if the folder system stays broken. We will show the structure before any move happens."
+  },
+  {
+    name: "Review Gate Queue",
+    kicker: "Stage 10 / Brakes",
+    desc: "Force risky work into a visible queue before action.",
+    status: "locked",
+    user: "You want speed, but not blind speed.",
+    belief: "The brakes are part of the product, not a warning label.",
+    next: "Require explicit approval for delete, bulk operations, protected labels, and low confidence.",
+    message: "Good. This is where trust becomes operational. The system can be fast because the risky stuff is not allowed to sneak through."
+  },
+  {
+    name: "Automation Rules",
+    kicker: "Stage 11 / Memory",
+    desc: "Turn repeated accepted predictions into rules.",
+    status: "locked",
+    user: "You repeatedly accept the same recommendation.",
+    belief: "A repeated correction can become a rule once confidence and scope are clear.",
+    next: "Offer always-do-this rules scoped to folder, extension, domain, or project.",
+    message: "Great. That repeated approval is a signal. We can turn it into a rule, but only with a clear scope so it does not leak into the wrong folder."
+  },
+  {
+    name: "Turn On Watcher",
+    kicker: "Stage 12 / Live System",
+    desc: "After the runway, new files trigger scanner, predictions, and API jobs.",
+    status: "locked",
+    user: "You approve the rules and want the system to keep helping.",
+    belief: "The watcher should observe first, propose second, and act only inside approved rules.",
+    next: "Start permanent scanner, API job manager, review gate, and SQLite cache.",
+    message: "Excellent. Now the system can become automatic without becoming reckless. New files get classified early, and anything risky still comes back to the review gate."
+  }
+];
+
+let active = 1;
+
+function renderRail() {
+  const rail = document.getElementById("rail");
+  rail.innerHTML = STAGES.map((s, i) => `
+    <div class="nav-item ${i === active ? "active" : ""}" onclick="setActive(${i})">
+      <div class="nav-num">${i + 1}</div>
+      <div class="nav-text">${s.name}</div>
+    </div>
+  `).join("");
+}
+
+function renderStages() {
+  const el = document.getElementById("stages");
+  el.innerHTML = STAGES.map((s, i) => {
+    const cls = ["stage", i === active ? "active" : "", s.status === "complete" ? "complete" : ""].join(" ");
+    const num = s.status === "complete" ? "OK" : String(i + 1).padStart(2, "0");
+    return `
+      <section class="${cls}" id="stage-${i}">
+        <div class="stage-head" onclick="setActive(${i})">
+          <div class="stage-num">${num}</div>
+          <div>
+            <div class="stage-kicker">${s.kicker}</div>
+            <div class="stage-name">${s.name}</div>
+            <div class="stage-desc">${s.desc}</div>
+          </div>
+          <div class="badge">${i === active ? "open" : s.status}</div>
+        </div>
+        <div class="stage-body">
+          <div class="message"><b>${s.message.split(".")[0]}.</b>${s.message.includes(".") ? s.message.substring(s.message.indexOf(".") + 1) : ""}</div>
+          <div class="three">
+            <div class="mini"><div class="label">What you told us</div><p>${s.user}</p></div>
+            <div class="mini"><div class="label">What we believe</div><p>${s.belief}</p></div>
+            <div class="mini"><div class="label">What changes now</div><p>${s.next}</p></div>
+          </div>
+          <div class="actions">
+            <button class="primary" onclick="acceptStage(${i}); event.stopPropagation();">Accept this stage</button>
+            <button onclick="tryAnother(${i}); event.stopPropagation();">Try another recommendation</button>
+            <button onclick="markReview(${i}); event.stopPropagation();">Send to review gate</button>
+          </div>
+        </div>
+      </section>
+    `;
+  }).join("");
+}
+
+function setActive(i) {
+  active = i;
+  renderRail();
+  renderStages();
+  document.getElementById("stage-" + i).scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+function acceptStage(i) {
+  STAGES[i].status = "complete";
+  if (i < STAGES.length - 1 && STAGES[i + 1].status === "locked") STAGES[i + 1].status = "active";
+  active = Math.min(i + 1, STAGES.length - 1);
+  renderRail();
+  renderStages();
+}
+
+function tryAnother(i) {
+  alert("Prototype: this would ask the prediction engine for option B/C and explain why it changed.");
+}
+
+function markReview(i) {
+  alert("Prototype: this would create a review-gate item with the stage, evidence, risk, and proposed action.");
+}
+
+renderRail();
+renderStages();
+</script>
+</body>
+</html>

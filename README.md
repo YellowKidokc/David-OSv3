@@ -1,4 +1,4 @@
-# David-OS v2
+# David-OS v3
 ## Personal Infrastructure System
 
 One SQLite database. One FastAPI server. Port 10000.
@@ -6,7 +6,7 @@ One SQLite database. One FastAPI server. Port 10000.
 ### Quick Start
 
 ```bash
-cd D:\GitHub\David-OS-v2
+cd D:\GitHub\David-OSv3
 pip install -e . --break-system-packages
 dos-api --port 10000
 ```
@@ -28,6 +28,25 @@ dos-api --port 10000
 | `dos-poll` | Start polling file watcher |
 | `dos-health` | Print node health JSON |
 | `dos-top` | Top-of-Mind CLI (post messages, search memory) |
+
+### Observe-only Master Equation intake
+
+```bash
+python scripts/master_equation_intake.py "C:\theophysics\OPUS\Master Equation" --output "D:\analysis\master-equation"
+```
+
+This command preserves every source location, groups exact duplicates by
+SHA-256, maps corpus lanes and all ten variables, flags conservative filename
+contamination indicators, and writes SQLite/CSV/JSON/Markdown receipts. It
+never moves, renames, deletes, shortens, or rewrites source files.
+
+The same analyzer is available as an independent standard-library GUI:
+
+```text
+gui\START_MASTER_EQUATION_INTAKE.bat
+```
+
+It does not require the API server, worker, watcher, or the other GUIs.
 
 ### Architecture
 

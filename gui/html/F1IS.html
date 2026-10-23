@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en" data-fis-schema="2.1"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="fis-schema" content="2.1"><meta name="generator" content="FIS folder-brain generator">
+<title>FIS | Canon</title>
+<style>
+:root{color-scheme:dark;--bg:#060708;--panel:#0c0f14;--panel2:#090b0f;--line:#222a35;--text:#e7edf5;--muted:#8b97a7;--accent:#d1a922;--accent2:#f1d37a;--link:#6ea8e8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 system-ui,sans-serif}.layout{max-width:1500px;margin:auto;display:grid;grid-template-columns:230px minmax(0,1fr);gap:24px;padding:28px}main{min-width:0}
+h1{font:600 34px Georgia,serif;margin:5px 0 8px}h2{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin-top:28px}
+.eyebrow,code{font-family:ui-monospace,Consolas,monospace}.eyebrow{color:var(--accent);font-size:12px;letter-spacing:1px}.muted{color:var(--muted)}
+.identity{border-left:3px solid var(--accent);padding:8px 0 8px 12px;margin:8px 0 10px;background:linear-gradient(90deg,rgba(209,169,34,.08),transparent)}.identity code{display:block;font-size:15px;color:var(--accent2);margin-bottom:4px}.identity span{display:block;color:var(--muted);font-size:12px}
+.crumbs{font:12px ui-monospace,Consolas,monospace;color:var(--muted);margin-bottom:10px}.crumbs a{color:var(--accent)}.crumbs span{margin:0 4px}
+.unresolved{display:inline-block;border:1px solid var(--accent);color:var(--accent);padding:2px 10px;border-radius:3px;font:11px ui-monospace,Consolas,monospace;letter-spacing:1px}
+.sidebar{position:sticky;top:20px;align-self:start;border:1px solid var(--line);background:var(--panel);padding:12px;max-height:calc(100vh - 40px);overflow:auto}.sidebar a,.sidebar .child{display:block;padding:7px 6px;border-bottom:1px solid #1a222d}.side-title{font:600 15px Georgia,serif;padding:4px 6px 12px;color:var(--text)}.side-label{color:var(--accent);font:10px ui-monospace,Consolas,monospace;letter-spacing:1px;text-transform:uppercase;padding:16px 6px 5px}.pending{color:var(--muted)}small{font-size:10px}
+.summary{display:grid;grid-template-columns:repeat(4,minmax(140px,1fr));gap:7px;margin:14px 0}.metric{border:1px solid var(--line);padding:8px 9px;background:var(--panel)}.metric b{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px}
+.score-grid{display:grid;grid-template-columns:repeat(6,minmax(120px,1fr));gap:8px}.score-tile{margin:0;border:1px solid var(--line);background:var(--panel);min-height:104px;padding:10px}.score-tile summary{list-style:none;cursor:pointer}.score-tile summary::-webkit-details-marker{display:none}.score-tile strong{display:block;color:var(--accent);font:600 28px Georgia,serif}.score-tile span{font:11px ui-monospace,Consolas,monospace;text-transform:uppercase;color:var(--muted)}.score-tile p{font-size:12px;color:var(--muted)}.score-tile ul{padding-left:17px;font-size:12px}
+table{width:100%;border-collapse:collapse;background:var(--panel)}th,td{border:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px}a{color:var(--link);text-decoration:none}a:hover{text-decoration:underline}code{font-size:12px;color:#d6e5f5;word-break:break-word}
+input[type=search]{width:min(440px,100%);margin:0;padding:9px 10px;border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:3px}.file-controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:0 0 8px}button{border:1px solid var(--line);background:var(--panel);color:var(--text);padding:8px 10px;border-radius:3px;cursor:pointer}button:hover{border-color:var(--accent)}.file-list{display:grid;gap:4px}.file-block{border:1px solid var(--line);background:var(--panel);padding:0}.file-block summary{display:grid;grid-template-columns:minmax(180px,1.5fr) minmax(140px,1.2fr) 50px 70px minmax(130px,1fr) 68px 50px;gap:6px;align-items:center;padding:7px 9px;list-style:none;cursor:pointer}.file-block summary::-webkit-details-marker{display:none}.file-block[open] summary{border-bottom:1px solid var(--line);background:var(--panel2)}.file-name{font-weight:600;color:var(--text)}.source-link{justify-self:end;font-size:12px}.machine{padding:8px 10px 10px}.machine table{background:var(--panel2)}.machine th{width:190px}.machine td,.machine th{padding:6px 8px}.file-head{display:grid;grid-template-columns:minmax(180px,1.5fr) minmax(140px,1.2fr) 50px 70px minmax(130px,1fr) 68px 50px;gap:6px;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px;margin:0 0 4px;padding:0 10px}
+.actions{display:flex;gap:6px;flex-wrap:wrap}.actions button{padding:5px 9px;font-size:12px}
+.capsule{border:1px solid var(--line);background:var(--panel);padding:12px 14px}.capsule p{margin:6px 0}
+.health-list{list-style:none;padding:0;margin:0;display:grid;gap:4px}.health-list li{border:1px solid var(--line);background:var(--panel);padding:8px 10px;font-size:13px}.health-list li::before{content:"◆ ";font-size:11px}.health-list li.warn::before{color:var(--accent)}.health-list li.ok::before{color:#5f7f6a}.health-list code{margin-left:6px}
+details{border:1px solid var(--line);padding:10px;background:var(--panel)}summary{cursor:pointer;color:var(--muted)}
+@media(max-width:800px){.layout{display:block;padding:16px}.sidebar{position:relative;top:auto;max-height:none;margin-bottom:16px}.summary{grid-template-columns:repeat(2,1fr)}table{display:block;overflow:auto;white-space:nowrap}}
+</style></head><body data-api-base=""><div class="layout"><aside class="sidebar"><div class="side-title">Canon</div><a href="#overview">Overview</a><a href="#semantic">Semantic capsule</a><a href="#health">Health</a><a href="#files">Files</a><a href="#folders">Folders</a><a href="#relationships">Relationships</a><a href="#scores">Signals</a><a href="#context">Audit context</a><div class="side-label">Navigate</div><a class="child" href="../FIS.html">&#8593; Master EQ</a><div class="side-label">Child folders</div><a class="child" href=".superpowers/FIS.html">.superpowers</a><a class="child" href="Canon/FIS.html">Canon</a><a class="child" href="Canon-dist/FIS.html">Canon-dist</a><a class="child" href="docs/FIS.html">docs</a><a class="child" href="scripts/FIS.html">scripts</a><div class="side-label">Record</div><a href="#context">Machine context</a></aside><main id="overview">
+<nav class="crumbs"><a href="../FIS.html">&#8593; Master EQ</a><span>/</span>Canon</nav>
+<div class="eyebrow">FIS FOLDER BRAIN v2.1 / RECURSIVE SEMANTIC VIEW</div><h1>Canon</h1>
+<div class="identity"><code>TH__DOC__GN__20260819__AC</code><span>domain TH=theophysics | type DOC | tags GN=general | date 20260819 | status AC | lossless LOSS__Canon__2026-08-19</span></div>
+<div class="identity" style="margin-top:4px"><code style="color:var(--accent2);font-size:13px">G0 M0 E0 S1 T0 K1 R0 Q0 F0 C0 :: [G.C] [M.F] [E.Q] [S.R] [T.K]</code><span style="color:var(--muted);font-size:11px">Folder MEQ aggregate (avg CHI across 2 files)</span></div>
+<p><span class="unresolved">UNRESOLVED</span></p>
+<div class="summary"><div class="metric"><b>Master Equation</b><code style="color:#f1d37a">G0 M0 E0 S1 T0 K1 R0 Q0 F0 C0 :: [G.C] [M.F] [E.Q] [S.R] [T.K]</code></div><div class="metric"><b>Contents</b>json: 1 | zip: 1</div><div class="metric"><b>State</b>active / 2 files</div><div class="metric"><b>Scan</b><code>2026-09-03T06:06:57+00:00</code></div></div>
+<section id="semantic"><h2>Semantic Capsule</h2><div class="capsule"><p>Document folder holding 2 file(s) (385,820 bytes) and 5 child folder(s). Dominant signal S / Entropy; domain epistemology.</p></div></section>
+<section id="health"><h2>Health</h2><ul class="health-list"><li class="warn">Purpose<code>UNRESOLVED</code></li><li class="warn">Owner<code>UNRESOLVED</code></li><li class="warn">Canonical source<code>not set</code></li><li class="warn">Unclassified files<code>2 of 2</code></li><li class="warn">Presentation coverage<code>0 of 2</code></li></ul></section>
+<details id="context" style="margin-top:28px"><summary>Machine context and audit fields</summary><pre>{
+  &quot;folder_id&quot;: &quot;FLD-e48135a7dacb&quot;,
+  &quot;path&quot;: &quot;\\\\192.168.2.50\\h_hp\\Desktop\\Master EQ\\Canon&quot;,
+  &quot;name&quot;: &quot;Canon&quot;,
+  &quot;folder_type&quot;: &quot;document&quot;,
+  &quot;purpose&quot;: &quot;UNRESOLVED&quot;,
+  &quot;domain&quot;: &quot;unclassified&quot;,
+  &quot;series_name&quot;: null,
+  &quot;chain_steps&quot;: &quot;[]&quot;,
+  &quot;status&quot;: &quot;active&quot;,
+  &quot;owner&quot;: &quot;UNRESOLVED&quot;,
+  &quot;canonical_source&quot;: 0,
+  &quot;parent_backbone&quot;: null,
+  &quot;file_count&quot;: 2,
+  &quot;child_folder_count&quot;: 5,
+  &quot;created_at&quot;: &quot;2026-08-05T20:36:15+00:00&quot;,
+  &quot;last_scanned&quot;: &quot;2026-09-03T06:06:57+00:00&quot;,
+  &quot;notes&quot;: &quot;&quot;,
+  &quot;compressed_name&quot;: &quot;TH__DOC__GN__20260819__AC&quot;,
+  &quot;compressed_name_detail&quot;: &quot;{\&quot;code\&quot;: \&quot;TH__DOC__GN__20260819__AC\&quot;, \&quot;domain\&quot;: \&quot;TH\&quot;, \&quot;domain_meaning\&quot;: \&quot;theophysics\&quot;, \&quot;ct\&quot;: \&quot;DOC\&quot;, \&quot;tags\&quot;: [], \&quot;date\&quot;: \&quot;20260819\&quot;, \&quot;status\&quot;: \&quot;AC\&quot;, \&quot;tag_meanings\&quot;: {}}&quot;,
+  &quot;lossless_address&quot;: &quot;LOSS__Canon__2026-08-19&quot;,
+  &quot;lossless_address_detail&quot;: &quot;{\&quot;address\&quot;: \&quot;LOSS__Canon__2026-08-19\&quot;, \&quot;mode\&quot;: \&quot;loss\&quot;, \&quot;source_date\&quot;: \&quot;2026-08-19\&quot;, \&quot;basis\&quot;: \&quot;title_and_local_content_sample\&quot;, \&quot;trigger\&quot;: null}&quot;
+}</pre></details>
+<h2 id="files">Files Here</h2><div class="file-controls"><input id="file-search" type="search" placeholder="Find by name, address, type, or keyword" aria-label="Filter files"><button id="toggle-files" type="button">Open all</button></div><div class="file-head"><span>File</span><span>Master Equation Name</span><span>Format</span><span>Role</span><span>Keywords</span><span>Lossless</span><span>Open</span></div><div id="file-rows" class="file-list"><details id="FIL-ba4ef1965f60" class="file-block" data-search="canon-dist.zip unscored 0.0/100 loss__canon_dist__2026-08-08 unresolved adef3718150574538bd0518225148c67057bf25f52e883d29a4e4b6816781d61 \\192.168.2.50\h_hp\desktop\master eq\canon\canon-dist.zip archive / zip plain canon, dist unknown (0/3) none / unclassified none none (0/3) unclassified_file  unclassified 2026-08-08t05:31:34+00:00 2026-09-03t06:06:57+00:00 384893 bytes "><summary><span class="file-name">Canon-dist.zip</span><code class="meq-tag" style="font-size:11px;color:#f1d37a;font-weight:600">UNSCORED</code><span>zip</span><span>archive</span><span>canon, dist</span><span class="lossless-btn" style="color:#d1a922;cursor:pointer;font-size:11px" title="LOSS__Canon_dist__2026-08-08">◆ lossless</span><a class="source-link" href="Canon-dist.zip">source</a></summary><div class="machine"><table><tbody><tr><th>Open source location</th><td><a href="Canon-dist.zip">\\192.168.2.50\h_hp\Desktop\Master EQ\Canon\Canon-dist.zip</a></td></tr><tr><th>Master Equation Name</th><td><code>UNSCORED</code></td></tr><tr><th>Structural Evidence</th><td><code>0.0/100</code></td></tr><tr><th>Lossless address</th><td><code>LOSS__Canon_dist__2026-08-08</code></td></tr><tr><th>Proposed compressed name</th><td><code>UNRESOLVED</code></td></tr><tr><th>SHA-256</th><td><code>adef3718150574538bd0518225148c67057bf25f52e883d29a4e4b6816781d61</code></td></tr><tr><th>Source path</th><td><code>\\192.168.2.50\h_hp\Desktop\Master EQ\Canon\Canon-dist.zip</code></td></tr><tr><th>Type / format</th><td><code>archive / zip</code></td></tr><tr><th>Presentation</th><td><code>plain</code></td></tr><tr><th>Keywords</th><td><code>canon, dist</code></td></tr><tr><th>Domain signal</th><td><code>unknown (0/3)</code></td></tr><tr><th>Dominant CHI</th><td><code>none / unclassified</code></td></tr><tr><th>CHI vector</th><td><code>none</code></td></tr><tr><th>Law signal</th><td><code>none (0/3)</code></td></tr><tr><th>Content role</th><td><code>unclassified_file</code></td></tr><tr><th>Confidence</th><td><code>UNRESOLVED</code></td></tr><tr><th>Status</th><td><code>unclassified</code></td></tr><tr><th>Last modified</th><td><code>2026-08-08T05:31:34+00:00</code></td></tr><tr><th>Last scanned</th><td><code>2026-09-03T06:06:57+00:00</code></td></tr><tr><th>Size</th><td><code>384893 bytes</code></td></tr></tbody></table></div></details><details id="FIL-3a18e649b089" class="file-block" data-search="fis.lossless.json g0 m0 e0 s1 t0 k1 r0 q0 f0 c0 :: [g.c] [m.f] [e.q] [s.r] [t.k] 7.0/100 loss__fis_lossless__2026-08-19 th__dat__ent-knw-lgs__20260819__ac.json d290d7c65e7fa89359c6b7f6646d7207ca9379648bd331daf0db62e9d5a26205 \\192.168.2.50\h_hp\desktop\master eq\canon\fis.lossless.json data / json plain epistemology, s, entropy, data, entropy_code, s_eff, k, knowledge logos, general, fis, loss, method, lossless epistemology (1/3) s / entropy s:1, k:1 none (0/3) entropy_code 0.123 unclassified 2026-08-19t07:35:51+00:00 2026-09-03t06:06:57+00:00 927 bytes g0 m0 e0 s1 t0 k1 r0 q0 f0 c0 :: [g.c] [m.f] [e.q] [s.r] [t.k]"><summary><span class="file-name">FIS.lossless.json</span><code class="meq-tag" style="font-size:11px;color:#f1d37a;font-weight:600">S1 K1 :: [S.R] [T.K]</code><span>json</span><span>data</span><span>epistemology, S, Entropy, data, entropy_code, S_eff</span><span class="lossless-btn" style="color:#d1a922;cursor:pointer;font-size:11px" title="LOSS__FIS_lossless__2026-08-19">◆ lossless</span><a class="source-link" href="FIS.lossless.json">source</a></summary><div class="machine"><table><tbody><tr><th>Open source location</th><td><a href="FIS.lossless.json">\\192.168.2.50\h_hp\Desktop\Master EQ\Canon\FIS.lossless.json</a></td></tr><tr><th>Master Equation Name</th><td><code>G0 M0 E0 S1 T0 K1 R0 Q0 F0 C0 :: [G.C] [M.F] [E.Q] [S.R] [T.K]</code></td></tr><tr><th>Structural Evidence</th><td><code>7.0/100</code></td></tr><tr><th>Lossless address</th><td><code>LOSS__FIS_lossless__2026-08-19</code></td></tr><tr><th>Proposed compressed name</th><td><code>TH__DAT__ENT-KNW-LGS__20260819__AC.json</code></td></tr><tr><th>SHA-256</th><td><code>d290d7c65e7fa89359c6b7f6646d7207ca9379648bd331daf0db62e9d5a26205</code></td></tr><tr><th>Source path</th><td><code>\\192.168.2.50\h_hp\Desktop\Master EQ\Canon\FIS.lossless.json</code></td></tr><tr><th>Type / format</th><td><code>data / json</code></td></tr><tr><th>Presentation</th><td><code>plain</code></td></tr><tr><th>Keywords</th><td><code>epistemology, S, Entropy, data, entropy_code, S_eff, K, knowledge logos, general, fis, loss, method, lossless</code></td></tr><tr><th>Domain signal</th><td><code>epistemology (1/3)</code></td></tr><tr><th>Dominant CHI</th><td><code>S / Entropy</code></td></tr><tr><th>CHI vector</th><td><code>S:1, K:1</code></td></tr><tr><th>Law signal</th><td><code>none (0/3)</code></td></tr><tr><th>Content role</th><td><code>entropy_code</code></td></tr><tr><th>Confidence</th><td><code>0.123</code></td></tr><tr><th>Status</th><td><code>unclassified</code></td></tr><tr><th>Last modified</th><td><code>2026-08-19T07:35:51+00:00</code></td></tr><tr><th>Last scanned</th><td><code>2026-09-03T06:06:57+00:00</code></td></tr><tr><th>Size</th><td><code>927 bytes</code></td></tr></tbody></table></div></details></div>
+<h2 id="folders">Child Folders</h2><table><thead><tr><th>Folder</th><th>Type</th><th>Files</th><th>Master Equation Aggregate</th><th>View</th></tr></thead><tbody><tr><td>.superpowers</td><td>mixed</td><td>1</td><td><code style="color:#f1d37a">unscanned</code></td><td><a href=".superpowers/FIS.html">open</a></td></tr><tr><td>Canon</td><td>document</td><td>92</td><td><code style="color:#f1d37a">G1 M1 E1 S1 T1 K2 R1 Q1 F1 C1 :: [G.C] [M.F] [E.Q] [S.R] [T.K]</code></td><td><a href="Canon/FIS.html">open</a></td></tr><tr><td>Canon-dist</td><td>document</td><td>45</td><td><code style="color:#f1d37a">G0 M0 E1 S0 T1 K1 R0 Q1 F0 C1 :: [G.C] [M.F] [E.Q] [S.R] [T.K]</code></td><td><a href="Canon-dist/FIS.html">open</a></td></tr><tr><td>docs</td><td>mixed</td><td>1</td><td><code style="color:#f1d37a">G0 M0 E0 S1 T0 K1 R0 Q0 F0 C0 :: [G.C] [M.F] [E.Q] [S.R] [T.K]</code></td><td><a href="docs/FIS.html">open</a></td></tr><tr><td>scripts</td><td>programming</td><td>3</td><td><code style="color:#f1d37a">G0 M1 E1 S0 T0 K1 R0 Q0 F0 C1 :: [G.C] [M.F] [E.Q] [S.R] [T.K]</code></td><td><a href="scripts/FIS.html">open</a></td></tr></tbody></table><section id="relationships"><h2>Semantic Network</h2><p class="muted">No strong keyword connections found between files in this folder.</p></section><section id="scores"><h2>Folder Signals</h2><p class="muted">Open a block to see the calculation evidence; file links jump to the inline machine block above.</p><div class="score-grid"><details class="score-tile"><summary><strong>36</strong><span>Folder signal</span></summary><p>Composite navigation signal; not truth, quality, or canon status.</p><ul><li><a href="#FIL-ba4ef1965f60">Canon-dist.zip</a> <code>65/100</code></li><li><a href="#FIL-3a18e649b089">FIS.lossless.json</a> <code>35/100</code></li></ul></details><details class="score-tile"><summary><strong>39</strong><span>Activity</span></summary><p>2 files modified in the last 30 days; 2 observed modification days.</p><ul><li><a href="#FIL-3a18e649b089">FIS.lossless.json</a> <code>35/100</code></li><li><a href="#FIL-ba4ef1965f60">Canon-dist.zip</a> <code>65/100</code></li></ul></details><details class="score-tile"><summary><strong>38</strong><span>Depth</span></summary><p>2 direct source files and 385,820 source bytes.</p><ul><li><a href="#FIL-ba4ef1965f60">Canon-dist.zip</a> <code>65/100</code></li><li><a href="#FIL-3a18e649b089">FIS.lossless.json</a> <code>35/100</code></li></ul></details><details class="score-tile"><summary><strong>0</strong><span>Explicit links</span></summary><p>Counts visible Markdown/wiki/HTML link syntax only; it does not infer semantic relationships.</p><ul><li><a href="#FIL-ba4ef1965f60">Canon-dist.zip</a> <code>65/100</code></li><li><a href="#FIL-3a18e649b089">FIS.lossless.json</a> <code>35/100</code></li></ul></details><details class="score-tile"><summary><strong>0</strong><span>Presentation</span></summary><p>Topbar, audio, equations, and claim-marker coverage in directly stored HTML files.</p><ul><li><a href="#FIL-ba4ef1965f60">Canon-dist.zip</a> <code>65/100</code></li><li><a href="#FIL-3a18e649b089">FIS.lossless.json</a> <code>35/100</code></li></ul></details><details class="score-tile"><summary><strong>100</strong><span>Registry</span></summary><p>Files with both a SHA-256 content fingerprint and lossless internal address.</p><ul><li><a href="#FIL-ba4ef1965f60">Canon-dist.zip</a> <code>65/100</code></li><li><a href="#FIL-3a18e649b089">FIS.lossless.json</a> <code>35/100</code></li></ul></details></div></section>
+<p class="muted" style="margin-top:24px">Generated from the FIS registry. Source files remain in place; this page is an index, not a replacement.</p>
+</main></div>
+<script type="application/json" id="fis-folder-record">
+{
+  "schema": "fis.folder/2.1",
+  "folder": {
+    "folder_id": "FLD-e48135a7dacb",
+    "path": "\\\\192.168.2.50\\h_hp\\Desktop\\Master EQ\\Canon",
+    "name": "Canon",
+    "folder_type": "document",
+    "purpose": "UNRESOLVED",
+    "domain": "unclassified",
+    "status": "active",
+    "owner": "UNRESOLVED",
+    "canonical_source": 0,
+    "file_count": 2,
+    "child_folder_count": 5,
+    "created_at": "2026-08-05T20:36:15+00:00",
+    "last_scanned": "2026-09-03T06:06:57+00:00",
+    "compressed_name": "TH__DOC__GN__20260819__AC",
+    "compressed_name_detail": {
+      "code": "TH__DOC__GN__20260819__AC",
+      "domain": "TH",
+      "domain_meaning": "theophysics",
+      "ct": "DOC",
+      "tags": [],
+      "date": "20260819",
+      "status": "AC",
+      "tag_meanings": {}
+    },
+    "lossless_address": "LOSS__Canon__2026-08-19",
+    "lossless_address_detail": {
+      "address": "LOSS__Canon__2026-08-19",
+      "mode": "loss",
+      "source_date": "2026-08-19",
+      "basis": "title_and_local_content_sample",
+      "trigger": null
+    },
+    "meq_aggregate": "G0 M0 E0 S1 T0 K1 R0 Q0 F0 C0 :: [G.C] [M.F] [E.Q] [S.R] [T.K]"
+  },
+  "files": [
+    {
+      "file_id": "FIL-ba4ef1965f60",
+      "name": "Canon-dist.zip",
+      "source_path": "\\\\192.168.2.50\\h_hp\\Desktop\\Master EQ\\Canon\\Canon-dist.zip",
+      "meq_name": "",
+      "internal_address": "LOSS__Canon_dist__2026-08-08",
+      "proposed_compressed_name": null,
+      "sha256": "adef3718150574538bd0518225148c67057bf25f52e883d29a4e4b6816781d61",
+      "type": "archive",
+      "format": "zip",
+      "keywords": [
+        "canon",
+        "dist"
+      ],
+      "domain_signal": "unknown (0/3)",
+      "dominant_chi": "none / unclassified",
+      "chi_vector": {},
+      "law_signal": "none (0/3)",
+      "content_role": "unclassified_file",
+      "evidence_density": 0.0,
+      "confidence": 0.0,
+      "status": "unclassified",
+      "last_modified": "2026-08-08T05:31:34+00:00",
+      "last_scanned": "2026-09-03T06:06:57+00:00",
+      "size_bytes": 384893
+    },
+    {
+      "file_id": "FIL-3a18e649b089",
+      "name": "FIS.lossless.json",
+      "source_path": "\\\\192.168.2.50\\h_hp\\Desktop\\Master EQ\\Canon\\FIS.lossless.json",
+      "meq_name": "G0 M0 E0 S1 T0 K1 R0 Q0 F0 C0 :: [G.C] [M.F] [E.Q] [S.R] [T.K]",
+      "internal_address": "LOSS__FIS_lossless__2026-08-19",
+      "proposed_compressed_name": "TH__DAT__ENT-KNW-LGS__20260819__AC.json",
+      "sha256": "d290d7c65e7fa89359c6b7f6646d7207ca9379648bd331daf0db62e9d5a26205",
+      "type": "data",
+      "format": "json",
+      "keywords": [
+        "epistemology",
+        "S",
+        "Entropy",
+        "data",
+        "entropy_code",
+        "S_eff",
+        "K",
+        "knowledge logos",
+        "general",
+        "fis",
+        "loss",
+        "method",
+        "lossless"
+      ],
+      "domain_signal": "epistemology (1/3)",
+      "dominant_chi": "S / Entropy",
+      "chi_vector": {
+        "S": 1,
+        "K": 1
+      },
+      "law_signal": "none (0/3)",
+      "content_role": "entropy_code",
+      "evidence_density": 7.0,
+      "confidence": 0.123,
+      "status": "unclassified",
+      "last_modified": "2026-08-19T07:35:51+00:00",
+      "last_scanned": "2026-09-03T06:06:57+00:00",
+      "size_bytes": 927
+    }
+  ],
+  "child_folders": [
+    {
+      "name": ".superpowers",
+      "type": "mixed",
+      "file_count": 1
+    },
+    {
+      "name": "Canon",
+      "type": "document",
+      "file_count": 92
+    },
+    {
+      "name": "Canon-dist",
+      "type": "document",
+      "file_count": 45
+    },
+    {
+      "name": "docs",
+      "type": "mixed",
+      "file_count": 1
+    },
+    {
+      "name": "scripts",
+      "type": "programming",
+      "file_count": 3
+    }
+  ],
+  "signals": {
+    "folder_signal": 36,
+    "activity": 39,
+    "depth": 38,
+    "explicit_links": 0,
+    "presentation": 0,
+    "registry": 100
+  }
+}
+</script>
+<script>
+const q=document.getElementById('file-search');const blocks=[...document.querySelectorAll('.file-block')];q?.addEventListener('input',()=>{const v=q.value.toLowerCase();blocks.forEach(b=>b.hidden=!(b.dataset.search+' '+b.innerText.toLowerCase()).includes(v));});const toggle=document.getElementById('toggle-files');toggle?.addEventListener('click',()=>{const visible=blocks.filter(b=>!b.hidden);const openSome=visible.some(b=>!b.open);visible.forEach(b=>b.open=openSome);toggle.textContent=openSome?'Close all':'Open all';});document.querySelectorAll('.source-link').forEach(a=>a.addEventListener('click',e=>e.stopPropagation()));
+document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',()=>{navigator.clipboard?.writeText(b.dataset.copy);b.textContent='Copied';setTimeout(()=>b.textContent=b.dataset.copy.startsWith('MEQ')?'Copy address':'Copy SHA-256',900);}));
+document.querySelectorAll('[data-action]').forEach(b=>b.addEventListener('click',()=>{const payload={file_id:b.dataset.fileId,target:b.dataset.target||null,folder:document.querySelector('h1').textContent};if(window.FIS_API?.run){window.FIS_API.run(b.dataset.action,payload);}else{b.textContent='API not connected';setTimeout(()=>b.textContent=b.dataset.action==='apply-name'?'Apply proposed name':'Mark reviewed',1100);}}))</script></body></html>

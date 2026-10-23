@@ -1,0 +1,304 @@
+# ═══════════════════════════════════════════════════════════════
+# DAVID-OS FOLDER REGISTRY — ground truth for the prediction engine
+# ═══════════════════════════════════════════════════════════════
+# The prediction engine (folder type: code / documents / pictures / video /
+# mixed / needs-sorting, plus domain) checks this file FIRST. A folder listed
+# here with confirmed: true is never guessed — its answer is used as-is and
+# also becomes a training label for folders that are NOT listed.
+#
+# Answers the onboarding flow in config/rules/onboarding_questions.v1.json.
+# Roles come from config/rules/folder_profiles.28pof.v1.json.
+#
+# confirmed: false  = Claude's guess from folder names only (2026-09-16). Fix me.
+# confirmed: true   = David said so.
+#
+# Fields
+#   role:       intake_hub | active_surface | review_first_library | media_library |
+#               canonical_destination | research_corpus | program_root |
+#               ai_output_inbox | publish_staging | retention_library |
+#               safety_buffer | protected_sync_library | system
+#   kind:       code | documents | pictures | video | audio | data | mixed | needs_sorting
+#   domain:     theophysics | trading | ai_chats | website | infrastructure | personal | business | other
+#   importance: critical | high | normal | low | junk
+#   canon:      none | some | canonical        (canonical = everything inside is canon)
+#   protect:    true → never move/rename/flatten inside (project roots, boot, system)
+#   automation: report_only | suggest_actions | approval_required | allow_safe_rules
+# ═══════════════════════════════════════════════════════════════
+
+global:
+  environment_type: mixed            # personal + business (Lowe's Fencing) + research
+  source_of_truth: null              # which location wins when a file exists in many places?
+  duplicate_keeper_policy: manual_review
+  rename_style: keep_original_mostly
+  ai_material_policy: manual_review
+  automation_comfort: approval_required
+  backups: [synology_nas_192.168.2.50]
+
+drives:
+  C: {note: "System + Users. Documents\\faiththruphysics.com holds all the NEW Obsidian vaults (10-12).", confirmed: true}
+  D: {note: "Development drive. GitHub + everything programming/developer. DONT TOUCH folders live here.", kind: code, protect: true, confirmed: true}
+  E: {note: "Media + site production (audio, video, HTML, AI chats saved)", confirmed: false}
+  F: {note: "Older personal drive: trading, books, classes, utilities", confirmed: false}
+  G: {note: "Backup of D:\\GitHub + older projects not deemed worthy of D anymore.", role: retention_library, importance: low, confirmed: true}
+  H: {note: "NAS h_hp = David's desktop: Downloads, Desktop, and Desktop 2 (best undeveloped projects + Lean 4 corpus).", confirmed: true}
+  K: {note: "Synology Docker service data. NO TOUCH.", role: program_root, kind: code, domain: infrastructure, importance: critical, protect: true, automation: report_only, confirmed: true}
+  O: {note: "Theophysics v5 + vault + open intel", confirmed: false}
+  S: {note: "Transfer drive between computers: mixture of everything. Important: TikTok rooms (tiktok_recon) + atheist best arguments (Apologetics).", kind: mixed, role: intake_hub, confirmed: true}
+  X: {note: "NLP + preference engine + CONVERSION HUB (HTML<->MD, audio, video, TTS, anything). Do not touch.", role: program_root, kind: mixed, domain: infrastructure, importance: critical, protect: true, confirmed: true}
+  Z: {note: "Obsidian / AI chats / production canonical (NAS zobsidian?)", confirmed: false}
+
+folders:
+  # ── Theophysics canon ────────────────────────────────────────
+  - path: 'C:\Users\David\Documents\faiththruphysics.com\00_ Production\00_ Production\21_AXIOM NODES'
+    role: canonical_destination
+    kind: documents
+    domain: theophysics
+    importance: critical
+    canon: canonical
+    protect: false
+    confirmed: true            # pinned CANON / PUBLISHED axioms, 2026-09-16
+  - path: 'C:\Users\David\Documents\faiththruphysics.com\00_ Production\00_ Production\00_THE_STORY'
+    role: canonical_destination
+    kind: documents
+    domain: theophysics
+    importance: critical
+    canon: canonical
+    confirmed: true
+  - path: 'H:\00_Canonical_PRODUCTION_v1.0'
+    role: canonical_destination
+    kind: documents
+    domain: theophysics
+    importance: critical
+    canon: canonical
+    confirmed: false
+  - path: 'Z:\07_PRODUCTION_CANONICAL'
+    role: canonical_destination
+    kind: documents
+    domain: theophysics
+    importance: critical
+    canon: canonical
+    confirmed: false
+  - path: 'D:\Theophysics Data Vault'
+    role: research_corpus
+    kind: documents
+    domain: theophysics
+    importance: high
+    canon: some
+    confirmed: false
+  - path: 'O:\_Theophysics_v5'
+    role: research_corpus
+    kind: documents
+    domain: theophysics
+    importance: high
+    canon: some
+    confirmed: false
+  - path: 'D:\THEOPHYSICS_REFINED_PAPERS'
+    role: research_corpus
+    kind: documents
+    domain: theophysics
+    importance: high
+    canon: some
+    confirmed: false
+  - path: 'D:\CHI PARTS'
+    role: research_corpus
+    kind: mixed
+    domain: theophysics
+    importance: high
+    confirmed: false
+  - path: 'C:\Theophysics_Tagger'
+    role: program_root
+    kind: data
+    domain: theophysics
+    importance: high           # 1,159-tag registry + canonical_186_sources.txt
+    protect: true
+    confirmed: false
+
+  # ── Do not touch ─────────────────────────────────────────────
+  - path: 'D:\DONT TOUCH BOOT UP'
+    role: program_root
+    kind: code
+    domain: infrastructure
+    importance: critical
+    protect: true
+    confirmed: true
+  - path: 'D:\DONT TOUCH BAT SCRIPT'
+    role: program_root
+    kind: code
+    domain: infrastructure
+    importance: critical
+    protect: true
+    confirmed: true
+  - path: 'D:\DONT TOUCH HTML'
+    role: publish_staging
+    kind: code
+    domain: website
+    importance: critical
+    protect: true
+    confirmed: true
+
+  # ── Code ─────────────────────────────────────────────────────
+  - path: 'D:\GitHub'
+    role: program_root
+    kind: code
+    domain: infrastructure
+    importance: critical
+    protect: true
+    confirmed: true
+  - path: 'K:\'
+    role: program_root
+    kind: code
+    domain: infrastructure
+    importance: critical
+    protect: true              # Synology docker service data — no touch
+    automation: report_only
+    confirmed: true
+  - path: 'D:\React'
+    role: publish_staging
+    kind: code
+    domain: website
+    importance: high
+    protect: true
+    note: "My Sites shelf: apps needing a build/server. START_MY_SITES.bat → site-shelf.mjs on :8780; KIMI_* folders auto-listed as HTML collections on :8786."
+    confirmed: true
+  - path: 'G:\'
+    role: retention_library
+    kind: code
+    domain: infrastructure
+    importance: low
+    protect: true              # backup of D:\GitHub — don't reorganize a backup
+    confirmed: true
+
+  # ── Obsidian vaults (new home) ───────────────────────────────
+  - path: 'C:\Users\David\Documents\faiththruphysics.com'
+    role: research_corpus
+    kind: documents
+    domain: theophysics
+    importance: critical
+    canon: some
+    note: "All new vaults. .obsidian found in: 00_ Production, 02_CANONIZATION, 03_FAITH_THROUGH_PHYSICS, 04_MASTER_EQUATION, 05_BLUE_VAULT, 06_RESEARCH, 60_MEDIA"
+    confirmed: true
+
+  # ── API call pipelines ───────────────────────────────────────
+  - path: '\\192.168.2.50\h_hp\Desktop\___Pipeline_Done_New'
+    role: ai_output_inbox
+    kind: mixed
+    domain: ai_chats
+    importance: high
+    protect: true
+    note: "API calls (pipeline outputs)"
+    confirmed: true
+  - path: '\\192.168.2.50\h_hp\Desktop\_____pipeline-workflows-main'
+    role: program_root
+    kind: mixed
+    domain: ai_chats
+    importance: high
+    protect: true
+    note: "API calls (pipeline workflows; EVIDENCE_CHAIN_INTAKE, classified library, tag registry)"
+    confirmed: true
+
+  # ── Desktop 2 / Lean ─────────────────────────────────────────
+  - path: 'H:\Desktop 2'
+    role: active_surface
+    kind: mixed
+    domain: theophysics
+    importance: high
+    note: "Best projects not yet developed + Lean 4 corpus is being gathered here"
+    confirmed: true
+
+  # ── S: transfer drive keepers ────────────────────────────────
+  - path: 'S:\tiktok_recon'
+    role: research_corpus
+    kind: mixed
+    domain: other
+    importance: high
+    note: "TikTok rooms"
+    confirmed: true
+  - path: 'S:\Apologetics'
+    role: research_corpus
+    kind: documents
+    domain: theophysics
+    importance: high
+    note: "Atheist best arguments (verify this is the right folder)"
+    confirmed: false
+
+  # ── Intake / needs sorting ───────────────────────────────────
+  - path: '\\192.168.2.50\h_hp\Desktop'
+    role: active_surface
+    kind: needs_sorting
+    domain: other
+    importance: normal
+    automation: approval_required
+    confirmed: false
+  - path: 'H:\Downloads'
+    role: intake_hub
+    kind: needs_sorting
+    importance: normal
+    confirmed: false
+  - path: 'G:\00_STAGING'
+    role: intake_hub
+    kind: mixed
+    confirmed: false
+
+  # ── AI chats ─────────────────────────────────────────────────
+  - path: 'E:\AI Chats Saved'
+    role: ai_output_inbox
+    kind: documents
+    domain: ai_chats
+    importance: high
+    confirmed: false
+  - path: 'Z:\AI-Chats History'
+    role: ai_output_inbox
+    kind: documents
+    domain: ai_chats
+    importance: high
+    confirmed: false
+
+  # ── Media ────────────────────────────────────────────────────
+  - path: 'E:\Video'
+    role: media_library
+    kind: video
+    domain: theophysics
+    confirmed: false
+  - path: 'E:\Audio'
+    role: media_library
+    kind: audio
+    domain: theophysics
+    confirmed: false
+  - path: 'E:\Images'
+    role: media_library
+    kind: pictures
+    confirmed: false
+  - path: 'D:\YouTube_Downloads'
+    role: media_library
+    kind: video
+    importance: low
+    confirmed: false
+
+  # ── Trading ──────────────────────────────────────────────────
+  - path: 'F:\Candles How to Trade'
+    role: research_corpus
+    kind: documents
+    domain: trading
+    confirmed: false
+  - path: 'F:\Daily-Trading-Review-master'
+    role: program_root
+    kind: code
+    domain: trading
+    protect: true
+    confirmed: false
+
+  # ── Pipeline / brain ─────────────────────────────────────────
+  - path: 'X:\'
+    role: program_root
+    kind: mixed
+    domain: infrastructure
+    importance: critical
+    protect: true
+    confirmed: true
+
+  # ── Transfer drive ───────────────────────────────────────────
+  - path: 'S:\'
+    role: intake_hub
+    kind: mixed
+    note: "Transfer drive between computers — mixture of everything (incl. many UUID .sql dumps)"
+    confirmed: true

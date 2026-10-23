@@ -1,0 +1,29 @@
+---
+fis_schema: "folder-index.v1"
+folder_id: "FLD-20260907-b7a3910a"
+folder: "GitHub\David-OSv3\tools\publication_family"
+folder_class: "project"
+confidence: 0.6
+dependency_risk: 0.333
+dominant_family: "code"
+dominant_ratio: 0.4
+file_count: 5
+classified_at: "2026-09-07T15:05:05"
+allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
+suggested_name: "publication_family"
+system_markers: ["dir:__pycache__"]
+---
+
+# FIS Folder Index: publication_family
+
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 5  ·  **Dominant**: code (40%)
+
+## Allowed actions
+- index
+- rename_internal
+- subfolder_sort
+- archive_exports
+
+**Suggested name**: `publication_family`  (not applied — review before use)
+
+<!-- FIS folder-index.v1: parseable note; safe to regenerate. -->

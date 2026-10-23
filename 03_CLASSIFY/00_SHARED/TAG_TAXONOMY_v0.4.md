@@ -537,7 +537,7 @@ is a duplicate to reconcile, not a new canon.
 
 ---
 
-## PART D — PREDICTION TIE-IN (`D:\GitHub\Prediction_GUI`, tied in from 03_CLASSIFY)
+## PART D — PREDICTION TIE-IN (vendored in `03_CLASSIFY\02_CLASSIFICATION`)
 
 **Review window:** `03_CLASSIFY\REVIEW.bat` — every card, each engine's suggestion,
 DeepSeek triage for stuck cards (blind mode = real prediction), accept / reject / edit
@@ -558,7 +558,7 @@ grades itself; a prediction is a **suggestion**, never a ruling.
 Context carried on each event: `paper`, `source_file`, `folder_class`, `words`.
 
 ```
-cd D:/GitHub/Prediction_GUI && python -m harness.adapters.sidecars "<folder>/sidecars" standing
+cd D:/GitHub/David-OSv3/03_CLASSIFY/02_CLASSIFICATION && python -m harness.adapters.sidecars "<folder>/sidecars" standing
 ```
 
 Loop: ingest existing cards → before writing a new card, `shadow({"folder_class": …})`

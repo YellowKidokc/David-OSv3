@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unified GUI - Combined Operations Board</title>
+  <link rel="stylesheet" href="./shared.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">POF</div>
+        <div class="brand-copy">
+          <h1>Unified Operations GUI</h1>
+          <p>Combined board: the first two steps roll into the route builder so you can keep grouping, splitting, and refining the batch.</p>
+        </div>
+      </div>
+      <div class="nav-chips">
+        <span class="nav-chip active">File Operations</span>
+        <span class="nav-chip">Automation</span>
+        <span class="nav-chip">Search</span>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="page-head">
+        <div>
+          <div class="eyebrow">Combined Board</div>
+          <h2>Inputs and outputs bind first. The detailed route opens after that.</h2>
+          <p>
+            This is the actual shape you were describing. The top category color stays stable. Sub-actions inherit the family.
+            You can drop more folders onto the same process if they belong there, or drop into a new lane to start another process.
+          </p>
+        </div>
+        <div class="action-row">
+          <span class="action-chip file-op">Copy</span>
+          <span class="action-chip file-op">Move</span>
+          <span class="action-chip file-op">Archive</span>
+          <span class="action-chip file-op">Delete</span>
+          <span class="action-chip file-op">Mirror</span>
+        </div>
+      </section>
+
+      <section class="page-body triple">
+        <aside class="panel">
+          <h3>Inputs</h3>
+          <p>Multi-select belongs here. Think five or ten related folders at once, not one tiny route at a time.</p>
+
+          <div class="list">
+            <div class="item">
+              <strong>Batch A · 3 folders selected</strong>
+              <div class="mini-list">
+                <span class="token">Downloads</span>
+                <span class="token">Pictures Intake</span>
+                <span class="token">Audio Outbox</span>
+              </div>
+            </div>
+
+            <div class="item">
+              <strong>Batch B · 2 folders selected</strong>
+              <div class="mini-list">
+                <span class="token">Video Staging</span>
+                <span class="token">Site Export Scratch</span>
+              </div>
+            </div>
+
+            <div class="dropzone">
+              <strong>+ Drop more inputs here</strong>
+              <span class="muted">If they belong to the current process, they join the active batch.</span>
+            </div>
+          </div>
+        </aside>
+
+        <section class="flow-card">
+          <div class="dropzone process">
+            <strong>Process Lane 01 · File Operations</strong>
+            <span class="muted">Top lane stays active while related folders keep dropping into it.</span>
+          </div>
+
+          <div class="dropzone">
+            <strong>Input binding attached</strong>
+            <div class="mini-list">
+              <span class="token">Batch A</span>
+              <span class="token">3 inputs</span>
+              <span class="token">copy family</span>
+            </div>
+          </div>
+
+          <div class="u-line"></div>
+
+          <div class="dropzone output">
+            <strong>Output binding attached</strong>
+            <div class="mini-list">
+              <span class="token">Canonical Site Data</span>
+              <span class="token">D:\GitHub\faiththruphysics-site-data</span>
+            </div>
+          </div>
+
+          <div class="binding">
+            <div class="binding-head">
+              <div>
+                <strong>Route configuration opens after the bind</strong>
+                <div class="muted">This is the space that spreads open after the input and output connect.</div>
+              </div>
+              <div class="mini-list">
+                <span class="small-chip active">Process 01</span>
+              </div>
+            </div>
+
+            <div class="config-grid">
+              <div class="field">
+                <label for="action">Action</label>
+                <select id="action">
+                  <option>Copy</option>
+                  <option>Move</option>
+                  <option>Archive</option>
+                  <option>Delete</option>
+                  <option>Mirror</option>
+                  <option>Multi-step</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="mode">Mode</label>
+                <select id="mode">
+                  <option>Single-step</option>
+                  <option>Multi-step</option>
+                  <option>Review-first</option>
+                  <option>Auto-run</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="type">Content type</label>
+                <select id="type">
+                  <option>Mixed</option>
+                  <option>Audio</option>
+                  <option>Video</option>
+                  <option>Images</option>
+                  <option>Documents</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="subgroup">Batch control</label>
+                <select id="subgroup">
+                  <option>Keep as grouped batch</option>
+                  <option>Expand</option>
+                  <option>Split one off</option>
+                  <option>Reroute subset</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="route-actions">
+              <span class="small-chip active">Copy family</span>
+              <span class="small-chip">shade: primary gold</span>
+              <span class="small-chip">review queue available</span>
+              <span class="small-chip">job.json on execute</span>
+            </div>
+          </div>
+
+          <div class="dropzone process">
+            <strong>+ Drop into empty lane to create Process 02</strong>
+            <span class="muted">This is where a new flow starts when the folders do not belong to the current route.</span>
+          </div>
+        </section>
+
+        <aside class="panel">
+          <h3>Outputs and process families</h3>
+          <p>The top-level families stay visually distinct. Anything inside the family can use a shade variation of that color.</p>
+
+          <div class="legend">
+            <div class="legend-row">
+              <div class="swatch file-op">File Ops</div>
+              <div class="muted">Cut, copy, move, delete, archive, mirror. Variants stay inside the gold family.</div>
+            </div>
+            <div class="legend-row">
+              <div class="swatch automation">Automation</div>
+              <div class="muted">Watchers, scheduled passes, health checks, recurring transfer logic.</div>
+            </div>
+            <div class="legend-row">
+              <div class="swatch search">Search</div>
+              <div class="muted">Search, lookup, directory finding, route recall, maybe predictive launch later.</div>
+            </div>
+          </div>
+
+          <div class="list" style="margin-top: 16px;">
+            <div class="item">
+              <strong>Primary outputs</strong>
+              <div class="mini-list">
+                <span class="token">Canonical Site Data</span>
+                <span class="token">Archive</span>
+                <span class="token">Review Queue</span>
+                <span class="token">Staging</span>
+              </div>
+            </div>
+
+            <div class="note">
+              <strong>Important</strong>
+              <div class="muted">
+                The route logic appears only after binding. That keeps the first interaction structural instead of making you fill out tiny technical rules too early.
+              </div>
+            </div>
+
+            <div class="button-row">
+              <a class="ghost" href="./step-1-file-operations.html">Back to step 1</a>
+              <a class="ghost" href="./step-2-destination.html">Back to step 2</a>
+            </div>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <div class="footer">Open the three pages in order if you want the staged feeling. Open this page directly if you just want the end-state board.</div>
+  </div>
+</body>
+</html>

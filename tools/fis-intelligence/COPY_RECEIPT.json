@@ -1,0 +1,74 @@
+{
+  "files": [
+    {
+      "source": "D:\\GitHub\\FIS-HTML-Intelligence\\src\\cli.py",
+      "destination": "D:\\GitHub\\David-OSv3\\tools\\fis-intelligence\\src\\cli.py",
+      "sha256": "1e8499965b43ef1ad9aba790f45571d04a5ce7f3041e946de4c6c30e80e89577"
+    },
+    {
+      "source": "D:\\GitHub\\FIS-HTML-Intelligence\\src\\fis_html_index.py",
+      "destination": "D:\\GitHub\\David-OSv3\\tools\\fis-intelligence\\src\\fis_html_index.py",
+      "sha256": "79b324aba659badbe6d689898356848727431a7ef17ebdfb68495f6b38405e46"
+    },
+    {
+      "source": "D:\\GitHub\\FIS-HTML-Intelligence\\src\\fis_mcp_server.py",
+      "destination": "D:\\GitHub\\David-OSv3\\tools\\fis-intelligence\\src\\fis_mcp_server.py",
+      "sha256": "57f36992b19db8e2a7f49635b03726be126ac8c5fa87bc4a390fa028a4b1aa60"
+    },
+    {
+      "source": "D:\\GitHub\\FIS-HTML-Intelligence\\tests\\test_index.py",
+      "destination": "D:\\GitHub\\David-OSv3\\tools\\fis-intelligence\\tests\\test_index.py",
+      "sha256": "de7205ec715be68aeb582f8bfb742c6677eb137940b757c2341ec5d8e54cf91c"
+    },
+    {
+      "source": "D:\\GitHub\\FIS-Kernel-Rust\\src\\lib.rs",
+      "destination": "D:\\GitHub\\David-OSv3\\tools\\fis-intelligence\\rust\\src\\lib.rs",
+      "sha256": "924171d0033cabeb8b45609d28a0322160c7ece023fac083ab39d6961f9bd54f"
+    },
+    {
+      "source": "D:\\GitHub\\FIS-Kernel-Rust\\src\\main.rs",
+      "destination": "D:\\GitHub\\David-OSv3\\tools\\fis-intelligence\\rust\\src\\main.rs",
+      "sha256": "f32c110765790617cbfa0a9ce19b36491e511692b8f871d377207d81981411dc"
+    },
+    {
+      "source": "D:\\GitHub\\FIS-Kernel-Rust\\Cargo.toml",
+      "destination": "D:\\GitHub\\David-OSv3\\tools\\fis-intelligence\\rust\\Cargo.toml",
+      "sha256": "f6e5f9295c3440f91b3bf9ac953c93b483bf6e1deb03a5b54163c529f9583efc"
+    },
+    {
+      "source": "D:\\GitHub\\FIS-Kernel-Rust\\Cargo.lock",
+      "destination": "D:\\GitHub\\David-OSv3\\tools\\fis-intelligence\\rust\\Cargo.lock",
+      "sha256": "bb45f8e814b5a6b28a0448ddbb82e365a0f3fbc4e3438da2b7a69f3c5720cadd"
+    },
+    {
+      "source": "D:\\GitHub\\FIS-HTML-Intelligence\\README.md",
+      "destination": "D:\\GitHub\\David-OSv3\\tools\\fis-intelligence\\docs\\HTML_ORIGINAL_README.md",
+      "sha256": "a7724a0ccd50a6b383da9d9cf2128188a8df9409b78929714df1f5b06beca544"
+    },
+    {
+      "source": "D:\\GitHub\\FIS-HTML-Intelligence\\CHAT2DB_CONNECT.md",
+      "destination": "D:\\GitHub\\David-OSv3\\tools\\fis-intelligence\\docs\\CHAT2DB_ORIGINAL_CONNECTION.md",
+      "sha256": "f67293802e6884b62e50d6301dc6a92d75f491bfdbf6bf198c8579b3839dc1e0"
+    },
+    {
+      "source": "D:\\GitHub\\FIS-Kernel-Rust\\README.md",
+      "destination": "D:\\GitHub\\David-OSv3\\tools\\fis-intelligence\\docs\\RUST_ORIGINAL_README.md",
+      "sha256": "3de0eb3f6bd1aa84920b0f7ee53758c319dd7ef67d117943c3b1817a03f8deaa"
+    },
+    {
+      "source": "D:\\GitHub\\FIS-Kernel-Rust-TEST-OUTPUT\\REPORT.md",
+      "destination": "D:\\GitHub\\David-OSv3\\tools\\fis-intelligence\\reports\\historical-rust-test\\REPORT.md",
+      "sha256": "77858568226ecc82aad2ccbfb3ad61db0a6e773dfc9e07285ad6fde58caa701c"
+    },
+    {
+      "source": "D:\\GitHub\\FIS-Kernel-Rust-TEST-OUTPUT\\scan-report.json",
+      "destination": "D:\\GitHub\\David-OSv3\\tools\\fis-intelligence\\reports\\historical-rust-test\\scan-report.json",
+      "sha256": "16b890c95063e3820f54cb6c1acc4bdb7865fe16cc1dc52197ddb48ef22dcf29"
+    }
+  ],
+  "database_snapshot": {
+    "source": "D:\\GitHub\\FIS-HTML-Intelligence\\state\\fis_html.sqlite",
+    "quick_check": "ok"
+  },
+  "source_mutation": false
+}

@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en" data-fis-schema="2.1"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="fis-schema" content="2.1"><meta name="generator" content="FIS folder-brain generator">
+<title>FIS | Theophysics_Lineage_2026-08-10</title>
+<style>
+:root{color-scheme:dark;--bg:#060708;--panel:#0c0f14;--panel2:#090b0f;--line:#222a35;--text:#e7edf5;--muted:#8b97a7;--accent:#d1a922;--accent2:#f1d37a;--link:#6ea8e8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 system-ui,sans-serif}.layout{max-width:1500px;margin:auto;display:grid;grid-template-columns:230px minmax(0,1fr);gap:24px;padding:28px}main{min-width:0}
+h1{font:600 34px Georgia,serif;margin:5px 0 8px}h2{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin-top:28px}
+.eyebrow,code{font-family:ui-monospace,Consolas,monospace}.eyebrow{color:var(--accent);font-size:12px;letter-spacing:1px}.muted{color:var(--muted)}
+.identity{border-left:3px solid var(--accent);padding:8px 0 8px 12px;margin:8px 0 10px;background:linear-gradient(90deg,rgba(209,169,34,.08),transparent)}.identity code{display:block;font-size:15px;color:var(--accent2);margin-bottom:4px}.identity span{display:block;color:var(--muted);font-size:12px}
+.crumbs{font:12px ui-monospace,Consolas,monospace;color:var(--muted);margin-bottom:10px}.crumbs a{color:var(--accent)}.crumbs span{margin:0 4px}
+.unresolved{display:inline-block;border:1px solid var(--accent);color:var(--accent);padding:2px 10px;border-radius:3px;font:11px ui-monospace,Consolas,monospace;letter-spacing:1px}
+.sidebar{position:sticky;top:20px;align-self:start;border:1px solid var(--line);background:var(--panel);padding:12px;max-height:calc(100vh - 40px);overflow:auto}.sidebar a,.sidebar .child{display:block;padding:7px 6px;border-bottom:1px solid #1a222d}.side-title{font:600 15px Georgia,serif;padding:4px 6px 12px;color:var(--text)}.side-label{color:var(--accent);font:10px ui-monospace,Consolas,monospace;letter-spacing:1px;text-transform:uppercase;padding:16px 6px 5px}.pending{color:var(--muted)}small{font-size:10px}
+.summary{display:grid;grid-template-columns:repeat(4,minmax(140px,1fr));gap:7px;margin:14px 0}.metric{border:1px solid var(--line);padding:8px 9px;background:var(--panel)}.metric b{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px}
+.score-grid{display:grid;grid-template-columns:repeat(6,minmax(120px,1fr));gap:8px}.score-tile{margin:0;border:1px solid var(--line);background:var(--panel);min-height:104px;padding:10px}.score-tile summary{list-style:none;cursor:pointer}.score-tile summary::-webkit-details-marker{display:none}.score-tile strong{display:block;color:var(--accent);font:600 28px Georgia,serif}.score-tile span{font:11px ui-monospace,Consolas,monospace;text-transform:uppercase;color:var(--muted)}.score-tile p{font-size:12px;color:var(--muted)}.score-tile ul{padding-left:17px;font-size:12px}
+table{width:100%;border-collapse:collapse;background:var(--panel)}th,td{border:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px}a{color:var(--link);text-decoration:none}a:hover{text-decoration:underline}code{font-size:12px;color:#d6e5f5;word-break:break-word}
+input[type=search]{width:min(440px,100%);margin:0;padding:9px 10px;border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:3px}.file-controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:0 0 8px}button{border:1px solid var(--line);background:var(--panel);color:var(--text);padding:8px 10px;border-radius:3px;cursor:pointer}button:hover{border-color:var(--accent)}.file-list{display:grid;gap:4px}.file-block{border:1px solid var(--line);background:var(--panel);padding:0}.file-block summary{display:grid;grid-template-columns:minmax(180px,1.5fr) minmax(140px,1.2fr) 50px 70px minmax(130px,1fr) 68px 50px;gap:6px;align-items:center;padding:7px 9px;list-style:none;cursor:pointer}.file-block summary::-webkit-details-marker{display:none}.file-block[open] summary{border-bottom:1px solid var(--line);background:var(--panel2)}.file-name{font-weight:600;color:var(--text)}.source-link{justify-self:end;font-size:12px}.machine{padding:8px 10px 10px}.machine table{background:var(--panel2)}.machine th{width:190px}.machine td,.machine th{padding:6px 8px}.file-head{display:grid;grid-template-columns:minmax(180px,1.5fr) minmax(140px,1.2fr) 50px 70px minmax(130px,1fr) 68px 50px;gap:6px;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px;margin:0 0 4px;padding:0 10px}
+.actions{display:flex;gap:6px;flex-wrap:wrap}.actions button{padding:5px 9px;font-size:12px}
+.capsule{border:1px solid var(--line);background:var(--panel);padding:12px 14px}.capsule p{margin:6px 0}
+.health-list{list-style:none;padding:0;margin:0;display:grid;gap:4px}.health-list li{border:1px solid var(--line);background:var(--panel);padding:8px 10px;font-size:13px}.health-list li::before{content:"◆ ";font-size:11px}.health-list li.warn::before{color:var(--accent)}.health-list li.ok::before{color:#5f7f6a}.health-list code{margin-left:6px}
+details{border:1px solid var(--line);padding:10px;background:var(--panel)}summary{cursor:pointer;color:var(--muted)}
+@media(max-width:800px){.layout{display:block;padding:16px}.sidebar{position:relative;top:auto;max-height:none;margin-bottom:16px}.summary{grid-template-columns:repeat(2,1fr)}table{display:block;overflow:auto;white-space:nowrap}}
+</style></head><body data-api-base=""><div class="layout"><aside class="sidebar"><div class="side-title">Theophysics_Lineage_2026-08-10</div><a href="#overview">Overview</a><a href="#semantic">Semantic capsule</a><a href="#health">Health</a><a href="#files">Files</a><a href="#folders">Folders</a><a href="#relationships">Relationships</a><a href="#scores">Signals</a><a href="#context">Audit context</a><div class="side-label">Navigate</div><a class="child" href="../FIS.html">&#8593; Cannon</a><div class="side-label">Child folders</div><a class="child" href="sidecars/FIS.html">sidecars</a><a class="child" href="tree/FIS.html">tree</a><div class="side-label">Record</div><a href="#context">Machine context</a></aside><main id="overview">
+<nav class="crumbs"><a href="../FIS.html">&#8593; Cannon</a><span>/</span>Theophysics_Lineage_2026-08-10</nav>
+<div class="eyebrow">FIS FOLDER BRAIN v2.1 / RECURSIVE SEMANTIC VIEW</div><h1>Theophysics_Lineage_2026-08-10</h1>
+<div class="identity"><code>TH__DOC__GN__20260824__AC</code><span>domain TH=theophysics | type DOC | tags GN=general | date 20260824 | status AC | lossless MEQ__Theophysics_Lineage_2026_08_10__2026-08-24</span></div>
+<div class="identity" style="margin-top:4px"><code style="color:var(--accent2);font-size:13px">G0 M0 E2 S0 T1 K3 R1 Q2 F1 C2 :: [G.C] [M.F] [E.Q] [S.R] [T.K]</code><span style="color:var(--muted);font-size:11px">Folder MEQ aggregate (avg CHI across 3 files)</span></div>
+<p><span class="unresolved">UNRESOLVED</span></p>
+<div class="summary"><div class="metric"><b>Lossless Address</b><code>MEQ__Theophysics_Lineage_2026_08_10__2026-08-24</code></div><div class="metric"><b>Contents</b>chi: 1 | fmeta: 1 | md: 1</div><div class="metric"><b>State</b>active / 3 files</div><div class="metric"><b>Scan</b><code>2026-09-03T04:35:42+00:00</code></div></div>
+<section id="semantic"><h2>Semantic Capsule</h2><div class="capsule"><p>Mixed folder holding 3 file(s) (55,957 bytes) and 2 child folder(s). Dominant signal K / Knowledge; domain theology.</p></div></section>
+<section id="health"><h2>Health</h2><ul class="health-list"><li class="warn">Purpose<code>UNRESOLVED</code></li><li class="warn">Owner<code>UNRESOLVED</code></li><li class="warn">Canonical source<code>not set</code></li><li class="warn">Unclassified files<code>3 of 3</code></li><li class="warn">Presentation coverage<code>0 of 3</code></li></ul></section>
+<details id="context" style="margin-top:28px"><summary>Machine context and audit fields</summary><pre>{
+  &quot;folder_id&quot;: &quot;FLD-1819442966b8&quot;,
+  &quot;path&quot;: &quot;\\\\192.168.2.50\\h_hp\\Desktop\\Cannon\\Theophysics_Lineage_2026-08-10&quot;,
+  &quot;name&quot;: &quot;Theophysics_Lineage_2026-08-10&quot;,
+  &quot;folder_type&quot;: &quot;mixed&quot;,
+  &quot;purpose&quot;: &quot;UNRESOLVED&quot;,
+  &quot;domain&quot;: &quot;unclassified&quot;,
+  &quot;series_name&quot;: null,
+  &quot;chain_steps&quot;: &quot;[]&quot;,
+  &quot;status&quot;: &quot;active&quot;,
+  &quot;owner&quot;: &quot;UNRESOLVED&quot;,
+  &quot;canonical_source&quot;: 0,
+  &quot;parent_backbone&quot;: null,
+  &quot;file_count&quot;: 3,
+  &quot;child_folder_count&quot;: 2,
+  &quot;created_at&quot;: &quot;2026-08-09T21:46:27+00:00&quot;,
+  &quot;last_scanned&quot;: &quot;2026-09-03T04:35:42+00:00&quot;,
+  &quot;notes&quot;: &quot;&quot;,
+  &quot;compressed_name&quot;: &quot;TH__DOC__GN__20260824__AC&quot;,
+  &quot;compressed_name_detail&quot;: &quot;{\&quot;code\&quot;: \&quot;TH__DOC__GN__20260824__AC\&quot;, \&quot;domain\&quot;: \&quot;TH\&quot;, \&quot;domain_meaning\&quot;: \&quot;theophysics\&quot;, \&quot;ct\&quot;: \&quot;DOC\&quot;, \&quot;tags\&quot;: [], \&quot;date\&quot;: \&quot;20260824\&quot;, \&quot;status\&quot;: \&quot;AC\&quot;, \&quot;tag_meanings\&quot;: {}}&quot;,
+  &quot;lossless_address&quot;: &quot;MEQ__Theophysics_Lineage_2026_08_10__2026-08-24&quot;,
+  &quot;lossless_address_detail&quot;: &quot;{\&quot;address\&quot;: \&quot;MEQ__Theophysics_Lineage_2026_08_10__2026-08-24\&quot;, \&quot;mode\&quot;: \&quot;meq\&quot;, \&quot;source_date\&quot;: \&quot;2026-08-24\&quot;, \&quot;basis\&quot;: \&quot;title_and_local_content_sample\&quot;, \&quot;trigger\&quot;: \&quot;master-equation\&quot;}&quot;
+}</pre></details>
+<h2 id="files">Files Here</h2><div class="file-controls"><input id="file-search" type="search" placeholder="Find by name, address, type, or keyword" aria-label="Filter files"><button id="toggle-files" type="button">Open all</button></div><div class="file-head"><span>File</span><span>MEQ Vector</span><span>Format</span><span>Role</span><span>Keywords</span><span>Lossless</span><span>Open</span></div><div id="file-rows" class="file-list"><details id="FIL-f2205433c625" class="file-block" data-search=".folder.fmeta unscored loss__folder__2026-08-24 unresolved 46b4f2c96deeea12329057f07fb5a97695418c73d6887bf1b8900d671b3b9bdd \\192.168.2.50\h_hp\desktop\cannon\theophysics_lineage_2026-08-10\.folder.fmeta other / fmeta plain unknown, unclassified_file, folder unknown (0/3) none / unclassified none none (0/3) unclassified_file 0.0/100  unclassified 2026-08-24t18:14:42+00:00 2026-09-03t04:35:42+00:00 771 bytes "><summary><span class="file-name">.folder.fmeta</span><code class="meq-tag" style="font-size:10px;color:#f1d37a"></code><span>fmeta</span><span>other</span><span>unknown, unclassified_file, folder</span><span class="lossless-btn" style="color:#d1a922;cursor:pointer;font-size:11px" title="LOSS__folder__2026-08-24">◆ lossless</span><a class="source-link" href=".folder.fmeta">source</a></summary><div class="machine"><table><tbody><tr><th>Open source location</th><td><a href=".folder.fmeta">\\192.168.2.50\h_hp\Desktop\Cannon\Theophysics_Lineage_2026-08-10\.folder.fmeta</a></td></tr><tr><th>MEQ Name</th><td><code>UNSCORED</code></td></tr><tr><th>Internal address</th><td><code>LOSS__folder__2026-08-24</code></td></tr><tr><th>Proposed compressed name</th><td><code>UNRESOLVED</code></td></tr><tr><th>SHA-256</th><td><code>46b4f2c96deeea12329057f07fb5a97695418c73d6887bf1b8900d671b3b9bdd</code></td></tr><tr><th>Source path</th><td><code>\\192.168.2.50\h_hp\Desktop\Cannon\Theophysics_Lineage_2026-08-10\.folder.fmeta</code></td></tr><tr><th>Type / format</th><td><code>other / fmeta</code></td></tr><tr><th>Presentation</th><td><code>plain</code></td></tr><tr><th>Keywords</th><td><code>unknown, unclassified_file, folder</code></td></tr><tr><th>Domain signal</th><td><code>unknown (0/3)</code></td></tr><tr><th>Dominant CHI</th><td><code>none / unclassified</code></td></tr><tr><th>CHI vector</th><td><code>none</code></td></tr><tr><th>Law signal</th><td><code>none (0/3)</code></td></tr><tr><th>Content role</th><td><code>unclassified_file</code></td></tr><tr><th>Evidence density</th><td><code>0.0/100</code></td></tr><tr><th>Confidence</th><td><code>UNRESOLVED</code></td></tr><tr><th>Status</th><td><code>unclassified</code></td></tr><tr><th>Last modified</th><td><code>2026-08-24T18:14:42+00:00</code></td></tr><tr><th>Last scanned</th><td><code>2026-09-03T04:35:42+00:00</code></td></tr><tr><th>Size</th><td><code>771 bytes</code></td></tr></tbody></table></div></details><details id="FIL-336334d31826" class="file-block" data-search="fis_folder_diagnosis.chi unscored loss__fis_folder_diagnosis__2026-08-24 unresolved 1a5e96562d15eeedd1c03ba330cce2d1a6e2ee687b265e271137284ade070748 \\192.168.2.50\h_hp\desktop\cannon\theophysics_lineage_2026-08-10\fis_folder_diagnosis.chi other / chi plain unknown, unclassified_file, folder, diagnosis unknown (0/3) none / unclassified none none (0/3) unclassified_file 0.0/100  unclassified 2026-08-24t18:14:43+00:00 2026-09-03t04:35:42+00:00 750 bytes "><summary><span class="file-name">FIS_FOLDER_DIAGNOSIS.chi</span><code class="meq-tag" style="font-size:10px;color:#f1d37a"></code><span>chi</span><span>other</span><span>unknown, unclassified_file, folder, diagnosis</span><span class="lossless-btn" style="color:#d1a922;cursor:pointer;font-size:11px" title="LOSS__FIS_FOLDER_DIAGNOSIS__2026-08-24">◆ lossless</span><a class="source-link" href="FIS_FOLDER_DIAGNOSIS.chi">source</a></summary><div class="machine"><table><tbody><tr><th>Open source location</th><td><a href="FIS_FOLDER_DIAGNOSIS.chi">\\192.168.2.50\h_hp\Desktop\Cannon\Theophysics_Lineage_2026-08-10\FIS_FOLDER_DIAGNOSIS.chi</a></td></tr><tr><th>MEQ Name</th><td><code>UNSCORED</code></td></tr><tr><th>Internal address</th><td><code>LOSS__FIS_FOLDER_DIAGNOSIS__2026-08-24</code></td></tr><tr><th>Proposed compressed name</th><td><code>UNRESOLVED</code></td></tr><tr><th>SHA-256</th><td><code>1a5e96562d15eeedd1c03ba330cce2d1a6e2ee687b265e271137284ade070748</code></td></tr><tr><th>Source path</th><td><code>\\192.168.2.50\h_hp\Desktop\Cannon\Theophysics_Lineage_2026-08-10\FIS_FOLDER_DIAGNOSIS.chi</code></td></tr><tr><th>Type / format</th><td><code>other / chi</code></td></tr><tr><th>Presentation</th><td><code>plain</code></td></tr><tr><th>Keywords</th><td><code>unknown, unclassified_file, folder, diagnosis</code></td></tr><tr><th>Domain signal</th><td><code>unknown (0/3)</code></td></tr><tr><th>Dominant CHI</th><td><code>none / unclassified</code></td></tr><tr><th>CHI vector</th><td><code>none</code></td></tr><tr><th>Law signal</th><td><code>none (0/3)</code></td></tr><tr><th>Content role</th><td><code>unclassified_file</code></td></tr><tr><th>Evidence density</th><td><code>0.0/100</code></td></tr><tr><th>Confidence</th><td><code>UNRESOLVED</code></td></tr><tr><th>Status</th><td><code>unclassified</code></td></tr><tr><th>Last modified</th><td><code>2026-08-24T18:14:43+00:00</code></td></tr><tr><th>Last scanned</th><td><code>2026-09-03T04:35:42+00:00</code></td></tr><tr><th>Size</th><td><code>750 bytes</code></td></tr></tbody></table></div></details><details id="FIL-a6dd2ed35a18" class="file-block" data-search="lineage_atlas.md g0 m0 e2 s0 t1 k3 r1 q2 f1 c2 :: [g.c] [m.f] [e.q] [s.r] [t.k] meq__lineage_atlas__2026-08-09 th__not__coh-mrl-fth__20260809__ac.md 1f93738de05ae2d0c58f8a17296df52fa58da3a479ce892a3ce91930acf16e2e \\192.168.2.50\h_hp\desktop\cannon\theophysics_lineage_2026-08-10\lineage_atlas.md article / md plain theology, k, knowledge, l06, note, knowledge_text, e, truth signal, t, time kairos, knowledge logos, r, relational frame, q, quantum uncertainty, f, faith fruit, c, christ coherence, sheet theology (3/3) k / knowledge e:2, t:1, k:3, r:1, q:2, f:1, c:2 l06 (2/3) knowledge_text 37.5/100 0.612 unclassified 2026-08-09t21:46:28+00:00 2026-09-03t04:35:43+00:00 54436 bytes g0 m0 e2 s0 t1 k3 r1 q2 f1 c2 :: [g.c] [m.f] [e.q] [s.r] [t.k]"><summary><span class="file-name">LINEAGE_ATLAS.md</span><code class="meq-tag" style="font-size:10px;color:#f1d37a">E2 T1 K3 R1 Q2 F1 C2 :: [G.C] [M.F] [E.Q] [S.R] [T.K]</code><span>md</span><span>article</span><span>theology, K, Knowledge, L06, note, knowledge_text</span><span class="lossless-btn" style="color:#d1a922;cursor:pointer;font-size:11px" title="MEQ__LINEAGE_ATLAS__2026-08-09">◆ lossless</span><a class="source-link" href="LINEAGE_ATLAS.md">source</a></summary><div class="machine"><table><tbody><tr><th>Open source location</th><td><a href="LINEAGE_ATLAS.md">\\192.168.2.50\h_hp\Desktop\Cannon\Theophysics_Lineage_2026-08-10\LINEAGE_ATLAS.md</a></td></tr><tr><th>MEQ Name</th><td><code>G0 M0 E2 S0 T1 K3 R1 Q2 F1 C2 :: [G.C] [M.F] [E.Q] [S.R] [T.K]</code></td></tr><tr><th>Internal address</th><td><code>MEQ__LINEAGE_ATLAS__2026-08-09</code></td></tr><tr><th>Proposed compressed name</th><td><code>TH__NOT__COH-MRL-FTH__20260809__AC.md</code></td></tr><tr><th>SHA-256</th><td><code>1f93738de05ae2d0c58f8a17296df52fa58da3a479ce892a3ce91930acf16e2e</code></td></tr><tr><th>Source path</th><td><code>\\192.168.2.50\h_hp\Desktop\Cannon\Theophysics_Lineage_2026-08-10\LINEAGE_ATLAS.md</code></td></tr><tr><th>Type / format</th><td><code>article / md</code></td></tr><tr><th>Presentation</th><td><code>plain</code></td></tr><tr><th>Keywords</th><td><code>theology, K, Knowledge, L06, note, knowledge_text, E, truth signal, T, time kairos, knowledge logos, R, relational frame, Q, quantum uncertainty, F, faith fruit, C, christ coherence, sheet</code></td></tr><tr><th>Domain signal</th><td><code>theology (3/3)</code></td></tr><tr><th>Dominant CHI</th><td><code>K / Knowledge</code></td></tr><tr><th>CHI vector</th><td><code>E:2, T:1, K:3, R:1, Q:2, F:1, C:2</code></td></tr><tr><th>Law signal</th><td><code>L06 (2/3)</code></td></tr><tr><th>Content role</th><td><code>knowledge_text</code></td></tr><tr><th>Evidence density</th><td><code>37.5/100</code></td></tr><tr><th>Confidence</th><td><code>0.612</code></td></tr><tr><th>Status</th><td><code>unclassified</code></td></tr><tr><th>Last modified</th><td><code>2026-08-09T21:46:28+00:00</code></td></tr><tr><th>Last scanned</th><td><code>2026-09-03T04:35:43+00:00</code></td></tr><tr><th>Size</th><td><code>54436 bytes</code></td></tr></tbody></table></div></details></div>
+<h2 id="folders">Child Folders</h2><table><thead><tr><th>Folder</th><th>Type</th><th>Files</th><th>Address</th><th>View</th></tr></thead><tbody><tr><td>sidecars</td><td>mixed</td><td>53</td><td><code>MEQ__sidecars__2026-08-24</code></td><td><a href="sidecars/FIS.html">open</a></td></tr><tr><td>tree</td><td>mixed</td><td>2</td><td><code>LOSS__tree__2026-08-24</code></td><td><a href="tree/FIS.html">open</a></td></tr></tbody></table><section id="relationships"><h2>Semantic Network</h2><p class="section-note">Connections based on shared keywords, CHI variables, domain, and law signals. Files sharing 2+ tags are linked.</p><div class="badges" style="margin:8px 0"><span class="badge">unclassified_file (2)</span> <span class="badge">unknown (2)</span> <span class="badge">folder (2)</span></div><table class="signal-table"><thead><tr><th>File A</th><th>File B</th><th>Shared</th><th>Via</th></tr></thead><tbody><tr><td><a href="#FIL-336334d31826">FIS_FOLDER_DIAGNOSIS.chi</a></td><td><a href="#FIL-f2205433c625">.folder.fmeta</a></td><td>3</td><td>unclassified_file, unknown, folder</td></tr></tbody></table></section><section id="scores"><h2>Folder Signals</h2><p class="muted">Open a block to see the calculation evidence; file links jump to the inline machine block above.</p><div class="score-grid"><details class="score-tile"><summary><strong>34</strong><span>Folder signal</span></summary><p>Composite navigation signal; not truth, quality, or canon status.</p><ul><li><a href="#FIL-a6dd2ed35a18">LINEAGE_ATLAS.md</a> <code>46/100</code></li><li><a href="#FIL-f2205433c625">.folder.fmeta</a> <code>35/100</code></li><li><a href="#FIL-336334d31826">FIS_FOLDER_DIAGNOSIS.chi</a> <code>35/100</code></li></ul></details><details class="score-tile"><summary><strong>47</strong><span>Activity</span></summary><p>3 files modified in the last 30 days; 2 observed modification days.</p><ul><li><a href="#FIL-336334d31826">FIS_FOLDER_DIAGNOSIS.chi</a> <code>35/100</code></li><li><a href="#FIL-f2205433c625">.folder.fmeta</a> <code>35/100</code></li><li><a href="#FIL-a6dd2ed35a18">LINEAGE_ATLAS.md</a> <code>46/100</code></li></ul></details><details class="score-tile"><summary><strong>18</strong><span>Depth</span></summary><p>3 direct source files and 55,957 source bytes.</p><ul><li><a href="#FIL-a6dd2ed35a18">LINEAGE_ATLAS.md</a> <code>46/100</code></li><li><a href="#FIL-f2205433c625">.folder.fmeta</a> <code>35/100</code></li><li><a href="#FIL-336334d31826">FIS_FOLDER_DIAGNOSIS.chi</a> <code>35/100</code></li></ul></details><details class="score-tile"><summary><strong>0</strong><span>Explicit links</span></summary><p>Counts visible Markdown/wiki/HTML link syntax only; it does not infer semantic relationships.</p><ul><li><a href="#FIL-f2205433c625">.folder.fmeta</a> <code>35/100</code></li><li><a href="#FIL-336334d31826">FIS_FOLDER_DIAGNOSIS.chi</a> <code>35/100</code></li><li><a href="#FIL-a6dd2ed35a18">LINEAGE_ATLAS.md</a> <code>46/100</code></li></ul></details><details class="score-tile"><summary><strong>0</strong><span>Presentation</span></summary><p>Topbar, audio, equations, and claim-marker coverage in directly stored HTML files.</p><ul><li><a href="#FIL-f2205433c625">.folder.fmeta</a> <code>35/100</code></li><li><a href="#FIL-336334d31826">FIS_FOLDER_DIAGNOSIS.chi</a> <code>35/100</code></li><li><a href="#FIL-a6dd2ed35a18">LINEAGE_ATLAS.md</a> <code>46/100</code></li></ul></details><details class="score-tile"><summary><strong>100</strong><span>Registry</span></summary><p>Files with both a SHA-256 content fingerprint and lossless internal address.</p><ul><li><a href="#FIL-f2205433c625">.folder.fmeta</a> <code>35/100</code></li><li><a href="#FIL-336334d31826">FIS_FOLDER_DIAGNOSIS.chi</a> <code>35/100</code></li><li><a href="#FIL-a6dd2ed35a18">LINEAGE_ATLAS.md</a> <code>46/100</code></li></ul></details></div></section>
+<p class="muted" style="margin-top:24px">Generated from the FIS registry. Source files remain in place; this page is an index, not a replacement.</p>
+</main></div>
+<script type="application/json" id="fis-folder-record">
+{
+  "schema": "fis.folder/2.1",
+  "folder": {
+    "folder_id": "FLD-1819442966b8",
+    "path": "\\\\192.168.2.50\\h_hp\\Desktop\\Cannon\\Theophysics_Lineage_2026-08-10",
+    "name": "Theophysics_Lineage_2026-08-10",
+    "folder_type": "mixed",
+    "purpose": "UNRESOLVED",
+    "domain": "unclassified",
+    "status": "active",
+    "owner": "UNRESOLVED",
+    "canonical_source": 0,
+    "file_count": 3,
+    "child_folder_count": 2,
+    "created_at": "2026-08-09T21:46:27+00:00",
+    "last_scanned": "2026-09-03T04:35:42+00:00",
+    "compressed_name": "TH__DOC__GN__20260824__AC",
+    "compressed_name_detail": {
+      "code": "TH__DOC__GN__20260824__AC",
+      "domain": "TH",
+      "domain_meaning": "theophysics",
+      "ct": "DOC",
+      "tags": [],
+      "date": "20260824",
+      "status": "AC",
+      "tag_meanings": {}
+    },
+    "lossless_address": "MEQ__Theophysics_Lineage_2026_08_10__2026-08-24",
+    "lossless_address_detail": {
+      "address": "MEQ__Theophysics_Lineage_2026_08_10__2026-08-24",
+      "mode": "meq",
+      "source_date": "2026-08-24",
+      "basis": "title_and_local_content_sample",
+      "trigger": "master-equation"
+    },
+    "meq_aggregate": "G0 M0 E2 S0 T1 K3 R1 Q2 F1 C2 :: [G.C] [M.F] [E.Q] [S.R] [T.K]"
+  },
+  "files": [
+    {
+      "file_id": "FIL-f2205433c625",
+      "name": ".folder.fmeta",
+      "source_path": "\\\\192.168.2.50\\h_hp\\Desktop\\Cannon\\Theophysics_Lineage_2026-08-10\\.folder.fmeta",
+      "meq_name": "",
+      "internal_address": "LOSS__folder__2026-08-24",
+      "proposed_compressed_name": null,
+      "sha256": "46b4f2c96deeea12329057f07fb5a97695418c73d6887bf1b8900d671b3b9bdd",
+      "type": "other",
+      "format": "fmeta",
+      "keywords": [
+        "unknown",
+        "unclassified_file",
+        "folder"
+      ],
+      "domain_signal": "unknown (0/3)",
+      "dominant_chi": "none / unclassified",
+      "chi_vector": {},
+      "law_signal": "none (0/3)",
+      "content_role": "unclassified_file",
+      "evidence_density": 0.0,
+      "confidence": 0.0,
+      "status": "unclassified",
+      "last_modified": "2026-08-24T18:14:42+00:00",
+      "last_scanned": "2026-09-03T04:35:42+00:00",
+      "size_bytes": 771
+    },
+    {
+      "file_id": "FIL-336334d31826",
+      "name": "FIS_FOLDER_DIAGNOSIS.chi",
+      "source_path": "\\\\192.168.2.50\\h_hp\\Desktop\\Cannon\\Theophysics_Lineage_2026-08-10\\FIS_FOLDER_DIAGNOSIS.chi",
+      "meq_name": "",
+      "internal_address": "LOSS__FIS_FOLDER_DIAGNOSIS__2026-08-24",
+      "proposed_compressed_name": null,
+      "sha256": "1a5e96562d15eeedd1c03ba330cce2d1a6e2ee687b265e271137284ade070748",
+      "type": "other",
+      "format": "chi",
+      "keywords": [
+        "unknown",
+        "unclassified_file",
+        "folder",
+        "diagnosis"
+      ],
+      "domain_signal": "unknown (0/3)",
+      "dominant_chi": "none / unclassified",
+      "chi_vector": {},
+      "law_signal": "none (0/3)",
+      "content_role": "unclassified_file",
+      "evidence_density": 0.0,
+      "confidence": 0.0,
+      "status": "unclassified",
+      "last_modified": "2026-08-24T18:14:43+00:00",
+      "last_scanned": "2026-09-03T04:35:42+00:00",
+      "size_bytes": 750
+    },
+    {
+      "file_id": "FIL-a6dd2ed35a18",
+      "name": "LINEAGE_ATLAS.md",
+      "source_path": "\\\\192.168.2.50\\h_hp\\Desktop\\Cannon\\Theophysics_Lineage_2026-08-10\\LINEAGE_ATLAS.md",
+      "meq_name": "G0 M0 E2 S0 T1 K3 R1 Q2 F1 C2 :: [G.C] [M.F] [E.Q] [S.R] [T.K]",
+      "internal_address": "MEQ__LINEAGE_ATLAS__2026-08-09",
+      "proposed_compressed_name": "TH__NOT__COH-MRL-FTH__20260809__AC.md",
+      "sha256": "1f93738de05ae2d0c58f8a17296df52fa58da3a479ce892a3ce91930acf16e2e",
+      "type": "article",
+      "format": "md",
+      "keywords": [
+        "theology",
+        "K",
+        "Knowledge",
+        "L06",
+        "note",
+        "knowledge_text",
+        "E",
+        "truth signal",
+        "T",
+        "time kairos",
+        "knowledge logos",
+        "R",
+        "relational frame",
+        "Q",
+        "quantum uncertainty",
+        "F",
+        "faith fruit",
+        "C",
+        "christ coherence",
+        "sheet"
+      ],
+      "domain_signal": "theology (3/3)",
+      "dominant_chi": "K / Knowledge",
+      "chi_vector": {
+        "E": 2,
+        "T": 1,
+        "K": 3,
+        "R": 1,
+        "Q": 2,
+        "F": 1,
+        "C": 2
+      },
+      "law_signal": "L06 (2/3)",
+      "content_role": "knowledge_text",
+      "evidence_density": 37.5,
+      "confidence": 0.612,
+      "status": "unclassified",
+      "last_modified": "2026-08-09T21:46:28+00:00",
+      "last_scanned": "2026-09-03T04:35:43+00:00",
+      "size_bytes": 54436
+    }
+  ],
+  "child_folders": [
+    {
+      "name": "sidecars",
+      "type": "mixed",
+      "file_count": 53
+    },
+    {
+      "name": "tree",
+      "type": "mixed",
+      "file_count": 2
+    }
+  ],
+  "signals": {
+    "folder_signal": 34,
+    "activity": 47,
+    "depth": 18,
+    "explicit_links": 0,
+    "presentation": 0,
+    "registry": 100
+  }
+}
+</script>
+<script>
+const q=document.getElementById('file-search');const blocks=[...document.querySelectorAll('.file-block')];q?.addEventListener('input',()=>{const v=q.value.toLowerCase();blocks.forEach(b=>b.hidden=!(b.dataset.search+' '+b.innerText.toLowerCase()).includes(v));});const toggle=document.getElementById('toggle-files');toggle?.addEventListener('click',()=>{const visible=blocks.filter(b=>!b.hidden);const openSome=visible.some(b=>!b.open);visible.forEach(b=>b.open=openSome);toggle.textContent=openSome?'Close all':'Open all';});document.querySelectorAll('.source-link').forEach(a=>a.addEventListener('click',e=>e.stopPropagation()));
+document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',()=>{navigator.clipboard?.writeText(b.dataset.copy);b.textContent='Copied';setTimeout(()=>b.textContent=b.dataset.copy.startsWith('MEQ')?'Copy address':'Copy SHA-256',900);}));
+document.querySelectorAll('[data-action]').forEach(b=>b.addEventListener('click',()=>{const payload={file_id:b.dataset.fileId,target:b.dataset.target||null,folder:document.querySelector('h1').textContent};if(window.FIS_API?.run){window.FIS_API.run(b.dataset.action,payload);}else{b.textContent='API not connected';setTimeout(()=>b.textContent=b.dataset.action==='apply-name'?'Apply proposed name':'Mark reviewed',1100);}}))</script></body></html>

@@ -1,0 +1,61 @@
+{
+  "schema": "fis.scan-report.v0.1",
+  "mode": "READ_ONLY",
+  "root": "\\\\?\\D:\\GitHub\\FIS-Kernel-Rust",
+  "files": [
+    {
+      "path": "\\\\?\\D:\\GitHub\\FIS-Kernel-Rust\\Cargo.lock",
+      "relative_path": "Cargo.lock",
+      "parent": "\\\\?\\D:\\GitHub\\FIS-Kernel-Rust",
+      "extension": "lock",
+      "size_bytes": 11319,
+      "modified_unix": 1788085453,
+      "blake3": "f153ae06344c535f7d2e8a740d055c42842fa73435b8c1b8fea90284a30b2849"
+    },
+    {
+      "path": "\\\\?\\D:\\GitHub\\FIS-Kernel-Rust\\Cargo.toml",
+      "relative_path": "Cargo.toml",
+      "parent": "\\\\?\\D:\\GitHub\\FIS-Kernel-Rust",
+      "extension": "toml",
+      "size_bytes": 358,
+      "modified_unix": 1788085431,
+      "blake3": "9541ba1370d59bccebb8f5a5c9a4b1c3128f95903b924d31fb906b8b18ba6264"
+    },
+    {
+      "path": "\\\\?\\D:\\GitHub\\FIS-Kernel-Rust\\README.md",
+      "relative_path": "README.md",
+      "parent": "\\\\?\\D:\\GitHub\\FIS-Kernel-Rust",
+      "extension": "md",
+      "size_bytes": 997,
+      "modified_unix": 1788085431,
+      "blake3": "58d71919f48c4da8a4dcede52c41cdc61380c2f69d43c6ce524837c5597dfd28"
+    },
+    {
+      "path": "\\\\?\\D:\\GitHub\\FIS-Kernel-Rust\\src\\lib.rs",
+      "relative_path": "src\\lib.rs",
+      "parent": "\\\\?\\D:\\GitHub\\FIS-Kernel-Rust\\src",
+      "extension": "rs",
+      "size_bytes": 10160,
+      "modified_unix": 1788085502,
+      "blake3": "52d1504792ac5afb4299132070b9dca1a862a155bbd423ec82a9efeca9173e59"
+    },
+    {
+      "path": "\\\\?\\D:\\GitHub\\FIS-Kernel-Rust\\src\\main.rs",
+      "relative_path": "src\\main.rs",
+      "parent": "\\\\?\\D:\\GitHub\\FIS-Kernel-Rust\\src",
+      "extension": "rs",
+      "size_bytes": 1957,
+      "modified_unix": 1788085502,
+      "blake3": "29630f86d0961cbad04132e7774a196e245e109c92e4c584b7a03f04586cbfbe"
+    }
+  ],
+  "symptoms": [
+    {
+      "id": "I01",
+      "severity": "critical",
+      "path": "\\\\?\\D:\\GitHub\\FIS-Kernel-Rust",
+      "evidence": "program-root markers: Cargo.toml"
+    }
+  ],
+  "errors": []
+}

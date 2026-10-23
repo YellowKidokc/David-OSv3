@@ -4,3 +4,7 @@
 __pycache__/
 00_SHARED/data/blind_test_with_papers.json
 03_RENAMING/data/
+.venv/
+02_CLASSIFICATION/data/*.db
+02_CLASSIFICATION/data/*.db-wal
+02_CLASSIFICATION/data/*.db-shm

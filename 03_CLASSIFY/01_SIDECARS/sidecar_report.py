@@ -18,7 +18,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent / "00_SHARED"))   # taxonomy_validator
-sys.path.insert(0, os.environ.get("PREDICTION_GUI", r"D:\GitHub\Prediction_GUI"))
+sys.path.insert(0, os.environ.get("PREDICTION_GUI", str(HERE.parent / "02_CLASSIFICATION")))  # harness
 
 from taxonomy_validator import validate_sidecar_card            # noqa: E402
 from harness.adapters.sidecars import parse_card                # noqa: E402

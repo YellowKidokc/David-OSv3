@@ -32,6 +32,8 @@ class ApiTokenMiddleware(BaseHTTPMiddleware):
     """
 
     async def dispatch(self, request: Request, call_next):  # type: ignore[no-untyped-def]
+        if os.environ.get('FIHUB_SEARCH_ONLY') == '1' and request.url.path not in {'/search/health', '/search/exact', '/search/locations'}:
+            return JSONResponse(status_code=403, content={'detail': 'This launcher enables file search only'})
         token = os.environ.get("FIHUB_API_TOKEN")
         if not is_authorized(request.url.path, request.headers, token):
             return JSONResponse(

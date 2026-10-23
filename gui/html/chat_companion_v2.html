@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en" data-fis-schema="3.0">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="FIS chat-companion viewer v2.0">
+<title>FIS Chat Companion</title>
+<style>
+/* Design tokens lifted verbatim from FIS_REFERENCE_v2.1.0 / fis_vault_intelligence_v3 */
+:root{color-scheme:dark;--bg:#060708;--panel:#0c0f14;--panel2:#090b0f;--line:#222a35;--text:#e7edf5;--muted:#8b97a7;--accent:#d1a922;--accent2:#f1d37a;--link:#6ea8e8;--red:#b0413e;--green:#5f9e6a;--blue:#4a7fb5;--purple:#9b7bd1}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 system-ui,sans-serif}
+.layout{max-width:1500px;margin:auto;display:grid;grid-template-columns:230px minmax(0,1fr);gap:24px;padding:28px}
+main{min-width:0}
+h1{font:600 34px Georgia,serif;margin:5px 0 8px}
+h2{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin:28px 0 10px}
+h3{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin:16px 0 6px}
+.eyebrow,code{font-family:ui-monospace,Consolas,monospace}
+.eyebrow{color:var(--accent);font-size:12px;letter-spacing:1px}
+.muted{color:var(--muted)}
+.identity{border-left:3px solid var(--accent);padding:8px 0 8px 12px;margin:8px 0 14px;background:linear-gradient(90deg,rgba(209,169,34,.08),transparent)}
+.identity code{display:block;font-size:15px;color:var(--accent2);margin-bottom:4px;word-break:break-all}
+.identity span{display:block;color:var(--muted);font-size:12px}
+nav{border-right:1px solid var(--line);padding-right:16px}
+nav a{display:block;color:var(--muted);text-decoration:none;padding:5px 0;font-size:13px;cursor:pointer}
+nav a:hover,nav a.on{color:var(--accent2)}
+nav .navgroup{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin:18px 0 6px}
+.panel{border:1px solid var(--line);background:var(--panel);padding:14px;margin-bottom:14px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+table{width:100%;border-collapse:collapse;background:var(--panel)}
+th,td{border:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px}
+tr:hover td{background:#10141b}
+a{color:var(--link);text-decoration:none;cursor:pointer}a:hover{text-decoration:underline}
+.badge{display:inline-block;border:1px solid var(--line);padding:1px 7px;border-radius:3px;font:11px ui-monospace,monospace;margin:1px 2px;white-space:nowrap}
+.badge.admitted{border-color:var(--green);color:var(--green)}
+.badge.formal{border-color:#7ba05b;color:#7ba05b}
+.badge.grounded{border-color:var(--accent);color:var(--accent2)}
+.badge.asserted{border-color:#b5854a;color:#b5854a}
+.badge.unsupported{border-color:var(--red);color:var(--red)}
+.badge.blocked{border-color:var(--red);color:#ffb3b1}
+.badge.retract{border-color:var(--red);color:#fff;background:var(--red)}
+.badge.gate{border-color:var(--purple);color:#c3aae8}
+.chip{display:inline-block;border:1px solid var(--line);padding:4px 9px;border-radius:3px;font:12px ui-monospace,monospace;cursor:pointer;margin:2px}
+.chip.on{border-color:var(--accent);color:var(--accent2);background:rgba(209,169,34,.08)}
+.kv{display:grid;grid-template-columns:180px 1fr;gap:4px 10px;font-size:13px}
+.kv b{color:var(--muted);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:1px;padding-top:2px}
+details{border:1px solid var(--line);background:var(--panel2);margin:6px 0;padding:8px 10px}
+summary{cursor:pointer;color:var(--accent2);font-size:13px}
+blockquote{border-left:2px solid var(--line);margin:6px 0;padding:2px 0 2px 10px;color:var(--muted);font-size:12.5px}
+.vecbar{height:5px;background:#1a222d;margin-top:3px}.vecbar i{display:block;height:100%;background:var(--accent)}
+.null{color:#55606e;font-style:italic}
+input[type=search]{padding:8px 10px;border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:3px;min-width:240px}
+button{border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:7px 12px;border-radius:3px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+footer{margin:26px 0 8px;color:var(--muted);font-size:12px;border-top:1px solid var(--line);padding-top:12px}
+@media(max-width:900px){.layout{grid-template-columns:1fr}nav{border-right:none;border-bottom:1px solid var(--line);padding:0 0 12px}.cols,.cols3{grid-template-columns:1fr}table{display:block;overflow:auto}}
+</style></head><body>
+<div class="layout">
+<nav>
+  <div class="eyebrow">FIS</div>
+  <div class="navgroup">Views</div>
+  <a class="on" data-view="collection">Collection</a>
+  <a data-view="outcomes">Outcomes</a>
+  <a data-view="queue">Work queue</a>
+  <div class="navgroup">Companion</div>
+  <a data-view="companion">Selected chat</a>
+  <div class="navgroup">Data</div>
+  <a id="loadbtn">Load records.json…</a>
+  <input type="file" id="file" accept=".json" style="display:none">
+  <div class="muted" style="font-size:11px;margin-top:10px" id="count"></div>
+</nav>
+<main>
+  <div class="eyebrow">FIS CHAT COMPANION v2.0</div>
+  <h1 id="pagetitle">Chat Companion</h1>
+  <div class="muted" id="datasrc">SAMPLE DATA — load <code>records.json</code> emitted by the chat_companion_v1 validator.</div>
+  <div style="margin:14px 0"><input type="search" id="q" placeholder="Filter: title, topic, project, finding type…"></div>
+  <div id="view"></div>
+  <footer>
+    Originals are truth · JSON records are derived · this page is a view of a view ·
+    outcomes are <b>computed</b>, never proposed by a model · human ruling required for admission
+  </footer>
+</main>
+</div>
+<script>
+/* ===================== DATA CONTRACT =====================
+records.json — emitted by chat_companion_validator.py after all nine gates pass.
+{ "generated_at","source",
+  "chats":[{
+    "chat_id","title","paper_uuid",
+    "classification":{projects[],domains[],topic_keys[],conversation_types[],output_types[],
+                      passing_mentions[],summary,why_open},
+    "status":{review_status,framework_status,formal_status,placement_confidence},
+    "segments":[{segment_id,message_start,message_end,topic_keys[],label}],
+    "findings":[{finding_id,finding_type,statement,sources[{message_index,speaker,authorship,quote}],
+                 question{...},grounding{...},objection{...},...}],
+    "resume_here":{stopped_at,missing_input,next_action},
+    "provenance":{original_path,source_sha256,message_count,extracted_at,model}
+  }]}
+NOTE ON NAMING: this viewer deliberately does NOT display a "chi-vector".
+Nabla Rule 25 forbids identifying a ten-factor filing diagnostic with canonical chi.
+If a Nabla address is present it is shown as nabla.vector, binary 0/3 only.
+========================================================== */
+
+const FINDING_TYPES=["question","objection","claim_genealogy","abandoned_thread","repetition",
+  "definition_change","candidate_idea","stance","personal_story","voice_exemplar","correction",
+  "decision","evidence_item","reusable_asset","turning_point","open_question","grounding",
+  "mechanism","unexpected"];
+
+/* ===================== DEFINITE OUTCOMES =====================
+Deterministic ladder. Evaluated top-down; FIRST match wins, so the most
+serious state always surfaces. No model proposes these — they are computed
+from records that already passed validation.
+============================================================== */
+const OUTCOMES=[
+  {key:"RETRACT",    badge:"retract",     test:c=>gateViolations(c).length>0,
+   why:"forbidden public wording found — see GATE list"},
+  {key:"BLOCKED",    badge:"blocked",     test:c=>openObjections(c).length>0,
+   why:"an objection was raised and no response was located in the transcript"},
+  {key:"UNSUPPORTED",badge:"unsupported", test:c=>claims(c).length>0 && evidence(c).length===0,
+   why:"claims present with zero evidence records"},
+  {key:"ASSERTED",   badge:"asserted",    test:c=>groundings(c).length>0 &&
+      groundings(c).every(g=>g.grounding.anchor_check==="asserted-only"),
+   why:"every anchor was invoked but none produced in the conversation"},
+  {key:"FORMAL",     badge:"formal",      test:c=>c.status&&c.status.formal_status==="lean-built",
+   why:"a Lean build exists — check its stated scope, not just its colour"},
+  {key:"GROUNDED",   badge:"grounded",    test:c=>groundings(c).some(g=>
+      ["checked-in-chat","partially-checked"].includes(g.grounding.anchor_check)),
+   why:"at least one anchor was produced and checked in the conversation"},
+  {key:"ADMITTED",   badge:"admitted",    test:c=>c.status&&c.status.framework_status==="accepted",
+   why:"accepted into the framework by human ruling"},
+  {key:"OPEN",       badge:"",            test:()=>true,
+   why:"no blocking condition and no grounding yet — ordinary working state"}
+];
+
+/* Forbidden public wording, from MASTER_EQUATION manifest section 14.
+   Machine-checkable, so it is checked rather than remembered. */
+const FORBIDDEN=[
+  [/\bC\s+is\s+coherence\b/i,                      "C is coherence (GATE_01)"],
+  [/\bC\s+is\s+total\s+coherence\b/i,              "C is total coherence (GATE_01)"],
+  [/\bentropy\s+creates\s+coherence\b/i,           "entropy creates coherence (GATE_02)"],
+  [/\bsin\s+is\s+just\s+entropy\b/i,               "sin is just entropy (GATE_02)"],
+  [/\bgrace\s+is\s+just\s+positive\s+energy\b/i,   "grace is just positive energy"],
+  [/\bmaster\s+equation\s+proves\s+god\b/i,        "Master Equation proves God (GATE_04)"],
+  [/\blean\s+proves\s+theophysics\b/i,             "Lean proves Theophysics (GATE_04)"],
+  [/\bthe\s+ten\s+variables\s+are\s+symbolic\s+themes\b/i,"ten variables are symbolic themes (GATE_03)"]
+];
+
+const of=(c,t)=>(c.findings||[]).filter(f=>f.finding_type===t);
+const claims=c=>of(c,"claim_genealogy").concat(of(c,"grounding"));
+const evidence=c=>of(c,"evidence_item");
+const groundings=c=>of(c,"grounding").filter(f=>f.grounding);
+const openObjections=c=>of(c,"objection").filter(f=>f.objection&&f.objection.response_located===false);
+const questions=c=>of(c,"question");
+function productiveQuestions(c){
+  /* A question ranks by what it forced, not how often it was asked. */
+  return questions(c).filter(f=>f.question&&f.question.what_it_forced);
+}
+function gateViolations(c){
+  const hay=[c.title,c.classification&&c.classification.summary,
+             c.classification&&c.classification.why_open,
+             ...(c.findings||[]).map(f=>f.statement)].filter(Boolean).join("  ");
+  return FORBIDDEN.filter(([re])=>re.test(hay)).map(([,label])=>label);
+}
+function outcome(c){for(const o of OUTCOMES){if(o.test(c))return o}}
+
+/* ===================== SAMPLE ===================== */
+const SAMPLE=[{
+ chat_id:"chat-002", title:"What the author supplied", paper_uuid:"01a03347-8dc9-5c6c-be0e-5fbcece287fc",
+ classification:{projects:["chat-pipeline"],domains:["epistemology"],
+   topic_keys:["authorship","questions"],conversation_types:["cv-defining"],
+   output_types:["ot-decision"],passing_mentions:[],
+   summary:"Establishes that the questions are the authored contribution.",
+   why_open:"Sets the authorship rule the pipeline depends on."},
+ status:{review_status:"pending",framework_status:"not-submitted",formal_status:"none",
+   placement_confidence:"certain"},
+ segments:[{segment_id:"s01",message_start:1,message_end:4,topic_keys:["authorship"],
+   label:"Authorship rule"}],
+ findings:[
+  {finding_id:"f001",finding_type:"question",segment_id:"s01",
+   statement:"The author asked what he supplied, framing his contribution as the question and frame.",
+   sources:[{message_index:1,speaker:"user",authorship:"user-original",quote:"What did I supply?"}],
+   question:{question_quote:"What did I supply?",asked_by:"user",question_kind:"qk-reframe",
+     framing_supplied:"Treats the question and frame as the unit of contribution.",
+     what_it_forced:"The provenance rule was restated as sitting in the user turns.",
+     question_outcome:"qo-became-material"}},
+  {finding_id:"f002",finding_type:"grounding",segment_id:"s01",
+   statement:"A claim was held against a named anchor that was never produced.",
+   sources:[{message_index:4,speaker:"assistant",authorship:"assistant",
+     quote:"I agree the canonical store should be flat."}],
+   grounding:{claim:"The canonical store should be flat.",anchor_type:"an-logic",
+     anchor_detail:"Multi-topic chats cannot be filed once.",anchor_check:"asserted-only",
+     hold_result:"untested",measurability_domain:"undetermined"}}],
+ resume_here:{stopped_at:"Authorship rule agreed.",missing_input:"A sample export.",
+   next_action:"Test the parser against a real export."},
+ provenance:{original_path:"ORIGINALS/chat-002.json",message_count:4,
+   extracted_at:"2026-09-21T00:00:00Z",model:"claude-opus-5"}
+},{
+ chat_id:"chat-003", title:"Grace as geometry — geodesic layer", paper_uuid:"7b2e91ca-0000-5000-9000-aaaabbbbcccc",
+ classification:{projects:["theophysics"],domains:["physics","theology"],
+   topic_keys:["law-01","grace","geodesic"],conversation_types:["cv-critique"],
+   output_types:["ot-proposed-revision"],passing_mentions:["python-sorting"],
+   summary:"Traces a dictated inference about the 1919 eclipse back to the existing Law 1 curvature derivation.",
+   why_open:"Contains an unanswered objection about the geodesic-deviation magnitude."},
+ status:{review_status:"pending",framework_status:"candidate",formal_status:"stated-informally",
+   placement_confidence:"probable"},
+ segments:[{segment_id:"s01",message_start:1,message_end:12,topic_keys:["law-01"],label:"Eclipse inference"}],
+ findings:[
+  {finding_id:"f001",finding_type:"objection",segment_id:"s01",
+   statement:"The analogy was challenged for lacking a discriminating measurement.",
+   sources:[{message_index:6,speaker:"assistant",authorship:"assistant",
+     quote:"what is the observation where grace-as-geometry and grace-as-force predict different results?"}],
+   objection:{objection_quote:"what is the observation where grace-as-geometry and grace-as-force predict different results?",
+     raised_by:"assistant",claim_challenged:"Grace is curvature, not force",
+     response_located:false,response_quote:null}},
+  {finding_id:"f002",finding_type:"grounding",segment_id:"s01",
+   statement:"A geodesic-deviation quantity was described as derivable but outside current instrumentation.",
+   sources:[{message_index:9,speaker:"user",authorship:"user-original",
+     quote:"there was a derivable number"}],
+   grounding:{claim:"Geodesic deviation yields a derivable quantity.",anchor_type:"an-canon",
+     anchor_detail:"Law 1 curvature regimes, kappa sign cases.",
+     anchor_check:"derivable-not-measured",
+     derivation_reference:"law1-explicit-derivation.html, Case 3",
+     measurability_domain:"u-unmeasurable",hold_result:"untested"}},
+  {finding_id:"f003",finding_type:"question",segment_id:"s01",
+   statement:"The author asked whether the geodesic deviation had ever been formalized.",
+   sources:[{message_index:9,speaker:"user",authorship:"user-original",
+     quote:"I don't know if we ever formalized it"}],
+   question:{question_quote:"I don't know if we ever formalized it",asked_by:"user",
+     question_kind:"qk-verification",
+     framing_supplied:"Distinguishes deciding a number is derivable from deriving it.",
+     what_it_forced:"A corpus search that found the regimes formalized but no magnitude.",
+     question_outcome:"qo-became-material"}}],
+ resume_here:{stopped_at:"No magnitude found anywhere on disk.",
+   missing_input:"The expression for the geodesic-deviation quantity.",
+   next_action:"Write the expression and its implied order of magnitude."},
+ provenance:{original_path:"ORIGINALS/chat-003.md",message_count:12,
+   extracted_at:"2026-09-21T00:00:00Z",model:"claude-opus-5"}
+}];
+
+/* ===================== STATE ===================== */
+let DATA=SAMPLE, view="collection", sel=SAMPLE[0].chat_id;
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const nul=v=>v===null||v===undefined||v===""?'<span class="null">null</span>':esc(v);
+const byId=()=>{const m={};DATA.forEach(c=>m[c.chat_id]=c);return m};
+function filtered(){const q=$("#q").value.trim().toLowerCase();if(!q)return DATA;
+  return DATA.filter(c=>{const cl=c.classification||{};
+    return [c.title,c.chat_id,cl.summary,cl.why_open,(cl.topic_keys||[]).join(" "),
+      (cl.projects||[]).join(" "),(cl.domains||[]).join(" "),
+      (c.findings||[]).map(f=>f.finding_type+" "+f.statement).join(" ")]
+      .join(" ").toLowerCase().includes(q)})}
+
+/* ===================== VIEWS ===================== */
+function vCollection(){
+  const rows=filtered().map(c=>{const o=outcome(c),cl=c.classification||{};
+    return `<tr>
+      <td><a onclick="sel='${c.chat_id}';go('companion')"><b>${esc(c.title)}</b></a>
+          <br><span class="muted" style="font-size:11px">${esc(c.chat_id)}</span></td>
+      <td><span class="badge ${o.badge}">${o.key}</span>
+          ${gateViolations(c).length?' <span class="badge gate">GATE</span>':''}</td>
+      <td style="font-size:12px">${esc(cl.why_open||"—")}</td>
+      <td>${(c.findings||[]).length}<span class="muted"> / ${questions(c).length}q</span></td>
+      <td>${(cl.topic_keys||[]).map(k=>`<span class="chip">${esc(k)}</span>`).join("")}</td>
+      <td style="font-size:12px">${esc((c.resume_here||{}).next_action||"—")}</td></tr>`}).join("");
+  $("#pagetitle").textContent="Collection";
+  $("#view").innerHTML=`<h2>${filtered().length} conversations</h2>
+    <table><tr><th>Conversation</th><th>Outcome</th><th>Why open this?</th>
+    <th>Findings</th><th>Topics</th><th>Next action</th></tr>${rows}</table>`;
+}
+
+function vOutcomes(){
+  const buckets={};OUTCOMES.forEach(o=>buckets[o.key]=[]);
+  DATA.forEach(c=>buckets[outcome(c).key].push(c));
+  const cards=OUTCOMES.map(o=>{const arr=buckets[o.key];
+    return `<div class="panel"><h2 style="margin-top:0">
+      <span class="badge ${o.badge}">${o.key}</span> <span class="muted">${arr.length}</span></h2>
+      <p class="muted" style="font-size:12px;margin:0 0 8px">${esc(o.why)}</p>
+      ${arr.length?arr.map(c=>`<div><a onclick="sel='${c.chat_id}';go('companion')">${esc(c.title)}</a></div>`).join(""):'<div class="muted">none</div>'}
+    </div>`}).join("");
+  $("#pagetitle").textContent="Definite outcomes";
+  $("#view").innerHTML=`<p class="muted">Evaluated top-down, first match wins, so the most
+    serious state always surfaces. Every outcome is computed from validated records — none is
+    a model's opinion.</p><div class="cols">${cards}</div>`;
+}
+
+function vQueue(){
+  const gate=[],obj=[],ass=[],res=[];
+  DATA.forEach(c=>{
+    gateViolations(c).forEach(g=>gate.push([c,g]));
+    openObjections(c).forEach(f=>obj.push([c,f]));
+    groundings(c).filter(f=>f.grounding.anchor_check==="asserted-only").forEach(f=>ass.push([c,f]));
+    if(c.resume_here&&c.resume_here.next_action)res.push(c);
+  });
+  const blk=(t,why,arr,f)=>`<div class="panel"><h2 style="margin-top:0">${t}
+    <span class="muted">${arr.length}</span></h2>
+    <p class="muted" style="font-size:12px;margin:0 0 8px">${why}</p>
+    ${arr.length?arr.map(f).join(""):'<div class="muted">none</div>'}</div>`;
+  $("#pagetitle").textContent="Work queue";
+  $("#view").innerHTML=
+   blk("Gate violations","Forbidden public wording from manifest section 14. These block publication.",gate,
+     ([c,g])=>`<div><a onclick="sel='${c.chat_id}';go('companion')">${esc(c.title)}</a>
+       — <span class="badge gate">${esc(g)}</span></div>`)+
+   blk("Objections with no response located","Factual finding, not a verdict. A later review pass decides whether the silence matters.",obj,
+     ([c,f])=>`<div><a onclick="sel='${c.chat_id}';go('companion')">${esc(c.title)}</a>
+       <blockquote>${esc(f.objection.objection_quote)}</blockquote></div>`)+
+   blk("Anchors asserted but never produced","A legitimate and common state. This is the list of claims awaiting a source, not a list of errors.",ass,
+     ([c,f])=>`<div><a onclick="sel='${c.chat_id}';go('companion')">${esc(c.title)}</a>
+       — ${esc(f.grounding.claim)} <span class="badge asserted">${esc(f.grounding.anchor_type)}</span></div>`)+
+   blk("Resume here","Where work stopped, what input is missing, what to do next.",res,
+     c=>`<div><a onclick="sel='${c.chat_id}';go('companion')">${esc(c.title)}</a>
+       — ${esc(c.resume_here.next_action)}
+       <span class="muted">(needs: ${esc(c.resume_here.missing_input)})</span></div>`);
+}
+
+function vCompanion(){
+  const c=byId()[sel]||DATA[0];if(!c){$("#view").innerHTML="no record";return}
+  const cl=c.classification||{},st=c.status||{},o=outcome(c),pv=c.provenance||{};
+  const strip=`<div class="identity"><code>${esc(c.chat_id)} · ${esc(c.paper_uuid||"no uuid")}</code>
+    <span>${(cl.projects||[]).join(" · ")} — ${(cl.domains||[]).join(", ")}</span></div>`;
+
+  /* Three independent status axes. Never collapsed into one indicator. */
+  const axes=`<div class="cols3">
+    <div class="panel"><h3>Reviewed</h3><b>${nul(st.review_status)}</b>
+      <div class="muted" style="font-size:11px">has a human looked at it</div></div>
+    <div class="panel"><h3>Accepted</h3><b>${nul(st.framework_status)}</b>
+      <div class="muted" style="font-size:11px">admitted to the framework</div></div>
+    <div class="panel"><h3>Formally verified</h3><b>${nul(st.formal_status)}</b>
+      <div class="muted" style="font-size:11px">a build, and what it established</div></div></div>`;
+
+  const src=s=>`<blockquote>${esc(s.quote)}
+    <br><span class="muted" style="font-size:11px">msg ${s.message_index} · ${esc(s.speaker)}
+    · <span class="badge">${esc(s.authorship)}</span>${s.attributed_author?" · by "+esc(s.attributed_author):""}</span></blockquote>`;
+
+  const grouped={};(c.findings||[]).forEach(f=>{(grouped[f.finding_type]=grouped[f.finding_type]||[]).push(f)});
+  const order=FINDING_TYPES.filter(t=>grouped[t]);
+  const findings=order.map(t=>`<h3>${t.replace(/_/g," ")} · ${grouped[t].length}</h3>`+
+    grouped[t].map(f=>{
+      let extra="";
+      if(f.question){const q=f.question;
+        extra=`<div class="kv"><b>Question</b><div>${esc(q.question_quote)}</div>
+          <b>Framing supplied</b><div>${nul(q.framing_supplied)}</div>
+          <b>What it forced</b><div>${nul(q.what_it_forced)}</div>
+          <b>Kind / outcome</b><div><span class="badge">${nul(q.question_kind)}</span>
+            <span class="badge">${nul(q.question_outcome)}</span></div></div>`}
+      if(f.grounding){const g=f.grounding;
+        extra=`<div class="kv"><b>Claim</b><div>${esc(g.claim)}</div>
+          <b>Anchor</b><div><span class="badge">${nul(g.anchor_type)}</span> ${nul(g.anchor_detail)}</div>
+          <b>Anchor check</b><div><span class="badge ${g.anchor_check==="asserted-only"?"asserted":""}">${nul(g.anchor_check)}</span></div>
+          <b>Derivation ref</b><div>${nul(g.derivation_reference)}</div>
+          <b>Measurability</b><div>${nul(g.measurability_domain)}</div>
+          <b>Hold result</b><div>${nul(g.hold_result)}</div></div>`}
+      if(f.objection){const ob=f.objection;
+        extra=`<div class="kv"><b>Objection</b><div>${esc(ob.objection_quote)}</div>
+          <b>Raised by</b><div>${nul(ob.raised_by)}</div>
+          <b>Claim challenged</b><div>${nul(ob.claim_challenged)}</div>
+          <b>Response located</b><div>${ob.response_located?"yes":'<span class="badge blocked">no</span>'}</div>
+          <b>Response</b><div>${nul(ob.response_quote)}</div></div>`}
+      return `<details><summary>${esc(f.finding_id)} · ${esc(f.statement)}</summary>
+        ${extra}${(f.sources||[]).map(src).join("")}</details>`}).join("")).join("");
+
+  const segs=(c.segments||[]).map(s=>`<tr><td>${esc(s.segment_id)}</td>
+    <td>${s.message_start}–${s.message_end}</td><td>${esc(s.label||"—")}</td>
+    <td>${(s.topic_keys||[]).map(k=>`<span class="chip">${esc(k)}</span>`).join("")}</td></tr>`).join("");
+
+  $("#pagetitle").textContent=c.title;
+  $("#view").innerHTML=strip+
+   `<div class="panel"><span class="badge ${o.badge}">${o.key}</span>
+     ${gateViolations(c).map(g=>`<span class="badge gate">${esc(g)}</span>`).join("")}
+     <div class="muted" style="font-size:12px;margin-top:6px">${esc(o.why)}</div></div>
+    <h2>Why open this?</h2><p>${esc(cl.why_open||"—")}</p>
+    <p class="muted">${esc(cl.summary||"")}</p>
+    <h2>Status</h2>${axes}
+    <h2>Resume here</h2><div class="panel"><div class="kv">
+      <b>Stopped at</b><div>${nul((c.resume_here||{}).stopped_at)}</div>
+      <b>Missing input</b><div>${nul((c.resume_here||{}).missing_input)}</div>
+      <b>Next action</b><div>${nul((c.resume_here||{}).next_action)}</div></div></div>
+    <h2>Conversation map</h2>
+    <table><tr><th>Segment</th><th>Messages</th><th>Label</th><th>Topics</th></tr>${segs}</table>
+    ${(cl.passing_mentions||[]).length?`<p class="muted">Passing mentions (deliberately excluded
+      from topics): ${(cl.passing_mentions).map(m=>`<span class="chip">${esc(m)}</span>`).join("")}</p>`:""}
+    <h2>Findings · ${(c.findings||[]).length}</h2>${findings||'<p class="muted">none</p>'}
+    <h2>Provenance</h2><div class="panel"><div class="kv">
+      <b>Original</b><div><code>${nul(pv.original_path)}</code></div>
+      <b>Messages</b><div>${nul(pv.message_count)}</div>
+      <b>Extracted</b><div>${nul(pv.extracted_at)} · ${nul(pv.model)}</div></div></div>`;
+}
+
+/* ===================== WIRE UP ===================== */
+const VIEWS={collection:vCollection,outcomes:vOutcomes,queue:vQueue,companion:vCompanion};
+function go(v){view=v;
+  document.querySelectorAll("nav a[data-view]").forEach(a=>a.classList.toggle("on",a.dataset.view===v));
+  VIEWS[v]();
+  $("#count").textContent=`${DATA.length} chats · ${DATA===SAMPLE?"SAMPLE":"LOADED"}`;}
+document.querySelectorAll("nav a[data-view]").forEach(a=>a.onclick=()=>go(a.dataset.view));
+$("#q").oninput=()=>go(view);
+$("#loadbtn").onclick=()=>$("#file").click();
+$("#file").onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();
+  r.onload=()=>{try{const j=JSON.parse(r.result);if(!j.chats)throw 0;
+    DATA=j.chats;sel=DATA[0]&&DATA[0].chat_id;
+    $("#datasrc").innerHTML=`records.json — <b>${esc(j.source||"")}</b> · generated ${esc(j.generated_at||"")}`;
+    go(view);}catch(x){alert("Not a valid records.json (need a .chats array)")}};
+  r.readAsText(f)};
+go("collection");
+</script></body></html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Excel File Mover Report</title>
+  <style>
+    body { font-family: Segoe UI, Arial, sans-serif; margin: 24px; color: #111827; }
+    h1 { margin-bottom: 4px; }
+    .sub { color: #64748b; margin-bottom: 18px; }
+    .summary { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0; }
+    .summary span { padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 8px; background: #f8fafc; }
+    table { border-collapse: collapse; width: 100%; font-size: 13px; }
+    th { position: sticky; top: 0; background: #1f4e79; color: white; text-align: left; }
+    th, td { border: 1px solid #dbe3ee; padding: 7px; vertical-align: top; }
+    tr:nth-child(even) { background: #f8fafc; }
+    .ok { color: #166534; font-weight: 700; }
+    .collision { color: #b45309; font-weight: 700; }
+    .error { color: #b91c1c; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <h1>Excel File Mover Report</h1>
+  <div class="sub">Mode: PREVIEW · Generated 2026-07-14T12:40:18</div>
+  <div class="summary"><span><b>PREVIEW</b>: 1</span></div>
+  <table>
+    <thead>
+      <tr><th>RowID</th><th>Action</th><th>Approved</th><th>Risk</th><th>Result</th><th>Source</th><th>Destination</th><th>Message</th></tr>
+    </thead>
+    <tbody><tr><td>MP-0001</td><td>MOVE_RENAME</td><td>NO</td><td class='error'>ERROR</td><td>PREVIEW</td><td>D:\Example\Incoming\paper draft final FINAL.docx</td><td>D:\Example\Canonical\papers\paper-draft-final.docx</td><td>Source does not exist; Not approved; preview/execute will skip</td></tr></tbody>
+  </table>
+</body>
+</html>

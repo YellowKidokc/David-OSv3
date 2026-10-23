@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FIS · Simple Mode Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg:#08090d;
+    --surface:#101218;
+    --line:#222736;
+    --text:#eceff5;
+    --muted:#9ea4b5;
+    --gold:#d4af37;
+    --blue:#6aa6ff;
+    --green:#34d399;
+    --red:#fb7185;
+    --amber:#f59e0b;
+    --shadow:0 12px 35px rgba(0,0,0,.32);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: Inter, system-ui, sans-serif;
+    color: var(--text);
+    background: radial-gradient(1400px 600px at 10% -10%, rgba(96,165,250,.09), transparent 55%), var(--bg);
+    min-height: 100vh;
+  }
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--line);
+    background: rgba(8,9,13,.94);
+    backdrop-filter: blur(7px);
+  }
+  .brand {font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+  .brand span { color: var(--gold); }
+  .status {
+    font-size: 11px;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 5px 10px;
+    color: #9cf4c8;
+    border-color: rgba(52,211,153,.35);
+  }
+  .status.warn { color:#f9b44a; border-color: rgba(245,158,11,.35) }
+
+  .layout { max-width: 1460px; margin: 16px auto; padding: 0 16px 30px; }
+  .hero { border:1px solid var(--line); background: linear-gradient(180deg, rgba(212,175,55,.12), rgba(16,18,24,.95) 60%, rgba(16,18,24,1)); border-radius:10px; padding: 16px; box-shadow: var(--shadow); }
+  .hero h1 { margin:0; font-family:"Crimson Text",serif; font-size:clamp(1.8rem,3vw,2.4rem); color:#fff; line-height:1.2 }
+  .hero h1 span { color: var(--gold); }
+  .hero p { margin: 8px 0 12px; color: var(--muted); max-width: 940px; }
+  .step-row {display:flex; gap:9px; flex-wrap:wrap; margin: 0 0 10px; }
+  .tag {
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    border-radius:999px;
+    padding:3px 8px;
+    border:1px solid #273043;
+    color:#9db0c8;
+  }
+  .tag.ok { border-color: rgba(52,211,153,.5); color:#beffd8; }
+  .tag.warn { border-color: rgba(245,158,11,.45); color:#f6c96a; }
+  .tag.off { border-color: #354055; color:#9db0c8; opacity:.7; }
+
+  .statbar {
+    display:grid;
+    grid-template-columns: repeat(4, minmax(130px,1fr));
+    gap: 8px;
+  }
+  .stat {
+    border:1px solid var(--line);
+    border-radius:8px;
+    background:#0d0f15;
+    padding:10px;
+  }
+  .stat strong { font-size:24px; color:#fff; display:block; font-family:"JetBrains Mono", monospace; }
+  .stat span { color: var(--muted); font-size:11px; }
+
+  .notice {
+    border:1px dashed #334158;
+    border-radius:8px;
+    padding:8px;
+    color:#d2d9e5;
+    margin-top:10px;
+    font-size:12px;
+    background: rgba(102,126,234,.07);
+  }
+
+  .main-grid {
+    margin-top:12px;
+    display:grid;
+    grid-template-columns: 1.05fr 1fr 1.05fr;
+    gap:12px;
+    min-height: 68vh;
+  }
+  .card {
+    border:1px solid var(--line);
+    border-radius:10px;
+    background: rgba(16,18,24,.95);
+    padding: 12px;
+    display:flex;
+    flex-direction:column;
+    min-height:0;
+    box-shadow: var(--shadow);
+  }
+  .card-title { font-family:"Crimson Text",serif; margin:0 0 10px; font-size:24px; color:#fff; }
+  .card-sub { margin:0 0 10px; color:var(--muted); font-size:12px; }
+  .left {display:grid; grid-template-rows: auto 1fr; gap:10px; }
+  .center {display:grid; grid-template-rows:auto 1fr auto; gap:10px; min-width:0;}
+  .right {display:grid; grid-template-rows:auto 1fr auto; gap:10px; min-width:0;}
+  .section {
+    border:1px solid #273043;
+    border-radius:8px;
+    background:#0d1118;
+    padding:9px;
+    overflow:auto;
+  }
+  .scroll { overflow:auto; min-height:0; }
+
+  .rule {
+    border:1px solid #273043;
+    border-radius:7px;
+    padding:8px;
+    margin-bottom:8px;
+    background:#0a0f16;
+  }
+  .rule-top {
+    display:flex; justify-content:space-between; gap:8px; align-items:flex-start;
+  }
+  .rule-title { color:#d5def1; font-size:12px; font-weight:700; }
+  .mini { font-size:10px; color:var(--muted); }
+  select {
+    width:100%;
+    margin-top:6px;
+    border:1px solid #2c3547;
+    border-radius:6px;
+    background:#0d121a;
+    color:var(--text);
+    padding:7px;
+    font-size:12px;
+  }
+
+  .plan {
+    margin-top:8px;
+    border:1px solid #273245;
+    border-radius:8px;
+    padding:8px;
+    font-size:12px;
+    color:var(--muted);
+    display:grid;
+    gap:6px;
+  }
+
+  .center-head { display:grid; grid-template-columns:1fr auto; gap:8px; align-items:center; }
+  .controls { display:flex; gap:7px; flex-wrap:wrap; justify-content:flex-end; align-items:center; }
+
+  .anomaly {
+    border-left:4px solid;
+    border-radius:7px;
+    margin-bottom:7px;
+    padding:7px 9px;
+    background:#0a0d14;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:8px;
+  }
+  .anomaly p { margin:0; color:#d7deea; font-size:12px; }
+  .a1{border-left-color:var(--red)}
+  .a2{border-left-color:var(--gold)}
+  .a3{border-left-color:var(--blue)}
+  .a4{border-left-color:#9f7aea}
+  .a5{border-left-color:#fb923c}
+  .a6{border-left-color:#60a5fa}
+
+  .group {
+    border:1px solid #242c3d;
+    border-radius:8px;
+    background:#090c13;
+    padding:8px;
+    margin-bottom:9px;
+  }
+  .group-head {display:flex; justify-content:space-between; gap:8px; align-items:center; margin-bottom:6px;}
+  .group-title {font-family:'JetBrains Mono', monospace; color:#e6ecf5;}
+  .group-meta {color:var(--muted); font-size:11px;}
+  .row {
+    display:grid;
+    grid-template-columns:18px 1fr auto;
+    gap:8px;
+    align-items:center;
+    border:1px solid #232b3a;
+    border-radius:7px;
+    background:#080c12;
+    padding:7px;
+    margin-top:6px;
+    opacity:1;
+    transition:.14s;
+  }
+  .row input { width:14px; height:14px; }
+  .row.locked { opacity:.7; }
+  .path { font-size:12px; color:#d3d9e7; overflow-wrap:anywhere; }
+  .meta { color:var(--muted); font-size:10px; text-align:right; white-space:nowrap; }
+
+  .btn {
+    border:1px solid #2b3447;
+    border-radius:7px;
+    padding:7px 11px;
+    font-size:11px;
+    font-weight:700;
+    color:#ced6e7;
+    cursor:pointer;
+    background:#111926;
+    white-space: nowrap;
+  }
+  .btn:disabled { opacity:.45; cursor:not-allowed; }
+  .btn-primary { background: var(--gold); color:#151515; border-color:#f2c94c; }
+  .btn-ok { background: rgba(52,211,153,.12); color:#c8f9de; border-color:rgba(52,211,153,.45); }
+  .btn-ghost { background: transparent; }
+
+  .bottom {
+    border-top:1px solid var(--line);
+    margin:12px 4px 0;
+    padding-top:12px;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:8px;
+  }
+
+  @media (max-width:1300px) {
+    .main-grid { grid-template-columns:1fr 1fr; grid-auto-rows:minmax(280px,auto); }
+    .right { grid-column:1 / -1; }
+  }
+  @media (max-width:980px) {
+    .main-grid, .bottom, .statbar { grid-template-columns:1fr; }
+    .controls { justify-content:flex-start; }
+    .center-head { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">FINAL INTELLIGENCE <span>FIS</span> — Simple Mode</div>
+    <div class="status" id="globalStatus">Simple mode selected</div>
+  </div>
+
+  <main class="layout">
+    <section class="hero">
+      <h1>File Intelligence Sequence<br><span>Anomalies → Dedupe → Run</span></h1>
+      <p>Beginner flow for Simple mode: resolve anomaly buckets first, then resolve duplicate conflicts, then run one fast action plan.</p>
+      <div class="step-row">
+        <span class="tag ok" id="stepA">Step 1: Anomalies</span>
+        <span class="tag off" id="stepB">Step 2: Dedupe & Conflict Map</span>
+      </div>
+      <div class="statbar">
+        <div class="stat"><strong id="scannedFiles">4820</strong><span>Files scanned</span></div>
+        <div class="stat"><strong id="dupGroups">3</strong><span>Duplicate groups</span></div>
+        <div class="stat"><strong id="anomalyGroups">6</strong><span>Anomaly buckets</span></div>
+        <div class="stat"><strong id="selectedFiles">4</strong><span>Rows selected</span></div>
+      </div>
+      <div class="notice" id="noticeLine">Demo data loaded. No backend scan required for this walkthrough.</div>
+    </section>
+
+    <section class="main-grid">
+      <section class="card left">
+        <div class="section">
+          <h2 class="card-title">Flow settings</h2>
+          <p class="card-sub">Simple mode keeps a fast rule set with 3 duplicate rules + 6 anomaly decisions.</p>
+          <div class="rule">
+            <div class="rule-top">
+              <div><div class="rule-title">Keep rule (simple)</div><div class="mini">Default keeper strategy for duplicate/near groups.</div></div>
+              <span class="tag ok">recommended</span>
+            </div>
+            <select id="simpleKeeperRule">
+              <option value="newest" selected>Keep newest modified</option>
+              <option value="cleanest">Keep cleanest name</option>
+              <option value="preferred">Keep preferred folder</option>
+              <option value="manual">Keep manually selected</option>
+            </select>
+          </div>
+          <div class="rule">
+            <div class="rule-top">
+              <div><div class="rule-title">Duplicate action</div><div class="mini">Applies after anomaly step is complete.</div></div>
+              <span class="tag ok">fast path</span>
+            </div>
+            <select id="simpleDupAction">
+              <option value="recycle" selected>Recycle duplicate leftovers</option>
+              <option value="move">Move duplicates to review</option>
+              <option value="keep">Keep both</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="section scroll">
+          <h3 style="margin:0 0 8px; color:#d4d9e4; font-size:14px">Plan preview</h3>
+          <div class="plan" id="planPreview">
+            <div>1) Anomaly buckets reviewed</div>
+            <div>2) Dedupe/conflict map checked</div>
+            <div>3) Execute simple plan</div>
+            <div>4) Escalate unresolved to review / advanced</div>
+          </div>
+          <div class="plan" style="margin-top:8px" id="ruleChecklist"></div>
+        </div>
+      </section>
+
+      <section class="card center">
+        <div class="section">
+          <div class="center-head">
+            <div>
+              <h2 class="card-title">Dedupe & Conflict Map</h2>
+              <p class="card-sub" id="centerHint">Locked until Step 1 (anomalies) is completed.</p>
+            </div>
+            <div class="controls">
+              <button class="btn btn-ghost" id="checkAllBtn">Check all</button>
+              <button class="btn btn-ghost" id="clearAllBtn">Clear all</button>
+              <button class="btn btn-ghost" id="scanBtn">Rescan demo</button>
+            </div>
+          </div>
+          <div id="dupContainer" class="scroll"></div>
+          <div class="notice" id="centerNotice">Duplicate groups are available from the demo scan.</div>
+        </div>
+      </section>
+
+      <section class="card right">
+        <h2 class="card-title">Anomalies (Review buckets)</h2>
+        <p class="card-sub">Adjust each bucket before moving to dedupe.</p>
+        <div class="section scroll">
+          <div class="anomaly a1">
+            <div>
+              <p><strong>Same name, different content</strong><br/><span class="mini">Potential overwrite conflict</span></p>
+            </div>
+            <select data-anomaly-rule="sameNameDiffContent">
+              <option value="review" selected>Review required</option>
+              <option value="move">Move to review folder</option>
+              <option value="keep">Keep both</option>
+            </select>
+          </div>
+          <div class="anomaly a2">
+            <div>
+              <p><strong>Same content, different name</strong><br/><span class="mini">Likely harmless name variants</span></p>
+            </div>
+            <select data-anomaly-rule="sameContentDiffName">
+              <option value="review">Review required</option>
+              <option value="move" selected>Move to review folder</option>
+              <option value="keep">Keep both</option>
+            </select>
+          </div>
+          <div class="anomaly a3">
+            <div>
+              <p><strong>Near-name duplicate</strong><br/><span class="mini">Copies with suffixes and revisions</span></p>
+            </div>
+            <select data-anomaly-rule="nearName">
+              <option value="review" selected>Review required</option>
+              <option value="move">Move to review folder</option>
+            </select>
+          </div>
+          <div class="anomaly a4">
+            <div>
+              <p><strong>Protected item involved</strong><br/><span class="mini">Program/config/index/workspace</span></p>
+            </div>
+            <select data-anomaly-rule="protected">
+              <option value="review" selected>Review required</option>
+              <option value="skip">Skip this run</option>
+            </select>
+          </div>
+          <div class="anomaly a5">
+            <div>
+              <p><strong>Missing / already exists in target</strong><br/><span class="mini">Cross-target conflicts</span></p>
+            </div>
+            <select data-anomaly-rule="targetMap">
+              <option value="review" selected>Review required</option>
+              <option value="skip">Skip this run</option>
+            </select>
+          </div>
+          <div class="anomaly a6">
+            <div>
+              <p><strong>Unknown / low confidence</strong><br/><span class="mini">Needs manual classification</span></p>
+            </div>
+            <select data-anomaly-rule="unknown">
+              <option value="review" selected>Review required</option>
+              <option value="move">Move to review folder</option>
+            </select>
+          </div>
+        </div>
+        <div class="section">
+          <div style="font-weight:700; color:#d7deeb; margin-bottom:4px">Step status</div>
+          <div class="mini" id="modeHint">Set all buckets to non-review to continue.</div>
+          <div class="mini" style="margin-top:6px">Current mode: <span id="modeTag">Simple</span></div>
+        </div>
+      </section>
+    </section>
+
+    <section class="bottom">
+      <button class="btn btn-primary" id="runBtn">Continue to Step 2</button>
+      <button class="btn btn-ok" id="escalateBtn">Open Advanced (exceptions)</button>
+      <button class="btn btn-ghost" id="reviewOnlyBtn">Send unresolved to review folder</button>
+    </section>
+  </main>
+
+<script>
+  const state = {
+    scanned: true,
+    step: 'anomalies',
+    selectedRows: new Set(),
+    duplicates: [
+      {
+        id: 'g-001',
+        label: 'invoice_2026_Q1.pdf',
+        risk: 'danger',
+        type: 'same name, diff content',
+        items: [
+          { id: 'g-001-1', path: 'C:/Work/Finance/invoice_2026_Q1.pdf', detail: 'Modified 2026-06-14' },
+          { id: 'g-001-2', path: 'C:/Archive/finance/invoice_2026_Q1.pdf', detail: 'Modified 2022-08-11' }
+        ]
+      },
+      {
+        id: 'g-002',
+        label: 'image_final.jpg',
+        risk: 'low',
+        type: 'same content, diff name',
+        items: [
+          { id: 'g-002-1', path: 'C:/A/img_final.jpg', detail: '3.9MB' },
+          { id: 'g-002-2', path: 'C:/A/image_final_FINAL2.jpg', detail: '3.9MB' },
+          { id: 'g-002-3', path: 'C:/A/img_copy.jpg', detail: '3.9MB' }
+        ]
+      },
+      {
+        id: 'g-003',
+        label: 'research_notes.txt',
+        risk: 'medium',
+        type: 'same name, diff content',
+        items: [
+          { id: 'g-003-1', path: 'C:/Brain/notes/research_notes.txt', detail: 'Modified 2026-02-01' },
+          { id: 'g-003-2', path: 'C:/Backup/notes/research_notes.txt', detail: 'Modified 2025-12-21' }
+        ]
+      }
+    ],
+    rules: {
+      sameNameDiffContent: 'review',
+      sameContentDiffName: 'move',
+      nearName: 'review',
+      protected: 'review',
+      targetMap: 'review',
+      unknown: 'review'
+    }
+  };
+
+  const sel = (id) => document.getElementById(id);
+
+  const dupContainer = sel('dupContainer');
+  const selectedCounter = sel('selectedFiles');
+  const ruleChecklist = sel('ruleChecklist');
+  const stepA = sel('stepA');
+  const stepB = sel('stepB');
+  const checkAllBtn = sel('checkAllBtn');
+  const clearAllBtn = sel('clearAllBtn');
+  const scanBtn = sel('scanBtn');
+  const runBtn = sel('runBtn');
+  const centerNotice = sel('centerNotice');
+  const centerHint = sel('centerHint');
+  const globalStatus = sel('globalStatus');
+  const modeHint = sel('modeHint');
+  const modeTag = sel('modeTag');
+  const noticeLine = sel('noticeLine');
+  const escalateBtn = sel('escalateBtn');
+  const reviewOnlyBtn = sel('reviewOnlyBtn');
+  const keeperRule = sel('simpleKeeperRule');
+  const dupAction = sel('simpleDupAction');
+
+  const createTag = (text, cls='') => `<span class="tag ${cls}">${text}</span>`;
+
+  const createTagMarkup = (count) =>
+    count > 1 ? createTag(`${count} risk groups`, 'warn') : createTag('safe', 'ok');
+
+  const canAdvanceAnomaly = () => Object.values(state.rules).every(v => v !== 'review');
+
+  function seedSelections() {
+    state.duplicates.forEach((g, i) => {
+      const winner = g.items[0];
+      if (winner) state.selectedRows.add(winner.id);
+    });
+  }
+
+  function renderDupes() {
+    const isLocked = state.step === 'anomalies';
+    dupContainer.innerHTML = state.duplicates.map(g => {
+      const countTag = createTagMarkup(g.items.length - 1);
+      return `
+        <div class="group">
+          <div class="group-head">
+            <div>
+              <div class="group-title">${g.label}</div>
+              <div class="group-meta">${g.type} • ${g.items.length} files • risk ${g.risk}</div>
+            </div>
+            ${countTag}
+          </div>
+          ${g.items.map(item => `
+            <label class="row ${isLocked ? 'locked' : ''}">
+              <input class="dup-check" type="checkbox" data-item-id="${item.id}" ${state.selectedRows.has(item.id) ? 'checked' : ''} ${isLocked ? 'disabled' : ''} />
+              <span class="path">${item.path}</span>
+              <span class="meta">${item.detail}</span>
+            </label>
+          `).join('')}
+        </div>
+      `;
+    }).join('');
+
+    dupContainer.querySelectorAll('.dup-check').forEach(chk => {
+      chk.addEventListener('change', () => {
+        const id = chk.dataset.itemId;
+        if (chk.checked) state.selectedRows.add(id);
+        else state.selectedRows.delete(id);
+        selectedCounter.textContent = String(state.selectedRows.size);
+      });
+    });
+
+    if (isLocked) {
+      centerNotice.textContent = 'Step 1 first: configure anomaly buckets on the right. Then continue to dedupe.';
+      centerHint.textContent = 'Locked until anomaly exceptions are resolved.';
+    } else {
+      centerNotice.textContent = 'Dedupe step active. You can inspect, select, and review duplicate groups.';
+      centerHint.textContent = 'Review duplicate groups and select rows if needed.';
+    }
+  }
+
+  function renderChecklist() {
+    if (canAdvanceAnomaly()) {
+      ruleChecklist.innerHTML = `
+        <div class="tag ok">3 duplicate rules</div>
+        <div class="tag ok">6 anomaly rules set</div>
+        <div class="tag ok">Anomaly step complete</div>
+      `;
+      modeHint.textContent = 'All exception buckets are set. You can advance to dedupe.';
+      modeTag.textContent = 'Simple (ready)';
+    } else {
+      ruleChecklist.innerHTML = `
+        <div class="tag warn">Anomaly step pending</div>
+        <div class="tag warn">At least one bucket still Review</div>
+        <div class="tag warn">Advance blocked</div>
+      `;
+      modeHint.textContent = 'Set Review buckets to move/skip/keep if you want to stay in Simple mode.';
+      modeTag.textContent = 'Simple (exceptions)';
+    }
+
+    if (state.step === 'anomalies') {
+      runBtn.textContent = canAdvanceAnomaly() ? 'Continue to Dedupe Step' : 'Resolve anomalies to continue';
+      runBtn.disabled = false;
+      checkAllBtn.disabled = true;
+      clearAllBtn.disabled = true;
+      scanBtn.textContent = 'Demo scan ready';
+      stepA.className = 'tag ok';
+      stepB.className = 'tag off';
+      stepA.textContent = 'Step 1: Anomalies (active)';
+      stepB.textContent = 'Step 2: Dedupe';
+      centerNotice.textContent = canAdvanceAnomaly()
+        ? 'Anomalies resolved. Continue to enable duplicate review.'
+        : 'Finish anomaly rules first, then continue.';
+      globalStatus.textContent = 'Simple: anomaly-first flow';
+    } else {
+      runBtn.textContent = canAdvanceAnomaly() ? 'Run simple dedupe plan' : 'Run blocked (anomalies unresolved)';
+      runBtn.disabled = !canAdvanceAnomaly();
+      checkAllBtn.disabled = false;
+      clearAllBtn.disabled = false;
+      scanBtn.textContent = 'Rescan demo';
+      stepA.className = 'tag off';
+      stepB.className = 'tag ok';
+      stepA.textContent = 'Step 1: Anomalies';
+      stepB.textContent = 'Step 2: Dedupe (active)';
+      globalStatus.textContent = canAdvanceAnomaly() ? 'Simple: dedupe-ready' : 'Simple: blocked';
+    }
+
+    selectedCounter.textContent = String(state.selectedRows.size);
+  }
+
+  function setAllChecks(v) {
+    dupContainer.querySelectorAll('.dup-check').forEach(chk => {
+      chk.checked = v;
+      const id = chk.dataset.itemId;
+      if (v) state.selectedRows.add(id);
+      else state.selectedRows.delete(id);
+    });
+    selectedCounter.textContent = String(state.selectedRows.size);
+  }
+
+  document.querySelectorAll('[data-anomaly-rule]').forEach(sel => {
+    sel.value = state.rules[sel.dataset.anomalyRule];
+    sel.addEventListener('change', () => {
+      state.rules[sel.dataset.anomalyRule] = sel.value;
+      renderChecklist();
+    });
+  });
+
+  checkAllBtn.addEventListener('click', () => {
+    if (state.step !== 'dedupe' || !state.scanned) return;
+    const total = dupContainer.querySelectorAll('.dup-check').length;
+    const checked = dupContainer.querySelectorAll('.dup-check:checked').length;
+    setAllChecks(checked !== total);
+  });
+
+  clearAllBtn.addEventListener('click', () => {
+    if (state.step !== 'dedupe' || !state.scanned) return;
+    setAllChecks(false);
+  });
+
+  scanBtn.addEventListener('click', () => {
+    noticeLine.textContent = 'Demo scan refreshed instantly.';
+    state.scanned = true;
+    renderDupes();
+    renderChecklist();
+  });
+
+  runBtn.addEventListener('click', () => {
+    if (state.step === 'anomalies') {
+      if (!canAdvanceAnomaly()) {
+        alert('Set all anomaly buckets to non-review to continue in simple mode, or open Advanced.');
+        return;
+      }
+      state.step = 'dedupe';
+      renderDupes();
+      renderChecklist();
+      return;
+    }
+    if (!canAdvanceAnomaly()) {
+      alert('Run is blocked until anomalies are set to non-review.');
+      return;
+    }
+    const kept = Array.from(state.selectedRows);
+    alert(`Simple run executed\n- Rule: ${keeperRule.value}\n- Action: ${dupAction.value}\n- Rows selected: ${kept.length}`);
+  });
+
+  escalateBtn.addEventListener('click', () => {
+    alert('Open Advanced: action stack, reorder, and simulation mode.');
+  });
+
+  reviewOnlyBtn.addEventListener('click', () => {
+    alert('Unresolved buckets and selected items moved into review queue.');
+  });
+
+  [keeperRule, dupAction].forEach(el => el.addEventListener('change', renderChecklist));
+
+  seedSelections();
+  renderDupes();
+  renderChecklist();
+</script>
+</body>
+</html>

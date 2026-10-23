@@ -7,3 +7,10 @@ __pycache__/
 .env
 .data/
 data/*.sqlite3
+runs/
+
+# Local search runtime and generated caches
+runtime/search-tools/
+data/search-cache/
+data/search-history/
+data/saved-searches/

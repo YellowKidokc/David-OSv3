@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>River FIS — File Intelligence System · Simple Mode</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #080808;
+  --surface: #0f0f10;
+  --surface2: #15171c;
+  --surface3: #1c1f26;
+  --surface4: #252830;
+  --border: #2b2d36;
+  --border-dim: #1c1e25;
+
+  /* FIS assistant-layer palette: BLUE/CYAN dominant */
+  --blue: #38bdf8;
+  --blue-deep: #0ea5e9;
+  --blue-dim: rgba(56,189,248,0.10);
+  --blue-glow: rgba(56,189,248,0.22);
+  --cyan: #06b6d4;
+  --cyan-dim: rgba(6,182,212,0.10);
+
+  /* Reserved colors */
+  --gold: #d4af37;
+  --amber: #fbbf24;          /* final approve / execute only */
+  --green: #34d399;           /* recommended / safe / success */
+  --green-dim: rgba(52,211,153,0.10);
+  --purple: #a78bfa;
+  --red: #f87171;
+  --orange: #fb923c;
+
+  --text: #e6e6e6;
+  --text-dim: #989ba6;
+  --text-muted: #5b5d66;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: Inter, system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.55;
+  font-size: 13.5px;
+}
+.serif { font-family: "Crimson Text", serif; }
+.mono { font-family: "JetBrains Mono", monospace; font-size: 12px; }
+
+/* Window */
+.window {
+  max-width: 1480px;
+  margin: 18px auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+}
+
+/* Title bar — RIVER FIS brand + Simple/Advanced toggle + utility cluster */
+.titlebar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 24px;
+  align-items: center;
+  padding: 14px 22px;
+  background: linear-gradient(180deg, #111114, #0c0c0e);
+  border-bottom: 1px solid var(--border);
+}
+.brand-block { display: flex; align-items: center; gap: 14px; }
+.dots { display: flex; gap: 8px; }
+.dot { width: 11px; height: 11px; border-radius: 50%; }
+.dot.r { background: #ff5f57; } .dot.y { background: #febc2e; } .dot.g { background: #28c840; }
+.brand-mark {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #001a26;
+  font-weight: 900;
+  font-size: 17px;
+  font-family: "Crimson Text", serif;
+}
+.brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+.brand-name {
+  font-family: Inter, sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  font-size: 14px;
+  color: var(--text);
+}
+.brand-name span { color: var(--blue); }
+.brand-sub {
+  font-size: 10.5px;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  margin-top: 1px;
+}
+
+.mode-toggle {
+  display: flex;
+  gap: 0;
+  justify-self: center;
+  background: var(--surface3);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 4px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+}
+.mode-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  padding: 8px 22px;
+  border-radius: 6px;
+  font-family: Inter, sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.02em;
+}
+.mode-btn:hover { color: var(--text); }
+.mode-btn.active.simple {
+  background: linear-gradient(180deg, var(--blue-dim), transparent);
+  color: var(--blue);
+  border: 1px solid var(--blue);
+  box-shadow: 0 0 18px var(--blue-glow);
+}
+.mode-btn.active.advanced {
+  background: rgba(167,139,250,0.10);
+  color: var(--purple);
+  border: 1px solid var(--purple);
+}
+
+.utility {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  justify-self: end;
+}
+.api-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  color: var(--green);
+}
+.api-status::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green);
+}
+.util-btn {
+  background: var(--surface3);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.util-btn:hover { border-color: var(--blue); color: var(--blue); }
+.util-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--surface3);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-dim);
+}
+.util-icon:hover { color: var(--blue); border-color: var(--blue); }
+
+/* Top stats strip */
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  padding: 16px 22px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.stat-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 14px 16px;
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  gap: 12px;
+  align-items: center;
+  transition: border-color 0.15s;
+}
+.stat-card:hover { border-color: var(--surface4); }
+.stat-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+.stat-num {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.1;
+  font-family: Inter, sans-serif;
+}
+.stat-lbl {
+  font-size: 10.5px;
+  color: var(--text-muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.stat-card.blue   .stat-icon { background: var(--blue-dim);   color: var(--blue); }
+.stat-card.gold   .stat-icon { background: rgba(212,175,55,0.10); color: var(--gold); }
+.stat-card.purple .stat-icon { background: rgba(167,139,250,0.10); color: var(--purple); }
+.stat-card.cyan   .stat-icon { background: var(--cyan-dim);   color: var(--cyan); }
+.stat-card.green  .stat-icon { background: var(--green-dim);  color: var(--green); }
+.stat-card.orange .stat-icon { background: rgba(251,146,60,0.10); color: var(--orange); }
+
+/* Page heading row */
+.page-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 18px;
+  align-items: center;
+  padding: 22px 22px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.page-title-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.page-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--blue-dim), transparent);
+  border: 1px solid var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue);
+  font-size: 14px;
+}
+.page-title {
+  font-family: "Crimson Text", serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.page-title .accent { color: var(--blue); }
+.page-sub {
+  font-size: 12.5px;
+  color: var(--text-dim);
+  margin-top: 4px;
+}
+.how-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  padding: 8px 16px;
+  border-radius: 7px;
+  font-size: 12px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.how-btn:hover { color: var(--blue); border-color: var(--blue); }
+
+.back-link {
+  display: inline-block;
+  color: var(--text-muted);
+  font-size: 11px;
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+.back-link:hover { color: var(--blue); }
+
+/* Three-column main */
+.main {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr) 320px;
+  gap: 14px;
+  padding: 18px 22px 18px;
+  background: var(--bg);
+}
+
+.zone {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+}
+.zone-head {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-dim);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.zone-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.zone-body {
+  padding: 14px 14px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* LEFT — Three-question decision tree */
+.step-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 16px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 44px 1fr 14px;
+  gap: 12px;
+  align-items: center;
+  transition: all 0.18s;
+}
+.step-card:hover { border-color: var(--blue); }
+.step-card.active {
+  border-color: var(--blue);
+  background: linear-gradient(180deg, var(--blue-dim), transparent);
+  box-shadow: 0 0 0 1px var(--blue-dim), 0 0 22px var(--blue-glow);
+}
+.step-card.skipped { opacity: 0.55; }
+.step-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 9px;
+  background: var(--surface3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--text-dim);
+}
+.step-card.active .step-icon-box {
+  background: var(--blue-dim);
+  color: var(--blue);
+  border: 1px solid var(--blue);
+}
+.step-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+.step-card.active .step-title { color: var(--blue); }
+.step-desc {
+  font-size: 11.5px;
+  color: var(--text-dim);
+  line-height: 1.45;
+}
+.step-chev {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+.step-card.active .step-chev { color: var(--blue); }
+.step-status-pill {
+  display: inline-block;
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 3px;
+  margin-top: 5px;
+}
+.step-status-pill.done { background: var(--green-dim); color: var(--green); }
+.step-status-pill.skipped { background: var(--surface3); color: var(--text-muted); }
+
+.quick-actions-panel {
+  animation: fisReveal 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@keyframes fisReveal {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.quick-actions-divider {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin: 18px 4px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.quick-actions-divider span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.quick-actions-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--blue-dim), transparent);
+}
+.quick-actions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.quick-action-card {
+  background: linear-gradient(180deg, var(--blue-dim), transparent);
+  border: 1px solid var(--blue);
+  border-radius: 8px;
+  padding: 12px 13px;
+  cursor: pointer;
+  transition: all 0.15s;
+  position: relative;
+}
+.quick-action-card:hover {
+  background: linear-gradient(180deg, var(--blue-dim), var(--blue-dim));
+  box-shadow: 0 0 18px var(--blue-glow);
+  transform: translateY(-1px);
+}
+.quick-action-icon {
+  font-size: 17px;
+  color: var(--blue);
+  margin-bottom: 6px;
+}
+.quick-action-title {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--blue);
+  margin-bottom: 2px;
+}
+.quick-action-desc {
+  font-size: 10.5px;
+  color: var(--text-dim);
+  line-height: 1.4;
+}
+
+/* CENTER — Active step detail */
+.center-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+}
+.center-head {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-dim);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.center-step-num {
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--blue);
+  letter-spacing: 0.04em;
+}
+.center-step-title {
+  font-family: "Crimson Text", serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  margin-left: 4px;
+}
+.recommended-badge {
+  background: var(--green-dim);
+  color: var(--green);
+  border: 1px solid var(--green);
+  padding: 5px 12px;
+  border-radius: 5px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.center-body { padding: 18px 20px; }
+.center-sub {
+  font-size: 12.5px;
+  color: var(--text-dim);
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+
+/* Recommended Action box */
+.rec-action {
+  background: linear-gradient(135deg, var(--green-dim), rgba(52,211,153,0.02));
+  border: 1px solid var(--green);
+  border-radius: 9px;
+  padding: 16px 18px;
+  margin-bottom: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.rec-action-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.rec-action-title {
+  font-family: "Crimson Text", serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text);
+}
+.rec-why-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.rec-why-text {
+  font-size: 11.5px;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
+/* Two-column row: What River Will Look For + Estimated Impact */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+.col-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+.look-list { display: flex; flex-direction: column; gap: 6px; }
+.look-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+.look-check {
+  color: var(--green);
+  font-weight: 700;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.impact-list { display: flex; flex-direction: column; }
+.impact-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--border-dim);
+  font-size: 12px;
+}
+.impact-row:last-child { border-bottom: 0; }
+.impact-key { color: var(--text-dim); }
+.impact-val {
+  font-family: "JetBrains Mono", monospace;
+  color: var(--text);
+  font-weight: 600;
+}
+.impact-val.gold { color: var(--gold); }
+.risk-low {
+  background: var(--green-dim);
+  color: var(--green);
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+/* Preview example block */
+.preview-block {
+  background: var(--surface);
+  border: 1px solid var(--border-dim);
+  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 18px;
+}
+.preview-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+.preview-row {
+  display: grid;
+  grid-template-columns: 1fr 22px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11.5px;
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--border-dim);
+}
+.preview-row:last-child { border-bottom: 0; }
+.preview-before { color: var(--text-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.preview-after  { color: var(--blue);  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.preview-arrow  { color: var(--text-muted); text-align: center; }
+.preview-tag {
+  font-family: Inter, sans-serif;
+  background: var(--blue-dim);
+  color: var(--blue);
+  border: 1px solid var(--blue);
+  border-radius: 3px;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 7px;
+  letter-spacing: 0.08em;
+}
+.preview-more {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-dim);
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.preview-more a { color: var(--blue); text-decoration: none; }
+.preview-more a:hover { text-decoration: underline; }
+
+/* Step action buttons */
+.step-actions {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 10px;
+}
+.btn {
+  border: 1px solid var(--border);
+  background: var(--surface3);
+  color: var(--text);
+  padding: 12px 18px;
+  border-radius: 7px;
+  font-family: Inter, sans-serif;
+  font-size: 12.5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.15s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.btn:hover { border-color: var(--blue); color: var(--blue); }
+.btn-preview {
+  background: var(--blue);
+  color: #001a26;
+  border-color: var(--blue);
+  font-weight: 700;
+}
+.btn-preview:hover {
+  background: #7dd3fc;
+  border-color: #7dd3fc;
+  color: #001a26;
+  box-shadow: 0 0 22px var(--blue-glow);
+}
+.btn-skip { color: var(--text-dim); }
+.btn-skip:hover { color: var(--orange); border-color: var(--orange); }
+
+/* RIGHT — Anomalies */
+.zone-count-pill {
+  background: var(--surface3);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  padding: 3px 9px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.anomaly-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 36px 1fr 14px;
+  gap: 12px;
+  align-items: center;
+  transition: border-color 0.15s;
+}
+.anomaly-card:hover { border-color: var(--blue); background: var(--surface2); }
+.anomaly-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.anomaly-card.red    .anomaly-icon { background: rgba(248,113,113,0.10); color: var(--red); }
+.anomaly-card.gold   .anomaly-icon { background: rgba(212,175,55,0.10);  color: var(--gold); }
+.anomaly-card.blue   .anomaly-icon { background: var(--blue-dim);        color: var(--blue); }
+.anomaly-card.purple .anomaly-icon { background: rgba(167,139,250,0.10); color: var(--purple); }
+.anomaly-card.orange .anomaly-icon { background: rgba(251,146,60,0.10);  color: var(--orange); }
+.anomaly-card.cyan   .anomaly-icon { background: var(--cyan-dim);        color: var(--cyan); }
+
+.anomaly-info { min-width: 0; }
+.anomaly-top {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+.anomaly-name {
+  font-size: 12.5px;
+  font-weight: 600;
+}
+.anomaly-card.red    .anomaly-name { color: var(--red); }
+.anomaly-card.gold   .anomaly-name { color: var(--gold); }
+.anomaly-card.blue   .anomaly-name { color: var(--blue); }
+.anomaly-card.purple .anomaly-name { color: var(--purple); }
+.anomaly-card.orange .anomaly-name { color: var(--orange); }
+.anomaly-card.cyan   .anomaly-name { color: var(--cyan); }
+.anomaly-count {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-dim);
+  margin-left: auto;
+}
+.anomaly-desc {
+  font-size: 11px;
+  color: var(--text-dim);
+  line-height: 1.4;
+}
+.anomaly-chev { color: var(--text-muted); font-size: 10px; }
+
+.open-anom-btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.open-anom-btn:hover { color: var(--blue); border-color: var(--blue); }
+
+/* Bottom Approve & Run Plan bar */
+.commit-bar {
+  display: grid;
+  grid-template-columns: 1.6fr auto auto auto;
+  gap: 20px;
+  align-items: center;
+  padding: 18px 22px;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+}
+.commit-msg-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+.commit-msg-sub {
+  font-size: 11.5px;
+  color: var(--text-dim);
+  max-width: 360px;
+}
+.commit-stats {
+  display: flex;
+  gap: 22px;
+}
+.commit-stat-num {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+  font-family: Inter, sans-serif;
+}
+.commit-stat-lbl {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+.open-plan-btn {
+  background: var(--surface3);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 12px 18px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 12.5px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.open-plan-btn:hover { color: var(--blue); border-color: var(--blue); }
+
+.approve-btn {
+  background: var(--amber);
+  color: #1a1100;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-family: Inter, sans-serif;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.15s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 220px;
+}
+.approve-btn:hover {
+  background: #ffce4a;
+  box-shadow: 0 0 30px rgba(251,191,36,0.4);
+  transform: translateY(-1px);
+}
+.approve-title {
+  font-size: 14px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.approve-sub {
+  font-size: 10.5px;
+  font-weight: 500;
+  opacity: 0.78;
+}
+
+/* Modal */
+.modal-bg {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.78);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.modal-bg.active { display: flex; }
+.modal {
+  background: var(--surface2);
+  border: 1px solid var(--blue);
+  border-radius: 12px;
+  max-width: 560px;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 30px var(--blue-glow);
+}
+.modal-head {
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal-title {
+  font-family: "Crimson Text", serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--blue);
+}
+.modal-close {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  width: 28px;
+  height: 28px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.modal-body { padding: 20px 22px; }
+.modal-body p { font-size: 13px; color: var(--text-dim); margin-bottom: 10px; }
+.modal-foot {
+  padding: 14px 22px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+@media (max-width: 1180px) {
+  .main { grid-template-columns: 1fr; }
+  .stats-strip { grid-template-columns: repeat(3, 1fr); }
+  .two-col { grid-template-columns: 1fr; }
+  .commit-bar { grid-template-columns: 1fr; gap: 14px; text-align: left; }
+  .commit-stats { justify-content: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<div class="window">
+
+  <!-- Title bar with brand + Simple/Advanced toggle + utility -->
+  <div class="titlebar">
+    <div class="brand-block">
+      <div class="dots">
+        <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+      </div>
+      <div class="brand-mark">R</div>
+      <div class="brand-text">
+        <div class="brand-name">RIVER <span>FIS</span></div>
+        <div class="brand-sub">File Intelligence System</div>
+      </div>
+    </div>
+
+    <div class="mode-toggle">
+      <button class="mode-btn active simple">✨ Simple Mode</button>
+      <button class="mode-btn advanced" onclick="window.location.href='river-fis-3-advanced-mode.html'">⚙ Advanced Mode</button>
+    </div>
+
+    <div class="utility">
+      <div class="api-status">API connected</div>
+      <button class="util-btn" onclick="window.location.href='river-fis-1-scan-pick.html'">
+        <span>📁</span> Scan New Folder
+      </button>
+      <div class="util-icon" title="Settings">⚙</div>
+    </div>
+  </div>
+
+  <!-- 6 stat cards strip -->
+  <div class="stats-strip">
+    <div class="stat-card blue">
+      <div class="stat-icon">📄</div>
+      <div><div class="stat-num">2,968,345</div><div class="stat-lbl">Cached Files</div></div>
+    </div>
+    <div class="stat-card gold">
+      <div class="stat-icon">📁</div>
+      <div><div class="stat-num">270,507</div><div class="stat-lbl">Cached Folders</div></div>
+    </div>
+    <div class="stat-card purple">
+      <div class="stat-icon">🔍</div>
+      <div><div class="stat-num">7,639</div><div class="stat-lbl">Findings (Review Needed)</div></div>
+    </div>
+    <div class="stat-card cyan">
+      <div class="stat-icon">💾</div>
+      <div><div class="stat-num">878 GB</div><div class="stat-lbl">Cached Size</div></div>
+    </div>
+    <div class="stat-card green">
+      <div class="stat-icon">📊</div>
+      <div><div class="stat-num">16</div><div class="stat-lbl">Scan Runs</div></div>
+    </div>
+    <div class="stat-card orange">
+      <div class="stat-icon">⏱</div>
+      <div><div class="stat-num">27</div><div class="stat-lbl">Logged Actions</div></div>
+    </div>
+  </div>
+
+  <!-- Page heading -->
+  <div class="page-head">
+    <div>
+      <a class="back-link" href="river-fis-1-scan-pick.html">← Back to Scan</a>
+      <div class="page-title-row">
+        <div class="page-icon">✨</div>
+        <div>
+          <div class="page-title">File Intelligence · <span class="accent">Simple Mode</span></div>
+          <div class="page-sub">Preview first, safe defaults, nothing destructive without approval.</div>
+        </div>
+      </div>
+    </div>
+    <button class="how-btn" onclick="openHow()">? How Simple Mode Works</button>
+  </div>
+
+  <!-- Three-column main -->
+  <div class="main">
+
+    <!-- LEFT — Three-question decision tree + locked items -->
+    <div class="zone" style="background: transparent; border: none;">
+      <div class="zone-body" style="padding: 0;">
+        <div id="stepCards"></div>
+        <div id="quickActionsPanel" class="quick-actions-panel" style="display: none;">
+          <div class="quick-actions-divider">
+            <span>✨ FIS Quick Actions Unlocked</span>
+          </div>
+          <div class="quick-actions-grid">
+            <div class="quick-action-card" onclick="openQuickAction('sort')">
+              <div class="quick-action-icon">⚖</div>
+              <div class="quick-action-title">Sort Files</div>
+              <div class="quick-action-desc">Sort by type, size, date, or rules.</div>
+            </div>
+            <div class="quick-action-card" onclick="openQuickAction('rename')">
+              <div class="quick-action-icon">✏</div>
+              <div class="quick-action-title">Rename Files</div>
+              <div class="quick-action-desc">Advanced rename with rules.</div>
+            </div>
+            <div class="quick-action-card" onclick="openQuickAction('folder')">
+              <div class="quick-action-icon">📂</div>
+              <div class="quick-action-title">Create Folder</div>
+              <div class="quick-action-desc">Build folder structure from templates.</div>
+            </div>
+            <div class="quick-action-card" onclick="openQuickAction('merge')">
+              <div class="quick-action-icon">⇆</div>
+              <div class="quick-action-title">Merge / Split</div>
+              <div class="quick-action-desc">Merge duplicates or split large sets.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CENTER — Active step detail card -->
+    <div class="center-card" id="centerCard">
+      <!-- Generated by JS -->
+    </div>
+
+    <!-- RIGHT — Anomalies -->
+    <div class="zone">
+      <div class="zone-head">
+        <div class="zone-title">Anomalies (Review Needed)</div>
+        <div class="zone-count-pill">7,639</div>
+      </div>
+      <div class="zone-body">
+        <div id="anomalyList"></div>
+        <button class="open-anom-btn" onclick="openAnomalyReview()">📂 Open Anomaly Review</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Approve & Run Plan bar -->
+  <div class="commit-bar">
+    <div>
+      <div class="commit-msg-title">Ready to continue?</div>
+      <div class="commit-msg-sub">Review the preview results above, then approve to apply the safe actions.</div>
+    </div>
+    <div class="commit-stats">
+      <div>
+        <div class="commit-stat-num">24,981</div>
+        <div class="commit-stat-lbl">Changes Ready</div>
+      </div>
+      <div>
+        <div class="commit-stat-num">18,742</div>
+        <div class="commit-stat-lbl">Files Affected</div>
+      </div>
+      <div>
+        <div class="commit-stat-num">878 MB</div>
+        <div class="commit-stat-lbl">Space to Save</div>
+      </div>
+    </div>
+    <button class="open-plan-btn" onclick="openFullPlan()">📋 Open Full Plan</button>
+    <button class="approve-btn" onclick="approveAndRun()">
+      <div class="approve-title">✓ Approve &amp; Run Plan</div>
+      <div class="approve-sub">Preview first. Nothing destructive.</div>
+    </button>
+  </div>
+
+</div>
+
+<!-- Generic modal -->
+<div class="modal-bg" id="modal">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title" id="modalTitle">—</div>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-foot" id="modalFoot">
+      <button class="btn" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== STEP DATA =====
+const STEPS = [
+  {
+    id: 'clean-names',
+    num: '1.',
+    title: 'Clean Names',
+    icon: '🏷',
+    desc: 'Fix messy names, apply naming schemas, or batch rename.',
+    sub: 'River will fix inconsistent, duplicate, or messy names and apply a clean, consistent naming structure.',
+    recAction: 'Clean and standardize file names',
+    why: "Clean names improve everything else. It's safe, fast, and high impact.",
+    lookFor: [
+      'Duplicate file names (case, spacing, punctuation)',
+      'Inconsistent naming (dates, versions, separators)',
+      'Messy suffixes like "copy", "final", "v2"',
+      'Weird characters, leading/trailing spaces',
+    ],
+    impact: {
+      files: '18,742',
+      fixes: '24,981',
+      time: '~45 sec',
+      risk: 'LOW',
+    },
+    preview: [
+      ['report final (1).docx', 'report.docx'],
+      ['Report FINAL.docx', 'report_v2.docx'],
+      ['IMG_0001 copy.jpg', 'IMG_0001.jpg'],
+      ['project - new - final.pdf', 'project_final.pdf'],
+    ],
+    previewMore: 'Showing 4 of 24,981 potential changes',
+  },
+  {
+    id: 'organize',
+    num: '2.',
+    title: 'Organize',
+    icon: '📁',
+    desc: 'Combine, split, or connect related files and folders.',
+    sub: 'River will group related files, flatten empty nests, and resolve folder collisions into a clean structure.',
+    recAction: 'Group related files by content profile',
+    why: 'A clean folder shape makes everything findable. We never touch protected paths.',
+    lookFor: [
+      'Empty folders and single-file nests',
+      'Folders with same content but different names',
+      'Cross-drive duplicates of the same folder tree',
+      'Loose files that match an existing project profile',
+    ],
+    impact: {
+      files: '4,128',
+      fixes: '5,327',
+      time: '~30 sec',
+      risk: 'LOW',
+    },
+    preview: [
+      ['Downloads/2023/empty-Q1/', '[removed — empty]'],
+      ['Photos/2024/IMG_001/IMG_001.heic', 'Photos/2024/IMG_001.heic'],
+      ['Desktop/Projects/  +  Documents/Projects/', 'Documents/Projects/ (merged)'],
+      ['~/Downloads/loose-pdf-stash/', '~/Documents/PDFs/'],
+    ],
+    previewMore: 'Showing 4 of 5,327 potential changes',
+  },
+  {
+    id: 'relocate',
+    num: '3.',
+    title: 'Relocate',
+    icon: '📦',
+    desc: 'Move, archive, or quarantine files safely.',
+    sub: 'River will route each file to its intent-based home — photos to ~/Photos, documents to ~/Documents, etc.',
+    recAction: 'Route everything to its intended home',
+    why: 'Final placement is reversible — every move is in the rollback ledger.',
+    lookFor: [
+      'Files that match a known content profile',
+      'Old items eligible for archive',
+      'Duplicates eligible for recycle (post-dedupe)',
+      'Items River cannot place confidently (parked to /review/)',
+    ],
+    impact: {
+      files: '8,422',
+      fixes: '10,938',
+      time: '~2 min',
+      risk: 'LOW',
+    },
+    preview: [
+      ['~/Desktop/IMG_2419.jpg', '~/Photos/2024/03/IMG_2419.jpg'],
+      ['~/Downloads/invoice-acme-q3.pdf', '~/Documents/Finance/2024/Q3/invoice-acme-q3.pdf'],
+      ['~/Documents/Forge/', '~/Projects/active/forge/'],
+      ['~/Downloads/old-backup-2019/', '~/Archive/backups/2019/'],
+    ],
+    previewMore: 'Showing 4 of 10,938 potential changes',
+  },
+];
+
+// ===== ANOMALY DATA =====
+const ANOMALIES = [
+  { id: 'same-name-diff', name: 'Same Name, Different Content', count: '216', color: 'red',
+    desc: 'Files share names but have different content.', icon: '⚠' },
+  { id: 'same-content-diff', name: 'Same Content, Different Name', count: '1,750', color: 'gold',
+    desc: 'Exact duplicates with different names.', icon: '⊜' },
+  { id: 'near-dupes', name: 'Near Duplicates', count: '2,442', color: 'blue',
+    desc: 'Highly similar files, not exact matches.', icon: '≈' },
+  { id: 'protected', name: 'Protected Items Involved', count: '198', color: 'purple',
+    desc: 'System or protected files in conflicts.', icon: '🛡' },
+  { id: 'unknown', name: 'Unknown / Unclassified', count: '385', color: 'orange',
+    desc: 'Could not confidently classify these items.', icon: '?' },
+  { id: 'missing', name: 'Missing / Already Exists', count: '613', color: 'cyan',
+    desc: 'Missing in target or already exists elsewhere.', icon: '↯' },
+];
+
+// ===== STATE =====
+const state = {
+  activeStep: 0,
+  stepStatus: ['active', 'pending', 'pending'],   // 'active' | 'done' | 'skipped' | 'pending'
+  quickActionsUnlocked: false,
+};
+
+function checkAndUnlockQuickActions() {
+  // Unlock when all 3 steps are either done or skipped (i.e., the user has walked through all of them)
+  const allTouched = state.stepStatus.every(s => s === 'done' || s === 'skipped');
+  if (allTouched && !state.quickActionsUnlocked) {
+    state.quickActionsUnlocked = true;
+    const panel = document.getElementById('quickActionsPanel');
+    if (panel) {
+      panel.style.display = 'block';
+      showModal('✨ FIS Quick Actions Unlocked', `
+        <p>You've walked through the three core questions. River has unlocked four advanced quick actions for the rest of this session:</p>
+        <ul style="margin: 8px 0 12px 18px; color: var(--text-dim); font-size: 12.5px; line-height: 1.7;">
+          <li><strong style="color: var(--blue);">Sort Files</strong> — sort by type, size, date, or rules</li>
+          <li><strong style="color: var(--blue);">Rename Files</strong> — advanced rename with rules</li>
+          <li><strong style="color: var(--blue);">Create Folder</strong> — build folder structure from templates</li>
+          <li><strong style="color: var(--blue);">Merge / Split</strong> — merge duplicates or split large sets</li>
+        </ul>
+        <p style="color: var(--text-muted); font-size: 11.5px;">These also become available in Manual Mode and Advanced Workbench for this session. Next session, you'll need to walk through the three questions again before they reappear.</p>
+      `);
+    }
+  }
+}
+
+function openQuickAction(kind) {
+  const titles = {
+    sort: 'Sort Files',
+    rename: 'Rename Files',
+    folder: 'Create Folder',
+    merge: 'Merge / Split',
+  };
+  showModal(titles[kind], `
+    <p>${titles[kind]} is an advanced FIS action. In production, this opens a focused tool for that operation — pre-populated with intelligent defaults based on what River learned from your three-step preview.</p>
+    <p style="color: var(--text-muted); font-size: 11.5px;">Not wired in this prototype.</p>
+  `);
+}
+
+// ===== RENDER =====
+function renderSteps() {
+  const el = document.getElementById('stepCards');
+  let html = '';
+  STEPS.forEach((s, i) => {
+    const status = state.stepStatus[i];
+    let cls = 'step-card';
+    if (status === 'active') cls += ' active';
+    if (status === 'skipped') cls += ' skipped';
+    html += `<div class="${cls}" onclick="selectStep(${i})">`;
+    html += `<div class="step-icon-box">${s.icon}</div>`;
+    html += `<div>`;
+    html += `<div class="step-title">${s.num} ${s.title}</div>`;
+    html += `<div class="step-desc">${s.desc}</div>`;
+    if (status === 'done') html += `<div class="step-status-pill done">✓ Preview Ready</div>`;
+    if (status === 'skipped') html += `<div class="step-status-pill skipped">Skipped</div>`;
+    html += `</div>`;
+    html += `<div class="step-chev">›</div>`;
+    html += `</div>`;
+  });
+  el.innerHTML = html;
+}
+
+function renderCenter() {
+  const s = STEPS[state.activeStep];
+  const el = document.getElementById('centerCard');
+  let html = '';
+  html += `<div class="center-head">`;
+  html += `<div><span class="center-step-num">${s.num}</span> <span class="center-step-title">${s.title}</span></div>`;
+  html += `<div class="recommended-badge">✨ Recommended</div>`;
+  html += `</div>`;
+  html += `<div class="center-body">`;
+  html += `<div class="center-sub">${s.sub}</div>`;
+
+  // Recommended Action box
+  html += `<div class="rec-action">`;
+  html += `<div>`;
+  html += `<div class="rec-action-label">✨ Recommended Action</div>`;
+  html += `<div class="rec-action-title">${s.recAction}</div>`;
+  html += `</div>`;
+  html += `<div>`;
+  html += `<div class="rec-why-label">Why this first?</div>`;
+  html += `<div class="rec-why-text">${s.why}</div>`;
+  html += `</div>`;
+  html += `</div>`;
+
+  // What River Will Look For + Estimated Impact
+  html += `<div class="two-col">`;
+  html += `<div>`;
+  html += `<div class="col-label">River Will Look For</div>`;
+  html += `<div class="look-list">`;
+  s.lookFor.forEach(item => {
+    html += `<div class="look-item"><span class="look-check">✓</span><span>${item}</span></div>`;
+  });
+  html += `</div></div>`;
+  html += `<div>`;
+  html += `<div class="col-label">Estimated Impact</div>`;
+  html += `<div class="impact-list">`;
+  html += `<div class="impact-row"><div class="impact-key">Files affected</div><div class="impact-val gold">${s.impact.files}</div></div>`;
+  html += `<div class="impact-row"><div class="impact-key">Potential fixes</div><div class="impact-val gold">${s.impact.fixes}</div></div>`;
+  html += `<div class="impact-row"><div class="impact-key">Time to preview</div><div class="impact-val">${s.impact.time}</div></div>`;
+  html += `<div class="impact-row"><div class="impact-key">Risk level</div><div><span class="risk-low">${s.impact.risk}</span></div></div>`;
+  html += `</div></div>`;
+  html += `</div>`;
+
+  // Preview block
+  html += `<div class="preview-block">`;
+  html += `<div class="preview-label">Preview Example</div>`;
+  s.preview.forEach(p => {
+    html += `<div class="preview-row">`;
+    html += `<div class="preview-before">${escapeHtml(p[0])}</div>`;
+    html += `<div class="preview-arrow">→</div>`;
+    html += `<div class="preview-after">${escapeHtml(p[1])}</div>`;
+    html += `<div class="preview-tag">Preview</div>`;
+    html += `</div>`;
+  });
+  html += `<div class="preview-more"><div>${s.previewMore}</div><a href="#">View Full Preview ›</a></div>`;
+  html += `</div>`;
+
+  // Action buttons
+  html += `<div class="step-actions">`;
+  html += `<button class="btn btn-preview" onclick="previewChanges()">👁 Preview Changes</button>`;
+  html += `<button class="btn" onclick="customizeRule()">✏ Customize Rule</button>`;
+  html += `<button class="btn btn-skip" onclick="skipStep()">▶| Skip This Step</button>`;
+  html += `</div>`;
+
+  html += `</div>`;
+  el.innerHTML = html;
+}
+
+function renderAnomalies() {
+  const el = document.getElementById('anomalyList');
+  let html = '';
+  ANOMALIES.forEach(a => {
+    html += `<div class="anomaly-card ${a.color}" onclick="openAnomalyDetail('${a.id}')">`;
+    html += `<div class="anomaly-icon">${a.icon}</div>`;
+    html += `<div class="anomaly-info">`;
+    html += `<div class="anomaly-top"><div class="anomaly-name">${a.name}</div><div class="anomaly-count">${a.count}</div></div>`;
+    html += `<div class="anomaly-desc">${a.desc}</div>`;
+    html += `</div>`;
+    html += `<div class="anomaly-chev">›</div>`;
+    html += `</div>`;
+  });
+  el.innerHTML = html;
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// ===== ACTIONS =====
+function selectStep(idx) {
+  // Don't move away from a step in active state without preserving its progress
+  state.stepStatus[state.activeStep] = state.stepStatus[state.activeStep] === 'active' ? 'pending' : state.stepStatus[state.activeStep];
+  state.activeStep = idx;
+  if (state.stepStatus[idx] === 'pending') state.stepStatus[idx] = 'active';
+  if (state.stepStatus[idx] === 'done' || state.stepStatus[idx] === 'skipped') {
+    // re-activate
+    state.stepStatus[idx] = 'active';
+  }
+  renderSteps();
+  renderCenter();
+}
+
+function previewChanges() {
+  state.stepStatus[state.activeStep] = 'done';
+  // Auto-advance to next pending step
+  const nextIdx = state.stepStatus.findIndex((s, i) => i > state.activeStep && s !== 'done' && s !== 'skipped');
+  if (nextIdx !== -1) {
+    state.activeStep = nextIdx;
+    state.stepStatus[nextIdx] = 'active';
+  }
+  renderSteps();
+  renderCenter();
+  checkAndUnlockQuickActions();
+}
+
+function customizeRule() {
+  showModal('Customize Rule', `
+    <p>River uses a safe default for each step. If the default doesn't fit, you have three options:</p>
+    <ul style="margin: 10px 0 14px 18px; color: var(--text-dim); font-size: 12.5px; line-height: 1.7;">
+      <li><strong style="color: var(--blue);">Try a different approach</strong> — River cycles to its second-best recommendation (and then a third).</li>
+      <li><strong style="color: var(--purple);">Open Advanced Workbench</strong> — full rule editor with every knob exposed.</li>
+      <li><strong style="color: var(--orange);">Move unresolved to Review</strong> — park items River can't confidently handle.</li>
+    </ul>
+    <p style="font-size: 12px; color: var(--text-muted);">After three misses, River will offer manual handoff automatically.</p>
+  `, [
+    { label: 'Try Another Approach', cls: 'btn-preview', cb: () => { closeModal(); showModal('Alternative Approach', `<p>River swapped to its second-best recommendation. The center detail card now shows the alternative rules.</p><p style="color: var(--text-muted); font-size: 11.5px;">(In the real app, the rec-action box would update with Option B's specifics.)</p>`); } },
+    { label: 'Open Advanced Workbench', cls: '', cb: () => { window.location.href = 'river-fis-3-advanced-mode.html'; } },
+    { label: 'Cancel', cls: '', cb: closeModal },
+  ]);
+}
+
+function skipStep() {
+  state.stepStatus[state.activeStep] = 'skipped';
+  const nextIdx = state.stepStatus.findIndex((s, i) => i > state.activeStep && s !== 'done' && s !== 'skipped');
+  if (nextIdx !== -1) {
+    state.activeStep = nextIdx;
+    state.stepStatus[nextIdx] = 'active';
+  }
+  renderSteps();
+  renderCenter();
+  checkAndUnlockQuickActions();
+}
+
+function openAnomalyDetail(id) {
+  const a = ANOMALIES.find(x => x.id === id);
+  showModal(a.name, `
+    <p>${a.desc}</p>
+    <p><strong>${a.count} items</strong> in this bucket.</p>
+    <p style="color: var(--text-muted); font-size: 12px;">River will not auto-act on this bucket. Either accept its handling rule for this bucket, route the items to /review/, or open Advanced Workbench to handle them individually.</p>
+  `);
+}
+
+function openAnomalyReview() {
+  showModal('Anomaly Review', `
+    <p>Anomaly Review opens a focused workspace for the 7,639 items River flagged for review.</p>
+    <p>You'll see each of the 6 buckets with the items inside. For each bucket, you choose: <strong>Accept default handling</strong>, <strong>Move to /review/ folder</strong>, or <strong>Open in Advanced Workbench</strong>.</p>
+    <p style="color: var(--text-muted); font-size: 12px;">Not wired in this prototype.</p>
+  `);
+}
+
+function openFullPlan() {
+  let stepsDone = state.stepStatus.filter(s => s === 'done').length;
+  let stepsSkipped = state.stepStatus.filter(s => s === 'skipped').length;
+  showModal('Full Plan', `
+    <p><strong>${stepsDone}</strong> of 3 steps have a preview ready · <strong>${stepsSkipped}</strong> skipped.</p>
+    <p>The full plan shows every proposed change line by line, grouped by step. Each entry is reversible from the rollback ledger after run.</p>
+    <p style="color: var(--text-muted); font-size: 12px;">Phase A → stage to .river-staging/&lt;txn_id&gt;/ · Phase B → atomic apply + send2trash · Rollback ledger at ~/.river/logs/.</p>
+  `);
+}
+
+function approveAndRun() {
+  let stepsDone = state.stepStatus.filter(s => s === 'done').length;
+  if (stepsDone === 0) {
+    showModal('No steps to run', `<p>You haven't previewed any steps yet. Click <strong>Preview Changes</strong> on at least one step before running.</p>`);
+    return;
+  }
+  if (!confirm(`Run ${stepsDone} previewed step(s)?\n\n  · 24,981 changes ready\n  · 18,742 files affected\n  · 878 MB space to save\n\nNothing has been touched yet. Click OK to start the two-phase commit.`)) return;
+  showModal('Plan Executed', `
+    <p>The two-phase commit ran successfully.</p>
+    <p style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-dim);">
+      Phase A: staged to .river-staging/txn_${Date.now()}/<br>
+      Phase B: applied atomically<br>
+      Rollback ledger: ~/.river/logs/run_${Date.now()}.json
+    </p>
+    <p style="color: var(--green);">All operations reversible from the ledger.</p>
+  `);
+}
+
+function openHow() {
+  showModal('How Simple Mode Works', `
+    <p>Simple Mode is River's intelligence layer. It asks three questions, makes one safe recommendation per question, and shows you a preview before anything touches disk.</p>
+    <p><strong>Three questions:</strong></p>
+    <ul style="margin: 8px 0 12px 18px; color: var(--text-dim); font-size: 12.5px; line-height: 1.7;">
+      <li>Clean Names — fix messy filenames</li>
+      <li>Organize — group related files, flatten empty nests</li>
+      <li>Relocate — route everything to its intended home</li>
+    </ul>
+    <p><strong>Three attempts per recommendation.</strong> If River's first recommendation doesn't fit, click Customize Rule to try a different approach. After three misses, you'll get a handoff to Advanced Workbench or manual review.</p>
+    <p style="color: var(--blue);">All actions are simulated until you click Approve &amp; Run Plan.</p>
+  `);
+}
+
+// ===== MODAL =====
+function showModal(title, bodyHtml, buttons) {
+  document.getElementById('modalTitle').textContent = title;
+  document.getElementById('modalBody').innerHTML = bodyHtml;
+  const foot = document.getElementById('modalFoot');
+  if (buttons && buttons.length) {
+    foot.innerHTML = '';
+    buttons.forEach(b => {
+      const btn = document.createElement('button');
+      btn.className = 'btn ' + (b.cls || '');
+      btn.textContent = b.label;
+      btn.onclick = b.cb;
+      foot.appendChild(btn);
+    });
+  } else {
+    foot.innerHTML = `<button class="btn" onclick="closeModal()">Close</button>`;
+  }
+  document.getElementById('modal').classList.add('active');
+}
+function closeModal() {
+  document.getElementById('modal').classList.remove('active');
+}
+
+// ===== INIT =====
+renderSteps();
+renderCenter();
+renderAnomalies();
+</script>
+
+</body>
+</html>

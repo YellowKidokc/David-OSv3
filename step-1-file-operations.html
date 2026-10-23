@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unified GUI - Step 1 File Operations</title>
+  <link rel="stylesheet" href="./shared.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">POF</div>
+        <div class="brand-copy">
+          <h1>Unified Operations GUI</h1>
+          <p>Stage one: choose the operation family and attach the input folders you want to act on.</p>
+        </div>
+      </div>
+      <div class="nav-chips">
+        <span class="nav-chip active">Step 01</span>
+        <span class="nav-chip">Step 02</span>
+        <span class="nav-chip">Step 03</span>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="page-head">
+        <div>
+          <div class="eyebrow">File Operations First</div>
+          <h2>What do you want to do, and what are the inputs?</h2>
+          <p>
+            This prototype starts where your hand would naturally start: action first, then source folders.
+            Instead of making you fill out tiny rules up front, it lets you define the intent and gather the
+            actual folders that belong to that pass.
+          </p>
+        </div>
+        <div class="action-row">
+          <span class="action-chip file-op">File Operations</span>
+          <span class="action-chip automation">Automation</span>
+          <span class="action-chip search">Search</span>
+        </div>
+      </section>
+
+      <section class="page-body columns">
+        <div class="panel">
+          <h3>Choose the file operation family</h3>
+          <p>These are the main top-level actions. We can stay with one for now, but the system can grow toward stacked actions later.</p>
+          <div class="selector">
+            <label>
+              <input type="radio" name="file-op" checked>
+              <span class="details">
+                <strong>Copy</strong>
+                <span class="muted">Duplicate content into a new place without touching the source.</span>
+              </span>
+            </label>
+            <label>
+              <input type="radio" name="file-op">
+              <span class="details">
+                <strong>Move</strong>
+                <span class="muted">Transfer the source into the new destination and clear the original spot.</span>
+              </span>
+            </label>
+            <label>
+              <input type="radio" name="file-op">
+              <span class="details">
+                <strong>Archive</strong>
+                <span class="muted">Push the source into a colder storage lane while keeping a clean ledger.</span>
+              </span>
+            </label>
+            <label>
+              <input type="radio" name="file-op">
+              <span class="details">
+                <strong>Delete</strong>
+                <span class="muted">Remove content after a review threshold, with the ledger still preserved.</span>
+              </span>
+            </label>
+            <label>
+              <input type="radio" name="file-op">
+              <span class="details">
+                <strong>Mirror</strong>
+                <span class="muted">Keep a synchronized destination while leaving the source as an active lane.</span>
+              </span>
+            </label>
+          </div>
+          <div class="helper-line">For now, choose one. Later we can let you select as many file actions as you need and carry them as a stack.</div>
+        </div>
+
+        <div class="panel">
+          <h3>Select the input folders</h3>
+          <p>Think like a batch move. You are not routing one folder at a time unless you really need to.</p>
+          <div class="selector-tabs">
+            <span class="selector-tab active">Recent</span>
+            <span class="selector-tab">File Explorer</span>
+            <span class="selector-tab">Clipboard Inputs</span>
+          </div>
+          <div class="selector">
+            <label>
+              <input type="checkbox" checked>
+              <span class="details">
+                <strong>Recent · Downloads</strong>
+                <span class="path">C:\Users\David\Downloads</span>
+              </span>
+            </label>
+            <label>
+              <input type="checkbox" checked>
+              <span class="details">
+                <strong>Recent · Pictures Intake</strong>
+                <span class="path">H:\Pictures\Incoming</span>
+              </span>
+            </label>
+            <label>
+              <input type="checkbox" checked>
+              <span class="details">
+                <strong>Clipboard · Audio Outbox</strong>
+                <span class="path">X:\06_ENGINES\writing-analyzer\outbox\audio</span>
+              </span>
+            </label>
+            <label>
+              <input type="checkbox">
+              <span class="details">
+                <strong>Explorer · Video Staging</strong>
+                <span class="path">D:\theophysics-media\video-staging</span>
+              </span>
+            </label>
+            <label>
+              <input type="checkbox">
+              <span class="details">
+                <strong>Explorer · Site Export Scratch</strong>
+                <span class="path">D:\00_STAGING\site-export</span>
+              </span>
+            </label>
+          </div>
+          <div class="helper-line">Start from recent folders, clipboard-derived inputs, or a File Explorer picker, then choose only the ones you want in this batch.</div>
+
+          <div class="button-row">
+            <a class="button" href="./step-2-destination.html">Continue to outputs</a>
+            <a class="ghost" href="./step-3-combined-board.html">Skip ahead to combined board</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="footer">Prototype only. The point is to freeze the flow before we wire the real engine.</div>
+  </div>
+</body>
+</html>

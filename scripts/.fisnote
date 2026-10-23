@@ -1,21 +1,22 @@
 ---
 fis_schema: "folder-index.v1"
-folder_id: "FLD-20260817-1e4fd4a5"
-folder: "GitHub\David-OS-v2\scripts"
+folder_id: "FLD-20260907-3def859d"
+folder: "GitHub\David-OSv3\scripts"
 folder_class: "project"
 confidence: 0.6
-dependency_risk: 0.0
+dependency_risk: 0.333
 dominant_family: "code"
-dominant_ratio: 0.75
-file_count: 4
-classified_at: "2026-08-17T12:58:35"
+dominant_ratio: 0.857
+file_count: 7
+classified_at: "2026-09-07T15:05:05"
 allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
 suggested_name: "scripts"
+system_markers: ["dir:__pycache__"]
 ---
 
 # FIS Folder Index: scripts
 
-**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 4  ·  **Dominant**: code (75%)
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 7  ·  **Dominant**: code (86%)
 
 ## Allowed actions
 - index

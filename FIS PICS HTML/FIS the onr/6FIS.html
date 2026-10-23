@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="en" data-fis-schema="2.1"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="fis-schema" content="2.1"><meta name="generator" content="FIS folder-brain generator">
+<title>FIS | paper_intelligence_v0.1</title>
+<style>
+:root{color-scheme:dark;--bg:#060708;--panel:#0c0f14;--panel2:#090b0f;--line:#222a35;--text:#e7edf5;--muted:#8b97a7;--accent:#d1a922;--accent2:#f1d37a;--link:#6ea8e8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 system-ui,sans-serif}.layout{max-width:1500px;margin:auto;display:grid;grid-template-columns:230px minmax(0,1fr);gap:24px;padding:28px}main{min-width:0}
+h1{font:600 34px Georgia,serif;margin:5px 0 8px}h2{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin-top:28px}
+.eyebrow,code{font-family:ui-monospace,Consolas,monospace}.eyebrow{color:var(--accent);font-size:12px;letter-spacing:1px}.muted{color:var(--muted)}
+.identity{border-left:3px solid var(--accent);padding:8px 0 8px 12px;margin:8px 0 10px;background:linear-gradient(90deg,rgba(209,169,34,.08),transparent)}.identity code{display:block;font-size:15px;color:var(--accent2);margin-bottom:4px}.identity span{display:block;color:var(--muted);font-size:12px}
+.crumbs{font:12px ui-monospace,Consolas,monospace;color:var(--muted);margin-bottom:10px}.crumbs a{color:var(--accent)}.crumbs span{margin:0 4px}
+.unresolved{display:inline-block;border:1px solid var(--accent);color:var(--accent);padding:2px 10px;border-radius:3px;font:11px ui-monospace,Consolas,monospace;letter-spacing:1px}
+.sidebar{position:sticky;top:20px;align-self:start;border:1px solid var(--line);background:var(--panel);padding:12px;max-height:calc(100vh - 40px);overflow:auto}.sidebar a,.sidebar .child{display:block;padding:7px 6px;border-bottom:1px solid #1a222d}.side-title{font:600 15px Georgia,serif;padding:4px 6px 12px;color:var(--text)}.side-label{color:var(--accent);font:10px ui-monospace,Consolas,monospace;letter-spacing:1px;text-transform:uppercase;padding:16px 6px 5px}.pending{color:var(--muted)}small{font-size:10px}
+.summary{display:grid;grid-template-columns:repeat(4,minmax(140px,1fr));gap:7px;margin:14px 0}.metric{border:1px solid var(--line);padding:8px 9px;background:var(--panel)}.metric b{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px}
+.score-grid{display:grid;grid-template-columns:repeat(6,minmax(120px,1fr));gap:8px}.score-tile{margin:0;border:1px solid var(--line);background:var(--panel);min-height:104px;padding:10px}.score-tile summary{list-style:none;cursor:pointer}.score-tile summary::-webkit-details-marker{display:none}.score-tile strong{display:block;color:var(--accent);font:600 28px Georgia,serif}.score-tile span{font:11px ui-monospace,Consolas,monospace;text-transform:uppercase;color:var(--muted)}.score-tile p{font-size:12px;color:var(--muted)}.score-tile ul{padding-left:17px;font-size:12px}
+table{width:100%;border-collapse:collapse;background:var(--panel)}th,td{border:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px}a{color:var(--link);text-decoration:none}a:hover{text-decoration:underline}code{font-size:12px;color:#d6e5f5;word-break:break-word}
+input[type=search]{width:min(440px,100%);margin:0;padding:9px 10px;border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:3px}.file-controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:0 0 8px}button{border:1px solid var(--line);background:var(--panel);color:var(--text);padding:8px 10px;border-radius:3px;cursor:pointer}button:hover{border-color:var(--accent)}.file-list{display:grid;gap:4px}.file-block{border:1px solid var(--line);background:var(--panel);padding:0}.file-block summary{display:grid;grid-template-columns:minmax(180px,1.5fr) minmax(140px,1.2fr) 50px 70px minmax(130px,1fr) 68px 50px;gap:6px;align-items:center;padding:7px 9px;list-style:none;cursor:pointer}.file-block summary::-webkit-details-marker{display:none}.file-block[open] summary{border-bottom:1px solid var(--line);background:var(--panel2)}.file-name{font-weight:600;color:var(--text)}.source-link{justify-self:end;font-size:12px}.machine{padding:8px 10px 10px}.machine table{background:var(--panel2)}.machine th{width:190px}.machine td,.machine th{padding:6px 8px}.file-head{display:grid;grid-template-columns:minmax(180px,1.5fr) minmax(140px,1.2fr) 50px 70px minmax(130px,1fr) 68px 50px;gap:6px;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px;margin:0 0 4px;padding:0 10px}
+.actions{display:flex;gap:6px;flex-wrap:wrap}.actions button{padding:5px 9px;font-size:12px}
+.capsule{border:1px solid var(--line);background:var(--panel);padding:12px 14px}.capsule p{margin:6px 0}
+.health-list{list-style:none;padding:0;margin:0;display:grid;gap:4px}.health-list li{border:1px solid var(--line);background:var(--panel);padding:8px 10px;font-size:13px}.health-list li::before{content:"◆ ";font-size:11px}.health-list li.warn::before{color:var(--accent)}.health-list li.ok::before{color:#5f7f6a}.health-list code{margin-left:6px}
+details{border:1px solid var(--line);padding:10px;background:var(--panel)}summary{cursor:pointer;color:var(--muted)}
+@media(max-width:800px){.layout{display:block;padding:16px}.sidebar{position:relative;top:auto;max-height:none;margin-bottom:16px}.summary{grid-template-columns:repeat(2,1fr)}table{display:block;overflow:auto;white-space:nowrap}}
+</style></head><body data-api-base=""><div class="layout"><aside class="sidebar"><div class="side-title">paper_intelligence_v0.1</div><a href="#overview">Overview</a><a href="#semantic">Semantic capsule</a><a href="#health">Health</a><a href="#files">Files</a><a href="#folders">Folders</a><a href="#relationships">Relationships</a><a href="#scores">Signals</a><a href="#context">Audit context</a><div class="side-label">Navigate</div><a class="child" href="../FIS.html">&#8593; Atom HTML Plus Mind Map</a><div class="side-label">Child folders</div><span class="child pending">None</span><div class="side-label">Record</div><a href="#context">Machine context</a></aside><main id="overview">
+<nav class="crumbs"><a href="../FIS.html">&#8593; Atom HTML Plus Mind Map</a><span>/</span>paper_intelligence_v0.1</nav>
+<div class="eyebrow">FIS FOLDER BRAIN v2.1 / RECURSIVE SEMANTIC VIEW</div><h1>paper_intelligence_v0.1</h1>
+<div class="identity"><code>GN__DOC__DBS-REC__20260901__AC</code><span>domain GN=document | type DOC | tags DBS=database/sqlite, REC=recording/recorded | date 20260901 | status AC | lossless LOSS__paper_intelligence_v0_1__2026-09-01</span></div>
+<div class="identity" style="margin-top:4px"><code style="color:var(--accent2);font-size:13px">G0 M0 E2 S1 T1 K2 R2 Q0 F0 C1 :: [G.C] [M.F] [E.Q] [S.R] [T.K]</code><span style="color:var(--muted);font-size:11px">Folder MEQ aggregate (avg CHI across 9 files)</span></div>
+<p><span class="unresolved">UNRESOLVED</span></p>
+<div class="summary"><div class="metric"><b>Master Equation</b><code style="color:#f1d37a">G0 M0 E2 S1 T1 K2 R2 Q0 F0 C1 :: [G.C] [M.F] [E.Q] [S.R] [T.K]</code></div><div class="metric"><b>Contents</b>css: 1 | html: 1 | js: 1 | json: 3 | md: 3</div><div class="metric"><b>State</b>active / 9 files</div><div class="metric"><b>Scan</b><code>2026-09-03T06:10:43+00:00</code></div></div>
+<section id="semantic"><h2>Semantic Capsule</h2><div class="capsule"><p>Document folder holding 9 file(s) (223,698 bytes) and 0 child folder(s). Dominant signal R / Relational Frame; domain code.</p></div></section>
+<section id="health"><h2>Health</h2><ul class="health-list"><li class="warn">Purpose<code>UNRESOLVED</code></li><li class="warn">Owner<code>UNRESOLVED</code></li><li class="warn">Canonical source<code>not set</code></li><li class="warn">Unclassified files<code>9 of 9</code></li><li class="ok">Presentation coverage<code>1 of 9</code></li></ul></section>
+<details id="context" style="margin-top:28px"><summary>Machine context and audit fields</summary><pre>{
+  &quot;folder_id&quot;: &quot;FLD-4cc1a550bbaa&quot;,
+  &quot;path&quot;: &quot;\\\\192.168.2.50\\h_hp\\Desktop\\Atom HTML Plus Mind Map\\paper_intelligence_v0.1&quot;,
+  &quot;name&quot;: &quot;paper_intelligence_v0.1&quot;,
+  &quot;folder_type&quot;: &quot;document&quot;,
+  &quot;purpose&quot;: &quot;UNRESOLVED&quot;,
+  &quot;domain&quot;: &quot;unclassified&quot;,
+  &quot;series_name&quot;: null,
+  &quot;chain_steps&quot;: &quot;[]&quot;,
+  &quot;status&quot;: &quot;active&quot;,
+  &quot;owner&quot;: &quot;UNRESOLVED&quot;,
+  &quot;canonical_source&quot;: 0,
+  &quot;parent_backbone&quot;: null,
+  &quot;file_count&quot;: 9,
+  &quot;child_folder_count&quot;: 0,
+  &quot;created_at&quot;: &quot;2026-09-02T01:35:36+00:00&quot;,
+  &quot;last_scanned&quot;: &quot;2026-09-03T06:10:43+00:00&quot;,
+  &quot;notes&quot;: &quot;&quot;,
+  &quot;compressed_name&quot;: &quot;GN__DOC__DBS-REC__20260901__AC&quot;,
+  &quot;compressed_name_detail&quot;: &quot;{\&quot;code\&quot;: \&quot;GN__DOC__DBS-REC__20260901__AC\&quot;, \&quot;domain\&quot;: \&quot;GN\&quot;, \&quot;domain_meaning\&quot;: \&quot;document\&quot;, \&quot;ct\&quot;: \&quot;DOC\&quot;, \&quot;tags\&quot;: [\&quot;DBS\&quot;, \&quot;REC\&quot;], \&quot;date\&quot;: \&quot;20260901\&quot;, \&quot;status\&quot;: \&quot;AC\&quot;, \&quot;tag_meanings\&quot;: {\&quot;DBS\&quot;: \&quot;database/sqlite\&quot;, \&quot;REC\&quot;: \&quot;recording/recorded\&quot;}}&quot;,
+  &quot;lossless_address&quot;: &quot;LOSS__paper_intelligence_v0_1__2026-09-01&quot;,
+  &quot;lossless_address_detail&quot;: &quot;{\&quot;address\&quot;: \&quot;LOSS__paper_intelligence_v0_1__2026-09-01\&quot;, \&quot;mode\&quot;: \&quot;loss\&quot;, \&quot;source_date\&quot;: \&quot;2026-09-01\&quot;, \&quot;basis\&quot;: \&quot;title_and_local_content_sample\&quot;, \&quot;trigger\&quot;: null}&quot;
+}</pre></details>
+<h2 id="files">Files Here</h2><div class="file-controls"><input id="file-search" type="search" placeholder="Find by name, address, type, or keyword" aria-label="Filter files"><button id="toggle-files" type="button">Open all</button></div><div class="file-head"><span>File</span><span>Master Equation Name</span><span>Format</span><span>Role</span><span>Keywords</span><span>Lossless</span><span>Open</span></div><div id="file-rows" class="file-list"><details id="FIL-14755ea789de" class="file-block" data-search="discovery_grammar_v2_1.md g1 m0 e1 s1 t2 k1 r1 q1 f0 c1 :: [g.c] [m.f] [e.q] [s.r] [t.k] 8.0/100 loss__discovery_grammar_v2_1__2026-09-01 cd__not__grc-ent-rel__20260901__ac.md 91666cffc0fb5ca193951f9b41d596cab513481d6f1f8910178a3181b94006d2 \\192.168.2.50\h_hp\desktop\atom html plus mind map\paper_intelligence_v0.1\discovery_grammar_v2_1.md article / md plain code, t, time / kairos, l07, note, time_/_kairos_text, g, grace, e, truth signal, s_eff, entropy, time kairos, k, knowledge logos, r, relational frame, q, quantum uncertainty, c code (2/3) t / time / kairos g:1, e:1, s:1, t:2, k:1, r:1, q:1, c:1 l07 (1/3) time_/_kairos_text 0.483 unclassified 2026-09-02t01:44:41+00:00 2026-09-03t06:10:43+00:00 20981 bytes g1 m0 e1 s1 t2 k1 r1 q1 f0 c1 :: [g.c] [m.f] [e.q] [s.r] [t.k]"><summary><span class="file-name">discovery_grammar_v2_1.md</span><code class="meq-tag" style="font-size:11px;color:#f1d37a;font-weight:600">G1 E1 S1 T2 K1 R1 Q1 C1 :: [G.C] [E.Q] [S.R] [T.K]</code><span>md</span><span>article</span><span>code, T, Time / Kairos, L07, note, time_/_kairos_text</span><span class="lossless-btn" style="color:#d1a922;cursor:pointer;font-size:11px" title="LOSS__discovery_grammar_v2_1__2026-09-01">◆ lossless</span><a class="source-link" href="discovery_grammar_v2_1.md">source</a></summary><div class="machine"><table><tbody><tr><th>Open source location</th><td><a href="discovery_grammar_v2_1.md">\\192.168.2.50\h_hp\Desktop\Atom HTML Plus Mind Map\paper_intelligence_v0.1\discovery_grammar_v2_1.md</a></td></tr><tr><th>Master Equation Name</th><td><code>G1 M0 E1 S1 T2 K1 R1 Q1 F0 C1 :: [G.C] [M.F] [E.Q] [S.R] [T.K]</code></td></tr><tr><th>Structural Evidence</th><td><code>8.0/100</code></td></tr><tr><th>Lossless address</th><td><code>LOSS__discovery_grammar_v2_1__2026-09-01</code></td></tr><tr><th>Proposed compressed name</th><td><code>CD__NOT__GRC-ENT-REL__20260901__AC.md</code></td></tr><tr><th>SHA-256</th><td><code>91666cffc0fb5ca193951f9b41d596cab513481d6f1f8910178a3181b94006d2</code></td></tr><tr><th>Source path</th><td><code>\\192.168.2.50\h_hp\Desktop\Atom HTML Plus Mind Map\paper_intelligence_v0.1\discovery_grammar_v2_1.md</code></td></tr><tr><th>Type / format</th><td><code>article / md</code></td></tr><tr><th>Presentation</th><td><code>plain</code></td></tr><tr><th>Keywords</th><td><code>code, T, Time / Kairos, L07, note, time_/_kairos_text, G, grace, E, truth signal, S_eff, entropy, time kairos, K, knowledge logos, R, relational frame, Q, quantum uncertainty, C</code></td></tr><tr><th>Domain signal</th><td><code>code (2/3)</code></td></tr><tr><th>Dominant CHI</th><td><code>T / Time / Kairos</code></td></tr><tr><th>CHI vector</th><td><code>G:1, E:1, S:1, T:2, K:1, R:1, Q:1, C:1</code></td></tr><tr><th>Law signal</th><td><code>L07 (1/3)</code></td></tr><tr><th>Content role</th><td><code>time_/_kairos_text</code></td></tr><tr><th>Confidence</th><td><code>0.483</code></td></tr><tr><th>Status</th><td><code>unclassified</code></td></tr><tr><th>Last modified</th><td><code>2026-09-02T01:44:41+00:00</code></td></tr><tr><th>Last scanned</th><td><code>2026-09-03T06:10:43+00:00</code></td></tr><tr><th>Size</th><td><code>20981 bytes</code></td></tr></tbody></table></div></details><details id="FIL-8cf72c85f481" class="file-block" data-search="example_paper.json g0 m0 e2 s1 t1 k2 r2 q0 f1 c2 :: [g.c] [m.f] [e.q] [s.r] [t.k] 6.0/100 loss__example_paper__2026-09-01 ep__dat__coh-mrl-ent__20260901__ac.json d15dd5c22b08d27186b59e942be600a55f16b7378cff5c95539c571acff0c394 \\192.168.2.50\h_hp\desktop\atom html plus mind map\paper_intelligence_v0.1\example_paper.json data / json plain epistemology, r, relational frame, l08, data, relational_frame_code, e, truth signal, s_eff, entropy, t, time kairos, k, knowledge logos, f, faith fruit, c, christ coherence, mathematics, refs epistemology (2/3) r / relational frame e:2, s:1, t:1, k:2, r:2, f:1, c:2 l08 (2/3) relational_frame_code 0.557 unclassified 2026-09-02t01:46:39+00:00 2026-09-03t06:10:43+00:00 50052 bytes g0 m0 e2 s1 t1 k2 r2 q0 f1 c2 :: [g.c] [m.f] [e.q] [s.r] [t.k]"><summary><span class="file-name">example_paper.json</span><code class="meq-tag" style="font-size:11px;color:#f1d37a;font-weight:600">E2 S1 T1 K2 R2 F1 C2 :: [G.C] [M.F] [E.Q] [S.R] [T.K]</code><span>json</span><span>data</span><span>epistemology, R, Relational Frame, L08, data, relational_frame_code</span><span class="lossless-btn" style="color:#d1a922;cursor:pointer;font-size:11px" title="LOSS__example_paper__2026-09-01">◆ lossless</span><a class="source-link" href="example_paper.json">source</a></summary><div class="machine"><table><tbody><tr><th>Open source location</th><td><a href="example_paper.json">\\192.168.2.50\h_hp\Desktop\Atom HTML Plus Mind Map\paper_intelligence_v0.1\example_paper.json</a></td></tr><tr><th>Master Equation Name</th><td><code>G0 M0 E2 S1 T1 K2 R2 Q0 F1 C2 :: [G.C] [M.F] [E.Q] [S.R] [T.K]</code></td></tr><tr><th>Structural Evidence</th><td><code>6.0/100</code></td></tr><tr><th>Lossless address</th><td><code>LOSS__example_paper__2026-09-01</code></td></tr><tr><th>Proposed compressed name</th><td><code>EP__DAT__COH-MRL-ENT__20260901__AC.json</code></td></tr><tr><th>SHA-256</th><td><code>d15dd5c22b08d27186b59e942be600a55f16b7378cff5c95539c571acff0c394</code></td></tr><tr><th>Source path</th><td><code>\\192.168.2.50\h_hp\Desktop\Atom HTML Plus Mind Map\paper_intelligence_v0.1\example_paper.json</code></td></tr><tr><th>Type / format</th><td><code>data / json</code></td></tr><tr><th>Presentation</th><td><code>plain</code></td></tr><tr><th>Keywords</th><td><code>epistemology, R, Relational Frame, L08, data, relational_frame_code, E, truth signal, S_eff, entropy, T, time kairos, K, knowledge logos, F, faith fruit, C, christ coherence, mathematics, refs</code></td></tr><tr><th>Domain signal</th><td><code>epistemology (2/3)</code></td></tr><tr><th>Dominant CHI</th><td><code>R / Relational Frame</code></td></tr><tr><th>CHI vector</th><td><code>E:2, S:1, T:1, K:2, R:2, F:1, C:2</code></td></tr><tr><th>Law signal</th><td><code>L08 (2/3)</code></td></tr><tr><th>Content role</th><td><code>relational_frame_code</code></td></tr><tr><th>Confidence</th><td><code>0.557</code></td></tr><tr><th>Status</th><td><code>unclassified</code></td></tr><tr><th>Last modified</th><td><code>2026-09-02T01:46:39+00:00</code></td></tr><tr><th>Last scanned</th><td><code>2026-09-03T06:10:43+00:00</code></td></tr><tr><th>Size</th><td><code>50052 bytes</code></td></tr></tbody></table></div></details><details id="FIL-e94470900bb0" class="file-block" data-search="paper_intelligence.css unscored 0.0/100 loss__paper_intelligence__2026-09-01 gn__cod__web__20260901__ac.css bf0fccff5b2d0af6a8e99b10d76d4d049c6c15c300b90ddf96fe7c61ed9d5153 \\192.168.2.50\h_hp\desktop\atom html plus mind map\paper_intelligence_v0.1\paper_intelligence.css other / css plain code, unclassified_code, intelligence, paper_intellige unknown (0/3) none / unclassified none none (0/3) unclassified_code  unclassified 2026-09-02t02:04:08+00:00 2026-09-03t06:10:43+00:00 25934 bytes "><summary><span class="file-name">paper_intelligence.css</span><code class="meq-tag" style="font-size:11px;color:#f1d37a;font-weight:600">UNSCORED</code><span>css</span><span>other</span><span>code, unclassified_code, intelligence, paper_intellige</span><span class="lossless-btn" style="color:#d1a922;cursor:pointer;font-size:11px" title="LOSS__paper_intelligence__2026-09-01">◆ lossless</span><a class="source-link" href="paper_intelligence.css">source</a></summary><div class="machine"><table><tbody><tr><th>Open source location</th><td><a href="paper_intelligence.css">\\192.168.2.50\h_hp\Desktop\Atom HTML Plus Mind Map\paper_intelligence_v0.1\paper_intelligence.css</a></td></tr><tr><th>Master Equation Name</th><td><code>UNSCORED</code></td></tr><tr><th>Structural Evidence</th><td><code>0.0/100</code></td></tr><tr><th>Lossless address</th><td><code>LOSS__paper_intelligence__2026-09-01</code></td></tr><tr><th>Proposed compressed name</th><td><code>GN__COD__WEB__20260901__AC.css</code></td></tr><tr><th>SHA-256</th><td><code>bf0fccff5b2d0af6a8e99b10d76d4d049c6c15c300b90ddf96fe7c61ed9d5153</code></td></tr><tr><th>Source path</th><td><code>\\192.168.2.50\h_hp\Desktop\Atom HTML Plus Mind Map\paper_intelligence_v0.1\paper_intelligence.css</code></td></tr><tr><th>Type / format</th><td><code>other / css</code></td></tr><tr><th>Presentation</th><td><code>plain</code></td></tr><tr><th>Keywords</th><td><code>code, unclassified_code, intelligence, paper_intellige</code></td></tr><tr><th>Domain signal</th><td><code>unknown (0/3)</code></td></tr><tr><th>Dominant CHI</th><td><code>none / unclassified</code></td></tr><tr><th>CHI vector</th><td><code>none</code></td></tr><tr><th>Law signal</th><td><code>none (0/3)</code></td></tr><tr><th>Content role</th><td><code>unclassified_code</code></td></tr><tr><th>Confidence</th><td><code>UNRESOLVED</code></td></tr><tr><th>Status</th><td><code>unclassified</code></td></tr><tr><th>Last modified</th><td><code>2026-09-02T02:04:08+00:00</code></td></tr><tr><th>Last scanned</th><td><code>2026-09-03T06:10:43+00:00</code></td></tr><tr><th>Size</th><td><code>25934 bytes</code></td></tr></tbody></table></div></details><details id="FIL-c8acfbda4938" class="file-block" data-search="paper_intelligence.html g0 m1 e1 s0 t1 k2 r2 q0 f0 c0 :: [g.c] [m.f] [e.q] [s.r] [t.k] 2.0/100 loss__paper_intelligence__2026-09-01 dt__prf__mrl-rel-knw__20260901__ac.html f3892e7b11ad4b39b88e6a170d3b06151d35ac2db01386daf8b2dc773c029366 \\192.168.2.50\h_hp\desktop\atom html plus mind map\paper_intelligence_v0.1\paper_intelligence.html article / html claims data, r, relational frame, l08, proof, relational_frame_code, m, moral alignment, e, truth signal, t, time kairos, k, knowledge logos, mathematics, question, candidate, json, class, section data (2/3) r / relational frame m:1, e:1, t:1, k:2, r:2 l08 (2/3) relational_frame_code 0.406 unclassified 2026-09-02t01:48:46+00:00 2026-09-03t06:10:43+00:00 11217 bytes g0 m1 e1 s0 t1 k2 r2 q0 f0 c0 :: [g.c] [m.f] [e.q] [s.r] [t.k]"><summary><span class="file-name">paper_intelligence.html</span><code class="meq-tag" style="font-size:11px;color:#f1d37a;font-weight:600">M1 E1 T1 K2 R2 :: [M.F] [E.Q] [S.R] [T.K]</code><span>html</span><span>article</span><span>data, R, Relational Frame, L08, proof, relational_frame_code</span><span class="lossless-btn" style="color:#d1a922;cursor:pointer;font-size:11px" title="LOSS__paper_intelligence__2026-09-01">◆ lossless</span><a class="source-link" href="paper_intelligence.html">source</a></summary><div class="machine"><table><tbody><tr><th>Open source location</th><td><a href="paper_intelligence.html">\\192.168.2.50\h_hp\Desktop\Atom HTML Plus Mind Map\paper_intelligence_v0.1\paper_intelligence.html</a></td></tr><tr><th>Master Equation Name</th><td><code>G0 M1 E1 S0 T1 K2 R2 Q0 F0 C0 :: [G.C] [M.F] [E.Q] [S.R] [T.K]</code></td></tr><tr><th>Structural Evidence</th><td><code>2.0/100</code></td></tr><tr><th>Lossless address</th><td><code>LOSS__paper_intelligence__2026-09-01</code></td></tr><tr><th>Proposed compressed name</th><td><code>DT__PRF__MRL-REL-KNW__20260901__AC.html</code></td></tr><tr><th>SHA-256</th><td><code>f3892e7b11ad4b39b88e6a170d3b06151d35ac2db01386daf8b2dc773c029366</code></td></tr><tr><th>Source path</th><td><code>\\192.168.2.50\h_hp\Desktop\Atom HTML Plus Mind Map\paper_intelligence_v0.1\paper_intelligence.html</code></td></tr><tr><th>Type / format</th><td><code>article / html</code></td></tr><tr><th>Presentation</th><td><code>claims</code></td></tr><tr><th>Keywords</th><td><code>data, R, Relational Frame, L08, proof, relational_frame_code, M, moral alignment, E, truth signal, T, time kairos, K, knowledge logos, mathematics, question, candidate, json, class, section</code></td></tr><tr><th>Domain signal</th><td><code>data (2/3)</code></td></tr><tr><th>Dominant CHI</th><td><code>R / Relational Frame</code></td></tr><tr><th>CHI vector</th><td><code>M:1, E:1, T:1, K:2, R:2</code></td></tr><tr><th>Law signal</th><td><code>L08 (2/3)</code></td></tr><tr><th>Content role</th><td><code>relational_frame_code</code></td></tr><tr><th>Confidence</th><td><code>0.406</code></td></tr><tr><th>Status</th><td><code>unclassified</code></td></tr><tr><th>Last modified</th><td><code>2026-09-02T01:48:46+00:00</code></td></tr><tr><th>Last scanned</th><td><code>2026-09-03T06:10:43+00:00</code></td></tr><tr><th>Size</th><td><code>11217 bytes</code></td></tr></tbody></table></div></details><details id="FIL-497a88a9df08" class="file-block" data-search="paper_intelligence.js g0 m0 e2 s1 t2 k1 r2 q1 f0 c1 :: [g.c] [m.f] [e.q] [s.r] [t.k] 9.0/100 loss__paper_intelligence__2026-09-01 cd__cod__coh-ent-rel__20260901__ac.js 64cd13604d0bce68fbdbe31014b3dd289d24613dd777778a166836dbce9b586d \\192.168.2.50\h_hp\desktop\atom html plus mind map\paper_intelligence_v0.1\paper_intelligence.js script / js plain code, t, time / kairos, l07, time_/_kairos_code, e, truth signal, s_eff, entropy, time kairos, k, knowledge logos, r, relational frame, q, quantum uncertainty, c, christ coherence, intelligence, paper_intellige code (2/3) t / time / kairos e:2, s:1, t:2, k:1, r:2, q:1, c:1 l07 (2/3) time_/_kairos_code 0.529 unclassified 2026-09-02t02:04:38+00:00 2026-09-03t06:10:44+00:00 43411 bytes g0 m0 e2 s1 t2 k1 r2 q1 f0 c1 :: [g.c] [m.f] [e.q] [s.r] [t.k]"><summary><span class="file-name">paper_intelligence.js</span><code class="meq-tag" style="font-size:11px;color:#f1d37a;font-weight:600">E2 S1 T2 K1 R2 Q1 C1 :: [G.C] [E.Q] [S.R] [T.K]</code><span>js</span><span>script</span><span>code, T, Time / Kairos, L07, time_/_kairos_code, E</span><span class="lossless-btn" style="color:#d1a922;cursor:pointer;font-size:11px" title="LOSS__paper_intelligence__2026-09-01">◆ lossless</span><a class="source-link" href="paper_intelligence.js">source</a></summary><div class="machine"><table><tbody><tr><th>Open source location</th><td><a href="paper_intelligence.js">\\192.168.2.50\h_hp\Desktop\Atom HTML Plus Mind Map\paper_intelligence_v0.1\paper_intelligence.js</a></td></tr><tr><th>Master Equation Name</th><td><code>G0 M0 E2 S1 T2 K1 R2 Q1 F0 C1 :: [G.C] [M.F] [E.Q] [S.R] [T.K]</code></td></tr><tr><th>Structural Evidence</th><td><code>9.0/100</code></td></tr><tr><th>Lossless address</th><td><code>LOSS__paper_intelligence__2026-09-01</code></td></tr><tr><th>Proposed compressed name</th><td><code>CD__COD__COH-ENT-REL__20260901__AC.js</code></td></tr><tr><th>SHA-256</th><td><code>64cd13604d0bce68fbdbe31014b3dd289d24613dd777778a166836dbce9b586d</code></td></tr><tr><th>Source path</th><td><code>\\192.168.2.50\h_hp\Desktop\Atom HTML Plus Mind Map\paper_intelligence_v0.1\paper_intelligence.js</code></td></tr><tr><th>Type / format</th><td><code>script / js</code></td></tr><tr><th>Presentation</th><td><code>plain</code></td></tr><tr><th>Keywords</th><td><code>code, T, Time / Kairos, L07, time_/_kairos_code, E, truth signal, S_eff, entropy, time kairos, K, knowledge logos, R, relational frame, Q, quantum uncertainty, C, christ coherence, intelligence, paper_intellige</code></td></tr><tr><th>Domain signal</th><td><code>code (2/3)</code></td></tr><tr><th>Dominant CHI</th><td><code>T / Time / Kairos</code></td></tr><tr><th>CHI vector</th><td><code>E:2, S:1, T:2, K:1, R:2, Q:1, C:1</code></td></tr><tr><th>Law signal</th><td><code>L07 (2/3)</code></td></tr><tr><th>Content role</th><td><code>time_/_kairos_code</code></td></tr><tr><th>Confidence</th><td><code>0.529</code></td></tr><tr><th>Status</th><td><code>unclassified</code></td></tr><tr><th>Last modified</th><td><code>2026-09-02T02:04:38+00:00</code></td></tr><tr><th>Last scanned</th><td><code>2026-09-03T06:10:44+00:00</code></td></tr><tr><th>Size</th><td><code>43411 bytes</code></td></tr></tbody></table></div></details><details id="FIL-84af2d1eae24" class="file-block" data-search="paper_schema.json g0 m0 e2 s0 t1 k2 r2 q1 f1 c0 :: [g.c] [m.f] [e.q] [s.r] [t.k] 0.0/100 loss__paper_schema__2026-09-01 gn__dat__mrl-fth-rel__20260901__ac.json df22dcd39ab344b873906b40c36eb7caa9ea6fb98f7e8d5f43ad8bfee1609336 \\192.168.2.50\h_hp\desktop\atom html plus mind map\paper_intelligence_v0.1\paper_schema.json data / json plain r, relational frame, l08, data, relational_frame_code, e, truth signal, t, time kairos, k, knowledge logos, q, quantum uncertainty, f, faith fruit, mathematics, refs, claim, source, evidence document (2/3) r / relational frame e:2, t:1, k:2, r:2, q:1, f:1 l08 (2/3) relational_frame_code 0.481 unclassified 2026-09-02t01:59:16+00:00 2026-09-03t06:10:44+00:00 12638 bytes g0 m0 e2 s0 t1 k2 r2 q1 f1 c0 :: [g.c] [m.f] [e.q] [s.r] [t.k]"><summary><span class="file-name">paper_schema.json</span><code class="meq-tag" style="font-size:11px;color:#f1d37a;font-weight:600">E2 T1 K2 R2 Q1 F1 :: [M.F] [E.Q] [S.R] [T.K]</code><span>json</span><span>data</span><span>R, Relational Frame, L08, data, relational_frame_code, E</span><span class="lossless-btn" style="color:#d1a922;cursor:pointer;font-size:11px" title="LOSS__paper_schema__2026-09-01">◆ lossless</span><a class="source-link" href="paper_schema.json">source</a></summary><div class="machine"><table><tbody><tr><th>Open source location</th><td><a href="paper_schema.json">\\192.168.2.50\h_hp\Desktop\Atom HTML Plus Mind Map\paper_intelligence_v0.1\paper_schema.json</a></td></tr><tr><th>Master Equation Name</th><td><code>G0 M0 E2 S0 T1 K2 R2 Q1 F1 C0 :: [G.C] [M.F] [E.Q] [S.R] [T.K]</code></td></tr><tr><th>Structural Evidence</th><td><code>0.0/100</code></td></tr><tr><th>Lossless address</th><td><code>LOSS__paper_schema__2026-09-01</code></td></tr><tr><th>Proposed compressed name</th><td><code>GN__DAT__MRL-FTH-REL__20260901__AC.json</code></td></tr><tr><th>SHA-256</th><td><code>df22dcd39ab344b873906b40c36eb7caa9ea6fb98f7e8d5f43ad8bfee1609336</code></td></tr><tr><th>Source path</th><td><code>\\192.168.2.50\h_hp\Desktop\Atom HTML Plus Mind Map\paper_intelligence_v0.1\paper_schema.json</code></td></tr><tr><th>Type / format</th><td><code>data / json</code></td></tr><tr><th>Presentation</th><td><code>plain</code></td></tr><tr><th>Keywords</th><td><code>R, Relational Frame, L08, data, relational_frame_code, E, truth signal, T, time kairos, K, knowledge logos, Q, quantum uncertainty, F, faith fruit, mathematics, refs, claim, source, evidence</code></td></tr><tr><th>Domain signal</th><td><code>document (2/3)</code></td></tr><tr><th>Dominant CHI</th><td><code>R / Relational Frame</code></td></tr><tr><th>CHI vector</th><td><code>E:2, T:1, K:2, R:2, Q:1, F:1</code></td></tr><tr><th>Law signal</th><td><code>L08 (2/3)</code></td></tr><tr><th>Content role</th><td><code>relational_frame_code</code></td></tr><tr><th>Confidence</th><td><code>0.481</code></td></tr><tr><th>Status</th><td><code>unclassified</code></td></tr><tr><th>Last modified</th><td><code>2026-09-02T01:59:16+00:00</code></td></tr><tr><th>Last scanned</th><td><code>2026-09-03T06:10:44+00:00</code></td></tr><tr><th>Size</th><td><code>12638 bytes</code></td></tr></tbody></table></div></details><details id="FIL-b37e11bbead8" class="file-block" data-search="readme.md g0 m0 e1 s1 t1 k2 r2 q1 f0 c1 :: [g.c] [m.f] [e.q] [s.r] [t.k] 22.0/100 loss__readme__2026-09-01 cd__not__coh-ent-rel__20260901__ac.md 2ce371ff2eb77473ac979ce13703945748a8713cd11f646f4708054762fc5353 \\192.168.2.50\h_hp\desktop\atom html plus mind map\paper_intelligence_v0.1\readme.md article / md plain code, r, relational frame, l07, note, relational_frame_text, e, truth signal, s_eff, entropy, t, time kairos, k, knowledge logos, q, quantum uncertainty, c, christ coherence, mathematics, json code (2/3) r / relational frame e:1, s:1, t:1, k:2, r:2, q:1, c:1 l07 (2/3) relational_frame_text 0.501 unclassified 2026-09-02t02:08:15+00:00 2026-09-03t06:10:44+00:00 7542 bytes g0 m0 e1 s1 t1 k2 r2 q1 f0 c1 :: [g.c] [m.f] [e.q] [s.r] [t.k]"><summary><span class="file-name">README.md</span><code class="meq-tag" style="font-size:11px;color:#f1d37a;font-weight:600">E1 S1 T1 K2 R2 Q1 C1 :: [G.C] [E.Q] [S.R] [T.K]</code><span>md</span><span>article</span><span>code, R, Relational Frame, L07, note, relational_frame_text</span><span class="lossless-btn" style="color:#d1a922;cursor:pointer;font-size:11px" title="LOSS__README__2026-09-01">◆ lossless</span><a class="source-link" href="README.md">source</a></summary><div class="machine"><table><tbody><tr><th>Open source location</th><td><a href="README.md">\\192.168.2.50\h_hp\Desktop\Atom HTML Plus Mind Map\paper_intelligence_v0.1\README.md</a></td></tr><tr><th>Master Equation Name</th><td><code>G0 M0 E1 S1 T1 K2 R2 Q1 F0 C1 :: [G.C] [M.F] [E.Q] [S.R] [T.K]</code></td></tr><tr><th>Structural Evidence</th><td><code>22.0/100</code></td></tr><tr><th>Lossless address</th><td><code>LOSS__README__2026-09-01</code></td></tr><tr><th>Proposed compressed name</th><td><code>CD__NOT__COH-ENT-REL__20260901__AC.md</code></td></tr><tr><th>SHA-256</th><td><code>2ce371ff2eb77473ac979ce13703945748a8713cd11f646f4708054762fc5353</code></td></tr><tr><th>Source path</th><td><code>\\192.168.2.50\h_hp\Desktop\Atom HTML Plus Mind Map\paper_intelligence_v0.1\README.md</code></td></tr><tr><th>Type / format</th><td><code>article / md</code></td></tr><tr><th>Presentation</th><td><code>plain</code></td></tr><tr><th>Keywords</th><td><code>code, R, Relational Frame, L07, note, relational_frame_text, E, truth signal, S_eff, entropy, T, time kairos, K, knowledge logos, Q, quantum uncertainty, C, christ coherence, mathematics, json</code></td></tr><tr><th>Domain signal</th><td><code>code (2/3)</code></td></tr><tr><th>Dominant CHI</th><td><code>R / Relational Frame</code></td></tr><tr><th>CHI vector</th><td><code>E:1, S:1, T:1, K:2, R:2, Q:1, C:1</code></td></tr><tr><th>Law signal</th><td><code>L07 (2/3)</code></td></tr><tr><th>Content role</th><td><code>relational_frame_text</code></td></tr><tr><th>Confidence</th><td><code>0.501</code></td></tr><tr><th>Status</th><td><code>unclassified</code></td></tr><tr><th>Last modified</th><td><code>2026-09-02T02:08:15+00:00</code></td></tr><tr><th>Last scanned</th><td><code>2026-09-03T06:10:44+00:00</code></td></tr><tr><th>Size</th><td><code>7542 bytes</code></td></tr></tbody></table></div></details><details id="FIL-a327fbff0395" class="file-block" data-search="receipt.md g0 m1 e2 s1 t2 k2 r0 q0 f0 c1 :: [g.c] [m.f] [e.q] [s.r] [t.k] 17.0/100 loss__receipt__2026-09-01 cd__not__coh-mrl-ent__20260901__ac.md eb5b5b07e5ece8ef9198cff9305aea19cee672cb7e13779bf968c841cb96a6d4 \\192.168.2.50\h_hp\desktop\atom html plus mind map\paper_intelligence_v0.1\receipt.md article / md plain code, t, time / kairos, l02, note, time_/_kairos_text, m, moral alignment, e, truth signal, s_eff, entropy, time kairos, k, knowledge logos, c, christ coherence, mathematics, json, intelligence code (2/3) t / time / kairos m:1, e:2, s:1, t:2, k:2, c:1 l02 (1/3) time_/_kairos_text 0.453 unclassified 2026-09-02t02:09:06+00:00 2026-09-03t06:10:44+00:00 6109 bytes g0 m1 e2 s1 t2 k2 r0 q0 f0 c1 :: [g.c] [m.f] [e.q] [s.r] [t.k]"><summary><span class="file-name">RECEIPT.md</span><code class="meq-tag" style="font-size:11px;color:#f1d37a;font-weight:600">M1 E2 S1 T2 K2 C1 :: [G.C] [M.F] [E.Q] [S.R] [T.K]</code><span>md</span><span>article</span><span>code, T, Time / Kairos, L02, note, time_/_kairos_text</span><span class="lossless-btn" style="color:#d1a922;cursor:pointer;font-size:11px" title="LOSS__RECEIPT__2026-09-01">◆ lossless</span><a class="source-link" href="RECEIPT.md">source</a></summary><div class="machine"><table><tbody><tr><th>Open source location</th><td><a href="RECEIPT.md">\\192.168.2.50\h_hp\Desktop\Atom HTML Plus Mind Map\paper_intelligence_v0.1\RECEIPT.md</a></td></tr><tr><th>Master Equation Name</th><td><code>G0 M1 E2 S1 T2 K2 R0 Q0 F0 C1 :: [G.C] [M.F] [E.Q] [S.R] [T.K]</code></td></tr><tr><th>Structural Evidence</th><td><code>17.0/100</code></td></tr><tr><th>Lossless address</th><td><code>LOSS__RECEIPT__2026-09-01</code></td></tr><tr><th>Proposed compressed name</th><td><code>CD__NOT__COH-MRL-ENT__20260901__AC.md</code></td></tr><tr><th>SHA-256</th><td><code>eb5b5b07e5ece8ef9198cff9305aea19cee672cb7e13779bf968c841cb96a6d4</code></td></tr><tr><th>Source path</th><td><code>\\192.168.2.50\h_hp\Desktop\Atom HTML Plus Mind Map\paper_intelligence_v0.1\RECEIPT.md</code></td></tr><tr><th>Type / format</th><td><code>article / md</code></td></tr><tr><th>Presentation</th><td><code>plain</code></td></tr><tr><th>Keywords</th><td><code>code, T, Time / Kairos, L02, note, time_/_kairos_text, M, moral alignment, E, truth signal, S_eff, entropy, time kairos, K, knowledge logos, C, christ coherence, mathematics, json, intelligence</code></td></tr><tr><th>Domain signal</th><td><code>code (2/3)</code></td></tr><tr><th>Dominant CHI</th><td><code>T / Time / Kairos</code></td></tr><tr><th>CHI vector</th><td><code>M:1, E:2, S:1, T:2, K:2, C:1</code></td></tr><tr><th>Law signal</th><td><code>L02 (1/3)</code></td></tr><tr><th>Content role</th><td><code>time_/_kairos_text</code></td></tr><tr><th>Confidence</th><td><code>0.453</code></td></tr><tr><th>Status</th><td><code>unclassified</code></td></tr><tr><th>Last modified</th><td><code>2026-09-02T02:09:06+00:00</code></td></tr><tr><th>Last scanned</th><td><code>2026-09-03T06:10:44+00:00</code></td></tr><tr><th>Size</th><td><code>6109 bytes</code></td></tr></tbody></table></div></details><details id="FIL-ff28472b36e9" class="file-block" data-search="test_alternate_paper.json g0 m0 e2 s1 t1 k2 r2 q0 f1 c2 :: [g.c] [m.f] [e.q] [s.r] [t.k] 6.0/100 loss__test_alternate_paper__2026-09-01 ep__dat__coh-mrl-ent__20260901__ac.json 4f3da2f8850d87a0994e8c0fe04f992b2056d4673d75918045519ce8b8d901a2 \\192.168.2.50\h_hp\desktop\atom html plus mind map\paper_intelligence_v0.1\test_alternate_paper.json data / json plain epistemology, r, relational frame, l08, data, relational_frame_code, e, truth signal, s_eff, entropy, t, time kairos, k, knowledge logos, f, faith fruit, c, christ coherence, mathematics, refs epistemology (2/3) r / relational frame e:2, s:1, t:1, k:2, r:2, f:1, c:2 l08 (2/3) relational_frame_code 0.557 unclassified 2026-09-02t02:05:28+00:00 2026-09-03t06:10:44+00:00 45814 bytes g0 m0 e2 s1 t1 k2 r2 q0 f1 c2 :: [g.c] [m.f] [e.q] [s.r] [t.k]"><summary><span class="file-name">test_alternate_paper.json</span><code class="meq-tag" style="font-size:11px;color:#f1d37a;font-weight:600">E2 S1 T1 K2 R2 F1 C2 :: [G.C] [M.F] [E.Q] [S.R] [T.K]</code><span>json</span><span>data</span><span>epistemology, R, Relational Frame, L08, data, relational_frame_code</span><span class="lossless-btn" style="color:#d1a922;cursor:pointer;font-size:11px" title="LOSS__test_alternate_paper__2026-09-01">◆ lossless</span><a class="source-link" href="test_alternate_paper.json">source</a></summary><div class="machine"><table><tbody><tr><th>Open source location</th><td><a href="test_alternate_paper.json">\\192.168.2.50\h_hp\Desktop\Atom HTML Plus Mind Map\paper_intelligence_v0.1\test_alternate_paper.json</a></td></tr><tr><th>Master Equation Name</th><td><code>G0 M0 E2 S1 T1 K2 R2 Q0 F1 C2 :: [G.C] [M.F] [E.Q] [S.R] [T.K]</code></td></tr><tr><th>Structural Evidence</th><td><code>6.0/100</code></td></tr><tr><th>Lossless address</th><td><code>LOSS__test_alternate_paper__2026-09-01</code></td></tr><tr><th>Proposed compressed name</th><td><code>EP__DAT__COH-MRL-ENT__20260901__AC.json</code></td></tr><tr><th>SHA-256</th><td><code>4f3da2f8850d87a0994e8c0fe04f992b2056d4673d75918045519ce8b8d901a2</code></td></tr><tr><th>Source path</th><td><code>\\192.168.2.50\h_hp\Desktop\Atom HTML Plus Mind Map\paper_intelligence_v0.1\test_alternate_paper.json</code></td></tr><tr><th>Type / format</th><td><code>data / json</code></td></tr><tr><th>Presentation</th><td><code>plain</code></td></tr><tr><th>Keywords</th><td><code>epistemology, R, Relational Frame, L08, data, relational_frame_code, E, truth signal, S_eff, entropy, T, time kairos, K, knowledge logos, F, faith fruit, C, christ coherence, mathematics, refs</code></td></tr><tr><th>Domain signal</th><td><code>epistemology (2/3)</code></td></tr><tr><th>Dominant CHI</th><td><code>R / Relational Frame</code></td></tr><tr><th>CHI vector</th><td><code>E:2, S:1, T:1, K:2, R:2, F:1, C:2</code></td></tr><tr><th>Law signal</th><td><code>L08 (2/3)</code></td></tr><tr><th>Content role</th><td><code>relational_frame_code</code></td></tr><tr><th>Confidence</th><td><code>0.557</code></td></tr><tr><th>Status</th><td><code>unclassified</code></td></tr><tr><th>Last modified</th><td><code>2026-09-02T02:05:28+00:00</code></td></tr><tr><th>Last scanned</th><td><code>2026-09-03T06:10:44+00:00</code></td></tr><tr><th>Size</th><td><code>45814 bytes</code></td></tr></tbody></table></div></details></div>
+<h2 id="folders">Child Folders</h2><table><thead><tr><th>Folder</th><th>Type</th><th>Files</th><th>Master Equation Aggregate</th><th>View</th></tr></thead><tbody><tr><td colspan="5" class="muted">No child folders.</td></tr></tbody></table><section id="relationships"><h2>Semantic Network</h2><p class="section-note">Connections based on shared keywords, CHI variables, domain, and law signals. Files sharing 2+ tags are linked.</p><div class="badges" style="margin:8px 0"><span class="badge">code (5)</span> <span class="badge">r (5)</span> <span class="badge">relational frame (5)</span> <span class="badge">t (4)</span> <span class="badge">data (4)</span> <span class="badge">s_eff (4)</span> <span class="badge">relational_frame_code (4)</span> <span class="badge">l08 (4)</span> <span class="badge">entropy (4)</span> <span class="badge">time / kairos (3)</span> <span class="badge">note (3)</span> <span class="badge">l07 (3)</span> <span class="badge">time_/_kairos_text (2)</span> <span class="badge">epistemology (2)</span> <span class="badge">m (2)</span></div><table class="signal-table"><thead><tr><th>File A</th><th>File B</th><th>Shared</th><th>Via</th></tr></thead><tbody><tr><td><a href="#FIL-8cf72c85f481">example_paper.json</a></td><td><a href="#FIL-ff28472b36e9">test_alternate_paper.json</a></td><td>8</td><td>data, s_eff, r, relational_frame_code</td></tr><tr><td><a href="#FIL-14755ea789de">discovery_grammar_v2_1.md</a></td><td><a href="#FIL-a327fbff0395">RECEIPT.md</a></td><td>5</td><td>time / kairos, note, code, t</td></tr><tr><td><a href="#FIL-8cf72c85f481">example_paper.json</a></td><td><a href="#FIL-c8acfbda4938">paper_intelligence.html</a></td><td>5</td><td>data, r, relational_frame_code, l08</td></tr><tr><td><a href="#FIL-84af2d1eae24">paper_schema.json</a></td><td><a href="#FIL-8cf72c85f481">example_paper.json</a></td><td>5</td><td>data, r, relational_frame_code, l08</td></tr><tr><td><a href="#FIL-84af2d1eae24">paper_schema.json</a></td><td><a href="#FIL-c8acfbda4938">paper_intelligence.html</a></td><td>5</td><td>data, r, relational_frame_code, l08</td></tr><tr><td><a href="#FIL-c8acfbda4938">paper_intelligence.html</a></td><td><a href="#FIL-ff28472b36e9">test_alternate_paper.json</a></td><td>5</td><td>data, r, relational_frame_code, l08</td></tr><tr><td><a href="#FIL-84af2d1eae24">paper_schema.json</a></td><td><a href="#FIL-ff28472b36e9">test_alternate_paper.json</a></td><td>5</td><td>data, r, relational_frame_code, l08</td></tr><tr><td><a href="#FIL-14755ea789de">discovery_grammar_v2_1.md</a></td><td><a href="#FIL-497a88a9df08">paper_intelligence.js</a></td><td>4</td><td>time / kairos, l07, code, t</td></tr><tr><td><a href="#FIL-497a88a9df08">paper_intelligence.js</a></td><td><a href="#FIL-b37e11bbead8">README.md</a></td><td>4</td><td>l07, code, s_eff, entropy</td></tr><tr><td><a href="#FIL-8cf72c85f481">example_paper.json</a></td><td><a href="#FIL-b37e11bbead8">README.md</a></td><td>4</td><td>s_eff, r, entropy, relational frame</td></tr><tr><td><a href="#FIL-b37e11bbead8">README.md</a></td><td><a href="#FIL-ff28472b36e9">test_alternate_paper.json</a></td><td>4</td><td>s_eff, r, entropy, relational frame</td></tr><tr><td><a href="#FIL-497a88a9df08">paper_intelligence.js</a></td><td><a href="#FIL-a327fbff0395">RECEIPT.md</a></td><td>3</td><td>time / kairos, code, t</td></tr><tr><td><a href="#FIL-14755ea789de">discovery_grammar_v2_1.md</a></td><td><a href="#FIL-b37e11bbead8">README.md</a></td><td>3</td><td>note, l07, code</td></tr><tr><td><a href="#FIL-a327fbff0395">RECEIPT.md</a></td><td><a href="#FIL-b37e11bbead8">README.md</a></td><td>2</td><td>note, code</td></tr><tr><td><a href="#FIL-497a88a9df08">paper_intelligence.js</a></td><td><a href="#FIL-84af2d1eae24">paper_schema.json</a></td><td>2</td><td>t, time kairos</td></tr><tr><td><a href="#FIL-497a88a9df08">paper_intelligence.js</a></td><td><a href="#FIL-8cf72c85f481">example_paper.json</a></td><td>2</td><td>s_eff, entropy</td></tr><tr><td><a href="#FIL-497a88a9df08">paper_intelligence.js</a></td><td><a href="#FIL-ff28472b36e9">test_alternate_paper.json</a></td><td>2</td><td>s_eff, entropy</td></tr><tr><td><a href="#FIL-b37e11bbead8">README.md</a></td><td><a href="#FIL-c8acfbda4938">paper_intelligence.html</a></td><td>2</td><td>r, relational frame</td></tr><tr><td><a href="#FIL-84af2d1eae24">paper_schema.json</a></td><td><a href="#FIL-b37e11bbead8">README.md</a></td><td>2</td><td>r, relational frame</td></tr><tr><td><a href="#FIL-a327fbff0395">RECEIPT.md</a></td><td><a href="#FIL-c8acfbda4938">paper_intelligence.html</a></td><td>2</td><td>m, moral alignment</td></tr></tbody></table></section><section id="scores"><h2>Folder Signals</h2><p class="muted">Open a block to see the calculation evidence; file links jump to the inline machine block above.</p><div class="score-grid"><details class="score-tile"><summary><strong>50</strong><span>Folder signal</span></summary><p>Composite navigation signal; not truth, quality, or canon status.</p><ul><li><a href="#FIL-8cf72c85f481">example_paper.json</a> <code>45/100</code></li><li><a href="#FIL-c8acfbda4938">paper_intelligence.html</a> <code>45/100</code></li><li><a href="#FIL-497a88a9df08">paper_intelligence.js</a> <code>44/100</code></li><li><a href="#FIL-ff28472b36e9">test_alternate_paper.json</a> <code>44/100</code></li><li><a href="#FIL-e94470900bb0">paper_intelligence.css</a> <code>40/100</code></li></ul></details><details class="score-tile"><summary><strong>64</strong><span>Activity</span></summary><p>9 files modified in the last 30 days; 1 observed modification days.</p><ul><li><a href="#FIL-a327fbff0395">RECEIPT.md</a> <code>36/100</code></li><li><a href="#FIL-b37e11bbead8">README.md</a> <code>37/100</code></li><li><a href="#FIL-ff28472b36e9">test_alternate_paper.json</a> <code>44/100</code></li><li><a href="#FIL-497a88a9df08">paper_intelligence.js</a> <code>44/100</code></li><li><a href="#FIL-e94470900bb0">paper_intelligence.css</a> <code>40/100</code></li></ul></details><details class="score-tile"><summary><strong>58</strong><span>Depth</span></summary><p>9 direct source files and 223,698 source bytes.</p><ul><li><a href="#FIL-8cf72c85f481">example_paper.json</a> <code>45/100</code></li><li><a href="#FIL-ff28472b36e9">test_alternate_paper.json</a> <code>44/100</code></li><li><a href="#FIL-497a88a9df08">paper_intelligence.js</a> <code>44/100</code></li><li><a href="#FIL-e94470900bb0">paper_intelligence.css</a> <code>40/100</code></li><li><a href="#FIL-14755ea789de">discovery_grammar_v2_1.md</a> <code>39/100</code></li></ul></details><details class="score-tile"><summary><strong>5</strong><span>Explicit links</span></summary><p>Counts visible Markdown/wiki/HTML link syntax only; it does not infer semantic relationships.</p><ul><li><a href="#FIL-c8acfbda4938">paper_intelligence.html</a> <code>45/100</code></li><li><a href="#FIL-14755ea789de">discovery_grammar_v2_1.md</a> <code>39/100</code></li><li><a href="#FIL-8cf72c85f481">example_paper.json</a> <code>45/100</code></li><li><a href="#FIL-e94470900bb0">paper_intelligence.css</a> <code>40/100</code></li><li><a href="#FIL-497a88a9df08">paper_intelligence.js</a> <code>44/100</code></li></ul></details><details class="score-tile"><summary><strong>3</strong><span>Presentation</span></summary><p>Topbar, audio, equations, and claim-marker coverage in directly stored HTML files.</p><ul><li><a href="#FIL-c8acfbda4938">paper_intelligence.html</a> <code>45/100</code></li><li><a href="#FIL-14755ea789de">discovery_grammar_v2_1.md</a> <code>39/100</code></li><li><a href="#FIL-8cf72c85f481">example_paper.json</a> <code>45/100</code></li><li><a href="#FIL-e94470900bb0">paper_intelligence.css</a> <code>40/100</code></li><li><a href="#FIL-497a88a9df08">paper_intelligence.js</a> <code>44/100</code></li></ul></details><details class="score-tile"><summary><strong>100</strong><span>Registry</span></summary><p>Files with both a SHA-256 content fingerprint and lossless internal address.</p><ul><li><a href="#FIL-14755ea789de">discovery_grammar_v2_1.md</a> <code>39/100</code></li><li><a href="#FIL-8cf72c85f481">example_paper.json</a> <code>45/100</code></li><li><a href="#FIL-e94470900bb0">paper_intelligence.css</a> <code>40/100</code></li><li><a href="#FIL-c8acfbda4938">paper_intelligence.html</a> <code>45/100</code></li><li><a href="#FIL-497a88a9df08">paper_intelligence.js</a> <code>44/100</code></li></ul></details></div></section>
+<p class="muted" style="margin-top:24px">Generated from the FIS registry. Source files remain in place; this page is an index, not a replacement.</p>
+</main></div>
+<script type="application/json" id="fis-folder-record">
+{
+  "schema": "fis.folder/2.1",
+  "folder": {
+    "folder_id": "FLD-4cc1a550bbaa",
+    "path": "\\\\192.168.2.50\\h_hp\\Desktop\\Atom HTML Plus Mind Map\\paper_intelligence_v0.1",
+    "name": "paper_intelligence_v0.1",
+    "folder_type": "document",
+    "purpose": "UNRESOLVED",
+    "domain": "unclassified",
+    "status": "active",
+    "owner": "UNRESOLVED",
+    "canonical_source": 0,
+    "file_count": 9,
+    "child_folder_count": 0,
+    "created_at": "2026-09-02T01:35:36+00:00",
+    "last_scanned": "2026-09-03T06:10:43+00:00",
+    "compressed_name": "GN__DOC__DBS-REC__20260901__AC",
+    "compressed_name_detail": {
+      "code": "GN__DOC__DBS-REC__20260901__AC",
+      "domain": "GN",
+      "domain_meaning": "document",
+      "ct": "DOC",
+      "tags": [
+        "DBS",
+        "REC"
+      ],
+      "date": "20260901",
+      "status": "AC",
+      "tag_meanings": {
+        "DBS": "database/sqlite",
+        "REC": "recording/recorded"
+      }
+    },
+    "lossless_address": "LOSS__paper_intelligence_v0_1__2026-09-01",
+    "lossless_address_detail": {
+      "address": "LOSS__paper_intelligence_v0_1__2026-09-01",
+      "mode": "loss",
+      "source_date": "2026-09-01",
+      "basis": "title_and_local_content_sample",
+      "trigger": null
+    },
+    "meq_aggregate": "G0 M0 E2 S1 T1 K2 R2 Q0 F0 C1 :: [G.C] [M.F] [E.Q] [S.R] [T.K]"
+  },
+  "files": [
+    {
+      "file_id": "FIL-14755ea789de",
+      "name": "discovery_grammar_v2_1.md",
+      "source_path": "\\\\192.168.2.50\\h_hp\\Desktop\\Atom HTML Plus Mind Map\\paper_intelligence_v0.1\\discovery_grammar_v2_1.md",
+      "meq_name": "G1 M0 E1 S1 T2 K1 R1 Q1 F0 C1 :: [G.C] [M.F] [E.Q] [S.R] [T.K]",
+      "internal_address": "LOSS__discovery_grammar_v2_1__2026-09-01",
+      "proposed_compressed_name": "CD__NOT__GRC-ENT-REL__20260901__AC.md",
+      "sha256": "91666cffc0fb5ca193951f9b41d596cab513481d6f1f8910178a3181b94006d2",
+      "type": "article",
+      "format": "md",
+      "keywords": [
+        "code",
+        "T",
+        "Time / Kairos",
+        "L07",
+        "note",
+        "time_/_kairos_text",
+        "G",
+        "grace",
+        "E",
+        "truth signal",
+        "S_eff",
+        "entropy",
+        "time kairos",
+        "K",
+        "knowledge logos",
+        "R",
+        "relational frame",
+        "Q",
+        "quantum uncertainty",
+        "C"
+      ],
+      "domain_signal": "code (2/3)",
+      "dominant_chi": "T / Time / Kairos",
+      "chi_vector": {
+        "G": 1,
+        "E": 1,
+        "S": 1,
+        "T": 2,
+        "K": 1,
+        "R": 1,
+        "Q": 1,
+        "C": 1
+      },
+      "law_signal": "L07 (1/3)",
+      "content_role": "time_/_kairos_text",
+      "evidence_density": 8.0,
+      "confidence": 0.483,
+      "status": "unclassified",
+      "last_modified": "2026-09-02T01:44:41+00:00",
+      "last_scanned": "2026-09-03T06:10:43+00:00",
+      "size_bytes": 20981
+    },
+    {
+      "file_id": "FIL-8cf72c85f481",
+      "name": "example_paper.json",
+      "source_path": "\\\\192.168.2.50\\h_hp\\Desktop\\Atom HTML Plus Mind Map\\paper_intelligence_v0.1\\example_paper.json",
+      "meq_name": "G0 M0 E2 S1 T1 K2 R2 Q0 F1 C2 :: [G.C] [M.F] [E.Q] [S.R] [T.K]",
+      "internal_address": "LOSS__example_paper__2026-09-01",
+      "proposed_compressed_name": "EP__DAT__COH-MRL-ENT__20260901__AC.json",
+      "sha256": "d15dd5c22b08d27186b59e942be600a55f16b7378cff5c95539c571acff0c394",
+      "type": "data",
+      "format": "json",
+      "keywords": [
+        "epistemology",
+        "R",
+        "Relational Frame",
+        "L08",
+        "data",
+        "relational_frame_code",
+        "E",
+        "truth signal",
+        "S_eff",
+        "entropy",
+        "T",
+        "time kairos",
+        "K",
+        "knowledge logos",
+        "F",
+        "faith fruit",
+        "C",
+        "christ coherence",
+        "mathematics",
+        "refs"
+      ],
+      "domain_signal": "epistemology (2/3)",
+      "dominant_chi": "R / Relational Frame",
+      "chi_vector": {
+        "E": 2,
+        "S": 1,
+        "T": 1,
+        "K": 2,
+        "R": 2,
+        "F": 1,
+        "C": 2
+      },
+      "law_signal": "L08 (2/3)",
+      "content_role": "relational_frame_code",
+      "evidence_density": 6.0,
+      "confidence": 0.557,
+      "status": "unclassified",
+      "last_modified": "2026-09-02T01:46:39+00:00",
+      "last_scanned": "2026-09-03T06:10:43+00:00",
+      "size_bytes": 50052
+    },
+    {
+      "file_id": "FIL-e94470900bb0",
+      "name": "paper_intelligence.css",
+      "source_path": "\\\\192.168.2.50\\h_hp\\Desktop\\Atom HTML Plus Mind Map\\paper_intelligence_v0.1\\paper_intelligence.css",
+      "meq_name": "",
+      "internal_address": "LOSS__paper_intelligence__2026-09-01",
+      "proposed_compressed_name": "GN__COD__WEB__20260901__AC.css",
+      "sha256": "bf0fccff5b2d0af6a8e99b10d76d4d049c6c15c300b90ddf96fe7c61ed9d5153",
+      "type": "other",
+      "format": "css",
+      "keywords": [
+        "code",
+        "unclassified_code",
+        "intelligence",
+        "paper_intellige"
+      ],
+      "domain_signal": "unknown (0/3)",
+      "dominant_chi": "none / unclassified",
+      "chi_vector": {},
+      "law_signal": "none (0/3)",
+      "content_role": "unclassified_code",
+      "evidence_density": 0.0,
+      "confidence": 0.0,
+      "status": "unclassified",
+      "last_modified": "2026-09-02T02:04:08+00:00",
+      "last_scanned": "2026-09-03T06:10:43+00:00",
+      "size_bytes": 25934
+    },
+    {
+      "file_id": "FIL-c8acfbda4938",
+      "name": "paper_intelligence.html",
+      "source_path": "\\\\192.168.2.50\\h_hp\\Desktop\\Atom HTML Plus Mind Map\\paper_intelligence_v0.1\\paper_intelligence.html",
+      "meq_name": "G0 M1 E1 S0 T1 K2 R2 Q0 F0 C0 :: [G.C] [M.F] [E.Q] [S.R] [T.K]",
+      "internal_address": "LOSS__paper_intelligence__2026-09-01",
+      "proposed_compressed_name": "DT__PRF__MRL-REL-KNW__20260901__AC.html",
+      "sha256": "f3892e7b11ad4b39b88e6a170d3b06151d35ac2db01386daf8b2dc773c029366",
+      "type": "article",
+      "format": "html",
+      "keywords": [
+        "data",
+        "R",
+        "Relational Frame",
+        "L08",
+        "proof",
+        "relational_frame_code",
+        "M",
+        "moral alignment",
+        "E",
+        "truth signal",
+        "T",
+        "time kairos",
+        "K",
+        "knowledge logos",
+        "mathematics",
+        "question",
+        "candidate",
+        "json",
+        "class",
+        "section"
+      ],
+      "domain_signal": "data (2/3)",
+      "dominant_chi": "R / Relational Frame",
+      "chi_vector": {
+        "M": 1,
+        "E": 1,
+        "T": 1,
+        "K": 2,
+        "R": 2
+      },
+      "law_signal": "L08 (2/3)",
+      "content_role": "relational_frame_code",
+      "evidence_density": 2.0,
+      "confidence": 0.406,
+      "status": "unclassified",
+      "last_modified": "2026-09-02T01:48:46+00:00",
+      "last_scanned": "2026-09-03T06:10:43+00:00",
+      "size_bytes": 11217
+    },
+    {
+      "file_id": "FIL-497a88a9df08",
+      "name": "paper_intelligence.js",
+      "source_path": "\\\\192.168.2.50\\h_hp\\Desktop\\Atom HTML Plus Mind Map\\paper_intelligence_v0.1\\paper_intelligence.js",
+      "meq_name": "G0 M0 E2 S1 T2 K1 R2 Q1 F0 C1 :: [G.C] [M.F] [E.Q] [S.R] [T.K]",
+      "internal_address": "LOSS__paper_intelligence__2026-09-01",
+      "proposed_compressed_name": "CD__COD__COH-ENT-REL__20260901__AC.js",
+      "sha256": "64cd13604d0bce68fbdbe31014b3dd289d24613dd777778a166836dbce9b586d",
+      "type": "script",
+      "format": "js",
+      "keywords": [
+        "code",
+        "T",
+        "Time / Kairos",
+        "L07",
+        "time_/_kairos_code",
+        "E",
+        "truth signal",
+        "S_eff",
+        "entropy",
+        "time kairos",
+        "K",
+        "knowledge logos",
+        "R",
+        "relational frame",
+        "Q",
+        "quantum uncertainty",
+        "C",
+        "christ coherence",
+        "intelligence",
+        "paper_intellige"
+      ],
+      "domain_signal": "code (2/3)",
+      "dominant_chi": "T / Time / Kairos",
+      "chi_vector": {
+        "E": 2,
+        "S": 1,
+        "T": 2,
+        "K": 1,
+        "R": 2,
+        "Q": 1,
+        "C": 1
+      },
+      "law_signal": "L07 (2/3)",
+      "content_role": "time_/_kairos_code",
+      "evidence_density": 9.0,
+      "confidence": 0.529,
+      "status": "unclassified",
+      "last_modified": "2026-09-02T02:04:38+00:00",
+      "last_scanned": "2026-09-03T06:10:44+00:00",
+      "size_bytes": 43411
+    },
+    {
+      "file_id": "FIL-84af2d1eae24",
+      "name": "paper_schema.json",
+      "source_path": "\\\\192.168.2.50\\h_hp\\Desktop\\Atom HTML Plus Mind Map\\paper_intelligence_v0.1\\paper_schema.json",
+      "meq_name": "G0 M0 E2 S0 T1 K2 R2 Q1 F1 C0 :: [G.C] [M.F] [E.Q] [S.R] [T.K]",
+      "internal_address": "LOSS__paper_schema__2026-09-01",
+      "proposed_compressed_name": "GN__DAT__MRL-FTH-REL__20260901__AC.json",
+      "sha256": "df22dcd39ab344b873906b40c36eb7caa9ea6fb98f7e8d5f43ad8bfee1609336",
+      "type": "data",
+      "format": "json",
+      "keywords": [
+        "R",
+        "Relational Frame",
+        "L08",
+        "data",
+        "relational_frame_code",
+        "E",
+        "truth signal",
+        "T",
+        "time kairos",
+        "K",
+        "knowledge logos",
+        "Q",
+        "quantum uncertainty",
+        "F",
+        "faith fruit",
+        "mathematics",
+        "refs",
+        "claim",
+        "source",
+        "evidence"
+      ],
+      "domain_signal": "document (2/3)",
+      "dominant_chi": "R / Relational Frame",
+      "chi_vector": {
+        "E": 2,
+        "T": 1,
+        "K": 2,
+        "R": 2,
+        "Q": 1,
+        "F": 1
+      },
+      "law_signal": "L08 (2/3)",
+      "content_role": "relational_frame_code",
+      "evidence_density": 0.0,
+      "confidence": 0.481,
+      "status": "unclassified",
+      "last_modified": "2026-09-02T01:59:16+00:00",
+      "last_scanned": "2026-09-03T06:10:44+00:00",
+      "size_bytes": 12638
+    },
+    {
+      "file_id": "FIL-b37e11bbead8",
+      "name": "README.md",
+      "source_path": "\\\\192.168.2.50\\h_hp\\Desktop\\Atom HTML Plus Mind Map\\paper_intelligence_v0.1\\README.md",
+      "meq_name": "G0 M0 E1 S1 T1 K2 R2 Q1 F0 C1 :: [G.C] [M.F] [E.Q] [S.R] [T.K]",
+      "internal_address": "LOSS__README__2026-09-01",
+      "proposed_compressed_name": "CD__NOT__COH-ENT-REL__20260901__AC.md",
+      "sha256": "2ce371ff2eb77473ac979ce13703945748a8713cd11f646f4708054762fc5353",
+      "type": "article",
+      "format": "md",
+      "keywords": [
+        "code",
+        "R",
+        "Relational Frame",
+        "L07",
+        "note",
+        "relational_frame_text",
+        "E",
+        "truth signal",
+        "S_eff",
+        "entropy",
+        "T",
+        "time kairos",
+        "K",
+        "knowledge logos",
+        "Q",
+        "quantum uncertainty",
+        "C",
+        "christ coherence",
+        "mathematics",
+        "json"
+      ],
+      "domain_signal": "code (2/3)",
+      "dominant_chi": "R / Relational Frame",
+      "chi_vector": {
+        "E": 1,
+        "S": 1,
+        "T": 1,
+        "K": 2,
+        "R": 2,
+        "Q": 1,
+        "C": 1
+      },
+      "law_signal": "L07 (2/3)",
+      "content_role": "relational_frame_text",
+      "evidence_density": 22.0,
+      "confidence": 0.501,
+      "status": "unclassified",
+      "last_modified": "2026-09-02T02:08:15+00:00",
+      "last_scanned": "2026-09-03T06:10:44+00:00",
+      "size_bytes": 7542
+    },
+    {
+      "file_id": "FIL-a327fbff0395",
+      "name": "RECEIPT.md",
+      "source_path": "\\\\192.168.2.50\\h_hp\\Desktop\\Atom HTML Plus Mind Map\\paper_intelligence_v0.1\\RECEIPT.md",
+      "meq_name": "G0 M1 E2 S1 T2 K2 R0 Q0 F0 C1 :: [G.C] [M.F] [E.Q] [S.R] [T.K]",
+      "internal_address": "LOSS__RECEIPT__2026-09-01",
+      "proposed_compressed_name": "CD__NOT__COH-MRL-ENT__20260901__AC.md",
+      "sha256": "eb5b5b07e5ece8ef9198cff9305aea19cee672cb7e13779bf968c841cb96a6d4",
+      "type": "article",
+      "format": "md",
+      "keywords": [
+        "code",
+        "T",
+        "Time / Kairos",
+        "L02",
+        "note",
+        "time_/_kairos_text",
+        "M",
+        "moral alignment",
+        "E",
+        "truth signal",
+        "S_eff",
+        "entropy",
+        "time kairos",
+        "K",
+        "knowledge logos",
+        "C",
+        "christ coherence",
+        "mathematics",
+        "json",
+        "intelligence"
+      ],
+      "domain_signal": "code (2/3)",
+      "dominant_chi": "T / Time / Kairos",
+      "chi_vector": {
+        "M": 1,
+        "E": 2,
+        "S": 1,
+        "T": 2,
+        "K": 2,
+        "C": 1
+      },
+      "law_signal": "L02 (1/3)",
+      "content_role": "time_/_kairos_text",
+      "evidence_density": 17.0,
+      "confidence": 0.453,
+      "status": "unclassified",
+      "last_modified": "2026-09-02T02:09:06+00:00",
+      "last_scanned": "2026-09-03T06:10:44+00:00",
+      "size_bytes": 6109
+    },
+    {
+      "file_id": "FIL-ff28472b36e9",
+      "name": "test_alternate_paper.json",
+      "source_path": "\\\\192.168.2.50\\h_hp\\Desktop\\Atom HTML Plus Mind Map\\paper_intelligence_v0.1\\test_alternate_paper.json",
+      "meq_name": "G0 M0 E2 S1 T1 K2 R2 Q0 F1 C2 :: [G.C] [M.F] [E.Q] [S.R] [T.K]",
+      "internal_address": "LOSS__test_alternate_paper__2026-09-01",
+      "proposed_compressed_name": "EP__DAT__COH-MRL-ENT__20260901__AC.json",
+      "sha256": "4f3da2f8850d87a0994e8c0fe04f992b2056d4673d75918045519ce8b8d901a2",
+      "type": "data",
+      "format": "json",
+      "keywords": [
+        "epistemology",
+        "R",
+        "Relational Frame",
+        "L08",
+        "data",
+        "relational_frame_code",
+        "E",
+        "truth signal",
+        "S_eff",
+        "entropy",
+        "T",
+        "time kairos",
+        "K",
+        "knowledge logos",
+        "F",
+        "faith fruit",
+        "C",
+        "christ coherence",
+        "mathematics",
+        "refs"
+      ],
+      "domain_signal": "epistemology (2/3)",
+      "dominant_chi": "R / Relational Frame",
+      "chi_vector": {
+        "E": 2,
+        "S": 1,
+        "T": 1,
+        "K": 2,
+        "R": 2,
+        "F": 1,
+        "C": 2
+      },
+      "law_signal": "L08 (2/3)",
+      "content_role": "relational_frame_code",
+      "evidence_density": 6.0,
+      "confidence": 0.557,
+      "status": "unclassified",
+      "last_modified": "2026-09-02T02:05:28+00:00",
+      "last_scanned": "2026-09-03T06:10:44+00:00",
+      "size_bytes": 45814
+    }
+  ],
+  "child_folders": [],
+  "signals": {
+    "folder_signal": 50,
+    "activity": 64,
+    "depth": 58,
+    "explicit_links": 5,
+    "presentation": 3,
+    "registry": 100
+  }
+}
+</script>
+<script>
+const q=document.getElementById('file-search');const blocks=[...document.querySelectorAll('.file-block')];q?.addEventListener('input',()=>{const v=q.value.toLowerCase();blocks.forEach(b=>b.hidden=!(b.dataset.search+' '+b.innerText.toLowerCase()).includes(v));});const toggle=document.getElementById('toggle-files');toggle?.addEventListener('click',()=>{const visible=blocks.filter(b=>!b.hidden);const openSome=visible.some(b=>!b.open);visible.forEach(b=>b.open=openSome);toggle.textContent=openSome?'Close all':'Open all';});document.querySelectorAll('.source-link').forEach(a=>a.addEventListener('click',e=>e.stopPropagation()));
+document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',()=>{navigator.clipboard?.writeText(b.dataset.copy);b.textContent='Copied';setTimeout(()=>b.textContent=b.dataset.copy.startsWith('MEQ')?'Copy address':'Copy SHA-256',900);}));
+document.querySelectorAll('[data-action]').forEach(b=>b.addEventListener('click',()=>{const payload={file_id:b.dataset.fileId,target:b.dataset.target||null,folder:document.querySelector('h1').textContent};if(window.FIS_API?.run){window.FIS_API.run(b.dataset.action,payload);}else{b.textContent='API not connected';setTimeout(()=>b.textContent=b.dataset.action==='apply-name'?'Apply proposed name':'Mark reviewed',1100);}}))</script></body></html>

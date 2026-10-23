@@ -1,14 +1,14 @@
 ---
 fis_schema: "folder-index.v1"
-folder_id: "FLD-20260817-d6e35794"
-folder: "GitHub\David-OS-v2\agents"
+folder_id: "FLD-20260907-289a0f02"
+folder: "GitHub\David-OSv3\agents"
 folder_class: "project"
 confidence: 0.6
 dependency_risk: 0.0
 dominant_family: "code"
 dominant_ratio: 0.857
 file_count: 7
-classified_at: "2026-08-17T12:58:34"
+classified_at: "2026-09-07T15:05:03"
 allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
 suggested_name: "agents"
 ---

@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Stratum · File Workbench (advanced)</title>
+<style>
+  :root{
+    --bg:#0a0a0f; --panel:#101019; --panel2:#0d0d15; --line:#20202c;
+    --ink:#e7e7ef; --mut:#8a8a9c; --dim:#5d5d70; --mono:ui-monospace,"Cascadia Code","JetBrains Mono",Consolas,monospace;
+    --scan:#37d67a; --compose:#2bd9c4; --compare:#4a9eff; --dupe:#f0a02b; --combine:#a06bff;
+    --separate:#ff5e8a; --rename:#ffd23f; --move:#4a9eff; --copy:#23c7e8; --archive:#d4af37;
+    --delete:#ff5c5c; --link:#6c7bff; --auto:#37d67a; --review:#f0a02b; --report:#9aa0b4; --protect:#ff8a3d;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--mono);font-size:13px;line-height:1.5}
+  .wrap{max-width:1180px;margin:0 auto;padding:18px 22px 60px}
+  .top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .brand{font-size:18px;letter-spacing:1px}
+  .brand b{font-weight:700}
+  .brand span{color:var(--dim);font-size:12px;letter-spacing:0;margin-left:8px}
+  .top-r{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--mut)}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--scan);box-shadow:0 0 6px var(--scan);display:inline-block;margin-right:6px}
+  .pill{border:1px solid var(--line);border-radius:6px;padding:4px 10px;color:var(--mut);background:var(--panel2)}
+  .pill.on{color:var(--ink);border-color:#3a3a4a;background:#16161f}
+  .tabs{display:flex;gap:6px;margin:16px 0 6px;flex-wrap:wrap}
+  .tab{border:1px solid var(--line);background:var(--panel2);color:var(--mut);border-radius:6px;padding:6px 14px;font-size:12px}
+  .tab.on{color:var(--ink);background:#171722;border-color:#33333f}
+  .lead{color:var(--mut);font-size:12px;margin:10px 0 18px}
+  .sec{font-size:11px;letter-spacing:2px;color:var(--dim);text-transform:uppercase;margin:24px 0 10px}
+  /* strategy chooser */
+  .strat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin-bottom:8px}
+  .strat h3{margin:0 0 4px;font-size:14px;font-weight:600}
+  .strat p{margin:0 0 14px;color:var(--mut);font-size:12px}
+  .grid{display:grid;gap:10px}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+  .field label{display:block;color:var(--mut);font-size:11px;margin-bottom:4px;text-transform:lowercase}
+  .field input,.field select{width:100%;background:#0b0b12;border:1px solid var(--line);border-radius:6px;color:var(--ink);
+    font-family:var(--mono);font-size:12px;padding:7px 9px}
+  .opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+  .opt{border:1px solid var(--line);border-radius:20px;padding:5px 12px;font-size:12px;color:var(--mut);background:#0b0b12}
+  .opt.on{color:#0a0a0f;background:var(--compose);border-color:var(--compose);font-weight:600}
+  /* block palette */
+  .palette{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{border:1px solid var(--line);border-radius:7px;padding:7px 12px;font-size:12px;background:var(--panel2);color:var(--ink);
+    border-left-width:3px}
+  /* function blocks */
+  .stage-h{display:flex;align-items:baseline;gap:10px;margin:26px 0 8px}
+  .stage-h .n{font-size:11px;color:var(--dim)}
+  .stage-h .t{font-size:15px;font-weight:600}
+  .stage-h .d{font-size:12px;color:var(--mut)}
+  .fn{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+  .fn-h{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+  .fn-h .title{font-size:14px;font-weight:600}
+  .fn-h .sub{font-size:12px;color:var(--mut);font-weight:400;margin-left:8px}
+  .fn-h .draft{font-size:11px;color:var(--dim)}
+  .fn-foot{display:flex;align-items:center;justify-content:space-between;margin-top:12px;gap:10px;flex-wrap:wrap}
+  .safety{display:flex;align-items:center;gap:8px;color:var(--mut);font-size:11px}
+  .safety select{background:#0b0b12;border:1px solid var(--line);border-radius:6px;color:var(--ink);font-family:var(--mono);font-size:11px;padding:5px 8px}
+  .btns{display:flex;gap:8px}
+  .btn{border:1px solid var(--line);background:#13131c;color:var(--ink);border-radius:6px;padding:7px 16px;font-size:12px;font-family:var(--mono)}
+  .btn.prime{background:#1b2440;border-color:#2f3f6e;color:#bcd0ff}
+  .btn.ghost{color:var(--dim)}
+  .note{color:var(--dim);font-size:11px;margin-top:8px}
+  /* color the left borders + chips by category */
+  .c-scan{border-left-color:var(--scan)} .c-compose{border-left-color:var(--compose)} .c-compare{border-left-color:var(--compare)}
+  .c-dupe{border-left-color:var(--dupe)} .c-combine{border-left-color:var(--combine)} .c-separate{border-left-color:var(--separate)}
+  .c-rename{border-left-color:var(--rename)} .c-move{border-left-color:var(--move)} .c-copy{border-left-color:var(--copy)}
+  .c-archive{border-left-color:var(--archive)} .c-delete{border-left-color:var(--delete)} .c-link{border-left-color:var(--link)}
+  .c-auto{border-left-color:var(--auto)} .c-review{border-left-color:var(--review)} .c-report{border-left-color:var(--report)}
+  .c-protect{border-left-color:var(--protect)}
+  .legend{display:flex;flex-wrap:wrap;gap:14px;color:var(--mut);font-size:11px;margin-top:6px}
+  .legend span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:5px;vertical-align:middle}
+  .l-look::before{background:var(--scan)} .l-und::before{background:var(--compare)} .l-des::before{background:var(--combine)}
+  .l-act::before{background:var(--move)} .l-gov::before{background:var(--review)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top">
+    <div class="brand"><b>STRATUM</b> · FILE WORKBENCH <span>files &amp; folders · advanced</span></div>
+    <div class="top-r">
+      <span><span class="dot"></span>engine ready</span>
+      <span class="pill">simple</span>
+      <span class="pill on">advanced</span>
+      <span class="pill">engine stats</span>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <span class="tab">home</span>
+    <span class="tab">sort</span>
+    <span class="tab">rename</span>
+    <span class="tab on">workbench</span>
+    <span class="tab">intelligence</span>
+    <span class="tab">memory / cache</span>
+    <span class="tab">automation</span>
+    <span class="tab">ledger</span>
+  </div>
+
+  <div class="lead">add work blocks, choose a strategy, preview the plan, then record it. nothing touches the disk until you approve — every action is logged and reversible.</div>
+
+  <!-- STRATEGY CHOOSER -->
+  <div class="sec">classification strategy — decide before you move</div>
+  <div class="strat">
+    <h3>how should this job be organized?</h3>
+    <p>different folders want different logic. pick one, or set per-folder overrides. this drives Design + Rename below.</p>
+    <div class="opts" style="margin-bottom:14px">
+      <span class="opt on">broad categories</span>
+      <span class="opt">by extension</span>
+      <span class="opt">by domain (DT / TP)</span>
+      <span class="opt">standard naming</span>
+      <span class="opt">your naming convention</span>
+      <span class="opt">by purpose / project</span>
+      <span class="opt">by date</span>
+    </div>
+    <div class="grid g3">
+      <div class="field"><label>apply to</label><select><option>files and folders</option><option>files only</option><option>folders only</option></select></div>
+      <div class="field"><label>category set</label><select><option>documents · images · video · audio · archives · code · data</option><option>office · media · dev · misc</option><option>custom…</option></select></div>
+      <div class="field"><label>per-folder override</label><select><option>allow (each folder can differ)</option><option>force one strategy everywhere</option></select></div>
+      <div class="field"><label>naming schema</label><input value="{DOMAIN}__{name}__{tag1-tag2}__{YYYYMMDD}" /></div>
+      <div class="field"><label>case / spacing</label><select><option>lowercase_with_underscores</option><option>Title Case</option><option>kebab-case</option><option>leave as-is</option></select></div>
+      <div class="field"><label>domain codes</label><select><option>2-letter codes (TP, DT) + aliases</option><option>spelled out (theophysics)</option></select></div>
+    </div>
+  </div>
+
+  <!-- PALETTE -->
+  <div class="sec">add work block — every file &amp; folder action</div>
+  <div class="palette">
+    <span class="chip c-scan">01 scan</span>
+    <span class="chip c-compose">02 folder composition</span>
+    <span class="chip c-compare">03 compare trees</span>
+    <span class="chip c-dupe">04 duplicates</span>
+    <span class="chip c-scan">05 integrity baseline</span>
+    <span class="chip c-compose">06 tree snapshot</span>
+    <span class="chip c-compare">07 classify / themes</span>
+    <span class="chip c-compare">08 tag</span>
+    <span class="chip c-combine">09 design target tree</span>
+    <span class="chip c-combine">10 scaffold from template</span>
+    <span class="chip c-rename">11 rename</span>
+    <span class="chip c-move">12 move</span>
+    <span class="chip c-copy">13 copy</span>
+    <span class="chip c-separate">14 separate / split folder</span>
+    <span class="chip c-combine">15 combine / merge folders</span>
+    <span class="chip c-move">16 flatten</span>
+    <span class="chip c-archive">17 archive / zip</span>
+    <span class="chip c-delete">18 delete later (quarantine)</span>
+    <span class="chip c-protect">19 protect (do-not-touch)</span>
+    <span class="chip c-link">20 link / hub (in place)</span>
+    <span class="chip c-review">21 review &amp; approve</span>
+    <span class="chip c-auto">22 automation rule</span>
+    <span class="chip c-report">23 report</span>
+  </div>
+  <div class="legend">
+    <span class="l-look">look</span><span class="l-und">understand</span><span class="l-des">design</span><span class="l-act">act</span><span class="l-gov">govern</span>
+  </div>
+
+  <!-- STAGE 1 LOOK -->
+  <div class="stage-h"><span class="n">stage 01</span><span class="t">look</span><span class="d">— inspect everything, change nothing</span></div>
+
+  <div class="fn c-scan">
+    <div class="fn-h"><div><span class="title">01 · scan</span><span class="sub">build the file memory first</span></div><span class="draft">draft</span></div>
+    <div class="grid g3">
+      <div class="field"><label>source location</label><input value="\\192.168.2.50\h_hp\Desktop\Folder" /></div>
+      <div class="field"><label>depth</label><select><option>recursive</option><option>top level only</option></select></div>
+      <div class="field"><label>capture</label><select><option>name · ext · size · hash · dates · depth</option></select></div>
+      <div class="field"><label>detect</label><select><option>duplicates · themes · tiny folders · weak names</option></select></div>
+      <div class="field"><label>write to</label><input value=".fis\folder_memory.sqlite" /></div>
+      <div class="field"><label>do-not-touch</label><select><option>auto-seal programs &amp; system dirs</option></select></div>
+    </div>
+    <div class="fn-foot"><div class="safety">safety <select><option>preview only</option></select></div><div class="btns"><button class="btn prime">preview</button><button class="btn ghost">record block</button></div></div>
+    <div class="note">read-only. produces the index every later block reads instead of re-hitting the disk.</div>
+  </div>
+
+  <div class="fn c-compose">
+    <div class="fn-h"><div><span class="title">02 · folder composition</span><span class="sub">what is each folder actually made of</span></div><span class="draft">draft</span></div>
+    <div class="grid g3">
+      <div class="field"><label>root</label><input value="C:\Users\David\Downloads" /></div>
+      <div class="field"><label>flag folders that are…</label><select><option>≥70% one type</option><option>mixed domains</option><option>archive residue</option></select></div>
+      <div class="field"><label>min files</label><input value="5" /></div>
+    </div>
+    <div class="fn-foot"><div class="safety">safety <select><option>preview only</option></select></div><div class="btns"><button class="btn prime">preview</button><button class="btn ghost">record block</button></div></div>
+  </div>
+
+  <div class="fn c-scan">
+    <div class="fn-h"><div><span class="title">05 · integrity baseline</span><span class="sub">fingerprint the keepers</span></div><span class="draft">draft</span></div>
+    <div class="grid g3">
+      <div class="field"><label>watch set</label><input value="critical files / master copies" /></div>
+      <div class="field"><label>hash</label><select><option>SHA-256</option><option>MD5</option></select></div>
+      <div class="field"><label>on change</label><select><option>alert + backup</option><option>alert only</option></select></div>
+    </div>
+    <div class="fn-foot"><div class="safety">safety <select><option>preview only</option></select></div><div class="btns"><button class="btn prime">preview</button><button class="btn ghost">record block</button></div></div>
+    <div class="note">from file-integrity-monitor — proves nothing important silently changed during the cleanup.</div>
+  </div>
+
+  <!-- STAGE 2 UNDERSTAND -->
+  <div class="stage-h"><span class="n">stage 02</span><span class="t">understand</span><span class="d">— know what you have &amp; what's redundant</span></div>
+
+  <div class="fn c-compare">
+    <div class="fn-h"><div><span class="title">07 · classify / themes</span><span class="sub">cluster into domains, confidence-scored</span></div><span class="draft">draft</span></div>
+    <div class="grid g3">
+      <div class="field"><label>engine</label><select><option>chi diagnostic + NLP</option></select></div>
+      <div class="field"><label>signals</label><select><option>content + path + name</option></select></div>
+      <div class="field"><label>auto-name at/above</label><input value="85%" /></div>
+      <div class="field"><label>review below</label><input value="50%" /></div>
+      <div class="field"><label>domains</label><input value="TP theophysics · DT day-trading" /></div>
+      <div class="field"><label>output</label><select><option>suggestions → review queue</option></select></div>
+    </div>
+    <div class="fn-foot"><div class="safety">safety <select><option>preview only</option></select></div><div class="btns"><button class="btn prime">preview</button><button class="btn ghost">record block</button></div></div>
+  </div>
+
+  <div class="fn c-dupe">
+    <div class="fn-h"><div><span class="title">04 · duplicates</span><span class="sub">shrink the pile before sorting</span></div><span class="draft">draft</span></div>
+    <div class="grid g3">
+      <div class="field"><label>match</label><select><option>exact content (hash)</option><option>same name</option><option>near-duplicate</option></select></div>
+      <div class="field"><label>keeper rule</label><select><option>newest modified</option><option>largest</option><option>shortest path</option></select></div>
+      <div class="field"><label>losers go to</label><select><option>delete later (quarantine)</option></select></div>
+    </div>
+    <div class="fn-foot"><div class="safety">safety <select><option>preview only</option></select></div><div class="btns"><button class="btn prime">preview</button><button class="btn ghost">record block</button></div></div>
+  </div>
+
+  <div class="fn c-compare">
+    <div class="fn-h"><div><span class="title">03 · compare trees</span><span class="sub">A you're emptying vs B master</span></div><span class="draft">draft</span></div>
+    <div class="grid g3">
+      <div class="field"><label>delete-from (A)</label><input value="E:\OldDrive" /></div>
+      <div class="field"><label>master (B)</label><input value="D:\Archive" /></div>
+      <div class="field"><label>verify</label><select><option>by content (safe)</option><option>find moved/renamed too</option></select></div>
+    </div>
+    <div class="fn-foot"><div class="safety">safety <select><option>preview only</option></select></div><div class="btns"><button class="btn prime">preview</button><button class="btn ghost">record block</button></div></div>
+    <div class="note">only deletes from A what is verified present in B.</div>
+  </div>
+
+  <!-- STAGE 3 DESIGN -->
+  <div class="stage-h"><span class="n">stage 03</span><span class="t">design</span><span class="d">— shape the shelf before you fill it</span></div>
+
+  <div class="fn c-combine">
+    <div class="fn-h"><div><span class="title">09 · design target tree</span><span class="sub">outline it, then scaffold empty</span></div><span class="draft">draft</span></div>
+    <div class="grid g3">
+      <div class="field"><label>built from strategy</label><select><option>broad categories (current)</option></select></div>
+      <div class="field"><label>outliner</label><select><option>type folders, arrow ↑↓ reorder ←→ nest</option></select></div>
+      <div class="field"><label>also create</label><select><option>blank files + index.html placeholders</option><option>folders only</option></select></div>
+    </div>
+    <div class="field" style="margin-top:10px"><label>target outline (preview)</label>
+      <input value="Documents/ · Images/ · Video/ · Audio/ · Archives/ · Code/ · Data/ · _ReviewLater/" /></div>
+    <div class="fn-foot"><div class="safety">safety <select><option>preview only</option></select></div><div class="btns"><button class="btn prime">preview</button><button class="btn ghost">record block</button></div></div>
+  </div>
+
+  <div class="fn c-combine">
+    <div class="fn-h"><div><span class="title">10 · scaffold from template</span><span class="sub">reusable folder skeletons</span></div><span class="draft">draft</span></div>
+    <div class="grid g3">
+      <div class="field"><label>template</label><select><option>standard series</option><option>save current as template…</option></select></div>
+      <div class="field"><label>series name</label><input value="new-series" /></div>
+      <div class="field"><label>targets</label><input value="add one or more destinations" /></div>
+    </div>
+    <div class="fn-foot"><div class="safety">safety <select><option>preview only</option></select></div><div class="btns"><button class="btn prime">preview</button><button class="btn ghost">record block</button></div></div>
+  </div>
+
+  <!-- STAGE 4 ACT -->
+  <div class="stage-h"><span class="n">stage 04</span><span class="t">act</span><span class="d">— reversible moves, every one previewed</span></div>
+
+  <div class="fn c-rename">
+    <div class="fn-h"><div><span class="title">11 · rename</span><span class="sub">apply the schema, gated by confidence</span></div><span class="draft">draft</span></div>
+    <div class="grid g3">
+      <div class="field"><label>schema</label><input value="{DOMAIN}__{name}__{tags}__{YYYYMMDD}" /></div>
+      <div class="field"><label>auto-apply at/above</label><input value="85%" /></div>
+      <div class="field"><label>below threshold</label><select><option>send to review</option></select></div>
+      <div class="field"><label>scope</label><select><option>files</option><option>folders</option><option>both</option></select></div>
+      <div class="field"><label>skip</label><select><option>do-not-touch class</option></select></div>
+      <div class="field"><label>collisions</label><select><option>append -2, -3…</option><option>ask</option></select></div>
+    </div>
+    <div class="fn-foot"><div class="safety">safety <select><option>preview only</option></select></div><div class="btns"><button class="btn prime">preview</button><button class="btn ghost">record block</button></div></div>
+  </div>
+
+  <div class="fn c-move">
+    <div class="fn-h"><div><span class="title">12 · move</span><span class="sub">into the approved tree</span></div><span class="draft">draft</span></div>
+    <div class="grid g3">
+      <div class="field"><label>route by</label><select><option>strategy (broad categories)</option><option>extension</option><option>domain</option></select></div>
+      <div class="field"><label>destination root</label><input value="D:\Sorted" /></div>
+      <div class="field"><label>cross-drive</label><select><option>require approval</option></select></div>
+    </div>
+    <div class="fn-foot"><div class="safety">safety <select><option>preview only</option></select></div><div class="btns"><button class="btn prime">preview</button><button class="btn ghost">record block</button></div></div>
+  </div>
+
+  <div class="fn c-separate">
+    <div class="fn-h"><div><span class="title">14 · separate / split folder</span><span class="sub">break a mixed bin apart</span></div><span class="draft">draft</span></div>
+    <div class="grid g3">
+      <div class="field"><label>folder</label><input value="C:\Users\David\Desktop\misc" /></div>
+      <div class="field"><label>split by</label><select><option>type</option><option>domain</option><option>date</option><option>extension</option></select></div>
+      <div class="field"><label>leftovers</label><select><option>send to _ReviewLater</option></select></div>
+    </div>
+    <div class="fn-foot"><div class="safety">safety <select><option>preview only</option></select></div><div class="btns"><button class="btn prime">preview</button><button class="btn ghost">record block</button></div></div>
+  </div>
+
+  <div class="fn c-combine">
+    <div class="fn-h"><div><span class="title">15 · combine / merge folders</span><span class="sub">bring fragments together</span></div><span class="draft">draft</span></div>
+    <div class="grid g3">
+      <div class="field"><label>sources</label><input value="one folder per line" /></div>
+      <div class="field"><label>into</label><input value="D:\Sorted\Excel" /></div>
+      <div class="field"><label>on name clash</label><select><option>keep both</option><option>keep newest</option></select></div>
+    </div>
+    <div class="fn-foot"><div class="safety">safety <select><option>preview only</option></select></div><div class="btns"><button class="btn prime">preview</button><button class="btn ghost">record block</button></div></div>
+  </div>
+
+  <div class="fn c-move">
+    <div class="fn-h"><div><span class="title">16 · flatten</span><span class="sub">pull nested files up, drop empty shells</span></div><span class="draft">draft</span></div>
+    <div class="grid g3">
+      <div class="field"><label>folder</label><input value="D:\Imports\deep\nested\tree" /></div>
+      <div class="field"><label>levels</label><select><option>all the way</option><option>one level</option></select></div>
+      <div class="field"><label>then</label><select><option>delete emptied folders</option><option>keep</option></select></div>
+    </div>
+    <div class="fn-foot"><div class="safety">safety <select><option>preview only</option></select></div><div class="btns"><button class="btn prime">preview</button><button class="btn ghost">record block</button></div></div>
+  </div>
+
+  <div class="fn c-protect">
+    <div class="fn-h"><div><span class="title">19 · protect (do-not-touch)</span><span class="sub">seal programs &amp; whole subtrees</span></div><span class="draft">draft</span></div>
+    <div class="grid g3">
+      <div class="field"><label>seal when folder has</label><select><option>.exe/.dll · manifest · node_modules/.git/venv</option></select></div>
+      <div class="field"><label>treat as</label><select><option>one atomic unit — never reach inside</option></select></div>
+      <div class="field"><label>also protect</label><input value=".orgledger .fisnote .meqlog .db .sqlite" /></div>
+    </div>
+    <div class="fn-foot"><div class="safety">safety <select><option>always on</option></select></div><div class="btns"><button class="btn prime">preview</button><button class="btn ghost">record block</button></div></div>
+  </div>
+
+  <div class="fn c-link">
+    <div class="fn-h"><div><span class="title">20 · link / hub</span><span class="sub">reference in place, don't move</span></div><span class="draft">draft</span></div>
+    <div class="grid g3">
+      <div class="field"><label>items</label><input value="shared assets / sealed programs" /></div>
+      <div class="field"><label>hub</label><input value="autohotkey hub" /></div>
+      <div class="field"><label>link type</label><select><option>manifest</option><option>shortcut</option></select></div>
+    </div>
+    <div class="fn-foot"><div class="safety">safety <select><option>preview only</option></select></div><div class="btns"><button class="btn prime">preview</button><button class="btn ghost">record block</button></div></div>
+  </div>
+
+  <!-- STAGE 5 GOVERN -->
+  <div class="stage-h"><span class="n">stage 05</span><span class="t">govern</span><span class="d">— approve, automate, keep it clean</span></div>
+
+  <div class="fn c-review">
+    <div class="fn-h"><div><span class="title">21 · review &amp; approve</span><span class="sub">your decisions train the engine</span></div><span class="draft">draft</span></div>
+    <div class="grid g3">
+      <div class="field"><label>queue</label><select><option>all pending suggestions</option></select></div>
+      <div class="field"><label>decision</label><select><option>approve / reject / edit</option></select></div>
+      <div class="field"><label>learn preferences</label><select><option>yes — capture to preference engine</option></select></div>
+    </div>
+    <div class="fn-foot"><div class="safety">safety <select><option>gate before execute</option></select></div><div class="btns"><button class="btn prime">open queue</button><button class="btn ghost">record block</button></div></div>
+    <div class="note">the middle confidence band lands here — and what you approve becomes what it predicts next time.</div>
+  </div>
+
+  <div class="fn c-auto">
+    <div class="fn-h"><div><span class="title">22 · automation rule</span><span class="sub">once you know what you want, set it &amp; forget it</span></div><span class="draft">draft</span></div>
+    <div class="grid g3">
+      <div class="field"><label>watch</label><input value="C:\Users\David\Downloads" /></div>
+      <div class="field"><label>trigger</label><select><option>new file by extension</option><option>idle / schedule</option></select></div>
+      <div class="field"><label>action</label><select><option>route via saved strategy</option><option>rename</option><option>archive</option></select></div>
+      <div class="field"><label>destination</label><input value="from strategy" /></div>
+      <div class="field"><label>approval</label><select><option>ask first</option><option>auto if ≥85%</option></select></div>
+      <div class="field"><label>run at login</label><select><option>yes</option></select></div>
+    </div>
+    <div class="fn-foot"><div class="safety">safety <select><option>preview only</option></select></div><div class="btns"><button class="btn prime">preview</button><button class="btn ghost">record block</button></div></div>
+  </div>
+
+  <div class="fn c-report">
+    <div class="fn-h"><div><span class="title">23 · report + ledger</span><span class="sub">prove what happened, undo anything</span></div><span class="draft">draft</span></div>
+    <div class="grid g3">
+      <div class="field"><label>report</label><select><option>before / after + space reclaimed + errors</option></select></div>
+      <div class="field"><label>ledger</label><select><option>.orgledger — every op, reversible</option></select></div>
+      <div class="field"><label>export</label><input value="CSV · HTML tree snapshot" /></div>
+    </div>
+    <div class="fn-foot"><div class="safety">safety <select><option>read only</option></select></div><div class="btns"><button class="btn prime">open ledger</button><button class="btn ghost">record block</button></div></div>
+  </div>
+
+  <div style="height:30px"></div>
+  <div class="note">mockup · non-operational · stratum file workbench — maps FIS, organize, filetagger, file-integrity-monitor, snap2html, sentinel into one advanced surface.</div>
+
+</div>
+</body>
+</html>

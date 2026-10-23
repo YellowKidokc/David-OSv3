@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>FIS · Clickable walkthrough</title>
+<style>
+  :root{
+    --bg:#0a0a0f;--panel:#101019;--panel2:#0d0d15;--line:#20202c;--ink:#e7e7ef;--mut:#8a8a9c;--dim:#5d5d70;
+    --mono:ui-monospace,"Cascadia Code","JetBrains Mono",Consolas,monospace;
+    --acc:#4a9eff;--p:#a06bff;--act:#ff8a3d;--rev:#37d67a;--aut:#f0a02b;--ok:#37d67a;--warn:#f0a02b;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--mono);font-size:13px;line-height:1.55}
+  .wrap{max-width:1040px;margin:0 auto;padding:18px 22px 60px}
+  .top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .brand{font-size:18px;letter-spacing:1px}.brand b{font-weight:700}
+  .brand span{color:var(--dim);font-size:12px;margin-left:8px;letter-spacing:0}
+  .safety{font-size:12px;color:var(--mut)}.safety b{color:var(--ok)}
+  .hint{color:var(--dim);font-size:11px;margin:10px 0 14px}
+  .groups{display:flex;gap:8px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:14px}
+  .g{border:1px solid var(--line);background:var(--panel2);color:var(--mut);border-radius:8px;padding:9px 16px;font-size:13px;cursor:pointer;font-family:var(--mono)}
+  .g:hover{color:var(--ink);border-color:#33333f}
+  .g.on{color:#fff;background:#1b2440;border-color:#2f3f6e}
+  .actions{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+  .a{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:7px;padding:8px 14px;font-size:12px;cursor:pointer;font-family:var(--mono);border-left-width:3px}
+  .a:hover{border-color:#3a3a4a;background:#15151f}
+  .a.on{background:#15151f;border-left-color:var(--acc);box-shadow:inset 0 0 0 1px #2f3f6e}
+  .detail{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:0;overflow:hidden;margin-top:4px}
+  .dhead{padding:14px 18px;border-bottom:1px solid var(--line);background:var(--panel2)}
+  .dhead .t{font-size:16px;font-weight:600}
+  .dhead .b{font-size:12px;color:var(--mut);margin-top:3px}
+  .dbody{display:grid;grid-template-columns:230px 1fr;gap:0}
+  .opts{padding:16px 18px;border-right:1px solid var(--line)}
+  .opl{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--dim);margin:0 0 10px}
+  .field{margin-bottom:12px}
+  .field label{display:block;font-size:11px;color:var(--mut);margin-bottom:4px}
+  .field select,.field input{width:100%;background:#0b0b12;border:1px solid var(--line);border-radius:6px;color:var(--ink);font-family:var(--mono);font-size:12px;padding:7px 9px}
+  .walk{padding:16px 18px}
+  .stepper{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+  .sx{display:flex;align-items:center;gap:6px}
+  .pip{width:22px;height:22px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--mut);background:var(--panel2)}
+  .pip.on{background:var(--acc);color:#06101f;border-color:var(--acc);font-weight:700}
+  .pip.done{background:#14321f;color:var(--ok);border-color:#1f5a34}
+  .slabel{font-size:11px;color:var(--mut)}.slabel.on{color:var(--ink)}
+  .seg{color:var(--dim)}
+  .stage{background:#0b0b12;border:1px solid var(--line);border-radius:8px;padding:14px 16px;min-height:120px}
+  .stage .sh{font-size:13px;font-weight:600;margin-bottom:6px}
+  .stage .sd{font-size:12px;color:var(--mut);line-height:1.6}
+  .prev{margin-top:10px;font-size:12px}
+  .prow{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px dashed var(--line)}
+  .prow .x{color:var(--dim)} .prow .from{color:var(--mut)} .prow .to{color:var(--ok)}
+  .nav{display:flex;justify-content:space-between;align-items:center;margin-top:14px;gap:10px}
+  .btn{border:1px solid var(--line);background:#13131c;color:var(--ink);border-radius:7px;padding:8px 18px;font-size:12px;cursor:pointer;font-family:var(--mono)}
+  .btn.prime{background:#1b2440;border-color:#2f3f6e;color:#bcd0ff}
+  .btn:disabled{opacity:.4;cursor:default}
+  .btn.ghost{color:var(--dim)}
+  .empty{padding:40px;text-align:center;color:var(--dim)}
+  @media(max-width:720px){.dbody{grid-template-columns:1fr}.opts{border-right:0;border-bottom:1px solid var(--line)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top">
+    <div class="brand"><b>FIS</b> · WALKTHROUGH <span>click an action · see what happens</span></div>
+    <div class="safety">safety: <b>preview only</b> ● nothing executes</div>
+  </div>
+  <div class="hint">1 · pick a group up top → 2 · pick an action → 3 · step through exactly what it does. (you can chain two later.)</div>
+
+  <div class="groups" id="groups"></div>
+  <div class="actions" id="actions"></div>
+  <div id="detail"></div>
+
+</div>
+
+<script>
+const STD = [
+  {name:"configure", sh:"configure", sd:"set the source, target, and rule. nothing is touched yet — you're describing the job."},
+  {name:"preview", sh:"preview the plan", sd:"the engine shows every change it would make, before → after, with confidence. read it like a diff."},
+  {name:"approve", sh:"approve", sd:"you check the rows you accept. unchecked rows are skipped. this is the gate — no approval, no action."},
+  {name:"execute", sh:"execute", sd:"only approved rows run. each one is written to the ledger as it happens, with undo info."},
+  {name:"recorded", sh:"recorded", sd:"done. the ledger holds before/after for every change — one click undoes any of it."},
+];
+const INSPECT = [
+  {name:"configure", sh:"configure", sd:"point at a folder and set scope. read-only — this never changes files."},
+  {name:"run", sh:"run", sd:"the engine reads the folder into memory: names, sizes, hashes, dates, content signals."},
+  {name:"results", sh:"results", sd:"you get counts, clusters, and flags — the map you reason from. feeds every other action."},
+];
+const DIAG = [
+  {name:"run", sh:"run detectors", sd:"runs the 38 symptom detectors over the scanned memory."},
+  {name:"board", sh:"symptom board", sd:"each symptom appears with severity + a Fix button that opens the right action, pre-filled."},
+];
+
+const GROUPS = [
+  {id:"inspect", label:"Inspect", color:"var(--acc)"},
+  {id:"plan", label:"Plan", color:"var(--p)"},
+  {id:"act", label:"Act", color:"var(--act)"},
+  {id:"review", label:"Review", color:"var(--rev)"},
+  {id:"automate", label:"Automate", color:"var(--aut)"},
+];
+
+const ACTIONS = {
+  inspect:[
+    {n:"Scan", b:"build the file memory — read-only", o:[["depth",["recursive","top level only"]],["capture",["name·size·hash·dates","+ content signals"]]], steps:INSPECT},
+    {n:"Diagnose", b:"run the 38 symptom detectors", o:[["families",["all","structural","content·naming","infrastructure"]],["min severity",["low","medium","high"]]], steps:DIAG},
+    {n:"Folder Composition", b:"what is each folder made of", o:[["flag if","≥70% one type;mixed domains;archive residue".split(";")],["min files",["5","20","50"]]], steps:INSPECT},
+    {n:"Compare", b:"two trees: emptying vs master", o:[["match",["by content (safe)","by name","name + moved"]]], steps:INSPECT},
+    {n:"Duplicates", b:"find repeats by hash", o:[["match",["exact (hash)","same name","near-duplicate"]],["keeper",["newest","largest","shortest path"]]], steps:[
+      {name:"configure",sh:"configure",sd:"choose how duplicates are matched and which copy is the keeper."},
+      {name:"find",sh:"find clusters",sd:"engine groups identical files across the tree by hash."},
+      {name:"review",sh:"review keepers",sd:"confirm the keeper per cluster. you can override any pick."},
+      {name:"route",sh:"route losers",sd:"non-keepers go to Delete Later (quarantine) — never hard-deleted here."},
+    ]},
+  ],
+  plan:[
+    {n:"Design Tree", b:"outline the target, then scaffold", o:[["create",["folders only","+ index placeholders"]]], steps:[
+      {name:"outline",sh:"outline",sd:"type folder names; arrow ↑↓ to reorder, ←→ to nest. build the shelf in text."},
+      {name:"preview",sh:"preview folders",sd:"engine lists every CREATE FOLDER it would make."},
+      {name:"approve",sh:"approve",sd:"check the folders you want created."},
+      {name:"create",sh:"create",sd:"empty scaffold is built. files move in later — design first, fill second."},
+    ]},
+    {n:"Separate", b:"split a mixed bin apart", o:[["split by",["type","domain","date","extension"]],["leftovers",["→ _ReviewLater","leave in place"]]], steps:STD},
+    {n:"Combine", b:"merge fragments together", o:[["on name clash",["keep both","keep newest"]]], steps:STD},
+    {n:"Rename", b:"apply the schema, confidence-gated", o:[["schema",["{DOMAIN}__{name}__{date}","{date}_{name}","custom…"]],["auto-apply",["≥85% only","never (suggest)"]],["skip",["do-not-touch class"]]], steps:STD},
+    {n:"Link / Hub", b:"reference in place, don't move", o:[["link type",["manifest","shortcut"]]], steps:STD},
+  ],
+  act:[
+    {n:"Move", b:"into the approved tree", o:[["route by",["strategy","extension","domain"]],["cross-drive",["require approval","allow"]]], steps:STD},
+    {n:"Copy", b:"duplicate to a destination", o:[["on exists",["skip","keep both"]]], steps:STD},
+    {n:"Archive", b:"zip cold files away", o:[["format",["zip","7z"]],["then",["keep originals","delete after verify"]]], steps:STD},
+    {n:"Delete Later", b:"quarantine, never instant delete", o:[["criteria",["duplicates","empties","junk/temp"]]], steps:[
+      {name:"configure",sh:"configure",sd:"choose what qualifies. nothing leaves yet."},
+      {name:"preview",sh:"preview",sd:"see exactly what would be quarantined, with reasons."},
+      {name:"approve",sh:"approve",sd:"check what you accept."},
+      {name:"quarantine",sh:"quarantine",sd:"moved to a holding area — recoverable for 30 days, then purged."},
+    ]},
+    {n:"Protect", b:"seal programs & do-not-touch", o:[["seal when",["has .exe/.dll/manifest","node_modules/.git/venv"]],["treat as",["one atomic unit"]]], steps:[
+      {name:"detect",sh:"detect",sd:"engine finds program/project roots and sensitive files."},
+      {name:"confirm",sh:"confirm",sd:"review what will be sealed off from every action."},
+      {name:"sealed",sh:"sealed",sd:"locked. no rename, move, or delete can reach inside — ever."},
+    ]},
+  ],
+  review:[
+    {n:"Review / Approve", b:"decide suggestions, train the engine", o:[["decision",["approve / reject / edit"]],["learn",["yes — capture preferences"]]], steps:[
+      {name:"open",sh:"open queue",sd:"every low-confidence suggestion the engine wasn't sure about lands here."},
+      {name:"decide",sh:"decide",sd:"approve, reject, or edit each one."},
+      {name:"train",sh:"train",sd:"your choices feed the preference engine — next time it predicts them."},
+    ]},
+    {n:"Report", b:"before / after, space reclaimed", o:[["type",["summary","full"]]], steps:[
+      {name:"configure",sh:"configure",sd:"pick what the report covers."},
+      {name:"generate",sh:"generate",sd:"builds the before/after with counts, space, errors."},
+      {name:"open",sh:"open",sd:"view or export (CSV / HTML tree snapshot)."},
+    ]},
+    {n:"Ledger", b:"the undo / audit trail", o:[], steps:[
+      {name:"open",sh:"open ledger",sd:"every operation ever run, with timestamp, source, destination, confidence."},
+      {name:"undo",sh:"undo",sd:"pick any entry and reverse it. the safety net under everything."},
+    ]},
+  ],
+  automate:[
+    {n:"Watch Folder", b:"keep a folder clean automatically", o:[["trigger",["new file by extension","schedule / idle"]]], steps:[
+      {name:"configure",sh:"configure",sd:"choose the folder and what triggers a run."},
+      {name:"arm",sh:"arm",sd:"runs the saved rule whenever the trigger fires."},
+    ]},
+    {n:"Rule Builder", b:"a standing rule for future files", o:[["action",["route via strategy","rename","archive"]],["approval",["ask first","auto if ≥85%"]]], steps:[
+      {name:"build",sh:"build",sd:"when X happens, do Y to destination Z."},
+      {name:"test",sh:"test",sd:"dry-run against current files to see what it would catch."},
+      {name:"save",sh:"save",sd:"rule goes live (with your chosen approval gate)."},
+    ]},
+    {n:"Approval Threshold", b:"how aggressive the engine is", o:[["auto-apply ≥",["85%","90%","never"]],["review below",["50%","40%"]]], steps:[
+      {name:"set",sh:"set",sd:"define the auto-apply and review bands."},
+      {name:"save",sh:"save",sd:"applies to every confidence-gated action."},
+    ]},
+  ],
+};
+
+let cur = {group:"act", action:0, step:0};
+
+function colorFor(g){return (GROUPS.find(x=>x.id===g)||{}).color||"var(--acc)";}
+
+function renderGroups(){
+  document.getElementById("groups").innerHTML = GROUPS.map(g=>
+    `<button class="g ${g.id===cur.group?'on':''}" onclick="pickGroup('${g.id}')">${g.label}</button>`).join("");
+}
+function renderActions(){
+  const list = ACTIONS[cur.group]||[];
+  const col = colorFor(cur.group);
+  document.getElementById("actions").innerHTML = list.map((a,i)=>
+    `<button class="a ${i===cur.action?'on':''}" style="border-left-color:${col}" onclick="pickAction(${i})">${a.n}</button>`).join("");
+}
+function renderDetail(){
+  const a = (ACTIONS[cur.group]||[])[cur.action];
+  if(!a){document.getElementById("detail").innerHTML='<div class="detail"><div class="empty">pick an action above</div></div>';return;}
+  const steps = a.steps;
+  const opts = (a.o||[]).map(([label,choices])=>
+    `<div class="field"><label>${label}</label><select>${choices.map(c=>`<option>${c}</option>`).join("")}</select></div>`).join("")
+    || '<div style="font-size:12px;color:var(--dim)">no options — just run it</div>';
+
+  const pips = steps.map((s,i)=>{
+    const cls = i<cur.step?'done':(i===cur.step?'on':'');
+    const lab = `<span class="slabel ${i===cur.step?'on':''}">${s.sh}</span>`;
+    return `<div class="sx"><span class="pip ${cls}">${i<cur.step?'✓':i+1}</span>${lab}</div>${i<steps.length-1?'<span class="seg">→</span>':''}`;
+  }).join("");
+
+  const s = steps[cur.step];
+  const showPreview = /preview/i.test(s.name);
+  const previewRows = showPreview ? `
+    <div class="prev">
+      <div class="prow"><span class="x">~</span><span class="from">budget 2025.xlsx</span><span class="x">→</span><span class="to">Documents/Excel/DT__budget__20251231.xlsx</span></div>
+      <div class="prow"><span class="x">~</span><span class="from">IMG_4587.jpg</span><span class="x">→</span><span class="to">Photos/2026/2026-06-23_event_01.jpg</span></div>
+      <div class="prow"><span class="x">~</span><span class="from">Screenshot_2026...png</span><span class="x">→</span><span class="to">Photos/2026/2026-06-23_event_02.png</span></div>
+    </div>` : '';
+
+  document.getElementById("detail").innerHTML = `
+    <div class="detail">
+      <div class="dhead"><div class="t">${a.n}</div><div class="b">${a.b}</div></div>
+      <div class="dbody">
+        <div class="opts"><div class="opl">options</div>${opts}</div>
+        <div class="walk">
+          <div class="stepper">${pips}</div>
+          <div class="stage">
+            <div class="sh">${s.sh}</div>
+            <div class="sd">${s.sd}</div>
+            ${previewRows}
+          </div>
+          <div class="nav">
+            <button class="btn ghost" onclick="stepBack()" ${cur.step===0?'disabled':''}>← back</button>
+            <span style="font-size:11px;color:var(--dim)">step ${cur.step+1} of ${steps.length}</span>
+            ${cur.step<steps.length-1
+              ? `<button class="btn prime" onclick="stepNext()">next →</button>`
+              : `<button class="btn" onclick="restart()">↺ run again</button>`}
+          </div>
+        </div>
+      </div>
+    </div>`;
+}
+function pickGroup(g){cur={group:g,action:0,step:0};renderGroups();renderActions();renderDetail();}
+function pickAction(i){cur.action=i;cur.step=0;renderActions();renderDetail();}
+function stepNext(){const a=(ACTIONS[cur.group]||[])[cur.action];if(cur.step<a.steps.length-1){cur.step++;renderDetail();}}
+function stepBack(){if(cur.step>0){cur.step--;renderDetail();}}
+function restart(){cur.step=0;renderDetail();}
+
+renderGroups();renderActions();renderDetail();
+</script>
+</body>
+</html>

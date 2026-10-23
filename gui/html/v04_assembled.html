@@ -1,0 +1,3916 @@
+<!doctype html>
+<html lang="en" data-fis-schema="3.0">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="FIS md-html-assembler v1.0">
+<title>02_MASTER_PAPER_TEMPLATE_v0.4</title>
+<style>
+:root{color-scheme:dark;--bg:#060708;--panel:#0c0f14;--panel2:#090b0f;--line:#222a35;--text:#e7edf5;--muted:#8b97a7;--accent:#d1a922;--accent2:#f1d37a;--link:#6ea8e8;--red:#b0413e;--green:#5f9e6a;--blue:#4a7fb5;--purple:#9b7bd1;--orange:#b5854a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.6 system-ui,sans-serif}
+.layout{max-width:1500px;margin:auto;display:grid;grid-template-columns:270px minmax(0,1fr);gap:24px;padding:28px}
+main{min-width:0}
+h1{font:600 34px Georgia,serif;margin:5px 0 8px}
+.eyebrow,code,pre{font-family:ui-monospace,Consolas,monospace}
+.eyebrow{color:var(--accent);font-size:12px;letter-spacing:1px}
+.muted{color:var(--muted)}.null{color:#55606e;font-style:italic}
+.identity{border-left:3px solid var(--accent);padding:8px 0 8px 12px;margin:8px 0 14px;background:linear-gradient(90deg,rgba(209,169,34,.08),transparent)}
+.identity code{display:block;font-size:15px;color:var(--accent2);margin-bottom:4px;word-break:break-all}
+.identity span{display:block;color:var(--muted);font-size:12px}
+nav{border-right:1px solid var(--line);padding-right:16px;align-self:start;position:sticky;top:20px;max-height:calc(100vh - 40px);overflow:auto}
+nav a{display:block;color:var(--muted);text-decoration:none;padding:3px 0;font-size:12px;cursor:pointer}
+nav a:hover{color:var(--accent2)}
+nav a.l1{color:var(--accent);font-size:12.5px;margin-top:10px;text-transform:uppercase;letter-spacing:.5px}
+nav a.l2{padding-left:10px}nav a.l3{padding-left:22px;font-size:11.5px}nav a.l4{padding-left:34px;font-size:11px}
+a{color:var(--link);text-decoration:none}a:hover{text-decoration:underline}
+.panel{border:1px solid var(--line);background:var(--panel);padding:14px;margin-bottom:14px}
+table{width:100%;border-collapse:collapse;background:var(--panel);margin:8px 0}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top;font-size:12.5px}
+th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px}
+tr:hover td{background:#10141b}
+pre{background:var(--panel2);border:1px solid var(--line);padding:10px;overflow:auto;font-size:12px}
+code{font-size:12.5px;color:var(--accent2)}
+blockquote{border-left:2px solid var(--line);margin:8px 0;padding:2px 0 2px 12px;color:var(--muted)}
+.badge{display:inline-block;border:1px solid var(--line);padding:1px 7px;border-radius:3px;font:11px ui-monospace,monospace;margin:1px 2px;white-space:nowrap}
+.badge.warn{border-color:var(--orange);color:var(--orange)}
+.badge.bad{border-color:var(--red);color:#ffb3b1}
+.badge.ok{border-color:var(--green);color:var(--green)}
+.chip{display:inline-block;border:1px solid var(--line);padding:3px 8px;border-radius:3px;font:11.5px ui-monospace,monospace;margin:2px}
+/* heading sections -- every level collapsible */
+details.sec{border:1px solid var(--line);background:var(--panel);margin:10px 0}
+details.sec>summary{cursor:pointer;padding:9px 12px;background:var(--panel2);list-style:none}
+details.sec>summary::-webkit-details-marker{display:none}
+details.sec>summary::before{content:"\25B8";color:var(--accent);margin-right:8px;display:inline-block;transition:transform .12s}
+details.sec[open]>summary::before{transform:rotate(90deg)}
+details.sec>.secbody{padding:4px 14px 12px}
+details.sec.h1>summary{font:600 15px Georgia,serif;color:var(--accent2)}
+details.sec.h2>summary{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--accent)}
+details.sec.h3>summary{font-size:12.5px;color:var(--text)}
+details.sec.h4>summary,details.sec.h5>summary,details.sec.h6>summary{font-size:12px;color:var(--muted)}
+/* callouts */
+details.co{border-left:3px solid var(--line);background:var(--panel2);margin:8px 0;border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+details.co>summary{cursor:pointer;padding:7px 10px;font:600 12px ui-monospace,monospace;text-transform:uppercase;letter-spacing:1px;list-style:none}
+details.co>summary::-webkit-details-marker{display:none}
+details.co .cotype{float:right;opacity:.55;font-weight:400;text-transform:lowercase}
+details.co>.cobody{padding:0 12px 10px}
+.co.success{border-color:var(--green)}.co.success>summary{color:var(--green)}
+.co.info,.co.translation{border-color:var(--blue)}.co.info>summary,.co.translation>summary{color:#9ec3e8}
+.co.important,.co.equation,.co.math{border-color:var(--accent)}.co.important>summary,.co.equation>summary,.co.math>summary{color:var(--accent2)}
+.co.danger,.co.failure,.co.bug{border-color:var(--red)}.co.danger>summary,.co.failure>summary,.co.bug>summary{color:#ffb3b1}
+.co.warning,.co.caution{border-color:var(--orange)}.co.warning>summary,.co.caution>summary{color:var(--orange)}
+.co.quote,.co.source{border-color:var(--muted)}.co.quote>summary,.co.source>summary{color:var(--muted)}
+.co.abstract,.co.mapping{border-color:var(--purple)}.co.abstract>summary,.co.mapping>summary{color:#c3aae8}
+.co.question,.co.check{border-color:#4a9b8e}.co.question>summary,.co.check>summary{color:#7fc4b8}
+.co.audit,.co.boundary,.co.proof,.co.claim,.co.evidence,.co.note,.co.tip,.co.example{border-color:var(--line)}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;align-items:center}
+button{border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:7px 12px;border-radius:3px;cursor:pointer;font-size:12.5px}
+button:hover{border-color:var(--accent)}
+input[type=search]{padding:8px 10px;border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:3px;min-width:240px}
+mark{background:rgba(209,169,34,.28);color:var(--accent2)}
+.fencelang{font:11px ui-monospace,monospace;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin:8px 0 -6px}
+.kv{display:grid;grid-template-columns:minmax(150px,220px) 1fr;gap:3px 10px;font-size:12.5px}
+.kv b{color:var(--muted);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:1px;padding-top:2px}
+.xref td code{color:var(--accent2)}
+footer{margin:28px 0 8px;color:var(--muted);font-size:12px;border-top:1px solid var(--line);padding-top:12px}
+@media(max-width:1000px){.layout{grid-template-columns:1fr}nav{border-right:none;border-bottom:1px solid var(--line);padding:0 0 12px;position:static;max-height:none}}
+</style></head><body>
+<div class="layout">
+<nav><div class="eyebrow">CONTENTS</div><a class="l1" href="#paper-layer-02-master-paper-template-v04md">PAPER LAYER — 02_MASTER_PAPER_TEMPLATE_v0.4.md</a><a class="l2" href="#how-to-run-this-deepseek-instructions-read-first">HOW TO RUN THIS (DeepSeek instructions — read first)</a><a class="l2" href="#yaml-frontmatter-complete-contract">YAML FRONTMATTER (complete contract)</a><a class="l2" href="#scorecard-renders-at-the-very-top-immediately-after-yaml">SCORECARD (renders at the very top, immediately after YAML)</a><a class="l2" href="#s01-classification-routing">S01 · Classification &amp; Routing</a><a class="l1" href="#master-paper-template-v041-full-instruction-version-superset">MASTER PAPER TEMPLATE — v0.4.1 (FULL INSTRUCTION VERSION — SUPERSET)</a><a class="l2" href="#s02-claim-definition">S02 · Claim Definition</a><a class="l2" href="#definitions">Definitions</a><a class="l3" href="#path-to-10-rating-ladder-standing-grade-not-the-section-score">Path to 10 (rating ladder — standing grade, NOT the section score)</a><a class="l2" href="#open-the-question-q0q14-bank-live-questions-answered-non-live-deleted-to-tail">Open the question (Q0–Q14 bank — live questions answered, non-live deleted to tail)</a><a class="l3" href="#primary-argument-from-source">Primary argument (from source)</a><a class="l3" href="#hidden-premises">Hidden premises</a><a class="l3" href="#argument-strengthening">Argument strengthening</a><a class="l3" href="#supplementary-arguments-from-the-tradition-no-padding">Supplementary arguments (from the tradition — no padding)</a><a class="l3" href="#argument-score-assessment">Argument score assessment</a><a class="l3" href="#extracted-truth-predicates-exhaustive-every-assertion-gets-a-row-no-cap">Extracted Truth Predicates (EXHAUSTIVE — every assertion gets a row; no cap)</a><a class="l3" href="#terms-and-plain-language-bridge">Terms and plain-language bridge</a><a class="l3" href="#structural-map-intra-paper">Structural Map (intra-paper)</a><a class="l2" href="#s03-argument-structure">S03 · Argument Structure</a><a class="l2" href="#s04-evidence-support">S04 · Evidence &amp; Support</a><a class="l2" href="#claims">Claims</a><a class="l2" href="#evidence-ledger">Evidence ledger</a><a class="l2" href="#warrant-control">Warrant Control</a><a class="l2" href="#dynamics">Dynamics</a><a class="l2" href="#coherence-self-assessment">Coherence &amp; Self-Assessment</a><a class="l3" href="#counter-models">Counter-models</a><a class="l2" href="#s05-objections-survival">S05 · Objections &amp; Survival</a><a class="l2" href="#six-door-explanatory-lens-reader-layer-not-separately-scored-clarity-feeds-s03s06">Six-Door Explanatory Lens (reader layer — not separately scored; clarity feeds S03/S06)</a><a class="l3" href="#explicit-boundaries-pulled-from-source-verbatim">Explicit boundaries (pulled from source verbatim)</a><a class="l3" href="#self-assessment-reputation-form">Self-Assessment / Reputation Form</a><a class="l2" href="#s06-boundaries-honesty">S06 · Boundaries &amp; Honesty</a><a class="l3" href="#mathematics-three-layer-rule-equation-term-by-term-translation-meaning-then-judged">Mathematics (three-layer rule: equation, term-by-term translation, meaning — then judged)</a><a class="l2" href="#s07-formal-math-mandatory-heading-write-no-mathematical-content-if-none">S07 · Formal &amp; Math (MANDATORY heading; write &quot;No mathematical content&quot; if none)</a><a class="l2" href="#domain-checks-bank-d-live-checks-answered-non-live-deleted-to-tail-cross-cite-results-into-section-score-reasons">Domain checks (bank D — live checks answered, non-live deleted to tail; cross-cite results into section score reasons)</a><a class="l3" href="#bridge-registry-the-unification-seam-lost-is-mandatory-never-blank">Bridge registry (the unification seam — LOST is MANDATORY, never blank)</a><a class="l3" href="#bridge-originality">Bridge originality</a><a class="l2" href="#s08-bridge-integrity">S08 · Bridge Integrity</a><a class="l3" href="#falsifier-registry-the-minimum-kill-per-claim-not-strongest-objection">Falsifier registry (the minimum kill per claim — not &quot;strongest objection&quot;)</a><a class="l3" href="#predictions-logged-not-discussed-falsified-predictions-are-never-deleted">Predictions (LOGGED, not discussed — falsified predictions are NEVER deleted)</a><a class="l3" href="#explicit-uncertainties">Explicit uncertainties</a><a class="l2" href="#s09-falsifiability-predictions">S09 · Falsifiability &amp; Predictions</a><a class="l2" href="#s10-audit-provenance">S10 · Audit &amp; Provenance</a><a class="l3" href="#inter-paper-dependency-map">Inter-paper dependency map</a><a class="l3" href="#recommended-classification-and-relationships">Recommended Classification and Relationships</a><a class="l2" href="#audit">Audit</a><a class="l2" href="#audit-appendix">Audit appendix</a><a class="l2" href="#evidence-dashboard-reads-frontmatter-only-infrastructure-not-scored">Evidence dashboard (reads frontmatter only — infrastructure, not scored)</a><a class="l2" href="#unanswered-and-not-applicable-with-reasons">Unanswered and not applicable — with reasons</a><a class="l2" href="#exact-source-untouched">Exact source, untouched</a><a class="l1" href="#clean-title">{{clean_title}}</a><a class="l1" href="#claims-layer-claims-layer-template-v03md">CLAIMS LAYER — CLAIMS_LAYER_TEMPLATE_v0.3.md</a><a class="l2" href="#claims-table">Claims table</a><a class="l2" href="#hidden-premises-2">Hidden premises</a><a class="l2" href="#lean-targets">Lean targets</a><a class="l2" href="#predictions-table">Predictions table</a><a class="l2" href="#falsifier-registry">Falsifier registry</a><a class="l2" href="#bridge-correspondence-registry">Bridge / correspondence registry</a><a class="l2" href="#explicit-boundaries">Explicit boundaries</a><a class="l2" href="#explicit-uncertainties-2">Explicit uncertainties</a><a class="l2" href="#reuse-and-routing">Reuse and routing</a><a class="l2" href="#dependency-graph-edges-only">Dependency graph (edges only)</a><a class="l2" href="#layer-integrity">Layer integrity</a><a class="l1" href="#claims-layer-template-v03-one-per-paper-separate-api-call">CLAIMS LAYER TEMPLATE — v0.3 (ONE PER PAPER, SEPARATE API CALL)</a><a class="l1" href="#math-layer-math-layer-template-v03md">MATH LAYER — MATH_LAYER_TEMPLATE_v0.3.md</a><a class="l2" href="#axiom-inventory">Axiom Inventory</a><a class="l2" href="#equation-by-equation-breakdown-three-layer-rule">Equation-by-Equation Breakdown (Three-Layer Rule)</a><a class="l2" href="#notation-dictionary">Notation Dictionary</a><a class="l2" href="#proof-structure-map">Proof Structure Map</a><a class="l2" href="#mathematical-dependencies">Mathematical Dependencies</a><a class="l2" href="#lean-encoding-targets">Lean Encoding Targets</a><a class="l2" href="#version-history">Version History</a><a class="l2" href="#canonization-readiness">Canonization Readiness</a><a class="l2" href="#math-translation-layer">Math Translation Layer</a><a class="l2" href="#layer-integrity-2">Layer Integrity</a><a class="l1" href="#math-layer-template-v03-one-per-math-heavy-paper-separate-api-call">MATH LAYER TEMPLATE — v0.3 (ONE PER MATH-HEAVY PAPER, SEPARATE API CALL)</a><a class="l1" href="#grading-layer-grading-layer-template-v03md">GRADING LAYER — GRADING_LAYER_TEMPLATE_v0.3.md</a><a class="l1" href="#grading-alignment-layer-template-v03-one-per-paper-separate-api-call">GRADING &amp; ALIGNMENT LAYER TEMPLATE — v0.3 (ONE PER PAPER, SEPARATE API CALL)</a><a class="l2" href="#axiom-node-mapping">Axiom Node Mapping</a><a class="l2" href="#master-equation-alignment">Master Equation (χ) Alignment</a><a class="l2" href="#fruits-of-the-spirit-alignment">Fruits of the Spirit Alignment</a><a class="l2" href="#law-alignment">Law Alignment</a><a class="l1" href="#framework-alignment">Framework Alignment</a><a class="l2" href="#text-analytics">Text Analytics</a><a class="l2" href="#readability">Readability</a><a class="l2" href="#structural-analytics">Structural Analytics</a><a class="l2" href="#nlp-semantic-layer">NLP / Semantic Layer</a><a class="l1" href="#raw-metrics">Raw Metrics</a><a class="l2" href="#claim-level-grading">Claim-Level Grading</a><a class="l2" href="#knowledge-graph-metrics">Knowledge Graph Metrics</a><a class="l1" href="#review-scores">Review Scores</a><a class="l2" href="#spine-variables-summary">Spine Variables (Summary)</a><a class="l2" href="#composite-scores">Composite Scores</a><a class="l2" href="#path-to-10">Path to 10</a><a class="l2" href="#layer-integrity-3">Layer Integrity</a><a class="l1" href="#final-scores">Final Scores</a></nav>
+<main>
+<div class="eyebrow">FIS ASSEMBLED PAPER · POF 2828</div>
+<h1>02_MASTER_PAPER_TEMPLATE_v0.4</h1>
+<div class="identity"><code>02_MASTER_PAPER_TEMPLATE_v0.4 · no uuid</code><span></span></div>
+<div class="toolbar">
+  <button id="expand">Expand all</button><button id="collapse">Collapse all</button>
+  <button id="lvl2">Level 2</button><button id="lvl3">Level 3</button>
+  <input type="search" id="q" placeholder="Search the whole paper…">
+  <span class="muted" id="hits"></span>
+</div>
+<details class="co abstract" open><summary class="cot">Claim to Lean index<span class="cotype">derived</span></summary><div class="cobody"><p class="muted">Links are inferred from a claim id and a Lean name appearing on the same line -- the only association the Markdown supplies. Co-occurrence is a candidate link, not a verdict that the theorem discharges the claim.</p><p class="muted">no co-occurrences found</p><p><b>Claims with no Lean name nearby:</b> <span class="null">none</span></p><p><b>Lean names with no claim nearby:</b> <span class="chip">or</span> <span class="chip">statement</span></p></div></details>
+<details class="sec h1" id="paper-layer-02-master-paper-template-v04md" open><summary>PAPER LAYER — 02_MASTER_PAPER_TEMPLATE_v0.4.md</summary><div class="secbody"><details class="co danger" open><summary class="cot">Duplicate YAML keys<span class="cotype">data loss</span></summary><div class="cobody"><p><code>status</code> declared more than once. PyYAML keeps only the last value, so the earlier one is silently discarded. Each field needs one name and one value.</p></div></details><details class="co warning" open><summary class="cot">Frontmatter did not parse<span class="cotype">template</span></summary><div class="cobody"><p><code>while constructing a mapping</code></p><p class="muted">Expected for a blank template containing <code>{{placeholders}}</code>. The raw block is preserved below.</p></div></details><details class="co source"><summary class="cot">Raw frontmatter, verbatim<span class="cotype">preserved</span></summary><div class="cobody"><pre># identity
+type: axiom_companion
+title: &quot;ckg_evaluation: {{clean_title}}&quot;
+paper_id: &quot;{{slug_short_hash}}&quot;
+paper_uuid: &quot;{{UUIDv4}}&quot;
+original_title: &quot;{{original_title}}&quot;
+clean_title: &quot;{{clean_title}}&quot;
+status: CANDIDATE_DRAFT
+canon_status: candidate_draft
+semantic_status: ai_analyzed_pending_review
+template_version: CKG_RECORD_V2.0.1
+taxonomy_ref: &quot;TAG_TAXONOMY_v0.3&quot;
+source_file: &quot;{{absolute_path_to_source}}&quot;
+source_sha256: {{source_sha256}}
+captured_at: {{ISO_8601_timestamp}}
+chapter: {{ONE_STORY_key_or_null}}
+upstream_hashes: [{{sha256_of_papers_this_depends_on}}]
+downstream_implications: [{{sha256_of_papers_that_depend_on_this}}]
+
+# closed vocabularies — percentages sum to 100, integers
+content_type: {{ct-argument | ct-narrative | ct-overview | ct-equation | ct-method | ct-reference | ct-implications | ct-status | ct-outline | ct-source}}
+reader_category: {{rc-general | rc-curious | rc-student | rc-technical | rc-specialist | rc-internal}}
+domain_primary: &quot;{{strongest_domain}}&quot;
+domain_primary_pct: {{integer_1_to_100}}
+domain_secondary: &quot;{{second_domain_or_null}}&quot;
+domain_secondary_pct: {{integer_or_null}}
+domain_tertiary: &quot;{{third_domain_or_null}}&quot;
+domain_tertiary_pct: {{integer_or_null}}
+series: {{series- tag or &quot;NONE&quot;}}
+tags: [{{comma_separated_tags_from_taxonomy}}]
+tags_weighted:
+  - tag: &quot;{{tag_1}}&quot;
+    weight: {{integer_pct}}
+framework_keys: [{{concept groupings — closed list below}}]
+# framework_keys closed list (extend only by governance):
+#   master-equation · ten-laws · syzygy · grace-operator · soul-field ·
+#   observer-theory · coherence-functional · compression-theory ·
+#   boundary-conditions · destiny-equation · moral-physics · cosmology-gr ·
+#   quantum-foundations · ai-consciousness · experimental-protocols ·
+#   trinitarian-structure · logos-field · resurrection-physics
+
+# substance
+governing_question: &quot;{{governing_question}}&quot;
+one_sentence_finding: &quot;{{one_sentence_finding}}&quot;
+claim_ids: [&quot;{{PAPER}}-C001&quot;, ...]
+topic_keys: [{{definitive_works_registry_keys}}]
+
+# ratings under the cap rule (STANDING — separate from section score)
+paper_rating: 0
+rating_awarded_by: API
+evidence_status: CANDIDATE
+formal_status: NOT_ESTABLISHED
+lean_receipts: []
+human_review: {reviewer: null, ruling: null, date: null}
+
+# dashboard fields (evidence-sheet contract)
+status: candidate
+evd_state: UNSCORED
+evd_support: 0
+evd_counter: 0
+evd_balance: null
+evd_families: 0
+evd_coverage: 0.00
+evd_gated: false
+evd_stable: null
+evd_weakest_claim: &quot;&quot;
+evd_unassessed: 0
+evd_assessors: []
+coherence: null
+physical_event: undecided
+
+# SECTION SCORES — flat keys; parser imports these into SQLite columns.
+# s0N_rules = JSON array of every fired rule ID, e.g. [&quot;S02-A1&quot;,&quot;S02-P2&quot;]
+s01_pos: 0
+s01_neg: 0
+s01_net: 0
+s01_ceiling: 10
+s01_rules: []
+s02_pos: 0
+s02_neg: 0
+s02_net: 0
+s02_ceiling: 10
+s02_rules: []
+s03_pos: 0
+s03_neg: 0
+s03_net: 0
+s03_ceiling: 10
+s03_rules: []
+s04_pos: 0
+s04_neg: 0
+s04_net: 0
+s04_ceiling: 10
+s04_rules: []
+s05_pos: 0
+s05_neg: 0
+s05_net: 0
+s05_ceiling: 10
+s05_rules: []
+s06_pos: 0
+s06_neg: 0
+s06_net: 0
+s06_ceiling: 10
+s06_rules: []
+s07_pos: 0
+s07_neg: 0
+s07_net: 0
+s07_ceiling: 10
+s07_rules: []
+s08_pos: 0
+s08_neg: 0
+s08_net: 0
+s08_ceiling: 10
+s08_rules: []
+s09_pos: 0
+s09_neg: 0
+s09_net: 0
+s09_ceiling: 10
+s09_rules: []
+s10_pos: 0
+s10_neg: 0
+s10_net: 0
+s10_ceiling: 10
+s10_rules: []
+score_total: 0
+score_ceiling: 100
+score_class: UNCLASSIFIED
+chains_loadbearing: false
+chains_honesty: false
+integrity_bonus: false
+gated: false
+build_next: &quot;&quot;
+
+# audit trail
+semantic_provider: &quot;{{provider}}&quot;
+semantic_model: &quot;{{exact_model_string}}&quot;
+call_routes: [{{per_call_route_entries}}]
+usage_tokens: {{prompt_completion_total_cost_object}}
+score: null
+grade: null
+canonical_rec: null
+run_id: {{run_id}}
+processed_date: {{date}}</pre></div></details><details class="sec h1" id="master-paper-template-v041-full-instruction-version-superset" open><summary>MASTER PAPER TEMPLATE — v0.4.1 (FULL INSTRUCTION VERSION — SUPERSET)</summary><div class="secbody"><p><strong>POF 2828 | 2026-09-14 | canonical copy: 999_TEMPLATES/API_LAYER_v0.3</strong>
+<em>Everything from v0.3 rendered format — Q0–Q14, domain checks, six-door lens,
+warrant, dynamics, structural maps, definitions, path-to-10, self-assessment —
+PLUS the v0.4 layer: scorecard at top, deterministic S01–S10 scoring, flat
+SQLite keys, framework_keys. Nothing was removed; everything was placed.
+Scoring rules: 10_SCORING_SPEC_v0.4 (inlined per section). Bare skeleton: 02B.</em></p>
+<hr />
+<details class="sec h2" id="how-to-run-this-deepseek-instructions-read-first" open><summary>HOW TO RUN THIS (DeepSeek instructions — read first)</summary><div class="secbody"><ol>
+<li><strong>Read the source fully before writing anything.</strong> The exact source is
+projected at the bottom, untouched. Never edit it.</li>
+<li><strong>Fill every {{placeholder}}.</strong> If a block genuinely cannot be filled,
+write one line (<code>NOT_ADDRESSED — reason</code>) — headings never disappear.</li>
+<li><strong>Triage the question bank first.</strong> Pick which bank sections are live for
+this paper type. Live questions get real answers in their sections;
+non-live bank items are deleted from output and recorded in the tail as one
+line per excluded bank. Nothing is skipped silently — skipping is a parse error.</li>
+<li><strong>Score as you go.</strong> Every scored section ends with a score footer citing
+rule IDs from its scoring table. Uncited scores are parse errors.</li>
+<li><strong>Closed vocabularies only</strong> for domain, content_type, reader_category,
+tags, series, framework_keys. Not on the list → map it, never invent.</li>
+<li><strong>Scores ≠ ratings.</strong> Section score = how well-built (0–150 ceiling).
+paper_rating = standing grade under the cap rule (API ≤ +8; +9 requires a
+human name in human_review.reviewer; +10 requires a Lean receipt).</li>
+<li><strong>Honesty rules:</strong> analogy never promoted to identity; bridge never
+propagates as proof; UNVERIFIED stays UNVERIFIED; unfalsifiable cores
+flagged, not hidden; negative results kept, never deleted; unassessed ≠ 0.</li>
+<li><strong>SQLite contract:</strong> every section score lands in YAML as flat keys
+(<code>s02_pos</code>, <code>s02_neg</code>, <code>s02_net</code>, <code>s02_ceiling</code>, <code>s02_rules</code>). Stable IDs:
+claims <code>{{PAPER}}-C001</code>, bridges <code>-B001</code>, predictions <code>-P001</code>, falsifiers
+<code>-F001</code>, hidden premises <code>-HP001</code>. Arrays are JSON. One artifact, four
+consumers: DeepSeek, humans in Obsidian, the 04 parser, SQLite.</li>
+</ol>
+<hr />
+</div></details><details class="sec h2" id="yaml-frontmatter-complete-contract" open><summary>YAML FRONTMATTER (complete contract)</summary><div class="secbody"><div class="fencelang">yaml</div><pre><code class="language-yaml">---
+# identity
+type: axiom_companion
+title: &quot;ckg_evaluation: {{clean_title}}&quot;
+paper_id: &quot;{{slug_short_hash}}&quot;
+paper_uuid: &quot;{{UUIDv4}}&quot;
+original_title: &quot;{{original_title}}&quot;
+clean_title: &quot;{{clean_title}}&quot;
+status: CANDIDATE_DRAFT
+canon_status: candidate_draft
+semantic_status: ai_analyzed_pending_review
+template_version: CKG_RECORD_V2.0.1
+taxonomy_ref: &quot;TAG_TAXONOMY_v0.3&quot;
+source_file: &quot;{{absolute_path_to_source}}&quot;
+source_sha256: {{source_sha256}}
+captured_at: {{ISO_8601_timestamp}}
+chapter: {{ONE_STORY_key_or_null}}
+upstream_hashes: [{{sha256_of_papers_this_depends_on}}]
+downstream_implications: [{{sha256_of_papers_that_depend_on_this}}]
+
+# closed vocabularies — percentages sum to 100, integers
+content_type: {{ct-argument | ct-narrative | ct-overview | ct-equation | ct-method | ct-reference | ct-implications | ct-status | ct-outline | ct-source}}
+reader_category: {{rc-general | rc-curious | rc-student | rc-technical | rc-specialist | rc-internal}}
+domain_primary: &quot;{{strongest_domain}}&quot;
+domain_primary_pct: {{integer_1_to_100}}
+domain_secondary: &quot;{{second_domain_or_null}}&quot;
+domain_secondary_pct: {{integer_or_null}}
+domain_tertiary: &quot;{{third_domain_or_null}}&quot;
+domain_tertiary_pct: {{integer_or_null}}
+series: {{series- tag or &quot;NONE&quot;}}
+tags: [{{comma_separated_tags_from_taxonomy}}]
+tags_weighted:
+  - tag: &quot;{{tag_1}}&quot;
+    weight: {{integer_pct}}
+framework_keys: [{{concept groupings — closed list below}}]
+# framework_keys closed list (extend only by governance):
+#   master-equation · ten-laws · syzygy · grace-operator · soul-field ·
+#   observer-theory · coherence-functional · compression-theory ·
+#   boundary-conditions · destiny-equation · moral-physics · cosmology-gr ·
+#   quantum-foundations · ai-consciousness · experimental-protocols ·
+#   trinitarian-structure · logos-field · resurrection-physics
+
+# substance
+governing_question: &quot;{{governing_question}}&quot;
+one_sentence_finding: &quot;{{one_sentence_finding}}&quot;
+claim_ids: [&quot;{{PAPER}}-C001&quot;, ...]
+topic_keys: [{{definitive_works_registry_keys}}]
+
+# ratings under the cap rule (STANDING — separate from section score)
+paper_rating: 0
+rating_awarded_by: API
+evidence_status: CANDIDATE
+formal_status: NOT_ESTABLISHED
+lean_receipts: []
+human_review: {reviewer: null, ruling: null, date: null}
+
+# dashboard fields (evidence-sheet contract)
+status: candidate
+evd_state: UNSCORED
+evd_support: 0
+evd_counter: 0
+evd_balance: null
+evd_families: 0
+evd_coverage: 0.00
+evd_gated: false
+evd_stable: null
+evd_weakest_claim: &quot;&quot;
+evd_unassessed: 0
+evd_assessors: []
+coherence: null
+physical_event: undecided
+
+# SECTION SCORES — flat keys; parser imports these into SQLite columns.
+# s0N_rules = JSON array of every fired rule ID, e.g. [&quot;S02-A1&quot;,&quot;S02-P2&quot;]
+s01_pos: 0
+s01_neg: 0
+s01_net: 0
+s01_ceiling: 10
+s01_rules: []
+s02_pos: 0
+s02_neg: 0
+s02_net: 0
+s02_ceiling: 10
+s02_rules: []
+s03_pos: 0
+s03_neg: 0
+s03_net: 0
+s03_ceiling: 10
+s03_rules: []
+s04_pos: 0
+s04_neg: 0
+s04_net: 0
+s04_ceiling: 10
+s04_rules: []
+s05_pos: 0
+s05_neg: 0
+s05_net: 0
+s05_ceiling: 10
+s05_rules: []
+s06_pos: 0
+s06_neg: 0
+s06_net: 0
+s06_ceiling: 10
+s06_rules: []
+s07_pos: 0
+s07_neg: 0
+s07_net: 0
+s07_ceiling: 10
+s07_rules: []
+s08_pos: 0
+s08_neg: 0
+s08_net: 0
+s08_ceiling: 10
+s08_rules: []
+s09_pos: 0
+s09_neg: 0
+s09_net: 0
+s09_ceiling: 10
+s09_rules: []
+s10_pos: 0
+s10_neg: 0
+s10_net: 0
+s10_ceiling: 10
+s10_rules: []
+score_total: 0
+score_ceiling: 100
+score_class: UNCLASSIFIED
+chains_loadbearing: false
+chains_honesty: false
+integrity_bonus: false
+gated: false
+build_next: &quot;&quot;
+
+# audit trail
+semantic_provider: &quot;{{provider}}&quot;
+semantic_model: &quot;{{exact_model_string}}&quot;
+call_routes: [{{per_call_route_entries}}]
+usage_tokens: {{prompt_completion_total_cost_object}}
+score: null
+grade: null
+canonical_rec: null
+run_id: {{run_id}}
+processed_date: {{date}}
+---
+</code></pre>
+<hr />
+</div></details><details class="sec h2" id="scorecard-renders-at-the-very-top-immediately-after-yaml" open><summary>SCORECARD (renders at the very top, immediately after YAML)</summary><div class="secbody"><table>
+<thead>
+<tr>
+<th>§</th>
+<th>Section</th>
+<th>Pos</th>
+<th>Neg</th>
+<th>Net</th>
+<th>Ceiling</th>
+<th>Chain</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S01</td>
+<td>Classification &amp; Routing</td>
+<td>{{p}}</td>
+<td>{{n}}</td>
+<td>{{net}}</td>
+<td>10</td>
+<td>—</td>
+</tr>
+<tr>
+<td>S02</td>
+<td>Claim Definition</td>
+<td>{{p}}</td>
+<td>{{n}}</td>
+<td>{{net}}</td>
+<td>{{10/15}}</td>
+<td>LB</td>
+</tr>
+<tr>
+<td>S03</td>
+<td>Argument Structure</td>
+<td>{{p}}</td>
+<td>{{n}}</td>
+<td>{{net}}</td>
+<td>{{10/15}}</td>
+<td>LB</td>
+</tr>
+<tr>
+<td>S04</td>
+<td>Evidence &amp; Support</td>
+<td>{{p}}</td>
+<td>{{n}}</td>
+<td>{{net}}</td>
+<td>{{10/15}}</td>
+<td>LB</td>
+</tr>
+<tr>
+<td>S05</td>
+<td>Objections &amp; Survival</td>
+<td>{{p}}</td>
+<td>{{n}}</td>
+<td>{{net}}</td>
+<td>{{10/15}}</td>
+<td>HON</td>
+</tr>
+<tr>
+<td>S06</td>
+<td>Boundaries &amp; Honesty</td>
+<td>{{p}}</td>
+<td>{{n}}</td>
+<td>{{net}}</td>
+<td>{{10/15}}</td>
+<td>HON</td>
+</tr>
+<tr>
+<td>S07</td>
+<td>Formal &amp; Math</td>
+<td>{{p}}</td>
+<td>{{n}}</td>
+<td>{{net}}</td>
+<td>{{10/15}}</td>
+<td>LB</td>
+</tr>
+<tr>
+<td>S08</td>
+<td>Bridge Integrity</td>
+<td>{{p}}</td>
+<td>{{n}}</td>
+<td>{{net}}</td>
+<td>{{10/15}}</td>
+<td>HON</td>
+</tr>
+<tr>
+<td>S09</td>
+<td>Falsifiability &amp; Predictions</td>
+<td>{{p}}</td>
+<td>{{n}}</td>
+<td>{{net}}</td>
+<td>{{10/15}}</td>
+<td>HON</td>
+</tr>
+<tr>
+<td>S10</td>
+<td>Audit &amp; Provenance</td>
+<td>{{p}}</td>
+<td>{{n}}</td>
+<td>{{net}}</td>
+<td>10</td>
+<td>—</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>TOTAL</strong></td>
+<td>{{sum}}</td>
+<td>{{sum}}</td>
+<td><strong>{{net}}/100</strong></td>
+<td>ceiling {{100/150}}</td>
+<td>chains {{0-2}}/2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>CLASS:</strong> {{ADMIT-CANDIDATE ≥130 · STRONG 100–129 · WORKING 70–99 · DEVELOPING 40–69 · FRAGILE 0–39 · RETRACT &lt;0}}
+<strong>GATED:</strong> {{yes/no}} · <strong>HARD FAILS:</strong> {{list or none}}
+<strong>Build next:</strong> {{weakest section in one line — what to build, not what to feel}}</p>
+<blockquote>
+<p>Chain rules: LOAD-BEARING = S02,S03,S04,S07 all net ≥ 8 → those ceilings lift
+to 15. HONESTY = S05,S06,S08,S09 all net ≥ 8 → lift. Both chains AND zero
+total penalties → +5 integrity bonus. Any of S02–S05 net &lt; 0 → GATED.</p>
+</blockquote>
+<hr />
+<p>&lt;!-- ═══════════════════════════════════════════════ --&gt;
+&lt;!-- S01 · CLASSIFICATION &amp; ROUTING                   --&gt;
+&lt;!-- ═══════════════════════════════════════════════ --&gt;</p>
+</div></details><details class="sec h2" id="s01-classification-routing" open><summary>S01 · Classification &amp; Routing</summary><div class="secbody"><p>&lt;details class=&quot;co abstract&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Classification &amp; Routing&lt;span class=&quot;cotype&quot;&gt;abstract&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Question&lt;/th&gt;
+&lt;th&gt;Answer&lt;/th&gt;
+&lt;th&gt;Vocabulary&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Domain&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{domain_primary}} ({{domain_primary_pct}}%)&lt;/td&gt;
+&lt;td&gt;Theophysics · Theology · Philosophy · Mathematics · Physics · Information Theory · Cognitive Science · Social Sciences · Methodology · Computer Science&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Secondary domain(s)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{domain_secondary}} ({{domain_secondary_pct}}%)&lt;/td&gt;
+&lt;td&gt;Same list — or NONE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Content type&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{ct- tag}}&lt;/td&gt;
+&lt;td&gt;ct-argument · ct-narrative · ct-overview · ct-equation · ct-method · ct-reference · ct-implications · ct-status · ct-outline · ct-source&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Reader level&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{rc- tag}}&lt;/td&gt;
+&lt;td&gt;rc-general · rc-curious · rc-student · rc-technical · rc-specialist · rc-internal&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Series&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{series- tag or NONE}}&lt;/td&gt;
+&lt;td&gt;series-genesis-quantum · series-consolidated · series-one-story · series-master-eq · series-boundary · series-fruits · series-descent · NONE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;framework_keys&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{JSON list}}&lt;/td&gt;
+&lt;td&gt;closed list in YAML above&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!info]- Outbox routing&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Copy&lt;/th&gt;
+&lt;th&gt;Folder&lt;/th&gt;
+&lt;th&gt;Rule&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;C1&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;OUTBOX/{{domain}}/&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Primary — every paper&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;C2&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;OUTBOX/{{ct-tag}}/&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;By content type&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;C3&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;OUTBOX/{{series-tag}}/&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;By series (if not NONE)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;C4&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;OUTBOX/00_UNTOUCHED/&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Archive — exact as produced&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<p><strong>Scoring</strong> — awards: S01-A1 domain+pcts +2 · S01-A2 ct +2 · S01-A3 rc +2 · S01-A4 series +1 · S01-A5 taxonomy_ref &amp; closed tags +2 · S01-A6 routing +1. Penalties: S01-P1 invented tag −3 · S01-P2 classification contradicts YAML −2.</p>
+<p><code>&gt; score reasons: {{rule IDs}}</code></p>
+<hr />
+<p>&lt;!-- ═══════════════════════════════════════════════ --&gt;
+&lt;!-- AT A GLANCE — human doorway, unscored            --&gt;
+&lt;!-- ═══════════════════════════════════════════════ --&gt;</p>
+</div></details></div></details>
+<details class="sec h1" id="clean-title" open><summary>{{clean_title}}</summary><div class="secbody"><p>&lt;details class=&quot;co success&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;The Six&lt;span class=&quot;cotype&quot;&gt;success&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Claim&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{strongest_defensible_claim}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Domain&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{domain_primary}} ({{domain_primary_pct}}%) {{domain_secondary}} ({{domain_secondary_pct}}%)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Physical event&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{physical_event_or_undecided}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Bridge&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{bridge_statement_or_none}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;What defeats it&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{defeat_conditions}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Have / need / breaks if&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{have_need_breaks}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;[!important] Verdict
+{{UNSCORED — coverage below floor. Unassessed is not zero.  OR  SCORED verdict with balance}}&lt;/p&gt;
+&lt;p&gt;[!success] At a Glance (expanded)
+{{Plain English, declaration register. What we claim, what the machine checks (include standing one-paragraph &quot;what Lean is&quot; block), why it matters.}}&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;TRANSLATION: DRAFT — NOT REVIEWED&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<hr />
+<p>&lt;!-- ═══════════════════════════════════════════════ --&gt;
+&lt;!-- S02 · CLAIM DEFINITION                           --&gt;
+&lt;!-- ═══════════════════════════════════════════════ --&gt;</p>
+<details class="sec h2" id="s02-claim-definition" open><summary>S02 · Claim Definition</summary><div class="secbody"><p>&lt;details class=&quot;co quote&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Central Claim&lt;span class=&quot;cotype&quot;&gt;quote&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;p&gt;{{Strongest defensible version, ordinary language. @claim marker.}}&lt;/p&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<ul>
+<li><strong>Exact expression (Q0):</strong> {{answer_or_NOT_ADDRESSED}}</li>
+<li><strong>Referent (Q1):</strong> {{what physical/theological thing is claimed}}</li>
+<li><strong>Identity &amp; distinction (Q2):</strong> {{vs. neighboring claims}}</li>
+<li><strong>Dependency floor (Q3):</strong> {{what must be true for this to be meaningful}}</li>
+</ul>
+</div></details><details class="sec h2" id="definitions" open><summary>Definitions</summary><div class="secbody"><p>&lt;details class=&quot;co info&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Key Terms (anything above 8th-grade reading level)&lt;span class=&quot;cotype&quot;&gt;info&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;p&gt;&lt;!-- RULE: if a term would confuse a bright 8th-grader, it gets a row.
+Plain English. No circularity. Every technical term, no cap. --&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Term&lt;/th&gt;
+&lt;th&gt;Plain definition&lt;/th&gt;
+&lt;th&gt;Domain&lt;/th&gt;
+&lt;th&gt;First used in&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;{{term}}&lt;/td&gt;
+&lt;td&gt;{{definition_an_8th_grader_could_understand}}&lt;/td&gt;
+&lt;td&gt;{{domain}}&lt;/td&gt;
+&lt;td&gt;{{section_or_heading}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+</div></details><details class="sec h2" id="open-the-question-q0q14-bank-live-questions-answered-non-live-deleted-to-tail" open><summary>Open the question (Q0–Q14 bank — live questions answered, non-live deleted to tail)</summary><div class="secbody"><p>&lt;details class=&quot;co quote&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Q0 · Exact expression&lt;span class=&quot;cotype&quot;&gt;quote&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;p&gt;{{answer_or_excluded}}
+[!info]+ Q1 · Referent
+{{answer_or_excluded}}
+[!abstract]+ Q2 · Identity and distinction
+{{answer_or_excluded}}
+[!warning]+ Q3 · Dependency floor
+{{answer_or_excluded}}
+[!question]+ Q4 · Variation and invariance
+{{answer_or_excluded}}
+[!info]+ Q5 · Capabilities and operations
+{{answer_or_excluded}}
+[!abstract]+ Q6 · Transitions
+{{answer_or_excluded}}
+[!danger]+ Q7 · Constraints
+{{answer_or_excluded}}
+[!success]+ Q8 · Consequences and licenses
+{{answer_or_excluded}}
+[!quote]+ Q9 · Representation ladder
+{{answer_or_excluded}}
+[!caution]+ Q10 · Preservation and loss
+{{answer_or_excluded}}
+[!success]+ Q11 · If true
+{{answer_or_excluded}}
+[!danger]+ Q12 · If false / rivals
+{{answer_or_excluded}}
+[!warning]+ Q13 · Discriminating checks
+{{answer_or_excluded}}
+[!important]+ Q14 · Emergent role
+{{answer_or_excluded}}&lt;/p&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<details class="sec h3" id="path-to-10-rating-ladder-standing-grade-not-the-section-score"><summary>Path to 10 (rating ladder — standing grade, NOT the section score)</summary><div class="secbody"><p>&lt;details class=&quot;co important&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Current Rating: +{{current_score}} — Path to +10&lt;span class=&quot;cotype&quot;&gt;important&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Level&lt;/th&gt;
+&lt;th&gt;Score&lt;/th&gt;
+&lt;th&gt;Status&lt;/th&gt;
+&lt;th&gt;What's needed&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Current (API)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;+{{current_score}}&lt;/td&gt;
+&lt;td&gt;✅ Awarded&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;API ceiling&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;+8&lt;/td&gt;
+&lt;td&gt;{{ACHIEVED / GAP: see below}}&lt;/td&gt;
+&lt;td&gt;{{what_would_make_this_an_8}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Human review&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;+9&lt;/td&gt;
+&lt;td&gt;{{PENDING / ACHIEVED}}&lt;/td&gt;
+&lt;td&gt;{{human name}} confirms argument holds under pressure&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Lean receipt&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;+10&lt;/td&gt;
+&lt;td&gt;{{NOT_ESTABLISHED / RECEIPTED}}&lt;/td&gt;
+&lt;td&gt;Machine-verified proof of encoded premises&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!warning] If below +8
+&lt;strong&gt;Why not +8:&lt;/strong&gt; {{specific_diagnosis}}
+&lt;strong&gt;What +8 looks like:&lt;/strong&gt; {{strongest version that earns +8}}
+&lt;strong&gt;Reference work at +8:&lt;/strong&gt; {{title, author, why it earns +8}}
+&lt;strong&gt;Steps to close:&lt;/strong&gt; 1. {{step}} 2. {{step}} 3. {{step}}
+&lt;strong&gt;Revised score if taken:&lt;/strong&gt; +{{projected_score}}&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<p><strong>Scoring</strong> — awards: S02-A1 central claim +2 · S02-A2 referent +2 · S02-A3 identity/distinction +2 · S02-A4 dependency floor +2 · S02-A5 falsifier attached (cite from S09 registry) +2. Penalties: S02-P1 circular definition −4 · S02-P2 equivocation −3 · S02-P3 load-bearing claim w/o falsifier −2.</p>
+<p><code>&gt; score reasons: {{rule IDs}}</code></p>
+<hr />
+<p>&lt;!-- ═══════════════════════════════════════════════ --&gt;
+&lt;!-- S03 · ARGUMENT STRUCTURE                         --&gt;
+&lt;!-- ═══════════════════════════════════════════════ --&gt;</p>
+</div></details></div></details><details class="sec h2" id="s03-argument-structure" open><summary>S03 · Argument Structure</summary><div class="secbody"><p>&lt;details class=&quot;co info&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;System or Model&lt;span class=&quot;cotype&quot;&gt;info&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;p&gt;{{Entities, distinctions, relationships, sequence.}}&lt;/p&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<details class="sec h3" id="primary-argument-from-source"><summary>Primary argument (from source)</summary><div class="secbody"><p>&lt;!-- PROVENANCE RULE: every step tagged ORIGINAL / CLASSICAL:&lt;name, work, ~date&gt;
+(pre-2015 minimum; older and more foundational is better) / STANDARD.
+Recent papers are secondary references, NOT argument provenance. --&gt;</p>
+<ol>
+<li>{{step_1}} <code>{{ORIGINAL | CLASSICAL:&lt;source&gt; | STANDARD}}</code></li>
+<li>{{step_2}} <code>{{ORIGINAL | CLASSICAL:&lt;source&gt; | STANDARD}}</code></li>
+<li>{{step_3}} <code>{{ORIGINAL | CLASSICAL:&lt;source&gt; | STANDARD}}</code></li>
+<li>{{therefore_conclusion}} <code>{{ORIGINAL | CLASSICAL:&lt;source&gt; | STANDARD}}</code></li>
+</ol>
+</div></details><details class="sec h3" id="hidden-premises"><summary>Hidden premises</summary><div class="secbody"><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hidden premise</th>
+<th>Required by</th>
+<th>If false, breaks</th>
+<th>Blast radius</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{{PAPER}}-HP001</td>
+<td>{{unstated_assumption}}</td>
+<td>{{claim_id}}</td>
+<td>{{consequence}}</td>
+<td>INERT / LOCAL / STRUCTURAL</td>
+</tr>
+</tbody>
+</table>
+</div></details><details class="sec h3" id="argument-strengthening"><summary>Argument strengthening</summary><div class="secbody"><table>
+<thead>
+<tr>
+<th>Weak link</th>
+<th>Why it's weak</th>
+<th>Stronger version</th>
+<th>Source for fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{{step_or_premise}}</td>
+<td>{{diagnosis}}</td>
+<td>{{improved_version}}</td>
+<td>{{ORIGINAL or CLASSICAL:&lt;source&gt;}}</td>
+</tr>
+</tbody>
+</table>
+</div></details><details class="sec h3" id="supplementary-arguments-from-the-tradition-no-padding"><summary>Supplementary arguments (from the tradition — no padding)</summary><div class="secbody"><p><strong>Supplementary argument 1</strong> — <code>CLASSICAL: {{source, work, ~date}}</code></p>
+<ol>
+<li>{{step_1}} 2. {{step_2}} 3. {{therefore}}</li>
+</ol>
+</div></details><details class="sec h3" id="argument-score-assessment"><summary>Argument score assessment</summary><div class="secbody"><table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Current</th>
+<th>Ceiling</th>
+<th>Gap</th>
+<th>How to close</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Logical validity</td>
+<td>{{valid/invalid/partial}}</td>
+<td>valid</td>
+<td>{{gap_or_none}}</td>
+<td>{{fix}}</td>
+</tr>
+<tr>
+<td>Premise strength</td>
+<td>{{rating}}</td>
+<td>+8</td>
+<td>{{gap}}</td>
+<td>{{fix}}</td>
+</tr>
+<tr>
+<td>Completeness</td>
+<td>{{rating}}</td>
+<td>+8</td>
+<td>{{gap}}</td>
+<td>{{missing steps or assumptions}}</td>
+</tr>
+<tr>
+<td>Originality</td>
+<td>{{count ORIGINAL / count total}}</td>
+<td>—</td>
+<td>—</td>
+<td>{{which steps could be made original}}</td>
+</tr>
+</tbody>
+</table>
+</div></details><details class="sec h3" id="extracted-truth-predicates-exhaustive-every-assertion-gets-a-row-no-cap"><summary>Extracted Truth Predicates (EXHAUSTIVE — every assertion gets a row; no cap)</summary><div class="secbody"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Truth Predicate</th>
+<th>Source Role</th>
+<th>Modality</th>
+<th>Formal / Mathematical Formulation</th>
+<th>Warrant</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P1</td>
+<td>{{predicate}}</td>
+<td>{{role}}</td>
+<td>{{Axiomatic / Contingent / Heuristic}}</td>
+<td>{{formulation}}</td>
+<td>{{scripture / mathematical fact / external result / definition / framework assertion}}</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Extraction completeness check</strong>: {{count}} predicates extracted from {{count}} source paragraphs. Paragraphs with zero predicates: {{list or &quot;none&quot;}}.</p>
+</blockquote>
+</div></details><details class="sec h3" id="terms-and-plain-language-bridge"><summary>Terms and plain-language bridge</summary><div class="secbody"><table>
+<thead>
+<tr>
+<th>Term/symbol</th>
+<th>Exact role</th>
+<th>Plain meaning</th>
+<th>Analogy/example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{{term}}</td>
+<td>{{role}}</td>
+<td>{{meaning}}</td>
+<td>{{analogy — illustrates, not evidence}}</td>
+</tr>
+</tbody>
+</table>
+</div></details><details class="sec h3" id="structural-map-intra-paper"><summary>Structural Map (intra-paper)</summary><div class="secbody"><div class="fencelang">mermaid</div><pre><code class="language-mermaid">graph TD
+    A[&quot;{{paper_title}}&quot;] --&gt; B[&quot;{{central_claim}}&quot;]
+    B --&gt; C[&quot;{{supporting_claim_1}}&quot;]
+    B --&gt; D[&quot;{{supporting_claim_2}}&quot;]
+    C --&gt; E[&quot;{{evidence_1}}&quot;]
+    D --&gt; F[&quot;{{evidence_2}}&quot;]
+    B --&gt; G[&quot;{{bridge_if_any}}&quot;]
+    G --&gt; H[&quot;{{target_domain_claim}}&quot;]
+    style A fill:#2d5016,stroke:#4a8c1c,color:#fff
+    style B fill:#1a3a5c,stroke:#2e6b9e,color:#fff
+    style G fill:#5c1a1a,stroke:#9e2e2e,color:#fff
+</code></pre>
+<p><strong>Scoring</strong> — awards: S03-A1 provenance tags +2 · S03-A2 hidden premises +2 · S03-A3 strengthening +2 · S03-A4 supplements +2 · S03-A5 validity check +2. Penalties: S03-P1 circular reasoning undetected −5 · S03-P2 post-hoc as derivation −3 · S03-P3 missing lemma −2.</p>
+<p><code>&gt; score reasons: {{rule IDs}}</code></p>
+<hr />
+<p>&lt;!-- ═══════════════════════════════════════════════ --&gt;
+&lt;!-- S04 · EVIDENCE &amp; SUPPORT                         --&gt;
+&lt;!-- ═══════════════════════════════════════════════ --&gt;</p>
+</div></details></div></details><details class="sec h2" id="s04-evidence-support" open><summary>S04 · Evidence &amp; Support</summary><div class="secbody"></div></details><details class="sec h2" id="claims" open><summary>Claims</summary><div class="secbody"><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Version</th>
+<th>Register</th>
+<th>Load-bearing</th>
+<th>Depends on</th>
+<th>Support</th>
+<th>Against</th>
+<th>Balance</th>
+<th>State</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{{PAPER}}-C001</td>
+<td>v1</td>
+<td>{{NATIVE or BRIDGE or DERIVED}}</td>
+<td>{{yes/no}}</td>
+<td>{{dependency_ids}}</td>
+<td>{{support_summary}}</td>
+<td>{{against_summary}}</td>
+<td>{{balance}}</td>
+<td>{{state}}</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>C1</strong> ({{register}}): {{claim_text}}</li>
+</ul>
+</div></details><details class="sec h2" id="evidence-ledger" open><summary>Evidence ledger</summary><div class="secbody"><p>Two items are one family if they cannot fail independently. Discr. = raw × rival factor (0 / 0.5 / 1) × timing factor (predicted 1 / accommodated 0.75 / retrodicted 0.5). Family scores stack by the cluster schedule 5 / 7.5 / 10 / 15 and stop.</p>
+<table>
+<thead>
+<tr>
+<th>Family</th>
+<th>Cluster</th>
+<th>Claim</th>
+<th>Dir</th>
+<th>Raw</th>
+<th>Discr.</th>
+<th>Timing</th>
+<th>Rival</th>
+<th>Assessor</th>
+<th>Finding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{{F1}}</td>
+<td>{{cluster}}</td>
+<td>{{claim_id}}</td>
+<td>{{+/-}}</td>
+<td>{{raw_score}}</td>
+<td>{{discr_score}}</td>
+<td>{{predicted/accommodated/retrodicted}}</td>
+<td>{{rival_factor}}</td>
+<td>{{assessor_name}}</td>
+<td>{{finding_summary}}</td>
+</tr>
+</tbody>
+</table>
+<p>&lt;details class=&quot;co info&quot;&gt;&lt;summary class=&quot;cot&quot;&gt;Evidence reasons&lt;span class=&quot;cotype&quot;&gt;info&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;p&gt;{{reasoning_for_evidence_scores — cite the family independence test: &quot;would one methodological error kill both?&quot;}}&lt;/p&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+</div></details><details class="sec h2" id="warrant-control" open><summary>Warrant Control</summary><div class="secbody"><p>&lt;details class=&quot;co success&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Warrant&lt;span class=&quot;cotype&quot;&gt;success&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Field&lt;/th&gt;
+&lt;th&gt;Fill&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Claim&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{the_claim_being_warranted}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Evidence&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{what_supports_it}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Proof / test&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{formal_or_empirical_test}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Counterevidence&lt;/td&gt;
+&lt;td&gt;{{what_pushes_back}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Kill condition&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{what_would_force_retraction}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Assumptions&lt;/td&gt;
+&lt;td&gt;{{unstated_requirements}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Evidence strength&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{STRONG / MODERATE / WEAK — with reason}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Evidence coverage&lt;/td&gt;
+&lt;td&gt;{{what_the_evidence_covers_and_doesnt}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Source independence&lt;/td&gt;
+&lt;td&gt;{{count_of_independent_sources_or_NEEDS_AUDIT}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Native grade&lt;/td&gt;
+&lt;td&gt;{{AX_CORE / AX_SCAFFOLD / FW_EXTENDED / BRIDGE / etc.}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Normalized grade&lt;/td&gt;
+&lt;td&gt;{{grade_within_current_chain_version}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!caution] Coverage Boundary
+{{What the warrant does NOT establish — explicit scope limit.}}&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+</div></details><details class="sec h2" id="dynamics" open><summary>Dynamics</summary><div class="secbody"><p>&lt;details class=&quot;co abstract&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Dynamics&lt;span class=&quot;cotype&quot;&gt;abstract&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Dynamic&lt;/th&gt;
+&lt;th&gt;Reading&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Coherence&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{how_this_contributes_to_or_requires_system_coherence}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Degradation&lt;/td&gt;
+&lt;td&gt;{{what_happens_if_this_weakens — graceful or catastrophic?}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Measurement&lt;/td&gt;
+&lt;td&gt;{{what_would_you_measure_to_test_this}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Threshold&lt;/td&gt;
+&lt;td&gt;{{binary flip or gradient}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Asymmetry&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{what_can_this_host_that_its_denial_cannot}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Restoration&lt;/td&gt;
+&lt;td&gt;{{if_damaged_can_it_be_rebuilt_and_how}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Counterexample&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{what_must_be_produced_to_break_this}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;[!warning] Evidence Chain
+&lt;strong&gt;Claim&lt;/strong&gt;: {{claim}} → &lt;strong&gt;Support&lt;/strong&gt;: {{support}} → &lt;strong&gt;Inference&lt;/strong&gt;: {{inference}} → &lt;strong&gt;Confidence&lt;/strong&gt;: {{High/Medium/Low}} → &lt;strong&gt;Boundary&lt;/strong&gt;: {{boundary}}&lt;/p&gt;
+&lt;p&gt;[!success] Best Evidence and Sources&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Content&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Primary evidence / Formal results&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{primary}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Secondary interpretation&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{secondary}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Analogy / Bridge&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{analogy — illustrates, not evidence}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Citations&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{with provenance markers: ORIGINAL / HISTORICAL_WITNESS:&lt;name&gt; / MODERN_PARALLEL:&lt;ref&gt; / UNVERIFIED}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+</div></details><details class="sec h2" id="coherence-self-assessment" open><summary>Coherence &amp; Self-Assessment</summary><div class="secbody"><p>&lt;details class=&quot;co abstract&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Coherence Score&lt;span class=&quot;cotype&quot;&gt;abstract&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;p&gt;{{Unassessed — OR score 0-5 with justification}}&lt;/p&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<p><strong>Scoring</strong> — awards: S04-A1 per-claim chain +2 · S04-A2 ledger w/ families +2 · S04-A3 independence test operationalized +2 · S04-A4 provenance markers +2 · S04-A5 grade [T]/[C]/[D] ≠ rating +2. Penalties: S04-P1 correlated-as-independent −4 · S04-P2 retrodicted-as-predicted −3 · S04-P3 contested source unflagged −3.</p>
+<p><code>&gt; score reasons: {{rule IDs}}</code></p>
+<hr />
+<p>&lt;!-- ═══════════════════════════════════════════════ --&gt;
+&lt;!-- S05 · OBJECTIONS &amp; SURVIVAL                      --&gt;
+&lt;!-- ═══════════════════════════════════════════════ --&gt;</p>
+</div></details><details class="sec h2" id="s05-objections-survival" open><summary>S05 · Objections &amp; Survival</summary><div class="secbody"><p>&lt;details class=&quot;co danger&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Strongest Objection and Negative Controls&lt;span class=&quot;cotype&quot;&gt;danger&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Objection&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{best_opposing_case — steelmanned}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Philosophical counter&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{philosophical_counter}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Negative control test&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{ablation_permutation_vacuity_blinded}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<details class="sec h3" id="counter-models"><summary>Counter-models</summary><div class="secbody"><table>
+<thead>
+<tr>
+<th>Proposed counter-model</th>
+<th>Why plausible</th>
+<th>Breaking point</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{{countermodel_1}}</td>
+<td>{{why_someone_would_hold_it}}</td>
+<td>{{what_defeats_it_or_UNRESOLVED}}</td>
+<td>{{DEFEATED / UNRESOLVED / LIVE}}</td>
+</tr>
+</tbody>
+</table>
+<p>&lt;details class=&quot;co success&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;What Survives&lt;span class=&quot;cotype&quot;&gt;success&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;p&gt;{{Narrowest defensible core after pressure. Ratings per claim.}}&lt;/p&gt;
+&lt;p&gt;[!success] Independent AI Review — {{PASS / PARTIAL / FAIL / N-A}}
+{{summary of independent review or PENDING}}&lt;/p&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<p><strong>Scoring</strong> — awards: S05-A1 steelman +2 · S05-A2 countermodels table +2 · S05-A3 negative controls +2 · S05-A4 what survives +2 · S05-A5 blast radius +2. Penalties: S05-P1 strawman −5 · S05-P2 known countermodel omitted −4 · S05-P3 possible control absent −2.</p>
+<p><code>&gt; score reasons: {{rule IDs}}</code></p>
+<hr />
+</div></details></div></details><details class="sec h2" id="six-door-explanatory-lens-reader-layer-not-separately-scored-clarity-feeds-s03s06" open><summary>Six-Door Explanatory Lens (reader layer — not separately scored; clarity feeds S03/S06)</summary><div class="secbody"><p>&lt;details class=&quot;co quote&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Human Door&lt;span class=&quot;cotype&quot;&gt;quote&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;p&gt;{{What does this mean for a person standing in front of it? Plain language. The &quot;try to deny it&quot; test.}}
+[!abstract]+ Metaphysical Door
+{{What ontological claim is being made? Where does it sit relative to competing metaphysical systems?}}
+[!important]+ Theological Door
+{{What theological mapping? Bridge or derivation? What doctrine does it NOT establish?}}
+[!info]+ Scientific Door
+{{What scientific content is present? What does science presuppose here? Where does the method stop being the right tool?}}
+[!warning]+ Formal Door
+{{What formal content? Primitive, derived, or encoded? What can formal systems prove and not prove here?}}
+[!question]+ External Reference Door
+{{How would a neutral outside observer frame this? What competing frameworks address the same question? What looks like a refutation but isn't?}}&lt;/p&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<hr />
+<p>&lt;!-- ═══════════════════════════════════════════════ --&gt;
+&lt;!-- S06 · BOUNDARIES &amp; HONESTY                       --&gt;
+&lt;!-- ═══════════════════════════════════════════════ --&gt;</p>
+</div></details><details class="sec h2" id="s06-boundaries-honesty" open><summary>S06 · Boundaries &amp; Honesty</summary><div class="secbody"><p>&lt;details class=&quot;co caution&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;What This Does Not Establish&lt;span class=&quot;cotype&quot;&gt;caution&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;p&gt;{{Hard boundary. What the checkmark means / does not mean. Lean = consequences of encoded definitions and premises only.}}&lt;/p&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<details class="sec h3" id="explicit-boundaries-pulled-from-source-verbatim"><summary>Explicit boundaries (pulled from source verbatim)</summary><div class="secbody"><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Boundary statement</th>
+<th>Protects (claim IDs)</th>
+<th>Source anchor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BND-001</td>
+<td>{{boundary_statement}}</td>
+<td>{{claim_ids_protected}}</td>
+<td>{{verbatim_anchor}}</td>
+</tr>
+</tbody>
+</table>
+<p>&lt;details class=&quot;co warning&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Corrections and Revisions&lt;span class=&quot;cotype&quot;&gt;warning&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;p&gt;{{What we went through — the story of what failed and got narrowed.}}&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;What held&lt;/th&gt;
+&lt;th&gt;What broke&lt;/th&gt;
+&lt;th&gt;What's overstated&lt;/th&gt;
+&lt;th&gt;Defensible version&lt;/th&gt;
+&lt;th&gt;Blast radius&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;{{held}}&lt;/td&gt;
+&lt;td&gt;{{broke}}&lt;/td&gt;
+&lt;td&gt;{{overstated}}&lt;/td&gt;
+&lt;td&gt;{{defensible}}&lt;/td&gt;
+&lt;td&gt;INERT / LOCAL / STRUCTURAL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+</div></details><details class="sec h3" id="self-assessment-reputation-form"><summary>Self-Assessment / Reputation Form</summary><div class="secbody"><p>&lt;details class=&quot;co important&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Self-Assessment&lt;span class=&quot;cotype&quot;&gt;important&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Dimension&lt;/th&gt;
+&lt;th&gt;Self-score (0–10)&lt;/th&gt;
+&lt;th&gt;Justification&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Argument strength&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;td&gt;{{why}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Evidence quality&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;td&gt;{{why}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Originality&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;td&gt;{{why}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Bridge integrity&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;td&gt;{{why}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Formal readiness&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;td&gt;{{why}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Clarity / accessibility&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;td&gt;{{why}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Scope honesty&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;td&gt;{{did it stay inside its register?}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Kill-condition clarity&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;td&gt;{{how clear is what would defeat this?}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Overall self-grade:&lt;/strong&gt; {{A–F}} · &lt;strong&gt;Confidence in self-grade:&lt;/strong&gt; {{HIGH / MEDIUM / LOW}}
+&lt;strong&gt;Biggest blind spot:&lt;/strong&gt; {{what this paper probably gets wrong but can't see}}&lt;/p&gt;
+&lt;p&gt;[!abstract] Implications&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Domain&lt;/th&gt;
+&lt;th&gt;Implication&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Formal&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{formal_implications}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Philosophical&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{philosophical_implications}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Empirical&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{empirical_implications_or_none}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Semantic&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{semantic_implications}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Theological&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{theological_implications_or_none}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<p><strong>Scoring</strong> — awards: S06-A1 does-not-establish +2 · S06-A2 verbatim boundaries +2 · S06-A3 scope honesty +2 · S06-A4 audit table +2 · S06-A5 corrections story +2. Penalties: S06-P1 overstatement standing −6 · S06-P2 register mixing undetected −4 · S06-P3 missing boundary −3.</p>
+<p><code>&gt; score reasons: {{rule IDs}}</code></p>
+<hr />
+<p>&lt;!-- ═══════════════════════════════════════════════ --&gt;
+&lt;!-- S07 · FORMAL &amp; MATH                              --&gt;
+&lt;!-- ═══════════════════════════════════════════════ --&gt;</p>
+</div></details></div></details><details class="sec h2" id="s07-formal-math-mandatory-heading-write-no-mathematical-content-if-none" open><summary>S07 · Formal &amp; Math (MANDATORY heading; write &quot;No mathematical content&quot; if none)</summary><div class="secbody"><details class="sec h3" id="mathematics-three-layer-rule-equation-term-by-term-translation-meaning-then-judged"><summary>Mathematics (three-layer rule: equation, term-by-term translation, meaning — then judged)</summary><div class="secbody"><table>
+<thead>
+<tr>
+<th>Object/Equation</th>
+<th>Term-by-term</th>
+<th>Meaning</th>
+<th>Status</th>
+<th>Failure mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{{equation}}</td>
+<td>{{translation}}</td>
+<td>{{meaning}}</td>
+<td>{{COHERENT_TESTED / COHERENT_UNTESTED / DEFECTIVE / DECORATIVE}}</td>
+<td>{{what_breaks_if_wrong — or N/A}}</td>
+</tr>
+</tbody>
+</table>
+<p><em>If no mathematics is present: &quot;No mathematical content&quot; — this heading never silently disappears.</em></p>
+<ul>
+<li>Dimensional &amp; limiting-case checks: {{report — dimensions, known-result recovery, limits}}</li>
+<li>If a constant is set below detection (coupling ~10⁻⁶⁹-class): flag here AND in S09. Hiding it is a double penalty.</li>
+</ul>
+<p>&lt;details class=&quot;co info&quot;&gt;&lt;summary class=&quot;cot&quot;&gt;Lean / formal checks&lt;span class=&quot;cotype&quot;&gt;info&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Proposed theorem or invariant&lt;/th&gt;
+&lt;th&gt;Visible premises&lt;/th&gt;
+&lt;th&gt;Status&lt;/th&gt;
+&lt;th&gt;Reader meaning&lt;/th&gt;
+&lt;th&gt;Passing establishes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;{{theorem}}&lt;/td&gt;
+&lt;td&gt;{{premises}}&lt;/td&gt;
+&lt;td&gt;{{Not verified / Verified / Failed}}&lt;/td&gt;
+&lt;td&gt;{{analogy}}&lt;/td&gt;
+&lt;td&gt;{{what_it_proves}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;[!question]- Empirical / literature checks
+{{Verify cited sources. Check modern references for consensus.}}&lt;/p&gt;
+&lt;p&gt;[!danger]- Adversarial checks
+{{Attempt to break the claim. Challenge classifications. Test dependencies.}}&lt;/p&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+</div></details></div></details><details class="sec h2" id="domain-checks-bank-d-live-checks-answered-non-live-deleted-to-tail-cross-cite-results-into-section-score-reasons" open><summary>Domain checks (bank D — live checks answered, non-live deleted to tail; cross-cite results into section score reasons)</summary><div class="secbody"><p>&lt;details class=&quot;co info&quot;&gt;&lt;summary class=&quot;cot&quot;&gt;Physics — {{PASS / PARTIAL / FAIL / N-A}}&lt;span class=&quot;cotype&quot;&gt;info&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;p&gt;{{quantity, units, dynamics, protocol, instrument, data, controls, analysis — one line each}}
+[!quote]- History / testimony — {{PASS / PARTIAL / FAIL / N-A}}
+{{event, observers, witness, testimony, transmission, document, preservation, corroboration, interpretation}}
+[!important]- Theology — {{PASS / PARTIAL / FAIL / N-A}}
+{{source, textual witness, tradition, proclamation, register, confession class, scope, relation}}
+[!abstract]- Philosophy / metaphysics — {{PASS / PARTIAL / FAIL / N-A}}
+{{one line per check}}
+[!warning]- Mathematics / formal — {{PASS / PARTIAL / FAIL / N-A}}
+{{definitions, axiom use, inference rules, lemmas, derivation, theorem, receipt, interpretation boundary}}
+[!danger]- Cross-domain bridge — {{PASS / PARTIAL / FAIL / N-A}}
+{{source/target registers, mapping, preserved, LOST, boundaries, grade, reverse map, commutativity, countermodels, why-gate, next test}}
+[!caution]- Reverse reconstruction B0–B8 — {{PASS / PARTIAL / FAIL / N-A}}
+{{one line per level}}
+[!question]- Why-closure by level — {{PASS / PARTIAL / FAIL / N-A}}
+{{one line per ladder level}}
+[!quote]- {{count}} excluded, with reasons
+{{- item — reason, one per line, or &quot;nothing excluded&quot;}}&lt;/p&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<p><strong>Scoring</strong> — awards: S07-A1 three-layer +2 · S07-A2 dimensional checks +2 · S07-A3 DECORATIVE flagged +2 · S07-A4 Lean targets +2 · S07-A5 notation dictionary +2. Penalties: S07-P1 defective passed −5 · S07-P2 decorative unflagged −4 · S07-P3 dimensional inconsistency −5 · S07-P4 undefined load-bearing symbol −3.</p>
+<p><code>&gt; score reasons: {{rule IDs}}</code></p>
+<hr />
+<p>&lt;!-- ═══════════════════════════════════════════════ --&gt;
+&lt;!-- S08 · BRIDGE INTEGRITY                           --&gt;
+&lt;!-- ═══════════════════════════════════════════════ --&gt;</p>
+</div></details><details class="sec h2" id="s08-bridge-integrity" open><summary>S08 · Bridge Integrity</summary><div class="secbody"><details class="sec h3" id="bridge-registry-the-unification-seam-lost-is-mandatory-never-blank"><summary>Bridge registry (the unification seam — LOST is MANDATORY, never blank)</summary><div class="secbody"><table>
+<thead>
+<tr>
+<th>Bridge ID</th>
+<th>Source domain · object</th>
+<th>Target domain · object</th>
+<th>Mapping type (analogy/homomorphism/isomorphism/embedding/metaphor)</th>
+<th>Preserved</th>
+<th>LOST (mandatory)</th>
+<th>Word-gate</th>
+<th>Grade</th>
+<th>Reverse map</th>
+<th>Countermodel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{{PAPER}}-B001</td>
+<td>{{A}}</td>
+<td>{{B}}</td>
+<td>{{type}}</td>
+<td>{{what_survives}}</td>
+<td>{{lost — or &quot;isomorphism, justified: …&quot;}}</td>
+<td>{{the word that breaks it if equivocated}}</td>
+<td>{{A-F}}</td>
+<td>{{yes+cite / no+why}}</td>
+<td>{{known_countermodel_or_none}}</td>
+</tr>
+</tbody>
+</table>
+</div></details><details class="sec h3" id="bridge-originality"><summary>Bridge originality</summary><div class="secbody"><table>
+<thead>
+<tr>
+<th>Seam (A ↔ B)</th>
+<th>Move made</th>
+<th>Mapping type</th>
+<th>Preserved structure</th>
+<th>Provenance</th>
+<th>Nearest prior art</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{{seam}}</td>
+<td>{{move}}</td>
+<td>{{analogy / homomorphism / isomorphism / embedding / metaphor}}</td>
+<td>{{survives_crossing}}</td>
+<td>{{ORIGINAL / BORROWED / STANDARD}}</td>
+<td>{{prior_art — UNVERIFIED until checked}}</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Scoring</strong> — awards: S08-A1 all bridges registered +2 · S08-A2 LOST filled/justified +2 · S08-A3 word-gate +2 · S08-A4 honest mapping-type grade +2 · S08-A5 reverse map/countermodel +2. Penalties: S08-P1 blank LOST −5 (HARD FAIL) · S08-P2 word-gate equivocation undetected −5 · S08-P3 analogy→identity −4 · S08-P4 bridge propagates as proof −4.</p>
+<p><code>&gt; score reasons: {{rule IDs}}</code></p>
+<hr />
+<p>&lt;!-- ═══════════════════════════════════════════════ --&gt;
+&lt;!-- S09 · FALSIFIABILITY &amp; PREDICTIONS               --&gt;
+&lt;!-- ═══════════════════════════════════════════════ --&gt;</p>
+</div></details></div></details><details class="sec h2" id="s09-falsifiability-predictions" open><summary>S09 · Falsifiability &amp; Predictions</summary><div class="secbody"><details class="sec h3" id="falsifier-registry-the-minimum-kill-per-claim-not-strongest-objection"><summary>Falsifier registry (the minimum kill per claim — not &quot;strongest objection&quot;)</summary><div class="secbody"><table>
+<thead>
+<tr>
+<th>Falsifier ID</th>
+<th>Claim</th>
+<th>Minimum kill (empirical/formal/logical/testimonial)</th>
+<th>Status</th>
+<th>Blast radius</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{{PAPER}}-F001</td>
+<td>{{claim_id}}</td>
+<td>{{what_would_kill_it}}</td>
+<td>{{UNTESTED / TESTED_SURVIVED / TRIGGERED}}</td>
+<td>INERT / LOCAL / STRUCTURAL</td>
+</tr>
+</tbody>
+</table>
+</div></details><details class="sec h3" id="predictions-logged-not-discussed-falsified-predictions-are-never-deleted"><summary>Predictions (LOGGED, not discussed — falsified predictions are NEVER deleted)</summary><div class="secbody"><table>
+<thead>
+<tr>
+<th>Pred ID</th>
+<th>Claim</th>
+<th>Prediction</th>
+<th>Deadline</th>
+<th>Check method</th>
+<th>Outcome</th>
+<th>Logged by</th>
+<th>Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{{PAPER}}-P001</td>
+<td>{{claim_id}}</td>
+<td>{{specific_testable_prediction}}</td>
+<td>{{date_or_condition}}</td>
+<td>{{how_to_check}}</td>
+<td>{{PENDING / CONFIRMED / FALSIFIED / EXPIRED}}</td>
+<td>{{API / HUMAN:&lt;name&gt;}}</td>
+<td>{{date}}</td>
+</tr>
+</tbody>
+</table>
+<p>&lt;details class=&quot;co danger&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;What would make this a 0?&lt;span class=&quot;cotype&quot;&gt;danger&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;p&gt;{{The specific finding, counterexample, or proof that would collapse this paper's rating to zero — the kill condition stated as a rating event. Must match a F-row above.}}&lt;/p&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+</div></details><details class="sec h3" id="explicit-uncertainties"><summary>Explicit uncertainties</summary><div class="secbody"><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Uncertainty</th>
+<th>Affects (claim IDs)</th>
+<th>Status</th>
+<th>Next action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>U-001</td>
+<td>{{open_or_owed}}</td>
+<td>{{claim_ids}}</td>
+<td>{{OPEN / IN_PROGRESS / RESOLVED}}</td>
+<td>{{what_to_do}}</td>
+</tr>
+</tbody>
+</table>
+<p>&lt;details class=&quot;co question&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Open Questions and Next Actions&lt;span class=&quot;cotype&quot;&gt;question&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Open question&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{question}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Next action&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{action}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Tangent queue&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{@tangent topic=... definitive=PENDING feeds writing queue}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<p><strong>Scoring</strong> — awards: S09-A1 every claim falsifiable +2 · S09-A2 minimum-kill registry +2 · S09-A3 predictions logged w/ deadline +2 · S09-A4 pre-registered falsification criteria +2 · S09-A5 negatives kept +2. Penalties: S09-P1 unfalsifiable core unflagged −4 · S09-P2 falsified prediction deleted/softened −4 · S09-P3 load-bearing claim w/o kill condition −3.</p>
+<p><code>&gt; score reasons: {{rule IDs}}</code></p>
+<hr />
+<p>&lt;!-- ═══════════════════════════════════════════════ --&gt;
+&lt;!-- S10 · AUDIT &amp; PROVENANCE                         --&gt;
+&lt;!-- ═══════════════════════════════════════════════ --&gt;</p>
+</div></details></div></details><details class="sec h2" id="s10-audit-provenance" open><summary>S10 · Audit &amp; Provenance</summary><div class="secbody"></div></details><details class="sec h2" id="audit" open><summary>Audit</summary><div class="secbody"><p>&lt;details class=&quot;co danger&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Audit Table&lt;span class=&quot;cotype&quot;&gt;danger&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;What held&lt;/th&gt;
+&lt;th&gt;What broke&lt;/th&gt;
+&lt;th&gt;What's overstated&lt;/th&gt;
+&lt;th&gt;Defensible version&lt;/th&gt;
+&lt;th&gt;Blast radius&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;{{held}}&lt;/td&gt;
+&lt;td&gt;{{broke}}&lt;/td&gt;
+&lt;td&gt;{{overstated}}&lt;/td&gt;
+&lt;td&gt;{{defensible}}&lt;/td&gt;
+&lt;td&gt;INERT / LOCAL / STRUCTURAL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<details class="sec h3" id="inter-paper-dependency-map"><summary>Inter-paper dependency map</summary><div class="secbody"><div class="fencelang">mermaid</div><pre><code class="language-mermaid">graph LR
+    subgraph &quot;Upstream&quot;
+        U1[&quot;{{upstream_paper_1}}&quot;]
+        U2[&quot;{{upstream_paper_2}}&quot;]
+    end
+    subgraph &quot;This Paper&quot;
+        TP[&quot;{{this_paper}}&quot;]
+    end
+    subgraph &quot;Downstream&quot;
+        D1[&quot;{{downstream_paper_1}}&quot;]
+        D2[&quot;{{downstream_paper_2}}&quot;]
+    end
+    U1 --&gt; TP
+    U2 --&gt; TP
+    TP --&gt; D1
+    TP --&gt; D2
+</code></pre>
+</div></details><details class="sec h3" id="recommended-classification-and-relationships"><summary>Recommended Classification and Relationships</summary><div class="secbody"><p>&lt;details class=&quot;co abstract&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Relationships&lt;span class=&quot;cotype&quot;&gt;abstract&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Field&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Record type&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{type}} (&lt;code&gt;{{mode}}&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Domain&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{domain_primary}} ({{pct}}%) {{domain_secondary}} ({{pct}}%)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Tags&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{tags}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Relationship&lt;/th&gt;
+&lt;th&gt;Target&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;supports&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;{{supports}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;contradicts&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;{{contradicts_or_none}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;refines&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;{{refines}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;depends_on&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;{{depends_on}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;tests&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;{{tests}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;supersedes / superseded_by&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;{{...}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+</div></details></div></details><details class="sec h2" id="audit-appendix" open><summary>Audit appendix</summary><div class="secbody"><p>&lt;details&gt;&lt;summary&gt;Machine audit output (scorecard, gates, probes, adversarial tests, remediation)&lt;/summary&gt;</p>
+<p>{{verbatim_machine_output}}</p>
+<p>&lt;/details&gt;</p>
+<p><strong>Scoring</strong> — awards: S10-A1 exact source + hash preserved +2 · S10-A2 machine audit appendix +2 · S10-A3 assessors honest, machine-only INADMISSIBLE +2 · S10-A4 cap rule respected +2 · S10-A5 versions recorded +2. Penalties: S10-P1 source altered −4 · S10-P2 cap violated −4 (HARD FAIL) · S10-P3 machine-only as admissible −3.</p>
+<p><code>&gt; score reasons: {{rule IDs}}</code></p>
+<hr />
+<p>&lt;!-- ═══════════════════════════════════════════════ --&gt;
+&lt;!-- EVIDENCE DASHBOARD (per-paper view; vault-wide lives in 08) --&gt;
+&lt;!-- ═══════════════════════════════════════════════ --&gt;</p>
+</div></details><details class="sec h2" id="evidence-dashboard-reads-frontmatter-only-infrastructure-not-scored" open><summary>Evidence dashboard (reads frontmatter only — infrastructure, not scored)</summary><div class="secbody"><div class="fencelang">dataview</div><pre><code class="language-dataview">TABLE WITHOUT ID file.link AS Sheet, evd_balance AS Balance, evd_weakest_claim AS &quot;Weakest claim&quot;, coherence AS Coherence
+WHERE type = &quot;evidence-sheet&quot; AND evd_state = &quot;SCORED&quot; SORT evd_balance ASC
+</code></pre>
+<hr />
+<p>&lt;!-- ═══════════════════════════════════════════════ --&gt;
+&lt;!-- TAIL LAYERS (fixed order)                        --&gt;
+&lt;!-- ═══════════════════════════════════════════════ --&gt;</p>
+</div></details><details class="sec h2" id="unanswered-and-not-applicable-with-reasons" open><summary>Unanswered and not applicable — with reasons</summary><div class="secbody"><p>&lt;!-- Triaged banks: one line per EXCLUDED bank. Live questions were answered
+in their sections above. Nothing skipped silently — skipping is a parse error. --&gt;</p>
+<p><code>Excluded banks: {{A(n), B(n), C(n), D(n), E(n) or &quot;none&quot;}} — {{one-line reasons}}</code></p>
+</div></details><details class="sec h2" id="exact-source-untouched" open><summary>Exact source, untouched</summary><div class="secbody"><p>&lt;!-- BEGIN EXACT SOURCE PROJECTION; authoritative original bytes are permanently preserved --&gt;
+&lt;!-- SHA-256: {{source_sha256}} --&gt;</p>
+<p>{{exact_source_text_fenced_never_edited}}</p>
+<p>&lt;!-- END EXACT SOURCE PROJECTION --&gt;</p>
+<hr />
+<p><em>POF 2828 · not a probability of truth · human ruling required</em></p>
+</div></details></div></details></div></details><details class="sec h1" id="claims-layer-claims-layer-template-v03md" open><summary>CLAIMS LAYER — CLAIMS_LAYER_TEMPLATE_v0.3.md</summary><div class="secbody"><details class="co warning" open><summary class="cot">Frontmatter did not parse<span class="cotype">template</span></summary><div class="cobody"><p><code>while constructing a mapping</code></p><p class="muted">Expected for a blank template containing <code>{{placeholders}}</code>. The raw block is preserved below.</p></div></details><details class="co source"><summary class="cot">Raw frontmatter, verbatim<span class="cotype">preserved</span></summary><div class="cobody"><pre># identity — joins to paper on source_sha256
+type: claims_layer
+parent_paper_id: &quot;{{paper_id}}&quot;
+source_sha256: {{source_sha256}}
+template_version: CLAIMS_LAYER_V0.3
+generated_at: {{ISO_8601_timestamp}}
+
+# audit trail (this call only)
+semantic_provider: &quot;{{provider}}&quot;
+semantic_model: &quot;{{exact_model_string}}&quot;
+call_route: &quot;{{call_N=model (claims+evidence)}}&quot;
+usage_tokens: {{prompt_completion_total_cost_object}}</pre></div></details><details class="sec h1" id="claims-layer-template-v03-one-per-paper-separate-api-call" open><summary>CLAIMS LAYER TEMPLATE — v0.3 (ONE PER PAPER, SEPARATE API CALL)</summary><div class="secbody"><p><strong>POF 2828 | 2026-09-14 | canonical copy: 999_TEMPLATES/API_LAYER_v0.3</strong>
+<em>Claims/proofs layer. Own API call under the atomicity rule (Rule 11).
+Formatted for Lean Floor staging. Joined to its paper on source_sha256.</em></p>
+<p>&lt;!-- @template layer=claims version=0.3 --&gt;</p>
+<hr />
+<div class="fencelang">yaml</div><pre><code class="language-yaml">---
+# identity — joins to paper on source_sha256
+type: claims_layer
+parent_paper_id: &quot;{{paper_id}}&quot;
+source_sha256: {{source_sha256}}
+template_version: CLAIMS_LAYER_V0.3
+generated_at: {{ISO_8601_timestamp}}
+
+# audit trail (this call only)
+semantic_provider: &quot;{{provider}}&quot;
+semantic_model: &quot;{{exact_model_string}}&quot;
+call_route: &quot;{{call_N=model (claims+evidence)}}&quot;
+usage_tokens: {{prompt_completion_total_cost_object}}
+---
+</code></pre>
+<hr />
+<details class="sec h2" id="claims-table" open><summary>Claims table</summary><div class="secbody"><p>&lt;!-- Every claim from the paper, one row. Register: NATIVE (comes from source domain),
+BRIDGE (created at a domain crossing), DERIVED (follows from other claims).
+Load-bearing = something above it falls if this claim is wrong. --&gt;</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Version</th>
+<th>Register</th>
+<th>Load-bearing</th>
+<th>Depends on</th>
+<th>Text</th>
+<th>Rating</th>
+<th>Awarded by</th>
+<th>Falsifier</th>
+<th>State</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{{CHAPTER-PAPER}}-C001</td>
+<td>v1</td>
+<td>{{NATIVE / BRIDGE / DERIVED}}</td>
+<td>{{yes/no}}</td>
+<td>{{dependency_claim_ids}}</td>
+<td>{{claim_text}}</td>
+<td>0</td>
+<td>API</td>
+<td>{{what_would_disprove_it}}</td>
+<td>{{UNTESTED / SUPPORTED / COUNTERED / GATED}}</td>
+</tr>
+<tr>
+<td>{{CHAPTER-PAPER}}-C002</td>
+<td>v1</td>
+<td>{{register}}</td>
+<td>{{yes/no}}</td>
+<td>{{deps}}</td>
+<td>{{text}}</td>
+<td>0</td>
+<td>API</td>
+<td>{{falsifier}}</td>
+<td>{{state}}</td>
+</tr>
+<tr>
+<td>&lt;!-- Continue for every claim. No cap. --&gt;</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div></details><details class="sec h2" id="hidden-premises-2" open><summary>Hidden premises</summary><div class="secbody"><p>&lt;!-- Premises the argument requires but never states. These are the silent
+load-bearing assumptions. If one breaks, the claim above it breaks.
+DeepSeek: find ALL of them. One row per hidden premise. --&gt;</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hidden premise</th>
+<th>Required by (claim ID)</th>
+<th>If false, what breaks</th>
+<th>Blast radius</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HP-001</td>
+<td>{{unstated_assumption}}</td>
+<td>{{claim_id}}</td>
+<td>{{consequence}}</td>
+<td>INERT / LOCAL / STRUCTURAL</td>
+</tr>
+<tr>
+<td>&lt;!-- Continue for every hidden premise. --&gt;</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div></details><details class="sec h2" id="lean-targets" open><summary>Lean targets</summary><div class="secbody"><p>&lt;!-- Claims queued for formal verification. Status tracks the Lean Floor pipeline:
+NOT_ESTABLISHED → TARGET_QUEUED → ENCODING → PROOF_ATTEMPT → RECEIPTED / FAILED --&gt;</p>
+<table>
+<thead>
+<tr>
+<th>Claim ID</th>
+<th>Lean theorem statement</th>
+<th>Visible premises to encode</th>
+<th>Status</th>
+<th>Receipt ID</th>
+<th>What passing establishes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{{claim_id}}</td>
+<td>{{lean_theorem_statement}}</td>
+<td>{{premises}}</td>
+<td>{{NOT_ESTABLISHED / TARGET_QUEUED / ENCODING / PROOF_ATTEMPT / RECEIPTED / FAILED}}</td>
+<td>{{receipt_id_or_null}}</td>
+<td>{{what_it_proves_in_plain_language}}</td>
+</tr>
+<tr>
+<td>&lt;!-- One row per claim with a formal target. Not every claim needs one. --&gt;</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div></details><details class="sec h2" id="predictions-table" open><summary>Predictions table</summary><div class="secbody"><p>&lt;!-- Micro-predictions: testable, time-bounded, falsifiable consequences of claims.
+This is where predictions get LOGGED — not discussed, logged.
+Each prediction has a deadline and a check method. --&gt;</p>
+<table>
+<thead>
+<tr>
+<th>Pred ID</th>
+<th>Claim ID</th>
+<th>Prediction</th>
+<th>Deadline</th>
+<th>Check method</th>
+<th>Outcome</th>
+<th>Logged by</th>
+<th>Date logged</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{{CHAPTER-PAPER}}-P001</td>
+<td>{{claim_id}}</td>
+<td>{{specific_testable_prediction}}</td>
+<td>{{date_or_condition}}</td>
+<td>{{how_to_check}}</td>
+<td>{{PENDING / CONFIRMED / FALSIFIED / EXPIRED}}</td>
+<td>{{API / HUMAN:&lt;name&gt;}}</td>
+<td>{{date}}</td>
+</tr>
+<tr>
+<td>&lt;!-- Continue for every prediction. Falsified predictions are NEVER deleted. --&gt;</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div></details><details class="sec h2" id="falsifier-registry" open><summary>Falsifier registry</summary><div class="secbody"><p>&lt;!-- The single most efficient way to kill each claim. Not the same as &quot;strongest
+objection&quot; — this is the minimum experiment, observation, or derivation that
+would force retraction. One row per claim. --&gt;</p>
+<table>
+<thead>
+<tr>
+<th>Claim ID</th>
+<th>Falsifier</th>
+<th>Type</th>
+<th>Status</th>
+<th>If triggered, blast radius</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{{claim_id}}</td>
+<td>{{what_would_kill_it}}</td>
+<td>{{empirical / formal / logical / testimonial}}</td>
+<td>{{UNTESTED / TESTED_SURVIVED / TRIGGERED}}</td>
+<td>INERT / LOCAL / STRUCTURAL</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div></details><details class="sec h2" id="bridge-correspondence-registry" open><summary>Bridge / correspondence registry</summary><div class="secbody"><p>&lt;!-- Every cross-domain mapping claimed or implied in the paper. The WORD-GATE
+column is the key innovation: what single word or phrase, if it means
+something different in domain A vs domain B, breaks the bridge? --&gt;</p>
+<table>
+<thead>
+<tr>
+<th>Bridge ID</th>
+<th>Source domain</th>
+<th>Source object</th>
+<th>Target domain</th>
+<th>Target object</th>
+<th>Mapping type</th>
+<th>Preserved</th>
+<th>LOST (mandatory)</th>
+<th>Word-gate</th>
+<th>Grade</th>
+<th>Reverse map exists</th>
+<th>Countermodel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{{CHAPTER-PAPER}}-B001</td>
+<td>{{domain_A}}</td>
+<td>{{object_A}}</td>
+<td>{{domain_B}}</td>
+<td>{{object_B}}</td>
+<td>{{analogy / homomorphism / isomorphism / embedding / metaphor}}</td>
+<td>{{what_survives_crossing}}</td>
+<td>{{what_is_lost_crossing — MANDATORY, never blank}}</td>
+<td>{{the_word_that_breaks_it_if_equivocated}}</td>
+<td>{{A-F}}</td>
+<td>{{yes/no — if yes, cite it}}</td>
+<td>{{known_countermodel_or_none}}</td>
+</tr>
+<tr>
+<td>&lt;!-- Continue for every bridge. LOST column is NEVER blank — if nothing is lost,</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code> the mapping is an isomorphism and you must say so explicitly and justify it. --&gt;
+</code></pre>
+<hr />
+</div></details><details class="sec h2" id="explicit-boundaries" open><summary>Explicit boundaries</summary><div class="secbody"><p>&lt;!-- What the paper says it is NOT claiming. Load-bearing — these prevent
+scope creep and register mixing. Pulled from the source verbatim. --&gt;</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Boundary statement</th>
+<th>Protects (claim IDs)</th>
+<th>Source anchor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BND-001</td>
+<td>{{boundary_statement}}</td>
+<td>{{claim_ids_protected}}</td>
+<td>{{verbatim_anchor}}</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div></details><details class="sec h2" id="explicit-uncertainties-2" open><summary>Explicit uncertainties</summary><div class="secbody"><p>&lt;!-- What the paper says is OPEN, UNRESOLVED, or OWED. These drive next actions
+and prevent false confidence. --&gt;</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Uncertainty</th>
+<th>Affects (claim IDs)</th>
+<th>Status</th>
+<th>Next action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>U-001</td>
+<td>{{uncertainty_statement}}</td>
+<td>{{claim_ids}}</td>
+<td>{{OPEN / IN_PROGRESS / RESOLVED}}</td>
+<td>{{what_to_do_next}}</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div></details><details class="sec h2" id="reuse-and-routing" open><summary>Reuse and routing</summary><div class="secbody"><p>&lt;!-- Outbox routing signal. The classification that determines which folders
+this paper copies into. --&gt;</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reuse grade</td>
+<td>{{A-F}}</td>
+</tr>
+<tr>
+<td>Reuse score</td>
+<td>{{0-100}}</td>
+</tr>
+<tr>
+<td>Reuse recommendation</td>
+<td>{{CANONICAL / PRODUCTION / ARCHIVE_ONLY / RETIRE}}</td>
+</tr>
+<tr>
+<td>Canonical recommendation</td>
+<td>{{ADMIT / HOLD / REJECT}}</td>
+</tr>
+<tr>
+<td>Primary outbox</td>
+<td>{{domain-based folder}}</td>
+</tr>
+<tr>
+<td>Secondary outbox(es)</td>
+<td>{{content-type folder, series folder, etc.}}</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div></details><details class="sec h2" id="dependency-graph-edges-only" open><summary>Dependency graph (edges only)</summary><div class="secbody"><p>&lt;!-- Machine-readable edge list for the paper's internal dependency structure.
+Direction: A depends_on B means if B falls, A is exposed. --&gt;</p>
+<table>
+<thead>
+<tr>
+<th>From (claim/bridge)</th>
+<th>Relation</th>
+<th>To (claim/bridge)</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{{id}}</td>
+<td>{{depends_on / supports / contradicts / refines / tests}}</td>
+<td>{{id}}</td>
+<td>{{CRITICAL / STRONG / WEAK}}</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div></details><details class="sec h2" id="layer-integrity" open><summary>Layer integrity</summary><div class="secbody"><p>&lt;!-- Completeness checks — parser uses these to flag incomplete layers --&gt;</p>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total claims</td>
+<td>{{count}}</td>
+</tr>
+<tr>
+<td>Claims with falsifiers</td>
+<td>{{count}}</td>
+</tr>
+<tr>
+<td>Claims missing falsifiers</td>
+<td>{{list or &quot;none&quot;}}</td>
+</tr>
+<tr>
+<td>Hidden premises found</td>
+<td>{{count}}</td>
+</tr>
+<tr>
+<td>Lean targets queued</td>
+<td>{{count}}</td>
+</tr>
+<tr>
+<td>Predictions logged</td>
+<td>{{count}}</td>
+</tr>
+<tr>
+<td>Bridges registered</td>
+<td>{{count}}</td>
+</tr>
+<tr>
+<td>Bridges with blank LOST column</td>
+<td>{{must be 0 — if not, list them}}</td>
+</tr>
+<tr>
+<td>Bridges with blank word-gate</td>
+<td>{{list or &quot;none&quot;}}</td>
+</tr>
+<tr>
+<td>Boundaries registered</td>
+<td>{{count}}</td>
+</tr>
+<tr>
+<td>Uncertainties registered</td>
+<td>{{count}}</td>
+</tr>
+<tr>
+<td>Uncertainties still OPEN</td>
+<td>{{count}}</td>
+</tr>
+<tr>
+<td>Reuse grade</td>
+<td>{{A-F}}</td>
+</tr>
+<tr>
+<td>Routing: primary outbox</td>
+<td>{{folder}}</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>POF 2828 · not a probability of truth · human ruling required</em></p>
+<p>&lt;!-- @template layer=claims version=0.3 end --&gt;</p>
+</div></details></div></details></div></details><details class="sec h1" id="math-layer-math-layer-template-v03md" open><summary>MATH LAYER — MATH_LAYER_TEMPLATE_v0.3.md</summary><div class="secbody"><details class="co warning" open><summary class="cot">Frontmatter did not parse<span class="cotype">template</span></summary><div class="cobody"><p><code>while constructing a mapping</code></p><p class="muted">Expected for a blank template containing <code>{{placeholders}}</code>. The raw block is preserved below.</p></div></details><details class="co source"><summary class="cot">Raw frontmatter, verbatim<span class="cotype">preserved</span></summary><div class="cobody"><pre># identity — joins to paper on source_sha256
+type: math_layer
+parent_paper_id: &quot;{{paper_id}}&quot;
+source_sha256: {{source_sha256}}
+paper_uuid: {{paper_uuid}}
+template_version: MATH_LAYER_V0.3
+generated_at: {{ISO_8601_timestamp}}
+
+# version tracking
+is_update: {{true / false}}
+updates_canonical: &quot;{{canonical_id_being_updated_or_null}}&quot;
+prior_version_sha256: &quot;{{sha256_of_prior_version_or_null}}&quot;
+version_number: {{v1 / v2 / v3...}}
+change_type: {{NEW / REVISION / RATIFICATION / CORRECTION / EXTENSION}}
+
+# originality
+originality_class: {{ORIGINAL / ADAPTED / CLASSICAL / STANDARD}}
+original_source: &quot;{{if_borrowed_who_from_and_what_work}}&quot;
+adaptation_notes: &quot;{{what_was_changed_from_the_source}}&quot;
+
+# canonization readiness
+canonical_eligible: {{true / false}}
+canonical_blockers: [{{list_of_what_prevents_canonization}}]
+canonical_recommendation: {{ADMIT / HOLD / REJECT / NEEDS_LEAN / NEEDS_REVIEW}}
+
+# audit trail (this call only)
+semantic_provider: &quot;{{provider}}&quot;
+semantic_model: &quot;{{exact_model_string}}&quot;
+call_route: &quot;{{call_N=model (math layer)}}&quot;
+usage_tokens: {{prompt_completion_total_cost_object}}</pre></div></details><details class="sec h1" id="math-layer-template-v03-one-per-math-heavy-paper-separate-api-call" open><summary>MATH LAYER TEMPLATE — v0.3 (ONE PER MATH-HEAVY PAPER, SEPARATE API CALL)</summary><div class="secbody"><p><strong>POF 2828 | 2026-09-14 | canonical copy: 999_TEMPLATES/API_LAYER_v0.3</strong>
+<em>Mathematical translation and formalization layer. Own API call under the atomicity rule.
+Runs ONLY when paper has significant mathematical content (domain_primary = Mathematics,
+content_type = FORMALIZATION, or paper contains equations/proofs/formal structures).
+Joined to its paper on source_sha256.</em></p>
+<p>&lt;!-- @template layer=math version=0.3 --&gt;</p>
+<hr />
+<div class="fencelang">yaml</div><pre><code class="language-yaml">---
+# identity — joins to paper on source_sha256
+type: math_layer
+parent_paper_id: &quot;{{paper_id}}&quot;
+source_sha256: {{source_sha256}}
+paper_uuid: {{paper_uuid}}
+template_version: MATH_LAYER_V0.3
+generated_at: {{ISO_8601_timestamp}}
+
+# version tracking
+is_update: {{true / false}}
+updates_canonical: &quot;{{canonical_id_being_updated_or_null}}&quot;
+prior_version_sha256: &quot;{{sha256_of_prior_version_or_null}}&quot;
+version_number: {{v1 / v2 / v3...}}
+change_type: {{NEW / REVISION / RATIFICATION / CORRECTION / EXTENSION}}
+
+# originality
+originality_class: {{ORIGINAL / ADAPTED / CLASSICAL / STANDARD}}
+original_source: &quot;{{if_borrowed_who_from_and_what_work}}&quot;
+adaptation_notes: &quot;{{what_was_changed_from_the_source}}&quot;
+
+# canonization readiness
+canonical_eligible: {{true / false}}
+canonical_blockers: [{{list_of_what_prevents_canonization}}]
+canonical_recommendation: {{ADMIT / HOLD / REJECT / NEEDS_LEAN / NEEDS_REVIEW}}
+
+# audit trail (this call only)
+semantic_provider: &quot;{{provider}}&quot;
+semantic_model: &quot;{{exact_model_string}}&quot;
+call_route: &quot;{{call_N=model (math layer)}}&quot;
+usage_tokens: {{prompt_completion_total_cost_object}}
+---
+</code></pre>
+<hr />
+<p>&lt;details class=&quot;co abstract&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Math Layer Identity&lt;span class=&quot;cotype&quot;&gt;abstract&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Field&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Paper&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{clean_title}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Math density&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{HIGH / MEDIUM / LOW}} — {{count}} equations, {{count}} proofs, {{count}} definitions&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Originality&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{ORIGINAL / ADAPTED / CLASSICAL / STANDARD}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Updates canonical&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{canonical_id or &quot;NEW — no prior version&quot;}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Change type&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{NEW / REVISION / RATIFICATION / CORRECTION / EXTENSION}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Canonical eligible&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{yes/no}} — {{reason}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<hr />
+<details class="sec h2" id="axiom-inventory" open><summary>Axiom Inventory</summary><div class="secbody"><p>&lt;!-- What does this paper ASSUME vs. DERIVE? Every axiom, postulate, definition,
+and assumption gets one row. This is the foundation audit. --&gt;</p>
+<p>&lt;details class=&quot;co warning&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Axiom and Assumption Registry&lt;span class=&quot;cotype&quot;&gt;warning&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ID&lt;/th&gt;
+&lt;th&gt;Statement&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Status&lt;/th&gt;
+&lt;th&gt;Originality&lt;/th&gt;
+&lt;th&gt;Source&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;AX-001&lt;/td&gt;
+&lt;td&gt;{{axiom_text}}&lt;/td&gt;
+&lt;td&gt;{{axiom / postulate / definition / assumption / convention}}&lt;/td&gt;
+&lt;td&gt;{{PRIMITIVE / DERIVED / BORROWED / STANDARD}}&lt;/td&gt;
+&lt;td&gt;{{ORIGINAL / CLASSICAL:&lt;source&gt; / STANDARD}}&lt;/td&gt;
+&lt;td&gt;{{where_it_comes_from}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;AX-002&lt;/td&gt;
+&lt;td&gt;{{statement}}&lt;/td&gt;
+&lt;td&gt;{{type}}&lt;/td&gt;
+&lt;td&gt;{{status}}&lt;/td&gt;
+&lt;td&gt;{{originality}}&lt;/td&gt;
+&lt;td&gt;{{source}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;!-- Every axiom. No cap. --&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Totals:&lt;/strong&gt; {{count}} axioms · {{count}} original · {{count}} borrowed · {{count}} standard&lt;/p&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<hr />
+</div></details><details class="sec h2" id="equation-by-equation-breakdown-three-layer-rule" open><summary>Equation-by-Equation Breakdown (Three-Layer Rule)</summary><div class="secbody"><p>&lt;!-- MANDATORY: every equation in the paper gets the three-layer treatment.
+Layer 1: the equation itself (LaTeX).
+Layer 2: term-by-term translation (what each symbol means).
+Layer 3: plain-English meaning (what it SAYS about reality).
+Then: status and failure mode. --&gt;</p>
+<p>&lt;details class=&quot;co info&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Equation Registry&lt;span class=&quot;cotype&quot;&gt;info&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;h3&gt;EQ-001&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!quote] Layer 1 — Equation
+$${{equation_latex}}$$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!abstract] Layer 2 — Term-by-Term&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Symbol&lt;/th&gt;
+&lt;th&gt;Meaning&lt;/th&gt;
+&lt;th&gt;Domain&lt;/th&gt;
+&lt;th&gt;Units / Type&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;{{symbol}}&lt;/td&gt;
+&lt;td&gt;{{meaning}}&lt;/td&gt;
+&lt;td&gt;{{which_domain_this_lives_in}}&lt;/td&gt;
+&lt;td&gt;{{units_or_type}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!success] Layer 3 — Plain English
+{{What this equation SAYS in one sentence a non-mathematician can understand.}}&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Status&lt;/th&gt;
+&lt;th&gt;Failure mode&lt;/th&gt;
+&lt;th&gt;Originality&lt;/th&gt;
+&lt;th&gt;Prior art&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;{{COHERENT_TESTED / COHERENT_UNTESTED / DEFECTIVE / DECORATIVE}}&lt;/td&gt;
+&lt;td&gt;{{what_breaks_if_wrong}}&lt;/td&gt;
+&lt;td&gt;{{ORIGINAL / ADAPTED / CLASSICAL:&lt;source&gt;}}&lt;/td&gt;
+&lt;td&gt;{{nearest_prior_art}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr /&gt;
+&lt;h3&gt;EQ-002&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!quote] Layer 1 — Equation
+$${{equation_latex}}$$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!abstract] Layer 2 — Term-by-Term&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Symbol&lt;/th&gt;
+&lt;th&gt;Meaning&lt;/th&gt;
+&lt;th&gt;Domain&lt;/th&gt;
+&lt;th&gt;Units / Type&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;{{symbol}}&lt;/td&gt;
+&lt;td&gt;{{meaning}}&lt;/td&gt;
+&lt;td&gt;{{domain}}&lt;/td&gt;
+&lt;td&gt;{{units_or_type}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!success] Layer 3 — Plain English
+{{Plain meaning.}}&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Status&lt;/th&gt;
+&lt;th&gt;Failure mode&lt;/th&gt;
+&lt;th&gt;Originality&lt;/th&gt;
+&lt;th&gt;Prior art&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;{{status}}&lt;/td&gt;
+&lt;td&gt;{{failure_mode}}&lt;/td&gt;
+&lt;td&gt;{{originality}}&lt;/td&gt;
+&lt;td&gt;{{prior_art}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<p>&lt;!-- Continue EQ-003, EQ-004... for every equation. No cap. --&gt;</p>
+<blockquote>
+<p><strong>Equation completeness check</strong>: {{count}} equations extracted. Equations in source not extracted: {{list or &quot;none&quot;}}.</p>
+</blockquote>
+<hr />
+</div></details><details class="sec h2" id="notation-dictionary" open><summary>Notation Dictionary</summary><div class="secbody"><p>&lt;details class=&quot;co info&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Complete Notation Reference&lt;span class=&quot;cotype&quot;&gt;info&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Symbol&lt;/th&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Definition&lt;/th&gt;
+&lt;th&gt;First appears&lt;/th&gt;
+&lt;th&gt;Domain&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;{{symbol}}&lt;/td&gt;
+&lt;td&gt;{{name}}&lt;/td&gt;
+&lt;td&gt;{{definition}}&lt;/td&gt;
+&lt;td&gt;{{EQ-### or section}}&lt;/td&gt;
+&lt;td&gt;{{domain}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;!-- Every symbol used in the paper. Alphabetical. --&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Notation conflicts:&lt;/strong&gt; {{list any symbols used with multiple meanings, or &quot;none&quot;}}&lt;/p&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<hr />
+</div></details><details class="sec h2" id="proof-structure-map" open><summary>Proof Structure Map</summary><div class="secbody"><p>&lt;!-- The logical skeleton: what's assumed, what's proved, what follows. --&gt;</p>
+<p>&lt;details class=&quot;co warning&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Proof Architecture&lt;span class=&quot;cotype&quot;&gt;warning&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;/div&gt;&lt;/details&gt;</p>
+<div class="fencelang">mermaid</div><pre><code class="language-mermaid">graph TD
+    AX1[&quot;{{axiom_1}}&quot;] --&gt; L1[&quot;{{lemma_1}}&quot;]
+    AX2[&quot;{{axiom_2}}&quot;] --&gt; L1
+    L1 --&gt; T1[&quot;{{theorem_1}}&quot;]
+    AX3[&quot;{{axiom_3}}&quot;] --&gt; T1
+    T1 --&gt; C1[&quot;{{corollary_1}}&quot;]
+    T1 --&gt; C2[&quot;{{corollary_2}}&quot;]
+    
+    style AX1 fill:#5c4a1a,stroke:#9e7e2e,color:#fff
+    style AX2 fill:#5c4a1a,stroke:#9e7e2e,color:#fff
+    style AX3 fill:#5c4a1a,stroke:#9e7e2e,color:#fff
+    style L1 fill:#1a3a5c,stroke:#2e6b9e,color:#fff
+    style T1 fill:#2d5016,stroke:#4a8c1c,color:#fff
+    style C1 fill:#1a4a3a,stroke:#2e9e6b,color:#fff
+    style C2 fill:#1a4a3a,stroke:#2e9e6b,color:#fff
+</code></pre>
+<p>&lt;!-- Replace with actual proof structure.
+Color: gold = axiom/assumption, blue = lemma, green = theorem, teal = corollary --&gt;</p>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Type</th>
+<th>Statement</th>
+<th>Depends on</th>
+<th>Status</th>
+<th>Originality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L1</td>
+<td>Lemma</td>
+<td>{{lemma_statement}}</td>
+<td>AX-001, AX-002</td>
+<td>{{PROVED / CLAIMED / SKETCH / FAILED}}</td>
+<td>{{ORIGINAL / CLASSICAL:&lt;source&gt;}}</td>
+</tr>
+<tr>
+<td>T1</td>
+<td>Theorem</td>
+<td>{{theorem_statement}}</td>
+<td>L1, AX-003</td>
+<td>{{status}}</td>
+<td>{{originality}}</td>
+</tr>
+<tr>
+<td>C1</td>
+<td>Corollary</td>
+<td>{{corollary_statement}}</td>
+<td>T1</td>
+<td>{{status}}</td>
+<td>{{originality}}</td>
+</tr>
+<tr>
+<td>&lt;!-- Every proof step. --&gt;</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<hr />
+</div></details><details class="sec h2" id="mathematical-dependencies" open><summary>Mathematical Dependencies</summary><div class="secbody"><p>&lt;!-- Which results depend on which? If lemma 2 falls, what's exposed? --&gt;</p>
+<p>&lt;details class=&quot;co danger&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Dependency Graph&lt;span class=&quot;cotype&quot;&gt;danger&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;From&lt;/th&gt;
+&lt;th&gt;Relation&lt;/th&gt;
+&lt;th&gt;To&lt;/th&gt;
+&lt;th&gt;If FROM falls&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;{{result_id}}&lt;/td&gt;
+&lt;td&gt;{{requires / uses / extends / contradicts}}&lt;/td&gt;
+&lt;td&gt;{{result_id}}&lt;/td&gt;
+&lt;td&gt;{{what_breaks — INERT / LOCAL / STRUCTURAL}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<div class="fencelang">mermaid</div><pre><code class="language-mermaid">graph LR
+    subgraph &quot;Axioms&quot;
+        A1[&quot;AX-001&quot;]
+        A2[&quot;AX-002&quot;]
+    end
+    subgraph &quot;Lemmas&quot;
+        L1[&quot;L1&quot;]
+    end
+    subgraph &quot;Theorems&quot;
+        T1[&quot;T1&quot;]
+    end
+    subgraph &quot;Corollaries&quot;
+        C1[&quot;C1&quot;]
+    end
+    A1 --&gt; L1
+    A2 --&gt; L1
+    L1 --&gt; T1
+    T1 --&gt; C1
+</code></pre>
+<hr />
+</div></details><details class="sec h2" id="lean-encoding-targets" open><summary>Lean Encoding Targets</summary><div class="secbody"><p>&lt;!-- What from this paper should go to the Lean Floor? --&gt;</p>
+<p>&lt;details class=&quot;co success&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Lean Pipeline&lt;span class=&quot;cotype&quot;&gt;success&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Target ID&lt;/th&gt;
+&lt;th&gt;Statement to encode&lt;/th&gt;
+&lt;th&gt;Visible premises&lt;/th&gt;
+&lt;th&gt;Encoding difficulty&lt;/th&gt;
+&lt;th&gt;Priority&lt;/th&gt;
+&lt;th&gt;Status&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;LT-001&lt;/td&gt;
+&lt;td&gt;{{theorem_or_invariant}}&lt;/td&gt;
+&lt;td&gt;{{what_must_be_visible}}&lt;/td&gt;
+&lt;td&gt;{{EASY / MEDIUM / HARD / RESEARCH}}&lt;/td&gt;
+&lt;td&gt;{{HIGH / MEDIUM / LOW}}&lt;/td&gt;
+&lt;td&gt;{{NOT_ESTABLISHED / TARGET_QUEUED / ENCODING / PROOF_ATTEMPT / RECEIPTED / FAILED}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!caution] Encoding Boundary
+{{What CANNOT be encoded in Lean and why. What would a Lean receipt actually prove vs. what people might think it proves.}}&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<hr />
+</div></details><details class="sec h2" id="version-history" open><summary>Version History</summary><div class="secbody"><p>&lt;!-- If this is an update, what changed? --&gt;</p>
+<p>&lt;details class=&quot;co important&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Version Tracking&lt;span class=&quot;cotype&quot;&gt;important&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Version&lt;/th&gt;
+&lt;th&gt;Date&lt;/th&gt;
+&lt;th&gt;Change type&lt;/th&gt;
+&lt;th&gt;What changed&lt;/th&gt;
+&lt;th&gt;What was preserved&lt;/th&gt;
+&lt;th&gt;SHA-256&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;v1&lt;/td&gt;
+&lt;td&gt;{{date}}&lt;/td&gt;
+&lt;td&gt;{{NEW}}&lt;/td&gt;
+&lt;td&gt;{{original}}&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;{{sha256}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;v2&lt;/td&gt;
+&lt;td&gt;{{date}}&lt;/td&gt;
+&lt;td&gt;{{REVISION / RATIFICATION / CORRECTION}}&lt;/td&gt;
+&lt;td&gt;{{what_changed}}&lt;/td&gt;
+&lt;td&gt;{{what_stayed}}&lt;/td&gt;
+&lt;td&gt;{{sha256}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;[!question]- Is this a ratification?
+{{Is this paper attempting to ratify (confirm/strengthen) an existing canonical result?
+If yes: what canonical ID? What new evidence/proof does it bring?
+If no: is it novel work, or a correction/revision?}}&lt;/p&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<hr />
+</div></details><details class="sec h2" id="canonization-readiness" open><summary>Canonization Readiness</summary><div class="secbody"><p>&lt;details class=&quot;co important&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Canon Gate Check&lt;span class=&quot;cotype&quot;&gt;important&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Gate&lt;/th&gt;
+&lt;th&gt;Status&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;All axioms identified&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{PASS / FAIL}}&lt;/td&gt;
+&lt;td&gt;{{notes}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;All equations three-layered&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{PASS / FAIL}}&lt;/td&gt;
+&lt;td&gt;{{notes}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Proof structure complete&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{PASS / FAIL}}&lt;/td&gt;
+&lt;td&gt;{{notes}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;No DEFECTIVE equations&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{PASS / FAIL}}&lt;/td&gt;
+&lt;td&gt;{{list any}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;No DECORATIVE equations&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{PASS / FAIL}}&lt;/td&gt;
+&lt;td&gt;{{list any}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Kill condition stated&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{PASS / FAIL}}&lt;/td&gt;
+&lt;td&gt;{{notes}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Lean target identified&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{PASS / FAIL}}&lt;/td&gt;
+&lt;td&gt;{{notes}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Originality marked on every step&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{PASS / FAIL}}&lt;/td&gt;
+&lt;td&gt;{{notes}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;No unresolved notation conflicts&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{PASS / FAIL}}&lt;/td&gt;
+&lt;td&gt;{{notes}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Human review&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{PENDING / PASS / FAIL}}&lt;/td&gt;
+&lt;td&gt;{{notes}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Canon recommendation:&lt;/strong&gt; {{ADMIT / HOLD / REJECT / NEEDS_LEAN / NEEDS_REVIEW}}
+&lt;strong&gt;Blockers:&lt;/strong&gt; {{list or &quot;none&quot;}}&lt;/p&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<hr />
+</div></details><details class="sec h2" id="math-translation-layer" open><summary>Math Translation Layer</summary><div class="secbody"><p>&lt;!-- The bridge between formal content and human understanding.
+This is where we make sure the math actually SAYS something
+and isn't just symbols on a page. --&gt;</p>
+<p>&lt;details class=&quot;co quote&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Translation Summary&lt;span class=&quot;cotype&quot;&gt;quote&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;p&gt;&lt;strong&gt;In one paragraph, what does the mathematics in this paper establish?&lt;/strong&gt;
+{{plain_language_summary_of_all_math_content}}&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;What can the math prove that words alone cannot?&lt;/strong&gt;
+{{what_formalization_adds}}&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;What can words say that the math cannot capture?&lt;/strong&gt;
+{{what_formalization_loses}}&lt;/p&gt;
+&lt;p&gt;[!abstract] Translation Manifest&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Preserved&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{what_survives_translation_from_informal_to_formal}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Lost&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{what_is_lost_in_formalization}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Introduced&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;{{what_the_formal_language_adds_that_wasnt_in_the_original}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<hr />
+</div></details><details class="sec h2" id="layer-integrity-2" open><summary>Layer Integrity</summary><div class="secbody"><p>&lt;details class=&quot;co warning&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Completeness Checks&lt;span class=&quot;cotype&quot;&gt;warning&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Check&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Total equations&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Equations with three-layer treatment&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Equations missing layers&lt;/td&gt;
+&lt;td&gt;{{list or &quot;none&quot;}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Total axioms/assumptions&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Axioms with originality marked&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Proof steps&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Proof steps with status&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Lean targets identified&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Notation conflicts&lt;/td&gt;
+&lt;td&gt;{{count or &quot;none&quot;}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DEFECTIVE equations&lt;/td&gt;
+&lt;td&gt;{{count or &quot;none&quot;}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DECORATIVE equations&lt;/td&gt;
+&lt;td&gt;{{count or &quot;none&quot;}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Version: is update&lt;/td&gt;
+&lt;td&gt;{{true/false}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Version: updates canonical&lt;/td&gt;
+&lt;td&gt;{{id or &quot;N/A&quot;}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Canon recommendation&lt;/td&gt;
+&lt;td&gt;{{recommendation}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<hr />
+<p><em>POF 2828 · not a probability of truth · human ruling required</em></p>
+<p>&lt;!-- @template layer=math version=0.3 end --&gt;</p>
+</div></details></div></details></div></details><details class="sec h1" id="grading-layer-grading-layer-template-v03md" open><summary>GRADING LAYER — GRADING_LAYER_TEMPLATE_v0.3.md</summary><div class="secbody"><details class="co warning" open><summary class="cot">Frontmatter did not parse<span class="cotype">template</span></summary><div class="cobody"><p><code>while constructing a mapping</code></p><p class="muted">Expected for a blank template containing <code>{{placeholders}}</code>. The raw block is preserved below.</p></div></details><details class="co source"><summary class="cot">Raw frontmatter, verbatim<span class="cotype">preserved</span></summary><div class="cobody"><pre># identity — joins to paper on source_sha256
+type: grading_layer
+parent_paper_id: &quot;{{paper_id}}&quot;
+source_sha256: {{source_sha256}}
+paper_uuid: {{paper_uuid}}
+template_version: GRADING_LAYER_V0.3
+generated_at: {{ISO_8601_timestamp}}
+
+# audit trail (this call only)
+semantic_provider: &quot;{{provider}}&quot;
+semantic_model: &quot;{{exact_model_string}}&quot;
+call_route: &quot;{{call_N=model (grading+alignment)}}&quot;
+usage_tokens: {{prompt_completion_total_cost_object}}</pre></div></details><details class="sec h1" id="grading-alignment-layer-template-v03-one-per-paper-separate-api-call" open><summary>GRADING &amp; ALIGNMENT LAYER TEMPLATE — v0.3 (ONE PER PAPER, SEPARATE API CALL)</summary><div class="secbody"><p><strong>POF 2828 | 2026-09-14 | canonical copy: 999_TEMPLATES/API_LAYER_v0.3</strong>
+<em>Framework alignment and scoring layer. Own API call under the atomicity rule.
+Maps every paper against: axiom nodes, master equation (χ), fruits of the spirit,
+and the full grader variable schema. Runs on EVERY paper.
+Joined to its paper on source_sha256.</em></p>
+<p><em>Core rule: Raw metrics are facts. Review scores are judgments. Final scores are derived summaries. Do not mix those layers too early.</em></p>
+<p>&lt;!-- @template layer=grading version=0.3 --&gt;</p>
+<hr />
+<div class="fencelang">yaml</div><pre><code class="language-yaml">---
+# identity — joins to paper on source_sha256
+type: grading_layer
+parent_paper_id: &quot;{{paper_id}}&quot;
+source_sha256: {{source_sha256}}
+paper_uuid: {{paper_uuid}}
+template_version: GRADING_LAYER_V0.3
+generated_at: {{ISO_8601_timestamp}}
+
+# audit trail (this call only)
+semantic_provider: &quot;{{provider}}&quot;
+semantic_model: &quot;{{exact_model_string}}&quot;
+call_route: &quot;{{call_N=model (grading+alignment)}}&quot;
+usage_tokens: {{prompt_completion_total_cost_object}}
+---
+</code></pre>
+<hr />
+<p>&lt;!-- ═══════════════════════════════════════════════ --&gt;
+&lt;!-- PART 1: FRAMEWORK ALIGNMENT                    --&gt;
+&lt;!-- ═══════════════════════════════════════════════ --&gt;</p>
+</div></details>
+<details class="sec h1" id="framework-alignment" open><summary>Framework Alignment</summary><div class="secbody"><details class="sec h2" id="axiom-node-mapping" open><summary>Axiom Node Mapping</summary><div class="secbody"><p>&lt;!-- Which axiom nodes does this paper touch, support, extend, test, or threaten?
+Map every connection to the 191-node chain. --&gt;</p>
+<p>&lt;details class=&quot;co abstract&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Axiom Alignment&lt;span class=&quot;cotype&quot;&gt;abstract&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Axiom ID&lt;/th&gt;
+&lt;th&gt;Axiom name&lt;/th&gt;
+&lt;th&gt;Relationship&lt;/th&gt;
+&lt;th&gt;Strength&lt;/th&gt;
+&lt;th&gt;What this paper does to/for this axiom&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;{{A1.1}}&lt;/td&gt;
+&lt;td&gt;{{Existence}}&lt;/td&gt;
+&lt;td&gt;{{supports / extends / tests / depends_on / threatens / illustrates}}&lt;/td&gt;
+&lt;td&gt;{{STRONG / MODERATE / WEAK}}&lt;/td&gt;
+&lt;td&gt;{{specific_contribution}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;{{A1.2}}&lt;/td&gt;
+&lt;td&gt;{{Distinction}}&lt;/td&gt;
+&lt;td&gt;{{relationship}}&lt;/td&gt;
+&lt;td&gt;{{strength}}&lt;/td&gt;
+&lt;td&gt;{{contribution}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;!-- Every axiom this paper touches. If it touches 30, list 30. --&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Axioms touched:&lt;/strong&gt; {{count}} of 191
+&lt;strong&gt;Axioms directly supported:&lt;/strong&gt; {{count}}
+&lt;strong&gt;Axioms extended:&lt;/strong&gt; {{count}}
+&lt;strong&gt;Axioms tested:&lt;/strong&gt; {{count}}
+&lt;strong&gt;Axioms threatened:&lt;/strong&gt; {{count}} — {{list if any}}&lt;/p&gt;
+&lt;p&gt;[!danger] Chain Impact
+&lt;strong&gt;If this paper's central claim is TRUE, which axiom nodes are strengthened?&lt;/strong&gt;
+{{list}}&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;If this paper's central claim is FALSE, which axiom nodes are exposed?&lt;/strong&gt;
+{{list}}&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Blast radius:&lt;/strong&gt; INERT / LOCAL / STRUCTURAL&lt;/p&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<div class="fencelang">mermaid</div><pre><code class="language-mermaid">graph TD
+    subgraph &quot;Strict Core&quot;
+        A10[&quot;A1.0 Co-Arising&quot;]
+        A11[&quot;A1.1 Existence&quot;]
+        A12[&quot;A1.2 Distinction&quot;]
+        A21[&quot;A2.1 Substrate&quot;]
+    end
+    subgraph &quot;This Paper Touches&quot;
+        N1[&quot;{{axiom_1}}&quot;]
+        N2[&quot;{{axiom_2}}&quot;]
+        N3[&quot;{{axiom_3}}&quot;]
+    end
+    TP[&quot;THIS PAPER&quot;] --&gt;|supports| N1
+    TP --&gt;|extends| N2
+    TP --&gt;|tests| N3
+    N1 --&gt; A11
+    N2 --&gt; A12
+    
+    style TP fill:#1a3a5c,stroke:#2e6b9e,color:#fff
+    style A10 fill:#5c1a1a,stroke:#9e2e2e,color:#fff
+    style A11 fill:#5c1a1a,stroke:#9e2e2e,color:#fff
+    style A12 fill:#5c1a1a,stroke:#9e2e2e,color:#fff
+    style A21 fill:#5c1a1a,stroke:#9e2e2e,color:#fff
+</code></pre>
+<p>&lt;!-- Replace with actual axiom connections. Red = strict core. Blue = this paper. --&gt;</p>
+<hr />
+</div></details><details class="sec h2" id="master-equation-alignment" open><summary>Master Equation (χ) Alignment</summary><div class="secbody"><p>&lt;!-- How does this paper relate to the master equation χ = f(G, M, E, S, T, K, R, Q, F, C)?
+Which variables does it address? Which does it advance? --&gt;</p>
+<p>&lt;details class=&quot;co warning&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;χ Variable Coverage&lt;span class=&quot;cotype&quot;&gt;warning&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;χ Variable&lt;/th&gt;
+&lt;th&gt;Symbol&lt;/th&gt;
+&lt;th&gt;This paper addresses?&lt;/th&gt;
+&lt;th&gt;How&lt;/th&gt;
+&lt;th&gt;Contribution level&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;God / Ground&lt;/td&gt;
+&lt;td&gt;G&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{how_it_engages_this_variable}}&lt;/td&gt;
+&lt;td&gt;{{DIRECT / INDIRECT / IMPLICIT / NONE}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Matter-Energy&lt;/td&gt;
+&lt;td&gt;M&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{how}}&lt;/td&gt;
+&lt;td&gt;{{level}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Information-Entropy&lt;/td&gt;
+&lt;td&gt;E&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{how}}&lt;/td&gt;
+&lt;td&gt;{{level}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Structure-Form&lt;/td&gt;
+&lt;td&gt;S&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{how}}&lt;/td&gt;
+&lt;td&gt;{{level}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Time-Process&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{how}}&lt;/td&gt;
+&lt;td&gt;{{level}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Knowledge-Coherence&lt;/td&gt;
+&lt;td&gt;K&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{how}}&lt;/td&gt;
+&lt;td&gt;{{level}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relation-Communion&lt;/td&gt;
+&lt;td&gt;R&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{how}}&lt;/td&gt;
+&lt;td&gt;{{level}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Qualia-Experience&lt;/td&gt;
+&lt;td&gt;Q&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{how}}&lt;/td&gt;
+&lt;td&gt;{{level}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Freedom-Agency&lt;/td&gt;
+&lt;td&gt;F&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{how}}&lt;/td&gt;
+&lt;td&gt;{{level}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Consciousness&lt;/td&gt;
+&lt;td&gt;C&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{how}}&lt;/td&gt;
+&lt;td&gt;{{level}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Variables directly addressed:&lt;/strong&gt; {{count}} of 10
+&lt;strong&gt;Variables implicitly touched:&lt;/strong&gt; {{count}}
+&lt;strong&gt;Variables not addressed:&lt;/strong&gt; {{list}}&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!info] Master Equation Position
+{{Where does this paper sit in the master equation landscape? Does it advance a single variable, bridge two variables, or contribute to the equation's overall coherence?}}&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<hr />
+</div></details><details class="sec h2" id="fruits-of-the-spirit-alignment" open><summary>Fruits of the Spirit Alignment</summary><div class="secbody"><p>&lt;!-- Galatians 5:22-23. How does this paper's content, method, and conclusions
+align with or demonstrate the fruits? This is structural, not decorative.
+The fruits are a truth test: work that is true should bear good fruit. --&gt;</p>
+<p>&lt;details class=&quot;co success&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Fruits Scoring&lt;span class=&quot;cotype&quot;&gt;success&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Fruit&lt;/th&gt;
+&lt;th&gt;Present?&lt;/th&gt;
+&lt;th&gt;How demonstrated&lt;/th&gt;
+&lt;th&gt;Score (0–5)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Love&lt;/strong&gt; (ἀγάπη)&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{how_the_paper_demonstrates_or_serves_love}}&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Joy&lt;/strong&gt; (χαρά)&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{how}}&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Peace&lt;/strong&gt; (εἰρήνη)&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{how}}&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Patience&lt;/strong&gt; (μακροθυμία)&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{how}}&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Kindness&lt;/strong&gt; (χρηστότης)&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{how}}&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Goodness&lt;/strong&gt; (ἀγαθωσύνη)&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{how}}&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Faithfulness&lt;/strong&gt; (πίστις)&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{how}}&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Gentleness&lt;/strong&gt; (πραΰτης)&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{how}}&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Self-control&lt;/strong&gt; (ἐγκράτεια)&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{how}}&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Fruits total:&lt;/strong&gt; {{sum}} / 45
+&lt;strong&gt;Fruits present:&lt;/strong&gt; {{count}} / 9&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!important] Fruits Boundary
+A high fruits score does not make claims true. A low fruits score does not make claims false. But the fruits are a diagnostic: if the work is harsh, impatient, or self-serving, ask why.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<hr />
+</div></details><details class="sec h2" id="law-alignment" open><summary>Law Alignment</summary><div class="secbody"><p>&lt;!-- Which of the framework's laws (L1–L10) does this paper engage? --&gt;</p>
+<p>&lt;details class=&quot;co quote&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Law Coverage&lt;span class=&quot;cotype&quot;&gt;quote&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Law&lt;/th&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Engaged?&lt;/th&gt;
+&lt;th&gt;How&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;L1&lt;/td&gt;
+&lt;td&gt;{{law_name}}&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{how_engaged}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;L2&lt;/td&gt;
+&lt;td&gt;{{law_name}}&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{how}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;L3&lt;/td&gt;
+&lt;td&gt;{{law_name}}&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{how}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;L4&lt;/td&gt;
+&lt;td&gt;{{law_name}}&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{how}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;L5&lt;/td&gt;
+&lt;td&gt;{{law_name}}&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{how}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;L6&lt;/td&gt;
+&lt;td&gt;{{law_name}}&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{how}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;L7&lt;/td&gt;
+&lt;td&gt;{{law_name}}&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{how}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;L8&lt;/td&gt;
+&lt;td&gt;{{law_name}}&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{how}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;L9&lt;/td&gt;
+&lt;td&gt;{{law_name}}&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{how}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;L10&lt;/td&gt;
+&lt;td&gt;{{law_name}}&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{how}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Laws engaged:&lt;/strong&gt; {{count}} / 10&lt;/p&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<hr />
+<p>&lt;!-- ═══════════════════════════════════════════════ --&gt;
+&lt;!-- PART 2: RAW METRICS (FACTS — layer 1)          --&gt;
+&lt;!-- ═══════════════════════════════════════════════ --&gt;</p>
+</div></details></div></details>
+<details class="sec h1" id="raw-metrics" open><summary>Raw Metrics</summary><div class="secbody"><p>&lt;!-- These are FACTS. Not judgments. The grader measures them. --&gt;</p>
+<details class="sec h2" id="text-analytics" open><summary>Text Analytics</summary><div class="secbody"><p>&lt;details class=&quot;co info&quot;&gt;&lt;summary class=&quot;cot&quot;&gt;Basic Text Metrics&lt;span class=&quot;cotype&quot;&gt;info&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Metric&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Word count&lt;/td&gt;
+&lt;td&gt;{{word_count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Sentence count&lt;/td&gt;
+&lt;td&gt;{{sentence_count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Paragraph count&lt;/td&gt;
+&lt;td&gt;{{paragraph_count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Section count&lt;/td&gt;
+&lt;td&gt;{{section_count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Avg words/sentence&lt;/td&gt;
+&lt;td&gt;{{avg}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Avg sentences/paragraph&lt;/td&gt;
+&lt;td&gt;{{avg}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Unique word count&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Lexical diversity&lt;/td&gt;
+&lt;td&gt;{{ratio}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Type-token ratio&lt;/td&gt;
+&lt;td&gt;{{ratio}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Question count&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Quote count&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+</div></details><details class="sec h2" id="readability" open><summary>Readability</summary><div class="secbody"><p>&lt;details class=&quot;co abstract&quot;&gt;&lt;summary class=&quot;cot&quot;&gt;Readability Scores&lt;span class=&quot;cotype&quot;&gt;abstract&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Metric&lt;/th&gt;
+&lt;th&gt;Score&lt;/th&gt;
+&lt;th&gt;Grade level&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Flesch reading ease&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;td&gt;{{interpretation}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Flesch-Kincaid grade&lt;/td&gt;
+&lt;td&gt;{{grade}}&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Gunning fog index&lt;/td&gt;
+&lt;td&gt;{{index}}&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SMOG index&lt;/td&gt;
+&lt;td&gt;{{index}}&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Coleman-Liau index&lt;/td&gt;
+&lt;td&gt;{{index}}&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Dale-Chall score&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;td&gt;{{interpretation}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Avg syllables/word&lt;/td&gt;
+&lt;td&gt;{{avg}}&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Complex word ratio&lt;/td&gt;
+&lt;td&gt;{{ratio}}&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+</div></details><details class="sec h2" id="structural-analytics" open><summary>Structural Analytics</summary><div class="secbody"><p>&lt;details class=&quot;co warning&quot;&gt;&lt;summary class=&quot;cot&quot;&gt;Structure Scores&lt;span class=&quot;cotype&quot;&gt;warning&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Component&lt;/th&gt;
+&lt;th&gt;Present?&lt;/th&gt;
+&lt;th&gt;Quality&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Abstract&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{score_or_NA}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Introduction&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Thesis statement&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Method/approach&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Evidence section&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Objection section&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Limitations&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Conclusion&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;References&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Ratio&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;th&gt;Healthy range&lt;/th&gt;
+&lt;th&gt;Status&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Claim-to-evidence&lt;/td&gt;
+&lt;td&gt;{{ratio}}&lt;/td&gt;
+&lt;td&gt;1:2–1:4&lt;/td&gt;
+&lt;td&gt;{{OK / LOW / HIGH}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Equation-to-explanation&lt;/td&gt;
+&lt;td&gt;{{ratio}}&lt;/td&gt;
+&lt;td&gt;1:3+&lt;/td&gt;
+&lt;td&gt;{{status}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Definition-to-usage&lt;/td&gt;
+&lt;td&gt;{{ratio}}&lt;/td&gt;
+&lt;td&gt;1:1+&lt;/td&gt;
+&lt;td&gt;{{status}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Axiom-to-claim&lt;/td&gt;
+&lt;td&gt;{{ratio}}&lt;/td&gt;
+&lt;td&gt;varies&lt;/td&gt;
+&lt;td&gt;{{status}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Scripture-to-claim&lt;/td&gt;
+&lt;td&gt;{{ratio}}&lt;/td&gt;
+&lt;td&gt;varies&lt;/td&gt;
+&lt;td&gt;{{status}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Physics-to-theology balance&lt;/td&gt;
+&lt;td&gt;{{ratio}}&lt;/td&gt;
+&lt;td&gt;varies&lt;/td&gt;
+&lt;td&gt;{{status}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+</div></details><details class="sec h2" id="nlp-semantic-layer" open><summary>NLP / Semantic Layer</summary><div class="secbody"><p>&lt;details class=&quot;co question&quot;&gt;&lt;summary class=&quot;cot&quot;&gt;Semantic Metrics&lt;span class=&quot;cotype&quot;&gt;question&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Metric&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Named entity count&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Topic count&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Dominant topics&lt;/td&gt;
+&lt;td&gt;{{list}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Semantic density&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Semantic drift score&lt;/td&gt;
+&lt;td&gt;{{score — how much the paper wanders}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Concept repetition score&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Concept novelty score&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Terminology consistency&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Cross-domain bridge count&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Entity breakdown:&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Domain&lt;/th&gt;
+&lt;th&gt;Count&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Physics&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Theology&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Philosophy&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Mathematics&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Information theory&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Historical&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<hr />
+<p>&lt;!-- ═══════════════════════════════════════════════ --&gt;
+&lt;!-- PART 3: REVIEW SCORES (JUDGMENTS — layer 2)    --&gt;
+&lt;!-- ═══════════════════════════════════════════════ --&gt;</p>
+</div></details></div></details>
+<details class="sec h1" id="review-scores" open><summary>Review Scores</summary><div class="secbody"><p>&lt;!-- These are JUDGMENTS. The grader evaluates them based on the raw metrics. --&gt;</p>
+<details class="sec h2" id="claim-level-grading" open><summary>Claim-Level Grading</summary><div class="secbody"><p>&lt;!-- The core grader question: What claims does this paper make, what level
+has each claim reached, what supports it, what breaks it, what is
+overstated, and what exact revision would move it one level higher? --&gt;</p>
+<p>&lt;details class=&quot;co danger&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Claim Inventory &amp; Grading&lt;span class=&quot;cotype&quot;&gt;danger&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Claim ID&lt;/th&gt;
+&lt;th&gt;Claim text&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Strength&lt;/th&gt;
+&lt;th&gt;Support status&lt;/th&gt;
+&lt;th&gt;Overstatement risk (0–10)&lt;/th&gt;
+&lt;th&gt;Category error risk (0–10)&lt;/th&gt;
+&lt;th&gt;Falsifiable?&lt;/th&gt;
+&lt;th&gt;What breaks it&lt;/th&gt;
+&lt;th&gt;Revision to move +1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;CLM-0001&lt;/td&gt;
+&lt;td&gt;{{claim}}&lt;/td&gt;
+&lt;td&gt;{{descriptive / causal / mathematical / empirical / historical / theological / metaphysical / interpretive}}&lt;/td&gt;
+&lt;td&gt;{{STRONG / MODERATE / WEAK / SPECULATIVE}}&lt;/td&gt;
+&lt;td&gt;{{supported / partial / unsupported / contradicted / framework_internal}}&lt;/td&gt;
+&lt;td&gt;{{risk_score}}&lt;/td&gt;
+&lt;td&gt;{{risk_score}}&lt;/td&gt;
+&lt;td&gt;{{yes / no / partially}}&lt;/td&gt;
+&lt;td&gt;{{kill_condition}}&lt;/td&gt;
+&lt;td&gt;{{specific_revision_that_improves_by_one_level}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CLM-0002&lt;/td&gt;
+&lt;td&gt;{{claim}}&lt;/td&gt;
+&lt;td&gt;{{type}}&lt;/td&gt;
+&lt;td&gt;{{strength}}&lt;/td&gt;
+&lt;td&gt;{{status}}&lt;/td&gt;
+&lt;td&gt;{{risk}}&lt;/td&gt;
+&lt;td&gt;{{risk}}&lt;/td&gt;
+&lt;td&gt;{{falsifiable}}&lt;/td&gt;
+&lt;td&gt;{{breaks}}&lt;/td&gt;
+&lt;td&gt;{{revision}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;!-- Every claim. No cap. --&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Claim totals:&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Count&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Supported&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Partially supported&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Unsupported&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Contradicted&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Framework-internal&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Overclaimed&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Speculative&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Unfalsifiable&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+</div></details><details class="sec h2" id="knowledge-graph-metrics" open><summary>Knowledge Graph Metrics</summary><div class="secbody"><p>&lt;details class=&quot;co info&quot;&gt;&lt;summary class=&quot;cot&quot;&gt;Graph Structure&lt;span class=&quot;cotype&quot;&gt;info&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Metric&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Node count&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Edge count&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Internal links&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;External links&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Orphan nodes&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Hub nodes&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Bridge nodes&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Graph density&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Avg node degree&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Cycle count&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Broken links&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Framework nodes:&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Count&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Axiom nodes&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Law nodes&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Equation nodes&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Scripture nodes&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Physics nodes&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Cross-domain edges&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<hr />
+<p>&lt;!-- ═══════════════════════════════════════════════ --&gt;
+&lt;!-- PART 4: FINAL SCORES (DERIVED — layer 3)       --&gt;
+&lt;!-- ═══════════════════════════════════════════════ --&gt;</p>
+</div></details></div></details>
+<details class="sec h1" id="final-scores" open><summary>Final Scores</summary><div class="secbody"><p>&lt;!-- These are DERIVED from raw metrics + review scores. Not mixed early. --&gt;</p>
+<details class="sec h2" id="spine-variables-summary" open><summary>Spine Variables (Summary)</summary><div class="secbody"><p>&lt;details class=&quot;co important&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Grader Spine&lt;span class=&quot;cotype&quot;&gt;important&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;claim_count&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;claim_type&lt;/td&gt;
+&lt;td&gt;{{dominant_type}}&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;claim_strength&lt;/td&gt;
+&lt;td&gt;{{overall}}&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;evidence_status&lt;/td&gt;
+&lt;td&gt;{{overall}}&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;support_status&lt;/td&gt;
+&lt;td&gt;{{overall}}&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;overstatement_risk&lt;/td&gt;
+&lt;td&gt;{{avg_score}}&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;formal_maturity_level&lt;/td&gt;
+&lt;td&gt;{{level}}&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;proof_boundary&lt;/td&gt;
+&lt;td&gt;{{stated / unstated}}&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;source_quality&lt;/td&gt;
+&lt;td&gt;{{HIGH / MEDIUM / LOW}}&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;definition_clarity&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;term_stability&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;math_definedness&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;falsifiability_status&lt;/td&gt;
+&lt;td&gt;{{overall}}&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;coherence_score&lt;/td&gt;
+&lt;td&gt;{{0–10}}&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;novelty_status&lt;/td&gt;
+&lt;td&gt;{{NOVEL / ADAPTED / STANDARD}}&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;category_error_risk&lt;/td&gt;
+&lt;td&gt;{{avg_score}}&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;lean_verification_status&lt;/td&gt;
+&lt;td&gt;{{NOT_ESTABLISHED / QUEUED / RECEIPTED}}&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+</div></details><details class="sec h2" id="composite-scores" open><summary>Composite Scores</summary><div class="secbody"><p>&lt;details class=&quot;co success&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Final Grading&lt;span class=&quot;cotype&quot;&gt;success&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Dimension&lt;/th&gt;
+&lt;th&gt;Raw score&lt;/th&gt;
+&lt;th&gt;Weight&lt;/th&gt;
+&lt;th&gt;Weighted&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Argument quality&lt;/td&gt;
+&lt;td&gt;{{0–10}}&lt;/td&gt;
+&lt;td&gt;25%&lt;/td&gt;
+&lt;td&gt;{{weighted}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Evidence quality&lt;/td&gt;
+&lt;td&gt;{{0–10}}&lt;/td&gt;
+&lt;td&gt;20%&lt;/td&gt;
+&lt;td&gt;{{weighted}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Formal rigor&lt;/td&gt;
+&lt;td&gt;{{0–10}}&lt;/td&gt;
+&lt;td&gt;15%&lt;/td&gt;
+&lt;td&gt;{{weighted}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Framework alignment&lt;/td&gt;
+&lt;td&gt;{{0–10}}&lt;/td&gt;
+&lt;td&gt;15%&lt;/td&gt;
+&lt;td&gt;{{weighted}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Clarity / accessibility&lt;/td&gt;
+&lt;td&gt;{{0–10}}&lt;/td&gt;
+&lt;td&gt;10%&lt;/td&gt;
+&lt;td&gt;{{weighted}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Originality&lt;/td&gt;
+&lt;td&gt;{{0–10}}&lt;/td&gt;
+&lt;td&gt;10%&lt;/td&gt;
+&lt;td&gt;{{weighted}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Scope honesty&lt;/td&gt;
+&lt;td&gt;{{0–10}}&lt;/td&gt;
+&lt;td&gt;5%&lt;/td&gt;
+&lt;td&gt;{{weighted}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Composite&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;100%&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;{{final_score}}&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Rating (under cap rule):&lt;/strong&gt; +{{score}} / 10
+&lt;strong&gt;Awarded by:&lt;/strong&gt; API (cap: +8)&lt;/p&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+</div></details><details class="sec h2" id="path-to-10" open><summary>Path to 10</summary><div class="secbody"><p>&lt;details class=&quot;co important&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Rating Roadmap&lt;span class=&quot;cotype&quot;&gt;important&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Level&lt;/th&gt;
+&lt;th&gt;Score&lt;/th&gt;
+&lt;th&gt;Status&lt;/th&gt;
+&lt;th&gt;What's needed&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Current (API)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;+{{current}}&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;API ceiling&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;+8&lt;/td&gt;
+&lt;td&gt;{{ACHIEVED / GAP}}&lt;/td&gt;
+&lt;td&gt;{{what_closes_the_gap}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Human review&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;+9&lt;/td&gt;
+&lt;td&gt;PENDING&lt;/td&gt;
+&lt;td&gt;{{what_David_needs_to_confirm}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Lean receipt&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;+10&lt;/td&gt;
+&lt;td&gt;{{NOT_ESTABLISHED / RECEIPTED}}&lt;/td&gt;
+&lt;td&gt;{{what_needs_formal_proof}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!warning] If below +8
+&lt;strong&gt;What does +8 look like for this paper?&lt;/strong&gt;
+{{description_of_the_+8_version}}&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Reference work at +8 level:&lt;/strong&gt;
+{{specific_work_title_author_why_its_+8}}&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Steps to close:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;{{step}}&lt;/li&gt;
+&lt;li&gt;{{step}}&lt;/li&gt;
+&lt;li&gt;{{step}}&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<hr />
+</div></details><details class="sec h2" id="layer-integrity-3" open><summary>Layer Integrity</summary><div class="secbody"><p>&lt;details class=&quot;co warning&quot; open&gt;&lt;summary class=&quot;cot&quot;&gt;Completeness Checks&lt;span class=&quot;cotype&quot;&gt;warning&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;cobody&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Check&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Axiom nodes mapped&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;χ variables addressed&lt;/td&gt;
+&lt;td&gt;{{count}} / 10&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Fruits scored&lt;/td&gt;
+&lt;td&gt;{{count}} / 9&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Laws engaged&lt;/td&gt;
+&lt;td&gt;{{count}} / 10&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Claims graded&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Claims with kill conditions&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Claims with &quot;+1 revision&quot;&lt;/td&gt;
+&lt;td&gt;{{count}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Overstatement risk &gt; 5&lt;/td&gt;
+&lt;td&gt;{{count — flag these}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Category error risk &gt; 5&lt;/td&gt;
+&lt;td&gt;{{count — flag these}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Unfalsifiable claims&lt;/td&gt;
+&lt;td&gt;{{count — flag these}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Composite score&lt;/td&gt;
+&lt;td&gt;{{score}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Rating awarded&lt;/td&gt;
+&lt;td&gt;+{{score}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Cap rule respected&lt;/td&gt;
+&lt;td&gt;{{yes/no}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;&lt;/details&gt;</p>
+<hr />
+<p><em>POF 2828 · not a probability of truth · human ruling required</em></p>
+<p>&lt;!-- @template layer=grading version=0.3 end --&gt;</p>
+</div></details></div></details></div></details>
+<footer>Markdown is truth · this page is a derived view assembled from
+4 source file(s) · nothing was summarised or omitted ·
+POF 2828 · not a probability of truth · human ruling required</footer>
+</main></div>
+<script>
+const $=s=>document.querySelector(s);
+function setAll(open){document.querySelectorAll("details.sec,details.co").forEach(d=>d.open=open)}
+function setLevel(n){document.querySelectorAll("details.sec").forEach(d=>{
+  const l=+(d.className.match(/h(\d)/)||[0,9])[1];d.open=l<=n})}
+/* Search opens whatever contains a hit, so nothing stays hidden from a query. */
+function search(q){
+  document.querySelectorAll("mark").forEach(m=>m.replaceWith(document.createTextNode(m.textContent)));
+  if(!q){document.querySelectorAll("details.sec").forEach(d=>d.classList.remove("hit"));return}
+  const needle=q.toLowerCase();let hits=0;
+  document.querySelectorAll("details.sec").forEach(d=>{
+    const has=d.textContent.toLowerCase().includes(needle);
+    if(has){hits++;let p=d;while(p){if(p.tagName==="DETAILS")p.open=true;p=p.parentElement}}
+  });
+  $("#hits").textContent=hits?`${hits} sections contain that`:"no match";
+}
+document.addEventListener("DOMContentLoaded",()=>{
+  $("#expand").onclick=()=>setAll(true);
+  $("#collapse").onclick=()=>setAll(false);
+  $("#lvl2").onclick=()=>setLevel(2);
+  $("#lvl3").onclick=()=>setLevel(3);
+  $("#q").oninput=e=>search(e.target.value.trim());
+  setLevel(2);
+});
+</script></body></html>

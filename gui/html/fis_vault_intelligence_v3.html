@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en" data-fis-schema="3.0">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="FIS vault-intelligence viewer v3.0">
+<title>FIS Vault Intelligence</title>
+<style>
+:root{color-scheme:dark;--bg:#060708;--panel:#0c0f14;--panel2:#090b0f;--line:#222a35;--text:#e7edf5;--muted:#8b97a7;--accent:#d1a922;--accent2:#f1d37a;--link:#6ea8e8;--red:#b0413e;--green:#5f9e6a;--blue:#4a7fb5}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 system-ui,sans-serif}
+.wrap{max-width:1500px;margin:auto;padding:24px 28px}
+h1{font:600 30px Georgia,serif;margin:4px 0 6px}h2{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin:26px 0 10px}
+.eyebrow,code{font-family:ui-monospace,Consolas,monospace}.eyebrow{color:var(--accent);font-size:12px;letter-spacing:1px}.muted{color:var(--muted)}
+.topbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;border:1px solid var(--line);background:var(--panel);padding:10px 12px;margin:14px 0 18px}
+button{border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:7px 12px;border-radius:3px;cursor:pointer}button:hover{border-color:var(--accent)}
+button.tab.on{border-color:var(--accent);color:var(--accent2)}
+input[type=search]{padding:8px 10px;border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:3px;min-width:260px}
+table{width:100%;border-collapse:collapse;background:var(--panel)}th,td{border:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px;cursor:pointer;user-select:none}
+tr:hover td{background:#10141b}
+a{color:var(--link);text-decoration:none;cursor:pointer}a:hover{text-decoration:underline}
+.badge{display:inline-block;border:1px solid var(--line);padding:1px 7px;border-radius:3px;font:11px ui-monospace,monospace;margin:1px 2px;white-space:nowrap}
+.badge.admit{border-color:var(--green);color:var(--green)}.badge.strong{border-color:#7ba05b;color:#7ba05b}.badge.working{border-color:var(--accent);color:var(--accent2)}
+.badge.developing{border-color:#b5854a;color:#b5854a}.badge.fragile{border-color:var(--red);color:var(--red)}.badge.retract{border-color:var(--red);color:#fff;background:var(--red)}
+.badge.gated{border-color:var(--red);color:#ffb3b1}.badge.flip{border-color:var(--blue);color:#9ec3e8}
+.scorecell{min-width:64px}.scorebar{height:5px;background:#1a222d;margin-top:3px}.scorebar i{display:block;height:100%;background:var(--accent)}
+.chip{display:inline-block;border:1px solid var(--line);padding:4px 9px;border-radius:3px;font:12px ui-monospace,monospace;cursor:pointer;margin:2px}
+.chip.on{border-color:var(--accent);color:var(--accent2);background:rgba(209,169,34,.08)}
+.kv{display:grid;grid-template-columns:170px 1fr;gap:4px 10px;font-size:13px}.kv b{color:var(--muted);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:1px;padding-top:2px}
+.panel{border:1px solid var(--line);background:var(--panel);padding:14px;margin-bottom:14px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:900px){.cols{grid-template-columns:1fr}table{display:block;overflow:auto;white-space:nowrap}}
+/* modal */
+#modal{position:fixed;inset:0;background:rgba(0,0,0,.65);display:none;overflow:auto;padding:30px 12px;z-index:50}
+#modal .sheet{max-width:1050px;margin:auto;background:var(--panel);border:1px solid var(--line);padding:20px 24px}
+.close{float:right}
+.sect td{padding:5px 8px;font-size:12.5px}
+.neg{color:#e08a88}.pos{color:#9ec39a}
+svg text{fill:var(--muted);font:10px ui-monospace,monospace}
+.node circle{stroke:var(--line);stroke-width:1}
+footer{margin:26px 0 8px;color:var(--muted);font-size:12px}
+</style></head><body><div class="wrap">
+<div class="eyebrow">FIS VAULT INTELLIGENCE v3.0 · POF 2828</div>
+<h1>Vault Intelligence</h1>
+<div class="muted" id="datasrc">SAMPLE DATA — load <code>index.json</code> (from your parser / SQLite export) for the live vault.</div>
+<div class="topbar">
+  <button class="tab on" data-tab="overview">Overview</button>
+  <button class="tab" data-tab="fires">Fires</button>
+  <button class="tab" data-tab="shelves">Shelves</button>
+  <button class="tab" data-tab="graph">Graph</button>
+  <input type="search" id="q" placeholder="Filter: title, tag, key, build_next…">
+  <button id="loadbtn">Load index.json…</button>
+  <input type="file" id="file" accept=".json" style="display:none">
+  <span class="muted" id="count"></span>
+</div>
+<div id="view"></div>
+<footer>Markdown is truth · SQLite/index.json are derived views · this page is a view of a view · not a probability of truth · human ruling required</footer>
+</div>
+<div id="modal"><div class="sheet"><button class="close" onclick="modal.style.display='none'">close ✕</button><div id="modalbody"></div></div></div>
+<script>
+/* ============ DATA CONTRACT ============
+index.json (produced by your parser from v0.4 frontmatter, or dumped from SQLite):
+{ "generated_at": "...", "source": "vault path or db",
+  "papers": [ {
+    "paper_id","uuid","title","sha256","lossless_address",
+    "domain_primary","content_type","series",
+    "framework_keys": ["moral-physics", ...], "tags": [...],
+    "chi": {"G":0,"M":0,"E":0,"S":0,"T":0,"K":0,"R":0,"Q":0,"F":0,"C":0},
+    "paper_rating": 0, "rating_awarded_by":"API",
+    "evd_state":"UNSCORED","evd_stable":null,"evd_balance":null,
+    "human_review": {"reviewer":null},
+    "sections": {"s01":{"pos":0,"neg":0,"rules":["S01-A1"]}, ... "s10":{...}},
+    "bridges":[{"id","src","tgt","type","lost","word_gate","grade"}],
+    "falsifiers":[{"id","claim","kill","status"}],
+    "predictions":[{"id","claim","prediction","deadline","outcome"}],
+    "edges":[{"relation":"depends_on|supports|contradicts|refines|tests|supersedes","target":"paper_id"}],
+    "build_next":"", "path":"relative/path.md"
+  } ] }
+========================================= */
+const SECTION_NAMES={s01:"Classification",s02:"Claim Definition",s03:"Argument",s04:"Evidence",s05:"Objections",s06:"Boundaries",s07:"Formal & Math",s08:"Bridges",s09:"Falsifiability",s10:"Audit"};
+const CHI_ORDER=["G","M","E","S","T","K","R","Q","F","C"];
+const CHI_NAMES={G:"Grace",M:"Matter",E:"Entropy",S:"Soul",T:"Time",K:"Knowledge",R:"Relation",Q:"Quantum",F:"Faith",C:"Coherence"};
+
+/* ============ SAMPLE DATA (replace via Load index.json) ============ */
+const SAMPLE=[
+{"paper_id":"axiom-flow-c4a58e","uuid":"9f1c-demo-0001","title":"THEOPHYSICS AXIOM FLOW",
+ "sha256":"c4a58e6cad41c03fdf1d83e1c04f87a170873858c21473c959d133a32a5b843e",
+ "lossless_address":"MEQ__THEOPHYSICS_AXIOM_FLOW__2026-09-03",
+ "domain_primary":"Theophysics","content_type":"ct-argument","series":"series-master-eq",
+ "framework_keys":["master-equation","logos-field","observer-theory","syzygy","grace-operator","soul-field","moral-physics","boundary-conditions","destiny-equation","ai-consciousness"],
+ "tags":["tp-equation","tp-bridge","phys-quantum","theo-trinity"],
+ "chi":{"G":2,"M":0,"E":2,"S":0,"T":1,"K":3,"R":2,"Q":2,"F":0,"C":2},
+ "paper_rating":0,"rating_awarded_by":"API","evd_state":"UNSCORED","evd_stable":null,"evd_balance":null,
+ "human_review":{"reviewer":null},
+ "sections":{"s01":{"pos":8,"neg":3,"rules":["S01-A1","S01-P1"]},"s02":{"pos":8,"neg":3,"rules":["S02-A1","S02-P2"]},"s03":{"pos":7,"neg":5,"rules":["S03-A1","S03-P1"]},"s04":{"pos":7,"neg":6,"rules":["S04-A2","S04-P1","S04-P3"]},"s05":{"pos":8,"neg":5,"rules":["S05-A1","S05-P1"]},"s06":{"pos":6,"neg":6,"rules":["S06-A1","S06-P1"]},"s07":{"pos":6,"neg":9,"rules":["S07-A1","S07-P1"]},"s08":{"pos":7,"neg":9,"rules":["S08-A1","S08-P2"]},"s09":{"pos":8,"neg":4,"rules":["S09-A4","S09-P1"]},"s10":{"pos":9,"neg":0,"rules":["S10-A1"]}},
+ "bridges":[{"id":"AF-B001","src":"Physics · sign operator","tgt":"Theology · grace","type":"homomorphism","lost":"physical mechanism for divine agency","word_gate":""operator"","grade":"C"},
+            {"id":"AF-B002","src":"Information theory · bit","tgt":"Theology · Logos","type":"analogy","lost":"semantic content of Shannon bits","word_gate":""information"","grade":"B-"}],
+ "falsifiers":[{"id":"AF-F001","claim":"C-A1.3","kill":"matter shown irreducible to information","status":"UNTESTED"},
+               {"id":"AF-F002","claim":"C-BC","kill":"another religion satisfies all 8 BCs","status":"UNTESTED"}],
+ "predictions":[{"id":"AF-P001","claim":"C23.2","prediction":"bimodal coherence distribution","deadline":"population study","outcome":"PENDING"}],
+ "edges":[{"relation":"depends_on","target":"it-from-bit-001"},{"relation":"contradicts","target":"copenhagen-minimal"}],
+ "build_next":"S07 Formal & Math — dimensional checks; flag κ, g_S below detection","path":"papers/axiom_flow.md"},
+
+{"paper_id":"it-from-bit-001","uuid":"9f1c-demo-0002","title":"It From Bit — Wheeler Anchor",
+ "sha256":"e041cda64a1362285e4c50a09d8e81f3d728639e8cd9ea0e9fa9345122408894",
+ "lossless_address":"MEQ__It_From_Bit__2026-08-25","domain_primary":"Physics","content_type":"ct-argument","series":"NONE",
+ "framework_keys":["logos-field","observer-theory","compression-theory"],
+ "tags":["phys-quantum","tp-root"],"chi":{"G":1,"M":0,"E":3,"S":0,"T":2,"K":3,"R":1,"Q":3,"F":0,"C":2},
+ "paper_rating":5,"rating_awarded_by":"API","evd_state":"SCORED","evd_stable":true,"evd_balance":3.5,
+ "human_review":{"reviewer":null},
+ "sections":{"s01":{"pos":10,"neg":0,"rules":[]},"s02":{"pos":9,"neg":0,"rules":[]},"s03":{"pos":8,"neg":0,"rules":[]},"s04":{"pos":9,"neg":3,"rules":["S04-P3"]},"s05":{"pos":9,"neg":0,"rules":[]},"s06":{"pos":9,"neg":0,"rules":[]},"s07":{"pos":7,"neg":4,"rules":["S07-P2"]},"s08":{"pos":8,"neg":5,"rules":["S08-P2"]},"s09":{"pos":10,"neg":0,"rules":[]},"s10":{"pos":10,"neg":0,"rules":[]}},
+ "bridges":[],"falsifiers":[],"predictions":[],
+ "edges":[{"relation":"supports","target":"axiom-flow-c4a58e"}],
+ "build_next":"S08 Bridges — name the word-gate on "information"","path":"papers/it_from_bit.md"},
+
+{"paper_id":"destiny-eq-040","uuid":"9f1c-demo-0003","title":"Destiny Equation E12.1",
+ "sha256":"bda17f6dc25b2b0ad0c73ba8c88fffc60225a33eb5cfb8a007e736f03837d3b6",
+ "lossless_address":"MEQ__Destiny_Equation__2026-08-25","domain_primary":"Theophysics","content_type":"ct-equation","series":"series-master-eq",
+ "framework_keys":["destiny-equation","syzygy","moral-physics","soul-field"],
+ "tags":["tp-equation","tp-entropy"],"chi":{"G":1,"M":1,"E":2,"S":3,"T":2,"K":2,"R":2,"Q":2,"F":0,"C":3},
+ "paper_rating":6,"rating_awarded_by":"API","evd_state":"SCORED","evd_stable":false,"evd_balance":1.0,
+ "human_review":{"reviewer":null},
+ "sections":{"s01":{"pos":10,"neg":0,"rules":[]},"s02":{"pos":8,"neg":0,"rules":[]},"s03":{"pos":9,"neg":0,"rules":[]},"s04":{"pos":7,"neg":3,"rules":["S04-P2"]},"s05":{"pos":10,"neg":0,"rules":[]},"s06":{"pos":8,"neg":3,"rules":["S06-P3"]},"s07":{"pos":12,"neg":0,"rules":[]},"s08":{"pos":9,"neg":0,"rules":[]},"s09":{"pos":9,"neg":0,"rules":[]},"s10":{"pos":10,"neg":0,"rules":[]}},
+ "bridges":[],"falsifiers":[],"predictions":[{"id":"DE-P001","claim":"C23.2","prediction":"bimodal coherence distribution","deadline":"2027-06","outcome":"PENDING"}],
+ "edges":[{"relation":"depends_on","target":"axiom-flow-c4a58e"},{"relation":"tests","target":"af-p001"}],
+ "build_next":"evd_stable=false — verdict flips under ±25% weights; shore up S04 timing factors","path":"papers/destiny_equation.md"},
+
+{"paper_id":"grace-op-033","uuid":"9f1c-demo-0004","title":"Grace Operator Ĝ — Full Formalism",
+ "sha256":"e05c11fff8a9e43969ea38f036f3fef72b4e17ab945421ff284e8eb922b843de",
+ "lossless_address":"MEQ__Grace_Operator__2026-08-25","domain_primary":"Mathematics","content_type":"ct-equation","series":"series-boundary",
+ "framework_keys":["grace-operator","syzygy","boundary-conditions"],
+ "tags":["math-lean","tp-equation"],"chi":{"G":3,"M":0,"E":1,"S":1,"T":1,"K":2,"R":1,"Q":1,"F":1,"C":2},
+ "paper_rating":0,"rating_awarded_by":"API","evd_state":"UNSCORED","evd_stable":null,"evd_balance":null,
+ "human_review":{"reviewer":null},
+ "sections":{"s01":{"pos":10,"neg":0,"rules":[]},"s02":{"pos":10,"neg":0,"rules":[]},"s03":{"pos":9,"neg":0,"rules":[]},"s04":{"pos":6,"neg":3,"rules":["S04-P1"]},"s05":{"pos":9,"neg":0,"rules":[]},"s06":{"pos":10,"neg":0,"rules":[]},"s07":{"pos":13,"neg":0,"rules":[]},"s08":{"pos":10,"neg":0,"rules":[]},"s09":{"pos":8,"neg":3,"rules":["S09-P1"]},"s10":{"pos":10,"neg":0,"rules":[]}},
+ "bridges":[{"id":"GO-B001","src":"Linear algebra · non-unitary op","tgt":"Theology · grace","type":"metaphor","lost":"volition, personhood, covenant","word_gate":""grace"","grade":"B"}],
+ "falsifiers":[],"predictions":[],
+ "edges":[{"relation":"supports","target":"axiom-flow-c4a58e"},{"relation":"contradicts","target":"works-righteousness-model"}],
+ "build_next":"S09 — Ĝ idempotence claim has no kill condition; κ-style constants need detection-floor flags","path":"papers/grace_operator.md"},
+
+{"paper_id":"copenhagen-minimal","uuid":"9f1c-demo-0005","title":"Copenhagen Minimal — Rival Frame",
+ "sha256":"ad3057cfd5cba7756502f393f7557a1849cfa72f49266ffa5c401904fa7a215d",
+ "lossless_address":"MEQ__Copenhagen_Minimal__2026-08-25","domain_primary":"Physics","content_type":"ct-argument","series":"NONE",
+ "framework_keys":["quantum-foundations","observer-theory"],
+ "tags":["phys-quantum"],"chi":{"G":0,"M":0,"E":2,"S":0,"T":1,"K":2,"R":0,"Q":3,"F":0,"C":1},
+ "paper_rating":7,"rating_awarded_by":"API","evd_state":"SCORED","evd_stable":true,"evd_balance":6.0,
+ "human_review":{"reviewer":"David"},
+ "sections":{"s01":{"pos":10,"neg":0,"rules":[]},"s02":{"pos":9,"neg":0,"rules":[]},"s03":{"pos":10,"neg":0,"rules":[]},"s04":{"pos":10,"neg":0,"rules":[]},"s05":{"pos":10,"neg":0,"rules":[]},"s06":{"pos":10,"neg":0,"rules":[]},"s07":{"pos":8,"neg":0,"rules":[]},"s08":{"pos":9,"neg":0,"rules":[]},"s09":{"pos":10,"neg":0,"rules":[]},"s10":{"pos":10,"neg":0,"rules":[]}},
+ "bridges":[],"falsifiers":[],"predictions":[],
+ "edges":[{"relation":"contradicts","target":"axiom-flow-c4a58e"}],
+ "build_next":"+9 pending David's ruling already in human_review; Lean receipt is the +10 path","path":"papers/copenhagen_minimal.md"}
+];
+
+/* ============ SCORING (deterministic, from 10_SCORING_SPEC v0.4) ============ */
+const SIDS=Object.keys(SECTION_NAMES);
+function net(s){return s.pos+s.neg}
+function compute(p){
+  const secs=p.sections, nets={}; let tot=0,posSum=0,negSum=0;
+  SIDS.forEach(id=>{const n=net(secs[id]);nets[id]=n;tot+=n;posSum+=secs[id].pos;negSum+=secs[id].neg});
+  const LB=["s02","s03","s04","s07"], HON=["s05","s06","s08","s09"];
+  const lb=LB.every(id=>nets[id]>=8), hon=HON.every(id=>nets[id]>=8);
+  let ceil=100; if(lb)ceil+=20; if(hon)ceil+=20;
+  const integrity=(lb&&hon&&negSum===0)?5:0;
+  let cls="FRAGILE";
+  if(tot<0)cls="RETRACT";else if(tot>=130)cls="ADMIT";else if(tot>=100)cls="STRONG";else if(tot>=70)cls="WORKING";else if(tot>=40)cls="DEVELOPING";
+  const gated=["s02","s03","s04","s05"].some(id=>nets[id]<0);
+  let weakest=SIDS.reduce((a,b)=>nets[a]<=nets[b]?a:b);
+  return {nets,tot,posSum,negSum,lb,hon,ceil,integrity,cls,gated,weakest};
+}
+/* ============ STATE ============ */
+let DATA=SAMPLE, tab="overview", shelf=null, graphSel=null;
+const byId={}; SAMPLE.forEach(p=>byId[p.paper_id]=p);
+function reindex(){Object.keys(byId).forEach(k=>delete byId[k]);DATA.forEach(p=>byId[p.paper_id]=p)}
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const clsBadge=c=>({ADMIT:"admit",STRONG:"strong",WORKING:"working",DEVELOPING:"developing",FRAGILE:"fragile",RETRACT:"retract"}[c]);
+function filtered(){const q=$("#q").value.trim().toLowerCase();
+  return DATA.filter(p=>{if(shelf&&!(p.framework_keys||[]).includes(shelf))return false;
+    if(!q)return true;
+    const hay=[p.title,p.paper_id,p.domain_primary,p.content_type,p.series,(p.tags||[]).join(" "),(p.framework_keys||[]).join(" "),p.build_next||"",p.lossless_address||""].join(" ").toLowerCase();
+    return hay.includes(q);}).sort((a,b)=>compute(a).tot-compute(b).tot);}
+/* ============ VIEWS ============ */
+function vOverview(){const rows=filtered().map(p=>{const c=compute(p);
+  return `<tr><td><a onclick="openPaper('${p.paper_id}')"><b>${esc(p.title)}</b></a><br><span class="muted" style="font-size:11px">${esc(p.paper_id)}</span></td>
+  <td><span class="badge ${clsBadge(c.cls)}">${c.cls}</span>${c.gated?' <span class="badge gated">GATED</span>':''}${p.evd_stable===false?' <span class="badge flip">FLIPS</span>':''}</td>
+  <td class="scorecell"><b>${c.tot}</b><span class="muted">/${c.ceil}</span><div class="scorebar"><i style="width:${Math.max(0,Math.min(100,c.tot/1.5))}%"></i></div></td>
+  <td>${SECTION_NAMES[c.weakest].replace(/ & .*/,"")} <span class="neg">${c.nets[c.weakest]}</span></td>
+  <td style="font-size:12px">${esc(p.build_next||"—")}</td>
+  <td>${(p.framework_keys||[]).map(k=>`<span class="chip" onclick="shelf='${k}';showTab('shelves')">${k}</span>`).join("")}</td>
+  <td>${p.paper_rating>0?"+"+p.paper_rating:p.paper_rating} <span class="muted">${esc(p.rating_awarded_by)}${p.human_review&&p.human_review.reviewer?" ✓"+esc(p.human_review.reviewer):""}</span></td></tr>`}).join("");
+  $("#view").innerHTML=`<h2>Corpus · ${filtered().length} papers · sorted weakest-first</h2>
+  <table><tr><th>Paper</th><th>Class</th><th onclick="sortBy('tot')">Score</th><th>Weakest §</th><th>Build next</th><th>Framework keys</th><th>Rating</th></tr>${rows}</table>`;}
+function vFires(){const g=DATA.filter(p=>compute(p).gated),fl=DATA.filter(p=>p.evd_stable===false),un=DATA.filter(p=>p.evd_state==="UNSCORED"),mo=DATA.filter(p=>!(p.human_review&&p.human_review.reviewer)&&p.evd_state==="SCORED");
+  const li=(arr,f)=>arr.length?arr.map(f).join(""):`<li style="list-style:none" class="muted">none</li>`;
+  $("#view").innerHTML=`<div class="cols"><div class="panel"><h2 style="margin-top:0">🔥 Gated — a load-bearing section is below zero</h2><ul>${li(g,p=>`<li><a onclick="openPaper('${p.paper_id}')"><b>${esc(p.title)}</b></a> — ${esc(p.build_next||"")}</li>`)}</ul></div>
+  <div class="panel"><h2 style="margin-top:0">⚖️ FLIPS — verdict depends on scoring choices</h2><ul>${li(fl,p=>`<li><a onclick="openPaper('${p.paper_id}')"><b>${esc(p.title)}</b></a> balance ${p.evd_balance}</li>`)}</ul></div>
+  <div class="panel"><h2 style="margin-top:0">⚠️ Unscored / machine-only</h2><ul>${li(un,p=>`<li><a onclick="openPaper('${p.paper_id}')"><b>${esc(p.title)}</b></a> — ${p.evd_state}</li>`)}${li(mo,p=>`<li><a onclick="openPaper('${p.paper_id}')"><b>${esc(p.title)}</b></a> — SCORED but no human assessor (INADMISSIBLE until ruled)</li>`)}</ul></div></div>`;}
+function vShelves(){const counts={};DATA.forEach(p=>(p.framework_keys||[]).forEach(k=>counts[k]=(counts[k]||0)+1));
+  const chips=Object.keys(counts).sort().map(k=>`<span class="chip ${shelf===k?"on":""}" onclick="shelf=shelf==='${k}'?null:'${k}';showTab('shelves')">${k} <span class="muted">${counts[k]}</span></span>`).join("");
+  const list=shelf?filtered().map(p=>{const c=compute(p);return `<tr><td><a onclick="openPaper('${p.paper_id}')"><b>${esc(p.title)}</b></a></td><td><span class="badge ${clsBadge(c.cls)}">${c.cls}</span></td><td>${c.tot}/${c.ceil}</td><td style="font-size:12px">${esc(p.build_next||"—")}</td></tr>`}).join(""):"";
+  $("#view").innerHTML=`<h2>Framework shelves — click to open a shelf</h2><div>${chips}</div>
+  ${shelf?`<h2>${esc(shelf)} · ${filtered().length} papers</h2><table><tr><th>Paper</th><th>Class</th><th>Score</th><th>Build next</th></tr>${list}</table>`:`<p class="muted">Every framework_keys value in the vault, live-counted. This is the grouping layer — "math is moral", "master-equation", all of it.</p>`}`;}
+function vGraph(){if(!graphSel)graphSel=DATA[0]&&DATA[0].paper_id;
+  const opts=DATA.map(p=>`<option value="${p.paper_id}" ${p.paper_id===graphSel?"selected":""}>${esc(p.title)}</option>`).join("");
+  const p=byId[graphSel];let svg="";const relColors={depends_on:"#d1a922",supports:"#5f9e6a",contradicts:"#b0413e",refines:"#6ea8e8",tests:"#9b7bd1",supersedes:"#8b97a7"};
+  if(p){const c=compute(p);const edges=(p.edges||[]).filter(e=>byId[e.target]);
+    const W=760,H=380,cx=W/2,cy=H/2;let parts="";
+    edges.forEach((e,i)=>{const a=2*Math.PI*i/Math.max(edges.length,1);const x=cx+Math.cos(a)*250,y=cy+Math.sin(a)*140;
+      parts+=`<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="${relColors[e.relation]||"#555"}" stroke-width="1.5" stroke-dasharray="${e.relation==="contradicts"?"5 3":"none"}"/>
+      <circle class="node" cx="${x}" cy="${y}" r="16" fill="#0c0f14" stroke="${relColors[e.relation]||"#555"}"/>
+      <text x="${x}" y="${y+30}" text-anchor="middle" style="fill:#e7edf5;font-size:11px">${esc((byId[e.target].title||e.target).slice(0,26))}</text>
+      <text x="${(cx+x)/2}" y="${(cy+y)/2-5}" text-anchor="middle">${e.relation}</text>`;});
+    svg=`<svg width="${W}" height="${H}" style="background:var(--panel2);border:1px solid var(--line)">
+      <circle class="node" cx="${cx}" cy="${cy}" r="24" fill="#1a3a5c" stroke="#d1a922"/><text x="${cx}" y="${cy+4}" text-anchor="middle" style="fill:#fff;font-size:11px">${c.tot}/${c.ceil}</text>
+      <text x="${cx}" y="${cy-34}" text-anchor="middle" style="fill:#f1d37a;font-size:12px">${esc(p.title.slice(0,30))}</text>${parts}</svg>`;}
+  $("#view").innerHTML=`<h2>Dependency & contradiction graph — what dies if this falls</h2>
+  <p><select id="gsel" onchange="graphSel=this.value;vGraph()">${opts}</select> <span class="muted">gold=depends_on · green=supports · red dashed=contradicts · blue=refines · purple=tests</span></p>${svg}
+  <p class="muted">Blast radius: walk depends_on transitively. A GATED paper with downstream dependents is a structural fire.</p>`;}
+/* ============ PAPER MODAL ============ */
+function openPaper(id){const p=byId[id];if(!p)return;const c=compute(p);
+  const srows=SIDS.map(sid=>{const s=p.sections[sid],n=net(s);return `<tr><td class="muted">${sid.toUpperCase()}</td><td>${SECTION_NAMES[sid]}</td><td class="pos">${s.pos||""}</td><td class="neg">${s.neg||""}</td><td><b>${n}</b>${n>=8&&((c.lb&&["s02","s03","s04","s07"].includes(sid))||(c.hon&&["s05","s06","s08","s09"].includes(sid)))?" ⬈15":""}</td><td style="font-size:11px">${(s.rules||[]).map(r=>`<span class="badge">${r}</span>`).join("")}</td></tr>`}).join("");
+  const chi=CHI_ORDER.map(k=>{const v=(p.chi||{})[k]||0;return `<td style="text-align:center"><b style="color:${v>=3?"var(--accent2)":v>=1?"var(--text)":"var(--muted)"}">${v||"·"}</b><br><span class="muted" style="font-size:9px">${CHI_NAMES[k]}</span></td>`}).join("");
+  const blk=(t,arr,cols)=>arr&&arr.length?`<h2>${t}</h2><table>${arr.map(r=>`<tr>${cols.map(cf=>`<td>${esc(cf(r))}</td>`).join("")}</tr>`).join("")}</table>`:"";
+  $("#modalbody").innerHTML=`<div class="eyebrow">${esc(p.lossless_address||"")} · ${esc(p.sha256||"").slice(0,16)}…</div>
+  <h1 style="font-size:24px">${esc(p.title)}</h1>
+  <p><span class="badge ${clsBadge(c.cls)}">${c.cls}</span> <b>${c.tot}/${c.ceil}</b> <span class="muted">(chains LB ${c.lb?"✓":"✗"} · HON ${c.hon?"✓":"✗"}${c.integrity?" · +5 integrity":""})</span>
+  ${c.gated?' <span class="badge gated">GATED</span>':''} · rating ${p.paper_rating>0?"+"+p.paper_rating:p.paper_rating}/${esc(p.rating_awarded_by)}</p>
+  <p class="muted">Build next: ${esc(p.build_next||"—")} · path: ${esc(p.path||"—")}</p>
+  <h2>χ-vector</h2><table><tr>${chi}</tr></table>
+  <h2>Section scores</h2><table class="sect"><tr><th>§</th><th>Section</th><th>Pos</th><th>Neg</th><th>Net</th><th>Rules fired</th></tr>${srows}</table>
+  ${blk("Bridges",p.bridges,[r=>r.id,r=>r.src+" → "+r.tgt,r=>r.type,r=>"LOST: "+r.lost,r=>"word-gate: "+r.word_gate,r=>r.grade])}
+  ${blk("Falsifiers",p.falsifiers,[r=>r.id,r=>r.claim,r=>r.kill,r=>r.status])}
+  ${blk("Predictions",p.predictions,[r=>r.id,r=>r.prediction,r=>r.deadline,r=>r.outcome])}
+  ${blk("Edges",p.edges,[r=>r.relation,r=>r.target])}`;
+  $("#modal").style.display="block";}
+/* ============ WIRE UP ============ */
+function showTab(t){tab=t;document.querySelectorAll("button.tab").forEach(b=>b.classList.toggle("on",b.dataset.tab===t));
+  ({overview:vOverview,fires:vFires,shelves:vShelves,graph:vGraph})[t]();$("#count").textContent=`${DATA.length} papers · index ${DATA===SAMPLE?"SAMPLE":"LOADED"}`;}
+document.querySelectorAll("button.tab").forEach(b=>b.onclick=()=>showTab(b.dataset.tab));
+$("#q").oninput=()=>showTab(tab);
+$("#loadbtn").onclick=()=>$("#file").click();
+$("#file").onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();
+  r.onload=()=>{try{const j=JSON.parse(r.result);if(!j.papers)throw 0;DATA=j.papers;reindex();$("#datasrc").innerHTML=`index.json — <b>${esc(j.source||"")}</b> · generated ${esc(j.generated_at||"")}`;shelf=null;graphSel=null;showTab(tab);}catch(x){alert("Not a valid index.json (need a .papers array)");}};r.readAsText(f);};
+function sortBy(){} // scores pre-sorted weakest-first; placeholder for future column sorts
+showTab("overview");
+</script></body></html>

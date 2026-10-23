@@ -11,8 +11,9 @@ and **Part D** (prediction tie-in).
 | `gui/review.py` | **The review window** (`../REVIEW.bat`). Every card in one list (tested with 1,053) · filters · "Select ALL n" across the whole filter · accept / reject / set value for one or many · details pane showing where each card stopped · DeepSeek for stuck cards (blind mode, answer its question and re-ask) · nothing written until "Write accepted to cards", backups first · every decision scores the engines |
 
 Uses from `../00_SHARED`: `deepseek_triage.py`, `taxonomy_validator.py`.
-Uses from **Prediction_GUI** (`D:\GitHub\Prediction_GUI`, tied in, not copied): the harness, all engines
-(including `engines/name_words`, which predicts from the paper's name), and `harness/adapters/sidecars.py`.
+Uses from **right here** (`02_CLASSIFICATION`, vendored from the old Prediction_GUI repo on
+2026-10-15): the `harness/`, all engines in `engines/` (including `engines/name_words`, which
+predicts from the paper's name), and `harness/adapters/sidecars.py`. Ledgers in `data/`.
 
 ## What we learned (2026-10-13)
 

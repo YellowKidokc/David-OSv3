@@ -1,0 +1,12 @@
+{
+  "rga": {
+    "version": "0.10.9",
+    "url": "https://github.com/phiresky/ripgrep-all/releases/download/v0.10.9/ripgrep_all-v0.10.9-x86_64-pc-windows-msvc.zip",
+    "executable_sha256": "a0e452df4ed0f09c449db282408dde293740580262ffb01a5c14a6618bf5ec74"
+  },
+  "poppler": {
+    "package": "oschwartz10612.Poppler",
+    "version": "25.07.0-0"
+  },
+  "note": "Development install. Pandoc, rg and FFmpeg use host PATH. Full portable dependency packaging remains future work."
+}

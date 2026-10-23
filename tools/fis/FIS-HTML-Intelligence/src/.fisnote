@@ -1,0 +1,29 @@
+---
+fis_schema: "folder-index.v1"
+folder_id: "FLD-20260907-fd6900e1"
+folder: "GitHub\FIS-HTML-Intelligence\src"
+folder_class: "project"
+confidence: 0.6
+dependency_risk: 0.333
+dominant_family: "code"
+dominant_ratio: 0.75
+file_count: 4
+classified_at: "2026-09-07T15:47:56"
+allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
+suggested_name: "src"
+system_markers: ["dir:__pycache__"]
+---
+
+# FIS Folder Index: src
+
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 4  ·  **Dominant**: code (75%)
+
+## Allowed actions
+- index
+- rename_internal
+- subfolder_sort
+- archive_exports
+
+**Suggested name**: `src`  (not applied — review before use)
+
+<!-- FIS folder-index.v1: parseable note; safe to regenerate. -->

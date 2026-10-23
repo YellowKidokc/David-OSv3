@@ -1,6 +1,8 @@
 """Minimal FastAPI app factory for local development."""
 from __future__ import annotations
 
+import os
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -23,6 +25,7 @@ from hub.api.routes_nodes import router as nodes_router
 from hub.api.routes_openai_compat import router as openai_compat_router
 from hub.api.routes_prediction import router as prediction_router
 from hub.api.routes_providers import router as providers_router
+from hub.api.routes_search import router as search_router
 from hub.api.routes_semantic import router as semantic_router
 from hub.api.routes_top_of_mind import router as top_of_mind_router
 
@@ -46,6 +49,7 @@ def create_app() -> FastAPI:
     app.include_router(openai_compat_router)
     app.include_router(prediction_router)
     app.include_router(providers_router)
+    app.include_router(search_router)
     app.include_router(semantic_router)
     app.include_router(top_of_mind_router)
     app.add_middleware(ApiTokenMiddleware)
@@ -57,7 +61,7 @@ def create_app() -> FastAPI:
     # messages" / offline indicator in Top of Mind Desk).
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=["*"],
+        allow_origins=os.environ.get('FIHUB_ALLOWED_ORIGINS', '*').split(','),
         allow_credentials=False,
         allow_methods=["*"],
         allow_headers=["*"],

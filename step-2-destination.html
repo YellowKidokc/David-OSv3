@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unified GUI - Step 2 Destination</title>
+  <link rel="stylesheet" href="./shared.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">POF</div>
+        <div class="brand-copy">
+          <h1>Unified Operations GUI</h1>
+          <p>Stage two: pick where the batch goes so the process can bind source to destination cleanly.</p>
+        </div>
+      </div>
+      <div class="nav-chips">
+        <span class="nav-chip">Step 01</span>
+        <span class="nav-chip active">Step 02</span>
+        <span class="nav-chip">Step 03</span>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="page-head">
+        <div>
+          <div class="eyebrow">Outputs Next</div>
+          <h2>Where do you want the selected batch to go?</h2>
+          <p>
+            This second screen keeps the flow simple on purpose. You already know the action and source set.
+            Now you bind the target. The third screen then expands the route into the fuller operations board.
+          </p>
+        </div>
+        <div class="mini-list">
+          <span class="small-chip active">Copy batch</span>
+          <span class="small-chip">3 inputs selected</span>
+        </div>
+      </section>
+
+      <section class="page-body columns">
+        <div class="panel">
+          <h3>Recommended destination classes</h3>
+          <div class="selector">
+            <label>
+              <input type="radio" name="destination" checked>
+              <span class="details">
+                <strong>Canonical Site Data</strong>
+                <span class="path">D:\GitHub\faiththruphysics-site-data</span>
+              </span>
+            </label>
+            <label>
+              <input type="radio" name="destination">
+              <span class="details">
+                <strong>Media Archive</strong>
+                <span class="path">D:\theophysics-media\archive</span>
+              </span>
+            </label>
+            <label>
+              <input type="radio" name="destination">
+              <span class="details">
+                <strong>Review Queue</strong>
+                <span class="path">D:\00_STAGING\review-queue</span>
+              </span>
+            </label>
+            <label>
+              <input type="radio" name="destination">
+              <span class="details">
+                <strong>Shared NAS Brain</strong>
+                <span class="path">X:\10_EXPORTS</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Directory picker / manual path</h3>
+          <p>The real app would let you browse or search here. For the prototype, we show both entry styles so the interaction stays visible.</p>
+          <div class="field">
+            <label for="manual-path">Manual destination path</label>
+            <input id="manual-path" value="D:\GitHub\faiththruphysics-site-data\media\incoming">
+          </div>
+          <div class="field">
+            <label for="path-search">Search destination alias</label>
+            <input id="path-search" value="site-data media incoming">
+          </div>
+          <div class="button-row">
+            <a class="ghost" href="./step-1-file-operations.html">Back to inputs</a>
+            <a class="button" href="./step-3-combined-board.html">Build combined board</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="footer">Step one plus step two are meant to collapse into the combined board, not stay separate forever.</div>
+  </div>
+</body>
+</html>

@@ -1,14 +1,14 @@
 ---
 fis_schema: "folder-index.v1"
-folder_id: "FLD-20260817-51141f35"
-folder: "GitHub\David-OS-v2\tests"
+folder_id: "FLD-20260907-c4965c0c"
+folder: "GitHub\David-OSv3\tests"
 folder_class: "project"
 confidence: 0.6
 dependency_risk: 0.333
 dominant_family: "code"
-dominant_ratio: 0.947
-file_count: 19
-classified_at: "2026-08-17T12:58:35"
+dominant_ratio: 0.958
+file_count: 24
+classified_at: "2026-09-07T15:05:05"
 allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
 suggested_name: "tests"
 system_markers: ["dir:__pycache__"]
@@ -16,7 +16,7 @@ system_markers: ["dir:__pycache__"]
 
 # FIS Folder Index: tests
 
-**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 19  ·  **Dominant**: code (95%)
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 24  ·  **Dominant**: code (96%)
 
 ## Allowed actions
 - index

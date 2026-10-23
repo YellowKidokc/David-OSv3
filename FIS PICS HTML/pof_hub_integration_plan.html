@@ -1,0 +1,379 @@
+<div style="background:#0f1117;color:#e4e1d8;font-family:Inter,sans-serif;padding:24px;max-width:1200px;margin:0 auto">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0f1117;--panel:#161922;--panel2:#1c2030;--line:#262d3d;--amber:#d9a441;--cyan:#5fb3ae;--ink:#e4e1d8;--dim:#8f96a3;--faint:#555d6e;--green:#4ade80;--red:#ef4444;--purple:#a78bfa;--r:8px}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-size:14px;line-height:1.6}
+h1{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:var(--amber);margin-bottom:4px}
+.sub{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--dim);margin-bottom:32px}
+h2{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--faint);margin:36px 0 16px;display:flex;align-items:center;gap:8px}
+h2::before{content:'';width:5px;height:5px;background:var(--amber);border-radius:50%}
+h3{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;color:var(--cyan);margin:20px 0 10px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;margin-bottom:12px}
+.card-title{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.badge{font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px;text-transform:uppercase;letter-spacing:.5px}
+.b-done{background:#166534;color:#86efac}
+.b-ready{background:#854d0e;color:#fde68a}
+.b-next{background:#312e81;color:#c4b5fd}
+.b-future{background:#1e293b;color:#94a3b8}
+.b-critical{background:#991b1b;color:#fca5a5}
+p{margin:6px 0;color:var(--dim);font-size:13.5px}
+code{font-family:'IBM Plex Mono',monospace;font-size:12px;background:var(--panel2);padding:2px 6px;border-radius:4px;color:var(--cyan)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:800px){.grid{grid-template-columns:1fr}}
+table{width:100%;border-collapse:collapse;font-size:12.5px;margin:8px 0 16px}
+th{font-family:'Space Grotesk',sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--faint);text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+td{padding:7px 10px;border-bottom:1px solid var(--line);color:var(--dim)}
+td:first-child{color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:12px}
+.mono{font-family:'IBM Plex Mono',monospace;font-size:12px}
+.highlight{color:var(--amber)}
+.section-line{height:1px;background:var(--line);margin:32px 0}
+.eval-row{display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--panel2);border-radius:6px;margin-bottom:8px}
+.eval-score{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;width:50px;text-align:center;flex-shrink:0}
+.eval-detail{flex:1}
+.eval-name{font-weight:600;font-size:13px;color:var(--ink)}
+.eval-desc{font-size:12px;color:var(--faint)}
+.flow-step{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px}
+.flow-num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;flex-shrink:0}
+.flow-body{flex:1}
+.flow-body b{color:var(--ink);font-size:13.5px}
+.flow-body p{font-size:12.5px;color:var(--faint);margin:2px 0 0}
+</style>
+
+<h1>POF Hub — Integration & Intelligence Plan</h1>
+<div class="sub">Maps today's deliverables against the 18-sheet master architecture. Identifies every script to derive, the evaluation framework, and the intelligence roadmap.</div>
+
+<h2>What We Built Today vs. The Master Architecture</h2>
+
+<table>
+<thead><tr><th>Architecture Component</th><th>Sheet</th><th>Today's Deliverable</th><th>Status</th><th>Coverage</th></tr></thead>
+<tbody>
+<tr><td>File Drop API</td><td>API Contracts</td><td><code>routes_file_drop.py</code></td><td><span class="badge b-done">DONE</span></td><td>create, list, read, move, delete, archive</td></tr>
+<tr><td>Clipboard + Memory API</td><td>API Contracts</td><td><code>routes_clipboard_memory.py</code></td><td><span class="badge b-done">DONE</span></td><td>pin, list, recall, search, store, history, dump</td></tr>
+<tr><td>Top of Mind Relay</td><td>API Architecture</td><td>Codex built <code>routes_top_of_mind.py</code></td><td><span class="badge b-done">DONE</span></td><td>sources, messages, combine, controls</td></tr>
+<tr><td>AHK Overlay</td><td>—</td><td><code>ai_chat_controller.ahk</code></td><td><span class="badge b-done">DONE</span></td><td>5 profiles, anchor, scroll, command line</td></tr>
+<tr><td>Folder Scanner</td><td>Symptom Registry</td><td><code>folder_scanner.py</code></td><td><span class="badge b-done">DONE</span></td><td>40/40 detectors implemented</td></tr>
+<tr><td>Scan Report</td><td>—</td><td><code>scan_report.py</code></td><td><span class="badge b-done">DONE</span></td><td>HTML report, grades, work orders</td></tr>
+<tr><td>OKF Brain Builder</td><td>—</td><td><code>okf-brain-builder.html</code></td><td><span class="badge b-done">DONE</span></td><td>capture, AI draft, bundle, export</td></tr>
+<tr><td>Numbering Schema</td><td>—</td><td><code>TopOfMind_Numbering_Schema_v1.md</code></td><td><span class="badge b-done">DONE</span></td><td>ports, sources, msg types, priorities, walls</td></tr>
+<tr><td>Ollama Integration</td><td>Ollama NLP Tasks</td><td><code>ollama_master_eq.py</code></td><td><span class="badge b-done">DONE</span></td><td>Single prompt, needs task registry wiring</td></tr>
+<tr><td>Job System</td><td>Job Types (30)</td><td>—</td><td><span class="badge b-next">NEXT</span></td><td>0/30 job types implemented</td></tr>
+<tr><td>Workers</td><td>Worker Matrix (26)</td><td>—</td><td><span class="badge b-next">NEXT</span></td><td>0/26 workers implemented</td></tr>
+<tr><td>Review Queue</td><td>Review Gates (16)</td><td>—</td><td><span class="badge b-next">NEXT</span></td><td>0/16 gates implemented</td></tr>
+<tr><td>Prompt Templates</td><td>Prompt Registry (12)</td><td>—</td><td><span class="badge b-next">NEXT</span></td><td>0/12 prompts written</td></tr>
+<tr><td>Folder Profiles</td><td>Folder Profiles (15)</td><td>—</td><td><span class="badge b-next">NEXT</span></td><td>0/15 profiles configured</td></tr>
+<tr><td>SQLite Schema</td><td>SQLite Schema (44 tables)</td><td>Partial (clipboard + memory tables)</td><td><span class="badge b-ready">PARTIAL</span></td><td>4/44 tables exist</td></tr>
+<tr><td>Intelligence Lanes</td><td>Intelligence Lanes (24)</td><td>—</td><td><span class="badge b-future">FUTURE</span></td><td>0/24 lanes wired</td></tr>
+<tr><td>ntfy Notifications</td><td>—</td><td>Identified, not deployed</td><td><span class="badge b-ready">READY</span></td><td>Docker one-liner away</td></tr>
+<tr><td>Semantic Scorer</td><td>—</td><td>Exists at <code>fis/nlp/semantic_scorer.py</code></td><td><span class="badge b-ready">WIRE IT</span></td><td>Built, validated, not connected</td></tr>
+</tbody>
+</table>
+
+<div class="section-line"></div>
+
+<h2>Scripts To Derive — Prioritized Build List</h2>
+
+<h3>Tier 1: Wire Today Into Tomorrow (This Week)</h3>
+
+<div class="card">
+<div class="card-title"><span class="badge b-critical">P1</span> post_create_hook.py</div>
+<p>Post-create hook for the File Drop API. When any file lands in the drop folder, this runs automatically: semantic scorer → chi hash → store results in shared memory. Connects <code>semantic_scorer.py</code> to <code>routes_file_drop.py</code> to <code>/memory/store</code>.</p>
+<p class="mono highlight">Input: file path → Output: chi hash + dominant vars + magnitude stored in memory</p>
+</div>
+
+<div class="card">
+<div class="card-title"><span class="badge b-critical">P1</span> job_manager.py</div>
+<p>The durable job system from the architecture. Every action becomes a job with state transitions (queued → claimed → running → succeeded/failed). This is <code>core/job_manager.py</code> from the Build Order. Without it, nothing else in the 30-job-type registry can run.</p>
+<p class="mono highlight">Maps to: Build Order #4 — FastAPI app + jobs API</p>
+</div>
+
+<div class="card">
+<div class="card-title"><span class="badge b-critical">P1</span> scanner_to_jobs.py</div>
+<p>Bridge script: takes folder scanner results and creates durable jobs for each fixable symptom. Scanner finds S03 (depth explosion, auto-fixable) → creates a <code>folder_health_scan</code> job → job goes to review queue if risky, or auto-executes if safe.</p>
+<p class="mono highlight">Maps to: Job Type "folder_health_scan" + Review Gate integration</p>
+</div>
+
+<div class="card">
+<div class="card-title"><span class="badge b-critical">P1</span> startup_health.py</div>
+<p>Session-start healthcheck script. Checks: Hub API alive? Ollama alive? Qdrant alive? ntfy alive? Drop folder accessible? Postgres reachable? NLP API at 8700? Reports status to shared memory + ntfy. Run this first every session.</p>
+<p class="mono highlight">Replaces ad-hoc "is everything running?" checks</p>
+</div>
+
+<h3>Tier 2: Intelligence Layer (Next Two Weeks)</h3>
+
+<div class="card">
+<div class="card-title"><span class="badge b-next">P2</span> rename_worker.py</div>
+<p>The rename suggestion engine from the Prompt Registry (P-REN-001). Takes a file + folder context + naming mode, calls Ollama locally, returns 3 candidate names with confidence scores. Never auto-applies — stages for review.</p>
+<p class="mono highlight">Maps to: Worker Matrix "rename_worker" + Prompt "prompts/rename_suggestion.md"</p>
+</div>
+
+<div class="card">
+<div class="card-title"><span class="badge b-next">P2</span> classify_worker.py</div>
+<p>File classification using the 4-layer stack (Physical → Semantic → Meta → Relational). Reads the file, runs the semantic scorer for Layer 2, applies the frozen meta enums for Layer 3, stores the result. This is where the 10D chi-variable space meets the job system.</p>
+<p class="mono highlight">Maps to: Worker Matrix "classify_worker" + Intelligence Lane "master_equation"</p>
+</div>
+
+<div class="card">
+<div class="card-title"><span class="badge b-next">P2</span> duplicate_resolver.py</div>
+<p>Beyond the scanner's C01 detection — this one decides what to DO about duplicates. Hashes match → compare dates, locations, folder context → recommend keeper → stage archive for the rest. Calls Ollama for semantic tiebreaks (P-DUP-001).</p>
+<p class="mono highlight">Maps to: Job Type "duplicate_resolve" + Prompt "prompts/duplicate_keeper.md"</p>
+</div>
+
+<div class="card">
+<div class="card-title"><span class="badge b-next">P2</span> ollama_task_router.py</div>
+<p>Central router for all 11 Ollama/NLP tasks in the Ollama_NLP_Tasks sheet. Each task has an ID (LLM-001 through LLM-011), a preferred lane (Ollama first vs OpenAI), and a prompt template. This script loads the right prompt, calls the right model, parses structured JSON output, and stores results.</p>
+<p class="mono highlight">Maps to: Ollama_NLP_Tasks sheet (all 11 tasks)</p>
+</div>
+
+<div class="card">
+<div class="card-title"><span class="badge b-next">P2</span> folder_profile_engine.py</div>
+<p>Loads the 15 folder profiles from the architecture and enforces their policies. Downloads folder gets Level 3/4 automation. Documents gets Level 2/3 review-first. Program roots get NEVER auto-touch. The policy engine from <code>core/policy_engine.py</code>.</p>
+<p class="mono highlight">Maps to: Folder Profiles sheet (15 profiles) + Build Order #5</p>
+</div>
+
+<h3>Tier 3: Review & Safety (Week 3)</h3>
+
+<div class="card">
+<div class="card-title"><span class="badge b-future">P3</span> review_gate.py</div>
+<p>The 16 review gates from the architecture. Rename bulk > 20 files? Review. Delete anything? Review. Protected category detected? Block. Low confidence < 0.65? Escalate. This is the safety valve between intelligence and action.</p>
+<p class="mono highlight">Maps to: Review Gates sheet (16 gates)</p>
+</div>
+
+<div class="card">
+<div class="card-title"><span class="badge b-future">P3</span> resource_gate.py</div>
+<p>Pauses heavy workers when CPU > 55%, RAM > 80%, or battery low. Prevents the system from making the machine unusable during batch scans.</p>
+<p class="mono highlight">Maps to: Worker Matrix "resource_gate" + Build Order #7</p>
+</div>
+
+<div class="card">
+<div class="card-title"><span class="badge b-future">P3</span> preference_learner.py</div>
+<p>When you correct a rename or reclassification, this learns the pattern. Uses River/Markov for deterministic patterns, Ollama for ambiguous ones. Scoped per-folder so a Downloads preference doesn't leak into Documents.</p>
+<p class="mono highlight">Maps to: Intelligence Lane "preference_learner" + Prompt P-PREF-001</p>
+</div>
+
+<div class="section-line"></div>
+
+<h2>The Evaluation Framework</h2>
+
+<p style="color:var(--ink);margin-bottom:16px">Every system needs to know if it's getting smarter or dumber. Here's how to score each layer:</p>
+
+<h3>Scanner Evaluation (Does it find real problems?)</h3>
+
+<div class="eval-row">
+<div class="eval-score" style="color:var(--green)">P</div>
+<div class="eval-detail">
+<div class="eval-name">Precision</div>
+<div class="eval-desc">Of the symptoms it flags, how many are real? Target: >90%. Test by scanning a known-clean folder — false positives should be near zero.</div>
+</div>
+</div>
+
+<div class="eval-row">
+<div class="eval-score" style="color:var(--cyan)">R</div>
+<div class="eval-detail">
+<div class="eval-name">Recall</div>
+<div class="eval-desc">Of the real problems in a folder, how many does it catch? Test by seeding a folder with known symptoms (5 duplicates, 3 naming collisions, 1 config leak) and checking the scanner finds all of them.</div>
+</div>
+</div>
+
+<div class="eval-row">
+<div class="eval-score" style="color:var(--amber)">G</div>
+<div class="eval-detail">
+<div class="eval-name">Grade Accuracy</div>
+<div class="eval-desc">Does the A-F grade match human intuition? Have 3 people grade 10 folders blind, compare to scanner grade. Target: ±1 letter grade 90% of the time.</div>
+</div>
+</div>
+
+<div class="eval-row">
+<div class="eval-score" style="color:var(--purple)">Δ</div>
+<div class="eval-detail">
+<div class="eval-name">Delta Reliability</div>
+<div class="eval-desc">When comparing scan-to-scan, does the score change accurately reflect real improvement? Fix 5 symptoms → rescan → score should increase proportionally.</div>
+</div>
+</div>
+
+<h3>Classification Evaluation (Does the semantic scorer work?)</h3>
+
+<div class="eval-row">
+<div class="eval-score" style="color:var(--green)">90%</div>
+<div class="eval-detail">
+<div class="eval-name">Cross-AI Agreement (Already Validated)</div>
+<div class="eval-desc">18/20 documents agreed across Claude/GPT/Gemini on dominant χ-variables. This is the baseline. New files should maintain >85% agreement.</div>
+</div>
+</div>
+
+<div class="eval-row">
+<div class="eval-score" style="color:var(--cyan)">H</div>
+<div class="eval-detail">
+<div class="eval-name">Hash Predictability</div>
+<div class="eval-desc">Give an LLM only the coordinate hash (e.g. GKC-3K5A-3F). Can it predict the document's domain and content family? Target: >80% accuracy on domain, >60% on content.</div>
+</div>
+</div>
+
+<div class="eval-row">
+<div class="eval-score" style="color:var(--amber)">C</div>
+<div class="eval-detail">
+<div class="eval-name">Completeness Coverage</div>
+<div class="eval-desc">982 axioms from 43 worldviews mapped to 10 variables — already passed. New test: scan 1000 files from diverse sources, check that no file gets all-zero scores (the system should find SOMETHING in everything).</div>
+</div>
+</div>
+
+<h3>Rename Evaluation (Are the suggestions good?)</h3>
+
+<div class="eval-row">
+<div class="eval-score" style="color:var(--green)">A</div>
+<div class="eval-detail">
+<div class="eval-name">Accept Rate</div>
+<div class="eval-desc">Of rename suggestions shown in the review queue, how many does David accept without editing? Target: >70% accept-as-is after 30 days of learning.</div>
+</div>
+</div>
+
+<div class="eval-row">
+<div class="eval-score" style="color:var(--cyan)">E</div>
+<div class="eval-detail">
+<div class="eval-name">Edit Distance</div>
+<div class="eval-desc">When David edits a suggestion, how much does he change? Lower edit distance = better suggestion. Track Levenshtein distance over time.</div>
+</div>
+</div>
+
+<div class="eval-row">
+<div class="eval-score" style="color:var(--amber)">S</div>
+<div class="eval-detail">
+<div class="eval-name">Safety (No Breakage)</div>
+<div class="eval-desc">Zero tolerance: no rename suggestion should ever break an import, a link, or a program dependency. Test by scanning program roots — the system should refuse to suggest renames for anything in I01 zones.</div>
+</div>
+</div>
+
+<h3>Overall System Evaluation</h3>
+
+<div class="eval-row">
+<div class="eval-score" style="color:var(--green)">⬆</div>
+<div class="eval-detail">
+<div class="eval-name">Folder Health Over Time</div>
+<div class="eval-desc">Run the scanner on the same 10 folders monthly. Plot scores. The system is working if scores trend upward. If they plateau or drop, the intelligence layer isn't translating into action.</div>
+</div>
+</div>
+
+<div class="eval-row">
+<div class="eval-score" style="color:var(--red)">⚡</div>
+<div class="eval-detail">
+<div class="eval-name">Time to First Useful Action</div>
+<div class="eval-desc">From cold start, how long until the system produces something you actually use? Today: ~5 minutes (run scanner, read report). Target after full build: <30 seconds (watcher detects file, classifies, suggests action, you approve).</div>
+</div>
+</div>
+
+<div class="section-line"></div>
+
+<h2>How To Make It More Intelligent</h2>
+
+<h3>Level 1: Deterministic Intelligence (No AI needed)</h3>
+<div class="card">
+<p style="color:var(--ink)">This is where 80% of the value comes from with 20% of the complexity:</p>
+<p>• <b>Extension priors</b> — a .lean file is always code, a .pdf in a folder called "invoices" is always financial. No LLM needed.</p>
+<p>• <b>Path heuristics</b> — <code>fis/nlp/path_heuristics.py</code> already does this. Wire it in.</p>
+<p>• <b>Folder role propagation</b> — if a folder is classified as "research," every new file inherits a research bias until proven otherwise.</p>
+<p>• <b>Temporal patterns</b> — files created at 2 AM are probably work sessions. Files created in bulk on one day are probably imports. No AI needed to detect these.</p>
+<p>• <b>Co-occurrence</b> — files that always appear together (.py + .pyc, .tex + .pdf) should be linked automatically.</p>
+</div>
+
+<h3>Level 2: Local AI Intelligence (Ollama, zero cost)</h3>
+<div class="card">
+<p style="color:var(--ink)">Your llama3.2:3b is already running. Use it for:</p>
+<p>• <b>Rename suggestions</b> — small context packet (filename + folder + excerpt), structured JSON output. P-REN-001.</p>
+<p>• <b>Tag inference</b> — when deterministic classification is low-confidence. P-TAG-001.</p>
+<p>• <b>Folder summaries</b> — "this folder contains 47 files, mostly PDFs about thermodynamics." P-FOLD-001.</p>
+<p>• <b>Duplicate tiebreak</b> — when hashes match but folder context differs, which is the "keeper"? P-DUP-001.</p>
+<p>• <b>Review explanations</b> — "this rename was blocked because the folder contains a package.json." P-REVIEW-001.</p>
+</div>
+
+<h3>Level 3: Cross-Session Intelligence (Memory API)</h3>
+<div class="card">
+<p style="color:var(--ink)">The shared memory we built today enables something new — learning across time:</p>
+<p>• <b>Preference accumulation</b> — every rename David accepts/rejects is a training signal. Store it. After 50 signals, the rename engine should predict David's naming preferences with >70% accuracy.</p>
+<p>• <b>Pattern extraction</b> — "David always renames AI exports to include the date and source AI." Extract this rule from the history, propose it as a permanent rule.</p>
+<p>• <b>Cross-AI synthesis</b> — Claude classifies a file one way, Ollama classifies it another way. Store both. Over time, learn which AI is more accurate for which file types.</p>
+<p>• <b>Temporal correlation</b> — "Lean builds always happen after Kimi sessions." "Website deploys always follow writing sessions." These patterns emerge from the memory log.</p>
+</div>
+
+<h3>Level 4: The Master Equation Applied Reflexively</h3>
+<div class="card">
+<p style="color:var(--ink)">The semantic scorer uses the χ-variables to classify documents. But the <i>system itself</i> can be scored on the same variables:</p>
+<p>• <b>G (Grace)</b> — does the system extend patience to ambiguous files instead of force-classifying them?</p>
+<p>• <b>M (Moral Alignment)</b> — does it protect private/sensitive files consistently?</p>
+<p>• <b>E (Epistemic Integrity)</b> — does it admit uncertainty? (confidence scores, review gates)</p>
+<p>• <b>S (Structural Order)</b> — is the folder tree getting cleaner over time?</p>
+<p>• <b>T (Temporal Faithfulness)</b> — does it maintain consistency across sessions?</p>
+<p>• <b>K (Community/Koinonia)</b> — do the AIs actually communicate well through shared memory?</p>
+<p>• <b>R (Repentance/Error Correction)</b> — when it makes a bad classification, does the correction propagate?</p>
+<p>• <b>Q (Qualia/Consciousness)</b> — does the system know what it doesn't know?</p>
+<p>• <b>F (Faith/Trust)</b> — do you trust it enough to increase automation levels over time?</p>
+<p>• <b>C (Christological Center)</b> — is there a single source of truth? (the hub DB, not scattered scripts)</p>
+<p class="mono highlight" style="margin-top:12px">The system's own χ-score is the ultimate evaluation metric.</p>
+</div>
+
+<div class="section-line"></div>
+
+<h2>Build Sequence — What Gets Prompted to Which AI</h2>
+
+<table>
+<thead><tr><th>Order</th><th>Script</th><th>Best AI For It</th><th>Why</th><th>Depends On</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>startup_health.py</td><td>Codex</td><td>Simple, mechanical, needs shell access</td><td>Nothing</td></tr>
+<tr><td>2</td><td>post_create_hook.py</td><td>Codex</td><td>Wiring existing code together</td><td>semantic_scorer.py exists</td></tr>
+<tr><td>3</td><td>job_manager.py</td><td>Codex</td><td>Core infrastructure, needs tests</td><td>SQLite schema</td></tr>
+<tr><td>4</td><td>scanner_to_jobs.py</td><td>Claude (this session)</td><td>Bridge logic, knows both sides</td><td>job_manager + folder_scanner</td></tr>
+<tr><td>5</td><td>12 prompt templates</td><td>Claude Opus</td><td>Prompt engineering, voice, precision</td><td>Nothing — text files</td></tr>
+<tr><td>6</td><td>ollama_task_router.py</td><td>Codex</td><td>API wiring, JSON parsing</td><td>Prompt templates + Ollama running</td></tr>
+<tr><td>7</td><td>rename_worker.py</td><td>Codex</td><td>First real worker with tests</td><td>ollama_task_router + job_manager</td></tr>
+<tr><td>8</td><td>classify_worker.py</td><td>Claude Opus</td><td>Semantic scorer integration, chi-variables</td><td>semantic_scorer + job_manager</td></tr>
+<tr><td>9</td><td>folder_profile_engine.py</td><td>Codex</td><td>Policy rules, config loading</td><td>Folder profiles from xlsx</td></tr>
+<tr><td>10</td><td>review_gate.py</td><td>Claude Opus</td><td>Safety-critical, needs careful design</td><td>job_manager + policy engine</td></tr>
+<tr><td>11</td><td>duplicate_resolver.py</td><td>Codex</td><td>Hash comparison + Ollama tiebreak</td><td>hash_worker + ollama_task_router</td></tr>
+<tr><td>12</td><td>resource_gate.py</td><td>Codex</td><td>System monitoring, psutil</td><td>Nothing</td></tr>
+<tr><td>13</td><td>preference_learner.py</td><td>Claude Opus</td><td>Learning design, scope decisions</td><td>Memory API + rename history</td></tr>
+<tr><td>14</td><td>TypingMind frontend</td><td>Codex (separate thread)</td><td>React/Vite, API integration</td><td>All API routes stable</td></tr>
+</tbody>
+</table>
+
+<div class="section-line"></div>
+
+<h2>The Process — How This Should Run Day to Day</h2>
+
+<div class="flow-step">
+<div class="flow-num" style="background:var(--amber);color:#0f1117">1</div>
+<div class="flow-body"><b>Session Start: startup_health.py</b><p>Checks all services, reports to memory + ntfy. You know before you type a word whether everything is alive.</p></div>
+</div>
+
+<div class="flow-step">
+<div class="flow-num" style="background:var(--cyan);color:#0f1117">2</div>
+<div class="flow-body"><b>Background: File watchers running</b><p>Downloads, Desktop, AI_Outbox watched. New file → intake job → hash → classify → store. You don't touch this.</p></div>
+</div>
+
+<div class="flow-step">
+<div class="flow-num" style="background:var(--green);color:#0f1117">3</div>
+<div class="flow-body"><b>Periodic: Folder health scan</b><p>Scanner runs on key folders nightly. Score trends stored in memory. ntfy alerts only on regressions.</p></div>
+</div>
+
+<div class="flow-step">
+<div class="flow-num" style="background:var(--purple);color:#0f1117">4</div>
+<div class="flow-body"><b>On Demand: Review queue</b><p>Risky actions accumulate. You open the frontend, see 12 rename suggestions and 3 archive proposals, approve/reject in bulk. 30 seconds.</p></div>
+</div>
+
+<div class="flow-step">
+<div class="flow-num" style="background:var(--amber);color:#0f1117">5</div>
+<div class="flow-body"><b>Cross-AI: File Drop + Memory</b><p>Kimi stores a Lean result → Memory API. Ollama analyzes a document → File Drop. Claude reads both next session. The shared memory is the connective tissue.</p></div>
+</div>
+
+<div class="flow-step">
+<div class="flow-num" style="background:var(--cyan);color:#0f1117">6</div>
+<div class="flow-body"><b>Monthly: Evaluation pass</b><p>Run the full eval framework. Plot folder health trends. Check rename accept rates. Measure cross-AI agreement. Adjust automation levels based on data.</p></div>
+</div>
+
+<div class="section-line"></div>
+
+<div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--faint);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;padding-top:16px;border-top:1px solid var(--line)">
+<span>POF Hub Integration Plan v1.0 — Source: 22002 (AHK Controller)</span>
+<span>Architecture: 18 sheets, 66 endpoints, 30 job types, 26 workers, 44 tables</span>
+<span>Generated July 3, 2026</span>
+</div>
+
+</div>

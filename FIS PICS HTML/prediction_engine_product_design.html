@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Prediction Engine — Product Design Document</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0c0e13;--panel:#13161d;--p2:#191d27;--p3:#1f2433;--line:#252b3a;--amber:#d9a441;--cyan:#5fb3ae;--ink:#e4e1d8;--dim:#8a91a0;--faint:#525a6b;--green:#4ade80;--red:#ef4444;--purple:#a78bfa;--blue:#60a5fa;--r:10px;--r2:6px}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-size:14.5px;line-height:1.75;padding:32px;max-width:960px;margin:0 auto}
+h1{font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;color:var(--amber);margin-bottom:6px;letter-spacing:-0.5px}
+.tagline{font-family:'Space Grotesk',sans-serif;font-size:17px;color:var(--ink);font-weight:400;margin-bottom:6px}
+.sub{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--faint);margin-bottom:40px}
+h2{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:var(--faint);margin:48px 0 20px;display:flex;align-items:center;gap:10px}
+h2::before{content:'';width:6px;height:6px;background:var(--amber);border-radius:50%}
+h3{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;color:var(--cyan);margin:28px 0 12px}
+p{margin:8px 0;color:var(--dim)}
+p.key{color:var(--ink)}
+b{color:var(--ink)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:22px 26px;margin-bottom:16px}
+.card-head{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;color:var(--ink);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.card p{font-size:14px}
+.num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;color:var(--amber);width:32px;text-align:center;flex-shrink:0}
+code{font-family:'IBM Plex Mono',monospace;font-size:12px;background:var(--p2);padding:2px 7px;border-radius:4px;color:var(--cyan)}
+pre{background:var(--p2);border:1px solid var(--line);border-radius:var(--r);padding:18px 22px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--dim);overflow-x:auto;margin:14px 0 18px;line-height:1.7}
+.divider{height:1px;background:linear-gradient(90deg,var(--line) 0%,transparent 100%);margin:44px 0}
+.pill{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:3px 10px;border-radius:20px;margin:2px 4px 2px 0}
+.p-green{background:#16653433;color:#86efac;border:1px solid #16653455}
+.p-amber{background:#854d0e33;color:#fde68a;border:1px solid #854d0e55}
+.p-red{background:#991b1b33;color:#fca5a5;border:1px solid #991b1b55}
+.p-blue{background:#1e3a5f33;color:#93c5fd;border:1px solid #1e3a5f55}
+.p-purple{background:#312e8133;color:#c4b5fd;border:1px solid #312e8155}
+.mockup{background:var(--p3);border:2px solid var(--line);border-radius:var(--r);padding:0;margin:16px 0 20px;overflow:hidden}
+.mockup-bar{background:var(--p2);padding:8px 14px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--faint);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px}
+.mockup-bar .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.mockup-body{padding:18px 22px}
+.pred-row{display:flex;gap:14px;align-items:stretch;margin:10px 0}
+.pred-card{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:var(--r2);padding:14px 16px}
+.pred-card.you{border-color:#854d0e66}
+.pred-card.system{border-color:#15553a66}
+.pred-label{font-family:'IBM Plex Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+.pred-action{font-size:14px;color:var(--ink);font-weight:500;margin:4px 0}
+.pred-dest{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--faint);margin:4px 0}
+.pred-why{font-size:12px;color:var(--dim);margin-top:8px;font-style:italic;border-top:1px solid var(--line);padding-top:8px}
+.match-badge{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;padding:6px;writing-mode:vertical-rl;text-orientation:mixed;letter-spacing:1px}
+.insight{background:linear-gradient(135deg,var(--p2),var(--panel));border-left:3px solid var(--amber);border-radius:0 var(--r) var(--r) 0;padding:16px 22px;margin:16px 0}
+.insight b{color:var(--amber)}
+.step-row{display:flex;gap:16px;align-items:flex-start;margin:14px 0}
+.step-num{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;flex-shrink:0}
+.step-body{flex:1}
+.step-body b{font-size:14.5px}
+.step-body p{font-size:13px;color:var(--faint);margin:3px 0 0}
+.footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--faint);text-align:center}
+</style>
+</head>
+<body>
+
+<h1>The Prediction Engine</h1>
+<div class="tagline">A file organizer that earns trust by showing you what you were going to do — before you do it.</div>
+<div class="sub">Product Design Document — POF Hub / File Intelligence System — v1.0 — July 3, 2026</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>The Core Idea</h2>
+<!-- ═══════════════════════════════════════════════════════ -->
+
+<div class="card">
+<p class="key">Every file organizer ever built says: <b>"Trust me. I'll put your files where they belong."</b></p>
+<p>Nobody trusts that. Not because the AI is wrong — but because you can't see its reasoning. It's a black box that wants permission to touch your stuff.</p>
+<p class="key" style="margin-top:14px">The Prediction Engine says something different: <b>"Here's what you were about to do. Here's what I would do. Here's why mine is better. You decide."</b></p>
+<p>That's not an organizer. That's a partner who's one step ahead of you and can prove it.</p>
+</div>
+
+<div class="insight">
+<b>The trust equation:</b> Trust isn't granted by a permission dialog. Trust is earned by being right repeatedly, visibly, and without hiding your mistakes. If you predict what the user was going to do and you're right 70% of the time, they'll start listening to your suggestions. If you're right 90% of the time, they'll start letting you do it automatically.
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>How It Actually Works</h2>
+<!-- ═══════════════════════════════════════════════════════ -->
+
+<h3>The Split-Screen Prediction</h3>
+
+<p class="key">When a user selects a file and starts to act on it (rename, move, or organize), the system shows two cards side by side:</p>
+
+<div class="mockup">
+<div class="mockup-bar">
+<div class="dot" style="background:#ef4444"></div>
+<div class="dot" style="background:#fbbf24"></div>
+<div class="dot" style="background:#4ade80"></div>
+invoice_march_2026.pdf — selected for action
+</div>
+<div class="mockup-body">
+<div class="pred-row">
+
+<div class="pred-card you">
+<div class="pred-label" style="color:#fde68a">🧑 What you're about to do</div>
+<div class="pred-action">Move to <code>D:\Documents</code></div>
+<div class="pred-dest">→ D:\Documents\invoice_march_2026.pdf</div>
+</div>
+
+<div class="match-badge" style="color:var(--faint)">vs</div>
+
+<div class="pred-card system">
+<div class="pred-label" style="color:#86efac">🔮 What I'd recommend</div>
+<div class="pred-action">Move to <code>D:\Finance\Invoices\2026</code></div>
+<div class="pred-dest">→ D:\Finance\Invoices\2026\invoice_march_2026.pdf</div>
+<div class="pred-why">
+<b>Why:</b> You have 14 other invoices in D:\Finance\Invoices\2026. This file's chi-signature (M=0.9, dominant=Finance) matches that folder exactly. If you put it in Documents, you'll search for it later and not find it next to the others.
+</div>
+</div>
+
+</div>
+
+<div style="display:flex;gap:10px;margin-top:12px;justify-content:center">
+<span class="pill p-amber">Use mine ↵</span>
+<span class="pill p-blue">Use theirs →</span>
+<span class="pill p-purple">Customize ✎</span>
+<span class="pill p-green">Always do this for invoices ✓</span>
+</div>
+</div>
+</div>
+
+<p>Four choices. Every time. No dialogs, no settings pages, no "configure your rules." Just: yours, mine, edit, or make it permanent.</p>
+
+<h3>The Prediction Gets Smarter</h3>
+
+<div class="mockup">
+<div class="mockup-bar">
+<div class="dot" style="background:#ef4444"></div>
+<div class="dot" style="background:#fbbf24"></div>
+<div class="dot" style="background:#4ade80"></div>
+screenshot_2026_07_03.png — selected for rename
+</div>
+<div class="mockup-body">
+<div class="pred-row">
+
+<div class="pred-card you">
+<div class="pred-label" style="color:#fde68a">🧑 What you're about to type</div>
+<div class="pred-action">Rename to <code>pof_hub_architecture.png</code></div>
+</div>
+
+<div class="match-badge" style="color:var(--green)">✓</div>
+
+<div class="pred-card system" style="border-color:#16653a99">
+<div class="pred-label" style="color:#86efac">🔮 What I predicted</div>
+<div class="pred-action">Rename to <code>pof-hub-architecture-2026-07-03.png</code></div>
+<div class="pred-why">
+<b>Match: 85%.</b> I got the content right (pof_hub_architecture). I added the date because your last 12 screenshot renames included dates. You used underscores — I used hyphens. Learning: you prefer underscores. Updating.
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<p>When the prediction matches, the system says so and shows its confidence. When it doesn't match, it explains the gap and learns from it. The user sees the learning happening. That's what builds trust.</p>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>The Minimum-Action Method</h2>
+<!-- ═══════════════════════════════════════════════════════ -->
+
+<p class="key">You asked: what is the method with the least amount of actions to classify, rename, and reorganize files? Here it is.</p>
+
+<h3>Phase 1: Observe (Zero user actions)</h3>
+
+<div class="card">
+<div class="card-head"><span class="num">0</span> The user doesn't do anything. The system watches.</div>
+<p>The file watcher runs in the background. Every time a file is created, modified, moved, or renamed, the system records:</p>
+<p>• <b>What happened:</b> file created/moved/renamed/deleted</p>
+<p>• <b>Where:</b> source and destination paths</p>
+<p>• <b>When:</b> timestamp, time of day, day of week</p>
+<p>• <b>Context:</b> what app was active, what folder was open</p>
+<p>• <b>Pattern:</b> does this look like the last 10 things the user did?</p>
+<p style="color:var(--ink);margin-top:10px">After 50 observed actions, the system has enough data to start predicting. After 200, predictions are reliable. The user has done <b>zero extra work</b> to teach the system.</p>
+</div>
+
+<h3>Phase 2: Predict (Zero user actions)</h3>
+
+<div class="card">
+<div class="card-head"><span class="num">0</span> The system builds a prediction model from observed behavior.</div>
+<p>The prediction model is simple and interpretable (not a black box neural net):</p>
+<p>• <b>Path frequency:</b> where does this file type usually end up?</p>
+<p>• <b>Naming pattern:</b> how does the user typically rename this file type?</p>
+<p>• <b>Co-occurrence:</b> what files usually move together?</p>
+<p>• <b>Time pattern:</b> is this a morning cleanup ritual or an end-of-day archive?</p>
+<p>• <b>Chi-signature match:</b> where do files with similar semantic scores land?</p>
+<p style="color:var(--ink);margin-top:10px">The model is a weighted vote of these five signals. No training data from other users. No cloud. All local. All from YOUR behavior.</p>
+</div>
+
+<h3>Phase 3: Show (One user action per file)</h3>
+
+<div class="card">
+<div class="card-head"><span class="num">1</span> When the user acts on a file, show the split-screen prediction.</div>
+<p>This is the key interaction. The user was going to do something anyway. The system adds exactly <b>one cognitive step:</b> glance at the prediction, decide if it's better.</p>
+<p>Four possible outcomes per file:</p>
+<p>• <b>Match</b> — system predicted correctly. User clicks "Use theirs." Zero extra work.</p>
+<p>• <b>Better</b> — system suggestion is better. User clicks "Use mine." User learned something.</p>
+<p>• <b>Worse</b> — system got it wrong. User clicks "Use theirs." System learned something.</p>
+<p>• <b>Permanent rule</b> — user clicks "Always do this." Future files auto-organize. Maximum leverage.</p>
+<p style="color:var(--ink);margin-top:10px">Over time, the "Match" rate climbs. When it passes 90%, the user switches to auto-pilot: "just do what you would do." That transition is voluntary, gradual, and earned.</p>
+</div>
+
+<h3>Phase 4: Automate (Zero user actions — earned)</h3>
+
+<div class="card">
+<div class="card-head"><span class="num">0</span> High-confidence predictions execute automatically. The user sees a log.</div>
+<p>Once the system has proven itself on a specific file type in a specific folder, it stops asking. Invoices go to Finance/Invoices. Screenshots get dated. Build artifacts get cleaned. The user sees a quiet notification: "Organized 7 files this morning."</p>
+<p>But — and this is the trust mechanic — the user can always pull up the log and see exactly what happened, why, and undo any action with one click. Transparency doesn't go away when automation arrives.</p>
+</div>
+
+<div class="insight">
+<b>Total action count to fully organize a file system:</b><br>
+Phase 1: 0 actions (observe 50-200 file events, happens naturally)<br>
+Phase 2: 0 actions (model builds automatically)<br>
+Phase 3: 1 action per file for ~100 files (the split-screen phase, with "Always do this" buttons reducing future work)<br>
+Phase 4: 0 actions per file (earned automation)<br><br>
+<b>Compare to every other organizer:</b> configure rules → drag files → create folders → rename manually → repeat forever.<br>
+This system's total cost is ~100 one-click decisions spread over the first month, then zero ongoing effort.
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>The Order of Operations</h2>
+<!-- ═══════════════════════════════════════════════════════ -->
+
+<p class="key">You asked: in what order should classify, rename, and reorganize happen? The order matters because each step feeds the next.</p>
+
+<div class="step-row">
+<div class="step-num" style="background:var(--amber);color:var(--bg)">1</div>
+<div class="step-body">
+<b>CLASSIFY first.</b>
+<p>Before you can rename or move a file, you need to know WHAT it is. Classification is read-only — it doesn't touch the file. It just answers: what type? what domain? what project? what chi-signature? This takes 0.35 seconds per file with the semantic scorer, zero API calls.</p>
+</div>
+</div>
+
+<div class="step-row">
+<div class="step-num" style="background:var(--cyan);color:var(--bg)">2</div>
+<div class="step-body">
+<b>RENAME second.</b>
+<p>Now that you know what the file IS, you can name it properly. The rename suggestion uses the classification result + the user's naming patterns + the folder context. Rename is low-risk (reversible, logged, doesn't move anything) so it's a safe early action.</p>
+</div>
+</div>
+
+<div class="step-row">
+<div class="step-num" style="background:var(--green);color:var(--bg)">3</div>
+<div class="step-body">
+<b>DEDUPLICATE third.</b>
+<p>Before moving files, remove the copies. No point organizing 3 copies of the same PDF into 3 different "correct" folders. Hash comparison is fast and definitive — identical hashes = identical files, no ambiguity.</p>
+</div>
+</div>
+
+<div class="step-row">
+<div class="step-num" style="background:var(--purple);color:var(--bg)">4</div>
+<div class="step-body">
+<b>REORGANIZE fourth.</b>
+<p>Now move files to their correct locations. This is the riskiest step (can break references, lose context) so it goes last, after you've classified, named, and deduped. The prediction engine shows where the file should go and why.</p>
+</div>
+</div>
+
+<div class="step-row">
+<div class="step-num" style="background:var(--blue);color:var(--bg)">5</div>
+<div class="step-body">
+<b>LEARN last.</b>
+<p>Every accept/reject/override from steps 2-4 is a learning signal. The system updates its prediction model. Next time the same file type appears, the prediction is closer to what the user actually wants.</p>
+</div>
+</div>
+
+<pre>
+CLASSIFY → RENAME → DEDUPLICATE → REORGANIZE → LEARN
+   |           |          |             |           |
+   |           |          |             |           └─ update prediction model
+   |           |          |             └─ move to correct folder (reversible)
+   |           |          └─ hash compare, pick keeper, archive rest
+   |           └─ suggest name, show split-screen, apply
+   └─ semantic score, chi-hash, meta-classify (read-only)
+</pre>
+
+<p>Each step is independently valuable. If the user only does step 1, they have a classified file system. If they do 1-2, they have well-named files. If they do 1-3, they have no duplicates. The system degrades gracefully — partial adoption still helps.</p>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>What Makes This Different From Everything Else</h2>
+<!-- ═══════════════════════════════════════════════════════ -->
+
+<div class="card">
+<div class="card-head">1. The prediction is the product.</div>
+<p>Most organizers organize. This one <b>predicts</b>. The organizing is a side effect of accurate prediction. If the prediction is wrong, you see it immediately and the system learns. If the prediction is right, the organizing happens automatically. The prediction engine is the thing you sell. The file organization is the thing it does.</p>
+</div>
+
+<div class="card">
+<div class="card-head">2. Trust is earned visibly, not requested.</div>
+<p>No "grant full disk access" dialog on day one. The system watches passively, then starts showing predictions without acting on them, then asks for per-file confirmation, then earns automatic trust for specific file types. The user can see their trust level increasing and can revoke it at any time for any category.</p>
+</div>
+
+<div class="card">
+<div class="card-head">3. The user sees the reasoning, not just the result.</div>
+<p>"I'm putting this in Finance/Invoices/2026 because: (a) you have 14 other invoices there, (b) the chi-signature is M=0.9, (c) you moved the last 3 invoices there, (d) the filename contains 'invoice' and '2026'." Four reasons. All verifiable. No "AI magic." The user can look at each reason and say "yeah, that's right" or "no, reason (c) is wrong because I changed my system last week." Then the system updates.</p>
+</div>
+
+<div class="card">
+<div class="card-head">4. The "Always do this" button is the killer feature.</div>
+<p>Every time the user confirms a prediction, they can make it a permanent rule. "Always put invoices in Finance/Invoices/{year}." One click. That rule now handles every future invoice automatically. The user builds their own automation, one rule at a time, without writing a single rule. The rules are just crystallized predictions that proved reliable.</p>
+</div>
+
+<div class="card">
+<div class="card-head">5. Zero configuration. Zero onboarding.</div>
+<p>The user installs it. It watches. It starts predicting. There is no setup wizard, no "select your folder structure," no "choose your naming convention." The system discovers all of that from behavior. The user's existing habits ARE the initial configuration.</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>The Trust Ladder</h2>
+<!-- ═══════════════════════════════════════════════════════ -->
+
+<p class="key">Trust isn't binary. It's a ladder with visible rungs.</p>
+
+<div class="step-row">
+<div class="step-num" style="background:var(--faint);color:var(--bg)">0</div>
+<div class="step-body">
+<b>SILENT OBSERVER</b> — <span class="pill p-blue">Days 1-7</span>
+<p>The system watches but does nothing visible. It's learning your patterns. No UI, no popups, no suggestions. Just a small icon in the system tray that says "Learning... 34 of 50 actions observed."</p>
+</div>
+</div>
+
+<div class="step-row">
+<div class="step-num" style="background:var(--amber);color:var(--bg)">1</div>
+<div class="step-body">
+<b>PREDICTION ONLY</b> — <span class="pill p-amber">Days 7-14</span>
+<p>The split-screen appears when you act on a file. It shows its prediction but doesn't do anything automatically. You can ignore it entirely. It's proving it can predict, not asking for permission to act.</p>
+</div>
+</div>
+
+<div class="step-row">
+<div class="step-num" style="background:var(--cyan);color:var(--bg)">2</div>
+<div class="step-body">
+<b>SUGGESTION + CONFIRM</b> — <span class="pill p-green">Days 14-30</span>
+<p>For file types where prediction accuracy is above 80%, the system starts suggesting proactively: "You just downloaded an invoice. Move to Finance/Invoices/2026?" One click to accept. The user is still in control but the system initiates.</p>
+</div>
+</div>
+
+<div class="step-row">
+<div class="step-num" style="background:var(--green);color:var(--bg)">3</div>
+<div class="step-body">
+<b>AUTO + LOG</b> — <span class="pill p-green">Day 30+</span>
+<p>For file types where prediction accuracy is above 95% AND the user has clicked "Always do this," the system acts automatically and logs it. A quiet daily summary: "Organized 12 files today. 3 invoices → Finance, 7 screenshots → renamed with dates, 2 duplicates → archived."</p>
+</div>
+</div>
+
+<div class="step-row">
+<div class="step-num" style="background:var(--purple);color:var(--bg)">4</div>
+<div class="step-body">
+<b>FULL PARTNER</b> — <span class="pill p-purple">Month 2+</span>
+<p>The system knows your file system better than you do. It can answer questions: "Where did I put that invoice from March?" It can warn you: "You're about to create a file in a folder that has 500 items — want me to create a subfolder?" It's not an organizer anymore. It's an assistant that understands your information architecture.</p>
+</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>The Prediction Model</h2>
+<!-- ═══════════════════════════════════════════════════════ -->
+
+<p class="key">How the system actually predicts what you're going to do. Five signals, weighted by reliability.</p>
+
+<div class="card">
+<div class="card-head">Signal 1: Destination Frequency (weight: 0.35)</div>
+<p>Where have files like this ended up before? Group by extension + chi-signature. If the last 10 .pdf files with M-dominant chi-scores all went to Finance/, that's a strong signal.</p>
+<p><b>Implementation:</b> <code>SELECT dest_path, COUNT(*) FROM file_actions WHERE ext = ? AND dominant_chi = ? GROUP BY dest_path ORDER BY count DESC</code></p>
+</div>
+
+<div class="card">
+<div class="card-head">Signal 2: Naming Pattern (weight: 0.25)</div>
+<p>How does the user name files of this type? Extract patterns: does the user prefix with dates? Use underscores or hyphens? Include project names? Capitalize?</p>
+<p><b>Implementation:</b> Store the last 50 renames. Extract regex patterns. When a new file of the same type appears, apply the most common pattern.</p>
+</div>
+
+<div class="card">
+<div class="card-head">Signal 3: Temporal Context (weight: 0.15)</div>
+<p>When is the user organizing? Monday morning cleanup = different behavior than Friday evening archive. Time-of-day and day-of-week correlate with different organizational modes.</p>
+<p><b>Implementation:</b> Bucket actions by hour and day-of-week. Weight recent patterns more than old ones (exponential decay, halflife = 30 days).</p>
+</div>
+
+<div class="card">
+<div class="card-head">Signal 4: Folder Context (weight: 0.15)</div>
+<p>What's already in the destination folder? If the user drops a file into a folder that already has 20 similar files, that's a strong signal. If the folder is empty, the signal is weak.</p>
+<p><b>Implementation:</b> Chi-signature centroid of the destination folder. Compare incoming file's chi-signature to the centroid. High similarity = high confidence.</p>
+</div>
+
+<div class="card">
+<div class="card-head">Signal 5: Co-occurrence (weight: 0.10)</div>
+<p>What files move together? If the user always moves .py files and .json files together when they're in the same folder, that's a project-bundling signal.</p>
+<p><b>Implementation:</b> Track which files move within 60 seconds of each other. Build association rules. When one file of a pair is moved, suggest moving the other.</p>
+</div>
+
+<div class="insight">
+<b>Final prediction = Σ(signal × weight × recency_decay)</b><br><br>
+The prediction is a weighted vote, not a neural network. The user can understand it. "I'm suggesting Finance/ because: 35% of the signal says your .pdf invoices go there, 25% says your naming pattern matches, 15% says you do this Monday mornings, 15% says Finance/ already has 14 similar files, 10% says invoice files co-occur with receipt files that are already there."<br><br>
+Every part is inspectable. No black box.
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>The Market Reality</h2>
+<!-- ═══════════════════════════════════════════════════════ -->
+
+<div class="card">
+<p class="key"><b>Who needs this:</b> Everyone with a Downloads folder they're embarrassed about. Every knowledge worker drowning in documents. Every researcher with files scattered across drives. Every small business owner who can't find that contract from March.</p>
+<p><b>Why nothing else works:</b> Existing tools either (a) require the user to set up rules first (nobody does this) or (b) make decisions without explaining them (nobody trusts this). The prediction engine requires zero setup and explains everything.</p>
+<p><b>What you actually sell:</b> Not file organization. You sell the <b>feeling of control</b> over your digital life. "I know where everything is. I know why it's there. And it got there without me thinking about it."</p>
+<p><b>The moat:</b> The prediction model is trained on YOUR behavior, not anyone else's. It gets better the longer you use it. Switching costs are high because no competitor has your behavioral data. This is a product that gets stickier over time, not less.</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>What's Already Built</h2>
+<!-- ═══════════════════════════════════════════════════════ -->
+
+<p class="key">Here's what exists right now that maps to this design:</p>
+
+<pre>
+BUILT                                  MAPS TO
+─────────────────────────────────────  ────────────────────────────────
+Folder Scanner (40 detectors)          → Phase 1: Observe (the eyes)
+Semantic Scorer (250 words, 10D χ)     → Signal 4: Folder Context
+File Drop API (create/read/move)       → Phase 3-4: Act on predictions  
+Shared Memory API (store/recall)       → Signal 1-5: Prediction model storage
+Clipboard API (pin/list/search)        → Co-occurrence tracking
+Job Manager (durable jobs)             → Phase 3: Confirm actions
+Review Gate (16 safety gates)          → Phase 3: Override/approve
+AHK Overlay (window-anchored)          → Phase 3 UI: Split-screen display
+Numbering Schema (5-digit codes)       → System addressing
+BIL Clipboard (copy=0.3/paste=1.0)     → Signal 5: Co-occurrence weights
+Hash Codec (chi coordinate hash)       → Signal 4: Folder centroid matching
+NLP Brain (63 stations)                → Intelligence pipeline
+Ollama (llama3.2:3b local)             → Rename suggestions, explanations
+</pre>
+
+<p class="key">What's still needed:</p>
+
+<pre>
+NOT BUILT                              PURPOSE
+─────────────────────────────────────  ────────────────────────────────
+Behavior logger                        Record every file action silently
+Prediction model (5-signal weighted)   Combine signals into predictions
+Split-screen UI component              The core interaction
+"Always do this" rule crystallizer     Convert confirmed predictions → rules
+Trust ladder state machine             Track per-filetype trust level
+Daily summary generator                "Organized 12 files today"
+Undo engine                            One-click reversal of any action
+Onboarding-free first-run experience   Just a tray icon that says "Learning..."
+</pre>
+
+<div class="divider"></div>
+
+<div class="footer">
+The Prediction Engine — Product Design v1.0<br>
+"Show them what they were going to do. Then show them what you'd do. Let the gap teach."<br>
+POF Hub — July 3, 2026
+</div>
+
+</body>
+</html>

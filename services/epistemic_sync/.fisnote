@@ -1,22 +1,21 @@
 ---
 fis_schema: "folder-index.v1"
-folder_id: "FLD-20260817-a6ba3978"
-folder: "GitHub\David-OS-v2\services\epistemic_sync"
+folder_id: "FLD-20260907-e2ccc000"
+folder: "GitHub\David-OSv3\services\epistemic_sync"
 folder_class: "project"
 confidence: 0.6
-dependency_risk: 0.333
+dependency_risk: 0.0
 dominant_family: "code"
-dominant_ratio: 0.667
-file_count: 3
-classified_at: "2026-08-17T12:58:35"
+dominant_ratio: 0.5
+file_count: 4
+classified_at: "2026-09-07T15:05:05"
 allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
 suggested_name: "epistemic_sync"
-system_markers: ["dir:__pycache__"]
 ---
 
 # FIS Folder Index: epistemic_sync
 
-**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 3  ·  **Dominant**: code (67%)
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 4  ·  **Dominant**: code (50%)
 
 ## Allowed actions
 - index

@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>River FIS — Scan &amp; Pick</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #080808;
+  --surface: #0f0f10;
+  --surface2: #17181b;
+  --surface3: #202229;
+  --border: #2b2d36;
+  --border-hover: #d4af37;
+  --gold: #d4af37;
+  --gold-dim: rgba(212,175,55,0.14);
+  --gold-glow: rgba(212,175,55,0.22);
+  --amber: #fbbf24;
+  --text: #e6e6e6;
+  --text-dim: #989ba6;
+  --text-muted: #5b5d66;
+  --green: #34d399;
+  --blue: #60a5fa;
+  --purple: #a78bfa;
+  --red: #f87171;
+  --teal: #2dd4bf;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: Inter, system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+  font-size: 14px;
+}
+.serif { font-family: "Crimson Text", serif; }
+.mono { font-family: "JetBrains Mono", monospace; font-size: 12.5px; }
+
+/* Mac-chrome window frame */
+.window {
+  max-width: 1180px;
+  margin: 24px auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+}
+.titlebar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 18px;
+  background: linear-gradient(180deg, #111114, #0c0c0e);
+  border-bottom: 1px solid var(--border);
+}
+.dots { display: flex; gap: 8px; }
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.dot.r { background: #ff5f57; }
+.dot.y { background: #febc2e; }
+.dot.g { background: #28c840; }
+.brand {
+  margin-left: 8px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  font-size: 12.5px;
+}
+.brand span { color: var(--gold); }
+.titlebar-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.api-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  color: var(--green);
+}
+.api-status::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green);
+}
+
+/* Sort engines top strip */
+.engines {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  padding: 0 24px;
+  overflow-x: auto;
+}
+.engine {
+  padding: 14px 22px;
+  font-size: 12.5px;
+  color: var(--text-dim);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: all 0.15s;
+  letter-spacing: 0.02em;
+}
+.engine:hover { color: var(--text); }
+.engine.active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+  background: linear-gradient(180deg, transparent, var(--gold-dim));
+}
+.engine .badge {
+  display: inline-block;
+  background: var(--gold);
+  color: #000;
+  font-weight: 700;
+  font-size: 9.5px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 6px;
+  letter-spacing: 0.05em;
+}
+
+/* Content area */
+.content { padding: 38px 48px 48px; }
+
+.hero { text-align: center; margin-bottom: 36px; }
+.hero-label {
+  color: var(--text-muted);
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.hero h1 {
+  font-family: "Crimson Text", serif;
+  font-size: 2.6rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  line-height: 1.1;
+}
+.hero h1 span { color: var(--gold); }
+.hero p {
+  color: var(--text-dim);
+  font-size: 14.5px;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+/* Picker card */
+.picker-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 26px;
+  margin-bottom: 24px;
+}
+.picker-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.picker-input {
+  flex: 1;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 13px 16px;
+  color: var(--text);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.picker-input:focus { border-color: var(--gold); }
+.picker-input::placeholder { color: var(--text-muted); }
+.btn {
+  border: 1px solid var(--border);
+  background: var(--surface3);
+  color: var(--text);
+  padding: 12px 20px;
+  border-radius: 7px;
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn:hover { border-color: var(--gold); color: var(--gold); }
+.btn-primary {
+  background: var(--amber);
+  color: #1a1100;
+  border-color: var(--amber);
+  font-weight: 700;
+}
+.btn-primary:hover {
+  background: #ffce4a;
+  border-color: #ffce4a;
+  color: #1a1100;
+  box-shadow: 0 0 24px rgba(251,191,36,0.35);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--text-dim);
+}
+.btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
+
+.section-label {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.presets {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+.preset {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 14px 12px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.15s;
+}
+.preset:hover {
+  border-color: var(--gold);
+  background: var(--gold-dim);
+}
+.preset-icon {
+  font-size: 18px;
+  margin-bottom: 6px;
+  color: var(--text-dim);
+}
+.preset:hover .preset-icon { color: var(--gold); }
+.preset-name { font-size: 12px; color: var(--text); font-weight: 500; }
+.preset-path {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+
+/* Recent scans */
+.recent {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 22px;
+  margin-bottom: 24px;
+}
+.recent-list { display: flex; flex-direction: column; gap: 8px; }
+.recent-item {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 16px;
+  align-items: center;
+  padding: 12px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.recent-item:hover { border-color: var(--gold); }
+.recent-path { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--text); }
+.recent-meta { font-size: 11px; color: var(--text-muted); }
+.recent-stats { font-size: 11px; color: var(--text-dim); }
+.recent-stats strong { color: var(--gold); font-weight: 600; }
+
+/* Scan action */
+.scan-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+}
+.scan-btn {
+  background: var(--amber);
+  color: #1a1100;
+  border: none;
+  padding: 16px 56px;
+  border-radius: 8px;
+  font-family: Inter, sans-serif;
+  font-size: 14.5px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: all 0.15s;
+}
+.scan-btn:hover {
+  box-shadow: 0 0 30px rgba(251,191,36,0.5);
+  transform: translateY(-1px);
+}
+
+/* Scan progress overlay */
+.scan-progress {
+  display: none;
+  background: var(--surface2);
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+  margin-bottom: 24px;
+  box-shadow: 0 0 28px var(--gold-glow);
+}
+.scan-progress.active { display: block; }
+.scan-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--surface3);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.scan-progress-label {
+  font-size: 13px;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.scan-progress-path {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.progress-bar {
+  height: 4px;
+  background: var(--surface3);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 18px;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--gold);
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+/* Post-scan results */
+.post-scan { display: none; }
+.post-scan.active { display: block; }
+
+.scan-summary {
+  background: var(--surface2);
+  border: 1px solid var(--green);
+  border-left: 3px solid var(--green);
+  border-radius: 10px;
+  padding: 22px;
+  margin-bottom: 24px;
+}
+.scan-summary-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.scan-summary-check {
+  width: 22px;
+  height: 22px;
+  background: var(--green);
+  color: #002418;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 13px;
+}
+.scan-summary-title { font-size: 14px; font-weight: 600; color: var(--text); }
+.scan-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 10px;
+}
+.summary-stat {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 14px;
+}
+.summary-stat-num {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+.summary-stat-num.gold { color: var(--gold); }
+.summary-stat-num.blue { color: var(--blue); }
+.summary-stat-num.red { color: var(--red); }
+.summary-stat-num.green { color: var(--green); }
+.summary-stat-label {
+  font-size: 10.5px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* Mode chooser */
+.mode-chooser-label {
+  text-align: center;
+  margin: 32px 0 18px;
+  color: var(--text-dim);
+  font-size: 13px;
+}
+.mode-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.mode-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 22px;
+  cursor: pointer;
+  transition: all 0.18s;
+  position: relative;
+  overflow: hidden;
+}
+.mode-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+}
+.mode-card.recommended {
+  border-color: var(--gold);
+  background: linear-gradient(180deg, var(--surface2), rgba(212,175,55,0.04));
+}
+.mode-card.recommended::before {
+  content: "RECOMMENDED";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #000;
+  background: var(--gold);
+  padding: 3px 7px;
+  border-radius: 3px;
+}
+.mode-card-icon {
+  font-size: 26px;
+  margin-bottom: 12px;
+  color: var(--gold);
+}
+.mode-card h3 {
+  font-family: "Crimson Text", serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+.mode-card p {
+  font-size: 12.5px;
+  color: var(--text-dim);
+  line-height: 1.55;
+  margin-bottom: 12px;
+}
+.mode-card .footnote {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .presets { grid-template-columns: repeat(2, 1fr); }
+  .scan-summary-grid { grid-template-columns: repeat(2, 1fr); }
+  .mode-cards { grid-template-columns: 1fr; }
+  .content { padding: 24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="window">
+
+  <!-- Title bar -->
+  <div class="titlebar">
+    <div class="dots">
+      <div class="dot r"></div>
+      <div class="dot y"></div>
+      <div class="dot g"></div>
+    </div>
+    <div class="brand">RIVER <span>FIS</span></div>
+    <div class="titlebar-right">
+      <div class="api-status">API connected</div>
+    </div>
+  </div>
+
+  <!-- Sort engines top strip -->
+  <div class="engines">
+    <div class="engine">Manual Sort</div>
+    <div class="engine active">File Intelligence System <span class="badge">FIS</span></div>
+    <div class="engine">Advanced Workbench</div>
+    <div class="engine">File Creation Automation</div>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+
+    <!-- Pre-scan state -->
+    <div id="preScan">
+
+      <div class="hero">
+        <div class="hero-label">Step One</div>
+        <h1>Point River at a <span>folder</span>.</h1>
+        <p>We'll catalog every file, hash for duplicates, flag anomalies, and surface what needs your attention. Nothing moves until you approve.</p>
+      </div>
+
+      <!-- Folder picker -->
+      <div class="picker-card">
+        <div class="section-label">Choose a Folder or Drive</div>
+        <div class="picker-row">
+          <input type="text" class="picker-input" placeholder="C:\Users\david\Downloads  —  or paste any path" value="">
+          <button class="btn">Browse…</button>
+        </div>
+
+        <div class="section-label" style="margin-top: 6px;">Quick Presets</div>
+        <div class="presets">
+          <div class="preset" data-path="C:\Users\david\Desktop">
+            <div class="preset-icon">▣</div>
+            <div class="preset-name">Desktop</div>
+            <div class="preset-path">~\Desktop</div>
+          </div>
+          <div class="preset" data-path="C:\Users\david\Downloads">
+            <div class="preset-icon">↓</div>
+            <div class="preset-name">Downloads</div>
+            <div class="preset-path">~\Downloads</div>
+          </div>
+          <div class="preset" data-path="C:\Users\david\Documents">
+            <div class="preset-icon">▤</div>
+            <div class="preset-name">Documents</div>
+            <div class="preset-path">~\Documents</div>
+          </div>
+          <div class="preset" data-path="C:\Users\david\OneDrive">
+            <div class="preset-icon">☁</div>
+            <div class="preset-name">OneDrive</div>
+            <div class="preset-path">~\OneDrive</div>
+          </div>
+          <div class="preset" data-path="O:\_Theophysics_v4">
+            <div class="preset-icon">◉</div>
+            <div class="preset-name">Obsidian</div>
+            <div class="preset-path">O:\_Theophysics_v4</div>
+          </div>
+          <div class="preset" data-path="D:\GitHub">
+            <div class="preset-icon">⌨</div>
+            <div class="preset-name">Developer</div>
+            <div class="preset-path">D:\GitHub</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent scans -->
+      <div class="recent">
+        <div class="section-label">Recent Scans</div>
+        <div class="recent-list">
+          <div class="recent-item">
+            <div>
+              <div class="recent-path">C:\Users\david\Downloads</div>
+              <div class="recent-meta">Scanned 2 hours ago · 412 MB</div>
+            </div>
+            <div class="recent-stats"><strong>14,221</strong> files · <strong>87</strong> dupes</div>
+            <button class="btn btn-ghost">Reload</button>
+          </div>
+          <div class="recent-item">
+            <div>
+              <div class="recent-path">O:\_Theophysics_v4</div>
+              <div class="recent-meta">Scanned yesterday · 8.4 GB</div>
+            </div>
+            <div class="recent-stats"><strong>24,532</strong> files · <strong>312</strong> dupes</div>
+            <button class="btn btn-ghost">Reload</button>
+          </div>
+          <div class="recent-item">
+            <div>
+              <div class="recent-path">D:\GTQ-BUILD</div>
+              <div class="recent-meta">Scanned 3 days ago · 22.1 GB</div>
+            </div>
+            <div class="recent-stats"><strong>67,108</strong> files · <strong>1,402</strong> dupes</div>
+            <button class="btn btn-ghost">Reload</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scan button -->
+      <div class="scan-action">
+        <button class="scan-btn" onclick="startScan()">Scan This Folder</button>
+      </div>
+
+    </div>
+
+    <!-- Scan progress -->
+    <div id="scanProgress" class="scan-progress">
+      <div class="scan-spinner"></div>
+      <div class="scan-progress-label">Walking the file tree…</div>
+      <div class="scan-progress-path mono" id="scanCurrentPath">C:\Users\david\Downloads</div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <!-- Post-scan state -->
+    <div id="postScan" class="post-scan">
+
+      <div class="scan-summary">
+        <div class="scan-summary-header">
+          <div class="scan-summary-check">✓</div>
+          <div class="scan-summary-title">Scan complete — <span class="mono" id="scannedPath">C:\Users\david\Downloads</span></div>
+        </div>
+        <div class="scan-summary-grid">
+          <div class="summary-stat">
+            <div class="summary-stat-num gold" id="filesScanned">0</div>
+            <div class="summary-stat-label">Files Scanned</div>
+          </div>
+          <div class="summary-stat">
+            <div class="summary-stat-num blue" id="duplicateGroups">0</div>
+            <div class="summary-stat-label">Duplicate Groups</div>
+          </div>
+          <div class="summary-stat">
+            <div class="summary-stat-num red" id="namingAnomalies">0</div>
+            <div class="summary-stat-label">Naming Anomalies</div>
+          </div>
+          <div class="summary-stat">
+            <div class="summary-stat-num green" id="protectedCount">0</div>
+            <div class="summary-stat-label">Protected (skipped)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mode-chooser-label">Choose how you want River to work through this scan</div>
+
+      <div class="mode-cards">
+        <div class="mode-card">
+          <div class="mode-card-icon">✋</div>
+          <h3>Manual</h3>
+          <p>You sort. River shows the inventory, you decide what stays and what goes — file by file or folder by folder.</p>
+          <div class="footnote">Highest control · slowest pace</div>
+        </div>
+        <div class="mode-card recommended">
+          <div class="mode-card-icon">◈</div>
+          <h3>File Intelligence System</h3>
+          <p>Describe intent. FIS proposes safe preview-only plans: Option A, B, C, then Ask FIS before Manual or Advanced.</p>
+          <div class="footnote">Best for most cases · guided</div>
+        </div>
+        <div class="mode-card">
+          <div class="mode-card-icon">⚙</div>
+          <h3>Advanced Workbench</h3>
+          <p>Build an ordered action stack directly. Every action category and rule option is available, but nothing runs until simulate + approve.</p>
+          <div class="footnote">Power-user · full control</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+const presets = document.querySelectorAll('.preset');
+const pickerInput = document.querySelector('.picker-input');
+presets.forEach(p => {
+  p.addEventListener('click', () => {
+    pickerInput.value = p.dataset.path;
+    pickerInput.focus();
+  });
+});
+
+const API_BASE = localStorage.getItem('fisApiBase') || 'http://localhost:8420';
+function fmt(n) { return Number(n || 0).toLocaleString(); }
+function applyScanSummary(scan) {
+  sessionStorage.setItem('fis_scan_id', scan.scan_id);
+  localStorage.setItem('fis_scan_id', scan.scan_id);
+  sessionStorage.setItem('fis_scan_summary', JSON.stringify(scan));
+  document.getElementById('scannedPath').textContent = scan.root;
+  document.getElementById('filesScanned').textContent = fmt(scan.files_scanned);
+  document.getElementById('duplicateGroups').textContent = fmt(scan.duplicate_groups);
+  document.getElementById('namingAnomalies').textContent = fmt(scan.naming_anomalies);
+  document.getElementById('protectedCount').textContent = fmt(scan.protected_count);
+}
+async function startScan() {
+  if (!pickerInput.value.trim()) pickerInput.value = 'C:\\Users\\david\\Downloads';
+  document.getElementById('preScan').style.display = 'none';
+  document.getElementById('scanProgress').classList.add('active');
+  document.getElementById('scannedPath').textContent = pickerInput.value;
+  document.getElementById('scanCurrentPath').textContent = pickerInput.value;
+  const fill = document.getElementById('progressFill');
+  fill.style.width = '18%';
+  try {
+    const res = await fetch(`${API_BASE}/api/scan`, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({path: pickerInput.value.trim()})});
+    fill.style.width = '88%';
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'scan failed');
+    applyScanSummary(data);
+    fill.style.width = '100%';
+    setTimeout(() => {
+      document.getElementById('scanProgress').classList.remove('active');
+      document.getElementById('postScan').classList.add('active');
+    }, 250);
+  } catch (err) {
+    document.getElementById('scanProgress').classList.remove('active');
+    document.getElementById('preScan').style.display = 'block';
+    alert('Scan failed: ' + err.message);
+  }
+}
+
+// Mode card routing
+document.querySelectorAll('.mode-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const title = card.querySelector('h3').textContent;
+    if (title.includes('File Intelligence System')) {
+      // Would navigate to HTML 2 in production
+      window.location.href = 'river-fis-2-intelligence-mode.html';
+    } else if (title.includes('Advanced')) {
+      window.location.href = 'river-fis-3-advanced-mode.html';
+    } else {
+      alert(title + ' — manual mode is not wired in this preview.');
+    }
+  });
+});
+</script>
+
+</body>
+</html>

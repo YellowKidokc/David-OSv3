@@ -23,6 +23,12 @@ from __future__ import annotations
 import argparse, datetime as dt, json, os, re, sys
 from pathlib import Path
 
+try:
+    from engine.path_write_policy import fisnote_write_allowed
+except ModuleNotFoundError:  # direct `python engine/canon_scan.py ...` launch
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+    from engine.path_write_policy import fisnote_write_allowed
+
 REGISTRY = Path(r"D:\GitHub\David-OS\system\canon_rules.json")
 NLP_URL = "http://localhost:8700/nlp/contradiction"
 NLP_MODEL = "contradiction_fast"   # fast DeBERTa; use contradiction_primary for final passes
@@ -285,7 +291,11 @@ def main():
 
     md, js = write_reports(target, hits, files_scanned, stamp, nlp_state, args.nlp, data)
 
-    if not args.no_fisnote:
+    allow_fisnotes = fisnote_write_allowed(target)
+    if not allow_fisnotes and not args.no_fisnote:
+        print("Policy: generated .fisnote writes are disabled globally; canon reports remain enabled.")
+
+    if not args.no_fisnote and allow_fisnotes:
         # propagate canon section into the fisnote of every scanned folder level
         folders = {target}
         for dirpath, dirnames, _ in os.walk(target):

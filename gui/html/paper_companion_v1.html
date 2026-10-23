@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en" data-fis-schema="3.0">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="FIS paper-companion viewer v1.0">
+<title>FIS Paper Companion</title>
+<style>
+/* Tokens verbatim from FIS_REFERENCE_v2.1.0 / fis_vault_intelligence_v3 */
+:root{color-scheme:dark;--bg:#060708;--panel:#0c0f14;--panel2:#090b0f;--line:#222a35;--text:#e7edf5;--muted:#8b97a7;--accent:#d1a922;--accent2:#f1d37a;--link:#6ea8e8;--red:#b0413e;--green:#5f9e6a;--blue:#4a7fb5;--purple:#9b7bd1;--orange:#b5854a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 system-ui,sans-serif}
+.layout{max-width:1500px;margin:auto;display:grid;grid-template-columns:230px minmax(0,1fr);gap:24px;padding:28px}
+main{min-width:0}
+h1{font:600 34px Georgia,serif;margin:5px 0 8px}
+h2{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin:30px 0 10px;border-bottom:1px solid var(--line);padding-bottom:5px}
+h3{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin:18px 0 6px}
+.eyebrow,code{font-family:ui-monospace,Consolas,monospace}
+.eyebrow{color:var(--accent);font-size:12px;letter-spacing:1px}
+.muted{color:var(--muted)}.null{color:#55606e;font-style:italic}
+.identity{border-left:3px solid var(--accent);padding:8px 0 8px 12px;margin:8px 0 14px;background:linear-gradient(90deg,rgba(209,169,34,.08),transparent)}
+.identity code{display:block;font-size:15px;color:var(--accent2);margin-bottom:4px;word-break:break-all}
+.identity span{display:block;color:var(--muted);font-size:12px}
+nav{border-right:1px solid var(--line);padding-right:16px;align-self:start;position:sticky;top:20px;max-height:calc(100vh - 40px);overflow:auto}
+nav a{display:block;color:var(--muted);text-decoration:none;padding:4px 0;font-size:12.5px;cursor:pointer}
+nav a:hover,nav a.on{color:var(--accent2)}
+nav .navgroup{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin:16px 0 5px}
+.panel{border:1px solid var(--line);background:var(--panel);padding:14px;margin-bottom:14px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.cols4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+table{width:100%;border-collapse:collapse;background:var(--panel);margin:6px 0}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top;font-size:12.5px}
+th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px}
+tr:hover td{background:#10141b}
+a{color:var(--link);text-decoration:none;cursor:pointer}a:hover{text-decoration:underline}
+.badge{display:inline-block;border:1px solid var(--line);padding:1px 7px;border-radius:3px;font:11px ui-monospace,monospace;margin:1px 2px;white-space:nowrap}
+.badge.admit{border-color:var(--green);color:var(--green)}
+.badge.strong{border-color:#7ba05b;color:#7ba05b}
+.badge.working{border-color:var(--accent);color:var(--accent2)}
+.badge.developing{border-color:var(--orange);color:var(--orange)}
+.badge.fragile{border-color:var(--red);color:var(--red)}
+.badge.retract{border-color:var(--red);color:#fff;background:var(--red)}
+.badge.gated{border-color:var(--red);color:#ffb3b1}
+.badge.flip{border-color:var(--blue);color:#9ec3e8}
+.badge.ok{border-color:var(--green);color:var(--green)}
+.chip{display:inline-block;border:1px solid var(--line);padding:3px 8px;border-radius:3px;font:11.5px ui-monospace,monospace;margin:2px}
+.chip.on{border-color:var(--accent);color:var(--accent2);background:rgba(209,169,34,.08)}
+.kv{display:grid;grid-template-columns:190px 1fr;gap:4px 10px;font-size:13px}
+.kv b{color:var(--muted);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:1px;padding-top:2px}
+.pos{color:#9ec39a}.neg{color:#e08a88}
+/* Obsidian callout parity — the ten types the rendered format actually uses */
+.co{border-left:3px solid var(--line);background:var(--panel2);padding:9px 12px;margin:8px 0}
+.co .cot{font:600 12px ui-monospace,monospace;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.co.success{border-color:var(--green)}.co.success .cot{color:var(--green)}
+.co.info{border-color:var(--blue)}.co.info .cot{color:#9ec3e8}
+.co.important{border-color:var(--accent)}.co.important .cot{color:var(--accent2)}
+.co.danger{border-color:var(--red)}.co.danger .cot{color:#ffb3b1}
+.co.warning{border-color:var(--orange)}.co.warning .cot{color:var(--orange)}
+.co.quote{border-color:var(--muted)}.co.quote .cot{color:var(--muted)}
+.co.abstract{border-color:var(--purple)}.co.abstract .cot{color:#c3aae8}
+.co.question{border-color:#4a9b8e}.co.question .cot{color:#7fc4b8}
+.co.caution{border-color:var(--orange)}.co.caution .cot{color:var(--orange)}
+.co.note{border-color:var(--line)}.co.note .cot{color:var(--muted)}
+details{border:1px solid var(--line);background:var(--panel2);margin:6px 0;padding:8px 10px}
+summary{cursor:pointer;color:var(--accent2);font-size:12.5px}
+blockquote{border-left:2px solid var(--line);margin:6px 0;padding:2px 0 2px 10px;color:var(--muted);font-size:12.5px}
+.scorebar{height:5px;background:#1a222d;margin-top:3px}.scorebar i{display:block;height:100%;background:var(--accent)}
+.secgrid{display:grid;grid-template-columns:repeat(10,1fr);gap:4px;margin:8px 0}
+.secgrid div{border:1px solid var(--line);background:var(--panel2);padding:6px 4px;text-align:center;font:11px ui-monospace,monospace;cursor:pointer}
+.secgrid div:hover{border-color:var(--accent)}
+.secgrid b{display:block;font-size:15px}
+input[type=search]{padding:8px 10px;border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:3px;min-width:240px}
+button{border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:7px 12px;border-radius:3px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+footer{margin:28px 0 8px;color:var(--muted);font-size:12px;border-top:1px solid var(--line);padding-top:12px}
+@media(max-width:1000px){.layout{grid-template-columns:1fr}nav{border-right:none;border-bottom:1px solid var(--line);padding:0 0 12px;position:static;max-height:none}.cols,.cols3,.cols4{grid-template-columns:1fr}.secgrid{grid-template-columns:repeat(5,1fr)}table{display:block;overflow:auto}}
+</style></head><body>
+<div class="layout">
+<nav>
+  <div class="eyebrow">FIS</div>
+  <div class="navgroup">Corpus</div>
+  <a class="on" data-view="collection">Collection</a>
+  <a data-view="fires">Fires</a>
+  <a data-view="index43">43-col index</a>
+  <div class="navgroup">Paper</div>
+  <a data-view="paper">Companion</a>
+  <div id="secnav"></div>
+  <div class="navgroup">Data</div>
+  <a id="loadbtn">Load index.json…</a>
+  <input type="file" id="file" accept=".json" style="display:none">
+  <div class="muted" style="font-size:11px;margin-top:10px" id="count"></div>
+</nav>
+<main>
+  <div class="eyebrow">FIS PAPER COMPANION v1.0 · API LAYER v0.4 · POF 2828</div>
+  <h1 id="pagetitle">Paper Companion</h1>
+  <div class="muted" id="datasrc">SAMPLE DATA — load <code>index.json</code> from the parser.</div>
+  <div style="margin:14px 0"><input type="search" id="q" placeholder="Filter: title, id, domain, framework key, build_next…"></div>
+  <div id="view"></div>
+  <footer>
+    Markdown is truth · index.json is a derived view · this page is a view of a view ·
+    POF 2828 · not a probability of truth · human ruling required
+  </footer>
+</main>
+</div>
+<script>
+/* ============================ DATA CONTRACT ============================
+Field names taken from the live templates, not invented:
+  02_MASTER_PAPER_TEMPLATE_v0.4.md  — YAML frontmatter + flat s01..s10 score keys
+  MASTER_INDEX_FORMAT_v0.3.md       — the 43-column index contract
+  02_MASTER_PAPER_RENDERED_FORMAT.md — S01..S11 render order
+  CLAIMS / MATH / GRADING / SERIES layer templates — joined on source_sha256
+
+index.json = { generated_at, source, papers:[ PAPER ] }
+
+PAPER carries, at minimum, the 43 index columns plus the flat section keys.
+Layer payloads are optional; each section degrades to "not supplied" rather
+than disappearing, because a missing layer is information.
+======================================================================== */
+
+const SECTIONS={
+ s01:{n:"Classification & Routing",  sub:[]},
+ s02:{n:"Claim Definition",          sub:["Definitions","Q0–Q14","Path to 10"]},
+ s03:{n:"Argument Structure & 4-D Defense", sub:["Primary argument","Classical Prior Art Anchors","4-D Case & Defensibility Audit","Hidden premises","Argument strengthening","Argument score","Truth Predicates","Terms","Structural Map"]},
+ s04:{n:"Evidence & Support",        sub:["Claims","Evidence ledger","Warrant Control","Dynamics","Coherence & Self-Assessment"]},
+ s05:{n:"Objections & Survival",     sub:["Counter-models","Six-Door Lens"]},
+ s06:{n:"Boundaries & Honesty",      sub:["Explicit boundaries","Reputation Form"]},
+ s07:{n:"Formal & Math",             sub:["Framework Alignment","Mathematics","Domain checks"]},
+ s08:{n:"Bridge Integrity",          sub:["Bridge registry","Bridge originality"]},
+ s09:{n:"Falsifiability & Predictions", sub:["Falsifier registry","Predictions","Explicit uncertainties"]},
+ s10:{n:"Audit & Provenance",        sub:["Audit","Inter-paper dependency map","Audit appendix"]},
+ s11:{n:"AI Scratchpad & Series Memory", sub:["Working notes"]}
+};
+const SIDS=["s01","s02","s03","s04","s05","s06","s07","s08","s09","s10"];
+/* 10_SCORING_SPEC v0.4 — load-bearing and honesty chains */
+const CHAIN_LB=["s02","s03","s04","s07"], CHAIN_HON=["s05","s06","s08","s09"];
+const GATE_SECTIONS=["s02","s03","s04","s05"];
+/* CDR-7, from the Dynamics section. Same seven as Nabla spec section 7. */
+const CDR7=["coherence","degradation","measurement","threshold","asymmetry","restoration","counterexample"];
+
+/* ============================ SCORING ============================
+Deterministic. Recomputed here from flat keys so the page can be trusted
+without re-running the parser — and so a disagreement between the stored
+score_total and the recomputed one is visible rather than silent.
+================================================================== */
+function compute(p){
+  const nets={};let tot=0,ceil=100,posSum=0,negSum=0;
+  SIDS.forEach(id=>{const n=p[id+"_net"]??((p[id+"_pos"]||0)+(p[id+"_neg"]||0));
+    nets[id]=n;tot+=n;posSum+=p[id+"_pos"]||0;negSum+=p[id+"_neg"]||0});
+  const lb=CHAIN_LB.every(id=>nets[id]>=8), hon=CHAIN_HON.every(id=>nets[id]>=8);
+  if(lb)ceil+=20; if(hon)ceil+=20;
+  const integrity=(lb&&hon&&negSum===0);
+  let cls="FRAGILE";
+  if(tot<0)cls="RETRACT";else if(tot>=130)cls="ADMIT";else if(tot>=100)cls="STRONG";
+  else if(tot>=70)cls="WORKING";else if(tot>=40)cls="DEVELOPING";
+  const gated=GATE_SECTIONS.some(id=>nets[id]<0)||p.evd_gated===true||p.gated===true;
+  const weakest=SIDS.reduce((a,b)=>nets[a]<=nets[b]?a:b);
+  const drift=(p.score_total!==undefined&&p.score_total!==null&&p.score_total!==tot)?p.score_total:null;
+  return {nets,tot,ceil,posSum,negSum,lb,hon,integrity,cls,gated,weakest,drift};
+}
+const clsBadge=c=>({ADMIT:"admit",STRONG:"strong",WORKING:"working",DEVELOPING:"developing",FRAGILE:"fragile",RETRACT:"retract"}[c]||"");
+
+/* ============================ SAMPLE ============================ */
+const SAMPLE=[{
+ paper_id:"axiom-flow-c4a58e", paper_uuid:"9f1c-demo-0001",
+ clean_title:"Theophysics Axiom Flow", original_title:"THEOPHYSICS AXIOM FLOW",
+ source_sha256:"c4a58e6cad41c03fdf1d83e1c04f87a170873858c21473c959d133a32a5b843e",
+ source_file:"INBOX/03_GENERAL/02_MASTER_EQUATION/axiom_flow.md",
+ captured_at:"2026-09-14T12:00:00Z", chapter:"ONE_STORY_03",
+ content_type:"ct-argument", reader_category:"rc-technical",
+ domain_primary:"theophysics", domain_primary_pct:60,
+ domain_secondary:"physics", domain_secondary_pct:25,
+ domain_tertiary:"theology", domain_tertiary_pct:15,
+ series:"series-master-eq",
+ tags:["tp-equation","tp-bridge","phys-quantum","theo-trinity"],
+ tags_weighted:[{tag:"tp-equation",weight:40},{tag:"tp-bridge",weight:30}],
+ framework_keys:["master-equation","logos-field","observer-theory","boundary-conditions"],
+ governing_question:"Does the axiom chain terminate without circularity?",
+ one_sentence_finding:"The chain terminates on a self-grounding root, but the agency premise remains open.",
+ claim_ids:["AF-C001","AF-C002","AF-C003"],
+ paper_rating:0, rating_awarded_by:"API",
+ evidence_status:"CANDIDATE", formal_status:"NOT_ESTABLISHED", lean_receipts:[],
+ human_review:{reviewer:null,ruling:null,date:null},
+ evd_state:"UNSCORED", evd_support:7, evd_counter:3, evd_balance:null, evd_families:2,
+ evd_coverage:0.62, evd_gated:false, evd_stable:null,
+ evd_weakest_claim:"AF-C003", evd_unassessed:4, evd_assessors:[],
+ coherence:null, physical_event:"undecided",
+ s01_pos:8,s01_neg:-3,s01_net:5,s01_ceiling:10,s01_rules:["S01-A1","S01-P1"],
+ s02_pos:8,s02_neg:-3,s02_net:5,s02_ceiling:10,s02_rules:["S02-A1","S02-P2"],
+ s03_pos:7,s03_neg:-5,s03_net:2,s03_ceiling:10,s03_rules:["S03-A1","S03-P1"],
+ s04_pos:7,s04_neg:-6,s04_net:1,s04_ceiling:10,s04_rules:["S04-A2","S04-P1","S04-P3"],
+ s05_pos:8,s05_neg:-5,s05_net:3,s05_ceiling:10,s05_rules:["S05-A1"],
+ s06_pos:6,s06_neg:-6,s06_net:0,s06_ceiling:10,s06_rules:["S06-P1"],
+ s07_pos:6,s07_neg:-9,s07_net:-3,s07_ceiling:10,s07_rules:["S07-A1","S07-P1"],
+ s08_pos:7,s08_neg:-9,s08_net:-2,s08_ceiling:10,s08_rules:["S08-P2"],
+ s09_pos:8,s09_neg:-4,s09_net:4,s09_ceiling:10,s09_rules:["S09-A4"],
+ s10_pos:9,s10_neg:0,s10_net:9,s10_ceiling:10,s10_rules:["S10-A1"],
+ score_total:24, score_ceiling:100, score_class:"RETRACT",
+ chains_loadbearing:false, chains_honesty:false, integrity_bonus:false, gated:false,
+ build_next:"S07 Formal & Math — dimensional checks; flag kappa and g_S below detection floor",
+ semantic_provider:"deepseek", semantic_model:"deepseek-reasoner", processed_date:"2026-09-14",
+ upstream_hashes:["e041cda64a1362285e4c50a09d8e81f3d728639e8cd9ea0e9fa9345122408894"],
+ downstream_implications:[],
+ /* --- layer payloads, joined on source_sha256 --- */
+ claims_layer:{
+   total_claims:3, claims_with_falsifiers:2, hidden_premises:2, lean_targets_queued:1,
+   predictions_logged:1, bridges_registered:2, bridges_blank_lost:0,
+   claims:[
+     {id:"AF-C001",statement:"Information is ontologically prior to matter.",modality:"Axiomatic",
+      status:"proposed",falsifier:"matter shown irreducible to information"},
+     {id:"AF-C002",statement:"A self-grounding terminus requires internal differentiation.",
+      modality:"Contingent",status:"supported",falsifier:"a simple terminus grounds itself"},
+     {id:"AF-C003",statement:"Agency cannot arise from deterministic self-evolution.",
+      modality:"Heuristic",status:"open",falsifier:null}],
+   hidden_premises_list:[
+     {id:"HP1",premise:"'Information' means the same thing in Shannon and Logos registers.",
+      exposed_in:"AF-C001"},
+     {id:"HP2",premise:"Differentiation implies personhood.",exposed_in:"AF-C002"}],
+   bridges:[
+     {id:"AF-B001",src:"Physics · sign operator",tgt:"Theology · grace",type:"homomorphism",
+      lost:"physical mechanism for divine agency",word_gate:"operator",preserved:"sign flip under composition",grade:"C"},
+     {id:"AF-B002",src:"Information theory · bit",tgt:"Theology · Logos",type:"analogy",
+      lost:"semantic content of Shannon bits",word_gate:"information",preserved:"none exhibited",grade:"B-"}],
+   predictions:[{id:"AF-P001",claim:"AF-C002",prediction:"bimodal coherence distribution",
+      deadline:"population study",outcome:"PENDING"}],
+   falsifiers:[
+     {id:"AF-F001",claim:"AF-C001",kill:"matter shown irreducible to information",status:"UNTESTED"},
+     {id:"AF-F002",claim:"AF-C002",kill:"another framework satisfies all 8 boundary conditions",status:"UNTESTED"}]},
+ math_layer:{
+   present:true, canonization_ready:false,
+   axioms:[{id:"AX1",statement:"chi is a product over necessary channels",status:"MODELED_FORMALLY"}],
+   equations:[{id:"EQ1",symbolic:"chi_local = G·M·E·S_eff·T·K·R·Q·F·C",
+     plain:"total coherence is the product of ten channels",
+     failure_mode:"if any channel is decorative, product collapse behaviour is lost",
+     status:"SUPERSEDED — Nabla Rule 25 states nine factors under C_W"}],
+   notation:[{sym:"S_eff",means:"exp(-eta·S_prod)",gate:"S_eff is not S_prod"}],
+   lean_targets:[{id:"LT1",theorem:"product_collapse",status:"QUEUED"}]},
+ grading_layer:{
+   axiom_nodes:["AX_GI_01","AX_GI_06"],
+   chi_coverage:{G:"covered",M:"partial",E:"covered",S:"absent",T:"partial",
+     K:"covered",R:"partial",Q:"absent",F:"absent",C:"covered"},
+   fruits:{love:2,joy:0,peace:1,patience:0,kindness:0,goodness:1,faithfulness:3,gentleness:0,selfcontrol:1},
+   law_alignment:["LAW_01","LAW_06"],
+   raw_metrics:{words:4820,readability_fk:13.2,headings:22,tables:9,equations:4,citations:11},
+   composite:{argument:6.2,evidence:4.1,formal:3.0,honesty:7.4},
+   path_to_10:["Produce the geodesic-deviation magnitude","Attach a Lean receipt for product collapse",
+     "Name a discriminating observation for AF-B001"]},
+ dynamics:{coherence:"DEFINED",degradation:"DEFINED",measurement:"UNRESOLVED",
+   threshold:"PROPOSED",asymmetry:"OBSERVED",restoration:"DEFINED",counterexample:"UNRESOLVED"},
+ six_door:{Human:"A life losing coherence feels it as fatigue, not argument.",
+   Metaphysical:"Grounding cannot be self-supplied without differentiation.",
+   Theological:"Grace as external ordering input.",
+   Scientific:"Open-system negentropy import.",
+   Formal:"Product collapse under a zero factor.",
+   External:"No independent anchor supplied yet."},
+ self_assessment:{argument_quality:7,evidence_quality:4,formal_rigor:3,honesty:8,
+   originality:6,clarity:7,scope_control:5,reproducibility:4,
+   self_grade:"WORKING", blind_spot:"I keep treating consilience as if it were evidence."},
+ audit:{held:["triadic termination structure"],broke:["ten forces measured in a laboratory"],
+   overstated:["chi proves theophysics"],defensible:["internal regress argument"],
+   blast_radius:"2 downstream papers depend on AF-C002"},
+ objections:[{id:"O1",objection:"The agency premise smuggles the conclusion.",
+   raised_by:"adversarial pass",response:"Marked open; premise stated as axiom on the page.",
+   status:"OPEN"}],
+ counter_models:[{proposed:"Deterministic self-evolution yields agency",
+   why_plausible:"No step is obviously impossible",breaking_point:"counterfactual selection undefined",
+   status:"UNRESOLVED"}],
+ truth_predicates:[{p:"Information is physical",modality:"Contingent"},
+   {p:"A terminus must be differentiated",modality:"Axiomatic"}],
+ uncertainties:["Whether kappa is measurable in principle"],
+ prior_art:[{anchor:"Wheeler — it from bit",relation:"anticipates AF-C001"},
+   {anchor:"Aquinas — first cause",relation:"anticipates the regress structure"}],
+ edges:[{relation:"depends_on",target:"it-from-bit-001"},
+   {relation:"contradicts",target:"copenhagen-minimal"}],
+ path:"papers/axiom_flow.md"
+},{
+ paper_id:"it-from-bit-001", paper_uuid:"9f1c-demo-0002",
+ clean_title:"It From Bit — Wheeler Anchor",
+ source_sha256:"e041cda64a1362285e4c50a09d8e81f3d728639e8cd9ea0e9fa9345122408894",
+ content_type:"ct-argument", reader_category:"rc-specialist",
+ domain_primary:"physics", domain_primary_pct:80, domain_secondary:"information", domain_secondary_pct:20,
+ series:"NONE", tags:["phys-quantum","tp-root"],
+ framework_keys:["logos-field","observer-theory","compression-theory"],
+ governing_question:"Is Wheeler's it-from-bit a usable anchor?",
+ one_sentence_finding:"It is a usable anchor for the informational priority claim, with a named word-gate risk.",
+ claim_ids:["IB-C001"], paper_rating:5, rating_awarded_by:"API",
+ evidence_status:"AUDITED", formal_status:"TARGETS_QUEUED", lean_receipts:[],
+ human_review:{reviewer:null,ruling:null,date:null},
+ evd_state:"SCORED", evd_support:9, evd_counter:3, evd_balance:3.5, evd_families:3,
+ evd_coverage:0.88, evd_gated:false, evd_stable:true, evd_weakest_claim:"IB-C001",
+ coherence:4, physical_event:"n/a",
+ s01_pos:10,s01_neg:0,s01_net:10,s01_ceiling:10,s01_rules:[],
+ s02_pos:9,s02_neg:0,s02_net:9,s02_ceiling:10,s02_rules:[],
+ s03_pos:8,s03_neg:0,s03_net:8,s03_ceiling:10,s03_rules:[],
+ s04_pos:9,s04_neg:-1,s04_net:8,s04_ceiling:10,s04_rules:["S04-P3"],
+ s05_pos:9,s05_neg:0,s05_net:9,s05_ceiling:10,s05_rules:[],
+ s06_pos:9,s06_neg:0,s06_net:9,s06_ceiling:10,s06_rules:[],
+ s07_pos:7,s07_neg:0,s07_net:7,s07_ceiling:10,s07_rules:["S07-P2"],
+ s08_pos:8,s08_neg:0,s08_net:8,s08_ceiling:10,s08_rules:["S08-P2"],
+ s09_pos:10,s09_neg:0,s09_net:10,s09_ceiling:10,s09_rules:[],
+ s10_pos:10,s10_neg:0,s10_net:10,s10_ceiling:10,s10_rules:[],
+ score_total:88, score_ceiling:100, score_class:"WORKING",
+ chains_loadbearing:false, chains_honesty:true, integrity_bonus:false, gated:false,
+ build_next:"S08 Bridges — name the word-gate on 'information'",
+ semantic_provider:"deepseek", semantic_model:"deepseek-reasoner", processed_date:"2026-09-14",
+ upstream_hashes:[], downstream_implications:["c4a58e6cad41c03fdf1d83e1c04f87a170873858c21473c959d133a32a5b843e"],
+ claims_layer:{total_claims:1,claims_with_falsifiers:1,hidden_premises:0,lean_targets_queued:0,
+   predictions_logged:0,bridges_registered:0,bridges_blank_lost:0,
+   claims:[{id:"IB-C001",statement:"Physical states are information-theoretic.",
+     modality:"Contingent",status:"supported",falsifier:"a state with no informational description"}],
+   hidden_premises_list:[],bridges:[],predictions:[],
+   falsifiers:[{id:"IB-F001",claim:"IB-C001",kill:"a state with no informational description",status:"UNTESTED"}]},
+ math_layer:{present:false},
+ grading_layer:{axiom_nodes:["AX_GI_06"],
+   chi_coverage:{G:"absent",M:"absent",E:"covered",S:"absent",T:"partial",K:"covered",
+     R:"absent",Q:"covered",F:"absent",C:"partial"},
+   fruits:{love:0,joy:0,peace:0,patience:0,kindness:0,goodness:0,faithfulness:1,gentleness:0,selfcontrol:0},
+   law_alignment:["LAW_06"],
+   raw_metrics:{words:2100,readability_fk:15.1,headings:9,tables:3,equations:1,citations:6},
+   composite:{argument:7.5,evidence:7.0,formal:5.0,honesty:8.0},
+   path_to_10:["Name the word-gate on 'information'"]},
+ dynamics:{coherence:"DEFINED",degradation:"NOT_APPLICABLE",measurement:"OBSERVED",
+   threshold:"NOT_APPLICABLE",asymmetry:"NOT_APPLICABLE",restoration:"NOT_APPLICABLE",
+   counterexample:"PROPOSED"},
+ six_door:{}, self_assessment:{}, audit:{}, objections:[], counter_models:[],
+ truth_predicates:[], uncertainties:[], prior_art:[{anchor:"Wheeler 1990",relation:"source"}],
+ edges:[{relation:"supports",target:"axiom-flow-c4a58e"}],
+ path:"papers/it_from_bit.md"
+}];
+
+/* ============================ STATE ============================ */
+let DATA=SAMPLE, view="collection", sel=SAMPLE[0].paper_id;
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const nul=v=>(v===null||v===undefined||v===""||(Array.isArray(v)&&!v.length))?'<span class="null">not supplied</span>':esc(Array.isArray(v)?v.join(", "):v);
+const byId=()=>{const m={};DATA.forEach(p=>m[p.paper_id]=p);return m};
+const cur=()=>byId()[sel]||DATA[0];
+function filtered(){const q=$("#q").value.trim().toLowerCase();if(!q)return DATA;
+  return DATA.filter(p=>[p.clean_title,p.paper_id,p.domain_primary,p.content_type,p.series,
+    (p.tags||[]).join(" "),(p.framework_keys||[]).join(" "),p.build_next,p.governing_question,
+    p.one_sentence_finding].join(" ").toLowerCase().includes(q))}
+
+/* helpers */
+const co=(type,title,body)=>`<div class="co ${type}"><div class="cot">${esc(title)}</div>${body}</div>`;
+const tbl=(heads,rows)=>rows&&rows.length
+  ? `<table><tr>${heads.map(h=>`<th>${esc(h)}</th>`).join("")}</tr>${rows.join("")}</table>`
+  : `<p class="muted">not supplied</p>`;
+const chips=a=>(a||[]).length?a.map(x=>`<span class="chip">${esc(x)}</span>`).join(""):'<span class="null">not supplied</span>';
+
+/* ============================ COLLECTION ============================ */
+function vCollection(){
+  const rows=filtered().map(p=>{const c=compute(p);
+    return `<tr>
+      <td><a onclick="sel='${p.paper_id}';go('paper')"><b>${esc(p.clean_title)}</b></a>
+        <br><span class="muted" style="font-size:11px">${esc(p.paper_id)} · ${esc((p.source_sha256||"").slice(0,12))}…</span></td>
+      <td><span class="badge ${clsBadge(c.cls)}">${c.cls}</span>
+        ${c.gated?' <span class="badge gated">GATED</span>':''}
+        ${p.evd_stable===false?' <span class="badge flip">FLIPS</span>':''}
+        ${c.drift!==null?` <span class="badge retract">DRIFT ${c.drift}≠${c.tot}</span>`:''}</td>
+      <td><b>${c.tot}</b><span class="muted">/${c.ceil}</span>
+        <div class="scorebar"><i style="width:${Math.max(0,Math.min(100,c.tot/1.5))}%"></i></div></td>
+      <td>${SECTIONS[c.weakest].n.replace(/ &.*/,"")} <span class="neg">${c.nets[c.weakest]}</span></td>
+      <td>${esc(p.domain_primary||"—")} <span class="muted">${p.domain_primary_pct||""}%</span></td>
+      <td style="font-size:12px">${esc(p.build_next||"—")}</td>
+      <td>${p.paper_rating>0?"+"+p.paper_rating:p.paper_rating}
+        <span class="muted">${esc(p.rating_awarded_by||"")}${p.human_review&&p.human_review.reviewer?" ✓"+esc(p.human_review.reviewer):""}</span></td></tr>`}).join("");
+  $("#pagetitle").textContent="Collection";
+  $("#view").innerHTML=`<h2>${filtered().length} papers</h2>
+    <table><tr><th>Paper</th><th>Class</th><th>Score</th><th>Weakest §</th>
+    <th>Domain</th><th>Build next</th><th>Rating</th></tr>${rows}</table>`;
+}
+
+/* ============================ FIRES ============================ */
+function vFires(){
+  const gated=DATA.filter(p=>compute(p).gated);
+  const drift=DATA.filter(p=>compute(p).drift!==null);
+  const flips=DATA.filter(p=>p.evd_stable===false);
+  const unscored=DATA.filter(p=>p.evd_state==="UNSCORED");
+  const noHuman=DATA.filter(p=>p.evd_state==="SCORED"&&!(p.human_review&&p.human_review.reviewer));
+  const blankLost=DATA.filter(p=>p.claims_layer&&p.claims_layer.bridges_blank_lost>0);
+  const noFals=DATA.filter(p=>p.claims_layer&&p.claims_layer.total_claims>p.claims_layer.claims_with_falsifiers);
+  const card=(t,why,arr,f)=>`<div class="panel"><h2 style="margin-top:0;border:0">${t}
+    <span class="muted">${arr.length}</span></h2>
+    <p class="muted" style="font-size:12px;margin:0 0 8px">${why}</p>
+    ${arr.length?arr.map(f).join(""):'<div class="muted">none</div>'}</div>`;
+  const lnk=p=>`<div><a onclick="sel='${p.paper_id}';go('paper')">${esc(p.clean_title)}</a>`;
+  $("#pagetitle").textContent="Fires";
+  $("#view").innerHTML=`<div class="cols">
+   ${card("Gated","A load-bearing section is below zero, or evd_gated is set. Blocks admission.",gated,p=>lnk(p)+` — ${esc(p.build_next||"")}</div>`)}
+   ${card("Score drift","Stored score_total disagrees with the score recomputed from the flat section keys. One of them is stale.",drift,p=>lnk(p)+` — stored ${p.score_total}, recomputed ${compute(p).tot}</div>`)}
+   ${card("Verdict flips","evd_stable is false — the verdict changes under reasonable reweighting.",flips,p=>lnk(p)+` — balance ${nul(p.evd_balance)}</div>`)}
+   ${card("Unscored","No evidence assessment has run.",unscored,p=>lnk(p)+` — ${esc(p.evd_state)}</div>`)}
+   ${card("Scored but unruled","Machine-scored with no human assessor. Inadmissible until ruled.",noHuman,p=>lnk(p)+`</div>`)}
+   ${card("Bridges with blank LOST","Index column 31 must be 0. A bridge with nothing named as lost is an unexamined bridge.",blankLost,p=>lnk(p)+` — ${p.claims_layer.bridges_blank_lost}</div>`)}
+   ${card("Claims without falsifiers","Claims outnumber falsifiers. Strong claims need defeat conditions.",noFals,
+     p=>lnk(p)+` — ${p.claims_layer.total_claims} claims, ${p.claims_layer.claims_with_falsifiers} falsifiers</div>`)}
+  </div>`;
+}
+
+/* ============================ 43-COLUMN INDEX ============================ */
+const COLS43=[["paper_id",p=>p.paper_id],["source_sha256",p=>(p.source_sha256||"").slice(0,10)+"…"],
+ ["clean_title",p=>p.clean_title],["chapter",p=>p.chapter],["content_type",p=>p.content_type],
+ ["domain",p=>p.domain_primary],["reader_category",p=>p.reader_category],
+ ["governing_question",p=>p.governing_question],["one_sentence_finding",p=>p.one_sentence_finding],
+ ["paper_rating",p=>p.paper_rating],["rating_awarded_by",p=>p.rating_awarded_by],
+ ["evidence_status",p=>p.evidence_status],["formal_status",p=>p.formal_status],
+ ["evd_state",p=>p.evd_state],["evd_support",p=>p.evd_support],["evd_counter",p=>p.evd_counter],
+ ["evd_balance",p=>p.evd_balance],["evd_families",p=>p.evd_families],["evd_coverage",p=>p.evd_coverage],
+ ["evd_gated",p=>p.evd_gated],["evd_stable",p=>p.evd_stable],["evd_weakest_claim",p=>p.evd_weakest_claim],
+ ["coherence",p=>p.coherence],["physical_event",p=>p.physical_event],
+ ["total_claims",p=>p.claims_layer&&p.claims_layer.total_claims],
+ ["claims_with_falsifiers",p=>p.claims_layer&&p.claims_layer.claims_with_falsifiers],
+ ["hidden_premises",p=>p.claims_layer&&p.claims_layer.hidden_premises],
+ ["lean_targets_queued",p=>p.claims_layer&&p.claims_layer.lean_targets_queued],
+ ["predictions_logged",p=>p.claims_layer&&p.claims_layer.predictions_logged],
+ ["bridges_registered",p=>p.claims_layer&&p.claims_layer.bridges_registered],
+ ["bridges_blank_lost",p=>p.claims_layer&&p.claims_layer.bridges_blank_lost],
+ ["truth_predicates",p=>(p.truth_predicates||[]).length],
+ ["source_paragraphs",p=>p.source_paragraphs],
+ ["original_argument_steps",p=>p.original_argument_steps],
+ ["total_argument_steps",p=>p.total_argument_steps],
+ ["supplementary_arguments",p=>p.supplementary_arguments],
+ ["weak_links_identified",p=>p.weak_links_identified],
+ ["semantic_provider",p=>p.semantic_provider],["semantic_model",p=>p.semantic_model],
+ ["processed_date",p=>p.processed_date],["tags",p=>(p.tags||[]).join(" ")],
+ ["claim_ids",p=>(p.claim_ids||[]).join(" ")],["lean_receipts",p=>(p.lean_receipts||[]).join(" ")]];
+function vIndex43(){
+  const head=COLS43.map(([n],i)=>`<th>${i+1}<br><span style="text-transform:none">${esc(n)}</span></th>`).join("");
+  const rows=filtered().map(p=>`<tr>${COLS43.map(([,f])=>{let v;try{v=f(p)}catch(e){v=null}
+    return `<td>${v===undefined||v===null||v===""?'<span class="null">·</span>':esc(String(v)).slice(0,42)}</td>`}).join("")}</tr>`).join("");
+  const missing=COLS43.filter(([,f])=>DATA.every(p=>{let v;try{v=f(p)}catch(e){v=null}
+    return v===undefined||v===null||v===""})).map(([n])=>n);
+  $("#pagetitle").textContent="43-column index";
+  $("#view").innerHTML=
+   (missing.length?co("warning","Columns with no data in any paper",
+     `<p style="margin:0">${missing.map(m=>`<span class="chip">${esc(m)}</span>`).join("")}</p>
+      <p class="muted" style="font-size:12px;margin:6px 0 0">Either the parser is not emitting these,
+      or the source map in MASTER_INDEX_FORMAT_v0.3 points at a field name the template does not declare.</p>`):"")+
+   `<div style="overflow:auto"><table>${"<tr>"+head+"</tr>"}${rows}</table></div>`;
+}
+
+/* ============================ PAPER COMPANION ============================ */
+function vPaper(){
+  const p=cur();if(!p){$("#view").innerHTML="no record";return}
+  const c=compute(p);
+  const cl=p.claims_layer||{}, ml=p.math_layer||{}, gl=p.grading_layer||{}, sa=p.self_assessment||{};
+
+  /* scorecard */
+  const grid=SIDS.map(id=>`<div onclick="location.hash='#${id}'">
+    <span class="muted">${id.toUpperCase()}</span><b class="${c.nets[id]<0?"neg":"pos"}">${c.nets[id]}</b>
+    <span class="muted" style="font-size:9px">${esc(SECTIONS[id].n.split(" ")[0])}</span></div>`).join("");
+  const scorecard=`<div class="panel">
+    <div class="cols4" style="margin-bottom:10px">
+      <div><span class="muted" style="font-size:11px">CLASS</span><br>
+        <span class="badge ${clsBadge(c.cls)}">${c.cls}</span>
+        ${c.gated?'<span class="badge gated">GATED</span>':''}</div>
+      <div><span class="muted" style="font-size:11px">SCORE</span><br><b style="font-size:20px">${c.tot}</b>
+        <span class="muted">/${c.ceil}</span></div>
+      <div><span class="muted" style="font-size:11px">CHAINS</span><br>
+        <span class="badge ${c.lb?"ok":""}">LB ${c.lb?"✓":"✗"}</span>
+        <span class="badge ${c.hon?"ok":""}">HON ${c.hon?"✓":"✗"}</span>
+        ${c.integrity?'<span class="badge ok">+5</span>':''}</div>
+      <div><span class="muted" style="font-size:11px">STANDING</span><br>
+        rating ${p.paper_rating>0?"+"+p.paper_rating:p.paper_rating} <span class="muted">${esc(p.rating_awarded_by||"")}</span></div>
+    </div>
+    <div class="secgrid">${grid}</div>
+    ${c.drift!==null?co("danger","Score drift",
+      `<p style="margin:0">Stored <code>score_total: ${p.score_total}</code> but the flat section keys
+       recompute to <b>${c.tot}</b>. One is stale — the parser and the frontmatter disagree.</p>`):""}
+    ${p.build_next?co("important","Build next",`<p style="margin:0">${esc(p.build_next)}</p>`):""}
+  </div>`;
+
+  /* three independent axes — never collapsed */
+  const axes=`<div class="cols3">
+    <div class="panel"><h3>Reviewed</h3><b>${nul(p.human_review&&p.human_review.reviewer)}</b>
+      <div class="muted" style="font-size:11px">has a human ruled</div></div>
+    <div class="panel"><h3>Evidence standing</h3><b>${nul(p.evidence_status)}</b>
+      <div class="muted" style="font-size:11px">candidate / audited / approved</div></div>
+    <div class="panel"><h3>Formally verified</h3><b>${nul(p.formal_status)}</b>
+      <div class="muted" style="font-size:11px">receipts: ${nul(p.lean_receipts)}</div></div></div>`;
+
+  const S=(id,body)=>`<h2 id="${id}">${id.toUpperCase()} · ${esc(SECTIONS[id].n)}
+    <span class="muted" style="float:right;font-size:11px">net
+    <span class="${c.nets[id]<0?"neg":"pos"}">${c.nets[id]??"—"}</span>/${p[id+"_ceiling"]??10}
+    ${(p[id+"_rules"]||[]).map(r=>`<span class="badge">${esc(r)}</span>`).join("")}</span></h2>${body}`;
+
+  const s01=S("s01",`<div class="panel"><div class="kv">
+    <b>Governing question</b><div>${nul(p.governing_question)}</div>
+    <b>One-sentence finding</b><div>${nul(p.one_sentence_finding)}</div>
+    <b>Content type</b><div>${nul(p.content_type)}</div>
+    <b>Reader category</b><div>${nul(p.reader_category)}</div>
+    <b>Domains</b><div>${[["domain_primary","domain_primary_pct"],["domain_secondary","domain_secondary_pct"],
+      ["domain_tertiary","domain_tertiary_pct"]].filter(([d])=>p[d]).map(([d,pc])=>
+      `<span class="chip">${esc(p[d])} ${p[pc]||"?"}%</span>`).join("")||nul(null)}
+      ${(()=>{const t=["domain_primary_pct","domain_secondary_pct","domain_tertiary_pct"]
+        .reduce((a,k)=>a+(p[k]||0),0);return t!==100?` <span class="badge retract">sums to ${t}, not 100</span>`:""})()}</div>
+    <b>Series</b><div>${nul(p.series)}</div>
+    <b>Chapter</b><div>${nul(p.chapter)}</div>
+    <b>Tags</b><div>${chips(p.tags)}</div>
+    <b>Framework keys</b><div>${chips(p.framework_keys)}</div>
+    <b>Claim ids</b><div>${chips(p.claim_ids)}</div></div></div>`);
+
+  const s02=S("s02",`<div class="panel"><div class="kv">
+      <b>Claims declared</b><div>${nul(cl.total_claims)}</div>
+      <b>With falsifiers</b><div>${nul(cl.claims_with_falsifiers)}
+        ${cl.total_claims>cl.claims_with_falsifiers?'<span class="badge gated">gap</span>':''}</div>
+      <b>Hidden premises</b><div>${nul(cl.hidden_premises)}</div></div></div>
+    <h3>Claims</h3>${tbl(["ID","Statement","Modality","Status","Falsifier"],
+      (cl.claims||[]).map(x=>`<tr><td><code>${esc(x.id)}</code></td><td>${esc(x.statement)}</td>
+       <td>${esc(x.modality)}</td><td>${esc(x.status)}</td><td>${nul(x.falsifier)}</td></tr>`))}
+    <h3>Path to 10</h3>${(gl.path_to_10||[]).length
+      ?`<ol>${gl.path_to_10.map(s=>`<li>${esc(s)}</li>`).join("")}</ol>`:'<p class="muted">not supplied</p>'}`);
+
+  const s03=S("s03",`<h3>Hidden premises</h3>${tbl(["ID","Premise","Exposed in"],
+      (cl.hidden_premises_list||[]).map(x=>`<tr><td><code>${esc(x.id)}</code></td>
+       <td>${esc(x.premise)}</td><td>${esc(x.exposed_in)}</td></tr>`))}
+    <h3>Classical prior art anchors</h3>${tbl(["Anchor","Relation"],
+      (p.prior_art||[]).map(x=>`<tr><td>${esc(x.anchor)}</td><td>${esc(x.relation)}</td></tr>`))}
+    <h3>Extracted truth predicates</h3>${tbl(["Predicate","Modality"],
+      (p.truth_predicates||[]).map(x=>`<tr><td>${esc(x.p)}</td><td>${esc(x.modality)}</td></tr>`))}`);
+
+  const s04=S("s04",`<div class="panel"><div class="kv">
+      <b>Support / counter</b><div>${nul(p.evd_support)} / ${nul(p.evd_counter)}</div>
+      <b>Balance</b><div>${nul(p.evd_balance)}</div>
+      <b>Families</b><div>${nul(p.evd_families)}</div>
+      <b>Coverage</b><div>${nul(p.evd_coverage)}</div>
+      <b>Weakest claim</b><div>${nul(p.evd_weakest_claim)}</div>
+      <b>Unassessed</b><div>${nul(p.evd_unassessed)}</div>
+      <b>Assessors</b><div>${chips(p.evd_assessors)}</div></div></div>
+    <h3>Dynamics — CDR-7</h3>${tbl(["Question","Answer"],
+      CDR7.map(k=>`<tr><td>${k}</td><td>${(p.dynamics&&p.dynamics[k])
+        ?`<span class="badge">${esc(p.dynamics[k])}</span>`:nul(null)}</td></tr>`))}
+    ${co("caution","On completing this card",
+      "Do not manufacture a threshold, restoration mechanism, or counterexample merely to fill a row. UNRESOLVED is an answer.")}`);
+
+  const s05=S("s05",`<h3>Objections</h3>${tbl(["ID","Objection","Raised by","Response","Status"],
+      (p.objections||[]).map(x=>`<tr><td><code>${esc(x.id)}</code></td><td>${esc(x.objection)}</td>
+       <td>${esc(x.raised_by)}</td><td>${nul(x.response)}</td><td>${esc(x.status)}</td></tr>`))}
+    <h3>Counter-models</h3>${tbl(["Proposed","Why plausible","Breaking point","Status"],
+      (p.counter_models||[]).map(x=>`<tr><td>${esc(x.proposed)}</td><td>${esc(x.why_plausible)}</td>
+       <td>${esc(x.breaking_point)}</td><td>${esc(x.status)}</td></tr>`))}
+    <h3>Six-door explanatory lens</h3>${Object.keys(p.six_door||{}).length
+      ?Object.entries(p.six_door).map(([d,t])=>co("abstract",d,`<p style="margin:0">${esc(t)}</p>`)).join("")
+      :'<p class="muted">not supplied</p>'}`);
+
+  const s06=S("s06",`<h3>Self-assessment / reputation form</h3>
+    ${Object.keys(sa).length?tbl(["Dimension","0–10"],
+      Object.entries(sa).filter(([k])=>!["self_grade","blind_spot"].includes(k))
+      .map(([k,v])=>`<tr><td>${esc(k.replace(/_/g," "))}</td><td>${esc(v)}</td></tr>`))
+      :'<p class="muted">not supplied</p>'}
+    ${sa.self_grade?`<p>Self-grade: <span class="badge">${esc(sa.self_grade)}</span></p>`:""}
+    ${sa.blind_spot?co("warning","Declared blind spot",`<p style="margin:0">${esc(sa.blind_spot)}</p>`):""}
+    <h3>Audit</h3>${Object.keys(p.audit||{}).length?`<div class="kv">
+      <b>Held</b><div>${chips(p.audit.held)}</div>
+      <b>Broke</b><div>${chips(p.audit.broke)}</div>
+      <b>Overstated</b><div>${chips(p.audit.overstated)}</div>
+      <b>Defensible</b><div>${chips(p.audit.defensible)}</div>
+      <b>Blast radius</b><div>${nul(p.audit.blast_radius)}</div></div>`:'<p class="muted">not supplied</p>'}`);
+
+  const s07=S("s07",ml.present===false
+    ? co("note","No mathematics layer","<p style=\"margin:0\">Call 3 is conditional and did not run for this paper. That is a recorded fact, not a gap.</p>")
+    : `<h3>Axiom inventory</h3>${tbl(["ID","Statement","Status"],
+        (ml.axioms||[]).map(x=>`<tr><td><code>${esc(x.id)}</code></td><td>${esc(x.statement)}</td>
+         <td>${esc(x.status)}</td></tr>`))}
+      <h3>Equations</h3>${tbl(["ID","Symbolic","Plain English","Failure mode","Status"],
+        (ml.equations||[]).map(x=>`<tr><td><code>${esc(x.id)}</code></td><td><code>${esc(x.symbolic)}</code></td>
+         <td>${esc(x.plain)}</td><td class="neg">${esc(x.failure_mode)}</td><td>${esc(x.status)}</td></tr>`))}
+      <h3>Notation dictionary</h3>${tbl(["Symbol","Means","No-drift gate"],
+        (ml.notation||[]).map(x=>`<tr><td><code>${esc(x.sym)}</code></td><td>${esc(x.means)}</td>
+         <td>${esc(x.gate)}</td></tr>`))}
+      <h3>Lean targets</h3>${tbl(["ID","Theorem","Status"],
+        (ml.lean_targets||[]).map(x=>`<tr><td><code>${esc(x.id)}</code></td><td><code>${esc(x.theorem)}</code></td>
+         <td>${esc(x.status)}</td></tr>`))}
+      <p class="muted">Canonization ready: ${ml.canonization_ready===true?"yes":ml.canonization_ready===false?"no":nul(null)}</p>
+      <h3>Framework alignment</h3><div class="kv">
+        <b>Axiom nodes</b><div>${chips(gl.axiom_nodes)}</div>
+        <b>Law alignment</b><div>${chips(gl.law_alignment)}</div></div>
+      <h3>Variable coverage</h3>
+      ${co("warning","Naming",
+        "This is <b>coverage of the Master Equation factors</b>, not a Nabla address and not canonical χ. Nabla Rule 25 keeps the ten-factor filing diagnostic separate from χ; the letters are not interchangeable between the two systems.")}
+      ${gl.chi_coverage?`<table><tr>${Object.keys(gl.chi_coverage).map(k=>`<th>${k}</th>`).join("")}</tr>
+        <tr>${Object.values(gl.chi_coverage).map(v=>`<td style="text-align:center">${
+          v==="covered"?'<span class="pos">●</span>':v==="partial"?'<span style="color:var(--accent)">◐</span>':'<span class="muted">○</span>'}
+          <br><span class="muted" style="font-size:10px">${esc(v)}</span></td>`).join("")}</tr></table>`
+        :'<p class="muted">not supplied</p>'}
+      <h3>Raw metrics</h3>${gl.raw_metrics?`<div class="kv">${Object.entries(gl.raw_metrics)
+        .map(([k,v])=>`<b>${esc(k)}</b><div>${esc(v)}</div>`).join("")}</div>`:'<p class="muted">not supplied</p>'}
+      <h3>Composite scores</h3>${gl.composite?tbl(["Axis","Score"],
+        Object.entries(gl.composite).map(([k,v])=>`<tr><td>${esc(k)}</td><td>${esc(v)}
+         <div class="scorebar"><i style="width:${v*10}%"></i></div></td></tr>`)):'<p class="muted">not supplied</p>'}`);
+
+  const s08=S("s08",`<h3>Bridge registry</h3>${tbl(["ID","Source → Target","Type","LOST","Word-gate","Preserved structure","Grade"],
+      (cl.bridges||[]).map(x=>`<tr><td><code>${esc(x.id)}</code></td><td>${esc(x.src)} → ${esc(x.tgt)}</td>
+       <td>${esc(x.type)}</td><td class="${x.lost?"":"neg"}">${x.lost?esc(x.lost):"BLANK — must not be"}</td>
+       <td><code>${esc(x.word_gate)}</code></td><td>${nul(x.preserved)}</td><td>${esc(x.grade)}</td></tr>`))}
+    ${co("danger","Isomorphism discipline",
+      "Do not call an analogy an isomorphism unless the preserved structure genuinely constrains both sides. A bridge whose LOST column is blank has not been examined.")}`);
+
+  const s09=S("s09",`<h3>Falsifier registry</h3>${tbl(["ID","Claim","Kill condition","Status"],
+      (cl.falsifiers||[]).map(x=>`<tr><td><code>${esc(x.id)}</code></td><td>${esc(x.claim)}</td>
+       <td>${esc(x.kill)}</td><td>${esc(x.status)}</td></tr>`))}
+    <h3>Predictions</h3>${tbl(["ID","Claim","Prediction","Deadline","Outcome"],
+      (cl.predictions||[]).map(x=>`<tr><td><code>${esc(x.id)}</code></td><td>${esc(x.claim)}</td>
+       <td>${esc(x.prediction)}</td><td>${esc(x.deadline)}</td><td>${esc(x.outcome)}</td></tr>`))}
+    <h3>Explicit uncertainties</h3>${(p.uncertainties||[]).length
+      ?`<ul>${p.uncertainties.map(u=>`<li>${esc(u)}</li>`).join("")}</ul>`:'<p class="muted">not supplied</p>'}`);
+
+  const s10=S("s10",`<div class="panel"><div class="kv">
+      <b>Source file</b><div><code>${nul(p.source_file||p.path)}</code></div>
+      <b>source_sha256</b><div><code style="word-break:break-all">${nul(p.source_sha256)}</code></div>
+      <b>Captured</b><div>${nul(p.captured_at)}</div>
+      <b>Processed</b><div>${nul(p.processed_date)}</div>
+      <b>Provider / model</b><div>${nul(p.semantic_provider)} · ${nul(p.semantic_model)}</div>
+      <b>paper_uuid</b><div><code>${nul(p.paper_uuid)}</code></div></div></div>
+    <h3>Inter-paper dependency map</h3>
+    <div class="kv"><b>Upstream hashes</b><div>${(p.upstream_hashes||[]).length
+      ?p.upstream_hashes.map(h=>`<code class="chip">${esc(h.slice(0,14))}…</code>`).join(""):nul(null)}</div>
+      <b>Downstream implications</b><div>${(p.downstream_implications||[]).length
+      ?p.downstream_implications.map(h=>`<code class="chip">${esc(h.slice(0,14))}…</code>`).join(""):nul(null)}</div></div>
+    <h3>Edges</h3>${tbl(["Relation","Target"],(p.edges||[]).map(e=>`<tr><td>${esc(e.relation)}</td>
+      <td><a onclick="sel='${esc(e.target)}';go('paper')">${esc(e.target)}</a></td></tr>`))}`);
+
+  const s11=S("s11",(p.scratchpad
+    ?co("quote","Working notes",`<p style="margin:0">${esc(p.scratchpad)}</p>`)
+    :'<p class="muted">not supplied</p>'));
+
+  $("#pagetitle").textContent=p.clean_title||p.paper_id;
+  $("#view").innerHTML=
+   `<div class="identity"><code>${esc(p.paper_id)} · ${esc(p.paper_uuid||"no uuid")}</code>
+     <span>${esc(p.source_sha256||"")}</span></div>`+
+   scorecard+`<h2>Standing — three independent axes</h2>${axes}`+
+   s01+s02+s03+s04+s05+s06+s07+s08+s09+s10+s11;
+
+  $("#secnav").innerHTML=SIDS.concat("s11").map(id=>
+    `<a onclick="go('paper');setTimeout(()=>location.hash='#${id}',0)">${id.toUpperCase()} ${esc(SECTIONS[id].n.split(" &")[0])}</a>`).join("");
+}
+
+/* ============================ WIRE UP ============================ */
+const VIEWS={collection:vCollection,fires:vFires,index43:vIndex43,paper:vPaper};
+function go(v){view=v;
+  document.querySelectorAll("nav a[data-view]").forEach(a=>a.classList.toggle("on",a.dataset.view===v));
+  VIEWS[v]();$("#count").textContent=`${DATA.length} papers · ${DATA===SAMPLE?"SAMPLE":"LOADED"}`;}
+document.querySelectorAll("nav a[data-view]").forEach(a=>a.onclick=()=>go(a.dataset.view));
+$("#q").oninput=()=>go(view);
+$("#loadbtn").onclick=()=>$("#file").click();
+$("#file").onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();
+  r.onload=()=>{try{const j=JSON.parse(r.result);if(!j.papers)throw 0;
+    DATA=j.papers;sel=DATA[0]&&DATA[0].paper_id;
+    $("#datasrc").innerHTML=`index.json — <b>${esc(j.source||"")}</b> · generated ${esc(j.generated_at||"")}`;
+    go(view);}catch(x){alert("Not a valid index.json (need a .papers array)")}};
+  r.readAsText(f)};
+go("collection");
+</script></body></html>

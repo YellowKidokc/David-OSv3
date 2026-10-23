@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en" data-fis-schema="2.1"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="fis-schema" content="2.1"><meta name="generator" content="FIS folder-brain generator">
+<title>FIS | THEOPHYSICS_REFINED_PAPERS</title>
+<style>
+:root{color-scheme:dark;--bg:#060708;--panel:#0c0f14;--panel2:#090b0f;--line:#222a35;--text:#e7edf5;--muted:#8b97a7;--accent:#d1a922;--accent2:#f1d37a;--link:#6ea8e8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 system-ui,sans-serif}.layout{max-width:1500px;margin:auto;display:grid;grid-template-columns:230px minmax(0,1fr);gap:24px;padding:28px}main{min-width:0}
+h1{font:600 34px Georgia,serif;margin:5px 0 8px}h2{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin-top:28px}
+.eyebrow,code{font-family:ui-monospace,Consolas,monospace}.eyebrow{color:var(--accent);font-size:12px;letter-spacing:1px}.muted{color:var(--muted)}
+.identity{border-left:3px solid var(--accent);padding:8px 0 8px 12px;margin:8px 0 10px;background:linear-gradient(90deg,rgba(209,169,34,.08),transparent)}.identity code{display:block;font-size:15px;color:var(--accent2);margin-bottom:4px}.identity span{display:block;color:var(--muted);font-size:12px}
+.crumbs{font:12px ui-monospace,Consolas,monospace;color:var(--muted);margin-bottom:10px}.crumbs a{color:var(--accent)}.crumbs span{margin:0 4px}
+.unresolved{display:inline-block;border:1px solid var(--accent);color:var(--accent);padding:2px 10px;border-radius:3px;font:11px ui-monospace,Consolas,monospace;letter-spacing:1px}
+.sidebar{position:sticky;top:20px;align-self:start;border:1px solid var(--line);background:var(--panel);padding:12px;max-height:calc(100vh - 40px);overflow:auto}.sidebar a,.sidebar .child{display:block;padding:7px 6px;border-bottom:1px solid #1a222d}.side-title{font:600 15px Georgia,serif;padding:4px 6px 12px;color:var(--text)}.side-label{color:var(--accent);font:10px ui-monospace,Consolas,monospace;letter-spacing:1px;text-transform:uppercase;padding:16px 6px 5px}.pending{color:var(--muted)}small{font-size:10px}
+.summary{display:grid;grid-template-columns:repeat(4,minmax(140px,1fr));gap:7px;margin:14px 0}.metric{border:1px solid var(--line);padding:8px 9px;background:var(--panel)}.metric b{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px}
+.score-grid{display:grid;grid-template-columns:repeat(6,minmax(120px,1fr));gap:8px}.score-tile{margin:0;border:1px solid var(--line);background:var(--panel);min-height:104px;padding:10px}.score-tile summary{list-style:none;cursor:pointer}.score-tile summary::-webkit-details-marker{display:none}.score-tile strong{display:block;color:var(--accent);font:600 28px Georgia,serif}.score-tile span{font:11px ui-monospace,Consolas,monospace;text-transform:uppercase;color:var(--muted)}.score-tile p{font-size:12px;color:var(--muted)}.score-tile ul{padding-left:17px;font-size:12px}
+table{width:100%;border-collapse:collapse;background:var(--panel)}th,td{border:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px}a{color:var(--link);text-decoration:none}a:hover{text-decoration:underline}code{font-size:12px;color:#d6e5f5;word-break:break-word}
+input[type=search]{width:min(440px,100%);margin:0;padding:9px 10px;border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:3px}.file-controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:0 0 8px}button{border:1px solid var(--line);background:var(--panel);color:var(--text);padding:8px 10px;border-radius:3px;cursor:pointer}button:hover{border-color:var(--accent)}.file-list{display:grid;gap:4px}.file-block{border:1px solid var(--line);background:var(--panel);padding:0}.file-block summary{display:grid;grid-template-columns:minmax(180px,1.5fr) minmax(140px,1.2fr) 50px 70px minmax(130px,1fr) 68px 50px;gap:6px;align-items:center;padding:7px 9px;list-style:none;cursor:pointer}.file-block summary::-webkit-details-marker{display:none}.file-block[open] summary{border-bottom:1px solid var(--line);background:var(--panel2)}.file-name{font-weight:600;color:var(--text)}.source-link{justify-self:end;font-size:12px}.machine{padding:8px 10px 10px}.machine table{background:var(--panel2)}.machine th{width:190px}.machine td,.machine th{padding:6px 8px}.file-head{display:grid;grid-template-columns:minmax(180px,1.5fr) minmax(140px,1.2fr) 50px 70px minmax(130px,1fr) 68px 50px;gap:6px;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px;margin:0 0 4px;padding:0 10px}
+.actions{display:flex;gap:6px;flex-wrap:wrap}.actions button{padding:5px 9px;font-size:12px}
+.capsule{border:1px solid var(--line);background:var(--panel);padding:12px 14px}.capsule p{margin:6px 0}
+.health-list{list-style:none;padding:0;margin:0;display:grid;gap:4px}.health-list li{border:1px solid var(--line);background:var(--panel);padding:8px 10px;font-size:13px}.health-list li::before{content:"◆ ";font-size:11px}.health-list li.warn::before{color:var(--accent)}.health-list li.ok::before{color:#5f7f6a}.health-list code{margin-left:6px}
+details{border:1px solid var(--line);padding:10px;background:var(--panel)}summary{cursor:pointer;color:var(--muted)}
+@media(max-width:800px){.layout{display:block;padding:16px}.sidebar{position:relative;top:auto;max-height:none;margin-bottom:16px}.summary{grid-template-columns:repeat(2,1fr)}table{display:block;overflow:auto;white-space:nowrap}}
+</style></head><body data-api-base=""><div class="layout"><aside class="sidebar"><div class="side-title">THEOPHYSICS_REFINED_PAPERS</div><a href="#overview">Overview</a><a href="#semantic">Semantic capsule</a><a href="#health">Health</a><a href="#files">Files</a><a href="#folders">Folders</a><a href="#relationships">Relationships</a><a href="#scores">Signals</a><a href="#context">Audit context</a><div class="side-label">Navigate</div><a class="child" href="../FIS.html">&#8593; </a><div class="side-label">Child folders</div><a class="child" href="01_Genesis_to_Quantum_Refined/FIS.html">01_Genesis_to_Quantum_Refined</a><a class="child" href="02_Canonical_Treatises/FIS.html">02_Canonical_Treatises</a><a class="child" href="03_Core_Cannon_Papers/FIS.html">03_Core_Cannon_Papers</a><a class="child" href="04_Moral_Substrate_and_Trilemma/FIS.html">04_Moral_Substrate_and_Trilemma</a><a class="child" href="05_Axiom_Nodes_191/FIS.html">05_Axiom_Nodes_191</a><div class="side-label">Record</div><a href="#context">Machine context</a></aside><main id="overview">
+<nav class="crumbs"><a href="../FIS.html">&#8593; </a><span>/</span>THEOPHYSICS_REFINED_PAPERS</nav>
+<div class="eyebrow">FIS FOLDER BRAIN v2.1 / RECURSIVE SEMANTIC VIEW</div><h1>THEOPHYSICS_REFINED_PAPERS</h1>
+<div class="identity"><code>TH__DOC__GN__20260903__AC</code><span>domain TH=theophysics | type DOC | tags GN=general | date 20260903 | status AC | lossless LOSS__THEOPHYSICS_REFINED_PAPERS__2026-09-03</span></div>
+
+<p><span class="unresolved">UNRESOLVED</span></p>
+<div class="summary"><div class="metric"><b>Master Equation</b><code style="color:#f1d37a">LOSS__THEOPHYSICS_REFINED_PAPERS__2026-09-03</code></div><div class="metric"><b>Contents</b>none</div><div class="metric"><b>State</b>active / 0 files</div><div class="metric"><b>Scan</b><code>2026-09-03T08:56:07+00:00</code></div></div>
+<section id="semantic"><h2>Semantic Capsule</h2><div class="capsule"><p>Document folder holding 0 file(s) (0 bytes) and 5 child folder(s). Dominant signal none; domain unclassified.</p></div></section>
+<section id="health"><h2>Health</h2><ul class="health-list"><li class="warn">Purpose<code>UNRESOLVED</code></li><li class="warn">Owner<code>UNRESOLVED</code></li><li class="warn">Canonical source<code>not set</code></li><li class="ok">All files classified<code>0 of 0</code></li><li class="warn">Presentation coverage<code>0 of 0</code></li></ul></section>
+<details id="context" style="margin-top:28px"><summary>Machine context and audit fields</summary><pre>{
+  &quot;folder_id&quot;: &quot;FLD-c44f28a1525c&quot;,
+  &quot;path&quot;: &quot;D:\\THEOPHYSICS_REFINED_PAPERS&quot;,
+  &quot;name&quot;: &quot;THEOPHYSICS_REFINED_PAPERS&quot;,
+  &quot;folder_type&quot;: &quot;document&quot;,
+  &quot;purpose&quot;: &quot;UNRESOLVED&quot;,
+  &quot;domain&quot;: &quot;unclassified&quot;,
+  &quot;series_name&quot;: null,
+  &quot;chain_steps&quot;: &quot;[]&quot;,
+  &quot;status&quot;: &quot;active&quot;,
+  &quot;owner&quot;: &quot;UNRESOLVED&quot;,
+  &quot;canonical_source&quot;: 0,
+  &quot;parent_backbone&quot;: null,
+  &quot;file_count&quot;: 0,
+  &quot;child_folder_count&quot;: 5,
+  &quot;created_at&quot;: &quot;2026-09-03T08:40:10+00:00&quot;,
+  &quot;last_scanned&quot;: &quot;2026-09-03T08:56:07+00:00&quot;,
+  &quot;notes&quot;: &quot;&quot;,
+  &quot;compressed_name&quot;: &quot;TH__DOC__GN__20260903__AC&quot;,
+  &quot;compressed_name_detail&quot;: &quot;{\&quot;code\&quot;: \&quot;TH__DOC__GN__20260903__AC\&quot;, \&quot;domain\&quot;: \&quot;TH\&quot;, \&quot;domain_meaning\&quot;: \&quot;theophysics\&quot;, \&quot;ct\&quot;: \&quot;DOC\&quot;, \&quot;tags\&quot;: [], \&quot;date\&quot;: \&quot;20260903\&quot;, \&quot;status\&quot;: \&quot;AC\&quot;, \&quot;tag_meanings\&quot;: {}}&quot;,
+  &quot;lossless_address&quot;: &quot;LOSS__THEOPHYSICS_REFINED_PAPERS__2026-09-03&quot;,
+  &quot;lossless_address_detail&quot;: &quot;{\&quot;address\&quot;: \&quot;LOSS__THEOPHYSICS_REFINED_PAPERS__2026-09-03\&quot;, \&quot;mode\&quot;: \&quot;loss\&quot;, \&quot;source_date\&quot;: \&quot;2026-09-03\&quot;, \&quot;basis\&quot;: \&quot;title_and_local_content_sample\&quot;, \&quot;trigger\&quot;: null}&quot;
+}</pre></details>
+<h2 id="files">Files Here</h2><div class="file-controls"><input id="file-search" type="search" placeholder="Find by name, address, type, or keyword" aria-label="Filter files"><button id="toggle-files" type="button">Open all</button></div><div class="file-head"><span>File</span><span>Master Equation Name</span><span>Format</span><span>Role</span><span>Keywords</span><span>Lossless</span><span>Open</span></div><div id="file-rows" class="file-list"></div>
+<h2 id="folders">Child Folders</h2><table><thead><tr><th>Folder</th><th>Type</th><th>Files</th><th>Master Equation Aggregate</th><th>View</th></tr></thead><tbody><tr><td>01_Genesis_to_Quantum_Refined</td><td>mixed</td><td>2</td><td><code style="color:#f1d37a">G1 M0 E2 S2 T2 K2 R0 Q2 F0 C2 :: [G.C] [M.F] [E.Q] [S.R] [T.K]</code></td><td><a href="01_Genesis_to_Quantum_Refined/FIS.html">open</a></td></tr><tr><td>02_Canonical_Treatises</td><td>document</td><td>2</td><td><code style="color:#f1d37a">G0 M2 E3 S2 T2 K3 R2 Q2 F2 C2 :: [G.C] [M.F] [E.Q] [S.R] [T.K]</code></td><td><a href="02_Canonical_Treatises/FIS.html">open</a></td></tr><tr><td>03_Core_Cannon_Papers</td><td>document</td><td>22</td><td><code style="color:#f1d37a">G1 M2 E2 S2 T2 K2 R1 Q2 F1 C2 :: [G.C] [M.F] [E.Q] [S.R] [T.K]</code></td><td><a href="03_Core_Cannon_Papers/FIS.html">open</a></td></tr><tr><td>04_Moral_Substrate_and_Trilemma</td><td>mixed</td><td>5</td><td><code style="color:#f1d37a">G2 M1 E2 S1 T1 K2 R0 Q1 F0 C2 :: [G.C] [M.F] [E.Q] [S.R] [T.K]</code></td><td><a href="04_Moral_Substrate_and_Trilemma/FIS.html">open</a></td></tr><tr><td>05_Axiom_Nodes_191</td><td>mixed</td><td>191</td><td><code style="color:#f1d37a">G0 M0 E1 S0 T1 K1 R1 Q1 F0 C1 :: [G.C] [M.F] [E.Q] [S.R] [T.K]</code></td><td><a href="05_Axiom_Nodes_191/FIS.html">open</a></td></tr></tbody></table><section id="scores"><h2>Folder Signals</h2><p class="muted">Open a block to see the calculation evidence; file links jump to the inline machine block above.</p><div class="score-grid"><details class="score-tile"><summary><strong>0</strong><span>Folder signal</span></summary><p>Composite navigation signal; not truth, quality, or canon status.</p><ul><li>No file evidence.</li></ul></details><details class="score-tile"><summary><strong>0</strong><span>Activity</span></summary><p>0 files modified in the last 30 days; 0 observed modification days.</p><ul><li>No file evidence.</li></ul></details><details class="score-tile"><summary><strong>0</strong><span>Depth</span></summary><p>0 direct source files and 0 source bytes.</p><ul><li>No file evidence.</li></ul></details><details class="score-tile"><summary><strong>0</strong><span>Explicit links</span></summary><p>Counts visible Markdown/wiki/HTML link syntax only; it does not infer semantic relationships.</p><ul><li>No file evidence.</li></ul></details><details class="score-tile"><summary><strong>0</strong><span>Presentation</span></summary><p>Topbar, audio, equations, and claim-marker coverage in directly stored HTML files.</p><ul><li>No file evidence.</li></ul></details><details class="score-tile"><summary><strong>0</strong><span>Registry</span></summary><p>Files with both a SHA-256 content fingerprint and lossless internal address.</p><ul><li>No file evidence.</li></ul></details></div></section>
+<p class="muted" style="margin-top:24px">Generated from the FIS registry. Source files remain in place; this page is an index, not a replacement.</p>
+</main></div>
+<script type="application/json" id="fis-folder-record">
+{
+  "schema": "fis.folder/2.1",
+  "folder": {
+    "folder_id": "FLD-c44f28a1525c",
+    "path": "D:\\THEOPHYSICS_REFINED_PAPERS",
+    "name": "THEOPHYSICS_REFINED_PAPERS",
+    "folder_type": "document",
+    "purpose": "UNRESOLVED",
+    "domain": "unclassified",
+    "status": "active",
+    "owner": "UNRESOLVED",
+    "canonical_source": 0,
+    "file_count": 0,
+    "child_folder_count": 5,
+    "created_at": "2026-09-03T08:40:10+00:00",
+    "last_scanned": "2026-09-03T08:56:07+00:00",
+    "compressed_name": "TH__DOC__GN__20260903__AC",
+    "compressed_name_detail": {
+      "code": "TH__DOC__GN__20260903__AC",
+      "domain": "TH",
+      "domain_meaning": "theophysics",
+      "ct": "DOC",
+      "tags": [],
+      "date": "20260903",
+      "status": "AC",
+      "tag_meanings": {}
+    },
+    "lossless_address": "LOSS__THEOPHYSICS_REFINED_PAPERS__2026-09-03",
+    "lossless_address_detail": {
+      "address": "LOSS__THEOPHYSICS_REFINED_PAPERS__2026-09-03",
+      "mode": "loss",
+      "source_date": "2026-09-03",
+      "basis": "title_and_local_content_sample",
+      "trigger": null
+    },
+    "meq_aggregate": ""
+  },
+  "files": [],
+  "child_folders": [
+    {
+      "name": "01_Genesis_to_Quantum_Refined",
+      "type": "mixed",
+      "file_count": 2
+    },
+    {
+      "name": "02_Canonical_Treatises",
+      "type": "document",
+      "file_count": 2
+    },
+    {
+      "name": "03_Core_Cannon_Papers",
+      "type": "document",
+      "file_count": 22
+    },
+    {
+      "name": "04_Moral_Substrate_and_Trilemma",
+      "type": "mixed",
+      "file_count": 5
+    },
+    {
+      "name": "05_Axiom_Nodes_191",
+      "type": "mixed",
+      "file_count": 191
+    }
+  ],
+  "signals": {
+    "folder_signal": 0,
+    "activity": 0,
+    "depth": 0,
+    "explicit_links": 0,
+    "presentation": 0,
+    "registry": 0
+  }
+}
+</script>
+<script>
+const q=document.getElementById('file-search');const blocks=[...document.querySelectorAll('.file-block')];q?.addEventListener('input',()=>{const v=q.value.toLowerCase();blocks.forEach(b=>b.hidden=!(b.dataset.search+' '+b.innerText.toLowerCase()).includes(v));});const toggle=document.getElementById('toggle-files');toggle?.addEventListener('click',()=>{const visible=blocks.filter(b=>!b.hidden);const openSome=visible.some(b=>!b.open);visible.forEach(b=>b.open=openSome);toggle.textContent=openSome?'Close all':'Open all';});document.querySelectorAll('.source-link').forEach(a=>a.addEventListener('click',e=>e.stopPropagation()));
+document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',()=>{navigator.clipboard?.writeText(b.dataset.copy);b.textContent='Copied';setTimeout(()=>b.textContent=b.dataset.copy.startsWith('MEQ')?'Copy address':'Copy SHA-256',900);}));
+document.querySelectorAll('[data-action]').forEach(b=>b.addEventListener('click',()=>{const payload={file_id:b.dataset.fileId,target:b.dataset.target||null,folder:document.querySelector('h1').textContent};if(window.FIS_API?.run){window.FIS_API.run(b.dataset.action,payload);}else{b.textContent='API not connected';setTimeout(()=>b.textContent=b.dataset.action==='apply-name'?'Apply proposed name':'Mark reviewed',1100);}}))</script></body></html>

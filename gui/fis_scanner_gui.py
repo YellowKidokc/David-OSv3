@@ -23,23 +23,44 @@ import time
 import sqlite3
 import hashlib
 import webbrowser
+import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from datetime import datetime
 from typing import Optional, List
 
-from PySide6.QtCore import Qt, QThread, Signal
+from PySide6.QtCore import Qt, QThread, Signal, QUrl
 from PySide6.QtWidgets import (
     QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
     QPushButton, QLabel, QProgressBar, QSlider, QFileDialog,
     QLineEdit, QListWidget, QListWidgetItem, QGroupBox,
     QTextEdit, QTabWidget, QTableWidget, QTableWidgetItem,
-    QHeaderView, QCheckBox,
+    QHeaderView, QCheckBox, QComboBox, QMessageBox,
 )
 from PySide6.QtGui import QFont, QColor, QPalette
 
+try:
+    from PySide6.QtWebEngineWidgets import QWebEngineView
+    from PySide6.QtWebEngineCore import QWebEnginePage
+except ImportError:  # keep the scanner runnable on minimal PySide6 installs
+    QWebEngineView = None
+    QWebEnginePage = None
+
 # ── Add engine to path ──────────────────────────
 REPO = Path(__file__).resolve().parents[1]
+RICH_REVIEW_HTML = Path(r"\\192.168.2.50\h_hp\Desktop\FIS_v2_recursive_semantic.html")
+
+
+if QWebEnginePage is not None:
+    class ReadOnlyReviewPage(QWebEnginePage):
+        """Allow local review navigation while blocking localhost action links."""
+
+        def acceptNavigationRequest(self, url, nav_type, is_main_frame):
+            if url.scheme().lower() in {"http", "https"}:
+                return False
+            return super().acceptNavigationRequest(url, nav_type, is_main_frame)
+else:
+    ReadOnlyReviewPage = None
 sys.path.insert(0, str(REPO))
 sys.path.insert(0, str(REPO / "engine"))
 
@@ -76,6 +97,7 @@ def _safe_import_engine():
     return mods
 
 ENGINE = _safe_import_engine()
+from gui.fis_control_surface import ACTIONS, DEFAULT_TARGET, applyable_action_keys, build_preview
 
 # ── Extended tag tables ─────────────────────────
 # Multiple tag layers so near-misses still find the file
@@ -241,11 +263,12 @@ class ScanWorker(QThread):
     scan_complete = Signal(int, float)
     error = Signal(str)
 
-    def __init__(self, root: Path, db_path: Path, workers: int = 4):
+    def __init__(self, root: Path, db_path: Path, workers: int = 4, targets: Optional[List[Path]] = None):
         super().__init__()
         self.root = root
         self.db_path = db_path
         self.workers = max(1, workers)
+        self.targets = targets
         self._stop = False
         self._pause = False
 
@@ -257,7 +280,16 @@ class ScanWorker(QThread):
         source = str(self.root)
         try:
             conn = init_db(self.db_path)
-            all_files = list(walk_tree(self.root))
+            if self.targets is None:
+                all_files = list(walk_tree(self.root))
+            else:
+                all_files = []
+                for target in self.targets:
+                    if target.is_file():
+                        all_files.append(target)
+                    elif target.is_dir():
+                        all_files.extend(walk_tree(target))
+                all_files = list(dict.fromkeys(all_files))
             total = len(all_files)
             if total == 0:
                 self.scan_complete.emit(0, 0.0)
@@ -328,6 +360,8 @@ class FISScannerWindow(QMainWindow):
         self.worker: Optional[ScanWorker] = None
         self._start_time = 0.0
         self._scan_folders: List[str] = []
+        self._workflow_selection: List[Path] = []
+        self._workflow_preview = None
 
         central = QWidget()
         self.setCentralWidget(central)
@@ -490,6 +524,114 @@ class FISScannerWindow(QMainWindow):
 
         tabs.addTab(agg_tab, "Aggregate View")
 
+        # Rich v2.1 review surface.  The original HTML remains authoritative and
+        # is loaded in place; this GUI neither copies it nor executes its queue.
+        review_tab = QWidget()
+        review_layout = QVBoxLayout(review_tab)
+        review_head = QHBoxLayout()
+        self.review_status = QLabel()
+        self.review_status.setWordWrap(True)
+        review_head.addWidget(self.review_status, 1)
+        reload_review = QPushButton("Reload review")
+        reload_review.clicked.connect(self._reload_rich_review)
+        review_head.addWidget(reload_review)
+        open_review = QPushButton("Open in browser")
+        open_review.clicked.connect(self._open_rich_review_external)
+        review_head.addWidget(open_review)
+        review_layout.addLayout(review_head)
+        safety = QLabel(
+            "Queue-only review surface. Actions record requests; they do not directly rename, move, "
+            "archive, overwrite, or delete source files."
+        )
+        safety.setStyleSheet("color:#d9b44a;padding:4px")
+        safety.setWordWrap(True)
+        review_layout.addWidget(safety)
+        self.review_web = QWebEngineView() if QWebEngineView is not None else None
+        if self.review_web is not None:
+            self.review_web.setPage(ReadOnlyReviewPage(self.review_web))
+            review_layout.addWidget(self.review_web, 1)
+        else:
+            fallback = QLabel("Embedded browser support is unavailable. Use Open in browser above.")
+            fallback.setAlignment(Qt.AlignCenter)
+            review_layout.addWidget(fallback, 1)
+        tabs.addTab(review_tab, "Rich FIS Review")
+        self._reload_rich_review()
+
+        # TAB 3: staged unified control surface
+        workflow_tab = QWidget()
+        workflow_layout = QVBoxLayout(workflow_tab)
+        target_box = QGroupBox("Repository target")
+        target_layout = QHBoxLayout(target_box)
+        self.workflow_root = QLineEdit(str(DEFAULT_TARGET))
+        target_layout.addWidget(self.workflow_root)
+        target_browse = QPushButton("Choose repository")
+        target_browse.clicked.connect(self._workflow_choose_root)
+        target_layout.addWidget(target_browse)
+        workflow_layout.addWidget(target_box)
+
+        scope_box = QGroupBox("1. Scope")
+        scope_layout = QVBoxLayout(scope_box)
+        self.workflow_scope = QComboBox()
+        self.workflow_scope.addItem("All / current repository", "all")
+        self.workflow_scope.addItem("Selected files and folders", "selected")
+        scope_layout.addWidget(self.workflow_scope)
+        scope_buttons = QHBoxLayout()
+        add_files = QPushButton("Add files")
+        add_files.clicked.connect(self._workflow_add_files)
+        scope_buttons.addWidget(add_files)
+        add_folder = QPushButton("Add folder")
+        add_folder.clicked.connect(self._workflow_add_folder)
+        scope_buttons.addWidget(add_folder)
+        clear_scope = QPushButton("Clear selection")
+        clear_scope.clicked.connect(self._workflow_clear_selection)
+        scope_buttons.addWidget(clear_scope)
+        scope_layout.addLayout(scope_buttons)
+        self.workflow_selected = QListWidget()
+        self.workflow_selected.setMaximumHeight(100)
+        scope_layout.addWidget(self.workflow_selected)
+        workflow_layout.addWidget(scope_box)
+
+        action_box = QGroupBox("2. Queue FIS functions")
+        action_layout = QVBoxLayout(action_box)
+        self.workflow_actions = {}
+        for action in ACTIONS:
+            suffix = "" if action.availability == "available" else " — PROPOSAL ONLY"
+            check = QCheckBox(action.label + suffix)
+            check.setChecked(action.key in {"scan", "tag", "classify", "name"})
+            self.workflow_actions[action.key] = check
+            action_layout.addWidget(check)
+        workflow_layout.addWidget(action_box)
+
+        stage_box = QGroupBox("3. Preview → Review → Apply")
+        stage_layout = QVBoxLayout(stage_box)
+        stage_buttons = QHBoxLayout()
+        preview_btn = QPushButton("PREVIEW QUEUE")
+        preview_btn.clicked.connect(self._workflow_build_preview)
+        stage_buttons.addWidget(preview_btn)
+        self.workflow_review = QCheckBox("I reviewed this exact scope and queue")
+        self.workflow_review.toggled.connect(self._workflow_review_changed)
+        stage_buttons.addWidget(self.workflow_review)
+        self.workflow_apply = QPushButton("APPLY AVAILABLE ACTIONS")
+        self.workflow_apply.setEnabled(False)
+        self.workflow_apply.clicked.connect(self._workflow_apply_available)
+        stage_buttons.addWidget(self.workflow_apply)
+        stage_layout.addLayout(stage_buttons)
+        self.workflow_output = QTextEdit()
+        self.workflow_output.setReadOnly(True)
+        self.workflow_output.setFont(QFont("Consolas", 9))
+        stage_layout.addWidget(self.workflow_output)
+        workflow_layout.addWidget(stage_box)
+        tabs.addTab(workflow_tab, "FIS Control Surface")
+
+        # ═══ TAB 5: OPERATIONS ════════════════
+        try:
+            from gui.operations_panel import OperationsPanel
+            tabs.addTab(OperationsPanel(self), "Operations")
+        except Exception as exc:  # keep the scanner usable if the panel fails to import
+            fallback = QWidget()
+            QVBoxLayout(fallback).addWidget(QLabel(f"Operations panel unavailable: {exc}"))
+            tabs.addTab(fallback, "Operations")
+
     # ── Scanner Slots ───────────────────────
 
     def _browse_add(self):
@@ -536,6 +678,22 @@ class FISScannerWindow(QMainWindow):
         self.stop_btn.setEnabled(True)
         self.progress_bar.setValue(0)
         self.db_label.setText(f"DB: {db_path}  |  Scanning: {root}")
+        self._start_time = time.time()
+        self.worker.start()
+
+    def _start_scoped(self, root: Path, targets: List[Path], db_path: Path, workers: int):
+        self._remaining_roots = []
+        self.worker = ScanWorker(root, db_path, workers, targets=targets)
+        self.worker.progress.connect(self._on_progress)
+        self.worker.file_done.connect(self._on_file_done)
+        self.worker.folder_done.connect(self._on_folder_done)
+        self.worker.scan_complete.connect(self._on_complete)
+        self.worker.error.connect(self._on_error)
+        self.start_btn.setEnabled(False)
+        self.pause_btn.setEnabled(True)
+        self.stop_btn.setEnabled(True)
+        self.progress_bar.setValue(0)
+        self.db_label.setText(f"DB: {db_path}  |  Bounded scope: {len(targets)} selection(s)")
         self._start_time = time.time()
         self.worker.start()
 
@@ -651,6 +809,100 @@ class FISScannerWindow(QMainWindow):
             + (f"  |  Filter: {tag_filter}" if tag_filter else "")
         )
         conn.close()
+
+    # Unified control surface slots
+    def _reload_rich_review(self):
+        if not RICH_REVIEW_HTML.is_file():
+            self.review_status.setText(f"Review surface unavailable: {RICH_REVIEW_HTML}")
+            if self.review_web is not None:
+                self.review_web.setHtml(
+                    "<h2>FIS review surface unavailable</h2>"
+                    "<p>The network file could not be reached. No local replacement was created.</p>"
+                )
+            return
+        self.review_status.setText(
+            f"Loaded read-only source in place: {RICH_REVIEW_HTML} | "
+            "localhost approve/skip links are blocked inside this GUI"
+        )
+        if self.review_web is not None:
+            self.review_web.setUrl(QUrl.fromLocalFile(str(RICH_REVIEW_HTML)))
+
+    def _open_rich_review_external(self):
+        if RICH_REVIEW_HTML.is_file():
+            webbrowser.open(RICH_REVIEW_HTML.as_uri())
+        else:
+            QMessageBox.warning(self, "Review unavailable", f"Cannot reach:\n{RICH_REVIEW_HTML}")
+
+    def _workflow_choose_root(self):
+        d = QFileDialog.getExistingDirectory(self, "Choose repository", self.workflow_root.text())
+        if d:
+            self.workflow_root.setText(d)
+            self._workflow_clear_selection()
+
+    def _workflow_add_files(self):
+        files, _ = QFileDialog.getOpenFileNames(self, "Select files", self.workflow_root.text())
+        self._workflow_add_paths(Path(p) for p in files)
+
+    def _workflow_add_folder(self):
+        d = QFileDialog.getExistingDirectory(self, "Select folder", self.workflow_root.text())
+        if d:
+            self._workflow_add_paths([Path(d)])
+
+    def _workflow_add_paths(self, paths):
+        for path in paths:
+            if path not in self._workflow_selection:
+                self._workflow_selection.append(path)
+                self.workflow_selected.addItem(str(path))
+        if self._workflow_selection:
+            self.workflow_scope.setCurrentIndex(1)
+        self._workflow_invalidate()
+
+    def _workflow_clear_selection(self):
+        self._workflow_selection.clear()
+        self.workflow_selected.clear()
+        self._workflow_invalidate()
+
+    def _workflow_invalidate(self):
+        self._workflow_preview = None
+        self.workflow_review.setChecked(False)
+        self.workflow_apply.setEnabled(False)
+
+    def _workflow_build_preview(self):
+        root = Path(self.workflow_root.text().strip())
+        keys = [key for key, box in self.workflow_actions.items() if box.isChecked()]
+        preview = build_preview(root, self.workflow_scope.currentData(), self._workflow_selection, keys)
+        self._workflow_preview = preview
+        self.workflow_review.setChecked(False)
+        if not root.is_dir():
+            preview["error"] = "Repository target is not currently reachable."
+        elif not preview["scope"]:
+            preview["error"] = "The selected scope is empty or outside the repository target."
+        self.workflow_output.setPlainText(json.dumps(preview, indent=2))
+
+    def _workflow_review_changed(self, checked):
+        valid = bool(self._workflow_preview and self._workflow_preview.get("scope") and not self._workflow_preview.get("error"))
+        self.workflow_apply.setEnabled(checked and valid)
+
+    def _workflow_apply_available(self):
+        preview = self._workflow_preview or {}
+        allowed = applyable_action_keys(preview)
+        proposal_only = [a["label"] for a in preview.get("actions", []) if a["key"] not in allowed]
+        if not allowed:
+            QMessageBox.information(self, "Nothing applied", "This queue contains proposal-only actions.")
+            return
+        # Reuse the existing scanner/indexer. Tagging is part of that same pass.
+        targets = [Path(p) for p in preview["scope"]]
+        root = Path(preview["root"])
+        db_path = root / ".fis" / "fis_control.sqlite"
+        self.folder_input.setPlainText("\n".join(str(p) for p in targets))
+        self.db_input.setText(str(db_path))
+        self._scan_folders = [str(p) for p in targets]
+        self._start_scoped(root, targets, db_path, self.speed_slider.value())
+        note = "Applied: scan/index with semantic and format tagging. Source files remain unchanged."
+        if proposal_only:
+            note += "\nHeld for review (proposal-only): " + ", ".join(proposal_only)
+        self.workflow_output.append("\n" + note)
+        self.workflow_review.setChecked(False)
 
 
 # ── Entry point ─────────────────────────────────

@@ -1,14 +1,14 @@
 ---
 fis_schema: "folder-index.v1"
-folder_id: "FLD-20260817-2f06e68c"
-folder: "GitHub\David-OS-v2\hub\services"
+folder_id: "FLD-20260907-c09cc7a2"
+folder: "GitHub\David-OSv3\hub\services"
 folder_class: "project"
 confidence: 0.6
 dependency_risk: 0.333
 dominant_family: "code"
 dominant_ratio: 0.857
 file_count: 7
-classified_at: "2026-08-17T12:58:35"
+classified_at: "2026-09-07T15:05:04"
 allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
 suggested_name: "services"
 system_markers: ["dir:__pycache__"]

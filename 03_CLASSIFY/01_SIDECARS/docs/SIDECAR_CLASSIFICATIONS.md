@@ -1,6 +1,6 @@
 # Sidecar Classifications
 
-*Generated 2026-10-14 00:31 by `sidecar_report.py` from `\\192.168.2.50\h_hp\Desktop\Folders\AXIOM_CLASSIFICATION_CANON_2026-07-25 (1)\sidecars` — do not edit; re-run.*
+*Generated 2026-10-15 10:51 by `sidecar_report.py` from `\\192.168.2.50\h_hp\Desktop\Folders\AXIOM_CLASSIFICATION_CANON_2026-07-25 (1)\sidecars` — do not edit; re-run.*
 
 **51 cards** · 33 declaration · 1 freeze-candidate · 8 proposed · 9 draft · **0 of 51 carry Part A tags** (ct-/ep-/topic) · all pass validation
 

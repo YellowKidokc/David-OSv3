@@ -1,14 +1,14 @@
 ---
 fis_schema: "folder-index.v1"
-folder_id: "FLD-20260817-89dd7304"
-folder: "GitHub\David-OS-v2\config\top_of_mind"
+folder_id: "FLD-20260907-805d2216"
+folder: "GitHub\David-OSv3\config\top_of_mind"
 folder_class: "project"
 confidence: 0.6
 dependency_risk: 0.0
 dominant_family: "code"
 dominant_ratio: 0.667
 file_count: 3
-classified_at: "2026-08-17T12:58:34"
+classified_at: "2026-09-07T15:05:03"
 allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
 suggested_name: "top_of_mind"
 ---

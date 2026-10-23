@@ -21,11 +21,12 @@ import argparse
 import sys
 from pathlib import Path
 
-
 REPO_ROOT = Path(__file__).resolve().parents[1]
 FIS_SYSTEM = REPO_ROOT / "file-intelligence-system"
+sys.path.insert(0, str(REPO_ROOT))
 sys.path.insert(0, str(FIS_SYSTEM))
 
+from engine.path_write_policy import fisnote_write_allowed  # noqa: E402
 from fis_folder_memory import scan  # noqa: E402
 
 
@@ -47,18 +48,22 @@ def main() -> int:
         parser.error(f"Not a directory: {root}")
     db_path = (args.db or (root / ".fis" / "fis_index.sqlite")).resolve()
 
+    allow_notes = fisnote_write_allowed(root)
+    if not allow_notes:
+        print("Policy: generated .fisnote writes and cleanup are disabled globally; HTML remains enabled.")
+
     folders, files, enriched, failed, notes, note_skips, stale, wiped = scan(
         root=root,
         db_path=db_path,
         recursive=True,
-        write=not args.no_folder_notes,
+        write=allow_notes and not args.no_folder_notes,
         html=not args.no_html,
         local_ai=args.local_ai,
         ai_limit=args.ai_limit,
         ai_model="qwen3:4b-instruct",
-        file_notes=not args.no_file_notes,
-        cleanup_stale=not args.no_cleanup_stale,
-        wipe_fisnotes=not args.no_wipe_fisnotes,
+        file_notes=allow_notes and not args.no_file_notes,
+        cleanup_stale=allow_notes and not args.no_cleanup_stale,
+        wipe_fisnotes=allow_notes and not args.no_wipe_fisnotes,
     )
     print(
         "Desktop FIS scan complete: "

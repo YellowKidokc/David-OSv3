@@ -1,0 +1,298 @@
+{
+  "max_words": 7,
+  "max_length": 150,
+  "auto_check": 0.75,
+  "domains": [
+    {
+      "code": "CON",
+      "words": [
+        "consciousness",
+        "sentien",
+        "observer"
+      ]
+    },
+    {
+      "code": "COS",
+      "words": [
+        "cosmolog",
+        "universe",
+        "big bang",
+        "hubble",
+        "time began"
+      ]
+    },
+    {
+      "code": "FRM",
+      "words": [
+        "lean 4",
+        "formal derivation",
+        "theorem",
+        "lemma",
+        "proof"
+      ]
+    },
+    {
+      "code": "INF",
+      "words": [
+        "information theory",
+        "it from bit",
+        "binary",
+        "code",
+        "computer",
+        "language"
+      ]
+    },
+    {
+      "code": "SOC",
+      "words": [
+        "america",
+        "society",
+        "polariz",
+        "politic",
+        "culture",
+        "institution",
+        "separates us"
+      ]
+    },
+    {
+      "code": "FAM",
+      "words": [
+        "lowe family",
+        "family",
+        "genealogy"
+      ]
+    },
+    {
+      "code": "SCI",
+      "words": [
+        "scientific method",
+        "test suite",
+        "benchmark",
+        "empirical",
+        "falsif"
+      ]
+    },
+    {
+      "code": "PHY",
+      "words": [
+        "physics",
+        "quantum",
+        "relativity",
+        "decoherence",
+        "photon",
+        "entropy",
+        "wave"
+      ]
+    }
+  ],
+  "domain_fallback": "GEN",
+  "types": [
+    {
+      "code": "TMP",
+      "words": [
+        "template"
+      ]
+    },
+    {
+      "code": "TAN",
+      "words": [
+        "tangent"
+      ]
+    },
+    {
+      "code": "REF",
+      "words": [
+        "ref",
+        "reference",
+        "academic analysis",
+        "index"
+      ]
+    },
+    {
+      "code": "RES",
+      "words": [
+        "research"
+      ]
+    },
+    {
+      "code": "NOT",
+      "words": [
+        "notes",
+        "editorial"
+      ]
+    },
+    {
+      "code": "INS",
+      "words": [
+        "insert",
+        "addition"
+      ]
+    },
+    {
+      "code": "DAT",
+      "words": [
+        "data",
+        "dataset"
+      ]
+    },
+    {
+      "code": "TST",
+      "words": [
+        "test",
+        "benchmark",
+        "head to head",
+        "conclusions"
+      ]
+    },
+    {
+      "code": "DRV",
+      "words": [
+        "derivation",
+        "formal"
+      ]
+    },
+    {
+      "code": "CHP",
+      "words": [
+        "chapter",
+        "part"
+      ]
+    },
+    {
+      "code": "PAP",
+      "words": [
+        "paper",
+        "thesis"
+      ]
+    },
+    {
+      "code": "AUD",
+      "words": [
+        "review",
+        "audit"
+      ]
+    },
+    {
+      "code": "STY",
+      "words": [
+        "story",
+        "photographer",
+        "narrative"
+      ]
+    },
+    {
+      "code": "ART",
+      "words": [
+        "main",
+        "article"
+      ]
+    }
+  ],
+  "type_fallback": "ART",
+  "status": [
+    {
+      "code": "DR",
+      "words": [
+        "draft",
+        "wip",
+        "sample",
+        "scratch",
+        "working"
+      ]
+    },
+    {
+      "code": "FN",
+      "words": [
+        "final",
+        "full",
+        "complete",
+        "cited",
+        "published"
+      ]
+    },
+    {
+      "code": "AR",
+      "words": [
+        "archive",
+        "old",
+        "backup",
+        "bak",
+        "deprecated"
+      ]
+    },
+    {
+      "code": "RV",
+      "words": [
+        "review",
+        "todo",
+        "pending"
+      ]
+    }
+  ],
+  "status_fallback": "AC",
+  "archive_after_days": 365,
+  "series": [
+    {
+      "pattern": "^gtq[_ -]*(\\d+)([a-z]?)(?=[ ._-]|$)",
+      "as": "gtq_{n}{x}"
+    },
+    {
+      "pattern": "^chapter[_ -]*(\\d+)([a-z]?)(?=[ ._-]|$)",
+      "as": "ch{n}{x}"
+    },
+    {
+      "pattern": "^paper[_ -]*(\\d+)([a-z]?)(?=[ ._-]|$)",
+      "as": "p{n}{x}"
+    },
+    {
+      "pattern": "^p(\\d+)([a-z]?)_",
+      "as": "p{n}{x}"
+    },
+    {
+      "pattern": "^(\\d+)\\.(\\d+)(?=[ ._-])",
+      "as": "{n}_{x}"
+    },
+    {
+      "pattern": "^(\\d+)[ ._-]*([a-z]?)(?=[ ._-])",
+      "as": "{n}{x}"
+    }
+  ],
+  "drop_words": [
+    "main",
+    "tangent",
+    "ref",
+    "research",
+    "notes",
+    "insert",
+    "addition",
+    "article",
+    "data",
+    "the",
+    "a",
+    "an",
+    "and",
+    "of",
+    "to",
+    "for",
+    "with",
+    "in",
+    "on",
+    "md",
+    "copy",
+    "final",
+    "draft",
+    "v1",
+    "v2",
+    "v3",
+    "part"
+  ],
+  "protect": [
+    ".git",
+    "node_modules",
+    "package.json",
+    ".obsidian",
+    ".venv",
+    ".env",
+    "ZZZ_DELETE"
+  ]
+}

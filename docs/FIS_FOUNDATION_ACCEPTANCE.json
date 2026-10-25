@@ -1,0 +1,23 @@
+{
+  "test": "Steps 1-4 real-folder-copy apply/undo",
+  "source": "03_CLASSIFY/03_RENAMING plus actual legacy .fisnote",
+  "test_root": ".data\\fis-acceptance\\20261025-115605\\messy-copy",
+  "original_sha256": {
+    ".fisnote": "3f236e6a82efe50eed380a64598b3820d823bfcb3f04a90e79baf6408b62bd3a",
+    "README.md": "2c46041ded97448959045f251d12d9e108badad989c1b24c33fcc0b6a2734000",
+    "renamer_gui.py": "d1301cf296b1caa7a8e7f6907d4657911f0a811aa50d9d9d45fedfe3fb75152f",
+    "rename_engine.py": "33c74a6296ffda3ad237dc0865fb3e0021a539bdbc67c228ddbf83cda653a2e0",
+    "rename_rules.yaml": "5ff815cd1f70dae551e2374a33015d69ac604ca5089410b2e4ea699aedf68ddf"
+  },
+  "restored_sha256": {
+    ".fisnote": "3f236e6a82efe50eed380a64598b3820d823bfcb3f04a90e79baf6408b62bd3a",
+    "README.md": "2c46041ded97448959045f251d12d9e108badad989c1b24c33fcc0b6a2734000",
+    "renamer_gui.py": "d1301cf296b1caa7a8e7f6907d4657911f0a811aa50d9d9d45fedfe3fb75152f",
+    "rename_engine.py": "33c74a6296ffda3ad237dc0865fb3e0021a539bdbc67c228ddbf83cda653a2e0",
+    "rename_rules.yaml": "5ff815cd1f70dae551e2374a33015d69ac604ca5089410b2e4ea699aedf68ddf"
+  },
+  "run": "96ea8e0a80964752be5566d17dafd7b2",
+  "exact_round_trip": true,
+  "dry_run_unchanged": true,
+  "synthetic_changes": "none; only legacy-note sample added to copy"
+}

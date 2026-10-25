@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fis-standalone"
+version = "0.1.0"
+description = "Offline, approval-bound folder intelligence"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+fis = "fis.cli:main"
+
+[tool.setuptools]
+packages = ["fis"]
+package-dir = {fis = "."}
+
+[tool.setuptools.package-data]
+fis = ["data/*.json", "data/*.md", "static/*"]

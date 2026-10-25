@@ -1,0 +1,65 @@
+{
+  "id": "theophysics",
+  "description": "Optional theological/axiom/master equation signals, not truth scores.",
+  "domains": [
+    {
+      "code": "MEQ",
+      "words": [
+        "master equation",
+        "master eq",
+        "lagrangian",
+        "nabla",
+        "chi field"
+      ]
+    },
+    {
+      "code": "AXM",
+      "words": [
+        "axiom",
+        "axioms"
+      ]
+    },
+    {
+      "code": "GRC",
+      "words": [
+        "grace",
+        "agape",
+        "redemption",
+        "restoration",
+        "restores"
+      ]
+    },
+    {
+      "code": "ETH",
+      "words": [
+        "moral",
+        "ethic",
+        "virtue",
+        "decay",
+        "sin"
+      ]
+    },
+    {
+      "code": "THE",
+      "words": [
+        "theology",
+        "scripture",
+        "gospel",
+        "jesus",
+        "bible",
+        "testament",
+        "god",
+        "trinity",
+        "logos"
+      ]
+    },
+    {
+      "code": "TPH",
+      "words": [
+        "theophysics",
+        "theophys",
+        "coherence"
+      ]
+    }
+  ]
+}

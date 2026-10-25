@@ -1,0 +1,168 @@
+{
+  "schema": "top-ai-fis.review_gates.28pof.v1",
+  "source_workbook": "\\\\192.168.2.50\\h_hp\\Desktop\\28pof_hub_architecture_with_templates.xlsx",
+  "source_sheet": "Review Gates",
+  "record_count": 16,
+  "records": [
+    {
+      "gate": "Rename bulk",
+      "trigger": "rename_apply batch",
+      "default_threshold": ">20 files",
+      "blocks_until": "GUI approval",
+      "surface": "Rename Studio / Review Queue",
+      "why_it_exists": "Bulk bad names are hard to unwind mentally even if technically reversible.",
+      "allowed_alternative": "Approve selected or edit naming template",
+      "can_be_auto_lowered_later": "Yes, after accepted history per folder"
+    },
+    {
+      "gate": "Move bulk",
+      "trigger": "route_apply batch",
+      "default_threshold": ">20 files",
+      "blocks_until": "GUI approval",
+      "surface": "Route Studio / Review Queue",
+      "why_it_exists": "Wrong moves can break workflows and lose context.",
+      "allowed_alternative": "Copy instead of move",
+      "can_be_auto_lowered_later": "Maybe for low-risk intake folders"
+    },
+    {
+      "gate": "Archive bulk",
+      "trigger": "archive_apply batch",
+      "default_threshold": ">50 files",
+      "blocks_until": "GUI approval",
+      "surface": "Archive / Review Queue",
+      "why_it_exists": "Archive is safer than delete but still changes active availability.",
+      "allowed_alternative": "Stage archive plan",
+      "can_be_auto_lowered_later": "Maybe for stale low-risk folders"
+    },
+    {
+      "gate": "Delete any",
+      "trigger": "delete candidate",
+      "default_threshold": "Any count",
+      "blocks_until": "Explicit approval",
+      "surface": "Duplicate Resolver / Review Queue",
+      "why_it_exists": "Destructive action; ledger survives but file bytes may not.",
+      "allowed_alternative": "Archive/quarantine instead",
+      "can_be_auto_lowered_later": "No for V1"
+    },
+    {
+      "gate": "Protected category",
+      "trigger": "legal/financial/medical/identity/secrets/client/source detected",
+      "default_threshold": "Any action beyond scan/tag",
+      "blocks_until": "Review or block",
+      "surface": "Rules + Review Queue",
+      "why_it_exists": "Privacy and legal risk.",
+      "allowed_alternative": "Metadata-only summary",
+      "can_be_auto_lowered_later": "Only by explicit folder/category policy"
+    },
+    {
+      "gate": "Program root",
+      "trigger": ".git, package.json, pyproject.toml, requirements.txt, venv, .env, build system detected",
+      "default_threshold": "Any rename/move/delete",
+      "blocks_until": "Block/review",
+      "surface": "Rules + Review Queue",
+      "why_it_exists": "Renaming/moving can break code and configs.",
+      "allowed_alternative": "Classify-only",
+      "can_be_auto_lowered_later": "Rarely"
+    },
+    {
+      "gate": "Unknown extension",
+      "trigger": "extension not in extension_knowledge or MIME conflict",
+      "default_threshold": "Any executable-like or binary unknown",
+      "blocks_until": "Extension resolve + review",
+      "surface": "Unknown File Alert",
+      "why_it_exists": "Opening/routing unknown blobs is unsafe.",
+      "allowed_alternative": "Quarantine or metadata-only lookup",
+      "can_be_auto_lowered_later": "Only after knowledge cache trusted"
+    },
+    {
+      "gate": "Low confidence",
+      "trigger": "classification/rename/route confidence below threshold",
+      "default_threshold": "<0.80 stage, <0.65 escalate",
+      "blocks_until": "Review or AI enrichment",
+      "surface": "Review Queue",
+      "why_it_exists": "Uncertainty needs human or better model.",
+      "allowed_alternative": "Ask Ollama/OpenAI or defer",
+      "can_be_auto_lowered_later": "Yes, after user-specific learning"
+    },
+    {
+      "gate": "API content upload",
+      "trigger": "file content sent to external API",
+      "default_threshold": "Protected: never without approval",
+      "blocks_until": "Explicit approval",
+      "surface": "Rules + Review Queue",
+      "why_it_exists": "Privacy boundary.",
+      "allowed_alternative": "metadata-only/text-preview-only",
+      "can_be_auto_lowered_later": "Per folder only"
+    },
+    {
+      "gate": "Overwrite risk",
+      "trigger": "conversion/publish target exists",
+      "default_threshold": "Any overwrite",
+      "blocks_until": "Approval or auto-rename output",
+      "surface": "Convert/Publish Studio",
+      "why_it_exists": "Avoid losing output or canonical content.",
+      "allowed_alternative": "Write new unique name",
+      "can_be_auto_lowered_later": "No"
+    },
+    {
+      "gate": "Resource gate",
+      "trigger": "CPU/RAM/disk/battery over threshold",
+      "default_threshold": "CPU >55%, RAM >80% default",
+      "blocks_until": "Pause/resume or resources drop",
+      "surface": "Dashboard",
+      "why_it_exists": "Keep machine usable.",
+      "allowed_alternative": "Queue only; light tagging",
+      "can_be_auto_lowered_later": "User can adjust"
+    },
+    {
+      "gate": "Large folder structure plan",
+      "trigger": "folder_hierarchy_suggest / create subfolders",
+      "default_threshold": ">50 files or any canonical folder",
+      "blocks_until": "Review plan",
+      "surface": "Folder Cleaning / Structure Builder",
+      "why_it_exists": "Folder hierarchy changes affect navigation.",
+      "allowed_alternative": "Write foldercard only",
+      "can_be_auto_lowered_later": "Maybe for low-risk inbox"
+    },
+    {
+      "gate": "Publish gate",
+      "trigger": "publish_site_data",
+      "default_threshold": "Any public-facing output",
+      "blocks_until": "Explicit approval",
+      "surface": "Publishing Studio / Review Queue",
+      "why_it_exists": "Public-facing content should be deliberate.",
+      "allowed_alternative": "Stage manifest",
+      "can_be_auto_lowered_later": "No"
+    },
+    {
+      "gate": "Sync conflict",
+      "trigger": "OneDrive/NAS/Dropbox conflict markers",
+      "default_threshold": "Any conflict",
+      "blocks_until": "Review/diff",
+      "surface": "Compare / Review Queue",
+      "why_it_exists": "Auto-resolving sync conflicts can lose versions.",
+      "allowed_alternative": "Keep both and tag conflict",
+      "can_be_auto_lowered_later": "No"
+    },
+    {
+      "gate": "Sidecar write in protected folder",
+      "trigger": "filecard/foldercard write where policy prohibits writes",
+      "default_threshold": "Any",
+      "blocks_until": "Use DB-only or approval",
+      "surface": "Rules / Review Queue",
+      "why_it_exists": "Even metadata writes can dirty protected/canonical folders.",
+      "allowed_alternative": "Hub-side sidecar storage",
+      "can_be_auto_lowered_later": "Per folder"
+    },
+    {
+      "gate": "Rollback unavailable",
+      "trigger": "action cannot be safely undone",
+      "default_threshold": "Any",
+      "blocks_until": "Review required",
+      "surface": "Review Queue",
+      "why_it_exists": "Irreversible actions deserve high friction.",
+      "allowed_alternative": "Copy/manifest instead",
+      "can_be_auto_lowered_later": "No"
+    }
+  ]
+}

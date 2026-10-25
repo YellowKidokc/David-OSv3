@@ -5,6 +5,7 @@ from fis import gate
 from fis.classify import classify
 from fis.fingerprint import sha256_file
 from fis.index import digest
+from fis.diagnostics import symptoms
 from fis.rename import propose
 from fis.tag import tags
 
@@ -65,4 +66,5 @@ def inventory(root, config=None, recursive=True, on_file=None):
             except (OSError, UnicodeError) as error:
                 skipped.append({'path': str(p), 'why': str(error), 'error': True})
     skipped += [{'path': str(root), 'why': e, 'error': True} for e in walk_errors]
-    return {'root': str(root), 'files': files, 'skipped': skipped}
+    return {'root': str(root), 'files': files, 'skipped': skipped,
+            'symptoms': symptoms(root, files, skipped)}

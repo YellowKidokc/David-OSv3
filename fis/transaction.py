@@ -54,13 +54,14 @@ def selected_ops(plan, rows, run, home):
                                'hash': row['sha256'], 'folder': row['folder']})
         elif row['kind'] == 'html':
             p = Path(row['path'])
+            mirrored = Path(row['folder']).relative_to(plan['root'])
             if row['before_hash']:
                 operations.append({'kind': 'move', 'src': str(p),
-                   'dst': str(home/'archive'/run/'previous-html'/row['id']/p.name),
+                   'dst': str(home/'archive'/run/'previous-html'/mirrored/p.name),
                    'hash': row['before_hash'], 'folder': row['folder']})
             for note in row['legacy']:
                 operations.append({'kind': 'move', 'src': note['path'],
-                   'dst': str(home/'archive'/run/'notes'/row['id']/Path(note['path']).name),
+                   'dst': str(home/'archive'/run/'notes'/mirrored/Path(note['path']).name),
                    'hash': note['sha256'], 'folder': row['folder']})
             content = row['content'].replace('RUN_ID_PLACEHOLDER', run).encode('utf-8')
             operations.append({'kind': 'write', 'dst': str(p), 'content': base64.b64encode(content).decode(),
@@ -158,6 +159,9 @@ def apply(store, plan_id, token, fail_after=None):
             raise
         finally:
             store.put('run', run_id, run)
+        if run['status'] == 'applied' and approval['source'] == 'human':
+            from fis import preference
+            preference.applied(store, plan, approval['rows'])
         return run
 
 

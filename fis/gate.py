@@ -5,7 +5,7 @@ from pathlib import Path
 from fis.gate_rules import Gate, SECRET_NAMES, SECRET_SUFFIXES
 
 DATA = Path(__file__).parent / "data"
-SKIP = {'.git', '.venv', 'venv', 'node_modules', '__pycache__', '.obsidian',
+SKIP = {'.git', '.venv', 'venv', 'node_modules', 'target', '__pycache__', '.obsidian',
         '$recycle.bin', 'system volume information', 'zzz_delete', '.fis'}
 
 
@@ -39,7 +39,8 @@ def unsafe(path, config):
             return 'symbolic link or junction'
     if any(x.casefold() in SKIP | {str(s).casefold() for s in config.get('skip', [])} for x in p.parts):
         return 'excluded directory'
-    if p.name.lower() in SECRET_NAMES or p.name.lower().endswith(SECRET_SUFFIXES):
+    if (p.name.lower() in SECRET_NAMES or p.name.lower().endswith(SECRET_SUFFIXES)
+        or p.name.lower().startswith('.env.') or any(s in p.name.lower() for s in ('api_key', 'apikey', 'secret', 'token'))):
         return 'secret file'
     if any(under(resolved, x) for x in config.get('protected', [])):
         return 'protected root'

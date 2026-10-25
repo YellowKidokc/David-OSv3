@@ -49,5 +49,3 @@ def _words(stem: str, title: str, rules: dict) -> tuple[str, list[str]]:
     words = words[:rules["max_words"]]
     out = "_".join(([lead] if lead else []) + words) or "untitled"
     return out, why
-
-

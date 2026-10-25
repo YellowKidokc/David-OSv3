@@ -1,0 +1,49 @@
+{
+  "verified_at": "2026-10-25T12:24:52.598205",
+  "focused_tests": {
+    "foundation": 24,
+    "background_and_preferences": 8,
+    "result": "pass"
+  },
+  "rust_kernel": {
+    "command": "cargo test --locked --offline --manifest-path tools/fis-intelligence/rust/Cargo.toml",
+    "tests": 1,
+    "result": "pass"
+  },
+  "independent_wheel": {
+    "built": true,
+    "installed_without_dependencies": true,
+    "isolated_python_help_passed": true
+  },
+  "background": {
+    "application": "fis-standalone",
+    "state": "D:\\GitHub\\David-OSv3\\.data\\fis-live",
+    "background": {
+      "enabled": true,
+      "heartbeat": 1792949091.963422,
+      "interval_seconds": 900,
+      "message": "Choose folders in Scan & Pick; no drives selected automatically",
+      "started": 1792948966.5886025,
+      "status": "waiting-for-roots"
+    }
+  },
+  "startup": {
+    "installed": true,
+    "trigger": "Current user Windows sign-in",
+    "tray_supervisor_started": true,
+    "watchdog_restart_verified": true,
+    "reboot_not_performed": true
+  },
+  "full_repository_tests": {
+    "passed": 167,
+    "skipped": 3,
+    "failed": 1,
+    "failure": "tests/test_exact_search.py::test_pdf_docx_zip_sqlite",
+    "reason": "Existing rga poppler adapter cannot find pdftotext",
+    "scope": "No changes to that search subsystem"
+  },
+  "browser_visual_acceptance": "Not claimed; API acceptance and JavaScript syntax verified",
+  "real_drive_crawl_started": false,
+  "copies_only": true,
+  "legacy_worktree_logs": "Existing test runs appended legacy ledger records; left uncommitted, not reset."
+}

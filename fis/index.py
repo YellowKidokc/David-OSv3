@@ -79,9 +79,9 @@ class Store:
         return [json.loads(r[0]) for r in rows]
 
     @contextmanager
-    def lock(self):
+    def lock(self, name='executor'):
         """OS releases the state mutex even if the worker is killed."""
-        handle = open(self.home / "executor.lock", "a+b")
+        handle = open(self.home / (name+'.lock'), "a+b")
         handle.seek(0)
         if handle.read(1) == b"":
             handle.write(b"0")

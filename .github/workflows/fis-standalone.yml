@@ -1,0 +1,19 @@
+name: FIS standalone safety and independence
+on:
+  push:
+    paths: ['fis/**', 'tests/test_fis_standalone.py', 'tests/test_fis_background_preferences.py', 'scripts/fis/**', '.github/workflows/fis-standalone.yml']
+  pull_request:
+    paths: ['fis/**', 'tests/test_fis_standalone.py', 'tests/test_fis_background_preferences.py', 'scripts/fis/**', '.github/workflows/fis-standalone.yml']
+jobs:
+  acceptance-before-build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fail on forbidden imports, unsafe mutations or broken recovery
+        shell: pwsh
+        run: ./scripts/fis/CHECK.ps1
+      - name: Build the independent distribution only after acceptance passes
+        run: python -m pip wheel --no-deps ./fis --wheel-dir dist

@@ -129,7 +129,9 @@ class Foundation(unittest.TestCase):
 class Independence(unittest.TestCase):
     def test_import_allowlist_and_no_delete_or_path_injection(self):
         package = Path(__file__).resolve().parents[1]/'fis'
-        for path in package.glob('*.py'):
+        for path in package.rglob('*.py'):
+            if any(part in {'build', 'dist', '__pycache__'} for part in path.relative_to(package).parts):
+                continue
             tree = ast.parse(path.read_text(encoding='utf-8'))
             for node in ast.walk(tree):
                 if isinstance(node, ast.Import): names = [x.name for x in node.names]
@@ -139,9 +141,9 @@ class Independence(unittest.TestCase):
                     self.assertIn(name.split('.')[0], sys.stdlib_module_names | {'fis', '__future__'}, (path, name))
                 if isinstance(node, ast.Call):
                     if isinstance(node.func, ast.Attribute):
-                        self.assertNotIn(node.func.attr, {'unlink', 'remove', 'rmtree', 'import_module', 'spec_from_file_location'}, path)
+                        self.assertNotIn(node.func.attr, {'unlink', 'rmtree', 'import_module', 'spec_from_file_location'}, path)
                         if isinstance(node.func.value, ast.Name) and node.func.value.id in {'os', 'shutil'}:
-                            self.assertNotEqual(node.func.attr, 'replace', path)
+                            self.assertNotIn(node.func.attr, {'replace', 'remove'}, path)
                     if isinstance(node.func, ast.Name):
                         self.assertNotIn(node.func.id, {'exec', 'eval', '__import__'}, path)
             self.assertNotIn('sys.path', path.read_text(encoding='utf-8'))
@@ -154,6 +156,88 @@ class Independence(unittest.TestCase):
                                     env={k:v for k,v in os.environ.items() if k != 'PYTHONPATH'})
             self.assertEqual(result.returncode, 0, result.stderr)
             self.assertIn('scan', result.stdout)
+
+
+class Background(Foundation):
+    def test_crawl_checkpoint_templates_and_full_tree_rollback(self):
+        from fis.crawler import Crawler
+        from fis import templates
+        child = self.root/'nested'
+        child.mkdir()
+        (child/'paper draft.md').write_text('# A method\nEvidence and observations.')
+        (child/'paper draft.md.fisnote').write_text('All original note content <script>evil</script>')
+        before = snapshot(self.root)
+        service.configure_root(self.store, self.root, html=True)
+        files = service.scan(self.store, self.root, recursive=False)['files']
+        candidate = templates.teach(self.store, self.root, 'fable', files, True)
+        self.assertFalse(candidate['confirmed'])
+        templates.confirm(self.store, candidate['id'])
+        worker = Crawler(self.store, wait=lambda _: False)
+        first = worker.run(self.root, 'Trickle', max_folders=1)
+        self.assertEqual(len(first['done']), 1)
+        restarted = Crawler(Store(self.store.home), wait=lambda _: False)
+        last = restarted.run(self.root, 'Full')
+        self.assertEqual(last['status'], 'complete')
+        self.assertEqual(len(last['done']), 2)
+        self.assertEqual(len(self.store.all('run')), 2)
+        self.assertTrue((child/'FIS.html').exists())
+        self.assertTrue((self.root/'notes draft.txt').exists())  # crawler never renames
+        self.assertIn('&lt;script&gt;', (child/'FIS.html').read_text(encoding='utf-8'))
+        for run in self.store.all('run'):
+            self.assertFalse(transaction.undo(self.store, run['id'])['conflicts'])
+        self.assertEqual(snapshot(self.root), before)
+
+    def test_template_rule_requires_confirmation_then_changes_next_match(self):
+        from fis import templates
+        files = service.scan(self.store, self.root)['files']
+        other = self.root/'other'
+        other.mkdir()
+        (other/'notes.txt').write_text('method')
+        candidate = templates.teach(self.store, self.root, 'recovery', files, True)
+        self.assertEqual(templates.choose(self.store, other, files)['template'], 'vault')
+        templates.confirm(self.store, candidate['id'])
+        self.assertEqual(templates.choose(self.store, other, files)['template'], 'recovery')
+
+    def test_crawler_stops_for_uncertain_template_and_missing_html_permission(self):
+        from fis.crawler import Crawler
+        with self.assertRaises(PermissionError): Crawler(self.store, wait=lambda _:False).run(self.root, 'Full')
+        service.configure_root(self.store, self.root, html=True)
+        (self.root/'binary.blob').write_bytes(b'\x00\x01')
+        (self.root/'code.py').write_text('pass')
+        s = Crawler(self.store, wait=lambda _:False).run(self.root, 'Full')
+        self.assertEqual(s['status'], 'waiting')
+        self.assertFalse((self.root/'FIS.html').exists())
+
+    def test_browser_real_api_host_token_approval_and_rollback(self):
+        from fis.web import make_server
+        import threading
+        import urllib.request
+        import urllib.error
+        import re
+        server = make_server(self.store, 0)
+        worker = threading.Thread(target=server.serve_forever, daemon=True)
+        worker.start()
+        base = f'http://127.0.0.1:{server.server_port}'
+        try:
+            page = urllib.request.urlopen(base).read().decode()
+            self.assertIn('History &amp; Rollback', page)
+            token = re.search(r'name="fis-token" content="([^"]+)', page)[1]
+            p = self.plan()
+            body = json.dumps({'action':'approve-apply','plan':p['id'],'hash':p['hash'],
+                               'rows':[r['id'] for r in p['rows'] if not r['flag']]}).encode()
+            request = urllib.request.Request(base+'/api/action', body,
+                {'Content-Type':'application/json','X-FIS-Token':token,'Origin':base})
+            before = snapshot(self.root)
+            run = json.loads(urllib.request.urlopen(request).read())
+            self.assertEqual(run['status'], 'applied')
+            transaction.undo(self.store, run['id'])
+            self.assertEqual(snapshot(self.root), before)
+            bad = urllib.request.Request(base+'/api/action',body,{'Origin':'https://evil.example'})
+            with self.assertRaises(urllib.error.HTTPError): urllib.request.urlopen(bad)
+        finally:
+            server.shutdown()
+            server.server_close()
+            worker.join()
 
 
 if __name__ == '__main__':

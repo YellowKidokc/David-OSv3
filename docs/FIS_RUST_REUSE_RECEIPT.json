@@ -1,0 +1,69 @@
+{
+  "files": [
+    {
+      "source": "D:\\GitHub\\FIS-Kernel-Rust\\Cargo.lock",
+      "destination": "tools\\fis-intelligence\\rust\\Cargo.lock",
+      "sha256": "bb45f8e814b5a6b28a0448ddbb82e365a0f3fbc4e3438da2b7a69f3c5720cadd",
+      "already_present": true,
+      "verified": true
+    },
+    {
+      "source": "D:\\GitHub\\FIS-Kernel-Rust\\Cargo.toml",
+      "destination": "tools\\fis-intelligence\\rust\\Cargo.toml",
+      "sha256": "f6e5f9295c3440f91b3bf9ac953c93b483bf6e1deb03a5b54163c529f9583efc",
+      "already_present": true,
+      "verified": true
+    },
+    {
+      "source": "D:\\GitHub\\FIS-Kernel-Rust\\README.md",
+      "destination": "tools\\fis-intelligence\\reference-import-2026-10-25\\FIS-Kernel-Rust\\README.md",
+      "sha256": "3de0eb3f6bd1aa84920b0f7ee53758c319dd7ef67d117943c3b1817a03f8deaa",
+      "already_present": false,
+      "verified": true
+    },
+    {
+      "source": "D:\\GitHub\\FIS-Kernel-Rust\\src\\.fisnote",
+      "destination": "tools\\fis-intelligence\\reference-import-2026-10-25\\FIS-Kernel-Rust\\src\\.fisnote",
+      "sha256": "fced1a1216ed4a283eb794c720e9ab93104ab0156f8816d81a2eca73766d56c8",
+      "already_present": false,
+      "verified": true
+    },
+    {
+      "source": "D:\\GitHub\\FIS-Kernel-Rust\\src\\lib.rs",
+      "destination": "tools\\fis-intelligence\\rust\\src\\lib.rs",
+      "sha256": "924171d0033cabeb8b45609d28a0322160c7ece023fac083ab39d6961f9bd54f",
+      "already_present": true,
+      "verified": true
+    },
+    {
+      "source": "D:\\GitHub\\FIS-Kernel-Rust\\src\\main.rs",
+      "destination": "tools\\fis-intelligence\\rust\\src\\main.rs",
+      "sha256": "f32c110765790617cbfa0a9ce19b36491e511692b8f871d377207d81981411dc",
+      "already_present": true,
+      "verified": true
+    },
+    {
+      "source": "D:\\GitHub\\FIS-Kernel-Rust-TEST-OUTPUT\\.fisnote",
+      "destination": "tools\\fis-intelligence\\reference-import-2026-10-25\\FIS-Kernel-Rust-TEST-OUTPUT\\.fisnote",
+      "sha256": "6f383e621df0eebf58aad3077d09c2f48d599c870a167bf65790cbed5ef5eecc",
+      "already_present": false,
+      "verified": true
+    },
+    {
+      "source": "D:\\GitHub\\FIS-Kernel-Rust-TEST-OUTPUT\\REPORT.md",
+      "destination": "tools\\fis-intelligence\\reports\\historical-rust-test\\REPORT.md",
+      "sha256": "77858568226ecc82aad2ccbfb3ad61db0a6e773dfc9e07285ad6fde58caa701c",
+      "already_present": true,
+      "verified": true
+    },
+    {
+      "source": "D:\\GitHub\\FIS-Kernel-Rust-TEST-OUTPUT\\scan-report.json",
+      "destination": "tools\\fis-intelligence\\reports\\historical-rust-test\\scan-report.json",
+      "sha256": "16b890c95063e3820f54cb6c1acc4bdb7865fe16cc1dc52197ddb48ef22dcf29",
+      "already_present": true,
+      "verified": true
+    }
+  ],
+  "decision": "Rust source and historical reports already identical. Reuse seven symptom rules in offline Python inventory; keep kernel optional. BLAKE3 and SHA-256 remain distinct.",
+  "historical_output_is_current_test": false
+}

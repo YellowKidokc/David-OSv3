@@ -19,7 +19,7 @@ HERE = Path(__file__).resolve().parent
 TOOLS = [
     ("01 · Profile — the doorway wizard", "../01_PROFILE/PROFILE.bat",
      "20 questions · evidence pre-fill · writes the folder's rules"),
-    ("03 · Classify — Review sidecars", "../03_CLASSIFY/REVIEW.bat", "Every card · engine + DeepSeek suggestions · accept / reject / edit, one or all"),
+    ("03 · Document Classifier — Review sidecars", "../03_CLASSIFY/REVIEW.bat", "Every card · engine + DeepSeek suggestions · accept / reject / edit, one or all"),
     ("03 · Classify — Validate sidecars", "../03_CLASSIFY/VALIDATE.bat", "Check the AXIOM canon sidecars against TAG_TAXONOMY_v0.4"),
     ("04 · Adapt — old cards → mim.v1", "../04_ADAPT/ADAPT.bat",
      "Glossary/legacy cards get their stamp · mechanical fields only · judgment stays yours"),

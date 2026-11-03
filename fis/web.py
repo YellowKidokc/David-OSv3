@@ -3,6 +3,7 @@ import json
 import secrets
 import os
 import socket
+import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, urlsplit
@@ -139,10 +140,19 @@ def make_server(store, port=43107):
             try:
                 if url.path == '/':
                     return self.send((STATIC/'index.html').read_text(encoding='utf-8').replace('FIS_TOKEN', token), 'text/html')
-                if url.path in {'/app.js', '/style.css'}:
+                if url.path in {'/app.js', '/live.js', '/style.css'}:
                     return self.send((STATIC/url.path[1:]).read_text(encoding='utf-8'), 'text/javascript' if url.path.endswith('.js') else 'text/css')
                 if url.path == '/api/state':
                     return self.send(api.state())
+                if url.path == '/api/progress':
+                    progress = api.crawler.live_progress
+                    crawl = api.crawler.live_status
+                    return self.send({'progress': progress, 'server_time': time.time(),
+                        'status': 'discovering' if progress.get('phase') == 'discovering' else crawl.get('status', 'idle'),
+                        'files': crawl.get('files', 0), 'done': len(crawl.get('done', [])),
+                        'remaining': len(crawl.get('remaining', [])),
+                        'errors': len(crawl.get('errors', [])),
+                        'waiting_templates': len(crawl.get('waiting_templates', []))})
                 if url.path == '/api/health':
                     return self.send({'application': 'fis-standalone', 'state': str(store.home),
                                       'background': store.get('background', 'status', {})})

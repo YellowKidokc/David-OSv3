@@ -1,0 +1,50 @@
+{
+  "run_id": "reclassify-2026-09-22T173406",
+  "started": "2026-09-22T17:34:06.871616+00:00",
+  "finished": "2026-09-22T17:48:50.337083+00:00",
+  "config_hash": "608da4725a5e2538055d8980950da56b8947c30a7404d120acc4589d76eef7bc",
+  "p1": {
+    "unique_files": 37417,
+    "total_locations": 114705,
+    "duplicate_hashes": 31165,
+    "duplicate_ratio": 0.8329,
+    "per_ext": {
+      ".md": 23311,
+      ".lean": 11326,
+      ".json": 2504,
+      ".txt": 99,
+      ".py": 93,
+      ".csv": 84
+    },
+    "per_root": {
+      "//192.168.2.50/h_hp/Desktop 2/LEAN 4": 62855,
+      "D:/TEMP_LEAN_ZIP": 1457,
+      "//192.168.2.50/h_hp/Desktop/___Pipeline_Done_New/One page paper API/LEAN4": 23309,
+      "//192.168.2.50/h_hp/Desktop/___Pipeline_Done_New/One page paper API/EVIDENCE/OUTBOX": 3080,
+      "//192.168.2.50/h_hp/Desktop/_____pipeline-workflows-main/LEAN_FLOOR": 21885,
+      "C:/Users/David/Documents/faiththruphysics.com/04_MASTER_EQUATION": 2119
+    }
+  },
+  "p2": {
+    "total": 37417,
+    "classified": 15235,
+    "classified_pct": 40.72,
+    "library": 9431,
+    "library_pct": 25.21,
+    "unclassified": 22182,
+    "unclassified_pct": 59.28,
+    "with_receipt": 107,
+    "with_receipt_pct": 0.29,
+    "series_counts": {
+      "LIBRARY": 9431,
+      "AXIOMS": 2529,
+      "GRACE_COHERENCE": 1507,
+      "TRINITY": 915,
+      "MASTER_EQUATION": 482,
+      "SPIRITUAL_TERMS": 141,
+      "FALL_ENTROPY": 123,
+      "HARNESS_TESTS": 105,
+      "TEN_LAWS": 2
+    }
+  }
+}

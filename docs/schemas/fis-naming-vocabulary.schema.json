@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "fis.naming-vocabulary.v1",
+  "title": "FIS naming vocabulary",
+  "description": "Shape of fis/data/naming.json, fis/data/theophysics.json (core tier) and the state-directory vocabulary.user.json (learned tier). See docs/FIS_NAMING_SCHEMA.md.",
+  "type": "object",
+  "required": ["domains"],
+  "properties": {
+    "id": { "type": "string" },
+    "description": { "type": "string" },
+    "tier": { "enum": ["core", "learned"], "default": "core" },
+    "domains": { "type": "array", "items": { "$ref": "#/$defs/domainRule" } },
+    "types": { "type": "array", "items": { "$ref": "#/$defs/typeRule" } },
+    "status": { "type": "array", "items": { "$ref": "#/$defs/statusRule" } },
+    "domain_fallback": { "type": "string", "pattern": "^[A-Z]{3}$" },
+    "type_fallback": { "type": "string", "pattern": "^[A-Z]{3}$" },
+    "status_fallback": { "type": "string", "pattern": "^[A-Z]{2}$" },
+    "max_words": { "type": "integer", "minimum": 1 },
+    "max_length": { "type": "integer", "minimum": 20 },
+    "auto_check": { "type": "number", "minimum": 0, "maximum": 1 },
+    "archive_after_days": { "type": "integer", "minimum": 1 },
+    "series": { "type": "array", "items": { "$ref": "#/$defs/seriesRule" } },
+    "drop_words": { "type": "array", "items": { "type": "string" } },
+    "protect": { "type": "array", "items": { "type": "string" } }
+  },
+  "$defs": {
+    "words": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 2 } },
+    "provenance": {
+      "description": "Present on learned-tier rules only. Core rules need none.",
+      "type": "object",
+      "required": ["created_by", "state"],
+      "properties": {
+        "created_by": { "enum": ["counter", "ai", "user"] },
+        "state": { "enum": ["provisional", "confirmed", "rejected"] },
+        "created": { "type": "string" },
+        "distinct_files": { "type": "integer", "minimum": 0 },
+        "distinct_folders": { "type": "integer", "minimum": 0 },
+        "examples": { "type": "array", "items": { "type": "string" }, "maxItems": 5 },
+        "reason": { "type": "string" }
+      }
+    },
+    "domainRule": {
+      "type": "object",
+      "required": ["code", "words"],
+      "properties": {
+        "code": { "type": "string", "pattern": "^[A-Z]{3}$" },
+        "label": { "type": "string" },
+        "words": { "$ref": "#/$defs/words" },
+        "provenance": { "$ref": "#/$defs/provenance" }
+      },
+      "additionalProperties": false
+    },
+    "typeRule": {
+      "type": "object",
+      "required": ["code", "words"],
+      "properties": {
+        "code": { "type": "string", "pattern": "^[A-Z]{3}$" },
+        "label": { "type": "string" },
+        "words": { "$ref": "#/$defs/words" },
+        "provenance": { "$ref": "#/$defs/provenance" }
+      },
+      "additionalProperties": false
+    },
+    "statusRule": {
+      "type": "object",
+      "required": ["code", "words"],
+      "properties": {
+        "code": { "type": "string", "pattern": "^[A-Z]{2}$" },
+        "label": { "type": "string" },
+        "words": { "$ref": "#/$defs/words" },
+        "provenance": { "$ref": "#/$defs/provenance" }
+      },
+      "additionalProperties": false
+    },
+    "seriesRule": {
+      "type": "object",
+      "required": ["pattern", "as"],
+      "properties": {
+        "pattern": { "type": "string" },
+        "as": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

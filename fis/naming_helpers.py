@@ -29,16 +29,26 @@ def _clean(text: str) -> str:
     return re.sub(r"[^a-z0-9]+", " ", text.lower()).strip()
 
 
+def _split_camel(text: str) -> str:
+    return re.sub(r"([a-z0-9])([A-Z])", r"\1 \2", text)
+
+
+def _join_ids(cleaned: str) -> str:
+    """Keep dotted IDs like E2.1 whole: _clean leaves 'e2 1', which would otherwise lose the sub-number."""
+    return re.sub(r"\b([a-z]\d{1,3}) (\d{1,2})\b", r"\1_\2", cleaned)
+
+
 def _words(stem: str, title: str, rules: dict) -> tuple[str, list[str]]:
-    why, s = [], _clean(stem)
+    why, s = [], _join_ids(_clean(_split_camel(stem)))
     lead = ""
     for sr in rules["series"]:
         m = re.match(sr["pattern"], stem.lower().replace(" - ", "_"))
         if m:
             n = m.group(1)
             x = m.group(2) if m.lastindex and m.lastindex >= 2 else ""
-            lead = sr["as"].replace("{n}", f"{int(n):02d}").replace("{x}", x or "")
-            s = _clean(stem.lower().replace(" - ", "_")[m.end():])
+            # Keep the written width ('012' stays '012') so sort order survives; pad single digits to two.
+            lead = sr["as"].replace("{n}", n.zfill(2)).replace("{x}", x or "")
+            s = _join_ids(_clean(_split_camel(stem.replace(" - ", "_")[m.end():])))
             why.append(f"order kept: {lead}")
             break
     drop = set(rules["drop_words"])

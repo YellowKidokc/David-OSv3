@@ -1,0 +1,1017 @@
+{
+  "scope": "two explicitly named boot folders; eligible source and configuration files",
+  "source_mutations": false,
+  "legacy_code_executed": false,
+  "files": [
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\FIS\\fis_classifier.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\FIS\\fis_classifier.py",
+      "sha256": "9a831cc6909378faa15b785f7e6117ace458b3503b69f99747f7f19b3fa9cd63",
+      "bytes": 31377,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "collections",
+        "docx",
+        "json",
+        "os",
+        "pathlib",
+        "pprint",
+        "pypdf",
+        "re",
+        "sys",
+        "time",
+        "typing",
+        "urllib.request"
+      ],
+      "description": "FIS Classifier \u2014 Folder type + File CHI scoring (the master equation)."
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\FIS\\fis_config.json",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\FIS\\fis_config.json",
+      "sha256": "585afa6a299548eb5bd1db3327acbfbd451546344b96d204a9dd23ac3ab4fc7a",
+      "bytes": 1148,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\FIS\\fis_daemon.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\FIS\\fis_daemon.py",
+      "sha256": "1d236d875afd06898e4d5cf288e84ce150a43413c1edb3b9dd7717796a60dfb8",
+      "bytes": 41551,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "datetime",
+        "fis_classifier",
+        "fis_namer",
+        "hashlib",
+        "json",
+        "logging",
+        "logging.handlers",
+        "os",
+        "pathlib",
+        "sqlite3",
+        "string",
+        "subprocess",
+        "sys",
+        "threading",
+        "time",
+        "watchdog.events",
+        "watchdog.observers"
+      ],
+      "description": "FIS \u2014 File Intelligence System daemon."
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\FIS\\fis_enricher.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\FIS\\fis_enricher.py",
+      "sha256": "ecc216046313e4ac71a0311f4e8c9aec613147166b77303f05d6b4e3547486a4",
+      "bytes": 9923,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "json",
+        "logging",
+        "numpy",
+        "pathlib",
+        "re",
+        "sklearn.feature_extraction.text",
+        "sklearn.metrics.pairwise",
+        "sqlite3",
+        "sys"
+      ],
+      "description": "fis_enricher.py \u2014 Low-confidence enrichment for FIS naming proposals."
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\FIS\\fis_folder_daemon.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\FIS\\fis_folder_daemon.py",
+      "sha256": "e0191730059400ccd2ef00a0b611ad46b149b93b0d6ba32a8a5a83eb292c9644",
+      "bytes": 24697,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "datetime",
+        "fis_classifier",
+        "hashlib",
+        "json",
+        "logging",
+        "logging.handlers",
+        "os",
+        "pathlib",
+        "sqlite3",
+        "string",
+        "sys",
+        "threading",
+        "time",
+        "watchdog.events",
+        "watchdog.observers"
+      ],
+      "description": "FIS Folder Tracker \u2014 independent daemon, runs alongside fis_daemon.py (file tracker)."
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\FIS\\fis_namer.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\FIS\\fis_namer.py",
+      "sha256": "3f9c01fb4d8efb05789b915c5bda44996b4c6420d9f9114b012f11b07bf9353b",
+      "bytes": 18232,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "datetime",
+        "fis_enricher",
+        "fis_preference_engine",
+        "pathlib",
+        "re",
+        "sqlite3",
+        "sys",
+        "time"
+      ],
+      "description": "fis_namer.py \u2014 Compressed name generator + auto-approver for FIS."
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\FIS\\FIS_NAMING_SPEC.md",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\FIS\\FIS_NAMING_SPEC.md",
+      "sha256": "13367df2b2bdb5e2be99d6dc23babebcab2278649b8d29e1716040cf464b72b5",
+      "bytes": 9510,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\FIS\\fis_preference_engine.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\FIS\\fis_preference_engine.py",
+      "sha256": "c9b792e72b33eb6eece760f44e0da3bf315691ca8aa09588c667efb6dd4abf8d",
+      "bytes": 9546,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "json",
+        "logging",
+        "os",
+        "pathlib",
+        "pickle",
+        "river"
+      ],
+      "description": "fis_preference_engine.py \u2014 Online learning preference engine for FIS naming."
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\FIS\\INSTALL_STARTUP.bat",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\FIS\\INSTALL_STARTUP.bat",
+      "sha256": "37639f2f9cda488ecf9a10e017aa6d949193123e0f4204c1acae98185b0ba6ed",
+      "bytes": 2019,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\FIS\\RESTART_DAEMONS.cmd",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\FIS\\RESTART_DAEMONS.cmd",
+      "sha256": "e75f00ac4c4f399504cd2e243bee050a738a47f23b08deb1a523d44ef855b8bb",
+      "bytes": 1697,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\chi_pipeline.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\chi_pipeline.py",
+      "sha256": "bcbfd2c03a1e7c8ad9e6b6930fa3e2d15be7d3b084d34f801ea669edb26a5379",
+      "bytes": 18878,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "argparse",
+        "dataclasses",
+        "datetime",
+        "hashlib",
+        "html",
+        "importlib",
+        "json",
+        "os",
+        "pathlib",
+        "re",
+        "sqlite3",
+        "sys",
+        "time",
+        "typing"
+      ],
+      "description": "Chi Pipeline \u2014 Modular classification pipeline."
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\chi_profiles.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\chi_profiles.py",
+      "sha256": "d65147faa36f4a4ea74d38cc70750b9b57134b4b26969c6258a6b3dce0c06f9e",
+      "bytes": 19363,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "argparse",
+        "dataclasses",
+        "datetime",
+        "html",
+        "json",
+        "pathlib",
+        "re",
+        "sys",
+        "time",
+        "typing"
+      ],
+      "description": "Chi Pipeline Profiles \u2014 swap the lens, same engine."
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\claim_jurisdiction.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\claim_jurisdiction.py",
+      "sha256": "a1e3ee9030a7a743b3afcf8507b2e1a9a13ead96c7d04c8f6d69999442c8c6d1",
+      "bytes": 17505,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "argparse",
+        "dataclasses",
+        "datetime",
+        "hashlib",
+        "html",
+        "json",
+        "nltk",
+        "os",
+        "pathlib",
+        "re",
+        "sqlite3",
+        "sys",
+        "typing"
+      ],
+      "description": "Claim Jurisdiction Classifier \u2014 What / How / Why"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\expanded_profiles.json",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\expanded_profiles.json",
+      "sha256": "5c64046405858dee1e174124e91ef5d1ecdac4c99da57cc7c9359b4428ec4afb",
+      "bytes": 89248,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\export_math_csv.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\export_math_csv.py",
+      "sha256": "63251b81f5511af2261e6c4a9a0c4730d68d7d7cc78dda501da1038a0dbb14a8",
+      "bytes": 1252,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "csv",
+        "json",
+        "pathlib"
+      ],
+      "description": ""
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\extract_math.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\extract_math.py",
+      "sha256": "e6c0958d4e793a6c5c2c843ea2d6799eb7cb5ecad6dd8bbc6ae4c32b303e49ff",
+      "bytes": 6117,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "argparse",
+        "datetime",
+        "json",
+        "pathlib",
+        "re",
+        "sys"
+      ],
+      "description": "Math Extractor \u2014 pull all equations from HTML articles."
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\files\\folder_scanner.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\files\\folder_scanner.py",
+      "sha256": "28e7d7125c144ec0807e624864435cfeecfd861ebed67ace69533013be05585f",
+      "bytes": 40822,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "argparse",
+        "chardet",
+        "collections",
+        "dataclasses",
+        "datetime",
+        "hashlib",
+        "httpx",
+        "json",
+        "os",
+        "pathlib",
+        "re",
+        "sys",
+        "typing"
+      ],
+      "description": "FOLDER SYMPTOM SCANNER v1.0"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\files\\scan_report.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\files\\scan_report.py",
+      "sha256": "7799174275445b3ec727b85b577088ed2fc790a6c45207e1ab61eb68d9793d6e",
+      "bytes": 17614,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "datetime",
+        "json",
+        "pathlib",
+        "sys"
+      ],
+      "description": "FOLDER SCAN REPORT GENERATOR"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\filetagger.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\filetagger.py",
+      "sha256": "7bd2bead4fef0ee266c5326cd02175784264df4dca64d3fbf0ff217fd0c36599",
+      "bytes": 9067,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "argparse",
+        "datetime",
+        "docx",
+        "hashlib",
+        "multiprocessing",
+        "os",
+        "pypdf",
+        "re",
+        "sqlite3",
+        "yake"
+      ],
+      "description": "filetagger - fast, free, fully-local file cataloger."
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\filetagger_chi.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\filetagger_chi.py",
+      "sha256": "86d02b0ea1f6e0a99a6f94e8eee05aeb6872261c61c6e944a4b5a9d022dc1cdb",
+      "bytes": 11343,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "argparse",
+        "chi_classifier",
+        "datetime",
+        "docx",
+        "hashlib",
+        "multiprocessing",
+        "os",
+        "pathlib",
+        "pypdf",
+        "re",
+        "sqlite3",
+        "sys"
+      ],
+      "description": "filetagger_chi - filetagger + Master Equation classification."
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\filetagger_chi_v2.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\filetagger_chi_v2.py",
+      "sha256": "fb3ff3c506d240afa0823dbd956a9e4c47bd5b3b8ef5904173a8aa3b4a975a9c",
+      "bytes": 17919,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "argparse",
+        "chi_classifier",
+        "datetime",
+        "docx",
+        "hashlib",
+        "multiprocessing",
+        "os",
+        "pathlib",
+        "pypdf",
+        "re",
+        "sqlite3",
+        "sys"
+      ],
+      "description": "filetagger_chi v2 - Full Theophysics file profiler."
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\filetagger_daemon.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\filetagger_daemon.py",
+      "sha256": "87e8821f2ccaf85a317a56123dd76716849b86a96435f40e0c50399431da5b17",
+      "bytes": 13571,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "datetime",
+        "hashlib",
+        "json",
+        "logging",
+        "os",
+        "pathlib",
+        "sqlite3",
+        "sys",
+        "threading",
+        "time",
+        "watchdog.events",
+        "watchdog.observers"
+      ],
+      "description": "FileTagger Daemon \u2014 always-on background file watcher + cataloger."
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\filetagger_gui.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\filetagger_gui.py",
+      "sha256": "4f5cc3e6e2a74a6389d932dbbaea1c277ff3de84bd01652331fe7b66fb2e9952",
+      "bytes": 8076,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "__future__",
+        "os",
+        "pathlib",
+        "queue",
+        "subprocess",
+        "sys",
+        "threading",
+        "tkinter"
+      ],
+      "description": "Small popup GUI for filetagger.py."
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\foldertagger.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\foldertagger.py",
+      "sha256": "b6e7f19034628869b14956e4438db2123441efb04da104300ad9b4574e03c59c",
+      "bytes": 9218,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "__future__",
+        "argparse",
+        "collections",
+        "datetime",
+        "hashlib",
+        "os",
+        "pathlib",
+        "re",
+        "uuid"
+      ],
+      "description": "foldertagger - leave a small memory marker inside every folder."
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\gen_audit.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\gen_audit.py",
+      "sha256": "5347ffaae25191dec831e4a8f68dff24fb65208d64226bd3a0300e99823dae47",
+      "bytes": 9106,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "datetime",
+        "pathlib",
+        "sqlite3"
+      ],
+      "description": "Generate a Theophysics Corpus Audit Report from chi_catalog_v2.db."
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\MTL_INSTRUCTIONS_FOR_OPUS.md",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\MTL_INSTRUCTIONS_FOR_OPUS.md",
+      "sha256": "d582a2cbd0f2214f13584d3283fc868192b02ee28c07840d8380decaf183db32",
+      "bytes": 4378,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\read_math_templates.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\read_math_templates.py",
+      "sha256": "fc63d3b8c1a546cd7c9b4c5f4c4118b77230d924ea0803ec97a146901c6da031",
+      "bytes": 1172,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "openpyxl",
+        "sys"
+      ],
+      "description": ""
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\salvaged\\auto_sort.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\salvaged\\auto_sort.py",
+      "sha256": "2ffeebb6b897aed823bff3b94380e40cca25461087199a7d2dc70c1876f34cd0",
+      "bytes": 41380,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "collections",
+        "core.term_expander",
+        "datetime",
+        "docx",
+        "fitz",
+        "hashlib",
+        "json",
+        "nlp_bridge",
+        "openpyxl",
+        "os",
+        "pathlib",
+        "pptx",
+        "preference_engine",
+        "re",
+        "shutil",
+        "sqlite3",
+        "sys",
+        "typing",
+        "urllib.request",
+        "yake"
+      ],
+      "description": "Auto File Sorter \u2014 AI-powered classification, naming, and organization."
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\salvaged\\chi_classifier.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\salvaged\\chi_classifier.py",
+      "sha256": "7b47116ce132d5bf7dd7c1750a8ee8d50ca66f08f4e02259d4a1581d85350272",
+      "bytes": 18390,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "collections",
+        "datetime",
+        "pathlib",
+        "re",
+        "typing"
+      ],
+      "description": "Chi Factor Classifier \u2014 classifies files by their role in the Master Equation."
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\salvaged\\file_watcher.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\salvaged\\file_watcher.py",
+      "sha256": "7f128c839d1427a9d97400af03fa61a8f94d56a12ad0107914f81bee2226fc83",
+      "bytes": 7453,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "__future__",
+        "logging",
+        "pathlib",
+        "psutil",
+        "time",
+        "typing"
+      ],
+      "description": "Sentinel Desktop v16.0 \u2014 File and process watcher."
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\salvaged\\fingerprint.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\salvaged\\fingerprint.py",
+      "sha256": "b28af8d18216c0f06bc67fc44f28b39683539ce2ab818a55e96e42a48981a50e",
+      "bytes": 20203,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "__future__",
+        "argparse",
+        "bs4",
+        "collections",
+        "datetime",
+        "docx",
+        "hashlib",
+        "json",
+        "os",
+        "pathlib",
+        "re",
+        "sys",
+        "typing",
+        "zipfile"
+      ],
+      "description": "Content Fingerprinter & Similarity Finder"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\salvaged\\memory\\__init__.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\salvaged\\memory\\__init__.py",
+      "sha256": "bc3898eff757bbce9846c7af6464a27e355665dabd979b956c745d872714d141",
+      "bytes": 405,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "core.memory.episodic",
+        "core.memory.semantic",
+        "core.memory.working"
+      ],
+      "description": "Sentinel Desktop v11.0 \u2014 Memory subpackage."
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\salvaged\\memory\\episodic.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\salvaged\\memory\\episodic.py",
+      "sha256": "20e9f17f163325d78aa768660cacbb18dd08a3a4dcff5805d21e0320129ea103",
+      "bytes": 7409,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "__future__",
+        "datetime",
+        "json",
+        "logging",
+        "pathlib",
+        "typing"
+      ],
+      "description": "Sentinel Desktop v11.0 \u2014 Episodic Memory."
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\salvaged\\memory\\semantic.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\salvaged\\memory\\semantic.py",
+      "sha256": "29040e1309d4f318ee6517ff9acdb9ec82f5e91a8a2ed94e174b8e52b3ef57e8",
+      "bytes": 6167,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "__future__",
+        "datetime",
+        "json",
+        "logging",
+        "pathlib",
+        "sqlite3",
+        "typing"
+      ],
+      "description": "Sentinel Desktop v11.0 \u2014 Semantic Memory."
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\salvaged\\memory\\working.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\salvaged\\memory\\working.py",
+      "sha256": "469267af2a1ed182d517869a1e700cd9d79579470e3ed231e1c9aeaef8f87b08",
+      "bytes": 2996,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "__future__",
+        "logging",
+        "typing"
+      ],
+      "description": "Sentinel Desktop v11.0 \u2014 Working Memory."
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\salvaged\\sentinel_mcp_server.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\salvaged\\sentinel_mcp_server.py",
+      "sha256": "79df7f0144de3d8858459c7eb6c93bb2f747283b084fe68964b0ec961b5ca6c4",
+      "bytes": 22769,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "__future__",
+        "fastmcp",
+        "fastmcp.server.auth.providers.jwt",
+        "httpx",
+        "json",
+        "os",
+        "typing"
+      ],
+      "description": "Sentinel MCP Server \u2014 Model Context Protocol wrapper for Sentinel Desktop API."
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\sample\\budget_notes.md",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\sample\\budget_notes.md",
+      "sha256": "5211c8c72b1901b37dde7a6bcb8ec85d2fd789b720679b62d32c38c9b1e21b83",
+      "bytes": 303,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\sample\\folder_scan_sample.json",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\sample\\folder_scan_sample.json",
+      "sha256": "ab16f21caf007a348d5690b27ab510de077fb65750f83bc7e51ad321b4b833a3",
+      "bytes": 204,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\sample\\install_readme.txt",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\sample\\install_readme.txt",
+      "sha256": "8f56b85161e2d278da8a628bd9beffb1d4ba365672fbd5cba877d9464b1faf7a",
+      "bytes": 336,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\show_chi.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\show_chi.py",
+      "sha256": "25d9c49dc5197275503843e67d3e8d629c9f6afce765422e93991bad4edd3e4d",
+      "bytes": 992,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "sqlite3"
+      ],
+      "description": ""
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\show_site_claims.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\show_site_claims.py",
+      "sha256": "10ba39752287cb493b267b17179d228f284d3c4aa2361bee7a3aa49ebfb939a0",
+      "bytes": 1423,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "sqlite3"
+      ],
+      "description": ""
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\START_FILETAGGER_GUI.bat",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\START_FILETAGGER_GUI.bat",
+      "sha256": "431b066bad6cd90bb2467b2c4c8c518fb1c40fbd05fff19d7b77c5e2fb63e621",
+      "bytes": 114,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\START_FOLDER_TAGGER_SAMPLE.bat",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\START_FOLDER_TAGGER_SAMPLE.bat",
+      "sha256": "feeb2e376337b1ad87c50c9a34288960a5f299182107fede73d8e44fa35c9083",
+      "bytes": 75,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\wordnet_cluster.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\wordnet_cluster.py",
+      "sha256": "ffe9ce5623a67dce8a26938ff67e5673cf145300a34ff98ca580d7a9be208b5b",
+      "bytes": 3799,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "io",
+        "nltk.corpus",
+        "sys"
+      ],
+      "description": "Map the full semantic neighborhood of a word through WordNet."
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\wordnet_deep.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\wordnet_deep.py",
+      "sha256": "d026053961b728b4397c5ec6ea4780bfd1ae9e8d9623becea0a766d785ed808c",
+      "bytes": 2606,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "io",
+        "nltk.corpus",
+        "sys"
+      ],
+      "description": "Deep WordNet analysis of Theophysics framework terms."
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\wordnet_expander.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\wordnet_expander.py",
+      "sha256": "ea7be6127433994d5e43f0f3d956206096006be17f8b10f29e1185f7785e6332",
+      "bytes": 7891,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "argparse",
+        "chi_profiles",
+        "collections",
+        "json",
+        "nltk.corpus",
+        "pathlib",
+        "sys",
+        "typing"
+      ],
+      "description": "WordNet Profile Expander \u2014 auto-expand chi_profiles term lists."
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\wrap_article.py",
+      "snapshot": "tools\\file-intelligence-sources\\snapshots\\filetagger\\wrap_article.py",
+      "sha256": "872a41dca38dfd56f94706011d868b4da03599f9641cec51416c2aed902cc8c3",
+      "bytes": 9252,
+      "existing_identical": [],
+      "status": "reference candidate; not enabled",
+      "syntax": "passed",
+      "imports": [
+        "argparse",
+        "chi_pipeline",
+        "claim_jurisdiction",
+        "datetime",
+        "json",
+        "pathlib",
+        "re",
+        "sys"
+      ],
+      "description": "Article Template Wrapper v3 \u2014 spaced proportional pill top bar"
+    }
+  ],
+  "retained_in_place": [
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\FIS\\.fisnote",
+      "bytes": 770,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\FIS\\fis.log",
+      "bytes": 11714222,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\FIS\\fis.log.1",
+      "bytes": 20971518,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\FIS\\fis.log.2",
+      "bytes": 20971398,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\FIS\\fis.log.3",
+      "bytes": 20971490,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\FIS\\fis_catalog.db",
+      "bytes": 8029511680,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\FIS\\fis_catalog.db-shm",
+      "bytes": 32768,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\FIS\\fis_catalog.db-wal",
+      "bytes": 0,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\FIS\\fis_folder.log",
+      "bytes": 12687788,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\FIS\\fis_folder.log.1",
+      "bytes": 20971430,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\FIS\\fis_folder.log.2",
+      "bytes": 20971333,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\FIS\\fis_folder.log.3",
+      "bytes": 20971438,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\FIS\\fis_folder_status.json",
+      "bytes": 1967,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\FIS\\fis_status.json",
+      "bytes": 590,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\.fisnote",
+      "bytes": 796,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\catalog.db",
+      "bytes": 154521600,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\chi_catalog.db",
+      "bytes": 36798464,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\chi_catalog_v2.db",
+      "bytes": 585437184,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\consciousness_equations_for_excel.csv",
+      "bytes": 87837,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\consciousness_equations_for_excel.xlsx",
+      "bytes": 40110,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\consciousness_math.json",
+      "bytes": 4050101,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\consciousness_scan.json",
+      "bytes": 276200,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\conversion_scan.db",
+      "bytes": 737280,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\corpus_audit.html",
+      "bytes": 31388,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\files\\.fisnote",
+      "bytes": 785,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\files.zip",
+      "bytes": 16197,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\MTL_CONSCIOUSNESS_COMBINED.xlsx",
+      "bytes": 94479,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\sample\\.folder.fmeta",
+      "bytes": 785,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\sample\\.folder.fmeta.chi",
+      "bytes": 445,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\sample\\budget_notes.md.chi",
+      "bytes": 599,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\sample\\budget_notes.md.fmeta",
+      "bytes": 599,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\sample\\budget_notes.md.fmeta.chi",
+      "bytes": 468,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\sample\\folder_scan_sample.html",
+      "bytes": 8014,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\sample\\install_readme.txt.chi",
+      "bytes": 615,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\sample\\install_readme.txt.fmeta",
+      "bytes": 615,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\sample\\install_readme.txt.fmeta.chi",
+      "bytes": 481,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\site_claims.db",
+      "bytes": 1531904,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\test_chi.db",
+      "bytes": 32768,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    },
+    {
+      "source": "D:\\DONT TOUCH BOOT UP\\filetagger\\test_chi2.db",
+      "bytes": 32768,
+      "reason": "runtime data, generated output, or non-source asset; retained in place"
+    }
+  ]
+}

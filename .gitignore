@@ -1,4 +1,5 @@
 __pycache__/
+.venv/
 *.pyc
 *.pyo
 *.egg-info/
@@ -6,8 +7,17 @@ __pycache__/
 *.sqlite3
 .env
 .data/
+_data/
 data/*.sqlite3
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
 runs/
+.wrangler/
+_FIS_ROOT_SIDECAR_ARCHIVE/
+tools/fis/FIS-HTML-Intelligence/state/
+05_TOPIC_COLLECTION/INBOX/
+05_TOPIC_COLLECTION/OUTBOX/
 
 # Local search runtime and generated caches
 runtime/search-tools/

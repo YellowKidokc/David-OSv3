@@ -1,0 +1,1090 @@
+{
+  "id": "fis.learned.draft.20261025",
+  "tier": "learned",
+  "description": "DRAFT learned-tier candidates from a corpus scan. Not loaded by FIS. Review before use.",
+  "domains": [
+    {
+      "code": "SPR",
+      "label": "Spiritual",
+      "words": [
+        "spiritual",
+        "spirit",
+        "divine",
+        "soul",
+        "heaven"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 9977,
+        "examples": [
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\01_MASTER_EQUATION_CORE\\05_PHYSICAL_PEDAGOGY_AND_TEN_LAWS__Why_God_Built_Physics.md",
+          "C:\\theophysics\\OPUS\\ai-crew\\CANON_DECISIONS\\SPIRITUAL_DERIVATIVES_LAW_LENS_GRID_CANDIDATE_v0_1.md",
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\01_MASTER_EQUATION_CORE\\02_DESCENT_AND_GOD_STORY__02_THE_GOD_STORY_Narrative_Map_Part_2.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "FTH",
+      "label": "Faith",
+      "words": [
+        "faith",
+        "belief",
+        "trust"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 6660,
+        "examples": [
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\01_MASTER_EQUATION_CORE\\09_TO_REVIEW\\CANON_SCAN_2026-08-05_015622.md",
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\Saved Notes\\deep-research-report.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "CHR",
+      "label": "Christ and resurrection",
+      "words": [
+        "christ",
+        "resurrection",
+        "incarnation",
+        "cross"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 2968,
+        "examples": [
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms-truth-substrate-push\\_template\\_theological\\christ-type.md",
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms\\_INBOX_HARVEST_TRUTH_CARDS\\03_Master-Equation-Sheets.md",
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms-truth-substrate-push\\_docs\\WHY_THIS_STRUCTURE.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "ESC",
+      "label": "Eschatology and judgment",
+      "words": [
+        "hell",
+        "judgment",
+        "death",
+        "eternal",
+        "afterlife"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 835,
+        "examples": [
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms\\_INBOX_HARVEST_TRUTH_CARDS\\R07_Destiny.md",
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\01_MASTER_EQUATION_CORE\\09_TO_REVIEW\\CANON_SCAN_2026-08-05_015622.md",
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\Saved Notes\\---.txt"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "BIB",
+      "label": "Biblical text",
+      "words": [
+        "biblical",
+        "genesis",
+        "psalm",
+        "romans"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 769,
+        "examples": [
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms\\_INBOX_HARVEST_TRUTH_CARDS\\R04_Faith.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "TRI",
+      "label": "Trinity and triadic",
+      "words": [
+        "triadic",
+        "trinity",
+        "father",
+        "holy spirit"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 970,
+        "examples": [
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\01_MASTER_EQUATION_CORE\\The-Watcher-interlude.canonical.md",
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms\\_INBOX_HARVEST_TRUTH_CARDS\\TRIADIC_TERMINATION_BONES_v1.md",
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\Saved Notes\\---.txt"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "MAT",
+      "label": "Mathematics",
+      "words": [
+        "mathematical",
+        "mathematics",
+        "math",
+        "probability",
+        "operator",
+        "lambda"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 6061,
+        "examples": [
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms-truth-substrate-push\\_docs\\CLAIM_LAYER_TRUTH_CAPSULE_SPEC.md",
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\01_MASTER_EQUATION_CORE\\00_README_AND_MANIFEST__README.md",
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms\\_INBOX_HARVEST_TRUTH_CARDS\\00_MASTER_ONE_PAGE_BUILDOUT_PLAN.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "LAW",
+      "label": "Ten Laws",
+      "words": [
+        "laws",
+        "ten laws",
+        "deep laws"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 7168,
+        "examples": [
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\01_MASTER_EQUATION_CORE\\00_README_AND_MANIFEST__PACKAGE_TREE.md",
+          "C:\\theophysics\\OPUS\\Master EQ\\ZZZ_Archive\\DELETE\\INBOX_03_FORMAL_MATH\\_new\\10 Laws\\Law 7 - Quantum_Mechanics_Prophecy\\Assets\\LAWS 7B Miracles as Quantum.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "FRC",
+      "label": "Forces and gravity",
+      "words": [
+        "gravity",
+        "force",
+        "forces",
+        "energy",
+        "electromagnet"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 2038,
+        "examples": [
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\01_MASTER_EQUATION_CORE\\05_PHYSICAL_PEDAGOGY_AND_TEN_LAWS__Why_God_Built_Physics.md",
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\01_MASTER_EQUATION_CORE\\05_PHYSICAL_PEDAGOGY_AND_TEN_LAWS__The_Ten_Laws_Master_Equation_Portrait.md",
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\Saved Notes\\294c96ee-041e-46bd-a21c-a0b7e4d3db1f.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "QMC",
+      "label": "Quantum mechanics",
+      "words": [
+        "mechanics",
+        "collapse",
+        "entanglement",
+        "measurement",
+        "schrodinger"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 1586,
+        "examples": [
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\01_MASTER_EQUATION_CORE\\The-Watcher.canonical.md",
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\01_MASTER_EQUATION_CORE\\06_TRINITY_NOETHER_GENERATOR_NOTES__Trinity_Energy_Noether_Generator_Notes_and_Consolidation.txt",
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms\\_INBOX_HARVEST_TRUTH_CARDS\\COUPLING_BREAK_MAP.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "THR",
+      "label": "Thermodynamics and order",
+      "words": [
+        "disorder",
+        "thermodynamic",
+        "second law"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 2024,
+        "examples": [
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms\\_INBOX_HARVEST_TRUTH_CARDS\\02_PHYSICAL_THEOLOGICAL_LAYER_TenFactorTable.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "ONT",
+      "label": "Ontology and reality",
+      "words": [
+        "ontological",
+        "reality",
+        "existence"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 7751,
+        "examples": [
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\Saved Notes\\The Axioms of a World Built by Love Ontological Projections.md",
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\01_MASTER_EQUATION_CORE\\The-Watcher-interlude.canonical.md",
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\01_MASTER_EQUATION_CORE\\02_DESCENT_AND_GOD_STORY__01_THE_GOD_STORY_Narrative_Map_Part_1.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "EPI",
+      "label": "Epistemology and truth",
+      "words": [
+        "truth",
+        "knowledge",
+        "epistem",
+        "evidence",
+        "claim"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 2476,
+        "examples": [
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\Saved Notes\\# THE CHAIN.txt",
+          "C:\\theophysics\\TRUTH_AND_LOVE_THE_SECOND_FLOOR.md",
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\01_MASTER_EQUATION_CORE\\09_TO_REVIEW\\CANON_SCAN_2026-08-05_015622.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "MOR",
+      "label": "Morality",
+      "words": [
+        "morality",
+        "moral decline",
+        "conscience"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 1275,
+        "examples": [
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms\\_INBOX_HARVEST_TRUTH_CARDS\\D05_MoralReal.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "UNI",
+      "label": "Unification",
+      "words": [
+        "unified",
+        "unification",
+        "integration",
+        "bridge"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 2629,
+        "examples": [
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms\\_INBOX_HARVEST_TRUTH_CARDS\\T-02-the-trinity-unified.atom.json",
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\Saved Notes\\PAPER_temporal_direction_of_measurement_v1.md",
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\Saved Notes\\Structural Constraints of Theophysical Optimization.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "FWK",
+      "label": "Framework and canon",
+      "words": [
+        "framework",
+        "canonical",
+        "canon",
+        "blueprint"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 6727,
+        "examples": [
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\Saved Notes\\# THE CHAIN.txt",
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\01_MASTER_EQUATION_CORE\\09_TO_REVIEW\\CANON_SCAN_2026-08-05_015622.md",
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms\\_docs\\CANONICAL_DEFINITION_REGISTRY.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "BIO",
+      "label": "Biology and life",
+      "words": [
+        "biology",
+        "biophysics",
+        "cell",
+        "life",
+        "evolution"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 762,
+        "examples": [
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms\\_INBOX_HARVEST_TRUTH_CARDS\\7Q_DOMAIN_VOCABULARY.md",
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\Saved Notes\\d6280e57-5cd7-4025-a5dd-36e8a6dcdf14.md",
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms\\_INBOX_HARVEST_TRUTH_CARDS\\Appendix_D.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "HUM",
+      "label": "Human and self",
+      "words": [
+        "human",
+        "self",
+        "person",
+        "identity",
+        "free will"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 1241,
+        "examples": [
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\Saved Notes\\# Theophysics Research Initiative — Current Thesis Brief.md",
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\Saved Notes\\GPT classify.md",
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms-truth-substrate-push\\master-equation\\_theological\\christ-type.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "SYS",
+      "label": "Systems and tooling",
+      "words": [
+        "pipeline",
+        "uuid",
+        "node",
+        "sync",
+        "script",
+        "tagger"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 3183,
+        "examples": [
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms\\LANE4_ATOM_LEDGER_BUILD_REPORT.md",
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\01_MASTER_EQUATION_CORE\\04_LANE4_TYPED_CANON_AND_LEAN__typed-canon-summary.md",
+          "C:\\theophysics\\AHK\\README.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "WEB",
+      "label": "Site and publishing",
+      "words": [
+        "faiththruphysics",
+        "substack",
+        "website",
+        "analytics",
+        "assets"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 1753,
+        "examples": [
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\Saved Notes\\Codex_Selected_HTML_Templates_2026-07-21__README-best-html-templates-2026-07-21.md",
+          "C:\\theophysics\\CODE CLAUDE\\Consilience Atlas Engine\\venv\\Lib\\site-packages\\pandas\\tests\\arrays\\categorical\\test_analytics.py",
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms-truth-substrate-push\\_docs\\FOLDER_BEACON_SYSTEM.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "KMS",
+      "label": "Notes and vaults",
+      "words": [
+        "obsidian",
+        "vault",
+        "glossary",
+        "wikilink",
+        "dataview"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 3539,
+        "examples": [
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms\\PROMPT_FINAL_HTML_MARKDOWN_OBSIDIAN_RESTART.md",
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms\\_INBOX_HARVEST_TRUTH_CARDS\\CANONICAL_MAP.md",
+          "C:\\theophysics\\O-08_The_Crown\\00_SOURCE_MATERIALS\\LOGOS_V5_EXTRACTS\\Paper-06-Grace-Function.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "AIO",
+      "label": "AI operations",
+      "words": [
+        "kimi",
+        "deepseek",
+        "opus",
+        "gemini",
+        "colab",
+        "session",
+        "handoff"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 349,
+        "examples": [
+          "C:\\theophysics\\KIMI_OVERNIGHT_LEDGER_2026-10-20.md",
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms\\_runtime\\_private_CANONICAL_NODE_API_2026-08-01\\deepseek_full\\DEEPSEEK_PASS_AUDIT.md",
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\Saved Notes\\OPUS-FAVORITE-Temporal-Direction.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "GRT",
+      "label": "Grants and funding",
+      "words": [
+        "grant",
+        "funder",
+        "templeton"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 201,
+        "examples": [
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms\\_runtime\\meta_claim_extractor\\turn8_meta_claims\\raw_responses\\W8.2.raw.txt"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    }
+  ],
+  "types": [
+    {
+      "code": "EQN",
+      "label": "Equation",
+      "words": [
+        "equation"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 0,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "IDX",
+      "label": "Index",
+      "words": [
+        "index",
+        "registry"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 0,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "LOG",
+      "label": "Log or ledger",
+      "words": [
+        "ledger",
+        "changelog"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 272,
+        "examples": [
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\Saved Notes\\# THE CHAIN.txt"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "RCP",
+      "label": "Receipt",
+      "words": [
+        "receipt",
+        "verification"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 626,
+        "examples": [
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms\\_INBOX_HARVEST_TRUTH_CARDS\\FORMAL_VERIFICATION_WRITEUP_2026-05-10.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "SPC",
+      "label": "Specification",
+      "words": [
+        "spec",
+        "specification",
+        "schema"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 225,
+        "examples": [
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms-truth-substrate-push\\_docs\\ARCHITECTURE_FIXES_POST_REVIEW.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "SCR",
+      "label": "Script or code",
+      "words": [
+        "script",
+        "tool",
+        "build"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 515,
+        "examples": [
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\Saved Notes\\If You Were God.md",
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms\\_INBOX_HARVEST_TRUTH_CARDS\\BUILD_ATTEMPT_2026-07-17.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "PRM",
+      "label": "Prompt",
+      "words": [
+        "prompt",
+        "instruction"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 243,
+        "examples": [
+          "C:\\theophysics\\AHK\\README.md",
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms\\PROMPT_FINAL_HTML_MARKDOWN_OBSIDIAN_RESTART.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "CFG",
+      "label": "Config",
+      "words": [
+        "config",
+        "settings"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 0,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "MAP",
+      "label": "Map or tree",
+      "words": [
+        "map",
+        "tree",
+        "chain"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 1291,
+        "examples": [
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\01_MASTER_EQUATION_CORE\\00_README_AND_MANIFEST__PACKAGE_TREE.md",
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\01_MASTER_EQUATION_CORE\\00_README_AND_MANIFEST__PACKAGE_TREE.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "GLS",
+      "label": "Glossary",
+      "words": [
+        "glossary",
+        "lexicon",
+        "atlas"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 3230,
+        "examples": [
+          "C:\\theophysics\\O-08_The_Crown\\00_SOURCE_MATERIALS\\LOGOS_V5_EXTRACTS\\Paper-06-Grace-Function.md",
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\01_MASTER_EQUATION_CORE\\03_UNIVERSAL_COHERENCE_ATLAS__universal_domain_mapping_with_coherence_v9.xlsx"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "RPT",
+      "label": "Report",
+      "words": [
+        "report",
+        "summary",
+        "overview"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 742,
+        "examples": [
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\Saved Notes\\deep-research-report (1).md",
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\01_MASTER_EQUATION_CORE\\00_README_AND_MANIFEST__PACKAGE_TREE.md",
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms\\_INBOX_HARVEST_TRUTH_CARDS\\CONSUMER_OVERVIEW.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "BRF",
+      "label": "Briefing",
+      "words": [
+        "briefing",
+        "brief",
+        "briefs"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 22,
+        "examples": [
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\Saved Notes\\BRIEF_01_EXISTENCE_AND_THE_NOTHING_PROBLEM.md",
+          "C:\\theophysics\\OPUS\\Master Equation\\_H_DESKTOP_INTAKE_2026-08-24\\master-equation\\HAWKING_DAVID_RESPONSE_CASE_2026-08-13\\05_CHAPTERS\\01_Our_Picture_of_the_Universe\\evidence\\source_papers\\BRIEFS_Moral_Substrate_Chain__BRIEF_00_AI_READING_ORDER_AND_STORY_OUTLINE.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "OUT",
+      "label": "Outline",
+      "words": [
+        "outline",
+        "oputline"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 604,
+        "examples": [
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\Saved Notes\\MASTER_EQUATION_GOD_FIRST_PRESENTATION_OUTLINE_v1.md",
+          "C:\\theophysics\\OPUS\\Master EQ\\ZZZ_Archive\\DELETE\\INBOX_99_ARCHIVE\\09_DATA_VAULT_ARCHIVE\\_SORTED\\01_CONTENT_TO_SCORE\\Obsidian_Archive\\OLD_04_Production\\05_Staged_New_Content\\04_Theophysics_Content\\OUTLINE MASTER EQUATION.md",
+          "C:\\theophysics\\OPUS\\Master EQ\\ZZZ_Archive\\DELETE\\INBOX_99_ARCHIVE\\09_DATA_VAULT_ARCHIVE\\_SORTED\\01_CONTENT_TO_SCORE\\Obsidian_Archive\\OLD_04_Production\\05_Staged_New_Content\\04_Theophysics_Content\\OPUTLINE MASTER EQUATION.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "DEF",
+      "label": "Definition",
+      "words": [
+        "definition"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 868,
+        "examples": [
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\01_MASTER_EQUATION_CORE\\04_LANE4_TYPED_CANON_AND_LEAN__LOSSLESS_Axiom_Summary_Source.txt",
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms\\unification\\01_middle_seed\\DEFINITION_PILLS_SEED_v0.1.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "CLM",
+      "label": "Claim",
+      "words": [
+        "claim",
+        "claims"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 1725,
+        "examples": [
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\01_MASTER_EQUATION_CORE\\04_LANE4_TYPED_CANON_AND_LEAN__LOSSLESS_Axiom_Summary_Source.txt",
+          "C:\\theophysics\\CLAIM_ATOM_NODE_TYPES.md",
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\01_MASTER_EQUATION_CORE\\04_LANE4_TYPED_CANON_AND_LEAN__lean4-lane4-plan.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "MST",
+      "label": "Master document",
+      "words": [
+        "master"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 3220,
+        "examples": [
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\Saved Notes\\MASTER_EQUATION_FROM_NOETHER.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "CNS",
+      "label": "Consolidated",
+      "words": [
+        "consolidated",
+        "merged",
+        "combined"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 202,
+        "examples": [
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms\\_INBOX_HARVEST_TRUTH_CARDS\\CANONICAL_MAP.md",
+          "C:\\theophysics\\OPUS\\ai-crew\\AI_REVIEW_PACKET_THEOPHYSICS_2026-08-03\\02_CLAIM_INTAKE\\CANONICAL_CONSOLIDATED_ALL_LOSSLESS_SUMMARY\\CONSOLIDATED_00_START_HERE_DOORWAY_METHOD__lossless_packet.md",
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms\\_runtime\\KIMI_COMPILATION_DG_PROTOCOL_RUN_2026-08-01\\KIMI_COMPILATION_CANONICAL_BUILD_PASS_REPORT.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "HND",
+      "label": "Handoff",
+      "words": [
+        "handoff"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 16,
+        "examples": [
+          "C:\\theophysics\\OPUS\\ai-crew\\HANDOFF_2026-07-24_CANONICAL_RULING_DAY.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "PRO",
+      "label": "Protocol",
+      "words": [
+        "protocol",
+        "procedure"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 316,
+        "examples": [
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms-truth-substrate-push\\_docs\\CLAIM_BEACON_PROTOCOL_V0_1.md",
+          "C:\\theophysics\\OPUS\\AXIOMS\\OUTBOX\\AXIOM_DUMP_NETWORK\\port_sheets\\PROTOCOL-Coherence_Coupling-d5z2b40c-001.json"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "SES",
+      "label": "Session",
+      "words": [
+        "session",
+        "transcript"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 23,
+        "examples": [
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms\\_INBOX_HARVEST_TRUTH_CARDS\\SESSION_2026-05-06_115752_summary.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "CDX",
+      "label": "Codex",
+      "words": [
+        "codex"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 678,
+        "examples": [
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\Saved Notes\\Codex_Favorite_Framework_Stories_2026-07-21.md",
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms\\CODEX_BRIEF_POINTER.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "RDM",
+      "label": "Readme",
+      "words": [
+        "readme"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 726,
+        "examples": [
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\01_MASTER_EQUATION_CORE\\00_README_AND_MANIFEST__PACKAGE_MANIFEST.json",
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms\\README_AI_START_HERE.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "INT",
+      "label": "Interpretation",
+      "words": [
+        "interpretation",
+        "interpretations"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 169,
+        "examples": [
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms\\_INBOX_HARVEST_TRUTH_CARDS\\2026-07-02-theophysics-isolator-design.md",
+          "C:\\theophysics\\OPUS\\Master EQ\\ZZZ_Archive\\DELETE\\INBOX_COLAB\\INTERPRETATIONS__COLAB_MASTER.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "SRC",
+      "label": "Source",
+      "words": [
+        "source",
+        "sources"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 4128,
+        "examples": [
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\01_MASTER_EQUATION_CORE\\00_README_AND_MANIFEST__README.md",
+          "C:\\theophysics\\O-08_The_Crown\\00_SOURCE_MATERIALS\\SOURCE_MANIFEST.csv"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "MTA",
+      "label": "Meta",
+      "words": [
+        "meta",
+        "metadata"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 507,
+        "examples": [
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\Saved Notes\\PART_1_V2_BUILD_MANIFEST.md",
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms\\_docs\\META_CLAIM_EXTRACTOR.md",
+          "C:\\theophysics\\CODE CLAUDE\\Consilience Atlas Engine\\venv\\Lib\\site-packages\\packaging\\metadata.py"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "LEA",
+      "label": "Lean source",
+      "words": [
+        "lean source"
+      ],
+      "provenance": {
+        "created_by": "user",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 0,
+        "examples": [],
+        "reason": "Assigned from the .lean extension when no other type matches."
+      }
+    },
+    {
+      "code": "EXP",
+      "label": "Law expansion",
+      "words": [
+        "law expansion",
+        "expansion"
+      ],
+      "provenance": {
+        "created_by": "user",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 0,
+        "examples": [],
+        "reason": "Law expansion documents (020_LAW_EXPANSIONS)."
+      }
+    },
+    {
+      "code": "CRD",
+      "label": "Law card",
+      "words": [
+        "law card",
+        "stacked law card"
+      ],
+      "provenance": {
+        "created_by": "user",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 0,
+        "examples": [],
+        "reason": "Bare LAW_NN documents without an expansion marker."
+      }
+    }
+  ],
+  "status": [
+    {
+      "code": "CN",
+      "label": "Canonical",
+      "words": [
+        "canonical",
+        "canon",
+        "sealed",
+        "locked"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 6727,
+        "examples": [
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\01_MASTER_EQUATION_CORE\\09_TO_REVIEW\\CANON_SCAN_2026-08-05_015622.md",
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms\\_docs\\CANONICAL_DEFINITION_REGISTRY.md",
+          "C:\\theophysics\\00_Canonical_PRODUCTION_v1.0\\01_MASTER_EQUATION_CORE\\00_README_AND_MANIFEST__PACKAGE_TREE.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "PR",
+      "label": "Proposed",
+      "words": [
+        "proposed",
+        "candidate",
+        "speculative"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 186,
+        "examples": [
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms-truth-substrate-push\\_ledger\\LANE4_LATEST_STATUS.md"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "SD",
+      "label": "Superseded",
+      "words": [
+        "superseded",
+        "replaced",
+        "legacy"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 162,
+        "examples": [
+          "C:\\theophysics\\ATOMS\\Faith-through-physics-atoms\\_runtime\\canon_guard\\crown-canon-report.txt"
+        ],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    }
+  ]
+}

@@ -34,8 +34,8 @@ def _strip_html(raw: str) -> str:
     return html.unescape(raw)
 
 
-def extract_text(path: str, limit: int = 200_000) -> str:
-    """Return readable text, or "" if unreadable. Never raises."""
+def extract_text(path: str, limit: int | None = 200_000) -> str:
+    """Return readable text, or "" if unreadable. None requests complete text."""
     p = Path(path)
     ext = p.suffix.lower()
     try:
@@ -65,7 +65,7 @@ def _extract_pdf(p: Path, limit: int) -> str:
         out = []
         for page in reader.pages:
             out.append(page.extract_text() or "")
-            if sum(len(x) for x in out) > limit:
+            if limit is not None and sum(len(x) for x in out) > limit:
                 break
         return "\n".join(out)[:limit]
     except Exception:

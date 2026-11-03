@@ -8,7 +8,7 @@ from fis.index import digest, uid
 from fis.scan import inventory
 from fis.sidecar import legacy_notes, render
 from fis.transaction import plan_hash
-from fis import preference
+from fis import preference, vocabulary
 
 
 def configure_root(store, root, html=False):
@@ -30,10 +30,16 @@ def configure_root(store, root, html=False):
     return config
 
 
-def scan(store, root, recursive=True, on_file=None):
-    result = inventory(root, gate.policy(store), recursive, on_file)
+def scan(store, root, recursive=True, on_file=None, on_stage=None):
+    result = inventory(root, gate.policy(store), recursive, on_file, on_stage, vocabulary.layers(store.home))
     if gate.under(store.home, result['root']):
         raise PermissionError('State must be outside source')
+    try:
+        # Count recurring unmatched terms; a failure here must never break a scan.
+        result['vocabulary_created'] = [{k: v for k, v in r.items() if k != 'provenance'} | {'state': 'provisional'}
+                                        for r in vocabulary.observe(store.home, result)]
+    except (OSError, ValueError):
+        result['vocabulary_created'] = []
     for row in result['files']:
         store.record(row)
     store.put('scan', result['root'], result)
@@ -70,6 +76,7 @@ def make_plan(store, root, recursive=True, html=True, template='fable', on_file=
         target = str(Path(r['path']).with_name(r['rename']['name']))
         if r['path'] != target:
             flag = 'collision' if targets[target.casefold()] > 1 or Path(target).exists() else ''
+            flag = r['rename'].get('hold') or flag
             # Link rewrites are deliberately separate proposals. Hold linked Markdown instead of breaking references.
             if Path(r['path']).suffix.lower() == '.md':
                 p = Path(r['path'])

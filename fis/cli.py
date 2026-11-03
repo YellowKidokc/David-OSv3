@@ -40,6 +40,9 @@ def main(argv=None):
     p.add_argument('--port', type=int, default=43107)
     p.add_argument('--interval', type=int, default=900, help='Seconds between passes of each selected root')
     sub.add_parser('preferences')
+    p = sub.add_parser('vocab', help='Review learned naming vocabulary')
+    p.add_argument('--confirm', metavar='CODE', help='Confirm a provisional code')
+    p.add_argument('--reject', metavar='CODE', help='Reject a code so it is not used or proposed again')
     p = sub.add_parser('crawl')
     p.add_argument('root')
     p.add_argument('--speed', choices=['Trickle', 'Background', 'Normal', 'Full'], default='Background')
@@ -75,6 +78,13 @@ def main(argv=None):
             from fis.background import serve_background
             serve_background(store, args.port, max(30, args.interval))
             return
+        elif args.command == 'vocab':
+            from fis import vocabulary
+            if args.confirm:
+                vocabulary.confirm(store.home, args.confirm.upper())
+            if args.reject:
+                vocabulary.reject(store.home, args.reject.upper())
+            result = vocabulary.status(store.home)
         elif args.command == 'preferences':
             from fis.preference import stats
             result = stats(store)

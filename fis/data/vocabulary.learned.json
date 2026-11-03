@@ -1,0 +1,935 @@
+{
+  "id": "fis.learned.shipped.20261025",
+  "tier": "learned",
+  "description": "Shipped learned tier: provisional rules from a 2026-10-25 corpus scan. Confirm or reject with `fis vocab`. Overridden by <state>/vocabulary.user.json.",
+  "domains": [
+    {
+      "code": "SPR",
+      "label": "Spiritual",
+      "words": [
+        "spiritual",
+        "spirit",
+        "divine",
+        "soul",
+        "heaven"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 9977,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "FTH",
+      "label": "Faith",
+      "words": [
+        "faith",
+        "belief",
+        "trust"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 6660,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "CHR",
+      "label": "Christ and resurrection",
+      "words": [
+        "christ",
+        "resurrection",
+        "incarnation",
+        "cross"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 2968,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "ESC",
+      "label": "Eschatology and judgment",
+      "words": [
+        "hell",
+        "judgment",
+        "death",
+        "eternal",
+        "afterlife"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 835,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "BIB",
+      "label": "Biblical text",
+      "words": [
+        "biblical",
+        "genesis",
+        "psalm",
+        "romans"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 769,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "TRI",
+      "label": "Trinity and triadic",
+      "words": [
+        "triadic",
+        "trinity",
+        "father",
+        "holy spirit"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 970,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "MAT",
+      "label": "Mathematics",
+      "words": [
+        "mathematical",
+        "mathematics",
+        "math",
+        "probability",
+        "operator",
+        "lambda"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 6061,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "LAW",
+      "label": "Ten Laws",
+      "words": [
+        "laws",
+        "ten laws",
+        "deep laws"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 7168,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "FRC",
+      "label": "Forces and gravity",
+      "words": [
+        "gravity",
+        "force",
+        "forces",
+        "energy",
+        "electromagnet"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 2038,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "QMC",
+      "label": "Quantum mechanics",
+      "words": [
+        "mechanics",
+        "collapse",
+        "entanglement",
+        "measurement",
+        "schrodinger"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 1586,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "THR",
+      "label": "Thermodynamics and order",
+      "words": [
+        "disorder",
+        "thermodynamic",
+        "second law"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 2024,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "ONT",
+      "label": "Ontology and reality",
+      "words": [
+        "ontological",
+        "reality",
+        "existence"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 7751,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "EPI",
+      "label": "Epistemology and truth",
+      "words": [
+        "truth",
+        "knowledge",
+        "epistem",
+        "evidence",
+        "claim"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 2476,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "MOR",
+      "label": "Morality",
+      "words": [
+        "morality",
+        "moral decline",
+        "conscience"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 1275,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "UNI",
+      "label": "Unification",
+      "words": [
+        "unified",
+        "unification",
+        "integration",
+        "bridge"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 2629,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "FWK",
+      "label": "Framework and canon",
+      "words": [
+        "framework",
+        "canonical",
+        "canon",
+        "blueprint"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 6727,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "BIO",
+      "label": "Biology and life",
+      "words": [
+        "biology",
+        "biophysics",
+        "cell",
+        "life",
+        "evolution"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 762,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "HUM",
+      "label": "Human and self",
+      "words": [
+        "human",
+        "self",
+        "person",
+        "identity",
+        "free will"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 1241,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "SYS",
+      "label": "Systems and tooling",
+      "words": [
+        "pipeline",
+        "uuid",
+        "node",
+        "sync",
+        "script",
+        "tagger"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 3183,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "WEB",
+      "label": "Site and publishing",
+      "words": [
+        "faiththruphysics",
+        "substack",
+        "website",
+        "analytics",
+        "assets"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 1753,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "KMS",
+      "label": "Notes and vaults",
+      "words": [
+        "obsidian",
+        "vault",
+        "glossary",
+        "wikilink",
+        "dataview"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 3539,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "AIO",
+      "label": "AI operations",
+      "words": [
+        "kimi",
+        "deepseek",
+        "opus",
+        "gemini",
+        "colab",
+        "session",
+        "handoff"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 349,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "GRT",
+      "label": "Grants and funding",
+      "words": [
+        "grant",
+        "funder",
+        "templeton"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 201,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    }
+  ],
+  "types": [
+    {
+      "code": "EQN",
+      "label": "Equation",
+      "words": [
+        "equation"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 0,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "IDX",
+      "label": "Index",
+      "words": [
+        "index",
+        "registry"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 0,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "LOG",
+      "label": "Log or ledger",
+      "words": [
+        "ledger",
+        "changelog"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 272,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "RCP",
+      "label": "Receipt",
+      "words": [
+        "receipt",
+        "verification"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 626,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "SPC",
+      "label": "Specification",
+      "words": [
+        "spec",
+        "specification",
+        "schema"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 225,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "SCR",
+      "label": "Script or code",
+      "words": [
+        "script",
+        "tool",
+        "build"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 515,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "PRM",
+      "label": "Prompt",
+      "words": [
+        "prompt",
+        "instruction"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 243,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "CFG",
+      "label": "Config",
+      "words": [
+        "config",
+        "settings"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 0,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "MAP",
+      "label": "Map or tree",
+      "words": [
+        "map",
+        "tree",
+        "chain"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 1291,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "GLS",
+      "label": "Glossary",
+      "words": [
+        "glossary",
+        "lexicon",
+        "atlas"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 3230,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "RPT",
+      "label": "Report",
+      "words": [
+        "report",
+        "summary",
+        "overview"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 742,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "BRF",
+      "label": "Briefing",
+      "words": [
+        "briefing",
+        "brief",
+        "briefs"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 22,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "OUT",
+      "label": "Outline",
+      "words": [
+        "outline",
+        "oputline"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 604,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "DEF",
+      "label": "Definition",
+      "words": [
+        "definition"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 868,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "CLM",
+      "label": "Claim",
+      "words": [
+        "claim",
+        "claims"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 1725,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "MST",
+      "label": "Master document",
+      "words": [
+        "master"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 3220,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "CNS",
+      "label": "Consolidated",
+      "words": [
+        "consolidated",
+        "merged",
+        "combined"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 202,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "HND",
+      "label": "Handoff",
+      "words": [
+        "handoff"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 16,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "PRO",
+      "label": "Protocol",
+      "words": [
+        "protocol",
+        "procedure"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 316,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "SES",
+      "label": "Session",
+      "words": [
+        "session",
+        "transcript"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 23,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "CDX",
+      "label": "Codex",
+      "words": [
+        "codex"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 678,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "RDM",
+      "label": "Readme",
+      "words": [
+        "readme"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 726,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "INT",
+      "label": "Interpretation",
+      "words": [
+        "interpretation",
+        "interpretations"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 169,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "SRC",
+      "label": "Source",
+      "words": [
+        "source",
+        "sources"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 4128,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "MTA",
+      "label": "Meta",
+      "words": [
+        "meta",
+        "metadata"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 507,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "LEA",
+      "label": "Lean source",
+      "words": [
+        "lean source"
+      ],
+      "provenance": {
+        "created_by": "user",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 0,
+        "examples": [],
+        "reason": "Assigned from the .lean extension when no other type matches."
+      }
+    },
+    {
+      "code": "EXP",
+      "label": "Law expansion",
+      "words": [
+        "law expansion",
+        "expansion"
+      ],
+      "provenance": {
+        "created_by": "user",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 0,
+        "examples": [],
+        "reason": "Law expansion documents (020_LAW_EXPANSIONS)."
+      }
+    },
+    {
+      "code": "CRD",
+      "label": "Law card",
+      "words": [
+        "law card",
+        "stacked law card"
+      ],
+      "provenance": {
+        "created_by": "user",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 0,
+        "examples": [],
+        "reason": "Bare LAW_NN documents without an expansion marker."
+      }
+    }
+  ],
+  "status": [
+    {
+      "code": "CN",
+      "label": "Canonical",
+      "words": [
+        "canonical",
+        "canon",
+        "sealed",
+        "locked"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 6727,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "PR",
+      "label": "Proposed",
+      "words": [
+        "proposed",
+        "candidate",
+        "speculative"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 186,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    },
+    {
+      "code": "SD",
+      "label": "Superseded",
+      "words": [
+        "superseded",
+        "replaced",
+        "legacy"
+      ],
+      "provenance": {
+        "created_by": "counter",
+        "state": "provisional",
+        "created": "2026-10-25",
+        "distinct_files": 162,
+        "examples": [],
+        "reason": "Corpus scan 2026-10-25; draft for confirmation. distinct_files is the strongest single term or filename prefix seen."
+      }
+    }
+  ]
+}

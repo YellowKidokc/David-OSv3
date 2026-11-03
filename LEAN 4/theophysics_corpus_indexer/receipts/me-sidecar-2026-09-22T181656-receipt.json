@@ -1,0 +1,22 @@
+{
+  "run_id": "me-sidecar-2026-09-22T181656",
+  "started": "2026-09-22T18:16:56.228345+00:00",
+  "finished": "2026-09-22T18:17:39.562416+00:00",
+  "claim_id": "ME",
+  "canonical_path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\04_MASTER_EQUATION\\050_LEAN_PROOFS\\_PULLS\\MASTER_EQUATION\\THE_MASTER_EQUATION_CANONICAL_DOCUMENT_C4_8d2d7388.md",
+  "canonical_sha256": "6c62ff6970da6747d4130c712f2789d2aa5c90d9ccb79438bd6487c44661a74e",
+  "statement_version": "6c62ff6970da6747",
+  "counts": {
+    "workspace_presentations": 1686,
+    "corpus_presentations": 1933,
+    "total_presentations": 3516,
+    "drift_items": 3515
+  },
+  "exports": {
+    "ME.csv": {
+      "path": "\\\\192.168.2.50\\h_hp\\Desktop\\REVIEW\\ME.csv",
+      "rows": 3516,
+      "query": "SELECT p.sha256, p.kind, p.status, f.summary, p.path FROM me_presentations p JOIN files f ON f.sha256 = p.sha256 WHERE p.claim_id = 'ME' ORDER BY p.kind, p.path"
+    }
+  }
+}

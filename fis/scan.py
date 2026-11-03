@@ -12,7 +12,8 @@ from fis.tag import tags
 TEXT = {'.md', '.txt', '.rst', '.html', '.htm', '.py', '.js', '.ts', '.json', '.csv', '.yaml', '.lean'}
 
 
-def inventory(root, config=None, recursive=True, on_file=None):
+def inventory(root, config=None, recursive=True, on_file=None, on_stage=None, vocab=None):
+    vocab = vocab or {}
     config = config or gate.defaults()
     original = Path(root).absolute()
     if gate.unsafe(original, config):
@@ -39,11 +40,15 @@ def inventory(root, config=None, recursive=True, on_file=None):
                 skipped.append({'path': str(p), 'why': reason or 'metadata sidecar'})
                 continue
             try:
+                if on_stage:
+                    on_stage('reading', str(p))
                 before = p.stat()
                 text = ''
                 if p.suffix.lower() in TEXT:
                     with p.open('rb') as handle:
                         text = handle.read(64_000).decode('utf-8', errors='replace')
+                if on_stage:
+                    on_stage('fingerprinting', str(p))
                 sha = sha256_file(p)
                 after = p.stat()
                 if (before.st_size, before.st_mtime_ns) != (after.st_size, after.st_mtime_ns):
@@ -52,12 +57,14 @@ def inventory(root, config=None, recursive=True, on_file=None):
                 note = p.with_name(p.name+'.fisnote')
                 if note.is_file() and not gate.unsafe(note, config):
                     legacy = note.read_text(encoding='utf-8', errors='replace')
+                if on_stage:
+                    on_stage('classifying', str(p))
                 tagging = tags(name, text, legacy, config['rulepacks'])
                 row = {'id': digest(str(p)), 'path': str(p), 'relative': str(p.relative_to(root)),
                        'folder': str(here), 'sha256': sha, 'size': after.st_size,
                        'mtime_ns': after.st_mtime_ns, 'atime_ns': before.st_atime_ns,
                        'tags': tagging, 'classification': classify(p, tagging),
-                       'rename': propose(p, text, after.st_mtime, config['rulepacks']),
+                       'rename': propose(p, text, after.st_mtime, config['rulepacks'], vocab.get('learned'), vocab.get('laws')),
                        'extraction': 'bounded-utf8' if p.suffix.lower() in TEXT else 'metadata-only',
                        'partial_text': after.st_size > 64000 or p.suffix.lower() not in TEXT}
                 files.append(row)

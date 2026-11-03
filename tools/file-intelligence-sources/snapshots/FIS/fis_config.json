@@ -1,0 +1,53 @@
+{
+  "watch_folders": [
+    "D:\\DONT TOUCH BOOT UP",
+    "C:\\Users\\David\\Documents",
+    "C:\\Users\\David\\Desktop",
+    "\\192.168.2.50\\h_hp\\Desktop"
+  ],
+  "crawl_folders": [],
+  "auto_discover_drives": false,
+  "skip_drives": [
+    "C:\\"
+  ],
+  "skip_dirs": [
+    ".git",
+    "__pycache__",
+    ".venv",
+    "venv",
+    "node_modules",
+    ".obsidian",
+    "Windows",
+    "System Volume Information",
+    "$Recycle.Bin",
+    "AppData",
+    "ProgramData",
+    ".fis",
+    "salvaged",
+    "sample"
+    ,
+    "___AXIOM",
+    "Master EQ"
+  ],
+  "skip_names": [
+    "thumbs.db",
+    "desktop.ini",
+    ".ds_store"
+  ],
+  "skip_exts": [
+    ".chi",
+    ".fisnote"
+  ],
+  "crawl_sleep_ms": 25,
+  "reconcile_interval_s": 600,
+  "status_interval_s": 30,
+  "classify": true,
+  "ai_fallback": false,
+  "write_fisnotes": false,
+  "fisnote_min_files": 2,
+  "skip_system_write": true,
+  "notify_threshold": 100,
+  "notify_interval_min": 30,
+  "notify_snooze_max": 3,
+  "priority_note": "watch_folders get instant watchdog attention; crawler cycles the rest of the drives slowly (crawl_sleep_ms throttle)."
+}

@@ -1,0 +1,29 @@
+{
+  "run_id": "l4-sidecars-2026-09-22T180155",
+  "started": "2026-09-22T18:01:55.401359+00:00",
+  "finished": "2026-09-22T18:02:03.046199+00:00",
+  "review_root": "\\\\192.168.2.50\\h_hp\\Desktop\\REVIEW",
+  "exports": {
+    "l4_qrn": {
+      "file": "L4_QRN.csv",
+      "view": "l4_qrn",
+      "query": "SELECT f.sha256, f.summary, f.decl_count, l.path\n            FROM files f\n            JOIN locations l ON l.sha256 = f.sha256\n            WHERE f.is_library = true",
+      "query_hash": "3845cc5cdd42d69e",
+      "rows": 47380
+    },
+    "l4_unc": {
+      "file": "L4_UNC.csv",
+      "view": "l4_unc",
+      "query": "SELECT f.sha256, f.ext, f.size_bytes, f.summary, l.path\n            FROM files f\n            JOIN locations l ON l.sha256 = f.sha256\n            WHERE f.series IS NULL",
+      "query_hash": "6e5ed054fbe5e3ce",
+      "rows": 53094
+    },
+    "l4_dup": {
+      "file": "L4_DUP.csv",
+      "view": "l4_dup",
+      "query": "SELECT f.sha256, f.series, d.cnt, l.path\n            FROM files f\n            JOIN locations l ON l.sha256 = f.sha256\n            JOIN (\n                SELECT sha256, COUNT(*) AS cnt\n                FROM locations\n                GROUP BY sha256\n                HAVING COUNT(*) > 1\n            ) d ON d.sha256 = f.sha256\n            ORDER BY d.cnt DESC",
+      "query_hash": "a47bc9d27361be81",
+      "rows": 108453
+    }
+  }
+}

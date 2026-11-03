@@ -1,5 +1,23 @@
 # 03_CLASSIFY
 
+## Document Classifier
+
+**Document Classifier** is the overall tool name. **Nabla** stays underneath it
+as the address/vector component; it is not a replacement name for the whole
+classifier. The existing `nabla` module, protocol and registry fields retain
+their names.
+
+The classifier brings together source-based classification, prediction
+suggestions, reviewed navigation cards, and Nabla addresses. The prediction
+engines and their scoring harness already live in `02_CLASSIFICATION/`; they
+do not need importing again. The navigation-card writer and the complete
+classification-to-Nabla workflow remain implementation work. Stage 1 currently
+supports supplied Nabla proposals and explicitly queues unset vectors.
+
+The χ/Master Equation scorer is a separate feed with its own definitions and
+provenance. Its scores must not be copied into Nabla coordinates. The renamer,
+sidecar tools and future Notification Hub retain their separate responsibilities.
+
 Step 03 of the David-OS sequence: **every paper gets classified before anything runs through the
 pipeline** — what it's called, what it is, how settled it is, and the sidecar that points to it.
 Step 01 is `../01_PROFILE` (the doorway wizard — profile the folder first). Step 02 is not

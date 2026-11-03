@@ -1,4 +1,11 @@
-# 02_CLASSIFICATION
+# Document Classifier — 02_CLASSIFICATION
+
+This is the classification component of the Document Classifier. Nabla runs
+under that overall name as the address/vector component
+(`../00_SHARED/nabla/`); its deterministic core and Stage 1 registry integration
+already exist. The full source-classification and navigation-card writing flow
+still needs wiring. Prediction engines are already vendored here; χ/Master
+Equation scoring is a separate feed, not another name for these predictors.
 
 Deciding what each paper **is**: its standing (how settled), domain, content type (`ct-`),
 epistemic role (`ep-`) and topic tags. Rules: `../00_SHARED/TAG_TAXONOMY_v0.4.md`, **Part A** (tags)

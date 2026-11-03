@@ -61,7 +61,7 @@ SLATE = "#6b8fbf"
 COPPER = "#c17f3e"
 RED_DIM = "#8b3a3a"
 
-EXTENSIONS = [".md", ".txt", ".html", ".htm", ".csv", ".xlsx", ".xls"]
+EXTENSIONS = [".md", ".txt", ".html", ".htm", ".pdf", ".docx", ".csv", ".xlsx", ".xls"]
 LEVELS = ["SEED", "INTRODUCED", "DEVELOPED", "CANON"]
 STATUSES = ["DRAFT", "WORKING", "FINISHED", "PUBLISHED", "CANONICAL"]
 
@@ -123,6 +123,9 @@ def profile_for(term: str, extra_syn: list[str]) -> dict:
 def read_text(path: Path, limit_chars: int = 400_000) -> str:
     ext = path.suffix.lower()
     try:
+        if ext in {".pdf", ".docx"}:
+            from engine.text_extractor import extract_text
+            return extract_text(str(path), limit=limit_chars)
         if ext == ".xlsx":
             try:
                 import openpyxl
@@ -176,7 +179,7 @@ def tag_text(text: str) -> str:
     return " ".join(parts)
 
 
-def score_file(path: Path, prof: dict) -> dict | None:
+def score_file(path: Path, prof: dict, text: str | None = None) -> dict | None:
     fields = set(prof.get("fields", ("filename", "heading", "body", "sidecar", "tags")))
     normalize = lambda value: value.casefold().replace("_", " ").replace("-", " ")
     terms = tuple(dict.fromkeys(normalize(t.strip()) for t in [prof["term"], *prof["synonyms"]] if t.strip()))
@@ -185,7 +188,8 @@ def score_file(path: Path, prof: dict) -> dict | None:
     if "filename" in fields and contains(path.stem):
         score += 40
         signals.append("filename")
-    text = read_text(path) if fields & {"heading", "body", "tags"} else ""
+    if text is None:
+        text = read_text(path) if fields & {"heading", "body", "tags"} else ""
     if "heading" in fields and contains(" ".join(headings_of(text, path.suffix.lower()))):
         score += 40
         signals.append("heading")

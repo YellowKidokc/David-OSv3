@@ -7,7 +7,7 @@ name = "david-os"
 version = "2.0.0"
 description = "Personal infrastructure: file intelligence, message hub, memory, multi-node coordination"
 requires-python = ">=3.11"
-dependencies = ["fastapi>=0.110", "pydantic>=2", "uvicorn>=0.29", "watchdog>=4", "openpyxl>=3.1", "psycopg[binary]>=3.2"]
+dependencies = ["fastapi>=0.110", "pydantic>=2", "uvicorn>=0.29", "watchdog>=4", "openpyxl>=3.1", "psycopg[binary]>=3.2", "PyYAML>=6"]
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
@@ -22,4 +22,7 @@ dos-poll = "hub.watchers.runner:main"
 dos-worker = "hub.workers.runner:main"
 
 [tool.setuptools.packages.find]
-include = ["hub*", "engine*", "agents*", "pipeline*"]
+include = ["hub*", "engine*", "agents*", "pipeline*", "folder_hub*"]
+
+[tool.setuptools.package-data]
+folder_hub = ["static/*.js"]

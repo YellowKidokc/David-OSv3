@@ -41,11 +41,26 @@ class Crawler:
         self.wait = wait or self.stop_event.wait
         self.thread = None
         self.running = threading.Event()
+        self._last_activity = 0
+        self._activity = []
+        self.live_progress = {}
+        self.live_status = {}
+
+    def activity(self, phase, path='', force=False, **counts):
+        now = time.time()
+        self._activity.append({'at': now, 'phase': phase, 'path': str(path)})
+        self._activity = self._activity[-40:]
+        self.live_progress = {'phase': phase, 'path': str(path), 'updated': now,
+                              'events': list(self._activity), **counts}
+        if force or now - self._last_activity >= 1.5:
+            self.store.put('progress', 'live', self.live_progress)
+            self._last_activity = now
 
     def status(self):
         return self.store.get('crawler', 'status', {'status': 'stopped', 'done': [], 'remaining': [], 'errors': [], 'files': 0})
 
     def save(self, value):
+        self.live_status = dict(value)
         self.store.put('crawler', 'status', value)
 
     def start(self, root, speed='Background'):
@@ -94,6 +109,7 @@ class Crawler:
         elapsed = max(time.time()-s['started'], .01)
         s['files_per_minute'] = round(s['files']*60/elapsed, 1)
         self.save(s)
+        self.activity('classified', row['path'], files=s['files'])
         delay = 60/preset['files_per_minute'] if preset['files_per_minute'] else 0
         if self.wait(delay):
             raise InterruptedError('Paused between files; folder will resume safely')
@@ -117,7 +133,12 @@ class Crawler:
         s = self.status()
         if s.get('root') != root or s.get('status') == 'complete':
             folders = []
+            self.activity('discovering', root, force=True, folders_discovered=0)
             for here, dirs, _ in os.walk(root, followlinks=False):
+                if self.stop_event.is_set():
+                    self.activity('paused', here, force=True)
+                    return self.status()
+                self.activity('discovering', here, folders_discovered=len(folders)+1)
                 dirs[:] = sorted(d for d in dirs if not gate.unsafe(Path(here)/d, c))
                 folders.append(here)
             s = {'id': uid(), 'root': root, 'done': [], 'remaining': sorted(folders), 'errors': [],
@@ -147,9 +168,12 @@ class Crawler:
                         restored = transaction.undo(self.store, runs[0]['id'])
                         if restored['conflicts']:
                             raise ValueError('Interrupted folder has rollback conflicts; review before retry')
-                result = service.scan(self.store, folder, recursive=False, on_file=self.paced_file)
+                self.activity('scanning folder', folder, force=True)
+                result = service.scan(self.store, folder, recursive=False, on_file=self.paced_file,
+                                      on_stage=self.activity)
                 selection = templates.choose(self.store, folder, result['files'])
                 if selection['template'] is None:
+                    self.activity('needs template choice', folder, force=True)
                     self.store.put('template-queue', folder, {'folder': folder, 'choice': selection})
                     s = self.status()
                     if folder not in s['waiting_templates']:
@@ -170,6 +194,7 @@ class Crawler:
                     self.save(s)
                     continue
                 plan = service.make_plan(self.store, folder, recursive=False, template=selection['template'], scanned=result)
+                self.activity('writing HTML', folder, force=True)
                 s = self.status()
                 s['plans'][folder] = plan['id']
                 self.save(s)
@@ -197,6 +222,7 @@ class Crawler:
             except InterruptedError:
                 break
             except Exception as error:
+                self.activity('folder error', folder, force=True, error=str(error))
                 s = self.status()
                 s['errors'].append({'folder': folder, 'why': str(error), 'at': time.time()})
                 self.save(s)
@@ -204,5 +230,7 @@ class Crawler:
         s['status'] = 'complete' if not s['remaining'] else ('paused' if self.stop_event.is_set() or max_folders else 'waiting')
         s['current'] = None
         self.save(s)
+        self.activity(s['status'], root, force=True, files=s['files'],
+                      folders_done=len(s['done']), errors=len(s['errors']))
         thread_priority(False)
         return s

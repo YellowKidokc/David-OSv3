@@ -1,0 +1,246 @@
+{
+  "id": "fis.laws.registry.draft.20261025",
+  "status": "CONFIRMED by David 2026-10-25 (vault numbering; short names as listed)",
+  "sources": [
+    "C:\\Users\\David\\Documents\\faiththruphysics.com\\10_VAULTS\\14_MASTER_EQUATION\\020_LAW_EXPANSIONS\\_BACKUPS\\20260908-151123-one-to-one-law-ruling\\00_INDEX.md (sector, spiritual term, symmetry, verification)",
+    "C:\\Users\\David\\Documents\\faiththruphysics.com\\10_VAULTS\\14_MASTER_EQUATION\\020_LAW_EXPANSIONS\\RULING_LAW_02_M_SEAT_2026-10-16.md (Law 2 ruling; refers to Law 8 as Covenant)",
+    "C:\\Users\\David\\theophysics-read\\me\\LAW_NN_*.md (person-name short forms)"
+  ],
+  "naming_rule": {
+    "domain": "LAW",
+    "id_token": "l01 .. l10, always two digits so sorting works",
+    "short_form": "LAW_NN_PERSON_TERM, as in theophysics-read/me",
+    "example_file_name": "LAW__EQN__l03_maxwell_truth__20261016__CN.md"
+  },
+  "open_decisions": [],
+  "laws": [
+    {
+      "n": 1,
+      "id": "l01",
+      "short": "LAW_01_NEWTON_GRACE",
+      "person": "Newton",
+      "person_alt": [
+        "Einstein (GR)"
+      ],
+      "physical_sector": "Gravitation (GR)",
+      "spiritual_term": "Grace / Moral Curvature",
+      "symmetry": "Diffeomorphism invariance => conserved stress-energy",
+      "verification": "9 Lean 4 theorems",
+      "aliases": [
+        "LAW_01_GRAVITY_GRACE_EXPANSION",
+        "LAW_01_GRAVITY_GRACE_GEODESIC_EXPANSION",
+        "LAW_01_LEAN_PROOFS",
+        "Law1GeodesicAndRocket",
+        "LAW_01_NEWTON_GRACE"
+      ],
+      "isomorphism": {
+        "physical_form": null,
+        "spiritual_form": null,
+        "term_map": [],
+        "state": "to be added"
+      }
+    },
+    {
+      "n": 2,
+      "id": "l02",
+      "short": "LAW_02_NEWTON_MOTION",
+      "person": "Newton",
+      "person_alt": [
+        "Einstein (E=mc^2)"
+      ],
+      "physical_sector": "Motion / Mass-energy (F=ma, E=mc^2)",
+      "spiritual_term": "Meaning (rest) + Motion (momentum): Repentance, Sin Nature",
+      "symmetry": "Space translation => momentum; time translation => energy",
+      "verification": "Lean 4 verified; ruling 2026-10-16: M=(mc^2, pc)",
+      "aliases": [
+        "LAW_02_MASS_ENERGY",
+        "LAW_02_MASS_ENERGY_MEANING_EXPANSION",
+        "LAW_02_NEWTON_MOMENTUM",
+        "Law2Motion",
+        "RULING_LAW_02_M_SEAT"
+      ],
+      "isomorphism": {
+        "physical_form": "E^2 = (pc)^2 + (mc^2)^2",
+        "spiritual_form": "C_M = M*lambda^2*I (rest/Meaning); J = integral F dt = delta p (motion/Repentance)",
+        "term_map": [],
+        "state": "partial, from the 2026-10-16 ruling"
+      }
+    },
+    {
+      "n": 3,
+      "id": "l03",
+      "short": "LAW_03_MAXWELL_TRUTH",
+      "person": "Maxwell",
+      "physical_sector": "Electromagnetism (Maxwell)",
+      "spiritual_term": "Truth / Deception",
+      "symmetry": "U(1) gauge invariance + waveguide eigenmode completeness (7 I AM modes)",
+      "verification": "Truth substrate kernel; ruling: Truth = invariance",
+      "aliases": [
+        "LAW_03_ELECTROMAGNETISM",
+        "LAW_03_ELECTROMAGNETISM_TRUTH_EXPANSION",
+        "Law3ElectromagnetismTruth",
+        "RULING_LAW_03_TRUTH_INVARIANCE",
+        "LAW 3"
+      ],
+      "isomorphism": {
+        "physical_form": null,
+        "spiritual_form": null,
+        "term_map": [],
+        "state": "to be added"
+      }
+    },
+    {
+      "n": 4,
+      "id": "l04",
+      "short": "LAW_04_YUKAWA_LOVE",
+      "person": "Yukawa",
+      "physical_sector": "Strong force (QCD)",
+      "spiritual_term": "Love / Captivity (agape)",
+      "symmetry": "SU(3) color confinement => 9 Fruits of the Spirit as bound ground invariants",
+      "verification": "LOCKED (exemplar)",
+      "aliases": [
+        "LAW_04_STRONG_FORCE",
+        "LAW_04_STRONG_FORCE_LOVE_EXPANSION",
+        "LAW_04_YUKAWA_AGAPE"
+      ],
+      "isomorphism": {
+        "physical_form": null,
+        "spiritual_form": null,
+        "term_map": [],
+        "state": "to be added"
+      }
+    },
+    {
+      "n": 5,
+      "id": "l05",
+      "short": "LAW_05_CLAUSIUS_JUDGMENT",
+      "person": "Clausius",
+      "physical_sector": "Thermodynamics",
+      "spiritual_term": "Judgment / Heat Death (Justice and Mercy)",
+      "symmetry": "Conserved energy ledger + irreversible arrow => unique Cross solution",
+      "verification": "LOCKED (Cross unique)",
+      "aliases": [
+        "LAW_05_THERMODYNAMICS",
+        "LAW_05_THERMODYNAMICS_JUDGMENT_EXPANSION",
+        "Law5JusticeMercy"
+      ],
+      "isomorphism": {
+        "physical_form": null,
+        "spiritual_form": null,
+        "term_map": [],
+        "state": "to be added"
+      }
+    },
+    {
+      "n": 6,
+      "id": "l06",
+      "short": "LAW_06_SHANNON_LOGOS",
+      "person": "Shannon",
+      "physical_sector": "Information",
+      "spiritual_term": "Logos / Chaos",
+      "symmetry": "Conservation of information (div I = 0) => 7 Logos limit properties",
+      "verification": "100% discriminability",
+      "aliases": [
+        "LAW_06_INFORMATION",
+        "LAW_06_INFORMATION_LOGOS_EXPANSION",
+        "Law6Information"
+      ],
+      "isomorphism": {
+        "physical_form": null,
+        "spiritual_form": null,
+        "term_map": [],
+        "state": "to be added"
+      }
+    },
+    {
+      "n": 7,
+      "id": "l07",
+      "short": "LAW_07_HEISENBERG_FAITH",
+      "person": "Heisenberg",
+      "physical_sector": "Quantum mechanics",
+      "spiritual_term": "Faith / Doubt",
+      "symmetry": "Lindblad decoherence classification + CPT => 6 armor protections",
+      "verification": "Forward-derived",
+      "aliases": [
+        "LAW_07_QUANTUM_FAITH_EXPANSION",
+        "Law7QuantumFaith"
+      ],
+      "isomorphism": {
+        "physical_form": null,
+        "spiritual_form": null,
+        "term_map": [],
+        "state": "to be added"
+      }
+    },
+    {
+      "n": 8,
+      "id": "l08",
+      "short": "LAW_08_EINSTEIN_COVENANT",
+      "person": "Einstein",
+      "person_alt": [
+        "Poincare"
+      ],
+      "physical_sector": "Relativity (Poincare)",
+      "spiritual_term": "Covenant / Frame-lock (law of invariants)",
+      "symmetry": "Poincare boosts + timelike Killing geodesics => shared proper time",
+      "verification": "Lean 4 (gamma = 1)",
+      "aliases": [
+        "LAW_08_RELATIVITY_GRACE_FRAME_EXPANSION",
+        "Law8Relativity",
+        "LAW_09_EINSTEIN_FRAME (me/ numbering)"
+      ],
+      "isomorphism": {
+        "physical_form": null,
+        "spiritual_form": null,
+        "term_map": [],
+        "state": "to be added"
+      }
+    },
+    {
+      "n": 9,
+      "id": "l09",
+      "short": "LAW_09_FERMI_CONSERVATION",
+      "person": "Fermi",
+      "physical_sector": "Weak force (decay)",
+      "spiritual_term": "Moral Conservation",
+      "symmetry": "P violated + T preserved => keystone lock",
+      "verification": "LOCKED (keystone)",
+      "aliases": [
+        "LAW_09_WEAK_FORCE_MORAL_CONSERVATION_EXPANSION",
+        "Law9WeakForce",
+        "LAW_08_FERMI_CONSERVATION (me/ numbering)"
+      ],
+      "isomorphism": {
+        "physical_form": null,
+        "spiritual_form": null,
+        "term_map": [],
+        "state": "to be added"
+      }
+    },
+    {
+      "n": 10,
+      "id": "l10",
+      "short": "LAW_10_COHERENCE_CHRIST",
+      "person": null,
+      "physical_sector": "Coherence (C = chi)",
+      "spiritual_term": "Christ / Decoherence",
+      "symmetry": "Universal advanced solution branch + transferable fixed point of the master functional",
+      "verification": "LOCKED (fixed point)",
+      "aliases": [
+        "LAW_10_COHERENCE_CHRIST_EXPANSION",
+        "Law10Coherence"
+      ],
+      "isomorphism": {
+        "physical_form": null,
+        "spiritual_form": null,
+        "term_map": [],
+        "state": "to be added"
+      }
+    }
+  ],
+  "confirmed_decisions": [
+    "Laws 8 and 9 follow the vault: 08 = Relativity/Covenant (Einstein), 09 = Weak force/Moral Conservation (Fermi). Files numbered the other way (theophysics-read/me) are held for review.",
+    "Short names as listed: LAW_02_NEWTON_MOTION, LAW_04_YUKAWA_LOVE, LAW_08_EINSTEIN_COVENANT, LAW_09_FERMI_CONSERVATION.",
+    "Law 1 person: Newton (Einstein/GR alternative). Law 10 has no person."
+  ]
+}

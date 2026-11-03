@@ -50,4 +50,13 @@ It does not require the API server, worker, watcher, or the other GUIs.
 
 ### Architecture
 
+Stage 1 inventory/registry: `python -m engine.registry scan "PATH_TO_SOURCE"`.
+The SQLite source of truth and generated master list live in `_data/`.
+See [Stage 1 registry](docs/STAGE1_REGISTRY.md) for scope, Nabla proposals and checks.
+
+The FIS Folder task lives at `D:\GitHub\pipeline-workflows\FIS_FOLDER` and
+serves folder HTML, scoped checks and optional DeepSeek chat through the existing
+Drive Brain master. Its backend is `folder_hub/`; its packet README documents
+the pilot, local scopes and pending Mana handoff.
+
 See `docs/ARCHITECTURE.md` for the full explainer.

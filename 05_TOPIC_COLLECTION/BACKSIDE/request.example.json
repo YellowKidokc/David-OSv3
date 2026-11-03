@@ -1,0 +1,14 @@
+{
+  "topic": "grace",
+  "synonyms": ["charis", "unmerited favor", "justification", "sanctification", "external restoration"],
+  "roots": ["REPLACE_WITH_SELECTED_FOLDER"],
+  "include_trash": true,
+  "max_files": 5000,
+  "seeds": [
+    {"name": "GRACE-001", "path_contains": ["GRACE_001", "GRACE-001"]},
+    {"name": "Grace Response and Rebellion Cycles", "path_contains": ["Grace Response and Rebellion"]},
+    {"name": "July grace derivation / Terminus Sui", "path_contains": ["Terminus Sui", "Terminus_Sui", "Lindblad", "GRACE_DERIVATION_CORRECTED_CANONICAL_2026-07-28"]},
+    {"name": "Law 1 gravity-and-grace Lean", "path_contains": ["GravityAndGrace.lean", "Law1GeodesicAndRocket.lean"]},
+    {"name": "Justification bridge report", "path_contains": ["justification_bridge", "justification bridge", "JUSTIFICATION_RESET_BRIDGE"]}
+  ]
+}

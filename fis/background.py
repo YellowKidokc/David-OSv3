@@ -2,7 +2,7 @@
 import threading
 import time
 from pathlib import Path
-from fis import gate, service
+from fis import gate, service, vocabulary
 from fis.index import digest
 from fis.scan import inventory
 
@@ -54,7 +54,7 @@ class Background:
                                 if result['errors']:
                                     raise RuntimeError(result['errors'][-1]['why'])
                             else:
-                                result = inventory(root, config, on_file=self._pace_observation)
+                                result = inventory(root, config, on_file=self._pace_observation, vocab=vocabulary.layers(self.store.home))
                                 if any(e.get('error') for e in result['skipped']):
                                     raise RuntimeError('Incomplete scan; unreadable paths need review')
                                 signature = digest([(r['path'], r['sha256'], r['mtime_ns']) for r in result['files']])

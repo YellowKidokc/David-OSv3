@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import re
 import urllib.request
 import urllib.error
@@ -107,11 +108,12 @@ def response_schema() -> dict[str, Any]:
     rating = {"type": "number", "minimum": 0, "maximum": 1}
     return {
         "type": "object",
-        "required": ["diagnosis", "recommendation", "safe_to_retry", "notes", "corrections"],
+        "required": ["diagnosis", "recommendation", "safe_to_retry", "retry_operation_id", "notes", "corrections"],
         "properties": {
             "diagnosis": {"type": "string"},
             "recommendation": {"enum": sorted(ALLOWED_RECOMMENDATIONS)},
             "safe_to_retry": {"type": "boolean"},
+            "retry_operation_id": {"type": ["string", "null"]},
             "notes": {"type": "array", "items": {"type": "string"}},
             "missing_evidence": {"type": "array", "items": {"type": "string"}},
             "evidence_ids": {"type": "array", "items": {"type": "string"}},
@@ -151,7 +153,8 @@ def ask_ollama(context: dict[str, Any], model: str, url: str, timeout: int) -> t
         "Do not select a filesystem keeper and do not propose mutation. Determine whether the files appear to "
         "serve distinct roles, or state what read-only evidence is still required. safe_to_retry may be true only "
         "if the ambiguity has been resolved without inventing lineage. Give notes and calibrated ratings for every correction.\n\n"
-        "Return one JSON object with: diagnosis (string), recommendation, safe_to_retry (boolean), notes "
+        "Return one JSON object with: diagnosis (string), recommendation, safe_to_retry (boolean), "
+        "retry_operation_id (the exact operation safe to retry, or null), notes "
         "(array), missing_evidence (array), evidence_ids (array), and corrections (non-empty array). Each "
         "correction requires correction_id, action, note, expected_result, evidence_ids, and ratings containing "
         "diagnosis_confidence, success_probability, no_regression_probability, evidence_coverage, and "
@@ -181,6 +184,55 @@ def ask_ollama(context: dict[str, Any], model: str, url: str, timeout: int) -> t
     return json.loads(content), raw
 
 
+def diagnostic_prompt(context: dict[str, Any]) -> str:
+    return (
+        "You are the advisory diagnostician in a read-only recovery protocol. "
+        "Analyze only the supplied evidence. Same basename does not establish duplicate or revision lineage. "
+        "Do not select a filesystem keeper and do not propose mutation. Determine whether the files appear to "
+        "serve distinct roles, or state what read-only evidence is still required. safe_to_retry may be true only "
+        "if the ambiguity has been resolved without inventing lineage. A classification-only conclusion does not by itself "
+        "authorize retrying select-index-representative. Give notes and calibrated ratings for every correction.\n\n"
+        "Return one JSON object with: diagnosis (string), recommendation, safe_to_retry (boolean), "
+        "retry_operation_id (the exact operation safe to retry, or null), notes "
+        "(array), missing_evidence (array), evidence_ids (array), and corrections (non-empty array). Each "
+        "correction requires correction_id, action, note, expected_result, evidence_ids, and ratings containing "
+        "diagnosis_confidence, success_probability, no_regression_probability, evidence_coverage, and "
+        "assumption_load as numbers from 0 to 1. Allowed actions/recommendations: KEEP_STOPPED, "
+        "COLLECT_EVIDENCE, TREAT_AS_DISTINCT_ROLES.\n\n"
+        + json.dumps(context, ensure_ascii=False)
+    )
+
+
+def ask_deepseek_api(context: dict[str, Any], model: str, url: str, timeout: int) -> tuple[dict[str, Any], dict[str, Any]]:
+    api_key = os.environ.get("DEEPSEEK_API_KEY", "").strip()
+    if not api_key:
+        raise RuntimeError("DEEPSEEK_API_KEY is not configured")
+    body = {
+        "model": model,
+        "messages": [
+            {"role": "system", "content": "Return only valid JSON. Preserve uncertainty and never propose mutation."},
+            {"role": "user", "content": diagnostic_prompt(context)},
+        ],
+        "response_format": {"type": "json_object"},
+        "temperature": 0.1,
+        "max_tokens": 1400,
+        "stream": False,
+    }
+    req = urllib.request.Request(
+        url, data=json.dumps(body).encode("utf-8"),
+        headers={"Content-Type": "application/json", "Authorization": f"Bearer {api_key}"},
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as response:
+            raw = json.loads(response.read().decode("utf-8"))
+    except urllib.error.HTTPError as exc:
+        detail = exc.read().decode("utf-8", errors="replace")
+        raise RuntimeError(f"DeepSeek API HTTP {exc.code}: {detail}") from exc
+    content = raw.get("choices", [{}])[0].get("message", {}).get("content", "")
+    return json.loads(content), raw
+
+
 def evaluate(answer: dict[str, Any], context: dict[str, Any]) -> dict[str, Any]:
     evidence_ids = {item["evidence_id"] for item in context["evidence"]}
     failures: list[str] = []
@@ -189,6 +241,19 @@ def evaluate(answer: dict[str, Any], context: dict[str, Any]) -> dict[str, Any]:
         failures.append("recommendation is not allowlisted")
     if answer.get("safe_to_retry") is True and recommendation != "TREAT_AS_DISTINCT_ROLES":
         failures.append("safe_to_retry conflicts with unresolved recommendation")
+    retry_operation = answer.get("retry_operation_id")
+    original_operation = context["event"]["operation_id"]
+    if answer.get("safe_to_retry") is True and retry_operation != original_operation:
+        failures.append("safe_to_retry does not name the exact stopped operation")
+    if answer.get("safe_to_retry") is False and retry_operation not in (None, ""):
+        failures.append("retry_operation_id must be null when safe_to_retry is false")
+    advisory_text = " ".join([
+        str(answer.get("diagnosis", "")),
+        *[str(item) for item in answer.get("notes") or []],
+        *[str(item.get("expected_result", "")) for item in answer.get("corrections") or [] if isinstance(item, dict)],
+    ])
+    if answer.get("safe_to_retry") is True and re.search(r"\b(does not authorize|out of scope|or defers?|must defer|remains? stopped)\b", advisory_text, re.I):
+        failures.append("safe_to_retry contradicts the diagnosis or expected result")
     cited = set(answer.get("evidence_ids") or [])
     if not cited or not cited.issubset(evidence_ids):
         failures.append("diagnosis has missing or invalid evidence references")
@@ -230,7 +295,9 @@ def main() -> int:
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--basename")
     parser.add_argument("--model", default="deepseek-r1:latest")
+    parser.add_argument("--provider", choices=("ollama", "deepseek-api"), default="ollama")
     parser.add_argument("--ollama-url", default="http://127.0.0.1:11434/api/generate")
+    parser.add_argument("--deepseek-url", default="https://api.deepseek.com/chat/completions")
     parser.add_argument("--timeout", type=int, default=120)
     parser.add_argument("--max-candidates", type=int, default=4)
     args = parser.parse_args()
@@ -243,7 +310,10 @@ def main() -> int:
     (args.out / "recovery-event.json").write_text(json.dumps(event, indent=2, ensure_ascii=False), encoding="utf-8")
     (args.out / "diagnostic-context.json").write_text(json.dumps(context, indent=2, ensure_ascii=False), encoding="utf-8")
     try:
-        answer, raw = ask_ollama(context, args.model, args.ollama_url, args.timeout)
+        if args.provider == "deepseek-api":
+            answer, raw = ask_deepseek_api(context, args.model, args.deepseek_url, args.timeout)
+        else:
+            answer, raw = ask_ollama(context, args.model, args.ollama_url, args.timeout)
         evaluation = evaluate(answer, context)
         status = "PASS" if evaluation["schema_and_policy_pass"] else "HOLD"
     except Exception as exc:
@@ -255,10 +325,10 @@ def main() -> int:
         }
         status = "MODEL_FAILURE"
     (args.out / "deepseek-assessment.json").write_text(json.dumps(answer, indent=2, ensure_ascii=False), encoding="utf-8")
-    (args.out / "ollama-receipt.json").write_text(json.dumps(raw, indent=2, ensure_ascii=False), encoding="utf-8")
+    (args.out / "adviser-receipt.json").write_text(json.dumps(raw, indent=2, ensure_ascii=False), encoding="utf-8")
     (args.out / "evaluation.json").write_text(json.dumps(evaluation, indent=2, ensure_ascii=False), encoding="utf-8")
     summary = {
-        "status": status, "model": args.model, "root": str(root), "basename": basename,
+        "status": status, "provider": args.provider, "model": args.model, "root": str(root), "basename": basename,
         "candidate_count": len(paths), "output": str(args.out), "evaluation": evaluation,
     }
     (args.out / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8")

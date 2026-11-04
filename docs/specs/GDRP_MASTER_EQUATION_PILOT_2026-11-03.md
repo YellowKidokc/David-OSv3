@@ -20,6 +20,8 @@ The host must stop because a shared basename does not establish duplicate, revis
 | 2 | Generate endpoint, JSON mode, eight excerpts | Timed out after 300 seconds; HOLD preserved |
 | 3 | Generate endpoint, JSON mode, four 700-character excerpts, thinking disabled, bounded output | Timed out after 120 seconds; HOLD preserved |
 | 4 | Unloaded the lingering DeepSeek model, verified no model remained loaded, replayed the unchanged bounded packet | Timed out after 180 seconds; HOLD preserved |
+| 5 | Existing configured DeepSeek API, same four-file bounded evidence packet | Returned structured assessment in about 7 seconds; first evaluator accepted it, but review found `safe_to_retry: true` contradicted its own statement that representative selection was not authorized |
+| 6 | DeepSeek API with exact `retry_operation_id` contract and contradiction check | Passed; classified artifacts as distinct roles, set `safe_to_retry: false`, kept representative selection stopped, and proposed evidence collection |
 
 ## Result
 
@@ -31,11 +33,23 @@ The fail-safe behavior passed:
 - no Master Equation file was renamed, moved, deleted, or edited;
 - every attempt produced a local diagnostic receipt under ignored `_data/recovery/` runtime storage.
 
-The adviser behavior failed:
+The local adviser behavior failed:
 
 - local DeepSeek did not return a schema-valid assessment within the allowed time;
 - therefore the pilot did not demonstrate successful AI diagnosis or resolution;
-- DeepSeek must not yet be treated as a reliable recovery adviser for this packet size/runtime configuration.
+- local Ollama DeepSeek must not yet be treated as a reliable recovery adviser for this packet size/runtime configuration.
+
+The configured DeepSeek API adviser passed the corrected contract:
+
+- it cited all four evidence records;
+- it distinguished adjudication, bound-receipt, definition-audit, and integrated-atlas roles;
+- it refused to infer duplicate or revision lineage from the shared basename;
+- it returned notes and ratings for three corrections;
+- it set `safe_to_retry: false` and `retry_operation_id: null` for the stopped representative-selection operation;
+- it recommended collecting full files, manifests, provenance links, and folder-role documentation;
+- it selected no filesystem keeper and proposed no corpus mutation.
+
+The successful corrected API call used 2,141 prompt tokens and 1,125 completion tokens (3,266 total). This is one measured call, not a reliability statistic.
 
 Post-test corpus observation remained 3,184 files and 212,113,554 bytes. The newest corpus write remained the pre-test `.obsidian\workspace.json` timestamp of 2026-11-03 10:52:44 local time.
 
@@ -65,5 +79,5 @@ Before another corpus-level attempt, run a small adviser conformance test that m
 - maximum reliable response size;
 - schema-valid response rate over a fixed test set.
 
-Only after the adviser passes that test should GDRP retry the Master Equation diagnostic packet.
+The API path may proceed to additional read-only conformance cases. The local Ollama path still needs the adviser conformance test before another corpus-level attempt.
 

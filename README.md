@@ -65,3 +65,21 @@ The proposed intake boundary and incremental CocoIndex-to-Lean-4 tagging design
 is documented in [docs/COCOINDEX_LEAN4_ADMISSION_AND_TAGGING.md](docs/COCOINDEX_LEAN4_ADMISSION_AND_TAGGING.md).
 The implementation prompt for the missing admission contract is
 [docs/DAVID_OSV3_STAGE2A_ADMISSION_MANIFEST.md](docs/DAVID_OSV3_STAGE2A_ADMISSION_MANIFEST.md).
+
+### Stage 2B sidecars and approved renames
+
+After Stage 2A has populated the registry `admission` table:
+
+```powershell
+python -m engine.sidecar_writer generate "PATH" --dry-run
+python -m engine.sidecar_writer generate "PATH" --report
+python -m engine.rename_applier preview "PATH"
+python -m engine.rename_applier apply "PATH" --confirm
+python -m engine.rename_applier undo "CHANGESET_ID"
+```
+
+`sidecar_writer` records classification and rename proposals in `.fis.json`.
+`rename_applier` refuses `HOLD`/`EXCLUDE` files and requires an explicit
+`apply --confirm` command. The optional `--me-enrich --me-intake-db PATH`
+arguments add Master Equation intake metadata without changing the observe-only
+intake analyzer.

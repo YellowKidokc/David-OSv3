@@ -60,3 +60,6 @@ Drive Brain master. Its backend is `folder_hub/`; its packet README documents
 the pilot, local scopes and pending Mana handoff.
 
 See `docs/ARCHITECTURE.md` for the full explainer.
+
+The proposed intake boundary and incremental CocoIndex-to-Lean-4 tagging design
+is documented in [docs/COCOINDEX_LEAN4_ADMISSION_AND_TAGGING.md](docs/COCOINDEX_LEAN4_ADMISSION_AND_TAGGING.md).

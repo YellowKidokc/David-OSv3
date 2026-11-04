@@ -51,6 +51,24 @@ Create reviewable structural relationships:
 
 The result is an **indexing representative**, not deletion authority. Every physical location remains attached to its content identity. A keeper cannot be selected by largest file, newest timestamp, shortest path or filename alone; authority, provenance, completeness, dependencies, editability and protected status all matter.
 
+#### Representative decision matrix
+
+The criteria are ordered gates, not an opaque blended score:
+
+| Priority | Criterion | Effect |
+|---:|---|---|
+| 1 | Hard safety boundary | Forces `HOLD`; protection does not itself select a representative |
+| 2 | Explicit human ruling | Applicable source-bound preferred-version ruling wins |
+| 3 | Provenance and authority | Prefer controlled original or documented canonical lineage |
+| 4 | Dependency/reference integrity | Prefer the version actually referenced by code, indexes, citations or manifests |
+| 5 | Completeness/content integrity | Prefer complete, non-truncated and non-corrupt content |
+| 6 | Editability/source quality | Prefer native source over derived or flattened output |
+| 7 | Recency with revision evidence | Timestamp matters only when revision lineage is established |
+| 8 | Location/name quality | Presentation hint only |
+| 9 | Size | Final tie-breaker only |
+
+If higher criteria conflict or evidence is insufficient, the family goes to `HOLD`; the system does not manufacture a winner. An index representative and a future filesystem keeper are separate decisions. Operation 2/3 may choose only the former. Physical cleanup remains human-approved.
+
 ### Operation 3: ADMIT
 
 Write a versioned admission manifest with three lanes:
@@ -233,6 +251,9 @@ Accepted corrections become training/ranking evidence but never authorize file m
 8. Add staged Lean stub generation behind explicit approval.
 9. Compile staged files and store build/axiom-print receipts separately.
 10. Consider live mode only after unchanged-run stability, changed-hash invalidation, missing-input, duplicate-path and owned-output tests pass.
+
+The implementation-ready Stage 2A prompt is
+[`DAVID_OSV3_STAGE2A_ADMISSION_MANIFEST.md`](DAVID_OSV3_STAGE2A_ADMISSION_MANIFEST.md).
 
 ## 10. Definition of done for the first milestone
 

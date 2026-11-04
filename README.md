@@ -63,3 +63,5 @@ See `docs/ARCHITECTURE.md` for the full explainer.
 
 The proposed intake boundary and incremental CocoIndex-to-Lean-4 tagging design
 is documented in [docs/COCOINDEX_LEAN4_ADMISSION_AND_TAGGING.md](docs/COCOINDEX_LEAN4_ADMISSION_AND_TAGGING.md).
+The implementation prompt for the missing admission contract is
+[docs/DAVID_OSV3_STAGE2A_ADMISSION_MANIFEST.md](docs/DAVID_OSV3_STAGE2A_ADMISSION_MANIFEST.md).

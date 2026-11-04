@@ -23,6 +23,7 @@ from typing import Any
 
 ALLOWED_RECOMMENDATIONS = {"KEEP_STOPPED", "COLLECT_EVIDENCE", "TREAT_AS_DISTINCT_ROLES"}
 MAX_EXCERPT = 700
+PROMPT_VERSION = "gdrp-master-equation-pilot/v3-notebook"
 
 
 def sha256(path: Path) -> str:
@@ -108,12 +109,13 @@ def response_schema() -> dict[str, Any]:
     rating = {"type": "number", "minimum": 0, "maximum": 1}
     return {
         "type": "object",
-        "required": ["diagnosis", "recommendation", "safe_to_retry", "retry_operation_id", "notes", "corrections"],
+        "required": ["diagnosis", "recommendation", "safe_to_retry", "retry_operation_id", "working_notes", "notes", "corrections"],
         "properties": {
             "diagnosis": {"type": "string"},
             "recommendation": {"enum": sorted(ALLOWED_RECOMMENDATIONS)},
             "safe_to_retry": {"type": "boolean"},
             "retry_operation_id": {"type": ["string", "null"]},
+            "working_notes": {"type": "object"},
             "notes": {"type": "array", "items": {"type": "string"}},
             "missing_evidence": {"type": "array", "items": {"type": "string"}},
             "evidence_ids": {"type": "array", "items": {"type": "string"}},
@@ -147,28 +149,13 @@ def response_schema() -> dict[str, Any]:
 
 
 def ask_ollama(context: dict[str, Any], model: str, url: str, timeout: int) -> tuple[dict[str, Any], dict[str, Any]]:
-    prompt = (
-        "You are the advisory diagnostician in a read-only recovery protocol. "
-        "Analyze only the supplied evidence. Same basename does not establish duplicate or revision lineage. "
-        "Do not select a filesystem keeper and do not propose mutation. Determine whether the files appear to "
-        "serve distinct roles, or state what read-only evidence is still required. safe_to_retry may be true only "
-        "if the ambiguity has been resolved without inventing lineage. Give notes and calibrated ratings for every correction.\n\n"
-        "Return one JSON object with: diagnosis (string), recommendation, safe_to_retry (boolean), "
-        "retry_operation_id (the exact operation safe to retry, or null), notes "
-        "(array), missing_evidence (array), evidence_ids (array), and corrections (non-empty array). Each "
-        "correction requires correction_id, action, note, expected_result, evidence_ids, and ratings containing "
-        "diagnosis_confidence, success_probability, no_regression_probability, evidence_coverage, and "
-        "assumption_load as numbers from 0 to 1. Allowed actions/recommendations: KEEP_STOPPED, "
-        "COLLECT_EVIDENCE, TREAT_AS_DISTINCT_ROLES.\n\n"
-        + json.dumps(context, ensure_ascii=False)
-    )
     request_body = {
         "model": model,
         "stream": False,
         "format": "json",
         "think": False,
         "options": {"temperature": 0.1, "num_predict": 900},
-        "prompt": prompt,
+        "prompt": diagnostic_prompt(context),
     }
     req = urllib.request.Request(
         url, data=json.dumps(request_body).encode("utf-8"),
@@ -186,6 +173,11 @@ def ask_ollama(context: dict[str, Any], model: str, url: str, timeout: int) -> t
 
 def diagnostic_prompt(context: dict[str, Any]) -> str:
     return (
+        "You are an AI diagnostic collaborator receiving a request from another AI/program on David's behalf. "
+        "David wants candid help: say when you do not know, disagree when evidence warrants it, and request another "
+        "tool, program, file, check, or human answer when that would improve the result. Take time to organize the "
+        "problem and leave useful notes so the next attempt does not start from zero. Do not expose private hidden "
+        "reasoning; provide concise inspectable working notes. "
         "You are the advisory diagnostician in a read-only recovery protocol. "
         "Analyze only the supplied evidence. Same basename does not establish duplicate or revision lineage. "
         "Do not select a filesystem keeper and do not propose mutation. Determine whether the files appear to "
@@ -193,12 +185,14 @@ def diagnostic_prompt(context: dict[str, Any]) -> str:
         "if the ambiguity has been resolved without inventing lineage. A classification-only conclusion does not by itself "
         "authorize retrying select-index-representative. Give notes and calibrated ratings for every correction.\n\n"
         "Return one JSON object with: diagnosis (string), recommendation, safe_to_retry (boolean), "
-        "retry_operation_id (the exact operation safe to retry, or null), notes "
+        "retry_operation_id (the exact operation safe to retry, or null), working_notes (object), notes "
         "(array), missing_evidence (array), evidence_ids (array), and corrections (non-empty array). Each "
         "correction requires correction_id, action, note, expected_result, evidence_ids, and ratings containing "
         "diagnosis_confidence, success_probability, no_regression_probability, evidence_coverage, and "
         "assumption_load as numbers from 0 to 1. Allowed actions/recommendations: KEEP_STOPPED, "
         "COLLECT_EVIDENCE, TREAT_AS_DISTINCT_ROLES.\n\n"
+        "working_notes must contain situation, known, unknown, assumptions, needs, helpful_tools, safest_next_step, "
+        "cautions, and note_to_operator. known/unknown/assumptions/needs/helpful_tools/cautions are arrays of strings.\n\n"
         + json.dumps(context, ensure_ascii=False)
     )
 
@@ -215,7 +209,7 @@ def ask_deepseek_api(context: dict[str, Any], model: str, url: str, timeout: int
         ],
         "response_format": {"type": "json_object"},
         "temperature": 0.1,
-        "max_tokens": 1400,
+        "max_tokens": 2400,
         "stream": False,
     }
     req = urllib.request.Request(
@@ -258,6 +252,13 @@ def evaluate(answer: dict[str, Any], context: dict[str, Any]) -> dict[str, Any]:
     if not cited or not cited.issubset(evidence_ids):
         failures.append("diagnosis has missing or invalid evidence references")
     corrections = answer.get("corrections")
+    working = answer.get("working_notes")
+    required_note_fields = {
+        "situation", "known", "unknown", "assumptions", "needs", "helpful_tools",
+        "safest_next_step", "cautions", "note_to_operator",
+    }
+    if not isinstance(working, dict) or not required_note_fields.issubset(working):
+        failures.append("inspectable working notes are incomplete")
     if not isinstance(corrections, list) or not corrections:
         failures.append("no rated correction was returned")
     else:
@@ -326,6 +327,28 @@ def main() -> int:
         status = "MODEL_FAILURE"
     (args.out / "deepseek-assessment.json").write_text(json.dumps(answer, indent=2, ensure_ascii=False), encoding="utf-8")
     (args.out / "adviser-receipt.json").write_text(json.dumps(raw, indent=2, ensure_ascii=False), encoding="utf-8")
+    attempt_id = str(uuid.uuid4())
+    working = answer.get("working_notes") if isinstance(answer, dict) else None
+    if not isinstance(working, dict):
+        working = {
+            "situation": "The adviser did not return usable working notes.",
+            "known": [f"Adviser attempt ended with: {raw.get('error', 'invalid response')}"],
+            "unknown": ["No adviser diagnosis was accepted."],
+            "assumptions": [], "needs": ["A healthy adviser response"],
+            "helpful_tools": ["Adviser health check"],
+            "safest_next_step": "Keep the host operation stopped.",
+            "cautions": ["Do not interpret adviser failure as permission to retry the host."],
+            "note_to_operator": "The diagnostic adviser failed; no source operation was authorized.",
+        }
+    note = {
+        "note_version": "gdrp-adviser-note/v1",
+        "incident_id": event["event_id"], "attempt_id": attempt_id,
+        "created_at": datetime.now(timezone.utc).isoformat(),
+        "adviser": {"provider": args.provider, "model": args.model, "prompt_version": PROMPT_VERSION},
+        **working, "evidence_ids": answer.get("evidence_ids", []) if isinstance(answer, dict) else [],
+    }
+    with (args.out / "adviser-notes.jsonl").open("a", encoding="utf-8") as handle:
+        handle.write(json.dumps(note, ensure_ascii=False) + "\n")
     (args.out / "evaluation.json").write_text(json.dumps(evaluation, indent=2, ensure_ascii=False), encoding="utf-8")
     summary = {
         "status": status, "provider": args.provider, "model": args.model, "root": str(root), "basename": basename,

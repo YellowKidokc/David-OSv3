@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gdrp.dev/schemas/adviser-note-v1.json",
+  "title": "GDRP Adviser Working Note",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "note_version", "incident_id", "attempt_id", "created_at", "adviser",
+    "situation", "known", "unknown", "assumptions", "needs", "helpful_tools",
+    "safest_next_step", "cautions", "note_to_operator"
+  ],
+  "properties": {
+    "note_version": {"const": "gdrp-adviser-note/v1"},
+    "incident_id": {"type": "string", "minLength": 1},
+    "attempt_id": {"type": "string", "minLength": 1},
+    "created_at": {"type": "string", "format": "date-time"},
+    "adviser": {
+      "type": "object",
+      "required": ["provider", "model"],
+      "properties": {
+        "provider": {"type": "string"},
+        "model": {"type": "string"},
+        "prompt_version": {"type": "string"}
+      }
+    },
+    "situation": {"type": "string"},
+    "known": {"type": "array", "items": {"type": "string"}},
+    "unknown": {"type": "array", "items": {"type": "string"}},
+    "assumptions": {"type": "array", "items": {"type": "string"}},
+    "needs": {"type": "array", "items": {"type": "string"}},
+    "helpful_tools": {"type": "array", "items": {"type": "string"}},
+    "safest_next_step": {"type": "string"},
+    "cautions": {"type": "array", "items": {"type": "string"}},
+    "note_to_operator": {"type": "string"},
+    "supersedes_attempt_id": {"type": ["string", "null"]},
+    "evidence_ids": {"type": "array", "items": {"type": "string"}}
+  }
+}

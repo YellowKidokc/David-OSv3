@@ -22,6 +22,7 @@ The host must stop because a shared basename does not establish duplicate, revis
 | 4 | Unloaded the lingering DeepSeek model, verified no model remained loaded, replayed the unchanged bounded packet | Timed out after 180 seconds; HOLD preserved |
 | 5 | Existing configured DeepSeek API, same four-file bounded evidence packet | Returned structured assessment in about 7 seconds; first evaluator accepted it, but review found `safe_to_retry: true` contradicted its own statement that representative selection was not authorized |
 | 6 | DeepSeek API with exact `retry_operation_id` contract and contradiction check | Passed; classified artifacts as distinct roles, set `safe_to_retry: false`, kept representative selection stopped, and proposed evidence collection |
+| 7 | DeepSeek API with collaborator card and persistent working-note contract | First response exceeded the old token cap and produced a deterministic failure note; bounded replay with a larger response allowance passed and wrote a complete append-only adviser note |
 
 ## Result
 
@@ -50,6 +51,8 @@ The configured DeepSeek API adviser passed the corrected contract:
 - it selected no filesystem keeper and proposed no corpus mutation.
 
 The successful corrected API call used 2,141 prompt tokens and 1,125 completion tokens (3,266 total). This is one measured call, not a reliability statistic.
+
+The notebook-enabled call additionally recorded the adviser's own concise situation summary, known facts, unknowns, assumptions, requested evidence, helpful tools, safest next step, cautions, and direct note to David. The note remained explicit that classification as distinct roles does not authorize retrying representative selection.
 
 Post-test corpus observation remained 3,184 files and 212,113,554 bytes. The newest corpus write remained the pre-test `.obsidian\workspace.json` timestamp of 2026-11-03 10:52:44 local time.
 

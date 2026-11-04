@@ -217,8 +217,33 @@ It returns:
 - notes and ratings for every correction;
 - predicted outcome and failure modes;
 - human question when a decision cannot be inferred.
+- an inspectable working note describing what it knows, does not know, needs, and recommends preserving for the next attempt.
 
 The adviser proposes. The policy engine routes. The host program executes.
+
+### Collaborator card
+
+Each installation may supply a short operator collaborator card. It tells the adviser who is requesting help, how candid it may be, whether it may request tools or evidence, and which working norms matter. The card must never weaken the program policy or grant execution authority. It improves the conversation; it does not override the gate.
+
+The card is versioned and hashed. Its hash is stored with every assessment so changes in adviser behavior can be traced to the context it received.
+
+### Persistent incident notebook
+
+Each incident owns an append-only `adviser-notes.jsonl`. Every adviser attempt appends one schema-valid record conforming to `docs/schemas/gdrp-adviser-note.schema.json`.
+
+The notebook records:
+
+- situation in the adviser's own words;
+- known facts and cited evidence;
+- unknowns;
+- assumptions;
+- requested evidence or access;
+- tools/programs that would help;
+- safest next step;
+- cautions for another attempt;
+- direct note to the operator.
+
+The next attempt receives a bounded summary of prior notes and their outcomes. It must distinguish inherited notes from current evidence and may correct earlier notes without deleting them. Notes are not hidden chain-of-thought and should not request it; they are concise operational memory that David and future advisers can inspect.
 
 ## Generic correction actions
 
@@ -257,6 +282,8 @@ Every correction retains the original prediction and records:
 - rationale and evidence IDs for each rating.
 
 After execution, the outcome is appended rather than rewriting the prediction.
+
+Working notes are stored even when no correction is proposed. A timeout or malformed response receives a deterministic supervisor note stating what failed, which packet was used, and what the next attempt must know.
 
 ## Statistics
 
@@ -299,6 +326,7 @@ gdrp/
   adapters/          host-specific plugins
   profiles/          versioned program profiles
   reports/           human-readable correction review
+  notebooks/         append-only per-incident adviser notes
 ```
 
 David-OSv3, Python-WEB, CocoIndex, and other programs each receive their own adapter and profile. No host-specific rule belongs in the universal core.

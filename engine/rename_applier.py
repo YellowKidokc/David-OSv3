@@ -2,12 +2,14 @@
 
 Safe default:
   python -m engine.rename_applier preview PATH
+  python -m engine.rename_applier simulate PATH --out rename-simulation.json
 
-Mutation requires both the ``apply`` subcommand and ``--confirm``.
+Mutation requires ``apply``, ``--confirm``, and the exact saved ``--plan``.
 """
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import sqlite3
@@ -29,6 +31,7 @@ from engine.stage2b_common import (
 )
 
 AUTO_THRESHOLD = 0.72
+SIMULATION_VERSION = "stage2b-rename-simulation/v1"
 
 
 def _sidecars(root: Path) -> list[Path]:
@@ -115,10 +118,62 @@ def plan(root: str | Path, *, auto_only: bool = False, batch: str | Path | None 
                 "sidecar": str(sidecar), "source": str(source),
                 "target": str(target) if target else None, "eligible": ok,
                 "reason": reason, "gate": gate,
+                "source_sha256": sha256_file(str(source)) if source.exists() else None,
+                "sidecar_sha256": sha256_file(str(sidecar)),
+                "admission": payload.get("admission") or {},
+                "proposed_name": proposed,
             })
         except Exception as exc:
             candidates.append({"sidecar": str(sidecar), "eligible": False, "reason": str(exc)})
     return candidates
+
+
+def _plan_hash(root: Path, items: list[dict[str, Any]]) -> str:
+    body = {
+        "simulation_version": SIMULATION_VERSION,
+        "root": str(root),
+        "items": items,
+    }
+    encoded = json.dumps(body, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    return hashlib.sha256(encoded.encode("utf-8")).hexdigest()
+
+
+def simulate(
+    root: str | Path, output: str | Path, *, auto_only: bool = False,
+    batch: str | Path | None = None,
+) -> dict[str, Any]:
+    """Write an immutable, approval-bindable prediction of the whole rename batch."""
+    root_path = Path(root).resolve(strict=True)
+    items = plan(root_path, auto_only=auto_only, batch=batch)
+    payload = {
+        "simulation_version": SIMULATION_VERSION,
+        "created_at": now(),
+        "root": str(root_path),
+        "items": items,
+        "summary": {
+            "total": len(items),
+            "eligible": sum(bool(item.get("eligible")) for item in items),
+            "held": sum(not bool(item.get("eligible")) for item in items),
+        },
+    }
+    payload["plan_hash"] = _plan_hash(root_path, items)
+    atomic_json(output, payload)
+    return payload
+
+
+def _load_approved_simulation(path: str | Path, root: Path) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    simulation = json.loads(Path(path).read_text(encoding="utf-8"))
+    if simulation.get("simulation_version") != SIMULATION_VERSION:
+        raise ValueError("Unsupported or missing simulation_version")
+    if simulation.get("root") != str(root):
+        raise ValueError("Simulation root does not match apply root")
+    approved_items = simulation.get("items")
+    if not isinstance(approved_items, list):
+        raise ValueError("Simulation items are missing")
+    expected = _plan_hash(root, approved_items)
+    if simulation.get("plan_hash") != expected:
+        raise ValueError("Simulation plan hash is invalid")
+    return simulation, approved_items
 
 
 def _replace_references(value: Any, old: str, new: str) -> tuple[Any, bool]:
@@ -221,13 +276,25 @@ def _apply_one(
 def apply(
     root: str | Path, *, db_path: str | Path = DEFAULT_DB, confirm: bool = False,
     auto_only: bool = False, interactive: bool = False, batch: str | Path | None = None,
+    simulation: str | Path | None = None,
 ) -> dict[str, Any]:
     if not confirm:
         raise ValueError("Refusing mutation: apply requires --confirm")
-    candidates = plan(root, auto_only=auto_only, batch=batch)
+    if interactive:
+        raise ValueError("Interactive target edits are not allowed for an approval-bound simulation")
     reference_root = Path(root).resolve(strict=True)
+    if simulation is None:
+        raise ValueError("Refusing mutation: apply requires --plan from a prior simulation")
+    approved, approved_items = _load_approved_simulation(simulation, reference_root)
+    candidates = plan(reference_root, auto_only=auto_only, batch=batch)
+    current_hash = _plan_hash(reference_root, candidates)
+    if current_hash != approved["plan_hash"] or candidates != approved_items:
+        raise ValueError("Filesystem, sidecars, admissions, gates, or targets changed; run a new simulation")
     changeset_id = str(uuid.uuid4())
-    result: dict[str, Any] = {"changeset_id": changeset_id, "renamed": [], "skipped": [], "errors": []}
+    result: dict[str, Any] = {
+        "changeset_id": changeset_id, "approved_plan_hash": approved["plan_hash"],
+        "renamed": [], "skipped": [], "errors": [],
+    }
     with connect_registry(db_path, migrate=True) as con:
         for item in candidates:
             if not item.get("eligible"):
@@ -306,6 +373,11 @@ def main(argv: list[str] | None = None) -> int:
     preview.add_argument("--report", action="store_true")
     preview.add_argument("--auto-only", action="store_true")
     preview.add_argument("--batch", type=Path)
+    simulation = sub.add_parser("simulate")
+    simulation.add_argument("path", type=Path)
+    simulation.add_argument("--out", type=Path, required=True)
+    simulation.add_argument("--auto-only", action="store_true")
+    simulation.add_argument("--batch", type=Path)
     execute = sub.add_parser("apply")
     execute.add_argument("path", type=Path)
     execute.add_argument("--db", type=Path, default=DEFAULT_DB)
@@ -314,6 +386,7 @@ def main(argv: list[str] | None = None) -> int:
     execute.add_argument("--auto-only", action="store_true")
     execute.add_argument("--interactive", action="store_true")
     execute.add_argument("--batch", type=Path)
+    execute.add_argument("--plan", type=Path, required=True)
     reverse = sub.add_parser("undo")
     reverse.add_argument("changeset_id")
     reverse.add_argument("--db", type=Path, default=DEFAULT_DB)
@@ -321,12 +394,14 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     if args.command == "preview":
         result = plan(args.path, auto_only=args.auto_only, batch=args.batch)
+    elif args.command == "simulate":
+        result = simulate(args.path, args.out, auto_only=args.auto_only, batch=args.batch)
     elif args.command == "apply":
         result = apply(args.path, db_path=args.db, confirm=args.confirm, auto_only=args.auto_only,
-                       interactive=args.interactive, batch=args.batch)
+                       interactive=args.interactive, batch=args.batch, simulation=args.plan)
     else:
         result = undo(args.changeset_id, db_path=args.db)
-    if args.report:
+    if getattr(args, "report", False):
         _write_report(result, args.db, "rename_report.md")
     print(json.dumps(result, indent=2, ensure_ascii=False))
     return 1 if isinstance(result, dict) and result.get("errors") else 0

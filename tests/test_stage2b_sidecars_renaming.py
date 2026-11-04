@@ -8,7 +8,7 @@ import pytest
 
 from engine import registry
 from engine.me_rename_bridge import add_name_context, read_intake
-from engine.rename_applier import apply, plan, undo
+from engine.rename_applier import apply, plan, simulate, undo
 from engine.sidecar_writer import generate
 
 
@@ -125,7 +125,11 @@ def test_rename_apply_and_conflict_safe_undo(tmp_path: Path):
     with pytest.raises(ValueError, match="--confirm"):
         apply(tmp_path, db_path=db)
 
-    result = apply(tmp_path, db_path=db, confirm=True)
+    plan_file = tmp_path / "rename-simulation.json"
+    simulation = simulate(tmp_path, plan_file)
+    assert simulation["summary"]["eligible"] == 1
+    result = apply(tmp_path, db_path=db, confirm=True, simulation=plan_file)
+    assert result["approved_plan_hash"] == simulation["plan_hash"]
     assert len(result["renamed"]) == 1
     renamed = Path(result["renamed"][0]["new_path"])
     assert renamed.exists() and not source.exists()
@@ -136,6 +140,24 @@ def test_rename_apply_and_conflict_safe_undo(tmp_path: Path):
     restored = undo(result["changeset_id"], db_path=db)
     assert len(restored["restored"]) == 1
     assert source.exists() and not renamed.exists()
+
+
+def test_apply_refuses_stale_simulation(tmp_path: Path):
+    source = tmp_path / "paper.md"
+    source.write_text("# Grace", encoding="utf-8")
+    db = _registry(tmp_path, source)
+    generate(tmp_path, db_path=db)
+    sidecar = Path(str(source) + ".fis.json")
+    payload = json.loads(sidecar.read_text(encoding="utf-8"))
+    payload["rename_approved"] = True
+    payload["proposed_name"] = "TH__DOC__GRC__20261103__AC.md"
+    sidecar.write_text(json.dumps(payload), encoding="utf-8")
+    plan_file = tmp_path / "rename-simulation.json"
+    simulate(tmp_path, plan_file)
+    payload["proposed_name"] = "TH__DOC__CHANGED__20261103__AC.md"
+    sidecar.write_text(json.dumps(payload), encoding="utf-8")
+    with pytest.raises(ValueError, match="changed"):
+        apply(tmp_path, db_path=db, confirm=True, simulation=plan_file)
 
 
 def test_hold_is_never_rename_eligible(tmp_path: Path):

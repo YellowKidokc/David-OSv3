@@ -74,12 +74,13 @@ After Stage 2A has populated the registry `admission` table:
 python -m engine.sidecar_writer generate "PATH" --dry-run
 python -m engine.sidecar_writer generate "PATH" --report
 python -m engine.rename_applier preview "PATH"
-python -m engine.rename_applier apply "PATH" --confirm
+python -m engine.rename_applier simulate "PATH" --out rename-simulation.json
+python -m engine.rename_applier apply "PATH" --plan rename-simulation.json --confirm
 python -m engine.rename_applier undo "CHANGESET_ID"
 ```
 
 `sidecar_writer` records classification and rename proposals in `.fis.json`.
-`rename_applier` refuses `HOLD`/`EXCLUDE` files and requires an explicit
-`apply --confirm` command. The optional `--me-enrich --me-intake-db PATH`
+`rename_applier` refuses `HOLD`/`EXCLUDE` files and requires an exact saved
+simulation plus an explicit `apply --plan ... --confirm` command. The optional `--me-enrich --me-intake-db PATH`
 arguments add Master Equation intake metadata without changing the observe-only
 intake analyzer.

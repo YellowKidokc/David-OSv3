@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://david-os.local/schemas/failure-capsule.schema.json",
+  "title": "David-OSv3 Failure Capsule",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "failure_id", "run_id", "error_code", "stop_class",
+    "operation", "expected_state", "observed_state", "last_successful_step",
+    "execution_trace", "invariants", "completed_checks", "missing_evidence",
+    "allowed_next_actions", "forbidden_actions", "redactions"
+  ],
+  "properties": {
+    "schema_version": {"const": "failure-capsule/v1"},
+    "failure_id": {"type": "string", "minLength": 1},
+    "run_id": {"type": "string", "minLength": 1},
+    "error_code": {"type": "string", "pattern": "^[A-Z][A-Z0-9_-]+$"},
+    "stop_class": {
+      "enum": ["TRANSIENT", "DETERMINISTIC_DEFECT", "MISSING_EVIDENCE", "AMBIGUOUS_AUTHORITY", "SAFETY_BOUNDARY", "MODEL_FAILURE", "UNKNOWN"]
+    },
+    "operation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version", "stage", "purpose", "system_card_sha256"],
+      "properties": {
+        "name": {"type": "string"}, "version": {"type": "string"},
+        "stage": {"type": "string"}, "purpose": {"type": "string"},
+        "system_card_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "expected_state": {"type": "object"},
+    "observed_state": {"type": "object"},
+    "last_successful_step": {"type": "string"},
+    "execution_trace": {"type": "array", "items": {"type": "object"}},
+    "exception": {"type": ["object", "null"]},
+    "input_identities": {"type": "array", "items": {"type": "object"}},
+    "invariants": {"type": "array", "items": {"type": "string"}},
+    "completed_checks": {"type": "array", "items": {"type": "object"}},
+    "missing_evidence": {"type": "array", "items": {"type": "string"}},
+    "evidence": {"type": "array", "items": {"type": "object"}},
+    "allowed_next_actions": {"type": "array", "items": {"type": "string"}},
+    "forbidden_actions": {"type": "array", "items": {"type": "string"}},
+    "environment": {"type": "object"},
+    "redactions": {"type": "array", "items": {"type": "object"}},
+    "capsule_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  }
+}

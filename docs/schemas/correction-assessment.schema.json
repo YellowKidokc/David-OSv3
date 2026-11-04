@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://david-os.local/schemas/correction-assessment.schema.json",
+  "title": "David-OSv3 Diagnostic Correction Assessment",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "failure_id", "model", "prompt_version", "diagnosis", "corrections"],
+  "properties": {
+    "schema_version": {"const": "correction-assessment/v1"},
+    "failure_id": {"type": "string"},
+    "model": {"type": "string"},
+    "prompt_version": {"type": "string"},
+    "diagnosis": {
+      "type": "object",
+      "required": ["summary", "causal_chain", "evidence_ids", "uncertainties"],
+      "properties": {
+        "summary": {"type": "string"},
+        "causal_chain": {"type": "array", "items": {"type": "string"}},
+        "evidence_ids": {"type": "array", "items": {"type": "string"}},
+        "uncertainties": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "corrections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "correction_id", "action", "scope", "expected_result", "side_effects",
+          "failure_modes", "verification", "note", "ratings"
+        ],
+        "properties": {
+          "correction_id": {"type": "string"},
+          "action": {"type": "object"},
+          "scope": {"type": "object"},
+          "expected_result": {"type": "string"},
+          "side_effects": {"type": "array", "items": {"type": "string"}},
+          "failure_modes": {"type": "array", "items": {"type": "string"}},
+          "prerequisites": {"type": "array", "items": {"type": "string"}},
+          "verification": {"type": "array", "items": {"type": "object"}},
+          "requires_human": {"type": "boolean"},
+          "human_question": {"type": ["string", "null"]},
+          "note": {"type": "string", "minLength": 1},
+          "ratings": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "diagnosis_confidence", "correction_success_probability",
+              "no_regression_probability", "evidence_coverage", "assumption_load",
+              "reproducibility_probability", "human_review_need", "impact", "risk",
+              "rationales"
+            ],
+            "properties": {
+              "diagnosis_confidence": {"type": "number", "minimum": 0, "maximum": 1},
+              "correction_success_probability": {"type": "number", "minimum": 0, "maximum": 1},
+              "no_regression_probability": {"type": "number", "minimum": 0, "maximum": 1},
+              "evidence_coverage": {"type": "number", "minimum": 0, "maximum": 1},
+              "assumption_load": {"type": "number", "minimum": 0, "maximum": 1},
+              "reproducibility_probability": {"type": "number", "minimum": 0, "maximum": 1},
+              "human_review_need": {"type": "number", "minimum": 0, "maximum": 1},
+              "impact": {"type": "integer", "minimum": 1, "maximum": 5},
+              "risk": {"type": "integer", "minimum": 1, "maximum": 5},
+              "rationales": {"type": "array", "minItems": 9, "items": {"type": "object"}}
+            }
+          }
+        }
+      }
+    }
+  }
+}

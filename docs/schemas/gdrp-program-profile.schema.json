@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gdrp.dev/schemas/program-profile-v1.json",
+  "title": "GDRP Program Profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["profile_version", "program_id", "purpose", "operations", "capabilities", "policy"],
+  "properties": {
+    "profile_version": {"const": "gdrp-program-profile/v1"},
+    "program_id": {"type": "string", "minLength": 1},
+    "program_version_range": {"type": "string"},
+    "purpose": {"type": "string", "minLength": 1},
+    "operations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["operation_id", "purpose"],
+        "properties": {
+          "operation_id": {"type": "string"},
+          "purpose": {"type": "string"},
+          "expected_outputs": {"type": "array", "items": {"type": "object"}},
+          "invariants": {"type": "array", "items": {"type": "string"}},
+          "verification_tests": {"type": "array", "items": {"type": "object"}}
+        }
+      }
+    },
+    "error_catalog": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["error_code", "meaning"],
+        "properties": {
+          "error_code": {"type": "string"},
+          "meaning": {"type": "string"},
+          "usual_causes": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "context_providers": {"type": "array", "items": {"type": "object"}},
+    "capabilities": {
+      "type": "object",
+      "required": ["describe", "context", "simulate", "apply", "verify", "rollback"],
+      "properties": {
+        "describe": {"type": "boolean"},
+        "context": {"type": "boolean"},
+        "simulate": {"type": "boolean"},
+        "apply": {"type": "boolean"},
+        "verify": {"type": "boolean"},
+        "rollback": {"type": "boolean"}
+      }
+    },
+    "supported_action_types": {"type": "array", "items": {"type": "string"}},
+    "policy": {
+      "type": "object",
+      "required": ["forbidden_actions", "approval_required_for_mutation"],
+      "properties": {
+        "forbidden_actions": {"type": "array", "items": {"type": "string"}},
+        "approval_required_for_mutation": {"type": "boolean"},
+        "maximum_advisory_rounds": {"type": "integer", "minimum": 0},
+        "maximum_retry_count": {"type": "integer", "minimum": 0}
+      }
+    },
+    "data_policy": {"type": "object"},
+    "adapter": {"type": "object"},
+    "profile_sha256": {"type": "string", "pattern": "^[a-fA-F0-9]{64}$"}
+  }
+}

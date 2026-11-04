@@ -3,6 +3,8 @@
 Status: design specification  
 Authority: advisory diagnosis only; existing gates, admission decisions, simulation hashes, and human approvals remain authoritative.
 
+This document is the David-OSv3 adapter profile for the program-neutral [Generic Diagnostic Recovery Protocol](GENERIC_DIAGNOSTIC_RECOVERY_PROTOCOL.md). Generic event normalization, adviser integration, notes, ratings, ledgers, and statistics belong in the reusable GDRP core. David-OS-specific admission, canon, filesystem, and simulation rules belong only in this adapter.
+
 ## Purpose
 
 When an operation stops, David-OSv3 must preserve the stop and produce enough structured evidence for DeepSeek to diagnose the obstruction, propose bounded corrections, and predict what each correction would change. DeepSeek never edits files, changes an admission lane, approves a rename, or converts uncertainty into permission.

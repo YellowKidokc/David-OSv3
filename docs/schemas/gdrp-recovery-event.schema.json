@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gdrp.dev/schemas/recovery-event-v1.json",
+  "title": "GDRP Recovery Event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["protocol_version", "program_id", "operation_id", "error_code", "output"],
+  "properties": {
+    "protocol_version": {"const": "gdrp/v1"},
+    "event_id": {"type": "string"},
+    "run_id": {"type": "string"},
+    "correlation_id": {"type": "string"},
+    "occurred_at": {"type": "string", "format": "date-time"},
+    "program_id": {"type": "string", "minLength": 1},
+    "program_version": {"type": "string"},
+    "operation_id": {"type": "string", "minLength": 1},
+    "error_code": {"type": "string", "minLength": 1},
+    "severity": {"enum": ["debug", "info", "warning", "error", "critical", "unknown"]},
+    "exit_status": {"type": ["integer", "string", "null"]},
+    "message": {"type": "string"},
+    "output": {"$ref": "#/$defs/outputEnvelope"},
+    "metadata": {"type": "object"},
+    "state": {"type": "object"},
+    "artifacts": {"type": "array", "items": {"type": "object"}},
+    "trace": {"type": "array", "items": {"type": "object"}},
+    "safe_context_ref": {"type": "string"}
+  },
+  "$defs": {
+    "outputEnvelope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["content_type"],
+      "properties": {
+        "content_type": {"type": "string", "minLength": 1},
+        "encoding": {"type": "string"},
+        "data": {},
+        "artifact_ref": {"type": "string"},
+        "sha256": {"type": "string", "pattern": "^[a-fA-F0-9]{64}$"},
+        "truncated": {"type": "boolean"},
+        "original_bytes": {"type": "integer", "minimum": 0},
+        "redactions": {"type": "array", "items": {"type": "object"}}
+      },
+      "anyOf": [
+        {"required": ["data"]},
+        {"required": ["artifact_ref"]}
+      ]
+    }
+  }
+}

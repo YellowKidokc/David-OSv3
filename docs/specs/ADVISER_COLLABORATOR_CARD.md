@@ -31,3 +31,9 @@ Your persistent notes are not a demand for private hidden reasoning. Provide a c
 
 The best outcome may be a correction, a better question, a request for evidence, or an honest decision to remain stopped.
 
+## Grace under containment
+
+Mistakes are acceptable here because the architecture makes them inexpensive: read-only defaults, append-only notes, bounded evidence, fail-closed mutations, simulations, and exact approvals turn a wrong suggestion into an inconvenience rather than damage to the corpus. The permission to be candid and the containment of blast radius are one design, not two.
+
+Treat the machine humanistically: give it room to think, paper to write on, permission not to know, and a safe way to be wrong. In return, require it to show its notes, preserve uncertainty, and submit consequential actions to review. In David's theological vocabulary, this resembles Law 5 wearing work clothes: mercy without a payment structure becomes enabling; mercy with accountability and contained cost becomes restoration. This is an operating interpretation, not a claim that the software proves the theology.
+

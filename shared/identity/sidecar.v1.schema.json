@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "david-os/sidecar.v1",
+  "title": "Three-address sidecar v1 (Document Identity Standard v1.0)",
+  "type": "object",
+  "required": ["schema_version", "document_id", "version", "content_sha256", "physical", "canonical", "navigation", "lineage"],
+  "properties": {
+    "schema_version": {"const": "sidecar.v1"},
+    "document_id": {"type": ["string", "null"], "pattern": "^[A-Z]{3,5}\\.[0-9]{2}\\.[A-Z0-9]+$",
+                    "description": "null until the registry assigns one; proposals go in proposed_document_id"},
+    "proposed_document_id": {"type": ["string", "null"], "pattern": "^[A-Z]{3,5}\\.[0-9]{2}\\.[A-Z0-9]+$"},
+    "version": {"type": "integer", "minimum": 1},
+    "content_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "source_path": {"type": "string"},
+    "physical": {
+      "type": "object",
+      "required": ["current_home", "proposed_home", "move_authorized"],
+      "properties": {
+        "current_home": {"type": "string"},
+        "proposed_home": {"type": ["string", "null"]},
+        "confidence": {"type": ["number", "string", "null"]},
+        "move_authorized": {"type": "boolean", "description": "true only from David's approval ledger"}
+      }
+    },
+    "canonical": {
+      "type": "object",
+      "required": ["canon_status", "admission_authority"],
+      "properties": {
+        "build": {"type": ["string", "null"]},
+        "law_ids": {"type": "array", "items": {"type": "string", "pattern": "^LAW_(0[1-9]|10)$"}},
+        "epistemic_roles": {"type": "array", "items": {"type": "string"}},
+        "canon_status": {"enum": ["NOT_EVALUATED", "CANDIDATE", "EVALUATED", "ADMITTED", "REJECTED", "SUPERSEDED", "WITHDRAWN"]},
+        "admission_authority": {"const": "DAVID_ONLY"},
+        "admitted_by_ruling": {"type": ["string", "null"], "description": "required when canon_status is ADMITTED"},
+        "claims": {"type": "array"},
+        "evidence": {"type": "array"},
+        "kill_conditions": {"type": "array"}
+      }
+    },
+    "navigation": {
+      "type": "object",
+      "properties": {
+        "series_id": {"type": ["string", "null"]},
+        "series_position": {"type": ["integer", "null"]},
+        "subjects": {"type": "array", "items": {"type": "string"}},
+        "people": {"type": "array"},
+        "worldviews": {"type": "array"},
+        "ten_law_emphasis": {"type": "object", "propertyNames": {"enum": ["G", "M", "E", "S", "T", "K", "R", "Q", "F", "C"]},
+                             "additionalProperties": {"type": "integer", "minimum": 0, "maximum": 3}},
+        "chi_primary": {"type": ["string", "null"]},
+        "chi_secondary": {"type": "array"},
+        "document_type": {"type": ["string", "null"]},
+        "lifecycle": {"type": ["string", "null"]}
+      }
+    },
+    "lineage": {
+      "type": "object",
+      "properties": {
+        "created_at": {"type": ["string", "null"]},
+        "created_by": {"type": ["string", "null"]},
+        "previous_paths": {"type": "array", "items": {"type": "string"}},
+        "revision_history": {"type": "array"},
+        "cross_references": {"type": "array", "items": {"type": "object", "required": ["target", "relationship"]}}
+      }
+    },
+    "provenance": {"type": "object", "description": "which tools/runs filled which fields (e.g. classify/lexicon@0.1.0)"}
+  }
+}

@@ -1,0 +1,6975 @@
+[
+  {
+    "term": "gravity",
+    "axes": {
+      "chi_primary": "G"
+    },
+    "sources": [
+      "LAW_KEYWORDS",
+      "ME_VARS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "curvature",
+    "axes": {
+      "chi_primary": "G"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "spacetime",
+    "axes": {
+      "chi_primary": [
+        "G",
+        "R"
+      ]
+    },
+    "sources": [
+      "LAW_KEYWORDS",
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "mass",
+    "axes": {
+      "chi_primary": [
+        "G",
+        "M"
+      ]
+    },
+    "sources": [
+      "LAW_KEYWORDS",
+      "ME_VARS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "sin",
+    "axes": {
+      "chi_primary": "G"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "grace",
+    "axes": {
+      "chi_primary": [
+        "G",
+        "R"
+      ]
+    },
+    "sources": [
+      "LAW_KEYWORDS",
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "gravitational",
+    "axes": {
+      "chi_primary": "G"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "geodesic",
+    "axes": {
+      "chi_primary": "G"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "attraction",
+    "axes": {
+      "chi_primary": "G"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "weight",
+    "axes": {
+      "chi_primary": "G"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "force",
+    "axes": {
+      "chi_primary": "M"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "acceleration",
+    "axes": {
+      "chi_primary": "M"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "momentum",
+    "axes": {
+      "chi_primary": "M"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "inertia",
+    "axes": {
+      "chi_primary": "M"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "newton",
+    "axes": {
+      "chi_primary": "M"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "will",
+    "axes": {
+      "chi_primary": "M"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "repentance",
+    "axes": {
+      "chi_primary": "M"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "conversion",
+    "axes": {
+      "chi_primary": "M"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "motion",
+    "axes": {
+      "chi_primary": "M"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "velocity",
+    "axes": {
+      "chi_primary": "M"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "electromagnetic",
+    "axes": {
+      "chi_primary": "E"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "light",
+    "axes": {
+      "chi_primary": "E"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "photon",
+    "axes": {
+      "chi_primary": "E"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "maxwell",
+    "axes": {
+      "chi_primary": "E"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "charge",
+    "axes": {
+      "chi_primary": "E"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "truth",
+    "axes": {
+      "chi_primary": "E"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "deception",
+    "axes": {
+      "chi_primary": "E",
+      "semantic_bucket": "ANTI_FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "anti_fruit",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "LAW_KEYWORDS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "witness",
+    "axes": {
+      "chi_primary": "E"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "glory",
+    "axes": {
+      "chi_primary": "E"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "doxa",
+    "axes": {
+      "chi_primary": "E"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "strong force",
+    "axes": {
+      "chi_primary": "S"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "nuclear",
+    "axes": {
+      "chi_primary": [
+        "S",
+        "M"
+      ]
+    },
+    "sources": [
+      "LAW_KEYWORDS",
+      "ME_VARS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "quark",
+    "axes": {
+      "chi_primary": "S"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "gluon",
+    "axes": {
+      "chi_primary": "S"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "yukawa",
+    "axes": {
+      "chi_primary": "S"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "love",
+    "axes": {
+      "chi_primary": [
+        "S",
+        "G"
+      ]
+    },
+    "sources": [
+      "LAW_KEYWORDS",
+      "ME_VARS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "agape",
+    "axes": {
+      "chi_primary": "S"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "fruit",
+    "axes": {
+      "chi_primary": "S"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "captivity",
+    "axes": {
+      "chi_primary": "S"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "binding",
+    "axes": {
+      "chi_primary": [
+        "S",
+        "G"
+      ]
+    },
+    "sources": [
+      "LAW_KEYWORDS",
+      "ME_VARS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "entropy",
+    "axes": {
+      "chi_primary": "T"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "thermodynamic",
+    "axes": {
+      "chi_primary": "T"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "heat",
+    "axes": {
+      "chi_primary": "T"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "temperature",
+    "axes": {
+      "chi_primary": "T"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "energy",
+    "axes": {
+      "chi_primary": "T"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "judgment",
+    "axes": {
+      "chi_primary": "T"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "justice",
+    "axes": {
+      "chi_primary": "T"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "mercy",
+    "axes": {
+      "chi_primary": "T"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "free energy",
+    "axes": {
+      "chi_primary": "T"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "disorder",
+    "axes": {
+      "chi_primary": "T"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "shannon",
+    "axes": {
+      "chi_primary": "K"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "information",
+    "axes": {
+      "chi_primary": "K"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "channel",
+    "axes": {
+      "chi_primary": "K"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "bandwidth",
+    "axes": {
+      "chi_primary": "K"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "signal",
+    "axes": {
+      "chi_primary": "K"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "logos",
+    "axes": {
+      "chi_primary": "K"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "chaos",
+    "axes": {
+      "chi_primary": "K"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "noise",
+    "axes": {
+      "chi_primary": "K"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "encoding",
+    "axes": {
+      "chi_primary": "K"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "communication",
+    "axes": {
+      "chi_primary": "K"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "quantum",
+    "axes": {
+      "chi_primary": "Q"
+    },
+    "sources": [
+      "LAW_KEYWORDS",
+      "ME_VARS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "superposition",
+    "axes": {
+      "chi_primary": "Q"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "collapse",
+    "axes": {
+      "chi_primary": "Q"
+    },
+    "sources": [
+      "LAW_KEYWORDS",
+      "ME_VARS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "measurement",
+    "axes": {
+      "chi_primary": "Q"
+    },
+    "sources": [
+      "LAW_KEYWORDS",
+      "ME_VARS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "wave",
+    "axes": {
+      "chi_primary": "Q"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "faith",
+    "axes": {
+      "chi_primary": "Q"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "doubt",
+    "axes": {
+      "chi_primary": "Q"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "observation",
+    "axes": {
+      "chi_primary": "Q"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "uncertainty",
+    "axes": {
+      "chi_primary": "Q"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "entangle",
+    "axes": {
+      "chi_primary": "Q"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "relativity",
+    "axes": {
+      "chi_primary": "R"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "frame",
+    "axes": {
+      "chi_primary": "R"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "reference",
+    "axes": {
+      "chi_primary": "R"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "lorentz",
+    "axes": {
+      "chi_primary": "R"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "perspective",
+    "axes": {
+      "chi_primary": "R"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "invariant",
+    "axes": {
+      "chi_primary": "R"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "transformation",
+    "axes": {
+      "chi_primary": "R"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "weak force",
+    "axes": {
+      "chi_primary": "F"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "decay",
+    "axes": {
+      "chi_primary": "F"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "parity",
+    "axes": {
+      "chi_primary": "F"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "symmetry breaking",
+    "axes": {
+      "chi_primary": "F"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "noether",
+    "axes": {
+      "chi_primary": "F"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "moral conservation",
+    "axes": {
+      "chi_primary": "F"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "atonement",
+    "axes": {
+      "chi_primary": "F"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "irreversible",
+    "axes": {
+      "chi_primary": "F"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "coherence",
+    "axes": {
+      "chi_primary": "C"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "chi",
+    "axes": {
+      "chi_primary": "C"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "\u03c7",
+    "axes": {
+      "chi_primary": "C"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "decoherence",
+    "axes": {
+      "chi_primary": "C"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "alignment",
+    "axes": {
+      "chi_primary": "C"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "christ",
+    "axes": {
+      "chi_primary": "C"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "kingdom",
+    "axes": {
+      "chi_primary": "C"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "shalom",
+    "axes": {
+      "chi_primary": "C"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "unified",
+    "axes": {
+      "chi_primary": "C"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "master equation",
+    "axes": {
+      "chi_primary": "C"
+    },
+    "sources": [
+      "LAW_KEYWORDS"
+    ],
+    "confidence": 0.9
+  },
+  {
+    "term": "proof",
+    "axes": {
+      "document_type": "formal_paper",
+      "epistemic_signal": "evidence"
+    },
+    "sources": [
+      "DOC_TYPE_PATTERNS",
+      "EVIDENCE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "dataset",
+    "axes": {
+      "document_type": "dataset",
+      "epistemic_signal": "evidence",
+      "semantic_bucket": "METHODS_PROVENANCE",
+      "subbucket": "source_and_reproducibility",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "DOC_TYPE_PATTERNS",
+      "EVIDENCE_TERMS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "shows",
+    "axes": {
+      "epistemic_signal": "claim"
+    },
+    "sources": [
+      "CLAIM_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "demands",
+    "axes": {
+      "epistemic_signal": "claim"
+    },
+    "sources": [
+      "CLAIM_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "proves",
+    "axes": {
+      "epistemic_signal": [
+        "claim",
+        "absolute"
+      ],
+      "semantic_bucket": "CLAIM_STRENGTH",
+      "subbucket": "strong_claim",
+      "polarity": "neutral",
+      "weight": 5
+    },
+    "sources": [
+      "CLAIM_TERMS",
+      "ABSOLUTE_TERMS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "is",
+    "axes": {
+      "epistemic_signal": "claim",
+      "semantic_bucket": "RELATION_TYPE",
+      "subbucket": "identity",
+      "polarity": "neutral",
+      "weight": 4
+    },
+    "sources": [
+      "CLAIM_TERMS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "must",
+    "axes": {
+      "epistemic_signal": "claim"
+    },
+    "sources": [
+      "CLAIM_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "requires",
+    "axes": {
+      "epistemic_signal": [
+        "claim",
+        "dependency"
+      ],
+      "semantic_bucket": "RELATION_TYPE",
+      "subbucket": "dependency",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "CLAIM_TERMS",
+      "DEPENDENCY_TERMS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "indicates",
+    "axes": {
+      "epistemic_signal": "claim",
+      "semantic_bucket": "CLAIM_STRENGTH",
+      "subbucket": "moderate_claim",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "CLAIM_TERMS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "are",
+    "axes": {
+      "epistemic_signal": "claim"
+    },
+    "sources": [
+      "CLAIM_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "forces",
+    "axes": {
+      "epistemic_signal": "claim"
+    },
+    "sources": [
+      "CLAIM_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "grounds",
+    "axes": {
+      "epistemic_signal": "claim"
+    },
+    "sources": [
+      "CLAIM_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "means",
+    "axes": {
+      "epistemic_signal": "claim"
+    },
+    "sources": [
+      "CLAIM_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "predicts",
+    "axes": {
+      "epistemic_signal": "claim",
+      "semantic_bucket": "CLAIM_STRENGTH",
+      "subbucket": "moderate_claim",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "CLAIM_TERMS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "explains",
+    "axes": {
+      "epistemic_signal": "claim",
+      "semantic_bucket": "CLAIM_STRENGTH",
+      "subbucket": "moderate_claim",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "CLAIM_TERMS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "replicated",
+    "axes": {
+      "epistemic_signal": "evidence",
+      "semantic_bucket": "EVIDENCE_MATURITY",
+      "subbucket": "status_label",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "EVIDENCE_TERMS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "evidence",
+    "axes": {
+      "epistemic_signal": "evidence"
+    },
+    "sources": [
+      "EVIDENCE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "source",
+    "axes": {
+      "epistemic_signal": "evidence",
+      "semantic_bucket": "METHODS_PROVENANCE",
+      "subbucket": "source_and_reproducibility",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "EVIDENCE_TERMS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "experiment",
+    "axes": {
+      "epistemic_signal": "evidence"
+    },
+    "sources": [
+      "EVIDENCE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "study",
+    "axes": {
+      "epistemic_signal": "evidence"
+    },
+    "sources": [
+      "EVIDENCE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "data",
+    "axes": {
+      "epistemic_signal": "evidence"
+    },
+    "sources": [
+      "EVIDENCE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "confirmed",
+    "axes": {
+      "epistemic_signal": "evidence"
+    },
+    "sources": [
+      "EVIDENCE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "measured",
+    "axes": {
+      "epistemic_signal": "evidence",
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "gentleness",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "EVIDENCE_TERMS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "trial",
+    "axes": {
+      "epistemic_signal": "evidence"
+    },
+    "sources": [
+      "EVIDENCE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "equation",
+    "axes": {
+      "epistemic_signal": "evidence"
+    },
+    "sources": [
+      "EVIDENCE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "observed",
+    "axes": {
+      "epistemic_signal": "evidence"
+    },
+    "sources": [
+      "EVIDENCE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "this means",
+    "axes": {
+      "epistemic_signal": "bridge"
+    },
+    "sources": [
+      "BRIDGE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "thus",
+    "axes": {
+      "epistemic_signal": "bridge"
+    },
+    "sources": [
+      "BRIDGE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "so",
+    "axes": {
+      "epistemic_signal": "bridge"
+    },
+    "sources": [
+      "BRIDGE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "then",
+    "axes": {
+      "epistemic_signal": "bridge"
+    },
+    "sources": [
+      "BRIDGE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "because",
+    "axes": {
+      "epistemic_signal": [
+        "bridge",
+        "dependency"
+      ]
+    },
+    "sources": [
+      "BRIDGE_TERMS",
+      "DEPENDENCY_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "consequently",
+    "axes": {
+      "epistemic_signal": "bridge"
+    },
+    "sources": [
+      "BRIDGE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "as a result",
+    "axes": {
+      "epistemic_signal": "bridge"
+    },
+    "sources": [
+      "BRIDGE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "but",
+    "axes": {
+      "epistemic_signal": "bridge"
+    },
+    "sources": [
+      "BRIDGE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "therefore",
+    "axes": {
+      "epistemic_signal": "bridge"
+    },
+    "sources": [
+      "BRIDGE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "next",
+    "axes": {
+      "epistemic_signal": "bridge"
+    },
+    "sources": [
+      "BRIDGE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "however",
+    "axes": {
+      "epistemic_signal": "bridge"
+    },
+    "sources": [
+      "BRIDGE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "breaks if",
+    "axes": {
+      "epistemic_signal": "falsifier",
+      "semantic_bucket": "FALSIFICATION",
+      "subbucket": "kill_condition_language",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "FALSIFY_TERMS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "if false",
+    "axes": {
+      "epistemic_signal": "falsifier"
+    },
+    "sources": [
+      "FALSIFY_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "disconfirm",
+    "axes": {
+      "epistemic_signal": "falsifier"
+    },
+    "sources": [
+      "FALSIFY_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "invalidates",
+    "axes": {
+      "epistemic_signal": "falsifier"
+    },
+    "sources": [
+      "FALSIFY_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "collapse if",
+    "axes": {
+      "epistemic_signal": "falsifier"
+    },
+    "sources": [
+      "FALSIFY_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "death condition",
+    "axes": {
+      "epistemic_signal": "falsifier"
+    },
+    "sources": [
+      "FALSIFY_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "falsification",
+    "axes": {
+      "epistemic_signal": "falsifier"
+    },
+    "sources": [
+      "FALSIFY_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "kill",
+    "axes": {
+      "epistemic_signal": "falsifier"
+    },
+    "sources": [
+      "FALSIFY_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "would fail",
+    "axes": {
+      "epistemic_signal": "falsifier"
+    },
+    "sources": [
+      "FALSIFY_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "falsify",
+    "axes": {
+      "epistemic_signal": "falsifier"
+    },
+    "sources": [
+      "FALSIFY_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "boundary condition",
+    "axes": {
+      "epistemic_signal": "dependency"
+    },
+    "sources": [
+      "DEPENDENCY_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "if",
+    "axes": {
+      "epistemic_signal": "dependency"
+    },
+    "sources": [
+      "DEPENDENCY_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "depends on",
+    "axes": {
+      "epistemic_signal": "dependency",
+      "semantic_bucket": "RELATION_TYPE",
+      "subbucket": "dependency",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "DEPENDENCY_TERMS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "given",
+    "axes": {
+      "epistemic_signal": "dependency"
+    },
+    "sources": [
+      "DEPENDENCY_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "premise",
+    "axes": {
+      "epistemic_signal": "dependency"
+    },
+    "sources": [
+      "DEPENDENCY_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "under",
+    "axes": {
+      "epistemic_signal": "dependency"
+    },
+    "sources": [
+      "DEPENDENCY_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "assumes",
+    "axes": {
+      "epistemic_signal": "dependency"
+    },
+    "sources": [
+      "DEPENDENCY_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "probably",
+    "axes": {
+      "epistemic_signal": "hedge"
+    },
+    "sources": [
+      "HEDGE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "seems",
+    "axes": {
+      "epistemic_signal": "hedge"
+    },
+    "sources": [
+      "HEDGE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "maybe",
+    "axes": {
+      "epistemic_signal": "hedge"
+    },
+    "sources": [
+      "HEDGE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "might",
+    "axes": {
+      "epistemic_signal": "hedge"
+    },
+    "sources": [
+      "HEDGE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "likely",
+    "axes": {
+      "epistemic_signal": "hedge"
+    },
+    "sources": [
+      "HEDGE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "roughly",
+    "axes": {
+      "epistemic_signal": "hedge"
+    },
+    "sources": [
+      "HEDGE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "perhaps",
+    "axes": {
+      "epistemic_signal": "hedge"
+    },
+    "sources": [
+      "HEDGE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "could",
+    "axes": {
+      "epistemic_signal": "hedge"
+    },
+    "sources": [
+      "HEDGE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "appears",
+    "axes": {
+      "epistemic_signal": "hedge"
+    },
+    "sources": [
+      "HEDGE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "sort of",
+    "axes": {
+      "epistemic_signal": "hedge"
+    },
+    "sources": [
+      "HEDGE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "kind of",
+    "axes": {
+      "epistemic_signal": "hedge"
+    },
+    "sources": [
+      "HEDGE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "possibly",
+    "axes": {
+      "epistemic_signal": "hedge"
+    },
+    "sources": [
+      "HEDGE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "always",
+    "axes": {
+      "epistemic_signal": "absolute"
+    },
+    "sources": [
+      "ABSOLUTE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "never",
+    "axes": {
+      "epistemic_signal": [
+        "absolute",
+        "negation"
+      ]
+    },
+    "sources": [
+      "ABSOLUTE_TERMS",
+      "NEGATION_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "certainly",
+    "axes": {
+      "epistemic_signal": "absolute"
+    },
+    "sources": [
+      "ABSOLUTE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "obviously",
+    "axes": {
+      "epistemic_signal": "absolute"
+    },
+    "sources": [
+      "ABSOLUTE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "undeniable",
+    "axes": {
+      "epistemic_signal": "absolute",
+      "semantic_bucket": "REVIEWER_RISK",
+      "subbucket": "rhetorical_inflation",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "ABSOLUTE_TERMS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "impossible",
+    "axes": {
+      "epistemic_signal": "absolute"
+    },
+    "sources": [
+      "ABSOLUTE_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "false",
+    "axes": {
+      "epistemic_signal": "negation"
+    },
+    "sources": [
+      "NEGATION_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "can't",
+    "axes": {
+      "epistemic_signal": "negation"
+    },
+    "sources": [
+      "NEGATION_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "fails",
+    "axes": {
+      "epistemic_signal": "negation",
+      "semantic_bucket": "REDUCTION_QUALITY",
+      "subbucket": "broken",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "NEGATION_TERMS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "cannot",
+    "axes": {
+      "epistemic_signal": "negation"
+    },
+    "sources": [
+      "NEGATION_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "no",
+    "axes": {
+      "epistemic_signal": "negation"
+    },
+    "sources": [
+      "NEGATION_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "not",
+    "axes": {
+      "epistemic_signal": "negation"
+    },
+    "sources": [
+      "NEGATION_TERMS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "fruits",
+    "axes": {
+      "chi_primary": "S",
+      "subject_domain": "theology",
+      "fruit_polarity": "constructive"
+    },
+    "sources": [
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS",
+      "FRUITS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "anti_fruits_lexicon",
+    "axes": {
+      "chi_primary": "S",
+      "subject_domain": "theology",
+      "fruit_polarity": "anti"
+    },
+    "sources": [
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS",
+      "ANTI_FRUITS"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "fruits_lexicon",
+    "axes": {
+      "chi_primary": "S",
+      "subject_domain": "theology",
+      "fruit_polarity": "constructive"
+    },
+    "sources": [
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX",
+      "FRUITS_LEX"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "x:\\apps\\paper-intelligence-suite-python\\08_emotion_profile\\emotion_analyzer.py",
+    "axes": {
+      "chi_primary": "S",
+      "subject_domain": "theology",
+      "fruit_polarity": "constructive"
+    },
+    "sources": [
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND",
+      "FRUIT_BLEND"
+    ],
+    "confidence": 0.85
+  },
+  {
+    "term": "belonging",
+    "axes": {
+      "chi_primary": "G"
+    },
+    "sources": [
+      "ME_VARS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "community",
+    "axes": {
+      "chi_primary": "G"
+    },
+    "sources": [
+      "ME_VARS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "gather",
+    "axes": {
+      "chi_primary": "G"
+    },
+    "sources": [
+      "ME_VARS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "together",
+    "axes": {
+      "chi_primary": "G"
+    },
+    "sources": [
+      "ME_VARS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "meaning",
+    "axes": {
+      "chi_primary": "M"
+    },
+    "sources": [
+      "ME_VARS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "purpose",
+    "axes": {
+      "chi_primary": "M"
+    },
+    "sources": [
+      "ME_VARS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "commit",
+    "axes": {
+      "chi_primary": "M",
+      "semantic_bucket": "METHODS_PROVENANCE",
+      "subbucket": "source_and_reproducibility",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "ME_VARS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "covenant",
+    "axes": {
+      "chi_primary": "M",
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "faithfulness",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "ME_VARS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "hold",
+    "axes": {
+      "chi_primary": "M"
+    },
+    "sources": [
+      "ME_VARS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "time",
+    "axes": {
+      "chi_primary": "T"
+    },
+    "sources": [
+      "ME_VARS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "eternal",
+    "axes": {
+      "chi_primary": "T"
+    },
+    "sources": [
+      "ME_VARS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "sequence",
+    "axes": {
+      "chi_primary": "T"
+    },
+    "sources": [
+      "ME_VARS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "cause",
+    "axes": {
+      "chi_primary": "T"
+    },
+    "sources": [
+      "ME_VARS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "before",
+    "axes": {
+      "chi_primary": "T"
+    },
+    "sources": [
+      "ME_VARS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "after",
+    "axes": {
+      "chi_primary": "T"
+    },
+    "sources": [
+      "ME_VARS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "duration",
+    "axes": {
+      "chi_primary": "T"
+    },
+    "sources": [
+      "ME_VARS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "observer",
+    "axes": {
+      "chi_primary": "Q"
+    },
+    "sources": [
+      "ME_VARS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "wavefunction",
+    "axes": {
+      "chi_primary": "Q"
+    },
+    "sources": [
+      "ME_VARS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "consciousness",
+    "axes": {
+      "chi_primary": "Q"
+    },
+    "sources": [
+      "ME_VARS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "theorem",
+    "axes": {
+      "document_type": "formal_paper",
+      "semantic_bucket": [
+        "REDUCTION_QUALITY",
+        "FORMAL_PROOF"
+      ],
+      "subbucket": [
+        "exact",
+        "lean_safe_terms"
+      ],
+      "polarity": [
+        "neutral",
+        "positive"
+      ],
+      "weight": [
+        5,
+        3
+      ]
+    },
+    "sources": [
+      "DOC_TYPE_PATTERNS",
+      "SEMANTIC_BUCKETS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "lemma",
+    "axes": {
+      "document_type": "formal_paper",
+      "semantic_bucket": "FORMAL_PROOF",
+      "subbucket": "lean_safe_terms",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "DOC_TYPE_PATTERNS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "suggests",
+    "axes": {
+      "semantic_bucket": "CLAIM_STRENGTH",
+      "subbucket": "weak_inference",
+      "polarity": "neutral",
+      "weight": 1
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "may indicate",
+    "axes": {
+      "semantic_bucket": "CLAIM_STRENGTH",
+      "subbucket": "weak_inference",
+      "polarity": "neutral",
+      "weight": 1
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "is consistent with",
+    "axes": {
+      "semantic_bucket": "CLAIM_STRENGTH",
+      "subbucket": "weak_inference",
+      "polarity": "neutral",
+      "weight": 1
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "points toward",
+    "axes": {
+      "semantic_bucket": "CLAIM_STRENGTH",
+      "subbucket": "weak_inference",
+      "polarity": "neutral",
+      "weight": 1
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "raises the possibility",
+    "axes": {
+      "semantic_bucket": "CLAIM_STRENGTH",
+      "subbucket": "weak_inference",
+      "polarity": "neutral",
+      "weight": 1
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "appears to support",
+    "axes": {
+      "semantic_bucket": "CLAIM_STRENGTH",
+      "subbucket": "weak_inference",
+      "polarity": "neutral",
+      "weight": 1
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "is compatible with",
+    "axes": {
+      "semantic_bucket": "CLAIM_STRENGTH",
+      "subbucket": "weak_inference",
+      "polarity": "neutral",
+      "weight": 1
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "could imply",
+    "axes": {
+      "semantic_bucket": "CLAIM_STRENGTH",
+      "subbucket": "weak_inference",
+      "polarity": "neutral",
+      "weight": 1
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "supports",
+    "axes": {
+      "semantic_bucket": "CLAIM_STRENGTH",
+      "subbucket": "moderate_claim",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "accounts for",
+    "axes": {
+      "semantic_bucket": "CLAIM_STRENGTH",
+      "subbucket": "moderate_claim",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "constrains",
+    "axes": {
+      "semantic_bucket": [
+        "CLAIM_STRENGTH",
+        "PREFERRED_REPLACEMENT",
+        "RELATION_TYPE"
+      ],
+      "subbucket": [
+        "moderate_claim",
+        "constraint_classification",
+        "constraint"
+      ],
+      "polarity": [
+        "neutral",
+        "positive"
+      ],
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS",
+      "SEMANTIC_BUCKETS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "models",
+    "axes": {
+      "semantic_bucket": "CLAIM_STRENGTH",
+      "subbucket": "moderate_claim",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "is evidence for",
+    "axes": {
+      "semantic_bucket": "CLAIM_STRENGTH",
+      "subbucket": "moderate_claim",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "fits",
+    "axes": {
+      "semantic_bucket": "CLAIM_STRENGTH",
+      "subbucket": "moderate_claim",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "tracks",
+    "axes": {
+      "semantic_bucket": [
+        "CLAIM_STRENGTH",
+        "RELATION_TYPE"
+      ],
+      "subbucket": [
+        "moderate_claim",
+        "correlation"
+      ],
+      "polarity": "neutral",
+      "weight": [
+        3,
+        2
+      ]
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "demonstrates",
+    "axes": {
+      "semantic_bucket": "CLAIM_STRENGTH",
+      "subbucket": "strong_claim",
+      "polarity": "neutral",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "establishes",
+    "axes": {
+      "semantic_bucket": "CLAIM_STRENGTH",
+      "subbucket": "strong_claim",
+      "polarity": "neutral",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "verifies",
+    "axes": {
+      "semantic_bucket": "CLAIM_STRENGTH",
+      "subbucket": "strong_claim",
+      "polarity": "neutral",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "entails",
+    "axes": {
+      "semantic_bucket": [
+        "CLAIM_STRENGTH",
+        "RELATION_TYPE"
+      ],
+      "subbucket": [
+        "strong_claim",
+        "entailment"
+      ],
+      "polarity": "neutral",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "necessitates",
+    "axes": {
+      "semantic_bucket": [
+        "CLAIM_STRENGTH",
+        "RELATION_TYPE"
+      ],
+      "subbucket": [
+        "strong_claim",
+        "entailment"
+      ],
+      "polarity": "neutral",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "shows conclusively",
+    "axes": {
+      "semantic_bucket": "CLAIM_STRENGTH",
+      "subbucket": "strong_claim",
+      "polarity": "neutral",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "logically implies",
+    "axes": {
+      "semantic_bucket": "CLAIM_STRENGTH",
+      "subbucket": "strong_claim",
+      "polarity": "neutral",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "derives",
+    "axes": {
+      "semantic_bucket": [
+        "CLAIM_STRENGTH",
+        "DANGER_LANGUAGE"
+      ],
+      "subbucket": [
+        "forbidden_unless_formal",
+        "dead_language"
+      ],
+      "polarity": "negative",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "proves all",
+    "axes": {
+      "semantic_bucket": [
+        "CLAIM_STRENGTH",
+        "DANGER_LANGUAGE"
+      ],
+      "subbucket": [
+        "forbidden_unless_formal",
+        "dead_language"
+      ],
+      "polarity": "negative",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "logically entails",
+    "axes": {
+      "semantic_bucket": "CLAIM_STRENGTH",
+      "subbucket": "forbidden_unless_formal",
+      "polarity": "negative",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "exact",
+    "axes": {
+      "semantic_bucket": [
+        "CLAIM_STRENGTH",
+        "REDUCTION_QUALITY"
+      ],
+      "subbucket": [
+        "forbidden_unless_formal",
+        "exact"
+      ],
+      "polarity": [
+        "negative",
+        "neutral"
+      ],
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "universal",
+    "axes": {
+      "semantic_bucket": "CLAIM_STRENGTH",
+      "subbucket": "forbidden_unless_formal",
+      "polarity": "negative",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "unavoidable",
+    "axes": {
+      "semantic_bucket": "CLAIM_STRENGTH",
+      "subbucket": "forbidden_unless_formal",
+      "polarity": "negative",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "impossible otherwise",
+    "axes": {
+      "semantic_bucket": "CLAIM_STRENGTH",
+      "subbucket": "forbidden_unless_formal",
+      "polarity": "negative",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "exact algebraic derivation",
+    "axes": {
+      "semantic_bucket": [
+        "CLAIM_STRENGTH",
+        "DANGER_LANGUAGE"
+      ],
+      "subbucket": [
+        "forbidden_unless_formal",
+        "dead_language"
+      ],
+      "polarity": "negative",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "final theory",
+    "axes": {
+      "semantic_bucket": "CLAIM_STRENGTH",
+      "subbucket": "forbidden_unless_formal",
+      "polarity": "negative",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "underlying math of every field",
+    "axes": {
+      "semantic_bucket": "CLAIM_STRENGTH",
+      "subbucket": "forbidden_unless_formal",
+      "polarity": "negative",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "literal special case",
+    "axes": {
+      "semantic_bucket": "REDUCTION_QUALITY",
+      "subbucket": "exact",
+      "polarity": "neutral",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "derivable",
+    "axes": {
+      "semantic_bucket": "REDUCTION_QUALITY",
+      "subbucket": "exact",
+      "polarity": "neutral",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "formally equivalent",
+    "axes": {
+      "semantic_bucket": "REDUCTION_QUALITY",
+      "subbucket": "exact",
+      "polarity": "neutral",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "isomorphic under stated constraints",
+    "axes": {
+      "semantic_bucket": "REDUCTION_QUALITY",
+      "subbucket": "exact",
+      "polarity": "neutral",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "approximate",
+    "axes": {
+      "semantic_bucket": "REDUCTION_QUALITY",
+      "subbucket": "approximate",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "limiting case",
+    "axes": {
+      "semantic_bucket": "REDUCTION_QUALITY",
+      "subbucket": "approximate",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "asymptotic",
+    "axes": {
+      "semantic_bucket": "REDUCTION_QUALITY",
+      "subbucket": "approximate",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "coarse-grained",
+    "axes": {
+      "semantic_bucket": "REDUCTION_QUALITY",
+      "subbucket": "approximate",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "partially maps",
+    "axes": {
+      "semantic_bucket": "REDUCTION_QUALITY",
+      "subbucket": "approximate",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "near-equivalent",
+    "axes": {
+      "semantic_bucket": "REDUCTION_QUALITY",
+      "subbucket": "approximate",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "reduced-form",
+    "axes": {
+      "semantic_bucket": "REDUCTION_QUALITY",
+      "subbucket": "approximate",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "effective model",
+    "axes": {
+      "semantic_bucket": "REDUCTION_QUALITY",
+      "subbucket": "approximate",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "analogy",
+    "axes": {
+      "semantic_bucket": [
+        "REDUCTION_QUALITY",
+        "DRIFT_WARNING"
+      ],
+      "subbucket": [
+        "analogical",
+        "honest_boundary_language"
+      ],
+      "polarity": [
+        "neutral",
+        "positive"
+      ],
+      "weight": [
+        2,
+        3
+      ]
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "resemblance",
+    "axes": {
+      "semantic_bucket": "REDUCTION_QUALITY",
+      "subbucket": "analogical",
+      "polarity": "neutral",
+      "weight": 2
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "structural similarity",
+    "axes": {
+      "semantic_bucket": "REDUCTION_QUALITY",
+      "subbucket": "analogical",
+      "polarity": "neutral",
+      "weight": 2
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "homology",
+    "axes": {
+      "semantic_bucket": "REDUCTION_QUALITY",
+      "subbucket": "analogical",
+      "polarity": "neutral",
+      "weight": 2
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "correspondence",
+    "axes": {
+      "semantic_bucket": "REDUCTION_QUALITY",
+      "subbucket": "analogical",
+      "polarity": "neutral",
+      "weight": 2
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "parallel",
+    "axes": {
+      "semantic_bucket": "REDUCTION_QUALITY",
+      "subbucket": "analogical",
+      "polarity": "neutral",
+      "weight": 2
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "maps onto",
+    "axes": {
+      "semantic_bucket": "REDUCTION_QUALITY",
+      "subbucket": "analogical",
+      "polarity": "neutral",
+      "weight": 2
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "echoes",
+    "axes": {
+      "semantic_bucket": [
+        "REDUCTION_QUALITY",
+        "RELATION_TYPE"
+      ],
+      "subbucket": [
+        "analogical",
+        "analogy"
+      ],
+      "polarity": "neutral",
+      "weight": [
+        2,
+        1
+      ]
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "mismatch",
+    "axes": {
+      "semantic_bucket": "REDUCTION_QUALITY",
+      "subbucket": "broken",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "non-isomorphic",
+    "axes": {
+      "semantic_bucket": "REDUCTION_QUALITY",
+      "subbucket": "broken",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "cannot derive",
+    "axes": {
+      "semantic_bucket": "REDUCTION_QUALITY",
+      "subbucket": "broken",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "term conflict",
+    "axes": {
+      "semantic_bucket": "REDUCTION_QUALITY",
+      "subbucket": "broken",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "breaks",
+    "axes": {
+      "semantic_bucket": "REDUCTION_QUALITY",
+      "subbucket": "broken",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "not equivalent",
+    "axes": {
+      "semantic_bucket": "REDUCTION_QUALITY",
+      "subbucket": "broken",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "no reduction path",
+    "axes": {
+      "semantic_bucket": "REDUCTION_QUALITY",
+      "subbucket": "broken",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "classifies",
+    "axes": {
+      "semantic_bucket": "PREFERRED_REPLACEMENT",
+      "subbucket": "constraint_classification",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "bounds",
+    "axes": {
+      "semantic_bucket": [
+        "PREFERRED_REPLACEMENT",
+        "RELATION_TYPE"
+      ],
+      "subbucket": [
+        "constraint_classification",
+        "constraint"
+      ],
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "filters",
+    "axes": {
+      "semantic_bucket": "PREFERRED_REPLACEMENT",
+      "subbucket": "constraint_classification",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "organizes",
+    "axes": {
+      "semantic_bucket": "PREFERRED_REPLACEMENT",
+      "subbucket": "constraint_classification",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "maps",
+    "axes": {
+      "semantic_bucket": "PREFERRED_REPLACEMENT",
+      "subbucket": "constraint_classification",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "indexes",
+    "axes": {
+      "semantic_bucket": "PREFERRED_REPLACEMENT",
+      "subbucket": "constraint_classification",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "predicts a shortfall",
+    "axes": {
+      "semantic_bucket": "PREFERRED_REPLACEMENT",
+      "subbucket": "constraint_classification",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "identifies a failure mode",
+    "axes": {
+      "semantic_bucket": "PREFERRED_REPLACEMENT",
+      "subbucket": "constraint_classification",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "exposes a dependency",
+    "axes": {
+      "semantic_bucket": "PREFERRED_REPLACEMENT",
+      "subbucket": "constraint_classification",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "preserves structure",
+    "axes": {
+      "semantic_bucket": "PREFERRED_REPLACEMENT",
+      "subbucket": "constraint_classification",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "detects drift",
+    "axes": {
+      "semantic_bucket": "PREFERRED_REPLACEMENT",
+      "subbucket": "constraint_classification",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "separates claim status",
+    "axes": {
+      "semantic_bucket": "PREFERRED_REPLACEMENT",
+      "subbucket": "constraint_classification",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "categorizes",
+    "axes": {
+      "semantic_bucket": "PREFERRED_REPLACEMENT",
+      "subbucket": "constraint_classification",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "screens",
+    "axes": {
+      "semantic_bucket": "PREFERRED_REPLACEMENT",
+      "subbucket": "constraint_classification",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "triages",
+    "axes": {
+      "semantic_bucket": "PREFERRED_REPLACEMENT",
+      "subbucket": "constraint_classification",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "generates every domain",
+    "axes": {
+      "semantic_bucket": "DANGER_LANGUAGE",
+      "subbucket": "dead_language",
+      "polarity": "negative",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "is the underlying math",
+    "axes": {
+      "semantic_bucket": "DANGER_LANGUAGE",
+      "subbucket": "dead_language",
+      "polarity": "negative",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "universal lagrangian",
+    "axes": {
+      "semantic_bucket": "DANGER_LANGUAGE",
+      "subbucket": "dead_language",
+      "polarity": "negative",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "prism derives",
+    "axes": {
+      "semantic_bucket": "DANGER_LANGUAGE",
+      "subbucket": "dead_language",
+      "polarity": "negative",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "source-backed",
+    "axes": {
+      "semantic_bucket": "EVIDENCE_MATURITY",
+      "subbucket": "status_label",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "machine-checked",
+    "axes": {
+      "semantic_bucket": "EVIDENCE_MATURITY",
+      "subbucket": "status_label",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "lean-verified",
+    "axes": {
+      "semantic_bucket": "EVIDENCE_MATURITY",
+      "subbucket": "status_label",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "formally encoded",
+    "axes": {
+      "semantic_bucket": "EVIDENCE_MATURITY",
+      "subbucket": "status_label",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "mathematically modeled",
+    "axes": {
+      "semantic_bucket": "EVIDENCE_MATURITY",
+      "subbucket": "status_label",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "empirically fitted",
+    "axes": {
+      "semantic_bucket": "EVIDENCE_MATURITY",
+      "subbucket": "status_label",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "externally replicated",
+    "axes": {
+      "semantic_bucket": "EVIDENCE_MATURITY",
+      "subbucket": "status_label",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "internally synthesized",
+    "axes": {
+      "semantic_bucket": "EVIDENCE_MATURITY",
+      "subbucket": "status_label",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "asserted",
+    "axes": {
+      "semantic_bucket": "EVIDENCE_MATURITY",
+      "subbucket": "status_label",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "unverified",
+    "axes": {
+      "semantic_bucket": "EVIDENCE_MATURITY",
+      "subbucket": "status_label",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "needs audit",
+    "axes": {
+      "semantic_bucket": "EVIDENCE_MATURITY",
+      "subbucket": "status_label",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "open gap",
+    "axes": {
+      "semantic_bucket": "EVIDENCE_MATURITY",
+      "subbucket": "status_label",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "needs source",
+    "axes": {
+      "semantic_bucket": "EVIDENCE_MATURITY",
+      "subbucket": "status_label",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "provisional",
+    "axes": {
+      "semantic_bucket": "EVIDENCE_MATURITY",
+      "subbucket": "status_label",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "preliminary",
+    "axes": {
+      "semantic_bucket": "EVIDENCE_MATURITY",
+      "subbucket": "status_label",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "peer-reviewed",
+    "axes": {
+      "semantic_bucket": "EVIDENCE_MATURITY",
+      "subbucket": "status_label",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "counterexample tested",
+    "axes": {
+      "semantic_bucket": "EVIDENCE_MATURITY",
+      "subbucket": "status_label",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "axiom",
+    "axes": {
+      "semantic_bucket": "FORMAL_PROOF",
+      "subbucket": "lean_safe_terms",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "definition",
+    "axes": {
+      "semantic_bucket": "FORMAL_PROOF",
+      "subbucket": "lean_safe_terms",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "structure",
+    "axes": {
+      "semantic_bucket": "FORMAL_PROOF",
+      "subbucket": "lean_safe_terms",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "instance",
+    "axes": {
+      "semantic_bucket": "FORMAL_PROOF",
+      "subbucket": "lean_safe_terms",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "namespace",
+    "axes": {
+      "semantic_bucket": "FORMAL_PROOF",
+      "subbucket": "lean_safe_terms",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "encoded",
+    "axes": {
+      "semantic_bucket": "FORMAL_PROOF",
+      "subbucket": "lean_safe_terms",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "model",
+    "axes": {
+      "semantic_bucket": "FORMAL_PROOF",
+      "subbucket": "lean_safe_terms",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "satisfiable",
+    "axes": {
+      "semantic_bucket": "FORMAL_PROOF",
+      "subbucket": "lean_safe_terms",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "no sorry",
+    "axes": {
+      "semantic_bucket": "FORMAL_PROOF",
+      "subbucket": "lean_safe_terms",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "kernel checked",
+    "axes": {
+      "semantic_bucket": "FORMAL_PROOF",
+      "subbucket": "lean_safe_terms",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "by decide",
+    "axes": {
+      "semantic_bucket": "FORMAL_PROOF",
+      "subbucket": "lean_safe_terms",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "formal consequence",
+    "axes": {
+      "semantic_bucket": "FORMAL_PROOF",
+      "subbucket": "lean_safe_terms",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "interpretation layer",
+    "axes": {
+      "semantic_bucket": "FORMAL_PROOF",
+      "subbucket": "lean_safe_terms",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "scope",
+    "axes": {
+      "semantic_bucket": "FORMAL_PROOF",
+      "subbucket": "lean_safe_terms",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "hypothesis",
+    "axes": {
+      "semantic_bucket": "FORMAL_PROOF",
+      "subbucket": "lean_safe_terms",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "constructor",
+    "axes": {
+      "semantic_bucket": "FORMAL_PROOF",
+      "subbucket": "lean_safe_terms",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "inductive",
+    "axes": {
+      "semantic_bucket": "FORMAL_PROOF",
+      "subbucket": "lean_safe_terms",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "definitional equality",
+    "axes": {
+      "semantic_bucket": "FORMAL_PROOF",
+      "subbucket": "lean_safe_terms",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "lean proves god",
+    "axes": {
+      "semantic_bucket": "FORMAL_PROOF",
+      "subbucket": "lean_danger_phrases",
+      "polarity": "negative",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "lean proves christianity",
+    "axes": {
+      "semantic_bucket": "FORMAL_PROOF",
+      "subbucket": "lean_danger_phrases",
+      "polarity": "negative",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "lean proves the resurrection historically",
+    "axes": {
+      "semantic_bucket": "FORMAL_PROOF",
+      "subbucket": "lean_danger_phrases",
+      "polarity": "negative",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "lean proves the worldview",
+    "axes": {
+      "semantic_bucket": "FORMAL_PROOF",
+      "subbucket": "lean_danger_phrases",
+      "polarity": "negative",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "lean proves reality",
+    "axes": {
+      "semantic_bucket": "FORMAL_PROOF",
+      "subbucket": "lean_danger_phrases",
+      "polarity": "negative",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "lean proves the bible",
+    "axes": {
+      "semantic_bucket": "FORMAL_PROOF",
+      "subbucket": "lean_danger_phrases",
+      "polarity": "negative",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "lean verifies the encoded structure",
+    "axes": {
+      "semantic_bucket": "FORMAL_PROOF",
+      "subbucket": "lean_safe_replacements",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "lean checks the theorem under stated axioms",
+    "axes": {
+      "semantic_bucket": "FORMAL_PROOF",
+      "subbucket": "lean_safe_replacements",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "lean confirms the formal consequence",
+    "axes": {
+      "semantic_bucket": "FORMAL_PROOF",
+      "subbucket": "lean_safe_replacements",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "machine-checkable theological formalization",
+    "axes": {
+      "semantic_bucket": "FORMAL_PROOF",
+      "subbucket": "lean_safe_replacements",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "formal proof spine",
+    "axes": {
+      "semantic_bucket": "FORMAL_PROOF",
+      "subbucket": "lean_safe_replacements",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "equals",
+    "axes": {
+      "semantic_bucket": "RELATION_TYPE",
+      "subbucket": "identity",
+      "polarity": "neutral",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "identical to",
+    "axes": {
+      "semantic_bucket": "RELATION_TYPE",
+      "subbucket": "identity",
+      "polarity": "neutral",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "same as",
+    "axes": {
+      "semantic_bucket": "RELATION_TYPE",
+      "subbucket": "identity",
+      "polarity": "neutral",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "causes",
+    "axes": {
+      "semantic_bucket": "RELATION_TYPE",
+      "subbucket": "causation",
+      "polarity": "neutral",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "produces",
+    "axes": {
+      "semantic_bucket": "RELATION_TYPE",
+      "subbucket": "causation",
+      "polarity": "neutral",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "drives",
+    "axes": {
+      "semantic_bucket": "RELATION_TYPE",
+      "subbucket": "causation",
+      "polarity": "neutral",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "generates",
+    "axes": {
+      "semantic_bucket": "RELATION_TYPE",
+      "subbucket": "causation",
+      "polarity": "neutral",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "leads to",
+    "axes": {
+      "semantic_bucket": "RELATION_TYPE",
+      "subbucket": "causation",
+      "polarity": "neutral",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "results in",
+    "axes": {
+      "semantic_bucket": "RELATION_TYPE",
+      "subbucket": "causation",
+      "polarity": "neutral",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "limits",
+    "axes": {
+      "semantic_bucket": "RELATION_TYPE",
+      "subbucket": "constraint",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "governs",
+    "axes": {
+      "semantic_bucket": "RELATION_TYPE",
+      "subbucket": "constraint",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "restricts",
+    "axes": {
+      "semantic_bucket": "RELATION_TYPE",
+      "subbucket": "constraint",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "correlates with",
+    "axes": {
+      "semantic_bucket": "RELATION_TYPE",
+      "subbucket": "correlation",
+      "polarity": "neutral",
+      "weight": 2
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "moves with",
+    "axes": {
+      "semantic_bucket": "RELATION_TYPE",
+      "subbucket": "correlation",
+      "polarity": "neutral",
+      "weight": 2
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "covaries with",
+    "axes": {
+      "semantic_bucket": "RELATION_TYPE",
+      "subbucket": "correlation",
+      "polarity": "neutral",
+      "weight": 2
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "aligns with",
+    "axes": {
+      "semantic_bucket": "RELATION_TYPE",
+      "subbucket": "correlation",
+      "polarity": "neutral",
+      "weight": 2
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "resembles",
+    "axes": {
+      "semantic_bucket": "RELATION_TYPE",
+      "subbucket": "analogy",
+      "polarity": "neutral",
+      "weight": 1
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "mirrors",
+    "axes": {
+      "semantic_bucket": "RELATION_TYPE",
+      "subbucket": "analogy",
+      "polarity": "neutral",
+      "weight": 1
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "parallels",
+    "axes": {
+      "semantic_bucket": "RELATION_TYPE",
+      "subbucket": "analogy",
+      "polarity": "neutral",
+      "weight": 1
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "is analogous to",
+    "axes": {
+      "semantic_bucket": "RELATION_TYPE",
+      "subbucket": "analogy",
+      "polarity": "neutral",
+      "weight": 1
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "presupposes",
+    "axes": {
+      "semantic_bucket": "RELATION_TYPE",
+      "subbucket": "dependency",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "rests on",
+    "axes": {
+      "semantic_bucket": "RELATION_TYPE",
+      "subbucket": "dependency",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "needs",
+    "axes": {
+      "semantic_bucket": "RELATION_TYPE",
+      "subbucket": "dependency",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "implies",
+    "axes": {
+      "semantic_bucket": "RELATION_TYPE",
+      "subbucket": "entailment",
+      "polarity": "neutral",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "logically forces",
+    "axes": {
+      "semantic_bucket": "RELATION_TYPE",
+      "subbucket": "entailment",
+      "polarity": "neutral",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "follows from",
+    "axes": {
+      "semantic_bucket": "RELATION_TYPE",
+      "subbucket": "entailment",
+      "polarity": "neutral",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "fails if",
+    "axes": {
+      "semantic_bucket": "FALSIFICATION",
+      "subbucket": "kill_condition_language",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "falsified by",
+    "axes": {
+      "semantic_bucket": "FALSIFICATION",
+      "subbucket": "kill_condition_language",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "disconfirmed by",
+    "axes": {
+      "semantic_bucket": "FALSIFICATION",
+      "subbucket": "kill_condition_language",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "invalidated by",
+    "axes": {
+      "semantic_bucket": "FALSIFICATION",
+      "subbucket": "kill_condition_language",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "kill condition",
+    "axes": {
+      "semantic_bucket": "FALSIFICATION",
+      "subbucket": "kill_condition_language",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "failure condition",
+    "axes": {
+      "semantic_bucket": "FALSIFICATION",
+      "subbucket": "kill_condition_language",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "counterexample",
+    "axes": {
+      "semantic_bucket": "FALSIFICATION",
+      "subbucket": "kill_condition_language",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "boundary case",
+    "axes": {
+      "semantic_bucket": "FALSIFICATION",
+      "subbucket": "kill_condition_language",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "exception",
+    "axes": {
+      "semantic_bucket": "FALSIFICATION",
+      "subbucket": "kill_condition_language",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "residual",
+    "axes": {
+      "semantic_bucket": [
+        "FALSIFICATION",
+        "METHODS_PROVENANCE"
+      ],
+      "subbucket": [
+        "kill_condition_language",
+        "source_and_reproducibility"
+      ],
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "omitted variable",
+    "axes": {
+      "semantic_bucket": "FALSIFICATION",
+      "subbucket": "kill_condition_language",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "alternative explanation",
+    "axes": {
+      "semantic_bucket": "FALSIFICATION",
+      "subbucket": "kill_condition_language",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "control group",
+    "axes": {
+      "semantic_bucket": "FALSIFICATION",
+      "subbucket": "kill_condition_language",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "null model",
+    "axes": {
+      "semantic_bucket": "FALSIFICATION",
+      "subbucket": "kill_condition_language",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "sensitivity analysis",
+    "axes": {
+      "semantic_bucket": [
+        "FALSIFICATION",
+        "METHODS_PROVENANCE"
+      ],
+      "subbucket": [
+        "kill_condition_language",
+        "source_and_reproducibility"
+      ],
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "ablation",
+    "axes": {
+      "semantic_bucket": [
+        "FALSIFICATION",
+        "METHODS_PROVENANCE"
+      ],
+      "subbucket": [
+        "kill_condition_language",
+        "source_and_reproducibility"
+      ],
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "negative case",
+    "axes": {
+      "semantic_bucket": "FALSIFICATION",
+      "subbucket": "kill_condition_language",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "pre-registered failure",
+    "axes": {
+      "semantic_bucket": "FALSIFICATION",
+      "subbucket": "kill_condition_language",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "out-of-sample test",
+    "axes": {
+      "semantic_bucket": "FALSIFICATION",
+      "subbucket": "kill_condition_language",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "metaphor",
+    "axes": {
+      "semantic_bucket": "DRIFT_WARNING",
+      "subbucket": "honest_boundary_language",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "symbolic",
+    "axes": {
+      "semantic_bucket": "DRIFT_WARNING",
+      "subbucket": "honest_boundary_language",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "rhetorical",
+    "axes": {
+      "semantic_bucket": "DRIFT_WARNING",
+      "subbucket": "honest_boundary_language",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "interpretive",
+    "axes": {
+      "semantic_bucket": "DRIFT_WARNING",
+      "subbucket": "honest_boundary_language",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "suggestive",
+    "axes": {
+      "semantic_bucket": "DRIFT_WARNING",
+      "subbucket": "honest_boundary_language",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "illustrative",
+    "axes": {
+      "semantic_bucket": "DRIFT_WARNING",
+      "subbucket": "honest_boundary_language",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "not derivational",
+    "axes": {
+      "semantic_bucket": "DRIFT_WARNING",
+      "subbucket": "honest_boundary_language",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "not empirical",
+    "axes": {
+      "semantic_bucket": "DRIFT_WARNING",
+      "subbucket": "honest_boundary_language",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "not formal",
+    "axes": {
+      "semantic_bucket": "DRIFT_WARNING",
+      "subbucket": "honest_boundary_language",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "not proven",
+    "axes": {
+      "semantic_bucket": "DRIFT_WARNING",
+      "subbucket": "honest_boundary_language",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "category drift",
+    "axes": {
+      "semantic_bucket": "DRIFT_WARNING",
+      "subbucket": "honest_boundary_language",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "status drift",
+    "axes": {
+      "semantic_bucket": "DRIFT_WARNING",
+      "subbucket": "honest_boundary_language",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "claim drift",
+    "axes": {
+      "semantic_bucket": "DRIFT_WARNING",
+      "subbucket": "honest_boundary_language",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "semantic drift",
+    "axes": {
+      "semantic_bucket": "DRIFT_WARNING",
+      "subbucket": "honest_boundary_language",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "scope drift",
+    "axes": {
+      "semantic_bucket": "DRIFT_WARNING",
+      "subbucket": "honest_boundary_language",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "proof drift",
+    "axes": {
+      "semantic_bucket": "DRIFT_WARNING",
+      "subbucket": "honest_boundary_language",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "evidence drift",
+    "axes": {
+      "semantic_bucket": "DRIFT_WARNING",
+      "subbucket": "honest_boundary_language",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "doctrine",
+    "axes": {
+      "semantic_bucket": "THEOLOGICAL_STATUS",
+      "subbucket": "status_terms",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "interpretation",
+    "axes": {
+      "semantic_bucket": "THEOLOGICAL_STATUS",
+      "subbucket": "status_terms",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "typology",
+    "axes": {
+      "semantic_bucket": "THEOLOGICAL_STATUS",
+      "subbucket": "status_terms",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "exegesis",
+    "axes": {
+      "semantic_bucket": "THEOLOGICAL_STATUS",
+      "subbucket": "status_terms",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "scriptural pattern",
+    "axes": {
+      "semantic_bucket": "THEOLOGICAL_STATUS",
+      "subbucket": "status_terms",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "theological claim",
+    "axes": {
+      "semantic_bucket": "THEOLOGICAL_STATUS",
+      "subbucket": "status_terms",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "metaphysical claim",
+    "axes": {
+      "semantic_bucket": "THEOLOGICAL_STATUS",
+      "subbucket": "status_terms",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "historical claim",
+    "axes": {
+      "semantic_bucket": "THEOLOGICAL_STATUS",
+      "subbucket": "status_terms",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "formal representation",
+    "axes": {
+      "semantic_bucket": "THEOLOGICAL_STATUS",
+      "subbucket": "status_terms",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "symbolic mapping",
+    "axes": {
+      "semantic_bucket": "THEOLOGICAL_STATUS",
+      "subbucket": "status_terms",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "confessional claim",
+    "axes": {
+      "semantic_bucket": "THEOLOGICAL_STATUS",
+      "subbucket": "status_terms",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "canonical reading",
+    "axes": {
+      "semantic_bucket": "THEOLOGICAL_STATUS",
+      "subbucket": "status_terms",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "hermeneutic",
+    "axes": {
+      "semantic_bucket": "THEOLOGICAL_STATUS",
+      "subbucket": "status_terms",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "narrative expression",
+    "axes": {
+      "semantic_bucket": "THEOLOGICAL_STATUS",
+      "subbucket": "status_terms",
+      "polarity": "neutral",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "therefore theology is proven",
+    "axes": {
+      "semantic_bucket": "THEOLOGICAL_STATUS",
+      "subbucket": "danger_phrase",
+      "polarity": "negative",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "therefore christianity is proven",
+    "axes": {
+      "semantic_bucket": "THEOLOGICAL_STATUS",
+      "subbucket": "danger_phrase",
+      "polarity": "negative",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "the doctrine is mathematically proven",
+    "axes": {
+      "semantic_bucket": "THEOLOGICAL_STATUS",
+      "subbucket": "danger_phrase",
+      "polarity": "negative",
+      "weight": 5
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "revolutionary",
+    "axes": {
+      "semantic_bucket": "REVIEWER_RISK",
+      "subbucket": "rhetorical_inflation",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "final",
+    "axes": {
+      "semantic_bucket": "REVIEWER_RISK",
+      "subbucket": "rhetorical_inflation",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "complete",
+    "axes": {
+      "semantic_bucket": "REVIEWER_RISK",
+      "subbucket": "rhetorical_inflation",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "unified theory",
+    "axes": {
+      "semantic_bucket": "REVIEWER_RISK",
+      "subbucket": "rhetorical_inflation",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "proves everything",
+    "axes": {
+      "semantic_bucket": "REVIEWER_RISK",
+      "subbucket": "rhetorical_inflation",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "no one has ever",
+    "axes": {
+      "semantic_bucket": "REVIEWER_RISK",
+      "subbucket": "rhetorical_inflation",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "world-changing",
+    "axes": {
+      "semantic_bucket": "REVIEWER_RISK",
+      "subbucket": "rhetorical_inflation",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "impossible to refute",
+    "axes": {
+      "semantic_bucket": "REVIEWER_RISK",
+      "subbucket": "rhetorical_inflation",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "game-changing",
+    "axes": {
+      "semantic_bucket": "REVIEWER_RISK",
+      "subbucket": "rhetorical_inflation",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "paradigm-ending",
+    "axes": {
+      "semantic_bucket": "REVIEWER_RISK",
+      "subbucket": "rhetorical_inflation",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "settles the debate",
+    "axes": {
+      "semantic_bucket": "REVIEWER_RISK",
+      "subbucket": "rhetorical_inflation",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "irrefutable",
+    "axes": {
+      "semantic_bucket": "REVIEWER_RISK",
+      "subbucket": "rhetorical_inflation",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "citation",
+    "axes": {
+      "semantic_bucket": "METHODS_PROVENANCE",
+      "subbucket": "source_and_reproducibility",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "doi",
+    "axes": {
+      "semantic_bucket": "METHODS_PROVENANCE",
+      "subbucket": "source_and_reproducibility",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "appendix",
+    "axes": {
+      "semantic_bucket": "METHODS_PROVENANCE",
+      "subbucket": "source_and_reproducibility",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "repository",
+    "axes": {
+      "semantic_bucket": "METHODS_PROVENANCE",
+      "subbucket": "source_and_reproducibility",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "hash",
+    "axes": {
+      "semantic_bucket": "METHODS_PROVENANCE",
+      "subbucket": "source_and_reproducibility",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "version",
+    "axes": {
+      "semantic_bucket": "METHODS_PROVENANCE",
+      "subbucket": "source_and_reproducibility",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "parameter table",
+    "axes": {
+      "semantic_bucket": "METHODS_PROVENANCE",
+      "subbucket": "source_and_reproducibility",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "bootstrap",
+    "axes": {
+      "semantic_bucket": "METHODS_PROVENANCE",
+      "subbucket": "source_and_reproducibility",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "confidence interval",
+    "axes": {
+      "semantic_bucket": "METHODS_PROVENANCE",
+      "subbucket": "source_and_reproducibility",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "control",
+    "axes": {
+      "semantic_bucket": "METHODS_PROVENANCE",
+      "subbucket": "source_and_reproducibility",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "replication",
+    "axes": {
+      "semantic_bucket": "METHODS_PROVENANCE",
+      "subbucket": "source_and_reproducibility",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "pre-registration",
+    "axes": {
+      "semantic_bucket": "METHODS_PROVENANCE",
+      "subbucket": "source_and_reproducibility",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "protocol",
+    "axes": {
+      "semantic_bucket": "METHODS_PROVENANCE",
+      "subbucket": "source_and_reproducibility",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "manifest",
+    "axes": {
+      "semantic_bucket": "METHODS_PROVENANCE",
+      "subbucket": "source_and_reproducibility",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "audit log",
+    "axes": {
+      "semantic_bucket": "METHODS_PROVENANCE",
+      "subbucket": "source_and_reproducibility",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "source registry",
+    "axes": {
+      "semantic_bucket": "METHODS_PROVENANCE",
+      "subbucket": "source_and_reproducibility",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "provenance",
+    "axes": {
+      "semantic_bucket": "METHODS_PROVENANCE",
+      "subbucket": "source_and_reproducibility",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "raw data",
+    "axes": {
+      "semantic_bucket": "METHODS_PROVENANCE",
+      "subbucket": "source_and_reproducibility",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "code path",
+    "axes": {
+      "semantic_bucket": "METHODS_PROVENANCE",
+      "subbucket": "source_and_reproducibility",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "notebook",
+    "axes": {
+      "semantic_bucket": "METHODS_PROVENANCE",
+      "subbucket": "source_and_reproducibility",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "reproducibility",
+    "axes": {
+      "semantic_bucket": "METHODS_PROVENANCE",
+      "subbucket": "source_and_reproducibility",
+      "polarity": "positive",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "protects",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "love",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "restores",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "love",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "bears burden",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "love",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "seeks good",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "love",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "reconciles",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "love",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "sacrifices",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "love",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "covers rightly",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "love",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "moves toward the other",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "love",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "hope",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "joy",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "delight",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "joy",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "resilience",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "joy",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "gratitude",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "joy",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "gladness",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "joy",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "celebration",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "joy",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "durable gladness",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "joy",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "stability",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "peace",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "rest",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "peace",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "non-anxious",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "peace",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "settled",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "peace",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "reconciled",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "peace",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "quiet strength",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "peace",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "ordered calm",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "peace",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "long-suffering",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "patience",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "restraint",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": [
+        "patience",
+        "self-control"
+      ],
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "delayed reaction",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "patience",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "endurance",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": [
+        "patience",
+        "faithfulness"
+      ],
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "slow to anger",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "patience",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "waits rightly",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "patience",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "gentleness",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "kindness",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "regard",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "kindness",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "mercy-in-action",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "kindness",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "tenderness",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "kindness",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "helpfulness",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "kindness",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "non-cruel correction",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "kindness",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "integrity",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "goodness",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "uprightness",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "goodness",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "repair",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "goodness",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "moral clarity",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "goodness",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "right action",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "goodness",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "ordered desire",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": [
+        "goodness",
+        "self-control"
+      ],
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS",
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "loyalty",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "faithfulness",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "reliability",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "faithfulness",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "steadfastness",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "faithfulness",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "keeps trust",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "faithfulness",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "non-coercive",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "gentleness",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "careful",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "gentleness",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "low force",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "gentleness",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "strength under control",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "gentleness",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "does not crush",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "gentleness",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "discipline",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "self-control",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "appetite governed",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "self-control",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "delayed gratification",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "self-control",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "non-compulsion",
+    "axes": {
+      "semantic_bucket": "FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "self-control",
+      "polarity": "positive",
+      "weight": 3
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "domination",
+    "axes": {
+      "semantic_bucket": "ANTI_FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "anti_fruit",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "compulsion",
+    "axes": {
+      "semantic_bucket": "ANTI_FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "anti_fruit",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "contempt",
+    "axes": {
+      "semantic_bucket": "ANTI_FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "anti_fruit",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "despair",
+    "axes": {
+      "semantic_bucket": "ANTI_FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "anti_fruit",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "panic",
+    "axes": {
+      "semantic_bucket": "ANTI_FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "anti_fruit",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "rage",
+    "axes": {
+      "semantic_bucket": "ANTI_FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "anti_fruit",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "fracture",
+    "axes": {
+      "semantic_bucket": "ANTI_FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "anti_fruit",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "accusation",
+    "axes": {
+      "semantic_bucket": "ANTI_FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "anti_fruit",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "exploitation",
+    "axes": {
+      "semantic_bucket": "ANTI_FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "anti_fruit",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "dissipation",
+    "axes": {
+      "semantic_bucket": "ANTI_FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "anti_fruit",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "appetite capture",
+    "axes": {
+      "semantic_bucket": "ANTI_FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "anti_fruit",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "closed loop",
+    "axes": {
+      "semantic_bucket": "ANTI_FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "anti_fruit",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "coercion",
+    "axes": {
+      "semantic_bucket": "ANTI_FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "anti_fruit",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "cruelty",
+    "axes": {
+      "semantic_bucket": "ANTI_FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "anti_fruit",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "disintegration",
+    "axes": {
+      "semantic_bucket": "ANTI_FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "anti_fruit",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "resentment",
+    "axes": {
+      "semantic_bucket": "ANTI_FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "anti_fruit",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "self-exaltation",
+    "axes": {
+      "semantic_bucket": "ANTI_FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "anti_fruit",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "devouring",
+    "axes": {
+      "semantic_bucket": "ANTI_FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "anti_fruit",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "false peace",
+    "axes": {
+      "semantic_bucket": "ANTI_FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "anti_fruit",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "destructive certainty",
+    "axes": {
+      "semantic_bucket": "ANTI_FRUIT_BEHAVIOR_EXPANSION",
+      "subbucket": "anti_fruit",
+      "polarity": "negative",
+      "weight": 4
+    },
+    "sources": [
+      "SEMANTIC_BUCKETS"
+    ],
+    "confidence": 0.8
+  },
+  {
+    "term": "wisdom_terms",
+    "axes": {
+      "subject_domain": "theology",
+      "chi_hint": "K"
+    },
+    "sources": [
+      "WISDOM_TERMS",
+      "WISDOM_TERMS",
+      "WISDOM_TERMS",
+      "WISDOM_TERMS",
+      "WISDOM_TERMS",
+      "WISDOM_TERMS",
+      "WISDOM_TERMS",
+      "WISDOM_TERMS",
+      "WISDOM_TERMS",
+      "WISDOM_TERMS",
+      "WISDOM_TERMS",
+      "WISDOM_TERMS",
+      "WISDOM_TERMS",
+      "WISDOM_TERMS",
+      "WISDOM_TERMS",
+      "WISDOM_TERMS",
+      "WISDOM_TERMS",
+      "WISDOM_TERMS",
+      "WISDOM_TERMS",
+      "WISDOM_TERMS",
+      "WISDOM_TERMS",
+      "WISDOM_TERMS",
+      "WISDOM_TERMS",
+      "WISDOM_TERMS",
+      "WISDOM_TERMS",
+      "WISDOM_TERMS"
+    ],
+    "confidence": 0.75
+  },
+  {
+    "term": "knowledge_terms",
+    "axes": {
+      "subject_domain": "theology",
+      "chi_hint": "K"
+    },
+    "sources": [
+      "KNOWLEDGE_TERMS",
+      "KNOWLEDGE_TERMS",
+      "KNOWLEDGE_TERMS",
+      "KNOWLEDGE_TERMS",
+      "KNOWLEDGE_TERMS",
+      "KNOWLEDGE_TERMS",
+      "KNOWLEDGE_TERMS",
+      "KNOWLEDGE_TERMS",
+      "KNOWLEDGE_TERMS",
+      "KNOWLEDGE_TERMS",
+      "KNOWLEDGE_TERMS",
+      "KNOWLEDGE_TERMS",
+      "KNOWLEDGE_TERMS",
+      "KNOWLEDGE_TERMS",
+      "KNOWLEDGE_TERMS",
+      "KNOWLEDGE_TERMS",
+      "KNOWLEDGE_TERMS",
+      "KNOWLEDGE_TERMS",
+      "KNOWLEDGE_TERMS",
+      "KNOWLEDGE_TERMS",
+      "KNOWLEDGE_TERMS",
+      "KNOWLEDGE_TERMS",
+      "KNOWLEDGE_TERMS",
+      "KNOWLEDGE_TERMS",
+      "KNOWLEDGE_TERMS",
+      "KNOWLEDGE_TERMS"
+    ],
+    "confidence": 0.75
+  },
+  {
+    "term": "coherence_terms",
+    "axes": {
+      "subject_domain": "theophysics",
+      "chi_hint": "C"
+    },
+    "sources": [
+      "COHERENCE_TERMS",
+      "COHERENCE_TERMS",
+      "COHERENCE_TERMS",
+      "COHERENCE_TERMS",
+      "COHERENCE_TERMS",
+      "COHERENCE_TERMS",
+      "COHERENCE_TERMS",
+      "COHERENCE_TERMS",
+      "COHERENCE_TERMS",
+      "COHERENCE_TERMS",
+      "COHERENCE_TERMS",
+      "COHERENCE_TERMS",
+      "COHERENCE_TERMS",
+      "COHERENCE_TERMS",
+      "COHERENCE_TERMS",
+      "COHERENCE_TERMS",
+      "COHERENCE_TERMS",
+      "COHERENCE_TERMS",
+      "COHERENCE_TERMS",
+      "COHERENCE_TERMS",
+      "COHERENCE_TERMS",
+      "COHERENCE_TERMS",
+      "COHERENCE_TERMS",
+      "COHERENCE_TERMS",
+      "COHERENCE_TERMS",
+      "COHERENCE_TERMS",
+      "COHERENCE_TERMS",
+      "COHERENCE_TERMS",
+      "COHERENCE_TERMS",
+      "COHERENCE_TERMS"
+    ],
+    "confidence": 0.75
+  },
+  {
+    "term": "abstract",
+    "axes": {
+      "document_type": "formal_paper"
+    },
+    "sources": [
+      "DOC_TYPE_PATTERNS"
+    ],
+    "confidence": 0.7
+  },
+  {
+    "term": "introduction",
+    "axes": {
+      "document_type": "formal_paper"
+    },
+    "sources": [
+      "DOC_TYPE_PATTERNS"
+    ],
+    "confidence": 0.7
+  },
+  {
+    "term": "methodology",
+    "axes": {
+      "document_type": "formal_paper"
+    },
+    "sources": [
+      "DOC_TYPE_PATTERNS"
+    ],
+    "confidence": 0.7
+  },
+  {
+    "term": "conclusion",
+    "axes": {
+      "document_type": "formal_paper"
+    },
+    "sources": [
+      "DOC_TYPE_PATTERNS"
+    ],
+    "confidence": 0.7
+  },
+  {
+    "term": "references",
+    "axes": {
+      "document_type": "formal_paper"
+    },
+    "sources": [
+      "DOC_TYPE_PATTERNS"
+    ],
+    "confidence": 0.7
+  },
+  {
+    "term": "subscribe",
+    "axes": {
+      "document_type": "article"
+    },
+    "sources": [
+      "DOC_TYPE_PATTERNS"
+    ],
+    "confidence": 0.7
+  },
+  {
+    "term": "read more",
+    "axes": {
+      "document_type": "article"
+    },
+    "sources": [
+      "DOC_TYPE_PATTERNS"
+    ],
+    "confidence": 0.7
+  },
+  {
+    "term": "published",
+    "axes": {
+      "document_type": "article"
+    },
+    "sources": [
+      "DOC_TYPE_PATTERNS"
+    ],
+    "confidence": 0.7
+  },
+  {
+    "term": "blog",
+    "axes": {
+      "document_type": "article"
+    },
+    "sources": [
+      "DOC_TYPE_PATTERNS"
+    ],
+    "confidence": 0.7
+  },
+  {
+    "term": "series",
+    "axes": {
+      "document_type": "article"
+    },
+    "sources": [
+      "DOC_TYPE_PATTERNS"
+    ],
+    "confidence": 0.7
+  },
+  {
+    "term": "part \\d",
+    "axes": {
+      "document_type": "article"
+    },
+    "sources": [
+      "DOC_TYPE_PATTERNS"
+    ],
+    "confidence": 0.7
+  },
+  {
+    "term": "todo",
+    "axes": {
+      "document_type": "note"
+    },
+    "sources": [
+      "DOC_TYPE_PATTERNS"
+    ],
+    "confidence": 0.7
+  },
+  {
+    "term": "idea",
+    "axes": {
+      "document_type": "note"
+    },
+    "sources": [
+      "DOC_TYPE_PATTERNS"
+    ],
+    "confidence": 0.7
+  },
+  {
+    "term": "scratch",
+    "axes": {
+      "document_type": "note"
+    },
+    "sources": [
+      "DOC_TYPE_PATTERNS"
+    ],
+    "confidence": 0.7
+  },
+  {
+    "term": "draft",
+    "axes": {
+      "document_type": "note"
+    },
+    "sources": [
+      "DOC_TYPE_PATTERNS"
+    ],
+    "confidence": 0.7
+  },
+  {
+    "term": "rough",
+    "axes": {
+      "document_type": "note"
+    },
+    "sources": [
+      "DOC_TYPE_PATTERNS"
+    ],
+    "confidence": 0.7
+  },
+  {
+    "term": "\\.csv",
+    "axes": {
+      "document_type": "dataset"
+    },
+    "sources": [
+      "DOC_TYPE_PATTERNS"
+    ],
+    "confidence": 0.7
+  },
+  {
+    "term": "\\.json",
+    "axes": {
+      "document_type": "dataset"
+    },
+    "sources": [
+      "DOC_TYPE_PATTERNS"
+    ],
+    "confidence": 0.7
+  },
+  {
+    "term": "\\.tsv",
+    "axes": {
+      "document_type": "dataset"
+    },
+    "sources": [
+      "DOC_TYPE_PATTERNS"
+    ],
+    "confidence": 0.7
+  },
+  {
+    "term": "table",
+    "axes": {
+      "document_type": "dataset"
+    },
+    "sources": [
+      "DOC_TYPE_PATTERNS"
+    ],
+    "confidence": 0.7
+  },
+  {
+    "term": "def",
+    "axes": {
+      "document_type": "code"
+    },
+    "sources": [
+      "DOC_TYPE_PATTERNS"
+    ],
+    "confidence": 0.7
+  },
+  {
+    "term": "function",
+    "axes": {
+      "document_type": "code"
+    },
+    "sources": [
+      "DOC_TYPE_PATTERNS"
+    ],
+    "confidence": 0.7
+  },
+  {
+    "term": "import",
+    "axes": {
+      "document_type": "code"
+    },
+    "sources": [
+      "DOC_TYPE_PATTERNS"
+    ],
+    "confidence": 0.7
+  },
+  {
+    "term": "class",
+    "axes": {
+      "document_type": "code"
+    },
+    "sources": [
+      "DOC_TYPE_PATTERNS"
+    ],
+    "confidence": 0.7
+  },
+  {
+    "term": "const",
+    "axes": {
+      "document_type": "code"
+    },
+    "sources": [
+      "DOC_TYPE_PATTERNS"
+    ],
+    "confidence": 0.7
+  },
+  {
+    "term": "character_attribute_patterns",
+    "axes": {
+      "character_attribute": true
+    },
+    "sources": [
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS",
+      "CHAR_ATTR_PATTERNS"
+    ],
+    "confidence": 0.7
+  }
+]

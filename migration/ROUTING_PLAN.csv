@@ -1,0 +1,17 @@
+legacy_path,target_app,kind,step,status,notes
+01_PROFILE,profile,code,4,planned,
+02_INVENTORY,inventory,code,2,planned,
+engine/registry*,inventory,code,2,planned,
+D:/GitHub/FIS/fingerprint.py,fingerprint,code,1,parity-verified,legacy file untouched; stub ready in legacy-adapters/
+03_CLASSIFY/02_CLASSIFICATION,classify,code,2,deferred,"different tool (claims/cards), needs its own decision"
+agents/chi_*,classify,code,2,deferred,"different tool (claims/cards), needs its own decision"
+D:/GitHub/FIS/chi_classifier.py,classify,code,2,parity-verified,byte-identical copy; legacy untouched; stub ready
+file-intelligence-system/fis_classifier.py,classify,code,2,parity-verified,byte-identical copy; legacy untouched; stub ready
+03_CLASSIFY/03_RENAMING,rename,code,2,parity-verified,engine copied (proposal side); Renamer window still legacy
+D:/GitHub/FIS/naming_engine.py,rename,code,2,deferred,older template scheme; keep as 2nd engine?
+04_ADAPT,adapt,code,4,planned,
+05_TOPIC_COLLECTION,topic-collection,code,4,planned,
+hub,hub,code,4,planned,
+fis,fis,code,3,planned,
+D:/GitHub/FIS/app,fis,code,3,planned,
+D:/GitHub/FIS/api_server.py,fis,code,3,planned,

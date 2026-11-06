@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "david-os/inventory.v1",
+  "title": "inventory v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "producer",
+    "created_at",
+    "source_path",
+    "sha256",
+    "status",
+    "size_bytes"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "inventory.v1"
+    },
+    "producer": {
+      "type": "string",
+      "description": "app name + version"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source_path": {
+      "type": "string"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ok",
+        "error",
+        "skipped",
+        "needs_review"
+      ]
+    },
+    "size_bytes": {
+      "type": "integer"
+    },
+    "modified_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "extension": {
+      "type": "string"
+    },
+    "mime": {
+      "type": "string"
+    }
+  }
+}

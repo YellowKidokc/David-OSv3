@@ -1,0 +1,7 @@
+name = "adapt"
+description = "Adapt cards"
+status = "skeleton"  # skeleton | migrating | canonical
+port = 0  # 0 = no server
+data_dir = "data/adapt"
+may_import = ["shared"]  # never other apps
+legacy_sources = ["04_ADAPT"]

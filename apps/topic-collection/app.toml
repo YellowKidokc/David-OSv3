@@ -1,0 +1,7 @@
+name = "topic-collection"
+description = "Topic collection inbox/outbox"
+status = "skeleton"  # skeleton | migrating | canonical
+port = 0  # 0 = no server
+data_dir = "data/topic-collection"
+may_import = ["shared"]  # never other apps
+legacy_sources = ["05_TOPIC_COLLECTION"]

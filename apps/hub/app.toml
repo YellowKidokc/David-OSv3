@@ -1,0 +1,7 @@
+name = "hub"
+description = "Message hub / API"
+status = "skeleton"  # skeleton | migrating | canonical
+port = 10000  # 0 = no server
+data_dir = "data/hub"
+may_import = ["shared"]  # never other apps
+legacy_sources = ["hub"]

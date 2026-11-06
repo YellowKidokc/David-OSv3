@@ -1,0 +1,7 @@
+name = "fis"
+description = "FIS control UI: drives the pipeline via contracts"
+status = "skeleton"  # skeleton | migrating | canonical
+port = 61845  # 0 = no server
+data_dir = "data/fis"
+may_import = ["shared"]  # never other apps
+legacy_sources = ["fis", "D:/GitHub/FIS/app", "D:/GitHub/FIS/api_server.py"]

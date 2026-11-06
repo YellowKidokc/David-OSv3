@@ -1,0 +1,7 @@
+name = "classify"
+description = "CHI classification of papers/files"
+status = "parity-verified"  # skeleton | migrating | parity-verified | canonical
+port = 0  # 0 = no server
+data_dir = "data/classify"
+may_import = ["shared"]  # never other apps
+legacy_sources = ["03_CLASSIFY/02_CLASSIFICATION", "agents/chi_*", "D:/GitHub/FIS/chi_classifier.py", "file-intelligence-system/fis_classifier.py"]

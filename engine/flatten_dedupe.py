@@ -1,5 +1,10 @@
 r"""flatten_dedupe.py - scan a folder tree, find exact + near duplicates, and (optionally) build ONE flat markdown folder.
 
+IMPORTANT SCOPE NOTE: This is a text-only flattening tool whose R4 identity is
+SHA-256 of whitespace-normalized text. It is not the required byte-exact global
+dedup inventory for every file type. See
+docs/specs/GLOBAL_SHA256_DEDUP_SPEC.md before building or claiming global dedup.
+
   python flatten_dedupe.py SOURCE OUTDIR            # DRY RUN: writes OUTDIR\MANIFEST.csv + REPORT.md only. Touches nothing.
   python flatten_dedupe.py SOURCE OUTDIR --apply    # also COPIES the keepers into OUTDIR\FLAT\  (source is never modified)
 

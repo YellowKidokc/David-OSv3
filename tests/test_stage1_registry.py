@@ -49,10 +49,51 @@ def test_inventory_duplicates_versions_unreadable_and_noop(corpus):
 
 def test_failed_extraction_remains_visible(corpus):
     source, db = corpus
-    (source/'bad.md').write_bytes(b'\xff\xfe\x00')
+    (source/'bad.md').write_bytes(b'\xff\x00\xff')
     registry.scan([source], db)
     assert rows(db, 'files')[0]['readable'] == 'failed'
     assert any(r['kind'] == 'extraction_failure' for r in rows(db, 'review_queue'))
+
+
+def test_utf16_bom_text_is_extracted_without_source_change(corpus):
+    source, db = corpus
+    paper = source/'utf16.md'
+    paper.write_text('# UTF-16 paper\nComplete text.', encoding='utf-16')
+    before = paper.read_bytes()
+    result = registry.scan([source], db)
+    row = rows(db, 'files')[0]
+    assert result['errors'] == 0
+    assert row['readable'] == 'yes'
+    assert row['extraction_method'] == 'complete-utf16-bom'
+    assert row['observed_title'] == 'UTF-16 paper'
+    assert paper.read_bytes() == before
+
+
+def test_mixed_utf8_and_utf16_bom_segments_are_complete(corpus):
+    source, db = corpus
+    paper = source/'mixed.md'
+    raw = '# UTF-8 heading\nBefore.\n'.encode('utf-8') + b'\xff\xfe' + 'UTF-16 body.\nAfter.'.encode('utf-16-le')
+    paper.write_bytes(raw)
+    registry.scan([source], db)
+    row = rows(db, 'files')[0]
+    assert row['readable'] == 'yes'
+    assert row['extraction_method'] == 'complete-mixed-bom'
+    text, readable, error, method = registry.extract(paper)
+    assert (readable, error, method) == ('yes', None, 'complete-mixed-bom')
+    assert text == '# UTF-8 heading\nBefore.\nUTF-16 body.\nAfter.'
+    assert paper.read_bytes() == raw
+
+
+def test_lean_and_structured_text_sources_are_extracted(corpus):
+    source, db = corpus
+    (source/'Proof.lean').write_text('theorem witness : True := by trivial', encoding='utf-8')
+    (source/'graph.jsonld').write_text('{"@type":"Claim"}', encoding='utf-8')
+    registry.scan([source], db)
+    records = {Path(row['path']).suffix: row for row in rows(db, 'files')}
+    assert records['.lean']['readable'] == 'yes'
+    assert records['.jsonld']['readable'] == 'yes'
+    assert records['.lean']['text_sha256']
+    assert records['.jsonld']['text_sha256']
 
 
 def test_revision_preserves_approved_metadata_and_history(corpus):

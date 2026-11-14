@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>River FIS — File Intelligence Mode</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #080808;
+  --surface: #0f0f10;
+  --surface2: #17181b;
+  --surface3: #202229;
+  --surface4: #282a32;
+  --border: #2b2d36;
+  --border-dim: #1c1e25;
+  --gold: #d4af37;
+  --gold-dim: rgba(212,175,55,0.12);
+  --gold-glow: rgba(212,175,55,0.22);
+  --amber: #fbbf24;
+  --text: #e6e6e6;
+  --text-dim: #989ba6;
+  --text-muted: #5b5d66;
+  --green: #34d399;
+  --green-dim: rgba(52,211,153,0.12);
+  --blue: #60a5fa;
+  --purple: #a78bfa;
+  --red: #f87171;
+  --teal: #2dd4bf;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: Inter, system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+  font-size: 14px;
+}
+.serif { font-family: "Crimson Text", serif; }
+.mono { font-family: "JetBrains Mono", monospace; font-size: 12.5px; }
+
+/* Mac window */
+.window {
+  max-width: 1180px;
+  margin: 24px auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+}
+.titlebar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 18px;
+  background: linear-gradient(180deg, #111114, #0c0c0e);
+  border-bottom: 1px solid var(--border);
+}
+.dots { display: flex; gap: 8px; }
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.dot.r { background: #ff5f57; } .dot.y { background: #febc2e; } .dot.g { background: #28c840; }
+.brand {
+  margin-left: 8px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  font-size: 12.5px;
+}
+.brand span { color: var(--gold); }
+.titlebar-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.mode-label {
+  font-size: 11px;
+  color: var(--text-dim);
+  border: 1px solid var(--border);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+.mode-label strong { color: var(--gold); }
+.api-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  color: var(--green);
+}
+.api-status::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green);
+}
+
+/* Engines top strip */
+.engines {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  padding: 0 24px;
+  overflow-x: auto;
+}
+.engine {
+  padding: 14px 22px;
+  font-size: 12.5px;
+  color: var(--text-dim);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+.engine:hover { color: var(--text); }
+.engine.active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+  background: linear-gradient(180deg, transparent, var(--gold-dim));
+}
+.engine .badge {
+  display: inline-block;
+  background: var(--gold);
+  color: #000;
+  font-weight: 700;
+  font-size: 9.5px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 6px;
+  letter-spacing: 0.05em;
+}
+
+/* Page header */
+.page-head {
+  padding: 30px 48px 18px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--surface), transparent);
+}
+.page-head h1 {
+  font-family: "Crimson Text", serif;
+  font-size: 2.1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.page-head h1 span { color: var(--gold); }
+.page-head p {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+.back-link {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: var(--text-muted);
+  font-size: 11.5px;
+  text-decoration: none;
+  letter-spacing: 0.06em;
+}
+.back-link:hover { color: var(--gold); }
+
+/* Scan context strip */
+.scan-context {
+  padding: 18px 48px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 18px;
+}
+.context-item .lbl {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+.context-item .val {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  color: var(--text);
+}
+.context-item.num .val {
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+/* Stages container */
+.stages {
+  padding: 28px 48px 16px;
+}
+
+/* Single stage */
+.stage {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: 14px;
+  overflow: hidden;
+  transition: all 0.22s;
+}
+.stage.locked {
+  opacity: 0.42;
+  background: var(--surface);
+  border-style: dashed;
+}
+.stage.active {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 1px var(--gold-dim), 0 8px 32px rgba(0,0,0,0.3);
+  background: var(--surface2);
+}
+.stage.complete {
+  border-color: var(--green);
+  border-left-width: 3px;
+}
+
+/* Stage header (always visible) */
+.stage-head {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 16px;
+  align-items: center;
+  padding: 16px 22px;
+  cursor: pointer;
+  user-select: none;
+}
+.stage.locked .stage-head { cursor: not-allowed; }
+.stage-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--surface3);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+.stage.active .stage-num {
+  background: var(--gold);
+  color: #000;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 4px var(--gold-dim);
+}
+.stage.complete .stage-num {
+  background: var(--green);
+  color: #002418;
+  border-color: var(--green);
+}
+.stage-info { display: flex; flex-direction: column; gap: 2px; }
+.stage-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+.stage.locked .stage-name { color: var(--text-muted); }
+.stage-desc { font-size: 12px; color: var(--text-dim); }
+.stage-summary {
+  font-size: 12px;
+  color: var(--green);
+  margin-top: 2px;
+}
+.stage-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.chev { font-size: 10px; color: var(--text-muted); }
+.stage.active .chev { color: var(--gold); }
+
+/* Stage body */
+.stage-body {
+  display: none;
+  padding: 0 22px 22px;
+  border-top: 1px solid var(--border-dim);
+}
+.stage.active .stage-body,
+.stage.expanded .stage-body { display: block; }
+
+.stage-section {
+  margin-top: 22px;
+}
+.section-label {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+/* What I found grid */
+.found-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.found-stat {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+.found-stat .num {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+  line-height: 1.1;
+}
+.found-stat .num.gold { color: var(--gold); }
+.found-stat .num.blue { color: var(--blue); }
+.found-stat .num.red { color: var(--red); }
+.found-stat .num.green { color: var(--green); }
+.found-stat .num.purple { color: var(--purple); }
+.found-stat .num.teal { color: var(--teal); }
+.found-stat .lbl {
+  font-size: 10.5px;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Recommendation card */
+.rec-card {
+  background: linear-gradient(180deg, var(--gold-dim), rgba(212,175,55,0.03));
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  padding: 20px 22px;
+  position: relative;
+}
+.rec-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.rec-card-title {
+  font-family: "Crimson Text", serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--gold);
+}
+.rec-card-letter {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: var(--gold);
+  color: #000;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 24px;
+  font-weight: 800;
+  font-size: 13px;
+  margin-right: 8px;
+}
+.attempt-pill {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+.rules-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.rule-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 9px 13px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+.rule-lbl {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.rule-val {
+  font-size: 13px;
+  color: var(--text);
+  font-weight: 500;
+}
+.why-block {
+  background: rgba(0,0,0,0.28);
+  border-left: 2px solid var(--gold);
+  padding: 11px 14px;
+  border-radius: 4px;
+  font-size: 12.5px;
+  color: var(--text-dim);
+  font-style: italic;
+}
+.why-block strong { color: var(--text); font-style: normal; font-weight: 600; }
+
+/* Preview table */
+.preview-block {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.preview-row {
+  display: grid;
+  grid-template-columns: 1fr 24px 1fr;
+  gap: 14px;
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--border-dim);
+  align-items: center;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+}
+.preview-row:last-child { border-bottom: 0; }
+.preview-row.head {
+  background: var(--surface3);
+  font-family: Inter, sans-serif;
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+.preview-before { color: var(--text-dim); }
+.preview-after { color: var(--gold); }
+.preview-arrow { color: var(--text-muted); text-align: center; }
+
+/* Anomaly buckets */
+.anomaly-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.anomaly-bucket {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.anomaly-bucket:hover { border-color: var(--red); }
+.anomaly-bucket .name {
+  font-size: 12px;
+  color: var(--text);
+}
+.anomaly-bucket .count {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--red);
+  background: rgba(248,113,113,0.1);
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-left: 8px;
+}
+
+/* Action buttons */
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-dim);
+}
+.actions-left {
+  display: flex;
+  gap: 10px;
+  flex: 1;
+}
+.actions-right { display: flex; gap: 10px; }
+
+.btn {
+  border: 1px solid var(--border);
+  background: var(--surface3);
+  color: var(--text);
+  padding: 11px 20px;
+  border-radius: 7px;
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn:hover { border-color: var(--gold); color: var(--gold); }
+.btn-accept {
+  background: var(--amber);
+  color: #1a1100;
+  border-color: var(--amber);
+  font-weight: 700;
+}
+.btn-accept:hover {
+  background: #ffce4a;
+  border-color: #ffce4a;
+  color: #1a1100;
+  box-shadow: 0 0 22px rgba(251,191,36,0.4);
+}
+.btn-ghost { background: transparent; color: var(--text-dim); }
+.btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
+.btn-manual {
+  background: transparent;
+  color: var(--text-dim);
+  border-color: var(--border);
+}
+.btn-manual:hover { color: var(--purple); border-color: var(--purple); }
+
+/* Re-open button for complete stages */
+.reopen-row {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-dim);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.reopen-note {
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+/* Approve & Execute footer */
+.commit-bar {
+  position: sticky;
+  bottom: 0;
+  padding: 22px 48px;
+  background: linear-gradient(180deg, rgba(15,15,16,0), var(--surface) 30%, var(--surface));
+  border-top: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 18px;
+  align-items: center;
+}
+.commit-summary {
+  font-size: 12.5px;
+  color: var(--text-dim);
+}
+.commit-summary strong { color: var(--text); }
+.commit-progress {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 3px;
+  letter-spacing: 0.06em;
+}
+.commit-btn {
+  background: var(--amber);
+  color: #1a1100;
+  border: none;
+  padding: 14px 36px;
+  border-radius: 8px;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: all 0.15s;
+}
+.commit-btn:hover {
+  box-shadow: 0 0 30px rgba(251,191,36,0.5);
+  transform: translateY(-1px);
+}
+.commit-btn:disabled {
+  background: var(--surface3);
+  color: var(--text-muted);
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Cascade hint banner inside a stage when on Option B or C */
+.cascade-hint {
+  font-size: 11.5px;
+  color: var(--text-dim);
+  margin-top: 8px;
+  text-align: center;
+}
+.cascade-hint strong { color: var(--gold); }
+
+/* Lock icon */
+.lock-icon {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+@media (max-width: 900px) {
+  .scan-context { grid-template-columns: 1fr 1fr; }
+  .found-grid { grid-template-columns: repeat(2, 1fr); }
+  .anomaly-grid { grid-template-columns: 1fr; }
+  .stages, .page-head, .scan-context, .commit-bar { padding-left: 24px; padding-right: 24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="window">
+
+  <!-- Title bar -->
+  <div class="titlebar">
+    <div class="dots">
+      <div class="dot r"></div>
+      <div class="dot y"></div>
+      <div class="dot g"></div>
+    </div>
+    <div class="brand">RIVER <span>FIS</span></div>
+    <div class="titlebar-right">
+      <div class="mode-label">Mode: <strong>File Intelligence System</strong></div>
+      <div class="api-status">API connected</div>
+    </div>
+  </div>
+
+  <!-- Engines -->
+  <div class="engines">
+    <div class="engine">Manual Sort</div>
+    <div class="engine active">File Intelligence System <span class="badge">FIS</span></div>
+    <div class="engine">Advanced Workbench</div>
+    <div class="engine">File Creation Automation</div>
+  </div>
+
+  <!-- Page head -->
+  <div class="page-head">
+    <a class="back-link" href="river-fis-1-scan-pick.html">← Back to Scan</a>
+    <h1>File Intelligence <span>Mode</span></h1>
+    <p>River walks each stage and proposes a complete strategy. Accept it, try another, or hand off to manual. Up to three attempts per stage before manual takes over.</p>
+  </div>
+
+  <!-- Scan context strip -->
+  <div class="scan-context">
+    <div class="context-item">
+      <div class="lbl">Scanned Folder</div>
+      <div class="val mono">C:\Users\david\Downloads</div>
+    </div>
+    <div class="context-item num">
+      <div class="lbl">Files</div>
+      <div class="val">2,968,345</div>
+    </div>
+    <div class="context-item num">
+      <div class="lbl">Folders</div>
+      <div class="val">142,807</div>
+    </div>
+    <div class="context-item">
+      <div class="lbl">Most Common Type</div>
+      <div class="val mono">.jpg <span style="color:var(--text-muted);">(31.4%)</span></div>
+    </div>
+  </div>
+
+  <!-- Stages will render here -->
+  <div class="stages" id="stages"></div>
+
+  <!-- Commit bar -->
+  <div class="commit-bar">
+    <div>
+      <div class="commit-summary"><strong id="commitSummaryText">Working through FIS preview-only recommendations…</strong></div>
+      <div class="commit-progress" id="commitProgress">0 of 5 stages accepted</div>
+    </div>
+    <button class="commit-btn" id="commitBtn" disabled onclick="executeAll()">Simulate &amp; Approve</button>
+  </div>
+
+</div>
+
+<script>
+// ===== Stage definitions =====
+const STAGES = [
+  {
+    id: 'file-cleaner',
+    name: 'File Cleaner',
+    desc: 'Duplicates and naming anomalies, handled in one pass. Duplicates resolved first so we never rename files that are about to be recycled.',
+    found: [
+      { num: '10,241', label: 'Duplicate Groups', color: 'blue' },
+      { num: '8,904', label: 'Exact Matches', color: 'green' },
+      { num: '7,639', label: 'Naming Anomalies', color: 'red' },
+      { num: '1,337', label: 'Review Needed', color: 'gold' },
+    ],
+    options: [
+      {
+        rules: [
+          ['Keeper', 'Keep newest modified'],
+          ['Duplicates', 'Recycle older copies'],
+          ['Anomalies', 'Send to review folder'],
+        ],
+        why: '<strong>Recommended because</strong> this preserves your most recent working version, recycling is fully reversible, and anomalies are isolated so nothing ambiguous gets touched without your eyes on it.',
+      },
+      {
+        rules: [
+          ['Keeper', 'Keep cleanest filename'],
+          ['Duplicates', 'Move to /review/ folder'],
+          ['Anomalies', 'Ignore for this run'],
+        ],
+        why: '<strong>Safer alternative.</strong> Nothing is recycled — duplicates move to a holding folder you can inspect. Anomalies stay where they are so you can revisit later.',
+      },
+      {
+        rules: [
+          ['Keeper', 'Keep file in preferred root folder'],
+          ['Duplicates', 'Keep all, flag only'],
+          ['Anomalies', 'Generate report only'],
+        ],
+        why: '<strong>Maximum caution.</strong> No filesystem changes. River generates a report you can act on file-by-file. Choose this if you don\'t fully trust the scan.',
+      },
+    ],
+    preview: [
+      ['project final_v2 (1).psd', 'project-final-v2.psd'],
+      ['IMG_ 00123 .JPG', 'img_00123.jpg'],
+      ['Client Files\\new folder\\ doc .docx', 'client-files/new-folder/doc.docx'],
+      ['draft --- copy -- final.txt', 'draft-copy-final.txt'],
+      ['2023-05-01 Report  FINAL .xlsx', '2023-05-01-report-final.xlsx'],
+    ],
+    anomalies: [
+      ['Same name, different content', 312],
+      ['Same content, different name', 487],
+      ['Near duplicate', 178],
+      ['Protected item involved', 92],
+      ['Unknown file type', 64],
+      ['Already exists in target', 204],
+    ],
+  },
+  {
+    id: 'folder-cleaner',
+    name: 'Folder Cleaner',
+    desc: 'Empty folders, single-file nests, and redundant subfolder layers. Structural cleanup only — no renaming yet.',
+    found: [
+      { num: '4,128', label: 'Empty Folders', color: 'red' },
+      { num: '887', label: 'Single-File Nests', color: 'gold' },
+      { num: '312', label: 'Redundant Layers', color: 'purple' },
+      { num: '94', label: 'System-Protected', color: 'green' },
+    ],
+    options: [
+      {
+        rules: [
+          ['Empties', 'Delete (move to recycle)'],
+          ['Single-file nests', 'Promote file up one level'],
+          ['Redundant layers', 'Flatten by 1 level'],
+        ],
+        why: '<strong>Recommended.</strong> Removes clutter without losing data. Promotion only fires when confidence is high; nests of unrelated single files are left alone.',
+      },
+      {
+        rules: [
+          ['Empties', 'Move to /review/empty/'],
+          ['Single-file nests', 'Promote only if confidence ≥ 80%'],
+          ['Redundant layers', 'Don\'t flatten — flag only'],
+        ],
+        why: '<strong>Cautious version.</strong> Empties go to a holding area instead of recycle. Aggressive flattening turned off — you review the redundant nests yourself.',
+      },
+      {
+        rules: [
+          ['Empties', 'Tag for manual review'],
+          ['Single-file nests', 'No changes'],
+          ['Redundant layers', 'Generate report only'],
+        ],
+        why: '<strong>Report mode.</strong> Nothing touched. River produces a structural cleanup map you can apply piece by piece in Advanced Mode.',
+      },
+    ],
+    preview: [
+      ['Downloads/2023/empty-Q1/', '[removed — empty]'],
+      ['Photos/2024/Wedding/IMG_001/IMG_001.heic', 'Photos/2024/Wedding/IMG_001.heic'],
+      ['Projects/Active/Forge/src/src/index.js', 'Projects/Active/Forge/src/index.js'],
+      ['Archive/Old/Old/Old/notes.md', 'Archive/Old/notes.md'],
+    ],
+  },
+  {
+    id: 'folder-resolver',
+    name: 'Folder Resolver',
+    desc: 'Name collisions, orphan folders, cross-drive duplicates. Where two folders disagree, River picks a winner.',
+    found: [
+      { num: '76', label: 'Name Collisions', color: 'red' },
+      { num: '142', label: 'Orphan Folders', color: 'gold' },
+      { num: '38', label: 'Cross-Drive Dupes', color: 'blue' },
+      { num: '21', label: 'Ambiguous', color: 'purple' },
+    ],
+    options: [
+      {
+        rules: [
+          ['Collisions', 'Merge (newest wins for conflicts)'],
+          ['Orphans', 'Place by content match'],
+          ['Cross-drive dupes', 'Keep primary, recycle copies'],
+        ],
+        why: '<strong>Recommended.</strong> Merges preserve all files, conflicts resolved by mtime. Orphans get a real home based on what they contain. Cross-drive cleanup frees space.',
+      },
+      {
+        rules: [
+          ['Collisions', 'Quarantine to /resolve/'],
+          ['Orphans', 'Leave in place, flag only'],
+          ['Cross-drive dupes', 'Keep all'],
+        ],
+        why: '<strong>Conservative.</strong> Nothing merged — collisions parked for manual decision. Orphans stay where they are with flags. Cross-drive duplicates remain untouched.',
+      },
+      {
+        rules: [
+          ['Collisions', 'Generate conflict map'],
+          ['Orphans', 'No action'],
+          ['Cross-drive dupes', 'Export list only'],
+        ],
+        why: '<strong>Map-only.</strong> River writes a JSON conflict report. You decide what to do with it.',
+      },
+    ],
+    preview: [
+      ['~/Documents/Projects/  +  ~/Desktop/Projects/', '~/Documents/Projects/ (merged)'],
+      ['~/Downloads/loose-pdf-stash/', '~/Documents/PDFs/ (placed by content)'],
+      ['C:\\Photos\\2024\\  +  D:\\Photos\\2024\\', 'C:\\Photos\\2024\\ (kept primary)'],
+    ],
+  },
+  {
+    id: 'folder-renamer',
+    name: 'Folder Renamer',
+    desc: 'Apply naming conventions to folder names. Cosmetic only — structure already settled in earlier stages.',
+    found: [
+      { num: '1,243', label: 'Inconsistent Names', color: 'red' },
+      { num: '418', label: 'Mixed Case', color: 'gold' },
+      { num: '267', label: 'Whitespace Issues', color: 'purple' },
+      { num: '89', label: 'Reserved Words', color: 'blue' },
+    ],
+    options: [
+      {
+        rules: [
+          ['Case style', 'kebab-case'],
+          ['Whitespace', 'Trim and collapse to single hyphen'],
+          ['Version suffixes', 'Strip trailing (1), (2), _v2 etc.'],
+        ],
+        why: '<strong>Recommended.</strong> kebab-case reads well in URLs, file managers, and terminals. Version suffixes are noise once duplicates are resolved.',
+      },
+      {
+        rules: [
+          ['Case style', 'Title Case'],
+          ['Whitespace', 'Preserve spaces'],
+          ['Version suffixes', 'Keep — append date instead'],
+        ],
+        why: '<strong>Human-readable alternative.</strong> Title Case looks better in Finder/Explorer; spaces preserved for natural reading.',
+      },
+      {
+        rules: [
+          ['Case style', 'snake_case'],
+          ['Whitespace', 'Convert all to underscore'],
+          ['Version suffixes', 'Strip everything non-alphanumeric'],
+        ],
+        why: '<strong>Developer-friendly.</strong> snake_case avoids shell-escape issues. Choose if you live in the terminal.',
+      },
+    ],
+    preview: [
+      ['Old Project Files (Final)', 'old-project-files-final'],
+      ['2024 Photos -- Vacation', '2024-photos-vacation'],
+      ['Client_Work__v2', 'client-work'],
+      ['MY DOCUMENTS', 'my-documents'],
+    ],
+  },
+  {
+    id: 'folder-final-place',
+    name: 'Folder Final Place',
+    desc: 'Intent routing — where each folder actually belongs. River matches content profiles to standard root paths.',
+    found: [
+      { num: '8,422', label: 'Matched to Profile', color: 'gold' },
+      { num: '1,914', label: 'Ambiguous Routing', color: 'red' },
+      { num: '612', label: 'Custom Override', color: 'purple' },
+      { num: '203', label: 'Stay-in-Place', color: 'green' },
+    ],
+    options: [
+      {
+        rules: [
+          ['Photos', '→ ~/Photos/&lt;year&gt;/&lt;month&gt;/'],
+          ['Documents', '→ ~/Documents/&lt;category&gt;/'],
+          ['Projects', '→ ~/Projects/&lt;active|archive&gt;/'],
+          ['Other', '→ ~/Archive/&lt;type&gt;/'],
+        ],
+        why: '<strong>Recommended.</strong> Standard XDG-style layout. Photos by date, documents by category, projects by lifecycle, everything else archived by type. Reversible — River writes a placement ledger.',
+      },
+      {
+        rules: [
+          ['Everything', '→ /SortedByRiver/&lt;category&gt;/&lt;year&gt;/'],
+          ['Conflicts', 'Append numeric suffix'],
+          ['Empties', 'Skip routing'],
+        ],
+        why: '<strong>Staging-area version.</strong> One root, sorted by category and year. Lets you decide later where things really go. Lower commitment.',
+      },
+      {
+        rules: [
+          ['Action', 'Generate placement map (no moves)'],
+          ['Output', 'CSV: source path → suggested destination'],
+          ['Apply', 'Open in Advanced Mode for piece-by-piece review'],
+        ],
+        why: '<strong>Plan only.</strong> Nothing moves. You get a CSV that you can sort, filter, and apply selectively. The most cautious option.',
+      },
+    ],
+    preview: [
+      ['~/Desktop/IMG_2419.jpg', '~/Photos/2024/03/IMG_2419.jpg'],
+      ['~/Downloads/invoice-acme-q3.pdf', '~/Documents/Finance/2024/Q3/invoice-acme-q3.pdf'],
+      ['~/Documents/Forge/', '~/Projects/active/forge/'],
+      ['~/Downloads/old-backup-2019/', '~/Archive/backups/2019/'],
+    ],
+  },
+];
+
+
+const API_BASE = localStorage.getItem('fisApiBase') || 'http://localhost:8420';
+let activeScan = JSON.parse(sessionStorage.getItem('fis_scan_summary') || localStorage.getItem('fis_scan_summary') || 'null');
+let acceptedPlanIds = [];
+async function apiPost(path, payload) {
+  const res = await fetch(`${API_BASE}${path}`, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload)});
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.error || path + ' failed');
+  return data;
+}
+function activeScanId() { return sessionStorage.getItem('fis_scan_id') || localStorage.getItem('fis_scan_id') || (activeScan && activeScan.scan_id); }
+async function requestPlan(idx) {
+  const st = state[idx];
+  const scan_id = activeScanId();
+  if (!scan_id) return null;
+  try {
+    st.plan = await apiPost('/api/plan/simple', {scan_id, stage: STAGES[idx].id, attempt: st.attempt + 1, previous_rejections: st.rejections || []});
+    return st.plan;
+  } catch (err) {
+    console.warn(err);
+    return null;
+  }
+}
+async function requestCustomPlan(idx) {
+  const text = document.getElementById(`askFisText-${idx}`).value.trim();
+  if (!text) return alert('Tell File Intelligence System what you want done.');
+  try {
+    state[idx].plan = await apiPost('/api/plan/custom', {scan_id: activeScanId(), stage: STAGES[idx].id, user_request: text, previous_rejections: state[idx].rejections || []});
+    render();
+  } catch (err) { alert('Ask FIS failed: ' + err.message); }
+}
+
+// ===== State =====
+const state = STAGES.map(s => ({
+  id: s.id,
+  status: 'locked',   // 'locked' | 'active' | 'complete'
+  attempt: 0,          // 0 = Option A, 1 = B, 2 = C
+  accepted: false,
+  expanded: false,     // for re-opened complete stages
+  plan: null,
+  askFis: false,
+  rejections: [],
+}));
+state[0].status = 'active';
+
+// ===== Render =====
+const stagesEl = document.getElementById('stages');
+
+function letterFor(i) { return ['A','B','C'][i] || 'A'; }
+function attemptText(i) {
+  return ['Best Guess — Option A','Second Try — Option B','Last Try — Option C'][i] || 'Manual';
+}
+
+function renderStage(idx) {
+  const s = STAGES[idx];
+  const st = state[idx];
+  const opt = s.options[st.attempt];
+  const triesLeft = 2 - st.attempt;
+  const plan = st.plan;
+
+  let body = '';
+  if (st.status !== 'locked') {
+    // What I found
+    body += '<div class="stage-section">';
+    body += '<div class="section-label">What I Found</div>';
+    body += '<div class="found-grid">';
+    s.found.forEach(f => {
+      body += `<div class="found-stat"><div class="num ${f.color}">${f.num}</div><div class="lbl">${f.label}</div></div>`;
+    });
+    body += '</div></div>';
+
+    if (!st.accepted) {
+      // What I recommend
+      body += '<div class="stage-section">';
+      body += '<div class="section-label">What I Recommend</div>';
+      body += '<div class="rec-card">';
+      body += '<div class="rec-card-head">';
+      body += `<div class="rec-card-title"><span class="rec-card-letter">${letterFor(st.attempt)}</span>${attemptText(st.attempt)}</div>`;
+      body += `<div class="attempt-pill">Attempt ${st.attempt + 1} of 3</div>`;
+      body += '</div>';
+      body += '<div class="rules-list">';
+      (plan ? plan.understood.map((u, i) => ['Understood ' + (i + 1), u]) : opt.rules).forEach(r => {
+        body += `<div class="rule-row"><div class="rule-lbl">${r[0]}</div><div class="rule-val">${r[1]}</div></div>`;
+      });
+      body += '</div>';
+      body += `<div class="why-block">${opt.why}</div>`;
+      body += '</div></div>';
+    } else {
+      // Accepted summary view
+      body += '<div class="stage-section">';
+      body += '<div class="section-label">Accepted Strategy</div>';
+      body += '<div class="rec-card" style="border-color: var(--green); background: linear-gradient(180deg, var(--green-dim), rgba(52,211,153,0.02));">';
+      body += `<div class="rec-card-title" style="color: var(--green);"><span class="rec-card-letter" style="background: var(--green); color: #002418;">${letterFor(st.attempt)}</span>${attemptText(st.attempt)} — applied</div>`;
+      body += '<div class="rules-list" style="margin-top: 12px;">';
+      (plan ? plan.understood.map((u, i) => ['Understood ' + (i + 1), u]) : opt.rules).forEach(r => {
+        body += `<div class="rule-row"><div class="rule-lbl">${r[0]}</div><div class="rule-val">${r[1]}</div></div>`;
+      });
+      body += '</div></div></div>';
+    }
+
+    // Preview
+    const previewRows = plan && plan.preview && plan.preview.length ? plan.preview.map(p => [p.before || p.source || "preview", p.after || p.destination || p.reason || "review"]) : s.preview;
+    if (previewRows && previewRows.length) {
+      body += '<div class="stage-section">';
+      body += '<div class="section-label">Preview</div>';
+      body += '<div class="preview-block">';
+      body += '<div class="preview-row head"><div>Before</div><div></div><div>After</div></div>';
+      previewRows.forEach(p => {
+        body += `<div class="preview-row"><div class="preview-before">${escapeHtml(p[0])}</div><div class="preview-arrow">→</div><div class="preview-after">${escapeHtml(p[1])}</div></div>`;
+      });
+      body += '</div></div>';
+    }
+
+    // Anomalies (only stage 1)
+    if (s.anomalies && s.anomalies.length) {
+      body += '<div class="stage-section">';
+      body += '<div class="section-label">Anomaly Buckets (need review)</div>';
+      body += '<div class="anomaly-grid">';
+      s.anomalies.forEach(a => {
+        body += `<div class="anomaly-bucket"><div class="name">${a[0]}</div><div class="count">${a[1]}</div></div>`;
+      });
+      body += '</div></div>';
+    }
+
+    // Actions
+    if (!st.accepted) {
+      body += '<div class="actions">';
+      body += '<div class="actions-left">';
+      body += `<button class="btn btn-accept" onclick="acceptStage(${idx})">Accept Option ${letterFor(st.attempt)}</button>`;
+      if (triesLeft > 0) {
+        body += `<button class="btn" onclick="tryNext(${idx})">Try Option ${letterFor(st.attempt + 1)} →</button>`;
+      } else {
+        body += `<button class="btn btn-manual" onclick="showAskFis(${idx})">No good fit — Ask FIS</button>`;
+      }
+      body += '</div>';
+      body += '<div class="actions-right">';
+      body += `<button class="btn btn-ghost" onclick="goAdvanced(${idx})">Open in Advanced Mode</button>`;
+      body += '</div></div>';
+      if (st.attempt > 0) {
+        body += `<div class="cascade-hint">Showing <strong>Option ${letterFor(st.attempt)}</strong> · ${triesLeft} ${triesLeft === 1 ? 'try' : 'tries'} left before Ask FIS</div>`;
+      }
+      if (st.askFis) {
+        body += `<div class="stage-section"><div class="section-label">Ask FIS</div><div class="rec-card" style="border-color: var(--blue); background: linear-gradient(180deg, rgba(96,165,250,.16), rgba(45,212,191,.04));"><div class="rec-card-title" style="color: var(--blue);">Tell File Intelligence System what you want done.</div><textarea id="askFisText-${idx}" class="picker-input" style="width:100%;min-height:96px;margin-top:12px;" placeholder="Do not delete anything. Move uncertain files to review."></textarea><div class="actions"><button class="btn btn-accept" onclick="requestCustomPlan(${idx})">Build Preview Plan</button><button class="btn" onclick="tryNext(${idx})">Try Another Plan</button><button class="btn btn-ghost" onclick="goAdvanced(${idx})">Open Advanced Workbench</button></div></div></div>`;
+      }
+    } else {
+      body += '<div class="reopen-row">';
+      body += `<div class="reopen-note">Accepted ${letterFor(st.attempt)}. Filesystem changes are staged, nothing has been applied yet.</div>`;
+      body += `<button class="btn btn-ghost" onclick="reopenStage(${idx})">Reopen &amp; Re-decide</button>`;
+      body += '</div>';
+    }
+  }
+
+  // Head
+  let head = '<div class="stage-head" onclick="toggleExpand(' + idx + ')">';
+  head += `<div class="stage-num">${st.accepted ? '✓' : st.status === 'locked' ? `<span class="lock-icon">◇</span>` : (idx + 1)}</div>`;
+  head += '<div class="stage-info">';
+  head += `<div class="stage-name">${s.name}</div>`;
+  if (st.accepted) {
+    head += `<div class="stage-summary">✓ Option ${letterFor(st.attempt)} accepted · ${s.found[0].num} ${s.found[0].label.toLowerCase()} ready to apply</div>`;
+  } else {
+    head += `<div class="stage-desc">${s.desc}</div>`;
+  }
+  head += '</div>';
+  head += '<div class="stage-status">';
+  if (st.status === 'locked') head += '<span>Locked</span>';
+  else if (st.accepted) head += `<span style="color:var(--green);">Complete</span><span class="chev">▾</span>`;
+  else head += `<span style="color:var(--gold);">Active</span><span class="chev">▾</span>`;
+  head += '</div>';
+  head += '</div>';
+
+  let cls = 'stage ' + st.status;
+  if (st.accepted) cls += ' complete';
+  if (st.expanded) cls += ' expanded';
+
+  return `<div class="${cls}" id="stage-${idx}">${head}<div class="stage-body">${body}</div></div>`;
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function render() {
+  stagesEl.innerHTML = STAGES.map((_, i) => renderStage(i)).join('');
+  updateCommitBar();
+}
+
+function updateCommitBar() {
+  const done = state.filter(s => s.accepted).length;
+  const total = STAGES.length;
+  document.getElementById('commitProgress').textContent = `${done} of ${total} stages accepted`;
+  const btn = document.getElementById('commitBtn');
+  const summary = document.getElementById('commitSummaryText');
+  if (done === total) {
+    btn.disabled = false;
+    summary.textContent = 'All stages accepted. Ready to simulate the accepted preview-only plan.';
+  } else if (done === 0) {
+    summary.textContent = 'Working through River\'s recommendations…';
+  } else {
+    summary.textContent = `Stage ${done} accepted. Next: ${STAGES[done].name}.`;
+  }
+}
+
+// ===== Actions =====
+async function acceptStage(idx) {
+  if (!state[idx].plan) await requestPlan(idx);
+  if (state[idx].plan) acceptedPlanIds.push(state[idx].plan.plan_id);
+  state[idx].accepted = true;
+  state[idx].status = 'complete';
+  state[idx].expanded = false;
+  if (idx + 1 < STAGES.length) {
+    state[idx + 1].status = 'active';
+  }
+  render();
+  // Scroll to next stage
+  setTimeout(() => {
+    const next = document.getElementById('stage-' + (idx + 1));
+    if (next) next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 80);
+}
+
+async function tryNext(idx) {
+  state[idx].rejections.push(`attempt_${state[idx].attempt + 1}`);
+  if (state[idx].attempt < 2) {
+    state[idx].attempt++;
+    await requestPlan(idx);
+    render();
+  } else {
+    showAskFis(idx);
+  }
+}
+function showAskFis(idx) { state[idx].askFis = true; render(); }
+
+function goManual(idx) {
+  alert(`Manual handoff for "${STAGES[idx].name}" — would open the manual review panel. Not wired in this prototype.`);
+}
+
+function goAdvanced(idx) { window.location.href = 'river-fis-3-advanced-mode.html'; }
+
+function toggleExpand(idx) {
+  const st = state[idx];
+  if (st.status === 'locked') return;
+  if (st.status === 'active' && !st.accepted) return; // active is always open
+  // For complete stages, toggle expanded view
+  st.expanded = !st.expanded;
+  render();
+}
+
+function reopenStage(idx) {
+  if (!confirm(`Reopen "${STAGES[idx].name}" and undo your acceptance? Later stages will be re-locked.`)) return;
+  state[idx].accepted = false;
+  state[idx].status = 'active';
+  state[idx].expanded = false;
+  // Re-lock later stages
+  for (let i = idx + 1; i < state.length; i++) {
+    state[i].status = 'locked';
+    state[i].accepted = false;
+    state[i].expanded = false;
+    state[i].attempt = 0;
+  }
+  render();
+  setTimeout(() => {
+    document.getElementById('stage-' + idx).scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 80);
+}
+
+async function executeAll() {
+  const plan_id = acceptedPlanIds[acceptedPlanIds.length - 1];
+  if (!plan_id) return alert('Accept a preview plan first.');
+  try {
+    const sim = await apiPost('/api/simulate', {plan_id});
+    alert(`Simulation complete. Safe to run: ${sim.safe_to_run}\nWould change: ${sim.would_change}\nBlocked: ${sim.blocked.length}\n\nExecution still requires explicit APPROVE and is stubbed preview-only in this pass.`);
+  } catch (err) { alert('Simulate failed: ' + err.message); }
+}
+
+// Initial render
+requestPlan(0).then(render);
+</script>
+
+</body>
+</html>

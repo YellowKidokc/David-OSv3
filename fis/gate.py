@@ -15,7 +15,7 @@ def under(path, root):
 
 def defaults():
     return {'roots': [], 'protected': [], 'skip': [], 'rulepacks': [], 'provider': 'off',
-            'speed': 'Background', 'idle_boost': False, 'html_roots': [], 'profiles': []}
+            'speed': 'Background', 'idle_boost': False, 'html_roots': [], 'profiles': [], 'html_min_files': 1}
 
 
 def policy(store):

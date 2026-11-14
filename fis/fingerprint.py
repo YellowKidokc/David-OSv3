@@ -1,6 +1,11 @@
 """
 fingerprint.py — stable file identity + near-duplicate evidence.
 
+The SHA-256 primitive here can support global exact dedup, but this module alone
+does not perform the complete-tree grouping and safety workflow required by
+docs/specs/GLOBAL_SHA256_DEDUP_SPEC.md. Do not infer global coverage from hashing
+a single path or scan batch.
+
 What this file DOES:   computes identity (size, dates, sha256) and similarity evidence (simhash, shingles, Jaccard).
 What it does NOT do:   decide rename vs copy vs edit. That comparison lives in the caller (inventory_scan / consolidate_scan),
                        which compares these records across paths and over time.

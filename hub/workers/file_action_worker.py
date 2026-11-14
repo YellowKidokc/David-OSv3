@@ -148,6 +148,12 @@ def _move(payload: dict[str, object]) -> dict[str, object]:
     source, target = _source(payload), _target(payload)
     require_write_allowed(target)
     require_write_allowed(source)
+    # Every classifier/router must declare routing_move and attach the shared
+    # predicate receipt. Manual generic moves remain a separate control-plane
+    # action, while classified routing cannot bypass title/series/folder review.
+    if bool(payload.get("routing_move", False)):
+        from engine.routing_predicates import require_passed_receipt
+        require_passed_receipt(payload, source, target)
     if not source.exists():
         raise FileNotFoundError(source)
     if target.exists() and not bool(payload.get("overwrite", False)):

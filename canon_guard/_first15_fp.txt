@@ -1,0 +1,59 @@
+ 1. 'dS/dt = σ_sin - R·∇S'
+    fp=65dbfc253c4892c610c84be54b84fa60beb1bf7492bdc854d46730e6de533411
+    path=MEQ-00-MasterOutline.md:150
+
+ 2. 'Ĉ|Ψ⟩ = P̂|Ψ⟩ → |actual⟩'
+    fp=d8694caa9aa642441d55e1ef59bdf42466d880ae817589b0ab4d7adec4023c1c
+    path=MEQ-00-MasterOutline.md:178
+
+ 3. 'dS_moral/dt = σ_sin - R·∇S'
+    fp=7bc156e65d019687fc5918410aad85ee8f028ac8aab50887338e4116bb5ff069
+    path=MEQ-00-MasterOutline.md:194
+
+ 4. 'R_μν - ½g_μν R = 8πG T_μν'
+    fp=462ecded23fa1151c2273f49a1427fbe11e0cf3ddc577bebbeac140ebca84125
+    path=MEQ-00-MasterOutline.md:209
+
+ 5. 'dK/dt = α·I - β·K²'
+    fp=abdfc6e4f265d9e16201b544f466e903be77c98b9019c2ce574a8fb376f96b7d
+    path=MEQ-00-MasterOutline.md:225
+
+ 6. '∂ρ/∂t = Grace·Redemption·Covenant + ...'
+    fp=d5069d9a5c3cf12e37940ff4a217c3778c1dcce5b2c080266219add306293a52
+    path=MEQ-00-MasterOutline.md:254
+
+ 7. 'ρ_ij = e^(-Q·d_ij) · ψ_i · ψ*_j'
+    fp=5ea8dd87c694a6d4fda36fcba92691f93c1fd4bb27eb8041280ac3e4de003907
+    path=MEQ-00-MasterOutline.md:269
+
+ 8. 'T̂ = ∫ P̂(t)·H·Ψ dt'
+    fp=f2b148b0bb8cb74469aef63184c66232dee8a1c57010acf0c2c5b5a42000da21
+    path=MEQ-00-MasterOutline.md:281
+
+ 9. 'P(outcome) = |α|²·(1 + F·cos(θ))'
+    fp=4d1775f1446b537ad3dbc8201acc71fdf19e6657007aa21c35f89106a611ac4b
+    path=MEQ-00-MasterOutline.md:346
+
+10. 'dS/dt = Σᵢ f(Δᵢ) - R(Λ)'
+    fp=b649a80e4c1d40b0227be816983b3e6e793eb266628ebb5edde83ca18f647887
+    path=MEQ-00-MasterOutline.md:783
+
+11. 'f(Δtotal) = f(Δ₁) × g(Δ₂, Δ₇) × h(Δ₅, Δ₁) × ...'
+    fp=39753667795feecbae8ba82860a436de62c5be548325595df03db4162a470167
+    path=MEQ-00-MasterOutline.md:848
+
+12. 'dρ/dt = -i[H,ρ] + Σₖ(LₖρLₖ† - ½{Lₖ†Lₖ,ρ})'
+    fp=72c745556fc84546bac3c36e84a45e8ee1f11324a1495e568e0d49734f738149
+    path=MEQ-00-MasterOutline.md:960
+
+13. 'dS/dt = σ - J·∇T'
+    fp=58c0aa9d5418d927bd304527edcf423f45f893eb3092d22514f60e9a9dbef8c4
+    path=MEQ-00-MasterOutline.md:965
+
+14. '\\frac{\\partial \\chi}{\\partial L_n} = L_{n+1}'
+    fp=0d03419dc6a550047ed0b467ea1344ab1ba417c00e250b5de3a1dfd4574572eb
+    path=MEQ-00-MasterOutline.md:1248
+
+15. '\\sum_{n=1}^{10} \\nabla L_n = 0'
+    fp=fb51e2ffb0611c0dd1529d83225be3eef680cd4cf7f31323031e920765e13dcf
+    path=MEQ-00-MasterOutline.md:1249

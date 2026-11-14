@@ -20,9 +20,11 @@ dos-top = "hub.cli:top_main"
 dos-watch = "hub.watchers.native:main"
 dos-poll = "hub.watchers.runner:main"
 dos-worker = "hub.workers.runner:main"
+rule-brick = "rule_brick.cli:main"
 
 [tool.setuptools.packages.find]
-include = ["hub*", "engine*", "agents*", "pipeline*", "folder_hub*"]
+include = ["hub*", "engine*", "agents*", "pipeline*", "folder_hub*", "rule_brick*", "shared*"]
 
 [tool.setuptools.package-data]
 folder_hub = ["static/*.js"]
+rule_brick = ["*.json", "*.md"]

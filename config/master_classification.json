@@ -1,0 +1,31 @@
+{
+  "schema_version": "master-classification.v1",
+  "enabled": false,
+  "roots": [
+    "C:\\Users\\David\\Desktop",
+    "C:\\Users\\David\\Documents"
+  ],
+  "scan_interval_seconds": 900,
+  "thresholds": {
+    "local_accept_clean": 0.9,
+    "deepseek_accept_clean": 0.9,
+    "deepseek_accept_flagged": 0.6
+  },
+  "notification": {
+    "endpoint": "http://127.0.0.1:2831/v1/notifications",
+    "template": "approval_batch",
+    "wall": "file-intelligence",
+    "folder": "Classification Review",
+    "notify_on": [
+      "carry_flagged",
+      "hold_for_review"
+    ]
+  },
+  "writes": {
+    "classification_metadata": true,
+    "sqlite": true,
+    "sidecar": true,
+    "move_source_files": false,
+    "rename_source_files": false
+  }
+}

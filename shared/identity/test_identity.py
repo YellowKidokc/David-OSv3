@@ -26,7 +26,7 @@ def test_artifact_refs():
 
 def sidecar(**over):
     sc = {"schema_version": "sidecar.v1", "document_id": "DLAY.05.WATER", "version": 2, "content_sha256": "a" * 64,
-          "physical": {"current_home": "50_PRODUCTION_AND_PUBLICATION/05_SERIES_AND_ARGUMENT_CHAINS", "proposed_home": None, "move_authorized": False},
+          "physical": {"current_home": "50_PRODUCTION_AND_PUBLICATION/01_WRITTEN_WORKS/05_SERIES_AND_ARGUMENT_CHAINS", "proposed_home": None, "move_authorized": False},
           "canonical": {"build": "MASTER_EQUATION", "law_ids": ["LAW_04", "LAW_10"], "epistemic_roles": ["bridge", "claim"],
                         "canon_status": "CANDIDATE", "admission_authority": "DAVID_ONLY"},
           "navigation": {"series_id": "DLAY", "series_position": 5, "ten_law_emphasis": {"S": 3, "C": 2}},

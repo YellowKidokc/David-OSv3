@@ -16,6 +16,19 @@ from fis import preference, review
 STATIC = Path(__file__).parent/'static'
 
 
+def _shell_folder(name, home):
+    """Real location of a Windows known folder (Desktop/Personal), honoring OneDrive/NAS redirection."""
+    fallback = home / ('Documents' if name == 'Personal' else name)
+    try:
+        import winreg
+        with winreg.OpenKey(winreg.HKEY_CURRENT_USER,
+                            r'Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders') as key:
+            path = Path(os.path.expandvars(winreg.QueryValueEx(key, name)[0]))
+        return path if path.is_dir() else fallback
+    except (ImportError, OSError):
+        return fallback
+
+
 class API:
     def __init__(self, store):
         self.store = store
@@ -166,6 +179,29 @@ def make_server(store, port=43107):
                     return self.send(preference.export(store), 'application/x-ndjson')
                 if url.path == '/api/plan':
                     return self.send(store.get('plan', q['id'][0]))
+                if url.path == '/api/dirs':
+                    # Folder browser for the Pick view: names only, never file contents.
+                    target = q.get('path', [''])[0]
+                    home = Path.home()
+                    desktop, documents = _shell_folder('Desktop', home), _shell_folder('Personal', home)
+                    # A redirected Desktop leaves an empty stub at home/Desktop; open the real one instead.
+                    if target and desktop != home / 'Desktop' and Path(target) == home / 'Desktop':
+                        target = str(desktop)
+                    shortcuts = [{'name': n, 'path': str(p)} for n, p in
+                                 (('Home', home), ('Desktop', desktop), ('Documents', documents),
+                                  ('NAS Desktop', Path(r'\\192.168.2.50\h_hp\Desktop')))
+                                 if p.is_dir()]
+                    shortcuts += [{'name': f'{d}:\\', 'path': f'{d}:\\'} for d in 'CDEFGHIJKLMNOPQRSTUVWXYZ'
+                                  if os.path.isdir(f'{d}:\\')]
+                    if not target:
+                        return self.send({'path': '', 'parent': '', 'dirs': [], 'shortcuts': shortcuts})
+                    base = Path(target)
+                    dirs = sorted((e.name for e in os.scandir(base) if e.is_dir(follow_symlinks=False)
+                                   and not e.name.startswith(('.', '$'))), key=str.lower)
+                    parent = str(base.parent) if base.parent != base else ''
+                    return self.send({'path': str(base), 'parent': parent,
+                                      'dirs': [{'name': n, 'path': str(base / n)} for n in dirs],
+                                      'shortcuts': shortcuts})
                 if url.path == '/api/search':
                     return self.send(store.search(q.get('q', [''])[0])[:500])
                 if url.path == '/api/export':

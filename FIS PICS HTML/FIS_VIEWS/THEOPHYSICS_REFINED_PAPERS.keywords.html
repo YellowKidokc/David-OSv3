@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FIS Keyword Atlas</title>
+<style>
+:root{color-scheme:dark;--bg:#060708;--panel:#0c0f14;--panel2:#090b0f;--line:#222a35;--text:#e7edf5;--muted:#8b97a7;--accent:#d1a922;--accent2:#f1d37a;--link:#6ea8e8;--hot:#e0773a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:13px/1.45 system-ui,sans-serif}
+.wrap{max-width:1600px;margin:auto;padding:22px}
+h1{font:600 28px Georgia,serif;margin:4px 0}h2{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin:22px 0 8px}
+.eyebrow,code{font-family:ui-monospace,Consolas,monospace}.eyebrow{color:var(--accent);font-size:11px;letter-spacing:1px}.muted{color:var(--muted)}
+.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;position:sticky;top:0;background:var(--bg);padding:10px 0;z-index:5;border-bottom:1px solid var(--line)}
+input[type=search]{flex:1;min-width:240px;padding:9px 10px;border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:3px}
+button{border:1px solid var(--line);background:var(--panel);color:var(--text);padding:8px 10px;border-radius:3px;cursor:pointer}button:hover,button.on{border-color:var(--accent);color:var(--accent2)}
+.grid{display:grid;grid-template-columns:340px minmax(0,1fr);gap:18px}
+.panel{border:1px solid var(--line);background:var(--panel);padding:10px}
+.kwlist{max-height:calc(100vh - 160px);overflow:auto;position:sticky;top:64px}
+.kw{display:grid;grid-template-columns:1fr auto;gap:6px;padding:4px 6px;border-bottom:1px solid #161d26;cursor:pointer}
+.kw:hover{background:var(--panel2)}.kw.sel{background:rgba(209,169,34,.12);color:var(--accent2)}
+.kw .n{font:11px ui-monospace,Consolas,monospace;color:var(--muted)}.kw.shared .n{color:var(--hot)}
+.meter{height:3px;background:var(--accent);opacity:.55;grid-column:1/-1}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:8px}
+.card{border:1px solid var(--line);background:var(--panel);padding:10px}.card.dim{opacity:.18}
+.card h3{margin:0 0 2px;font:600 14px system-ui;word-break:break-all}.card .meta{font:11px ui-monospace,Consolas,monospace;color:var(--muted);margin-bottom:6px}
+.chips{display:flex;flex-wrap:wrap;gap:3px}.chip{font:11px ui-monospace,Consolas,monospace;border:1px solid var(--line);padding:1px 6px;border-radius:9px;cursor:pointer;color:#c9d6e4}
+.chip.shared{border-color:#5a3d1f;color:#f0b07a}.chip.sel{background:var(--accent);color:#000;border-color:var(--accent)}
+.meq{font:11px ui-monospace,Consolas,monospace;color:var(--accent2);margin:4px 0}
+table{width:100%;border-collapse:collapse;font-size:12px}th,td{border:1px solid var(--line);padding:4px 6px;text-align:center}th{color:var(--muted);font-weight:500}td.l,th.l{text-align:left}
+td.h{color:#000;font-weight:600}
+.stats{display:flex;gap:8px;flex-wrap:wrap}.stat{border:1px solid var(--line);background:var(--panel);padding:6px 10px}.stat b{display:block;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+a{color:var(--link);text-decoration:none}
+.toast{position:fixed;bottom:16px;right:16px;background:var(--accent);color:#000;padding:8px 12px;border-radius:3px;display:none}
+@media(max-width:900px){.grid{grid-template-columns:1fr}.kwlist{position:relative;top:0;max-height:300px}}
+</style></head><body>
+<div class="wrap">
+<div class="eyebrow">FIS KEYWORD ATLAS / DENSE VIEW</div>
+<h1 id="title">folder</h1>
+<div class="muted" id="path"></div>
+<div class="stats" id="stats" style="margin-top:10px"></div>
+<div class="bar">
+<input id="q" type="search" placeholder="Filter keywords and files…">
+<button id="sharedOnly">Shared keywords only</button>
+<button id="clear">Clear selection</button>
+<button id="copyAI">Copy for AI</button>
+<button id="dl">Download JSON</button>
+</div>
+<div class="grid">
+<aside class="panel kwlist"><div class="eyebrow" style="padding:4px 6px 8px">KEYWORD INDEX · <span id="kwcount"></span></div><div id="kws"></div></aside>
+<main>
+<h2>Unifying keywords (appear in 2+ files)</h2>
+<div class="panel"><div class="chips" id="unify"></div></div>
+<h2>Keyword × file matrix (top shared)</h2>
+<div class="panel" style="overflow:auto"><table id="matrix"></table></div>
+<h2>Files <span class="muted" id="fcount"></span></h2>
+<div class="cards" id="cards"></div>
+</main></div></div>
+<div class="toast" id="toast">Copied</div>
+<script type="application/json" id="fis-folder-record">{"schema": "fis.folder/2.1", "folder": {"folder_id": "FLD-c44f28a1525c", "path": "D:\\THEOPHYSICS_REFINED_PAPERS", "name": "THEOPHYSICS_REFINED_PAPERS", "folder_type": "document", "purpose": "UNRESOLVED", "domain": "unclassified", "status": "active", "owner": "UNRESOLVED", "canonical_source": 0, "file_count": 0, "child_folder_count": 5, "created_at": "2026-09-03T08:40:10+00:00", "last_scanned": "2026-09-03T08:56:07+00:00", "compressed_name": "TH__DOC__GN__20260903__AC", "compressed_name_detail": {"code": "TH__DOC__GN__20260903__AC", "domain": "TH", "domain_meaning": "theophysics", "ct": "DOC", "tags": [], "date": "20260903", "status": "AC", "tag_meanings": {}}, "lossless_address": "LOSS__THEOPHYSICS_REFINED_PAPERS__2026-09-03", "lossless_address_detail": {"address": "LOSS__THEOPHYSICS_REFINED_PAPERS__2026-09-03", "mode": "loss", "source_date": "2026-09-03", "basis": "title_and_local_content_sample", "trigger": null}, "meq_aggregate": ""}, "files": [], "child_folders": [{"name": "01_Genesis_to_Quantum_Refined", "type": "mixed", "file_count": 2}, {"name": "02_Canonical_Treatises", "type": "document", "file_count": 2}, {"name": "03_Core_Cannon_Papers", "type": "document", "file_count": 22}, {"name": "04_Moral_Substrate_and_Trilemma", "type": "mixed", "file_count": 5}, {"name": "05_Axiom_Nodes_191", "type": "mixed", "file_count": 191}], "signals": {"folder_signal": 0, "activity": 0, "depth": 0, "explicit_links": 0, "presentation": 0, "registry": 0}}</script>
+<script>
+const D=JSON.parse(document.getElementById('fis-folder-record').textContent);
+const F=D.files||[],fo=D.folder||{};
+const norm=k=>k.toLowerCase().replace(/[_\/]+/g,' ').replace(/\s+/g,' ').trim();
+const idx=new Map();// norm -> {label, files:Set}
+F.forEach((f,i)=>(f.keywords||[]).forEach(k=>{if(k.length<2)return;const n=norm(k);if(!idx.has(n))idx.set(n,{label:k,files:new Set()});idx.get(n).files.add(i)}));
+const kws=[...idx.entries()].map(([n,v])=>({n,label:v.label,files:[...v.files]})).sort((a,b)=>b.files.length-a.files.length||a.n.localeCompare(b.n));
+const shared=kws.filter(k=>k.files.length>1);
+let sel=new Set(),sharedOnly=false,q='';
+const $=id=>document.getElementById(id),esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+document.title='FIS Keywords | '+(fo.name||'');$('title').textContent=fo.name||'folder';$('path').textContent=fo.path||'';
+const bytes=F.reduce((s,f)=>s+(f.size_bytes||0),0);
+$('stats').innerHTML=[['Files',F.length],['Unique keywords',kws.length],['Shared',shared.length],['Bytes',bytes.toLocaleString()],['MEQ',fo.meq_aggregate||'—'],['Code',fo.compressed_name||'—']].map(([a,b])=>`<div class="stat"><b>${a}</b><code>${esc(b)}</code></div>`).join('');
+$('kwcount').textContent=kws.length;
+function render(){
+ const max=kws[0]?kws[0].files.length:1;
+ $('kws').innerHTML=kws.filter(k=>(!sharedOnly||k.files.length>1)&&(!q||k.n.includes(q))).map(k=>`<div class="kw ${k.files.length>1?'shared':''} ${sel.has(k.n)?'sel':''}" data-k="${esc(k.n)}"><span>${esc(k.label)}</span><span class="n">${k.files.length}</span><div class="meter" style="width:${k.files.length/max*100}%"></div></div>`).join('');
+ $('unify').innerHTML=shared.map(k=>chip(k.n)).join('')||'<span class="muted">none</span>';
+ const top=shared.slice(0,24);
+ $('matrix').innerHTML='<tr><th class="l">file</th>'+top.map(k=>`<th title="${esc(k.label)}">${esc(k.label.slice(0,10))}</th>`).join('')+'</tr>'+F.map((f,i)=>'<tr><td class="l">'+esc(f.name)+'</td>'+top.map(k=>k.files.includes(i)?`<td class="h" style="background:var(--accent)">●</td>`:'<td></td>').join('')+'</tr>').join('');
+ let shown=0;
+ $('cards').innerHTML=F.map((f,i)=>{const ks=(f.keywords||[]).map(norm);const hit=[...sel].every(s=>ks.includes(s))&&(!q||(f.name+' '+ks.join(' ')).toLowerCase().includes(q));if(hit)shown++;
+  return `<div class="card ${hit?'':'dim'}"><h3><a href="${esc(f.name)}">${esc(f.name)}</a></h3><div class="meta">${esc(f.type)} / ${esc(f.format)} · ${(f.size_bytes||0).toLocaleString()} B · ${esc(f.dominant_chi||'')} · conf ${f.confidence??'—'}</div><div class="meq">${esc(f.meq_name||'')}</div><div class="meta">${esc(f.internal_address||'')} · ${esc(f.content_role||'')} · ${esc(f.law_signal||'')}</div><div class="chips">${[...new Set(ks)].filter(k=>k.length>1).map(chip).join('')}</div></div>`}).join('');
+ $('fcount').textContent=`(${shown} of ${F.length} match)`;
+}
+function chip(n){const k=idx.get(n);if(!k)return'';return `<span class="chip ${k.files.size>1?'shared':''} ${sel.has(n)?'sel':''}" data-k="${esc(n)}">${esc(k.label)}${k.files.size>1?' ·'+k.files.size:''}</span>`}
+document.addEventListener('click',e=>{const t=e.target.closest('[data-k]');if(!t)return;const k=t.dataset.k;sel.has(k)?sel.delete(k):sel.add(k);render()});
+$('q').oninput=e=>{q=e.target.value.toLowerCase().trim();render()};
+$('sharedOnly').onclick=e=>{sharedOnly=!sharedOnly;e.target.classList.toggle('on',sharedOnly);render()};
+$('clear').onclick=()=>{sel.clear();render()};
+function aiPayload(){return{folder:fo.name,path:fo.path,meq:fo.meq_aggregate,file_count:F.length,unifying_keywords:shared.map(k=>({keyword:k.label,files:k.files.map(i=>F[i].name)})),files:F.map(f=>({name:f.name,type:f.type,dominant:f.dominant_chi,role:f.content_role,keywords:f.keywords}))}}
+function toast(t){const el=$('toast');el.textContent=t;el.style.display='block';setTimeout(()=>el.style.display='none',1500)}
+$('copyAI').onclick=()=>{const p='Find the unifying themes across this Obsidian folder. Group files by shared concepts, name the clusters, and flag files that belong elsewhere.\n\n'+JSON.stringify(aiPayload(),null,1);navigator.clipboard.writeText(p).then(()=>toast('Copied prompt + data'))};
+$('dl').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(aiPayload(),null,2)],{type:'application/json'}));a.download=(fo.name||'folder')+'.keywords.json';a.click()};
+render();
+</script></body></html>

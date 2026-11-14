@@ -1,0 +1,113 @@
+[
+  {
+    "fingerprint": "65dbfc253c4892c610c84be54b84fa60beb1bf7492bdc854d46730e6de533411",
+    "classification": "new_canonical_candidate",
+    "canonical_id": "law-05-clausius-judgment",
+    "canonical_equation": "dS/dt = \u03c3 - J\u00b7\u2207T",
+    "math_translation": "Rate of moral entropy change equals sin source term minus redemption current divergence.",
+    "plain_translation": "Moral disorder grows when sin enters faster than grace can remove it.",
+    "theological_translation": "Judgment is not God adding disorder; it is the natural accounting when grace is refused.",
+    "confidence": 0.85,
+    "evidence": ["MEQ-00-MasterOutline.md:150"]
+  },
+  {
+    "fingerprint": "d8694caa9aa642441d55e1ef59bdf42466d880ae817589b0ab4d7adec4023c1c",
+    "classification": "new_canonical_candidate",
+    "canonical_id": "law-07-heisenberg-faith",
+    "canonical_equation": "\u0106|\u03a8\u27e9 = P\u0302|\u03a8\u27e9 \u2192 |actual\u27e9",
+    "math_translation": "A selection operator acting on a state vector yields a projection that resolves to one actual outcome.",
+    "plain_translation": "A choice collapses possibilities into one real result.",
+    "theological_translation": "Faith is the act that receives one actuality from the open set the laws permit.",
+    "confidence": 0.80,
+    "evidence": ["MEQ-00-MasterOutline.md:178"]
+  },
+  {
+    "fingerprint": "7bc156e65d019687fc5918410aad85ee8f028ac8aab50887338e4116bb5ff069",
+    "classification": "new_canonical_candidate",
+    "canonical_id": "law-05-clausius-judgment",
+    "canonical_equation": "dS_moral/dt = \u03c3_sin - R\u00b7\u2207S",
+    "math_translation": "Rate of explicit moral-entropy change equals sin-source term minus the divergence of the redemption current.",
+    "plain_translation": "When wrongdoing enters faster than forgiveness removes it, moral disorder accumulates.",
+    "theological_translation": "Clausius-Judgment names the moral version of the second law: grace can reverse the current, but not without cost.",
+    "confidence": 0.85,
+    "evidence": ["MEQ-00-MasterOutline.md:194"]
+  },
+  {
+    "fingerprint": "462ecded23fa1151c2273f49a1427fbe11e0cf3ddc577bebbeac140ebca84125",
+    "classification": "compatible",
+    "canonical_id": "law-01-newton-grace",
+    "canonical_equation": "R_\u03bc\u03bd - \u00bdg_\u03bc\u03bd R = 8\u03c0G T_\u03bc\u03bd",
+    "math_translation": "Einstein field equations: spacetime curvature is proportional to the stress-energy tensor.",
+    "plain_translation": "Matter and energy tell space how to curve.",
+    "theological_translation": "Grace (Newton-Grace) is the geometric response of creation to the presence of mass-energy.",
+    "confidence": 0.95,
+    "evidence": ["MEQ-00-MasterOutline.md:209", "standard general relativity"]
+  },
+  {
+    "fingerprint": "abdfc6e4f265d9e16201b544f466e903be77c98b9019c2ce574a8fb376f96b7d",
+    "classification": "new_canonical_candidate",
+    "canonical_id": "law-06-shannon-logos",
+    "canonical_equation": "dK/dt = \u03b1\u00b7I - \u03b2\u00b7K\u00b2",
+    "math_translation": "Rate of change of the Logos/K variable equals information gain minus a self-limiting saturation term.",
+    "plain_translation": "Understanding grows with revelation but levels off as it approaches capacity.",
+    "theological_translation": "Logos increases by hearing and is bounded by creaturely capacity; pride is the quadratic drag.",
+    "confidence": 0.75,
+    "evidence": ["MEQ-00-MasterOutline.md:225"]
+  },
+  {
+    "fingerprint": "d5069d9a5c3cf12e37940ff4a217c3778c1dcce5b2c080266219add306293a52",
+    "classification": "drift",
+    "canonical_id": "master-equation",
+    "canonical_equation": "\u03c7(X) = C_W[ \u220f_i X_i ]",
+    "math_translation": "Placeholder rate equation using undefined prose factors and an ellipsis.",
+    "plain_translation": "This is a sketch, not a finished equation.",
+    "theological_translation": "Theological terms must be given rigorous definitions before they can carry weight in a rate equation.",
+    "proposed_replacement": "\u2202\u03c1/\u2202t = \u03b7(\u03c1,t) + L(\u03c1)",
+    "confidence": 0.90,
+    "evidence": ["MEQ-00-MasterOutline.md:254"]
+  },
+  {
+    "fingerprint": "5ea8dd87c694a6d4fda36fcba92691f93c1fd4bb27eb8041280ac3e4de003907",
+    "classification": "new_canonical_candidate",
+    "canonical_id": "law-07-heisenberg-faith",
+    "canonical_equation": "\u03c1_ij = e^(-Q\u00b7d_ij) \u00b7 \u03c8_i \u00b7 \u03c8*_j",
+    "math_translation": "Density-matrix element decays exponentially with faith-distance between states i and j.",
+    "plain_translation": "Two possibilities interfere less when they are far apart in faith-space.",
+    "theological_translation": "Faith sets the coherence length between spiritual possibilities; unbelief is distance.",
+    "confidence": 0.75,
+    "evidence": ["MEQ-00-MasterOutline.md:269"]
+  },
+  {
+    "fingerprint": "f2b148b0bb8cb74469aef63184c66232dee8a1c57010acf0c2c5b5a42000da21",
+    "classification": "new_canonical_candidate",
+    "canonical_id": "law-08-einstein-frame",
+    "canonical_equation": "T\u0302 = \u222b P\u0302(t)\u00b7H\u00b7\u03a8 dt",
+    "math_translation": "A time/observable operator is the integral over time of a projector, Hamiltonian, and state.",
+    "plain_translation": "Time is measured by the accumulated pattern of events and their energy.",
+    "theological_translation": "The grace-frame integrates observer, history, and state into one measured sequence.",
+    "confidence": 0.70,
+    "evidence": ["MEQ-00-MasterOutline.md:281"]
+  },
+  {
+    "fingerprint": "4d1775f1446b537ad3dbc8201acc71fdf19e6657007aa21c35f89106a611ac4b",
+    "classification": "new_canonical_candidate",
+    "canonical_id": "law-07-heisenberg-faith",
+    "canonical_equation": "P(outcome) = |\u03b1|\u00b2\u00b7(1 + F\u00b7cos(\u03b8))",
+    "math_translation": "Outcome probability equals base quantum probability modulated by a faith factor and relative phase.",
+    "plain_translation": "The chance of a result is adjusted by how much faith and alignment are present.",
+    "theological_translation": "Faith does not override probability; it enters as a measurable modifier of the weights.",
+    "confidence": 0.75,
+    "evidence": ["MEQ-00-MasterOutline.md:346"]
+  },
+  {
+    "fingerprint": "b649a80e4c1d40b0227be816983b3e6e793eb266628ebb5edde83ca18f647887",
+    "classification": "new_canonical_candidate",
+    "canonical_id": "law-05-clausius-judgment",
+    "canonical_equation": "dS/dt = \u03a3_i f(\u0394_i) - R(\u039b)",
+    "math_translation": "Entropy rate equals the sum of all alignment-gap contributions minus a restoration term depending on the Law variable.",
+    "plain_translation": "Disorder grows with every way the system is out of alignment, minus the repair effect of judgment.",
+    "theological_translation": "Sin fragments; righteousness restores. Net entropy is the balance.",
+    "confidence": 0.80,
+    "evidence": ["MEQ-00-MasterOutline.md:783"]
+  }
+]

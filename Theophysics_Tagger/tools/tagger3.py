@@ -47,6 +47,7 @@ from datetime import datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 import tagger2 as T2  # noqa: E402  (the tagging engine)
 
 TAGGER_VERSION = "3.0.0"

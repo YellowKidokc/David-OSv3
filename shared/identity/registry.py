@@ -104,24 +104,44 @@ class IdentityRegistry:
         issued = con.execute('SELECT registry_id FROM document_identities WHERE uuid7=?', (token,)).fetchone()
         return {'uuid7': token, 'registry_id': issued[0] if issued else None}
 
-    def assign(self, path, series, position, original_title) -> dict:
-        """Bind an observed object to an explicit, immutable public assignment."""
+    def assign(self, path, series, position, original_title, *, con=None) -> dict:
+        """Bind an observation to an explicit assignment; supports atomic batches."""
+        if con is None:
+            connection = self._connect()
+            try:
+                with connection:
+                    connection.execute('BEGIN IMMEDIATE')
+                    return self.assign(path, series, position, original_title, con=connection)
+            finally:
+                connection.close()
         key = document_id(series, position, original_title)
-        con = self._connect()
-        try:
-            with con:
-                con.execute('BEGIN IMMEDIATE')
-                ref = self.reference(path, con=con)
-                existing = con.execute('SELECT * FROM document_identities WHERE registry_id=? OR uuid7=? OR (series=? AND position=?)',
-                                       (key, ref['uuid7'], series, position)).fetchall()
-                if existing:
-                    if len(existing) != 1 or existing[0]['registry_id'] != key or existing[0]['uuid7'] != ref['uuid7']:
-                        raise ValueError('assignment conflicts with existing identity; explicit reconciliation required')
-                    return dict(existing[0])
-                con.execute('INSERT INTO document_identities VALUES(?,?,?,?,?)', (key, ref['uuid7'], series, position, original_title))
-                return dict(con.execute('SELECT * FROM document_identities WHERE registry_id=?', (key,)).fetchone())
-        finally:
-            con.close()
+        ref = self.reference(path, con=con)
+        existing = con.execute('SELECT * FROM document_identities WHERE registry_id=? OR uuid7=? OR (series=? AND position=?)',
+                               (key, ref['uuid7'], series, position)).fetchall()
+        if existing:
+            if len(existing) != 1 or existing[0]['registry_id'] != key or existing[0]['uuid7'] != ref['uuid7']:
+                raise ValueError('assignment conflicts with existing identity; explicit reconciliation required')
+            return dict(existing[0])
+        con.execute('INSERT INTO document_identities VALUES(?,?,?,?,?)', (key, ref['uuid7'], series, position, original_title))
+        return dict(con.execute('SELECT * FROM document_identities WHERE registry_id=?', (key,)).fetchone())
+
+    def alias(self, token, scheme, alias, *, con=None):
+        if not isinstance(scheme, str) or not scheme.strip() or not isinstance(alias, str) or not alias.strip():
+            raise ValueError('nonempty alias scheme and value required')
+        if con is None:
+            connection = self._connect()
+            try:
+                with connection:
+                    connection.execute('BEGIN IMMEDIATE')
+                    return self.alias(token, scheme, alias, con=connection)
+            finally:
+                connection.close()
+        if not con.execute('SELECT 1 FROM registry_objects WHERE uuid7=?', (token,)).fetchone():
+            raise ValueError('alias must reference an issued registry UUID')
+        old = con.execute('SELECT uuid7 FROM identity_aliases WHERE scheme=? AND alias=?', (scheme, alias)).fetchone()
+        if old and old[0] != token:
+            raise ValueError('legacy alias already belongs to another object')
+        con.execute('INSERT OR IGNORE INTO identity_aliases VALUES(?,?,?)', (scheme, alias, token))
 
     def relocate(self, old_path, new_path):
         """Add a location alias after a verified move; retain old path for rollback."""

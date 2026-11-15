@@ -52,3 +52,20 @@ def gui():
 
 if __name__ == '__main__':
     raise SystemExit(main())
+
+
+def watch_legacy_config(config_path):
+    """Translate an existing explicit resident config; never invent watched roots."""
+    import json
+    data = json.loads(Path(config_path).read_text(encoding='utf-8'))
+    roots = data.get('watch_folders')
+    if not isinstance(roots, list) or not roots or not all(isinstance(r, str) and r for r in roots):
+        raise ValueError('legacy watch configuration must contain explicit watch_folders')
+    if not data.get('db_path'):
+        raise ValueError('legacy watch configuration requires db_path')
+    args = legacy_arguments([roots[0], '--db', data['db_path'], '--quickhash'])
+    args[0] = 'watch'
+    for root in roots[1:]: args.extend(['--source', root])
+    sys.path.insert(0, str(TOOLS))
+    from tagger3 import main as canonical_main
+    return canonical_main(args)

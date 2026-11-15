@@ -57,7 +57,13 @@ def main(argv=None):
         elif args.command == 'root':
             result = service.configure_root(store, args.folder, args.enable_html)
         elif args.command == 'approve':
-            result = {'approval': transaction.approve(store, args.plan, args.hash, args.row)}
+            from fis.approval import record_decision, authorize
+            plan = store.get('plan', args.plan)
+            transaction.verify_plan(plan)
+            if plan['hash'] != args.hash:
+                raise ValueError('Plan changed; reload before approving')
+            rows = args.row if args.row is not None else [r['id'] for r in plan['rows'] if not r['flag']]
+            result = {'approval': authorize(store, record_decision(plan, rows, 'approved'))}
         elif args.command == 'apply':
             result = transaction.apply(store, args.plan, args.approval)
         elif args.command == 'undo':

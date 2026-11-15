@@ -418,7 +418,16 @@ def ensure_compat_views(conn: sqlite3.Connection) -> None:
         pass
 
 
+def registry_projection(conn, path):
+    from shared.identity.registry import IdentityRegistry
+    ref = IdentityRegistry().reference(path)
+    conn.execute('CREATE TABLE IF NOT EXISTS registry_refs(path TEXT PRIMARY KEY, registry_uuid TEXT NOT NULL, registry_id TEXT)')
+    conn.execute('INSERT OR REPLACE INTO registry_refs VALUES(?,?,?)', (str(path), ref['uuid7'], ref['registry_id']))
+    return ref
+
+
 def upsert_folder(conn: sqlite3.Connection, folder: Path, files: list[Path], children: list[Path]) -> str:
+    registry_projection(conn, folder)
     fid = item_id(folder, "FLD")
     created = datetime.fromtimestamp(folder.stat().st_ctime, UTC).replace(microsecond=0).isoformat()
     folder_type = directory_kind(folder)
@@ -439,6 +448,7 @@ def upsert_folder(conn: sqlite3.Connection, folder: Path, files: list[Path], chi
 
 
 def upsert_file(conn: sqlite3.Connection, folder_id: str, path: Path) -> None:
+    registry_projection(conn, path)
     stat = path.stat()
     features = html_features(path)
     address = file_lossless_address(path)

@@ -27,9 +27,10 @@ dos-worker = "hub.workers.runner:main"
 rule-brick = "rule_brick.cli:main"
 
 [tool.setuptools.packages.find]
-include = ["hub*", "engine*", "agents*", "pipeline*", "folder_hub*", "rule_brick*", "shared*", "fis*", "prediction*"]
+include = ["hub*", "engine*", "agents*", "pipeline*", "folder_hub*", "rule_brick*", "shared*", "fis*", "prediction*", "Theophysics_Tagger*"]
 
 [tool.setuptools.package-data]
+Theophysics_Tagger = ["01_REGISTRY/*.csv", "01_REGISTRY/*.txt"]
 prediction = ["engines/*/engine.json"]
 fis = ["data/*.json", "data/*.md", "static/*"]
 folder_hub = ["static/*.js"]

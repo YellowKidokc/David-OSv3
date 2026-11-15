@@ -79,7 +79,7 @@ _JSON_FIELDS = {"chi_vector", "domain_scores", "tags", "engine_predictions"}
 # time). The DB is additive: we ALTER in anything absent instead of failing.
 _EXPECTED_COLS = {
     "gate_category": "TEXT", "gate_tier": "TEXT", "gate_route": "TEXT",
-    "gate_access": "TEXT", "engine_predictions": "TEXT",
+    "gate_access": "TEXT", "engine_predictions": "TEXT", "registry_uuid": "TEXT", "registry_id": "TEXT",
 }
 
 
@@ -118,8 +118,10 @@ def get_one(con: sqlite3.Connection, path: str) -> Optional[sqlite3.Row]:
 
 def upsert_file(con: sqlite3.Connection, rec: dict) -> None:
     """Path-keyed additive upsert of a FileRecord-shaped dict."""
+    from shared.identity.registry import IdentityRegistry
+    reference = IdentityRegistry().reference(rec["path"])
     now = _now()
-    cols = [
+    cols = ["registry_uuid", "registry_id",
         "path", "name", "ext", "size_bytes", "sha256", "modified_at", "created_at",
         "source_root", "domain", "domain_label", "content_type", "status", "date",
         "topic_slug", "chi_vector", "chi_primary", "chi_secondary", "chi_confidence",
@@ -130,6 +132,7 @@ def upsert_file(con: sqlite3.Connection, rec: dict) -> None:
     ]
     # FileRecord uses "extension"; DB column is "ext"
     src = dict(rec)
+    src.update(registry_uuid=reference["uuid7"], registry_id=reference["registry_id"])
     src.setdefault("ext", src.get("extension"))
     vals = {}
     for c in cols:

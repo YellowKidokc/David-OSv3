@@ -475,7 +475,8 @@ def init_db(db_path: Path, schema_path: Optional[Path] = None) -> sqlite3.Connec
 
 def process_file(path: Path, lex: LexiconStore, out_dir: Path) -> Dict[str, Any]:
     raw = read_text(path)
-    file_id = sha256_text(str(path) + raw[:1000])[:16]
+    from shared.identity.registry import IdentityRegistry
+    file_id = IdentityRegistry().reference(path)['uuid7']
     paras = split_paragraphs_with_offsets(raw, file_id)
     sents = split_sentences_from_paragraphs(paras)
     profiles = extract_profiles(file_id, raw, lex)

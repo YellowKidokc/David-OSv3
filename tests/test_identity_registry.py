@@ -65,3 +65,18 @@ def test_registry_does_not_merge_distinct_paths_by_content(tmp_path):
     assert r.reference(tmp_path/'a.md')['uuid7'] != r.reference(tmp_path/'b.md')['uuid7']
     with pytest.raises(ValueError):
         r.relocate(tmp_path/'a.md', tmp_path/'b.md')
+
+
+def test_explicit_migration_is_dry_by_default_and_atomic(tmp_path):
+    from shared.identity.migrate import migrate
+    path = tmp_path/'registry.sqlite'
+    mapping = {'reviewed_by':'David', 'entries':[{'path':str(tmp_path/'a.md'), 'series':'MIM',
+        'position':0, 'original_title':'Mephistopheles', 'aliases':[{'scheme':'work','value':'W000001'}]}]}
+    assert not migrate(mapping, path)['applied'] and not path.exists()
+    first = migrate(mapping, path, True)
+    assert migrate(mapping, path, True) == first
+    mapping['entries'].append({'path':str(tmp_path/'b.md'), 'series':'MIM', 'position':1,
+        'original_title':'Other', 'aliases':[{'scheme':'work','value':'W000001'}]})
+    with pytest.raises(ValueError): migrate(mapping, path, True)
+    with sqlite3.connect(path) as con:
+        assert con.execute('SELECT count(*) FROM document_identities').fetchone()[0] == 1

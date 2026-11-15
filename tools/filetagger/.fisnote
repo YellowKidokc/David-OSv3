@@ -1,0 +1,28 @@
+---
+fis_schema: "folder-index.v1"
+folder_id: "FLD-20260906-9175f93c"
+folder: "David-OS\ZZZ_ARCHIVE_CLEANUP_2026-08-13\_salvage_boot_up\filetagger"
+folder_class: "project"
+confidence: 0.6
+dependency_risk: 0.0
+dominant_family: "code"
+dominant_ratio: 0.806
+file_count: 31
+classified_at: "2026-09-06T05:54:51"
+allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
+suggested_name: "filetagger"
+---
+
+# FIS Folder Index: filetagger
+
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 31  ·  **Dominant**: code (81%)
+
+## Allowed actions
+- index
+- rename_internal
+- subfolder_sort
+- archive_exports
+
+**Suggested name**: `filetagger`  (not applied — review before use)
+
+<!-- FIS folder-index.v1: parseable note; safe to regenerate. -->

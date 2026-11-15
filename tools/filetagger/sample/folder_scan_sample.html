@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scan Report — sample</title>
+<style>
+:root {
+    --bg: #0f1117;
+    --panel: #161922;
+    --panel-2: #1c2030;
+    --line: #262d3d;
+    --amber: #d9a441;
+    --cyan: #5fb3ae;
+    --ink: #e4e1d8;
+    --ink-dim: #8f96a3;
+    --ink-faint: #555d6e;
+    --red: #ef4444;
+    --green: #4ade80;
+    --radius: 8px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap');
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--ink); font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.6; padding: 24px; max-width: 1100px; margin: 0 auto; }
+h1 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: var(--amber); margin-bottom: 4px; }
+h2 { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--ink-faint); margin: 32px 0 16px 0; display: flex; align-items: center; gap: 8px; }
+h2::before { content: ''; width: 4px; height: 4px; background: var(--amber); border-radius: 50%; }
+.subtitle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--ink-dim); margin-bottom: 24px; }
+
+/* Grade */
+.grade-section { display: flex; align-items: center; gap: 24px; padding: 24px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 20px; flex-wrap: wrap; }
+.grade-circle { width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-size: 36px; font-weight: 700; color: #0f1117; flex-shrink: 0; }
+.grade-info { flex: 1; min-width: 200px; }
+.grade-score { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; }
+.grade-meta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--ink-dim); margin-top: 4px; }
+.stats-row { display: flex; gap: 16px; margin-top: 12px; flex-wrap: wrap; }
+.stat { background: var(--panel-2); padding: 8px 14px; border-radius: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; }
+.stat b { color: var(--amber); }
+
+/* Delta */
+.delta-card { background: var(--panel-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 16px; margin-bottom: 20px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.delta-arrow { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; }
+.delta-label { font-size: 13px; color: var(--ink-dim); }
+.delta-detail { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--ink-faint); margin-left: auto; }
+
+/* Severity summary */
+.sev-row { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+.sev-chip { padding: 6px 14px; border-radius: 20px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; }
+
+/* Category bars */
+.cat-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.cat-label { width: 130px; font-size: 12px; color: var(--ink-dim); text-align: right; flex-shrink: 0; }
+.cat-bar-bg { flex: 1; height: 14px; background: var(--panel-2); border-radius: 7px; overflow: hidden; }
+.cat-bar-fill { height: 100%; border-radius: 7px; transition: width 0.5s; }
+.cat-count { width: 30px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--ink-dim); }
+
+/* Symptoms */
+.symptom-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 18px; margin-bottom: 10px; }
+.symptom-header { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.symptom-id { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--cyan); font-weight: 500; }
+.sev-badge { font-size: 10px; font-weight: 600; color: #fff; padding: 2px 8px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+.sev-badge-sm { font-size: 9px; font-weight: 600; color: #fff; padding: 1px 6px; border-radius: 8px; }
+.symptom-name { font-weight: 600; font-size: 14px; }
+.symptom-count { margin-left: auto; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--amber); font-weight: 600; }
+.auto-tag { font-size: 9px; font-weight: 600; color: var(--green); border: 1px solid var(--green); padding: 1px 6px; border-radius: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+.symptom-desc { font-size: 12.5px; color: var(--ink-dim); margin-top: 6px; }
+.paths-list { margin-top: 8px; }
+.path-item { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--ink-faint); padding: 2px 0; word-break: break-all; }
+.path-more { font-size: 11px; color: var(--ink-faint); font-style: italic; }
+
+/* Work order table */
+.wo-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+.wo-table th { font-family: 'Space Grotesk', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--ink-faint); text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+.wo-table td { padding: 8px 10px; border-bottom: 1px solid var(--line); }
+.wo-pri { font-family: 'IBM Plex Mono', monospace; color: var(--amber); font-weight: 600; }
+.wo-id { font-family: 'IBM Plex Mono', monospace; color: var(--cyan); }
+.wo-count { font-family: 'IBM Plex Mono', monospace; text-align: center; }
+.wo-action { font-size: 12px; color: var(--ink-dim); }
+.wo-effort { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--ink-faint); white-space: nowrap; }
+
+/* Footer */
+.footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--line); font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--ink-faint); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+/* Clean section */
+.clean-banner { background: linear-gradient(135deg, #064e3b, #0f1117); border: 1px solid #22c55e33; border-radius: var(--radius); padding: 24px; text-align: center; }
+.clean-banner h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; color: var(--green); margin-bottom: 8px; }
+
+@media print { body { background: #fff; color: #111; } .grade-circle { border: 3px solid #000; } }
+</style>
+</head>
+<body>
+
+<h1>Folder Health Report</h1>
+<div class="subtitle">D:\DONT TOUCH BOOT UP\filetagger\sample — 2026-07-03T02:04:37</div>
+
+<div class="grade-section">
+    <div class="grade-circle" style="background:#4ade80">A</div>
+    <div class="grade-info">
+        <div class="grade-score">100 / 100</div>
+        <div class="grade-meta">12 files across 1 directories</div>
+        <div class="stats-row">
+            <div class="stat"><b>0</b> critical</div>
+            <div class="stat"><b>0</b> high</div>
+            <div class="stat"><b>0</b> medium</div>
+            <div class="stat"><b>0</b> low</div>
+            <div class="stat"><b>0</b> total symptoms</div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="sev-row">
+    <span class="sev-chip" style="background:#dc262633;color:#fca5a5">⚠ 0 Critical</span>
+    <span class="sev-chip" style="background:#ea580c33;color:#fdba74">▲ 0 High</span>
+    <span class="sev-chip" style="background:#d9770633;color:#fde68a">▪ 0 Medium</span>
+    <span class="sev-chip" style="background:#6b728033;color:#d1d5db">· 0 Low</span>
+</div>
+
+<h2>Category Breakdown</h2>
+
+
+<div class="clean-banner"><h3>✓ No symptoms detected</h3><p>This folder is clean.</p></div>
+
+
+
+
+<h2>Symptom Details</h2>
+<div style="color:var(--ink-faint)">No symptoms to display.</div>
+
+<div class="footer">
+    <span>Folder Symptom Scanner v1.0 — Source 22003</span>
+    <span>Schema: TopOfMind v1.0</span>
+    <span>Generated 2026-07-03 02:04</span>
+</div>
+
+</body>
+</html>

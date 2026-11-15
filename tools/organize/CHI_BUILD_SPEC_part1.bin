@@ -1,0 +1,15 @@
+# BUILD SPEC: .chi Folder Metadata + Learning File Classifier
+## POF 2828 | June 11, 2026
+## Handoff to: Claude Code / Codex / Any AI with filesystem access
+
+---
+
+## WHAT WE'RE BUILDING
+
+Three connected components:
+
+1. **`.chi` folder sidecar generator** — drops a `_folder.chi` metadata file in every folder
+2. **Learning file classifier** — Markov chain + LLM fallback that gets better at naming/classifying over time
+3. **Scheduled automation** — bat/task that runs nightly to keep metadata fresh
+
+All code goes in `D:\GitHub\organize\`. Database is `D:\GitHub\organize\organize.db` (already exists with tables: drives, files, snapshots, actions, batches).

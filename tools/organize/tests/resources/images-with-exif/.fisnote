@@ -1,0 +1,29 @@
+---
+fis_schema: "folder-index.v1"
+folder_id: "FLD-20260906-be7c8cbc"
+folder: "David-OS\ZZZ_ARCHIVE_CLEANUP_2026-08-13\_salvage_boot_up\organize\tests\resources\images-with-exif"
+folder_class: "media"
+confidence: 0.833
+dependency_risk: 0.0
+dominant_family: "media"
+dominant_ratio: 0.833
+file_count: 6
+classified_at: "2026-09-06T05:54:53"
+allowed_actions: ["rename", "sort_date", "sort_type", "dedupe", "archive"]
+suggested_name: "media_images-with-exif"
+---
+
+# FIS Folder Index: images-with-exif
+
+**Class**: media  ·  **Confidence**: 83%  ·  **Files**: 6  ·  **Dominant**: media (83%)
+
+## Allowed actions
+- rename
+- sort_date
+- sort_type
+- dedupe
+- archive
+
+**Suggested name**: `media_images-with-exif`  (not applied — review before use)
+
+<!-- FIS folder-index.v1: parseable note; safe to regenerate. -->

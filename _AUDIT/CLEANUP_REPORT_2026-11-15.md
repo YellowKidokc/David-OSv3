@@ -78,21 +78,21 @@ add tests or document results; they do not combine independent moves.
 
 | Commit | Original | Destination / treatment |
 |---|---|---|
-| `0c2f4ba` | `file-intelligence-system/structural_evidence.py` implementation | `fis/structural_evidence.py`; original path becomes a forwarding entry point |
-| `626b5b7` | `file-intelligence-system/fis_namer.py` implementation | `fis/fis_namer.py`; original path forwards |
-| `154c94c` | `file-intelligence-system/fis_classifier.py` implementation | `fis/fis_classifier.py`; original path forwards |
-| `0e2cfed` | `file-intelligence-system/fis_folder_memory.py` implementation | `fis/fis_folder_memory.py`; original path forwards; old DB default retained |
-| `9e33cc4` | `apps/classify/src/engines/fis/` | `_archive/2026-11-15/apps/classify/src/engines/fis/`; app imports canonical package |
-| `5188c01` | `file-intelligence-system/fis_folder_memory.v2.1.0.py` | `_archive/2026-11-15/file-intelligence-system/fis_folder_memory.v2.1.0.py` |
-| `bfcabd0` | `files.zip` | `_archive/2026-11-15/files.zip` |
-| `1b35f15` | `scripts.zip` | `_archive/2026-11-15/scripts.zip` |
-| `a023957` | `theophysics-read - Shortcut.lnk` | `_archive/2026-11-15/theophysics-read - Shortcut.lnk` |
-| `662aa18` | `_BUILD_BRIEF_STAGE1_INVENTORY_REGISTRY.md` | `02_INVENTORY/docs/_BUILD_BRIEF_STAGE1_INVENTORY_REGISTRY.md` |
+| `44c84a5` | `file-intelligence-system/structural_evidence.py` implementation | `fis/structural_evidence.py`; original path becomes a forwarding entry point |
+| `242aaed` | `file-intelligence-system/fis_namer.py` implementation | `fis/fis_namer.py`; original path forwards |
+| `b310655` | `file-intelligence-system/fis_classifier.py` implementation | `fis/fis_classifier.py`; original path forwards |
+| `a53554d` | `file-intelligence-system/fis_folder_memory.py` implementation | `fis/fis_folder_memory.py`; original path forwards; old DB default retained |
+| `03ac3bc` | `apps/classify/src/engines/fis/` | `_archive/2026-11-15/apps/classify/src/engines/fis/`; app imports canonical package |
+| `3f3a900` | `file-intelligence-system/fis_folder_memory.v2.1.0.py` | `_archive/2026-11-15/file-intelligence-system/fis_folder_memory.v2.1.0.py` |
+| `c15792b` | `files.zip` | `_archive/2026-11-15/files.zip` |
+| `797eed8` | `scripts.zip` | `_archive/2026-11-15/scripts.zip` |
+| `61b6777` | `theophysics-read - Shortcut.lnk` | `_archive/2026-11-15/theophysics-read - Shortcut.lnk` |
+| `b2f9998` | `_BUILD_BRIEF_STAGE1_INVENTORY_REGISTRY.md` | `02_INVENTORY/docs/_BUILD_BRIEF_STAGE1_INVENTORY_REGISTRY.md` |
 
 Every archive has a one-line adjacent `ARCHIVE_NOTE.txt` or
 `<filename>.ARCHIVE_NOTE.txt`. No retired source was deleted.
 
-`e97346e` extracts χ signals/scoring, full/short names, coupling pairs, folder
+`8bfc053` extracts χ signals/scoring, full/short names, coupling pairs, folder
 aggregation and lossless addressing into `shared/meq_namer.py`. The two
 classifier/namer copies were identical before extraction. The archived app
 copies include the extraction imports; the immutable base commit retains the

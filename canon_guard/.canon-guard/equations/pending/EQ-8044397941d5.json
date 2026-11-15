@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-8044397941d5",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.506492+00:00",
+  "source": {
+    "path": "MEQ-MATH_TRANSLATION_LAYER_COMPLETE.md",
+    "line": 1204,
+    "source_sha256": "5440c159540b3383eb700f6813c8ce2639dc0b94066b2b25f8b4a3eccbad7510"
+  },
+  "equation": {
+    "raw": "$S = \\int_{t_1}^{t_2} L(q, \\dot{q}, t) \\, dt",
+    "normalized": "$s=\\int_{t_1}^{t_2}l(q,\\dot{q},t)\\,dt",
+    "fingerprint": "8044397941d557a0cb7e80b038d04554b5a7566ebb8fce224d25407cacc55189"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-4c09d9e669c0",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.760774+00:00",
+  "source": {
+    "path": "MEQ-TheUnifiedFrameworkofConsciousnessPhysicsandSpirituality1.md",
+    "line": 13698,
+    "source_sha256": "be90edbe239d14df21d03f83e18d891d7b47e73fafc89c737757c8bfb039a8d5"
+  },
+  "equation": {
+    "raw": "Gravity (T = 1/√G)",
+    "normalized": "gravity(t=1/√g)",
+    "fingerprint": "4c09d9e669c0b840c77b133f3c13244eeb6a343bf7be83193202f6299c978aa8"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

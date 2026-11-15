@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-e6425baac7db",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.186624+00:00",
+  "source": {
+    "path": "MEQ-130_PRED18.1_H0-Prediction-2025-2030.md",
+    "line": 36,
+    "source_sha256": "fae0715cd0875eb21d3d3256bdc265239b710a600ded523622b9a8bdd1fef4da"
+  },
+  "equation": {
+    "raw": "H_0 = 70.5 \\pm 1.0 \\text{ km/s/Mpc}",
+    "normalized": "h_0=70.5\\pm1.0km/s/mpc",
+    "fingerprint": "e6425baac7db3a12ea81d6570b0978bdd8b0714a9f0ec91a47ad2ab3c9721bcf"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

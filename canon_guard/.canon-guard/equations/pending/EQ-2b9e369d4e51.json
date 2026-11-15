@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-2b9e369d4e51",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.696813+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Trinity_Pattern_of_Reality.md",
+    "line": 778,
+    "source_sha256": "2dc07683dd107674173e8efce5ca7eba51cb6e6fe2bc8ff1a908f270c8927c62"
+  },
+  "equation": {
+    "raw": "S = ∫(faith × grace)dt where:",
+    "normalized": "s=integral(faith*grace)dtwhere:",
+    "fingerprint": "2b9e369d4e518174498d0cf0ff89dad0be615c71c93bc6ea76f72dcfb037db52"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

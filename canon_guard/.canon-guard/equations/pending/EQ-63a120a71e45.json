@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-63a120a71e45",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.337749+00:00",
+  "source": {
+    "path": "MEQ-BreakingFreefromSinsGravity.md",
+    "line": 89,
+    "source_sha256": "fb5dfdb31c77d38b1379909b2a4414ae823c9a5cc46cc2922075f66fa095a3ff"
+  },
+  "equation": {
+    "raw": "🚀 **Faith = The initial thrust.**",
+    "normalized": "🚀**faith=theinitialthrust.**",
+    "fingerprint": "63a120a71e4533e6972b9d2f41f29030a08c65d509dfd11d301d0f97054d07c0"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

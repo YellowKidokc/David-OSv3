@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-19f510016e41",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.916828+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-UQCP_Mathematical_Refinement-Copy.md",
+    "line": 17266,
+    "source_sha256": "905e3b7ff0c2e737616e661eeb386c6241e2c450798cb98bffae8e6bc85c5c41"
+  },
+  "equation": {
+    "raw": "P(answer) = Q_probability × U_factor",
+    "normalized": "p(answer)=q_probability*u_factor",
+    "fingerprint": "19f510016e41a512fe97ff7a91ccaeee453e3c86249454669a8f99c427608a1b"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

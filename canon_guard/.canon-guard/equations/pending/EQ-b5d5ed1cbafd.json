@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-b5d5ed1cbafd",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.525508+00:00",
+  "source": {
+    "path": "MEQ-NucleusBonding1.md",
+    "line": 18,
+    "source_sha256": "614f45438ea3187ba1733be78120aa02cd0d77ae07057ed51cf234b6747d51e7"
+  },
+  "equation": {
+    "raw": "2. Connection Strength = K × (1/d²) × e^(-d/r₀)",
+    "normalized": "2.connectionstrength=k*(1/d^2)*e^(-d/r₀)",
+    "fingerprint": "b5d5ed1cbafdcb4b878a8b363d488a4f505ff398d5ff9b373baa3cab219cad04"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

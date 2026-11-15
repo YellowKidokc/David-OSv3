@@ -1,0 +1,42 @@
+{
+  "roots": [
+    {
+      "label": "David-OSv3 Script Hub",
+      "path": "D:\\GitHub\\David-OSv3\\tools\\codex-script-hub\\script_dump"
+    },
+    {
+      "label": "David-OS Tools",
+      "path": "D:\\GitHub\\David-OS\\tools"
+    },
+    {
+      "label": "David-OS Scripts",
+      "path": "D:\\GitHub\\David-OS\\scripts"
+    },
+    {
+      "label": "AHK",
+      "path": "D:\\DONT TOUCH BOOT UP\\AHK"
+    },
+    {
+      "label": "Organize",
+      "path": "D:\\DONT TOUCH BOOT UP\\organize"
+    },
+    {
+      "label": "Boot Up",
+      "path": "D:\\DONT TOUCH BOOT UP"
+    }
+  ],
+  "pinned": [],
+  "filters": {
+    "extensions": [
+      ".bat",
+      ".cmd",
+      ".ps1",
+      ".py"
+    ]
+  },
+  "ui": {
+    "window_width": 3277,
+    "window_height": 1617,
+    "accent": "#8be9fd"
+  }
+}

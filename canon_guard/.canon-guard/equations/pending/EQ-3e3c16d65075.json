@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-3e3c16d65075",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.442413+00:00",
+  "source": {
+    "path": "MEQ-MASTER_EQUATION_COMPLETE_DERIVATION_CHAIN_CANONICAL_DRAFT.md",
+    "line": 66,
+    "source_sha256": "a23dd68a49d21051ecc94ae2dbcb3645bb22f35af0c8611a260c827a8f2966e4"
+  },
+  "equation": {
+    "raw": "W = free-will coupling parameter.",
+    "normalized": "w=free-willcouplingparameter.",
+    "fingerprint": "3e3c16d65075c71afb5921ae9d17a7e9b310c006148b3d8cfa2d678d1c2dde19"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

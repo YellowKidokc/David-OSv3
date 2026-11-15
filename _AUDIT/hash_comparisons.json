@@ -1,0 +1,128 @@
+[
+  {
+    "a": "tools/fis-intelligence/state/fis_html.sqlite",
+    "b": "tools/fis/FIS-HTML-Intelligence/state/fis_html.sqlite",
+    "a_sha": "7044efe5e7deb37d91a48b20a019d1f7bd4300a9556ad5893ed81191b02ac3da",
+    "b_sha": "7044efe5e7deb37d91a48b20a019d1f7bd4300a9556ad5893ed81191b02ac3da",
+    "a_bytes": 133255168,
+    "b_bytes": 133255168,
+    "comparison": "byte-identical"
+  },
+  {
+    "a": "tools/fis-intelligence/src/cli.py",
+    "b": "tools/fis/FIS-HTML-Intelligence/src/cli.py",
+    "a_sha": "1f5a10f3288df9eed96a21b6e85f9ffb5a2731f66f371880a0e5c3d40dc6143d",
+    "b_sha": "1f5a10f3288df9eed96a21b6e85f9ffb5a2731f66f371880a0e5c3d40dc6143d",
+    "a_bytes": 1946,
+    "b_bytes": 1946,
+    "comparison": "byte-identical"
+  },
+  {
+    "a": "tools/fis-intelligence/src/fis_html_index.py",
+    "b": "tools/fis/FIS-HTML-Intelligence/src/fis_html_index.py",
+    "a_sha": "338731c28dc7d4f5d2dd78fabd4dd0ce8936f0ad8fa261892f2ebb70580583af",
+    "b_sha": "338731c28dc7d4f5d2dd78fabd4dd0ce8936f0ad8fa261892f2ebb70580583af",
+    "a_bytes": 20114,
+    "b_bytes": 20114,
+    "comparison": "byte-identical"
+  },
+  {
+    "a": "tools/fis-intelligence/src/fis_mcp_server.py",
+    "b": "tools/fis/FIS-HTML-Intelligence/src/fis_mcp_server.py",
+    "a_sha": "62fc250dc5534cbd92a63219c74515ca6d5f20818840aaf90e61da0eb48d3826",
+    "b_sha": "62fc250dc5534cbd92a63219c74515ca6d5f20818840aaf90e61da0eb48d3826",
+    "a_bytes": 3690,
+    "b_bytes": 3690,
+    "comparison": "byte-identical"
+  },
+  {
+    "a": "LossLess/_LOSSLESS_SUMMARY/lossless.py",
+    "b": "_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/lossless.py",
+    "a_sha": "16717f44ef56201b74f3a7e30911270b837179f6c9b2ae1dcf8ed07792ec5f7f",
+    "b_sha": "1166f18e462b6a2ca292a8e90968db89ba1e816d789e9080139c8ad231efd53e",
+    "a_bytes": 4956,
+    "b_bytes": 5111,
+    "comparison": "line-endings only"
+  },
+  {
+    "a": "LossLess/_LOSSLESS_SUMMARY/namer.py",
+    "b": "_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/namer.py",
+    "a_sha": "ff1b5b51fe1456c84f38a19c1d9abe2c5205e69656f83980afa7b079223889bd",
+    "b_sha": "3038bdf4601fbb380f7278e915b8b4f1ec0231117456c421fb81a6606ef03a9d",
+    "a_bytes": 3157,
+    "b_bytes": 3625,
+    "comparison": "different"
+  },
+  {
+    "a": "LossLess/_LOSSLESS_SUMMARY/deepseek_call.py",
+    "b": "_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/deepseek_call.py",
+    "a_sha": "95bceaba2b65155216aaeb247a862a00321466e83423ab4c6f24a736e17f6a0b",
+    "b_sha": "fdc153986f935ce362ad92c102848ad0596c535998b4c30a4e007168ef32a03b",
+    "a_bytes": 4324,
+    "b_bytes": 4450,
+    "comparison": "line-endings only"
+  },
+  {
+    "a": "LossLess/_LOSSLESS_SUMMARY/README.md",
+    "b": "_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/README.md",
+    "a_sha": "f548d5dc3f99660ba4627bfd5f63ca250d3f9e862fbb4c34084409da85d64f66",
+    "b_sha": "50cb56041c3b043af7f386f586c5b8a943cd04d99a982bab3a3a6720c3b094b4",
+    "a_bytes": 1426,
+    "b_bytes": 1494,
+    "comparison": "line-endings only"
+  },
+  {
+    "a": "tools/filetagger/filetagger.py",
+    "b": "tools/file-intelligence-sources/snapshots/filetagger/filetagger.py",
+    "a_sha": "7bd2bead4fef0ee266c5326cd02175784264df4dca64d3fbf0ff217fd0c36599",
+    "b_sha": "e28602888f7b6fc3b5a4550bee4fb382367b79e476ccc5c32fce3d9e700f9d10",
+    "a_bytes": 9067,
+    "b_bytes": 9291,
+    "comparison": "line-endings only"
+  },
+  {
+    "a": "tools/filetagger/foldertagger.py",
+    "b": "tools/file-intelligence-sources/snapshots/filetagger/foldertagger.py",
+    "a_sha": "b6e7f19034628869b14956e4438db2123441efb04da104300ad9b4574e03c59c",
+    "b_sha": "5edcf657891dbff9e5e711e208fa2e7669acda08d670cd1c854c19c2cc245349",
+    "a_bytes": 9218,
+    "b_bytes": 9481,
+    "comparison": "line-endings only"
+  },
+  {
+    "a": "tools/filetagger/filetagger_chi.py",
+    "b": "tools/file-intelligence-sources/snapshots/filetagger/filetagger_chi.py",
+    "a_sha": "86d02b0ea1f6e0a99a6f94e8eee05aeb6872261c61c6e944a4b5a9d022dc1cdb",
+    "b_sha": "047c0a66297c927f974e3ade266a37a048658840c32ec060c2b11102f44557cd",
+    "a_bytes": 11343,
+    "b_bytes": 11657,
+    "comparison": "line-endings only"
+  },
+  {
+    "a": "tools/filetagger/filetagger_chi_v2.py",
+    "b": "tools/file-intelligence-sources/snapshots/filetagger/filetagger_chi_v2.py",
+    "a_sha": "fb3ff3c506d240afa0823dbd956a9e4c47bd5b3b8ef5904173a8aa3b4a975a9c",
+    "b_sha": "d5c3131a511a24b9325db76fa28ae4c87f70720d288cc9b218007cfb40770a29",
+    "a_bytes": 17919,
+    "b_bytes": 18372,
+    "comparison": "line-endings only"
+  },
+  {
+    "a": "tools/filetagger/filetagger_daemon.py",
+    "b": "tools/file-intelligence-sources/snapshots/filetagger/filetagger_daemon.py",
+    "a_sha": "87e8821f2ccaf85a317a56123dd76716849b86a96435f40e0c50399431da5b17",
+    "b_sha": "6d27fe8bed186680d591016c0ee8cd27c4b59d364ad6c1aae6fa69f635383f75",
+    "a_bytes": 13571,
+    "b_bytes": 13971,
+    "comparison": "line-endings only"
+  },
+  {
+    "a": "tools/filetagger/chi_pipeline.py",
+    "b": "tools/file-intelligence-sources/snapshots/filetagger/chi_pipeline.py",
+    "a_sha": "bcbfd2c03a1e7c8ad9e6b6930fa3e2d15be7d3b084d34f801ea669edb26a5379",
+    "b_sha": "b417ee0dbda691f8341d8f0cab1afcc1d7b6c27c1beb4f2d508856ab26476091",
+    "a_bytes": 18878,
+    "b_bytes": 19338,
+    "comparison": "line-endings only"
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-6897465c26f0",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.217644+00:00",
+  "source": {
+    "path": "MEQ-138_D19.3_Law-III-Definition.md",
+    "line": 229,
+    "source_sha256": "1ba2b4adcb72697c91fc6298aad2520cafc3de4cb418d22ceab09da2d0aae1c6"
+  },
+  "equation": {
+    "raw": "= -k \\sum_i p_i \\ln p_i - k \\sum_j q_j \\ln q_j",
+    "normalized": "=-k\\sum_ip_i\\lnp_i-k\\sum_jq_j\\lnq_j",
+    "fingerprint": "6897465c26f0d8a4216bd7fd5ed460832639b6b64ef068eac50983f7d9793b0e"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

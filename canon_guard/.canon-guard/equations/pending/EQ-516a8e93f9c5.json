@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-516a8e93f9c5",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.318732+00:00",
+  "source": {
+    "path": "MEQ-2MasterEquation-Overview.md",
+    "line": 19,
+    "source_sha256": "6e55370f9c08451157b249867985b88de48dae69d48312c82c1759e16e329202"
+  },
+  "equation": {
+    "raw": "\\chi = G(R_p) e^{-(Q \\cdot C)} R(F) U(S_s)",
+    "normalized": "chi=g(r_p)e^{-(q*c)}r(f)u(s_s)",
+    "fingerprint": "516a8e93f9c59439424363a8234e046ad7369f1e7ccd49670a5f7dc1149b40fd"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

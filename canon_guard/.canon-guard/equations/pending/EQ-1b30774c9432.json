@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-1b30774c9432",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.206637+00:00",
+  "source": {
+    "path": "MEQ-137_D19.2_Law-II-Definition.md",
+    "line": 69,
+    "source_sha256": "9ad16c5ef5e54b240ec1bb70331d662332daeb12643162046f4ef1198ec34a69"
+  },
+  "equation": {
+    "raw": "G(t) = G_0 + \\int_0^t G_{\\text{ext}}(t') \\, dt'",
+    "normalized": "g(t)=g_0+\\int_0^tg_{ext}(t')\\,dt'",
+    "fingerprint": "1b30774c943291cd993ab9b945c553565b1d80608e9cdeee32fc2ce3db4ca82f"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

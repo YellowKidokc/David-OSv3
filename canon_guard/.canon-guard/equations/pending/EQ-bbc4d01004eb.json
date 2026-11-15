@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-bbc4d01004eb",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.087464+00:00",
+  "source": {
+    "path": "MEQ-10.md",
+    "line": 988,
+    "source_sha256": "fba2739802e5abaa4ecd6e7da4de10128ba6bc68dcff2be1c87f77ec78a7f554"
+  },
+  "equation": {
+    "raw": "> **Φ (Phi) = Measure of Consciousness**",
+    "normalized": ">**φ(phi)=measureofconsciousness**",
+    "fingerprint": "bbc4d01004ebbf738b3d44803f12e59d1fd9889b748219f72e7a570f5e2d4567"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

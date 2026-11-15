@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-6a6355255c54",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.825402+00:00",
+  "source": {
+    "path": "MEQ-Untitled3.md",
+    "line": 115,
+    "source_sha256": "a616fbb45fce5c443d054716ed35a8a9e1f8486a3bd0706804f3490c0b48d2b1"
+  },
+  "equation": {
+    "raw": "P_righteous = (e^(-B/ℏt))/(1+e^(-V/kT))",
+    "normalized": "p_righteous=(e^(-b/ℏt))/(1+e^(-v/kt))",
+    "fingerprint": "6a6355255c54e03b2dc4cdb88a0dd190d5e4bad5f3bf53ffba1ffa9694b84c07"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

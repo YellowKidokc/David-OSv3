@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-4a0532f3c168",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.152581+00:00",
+  "source": {
+    "path": "MEQ-126_PROT18.2_Consciousness-Collapse-Test.md",
+    "line": 350,
+    "source_sha256": "fd1bc59c586b8303363a4dd3bc340ea8dfdcbe4f44dc12beb5602aad68871f5f"
+  },
+  "equation": {
+    "raw": "mg = -\\nabla \\Phi_{magnetic}",
+    "normalized": "mg=-\\nabla\\phi_{magnetic}",
+    "fingerprint": "4a0532f3c168a4382251760e84c3c34cb32bbda8bd9d05ec6877a37967d43ca0"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

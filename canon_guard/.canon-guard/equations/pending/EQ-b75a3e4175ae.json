@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-b75a3e4175ae",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.424399+00:00",
+  "source": {
+    "path": "MEQ-MASTER_EQUATION.md",
+    "line": 56,
+    "source_sha256": "df4139d1c51178b2edbde72277544d2733f552457943b7ecf247c1a0fe424521"
+  },
+  "equation": {
+    "raw": "d/dt[χ(d/dt(Σᵢ Lᵢ))] - (d/dt(Σᵢ Lᵢ))² + S = 0",
+    "normalized": "d/dt[chi(d/dt(σᵢlᵢ))]-(d/dt(σᵢlᵢ))^2+s=0",
+    "fingerprint": "b75a3e4175aea9d79dc8320eb3f010fd045957c543a6b54b3747d7ccb04c9a54"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

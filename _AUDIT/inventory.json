@@ -1,0 +1,3623 @@
+[
+  {
+    "folder": "10_FILE_ACTIONS",
+    "file_count": 115,
+    "size_bytes": 7367815141,
+    "excluded_content_files": 20,
+    "tracked_files": 29,
+    "last_change": "2026-11-14T18:35:38-06:00",
+    "entry_points": [
+      {
+        "path": "10_FILE_ACTIONS/START_FILE_ACTIONS.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "10_FILE_ACTIONS/one_time/cleanup_god_is_love_bulk.ps1",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "10_FILE_ACTIONS/shared/apol_shadow.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "10_FILE_ACTIONS/shared/atom_links.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "10_FILE_ACTIONS/shared/deep_identify.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "10_FILE_ACTIONS/shared/deep_identify_to_quickcall.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "10_FILE_ACTIONS/shared/file_actions.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "10_FILE_ACTIONS/shared/folder_intelligence.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "10_FILE_ACTIONS/shared/large_list_reconciler.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "10_FILE_ACTIONS/shared/metastasize.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "10_FILE_ACTIONS/shared/runs/ftp_final/run_atoms_171.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "10_FILE_ACTIONS/shared/runs/ftp_final/run_atoms_ALL.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "10_FILE_ACTIONS/shared/series_aware_flatten.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "10_FILE_ACTIONS/shared/series_finder.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "10_FILE_ACTIONS/shared/singleton_group_vote.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "10_FILE_ACTIONS/shared/test_deep_identify.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "10_FILE_ACTIONS/shared/test_file_intelligence.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "10_FILE_ACTIONS/shared/test_series_aware_flatten.py",
+        "kind": "Python main",
+        "git": "tracked"
+      }
+    ],
+    "group": "Actions",
+    "status": "live",
+    "role": "File action launcher, deep classifiers, series grouping, scanners and generated logs.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".venv",
+      "03_CLASSIFY",
+      "LEAN 4"
+    ],
+    "provisional_dependents": [
+      ".data"
+    ]
+  },
+  {
+    "folder": "rule_brick",
+    "file_count": 9,
+    "size_bytes": 31374,
+    "excluded_content_files": 3,
+    "tracked_files": 6,
+    "last_change": "2026-11-07T11:47:28-06:00",
+    "entry_points": [
+      {
+        "path": "rule_brick/cli.py",
+        "kind": "Python main",
+        "git": "tracked"
+      }
+    ],
+    "group": "Actions",
+    "status": "live",
+    "role": "Advisory questions, work evidence, and receipts; no mutation authorization.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".venv",
+      "03_CLASSIFY",
+      "LEAN 4"
+    ],
+    "provisional_dependents": [
+      "tests"
+    ]
+  },
+  {
+    "folder": "03_CLASSIFY",
+    "file_count": 13938,
+    "size_bytes": 403088234,
+    "excluded_content_files": 13849,
+    "tracked_files": 81,
+    "last_change": "2026-11-14T18:20:10-06:00",
+    "entry_points": [
+      {
+        "path": "03_CLASSIFY/00_SHARED/blind_test_papers.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "03_CLASSIFY/00_SHARED/nabla/nabla_atlas.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "03_CLASSIFY/00_SHARED/notify.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "03_CLASSIFY/00_SHARED/taxonomy_validator.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "03_CLASSIFY/01_SIDECARS/sidecar_report.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "03_CLASSIFY/02_CLASSIFICATION/gui/app.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "03_CLASSIFY/02_CLASSIFICATION/gui/review.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "03_CLASSIFY/02_CLASSIFICATION/harness/adapters/chrome_history.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "03_CLASSIFY/02_CLASSIFICATION/harness/adapters/clipboard.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "03_CLASSIFY/02_CLASSIFICATION/harness/adapters/csv_events.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "03_CLASSIFY/02_CLASSIFICATION/harness/adapters/gate_events.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "03_CLASSIFY/02_CLASSIFICATION/harness/adapters/sidecars.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "03_CLASSIFY/02_CLASSIFICATION/intake/intake.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "03_CLASSIFY/03_RENAMING/rename_engine.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "03_CLASSIFY/03_RENAMING/renamer_gui.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "03_CLASSIFY/HARVEST_CHROME_YOUTUBE.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "03_CLASSIFY/HARVEST_CLIPBOARD_DITTO.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "03_CLASSIFY/INTAKE.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "03_CLASSIFY/PREDICT.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "03_CLASSIFY/RENAME.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "03_CLASSIFY/REPORT.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "03_CLASSIFY/REVIEW.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "03_CLASSIFY/SETUP_PREDICTION.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "03_CLASSIFY/VALIDATE.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "03_CLASSIFY/WATCH_CLIPBOARD.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "03_CLASSIFY/ZZZ_DELETE/review_py_before_deepseek/review.py",
+        "kind": "Python main",
+        "git": "tracked"
+      }
+    ],
+    "group": "Classify",
+    "status": "live",
+    "role": "MIM cards, validator, reviewer, renamer and local prediction adapters. Retain validation and route inference outward.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".data",
+      ".venv",
+      "LEAN 4",
+      "engine",
+      "fis",
+      "hub",
+      "tools"
+    ],
+    "provisional_dependents": [
+      ".data",
+      "01_PROFILE",
+      "04_ADAPT",
+      "05_TOPIC_COLLECTION",
+      "06_FIS_HTML",
+      "10_FILE_ACTIONS",
+      "FIS PICS HTML",
+      "LEAN 4",
+      "LossLess",
+      "Theophysics_Tagger",
+      "_FIS_ROOT_SIDECAR_ARCHIVE",
+      "_LOSSLESS_SUMMARY",
+      "agents",
+      "apps",
+      "canon_guard",
+      "docs",
+      "engine",
+      "file-intelligence-hub",
+      "file-intelligence-system",
+      "files",
+      "fis",
+      "folder_hub",
+      "gui",
+      "hub",
+      "pipeline",
+      "rule_brick",
+      "runs",
+      "scripts",
+      "services",
+      "shared",
+      "tests",
+      "tools"
+    ]
+  },
+  {
+    "folder": "04_ADAPT",
+    "file_count": 4,
+    "size_bytes": 19571,
+    "excluded_content_files": 1,
+    "tracked_files": 3,
+    "last_change": "2026-11-03T18:52:20-06:00",
+    "entry_points": [
+      {
+        "path": "04_ADAPT/ADAPT.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "04_ADAPT/adapt_cards.py",
+        "kind": "Python main",
+        "git": "tracked"
+      }
+    ],
+    "group": "Classify",
+    "status": "live",
+    "role": "ADAPT.bat mechanically stamps mim.v1; downstream depends on its output contract.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".venv",
+      "03_CLASSIFY",
+      "LEAN 4"
+    ],
+    "provisional_dependents": [
+      "tests"
+    ]
+  },
+  {
+    "folder": "legacy-adapters",
+    "file_count": 5,
+    "size_bytes": 2482,
+    "excluded_content_files": 0,
+    "tracked_files": 5,
+    "last_change": "2026-11-06T15:49:07-06:00",
+    "entry_points": [
+      {
+        "path": "legacy-adapters/chi_classifier.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "legacy-adapters/fingerprint.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "legacy-adapters/fis_classifier.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "legacy-adapters/rename_engine.py",
+        "kind": "Python main",
+        "git": "tracked"
+      }
+    ],
+    "group": "Classify",
+    "status": "live",
+    "role": "Compatibility routines; keep until unified strategy has confirmed callers.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".venv"
+    ],
+    "provisional_dependents": [
+      "apps",
+      "docs",
+      "gui",
+      "tests",
+      "tools"
+    ]
+  },
+  {
+    "folder": "Theophysics_Tagger",
+    "file_count": 136,
+    "size_bytes": 314554706,
+    "excluded_content_files": 5,
+    "tracked_files": 28,
+    "last_change": "2026-10-16T21:24:02-05:00",
+    "entry_points": [
+      {
+        "path": "Theophysics_Tagger/AI_HUB_ADD_TOKENS.ps1",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "Theophysics_Tagger/START_TAGGER.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "Theophysics_Tagger/tools/fis_propose.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "Theophysics_Tagger/tools/fistag.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "Theophysics_Tagger/tools/grow_tags.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "Theophysics_Tagger/tools/rebuild_combined_registry.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "Theophysics_Tagger/tools/tagger.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "Theophysics_Tagger/tools/tagger2.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "Theophysics_Tagger/tools/tagger3.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "Theophysics_Tagger/tools/tagger3_gui.py",
+        "kind": "Python main",
+        "git": "tracked"
+      }
+    ],
+    "group": "Classify",
+    "status": "live",
+    "role": "Tagger v3 GUI, evidence and SQLite catalog; START_TAGGER.bat. Optional watch and writes require review.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".venv",
+      "03_CLASSIFY",
+      "LEAN 4"
+    ],
+    "provisional_dependents": [
+      "engine",
+      "gui"
+    ]
+  },
+  {
+    "folder": "05_TOPIC_COLLECTION",
+    "file_count": 19,
+    "size_bytes": 2811003,
+    "excluded_content_files": 2,
+    "tracked_files": 8,
+    "last_change": "2026-11-03T18:44:04-06:00",
+    "entry_points": [
+      {
+        "path": "05_TOPIC_COLLECTION/1 RUN HERE.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "05_TOPIC_COLLECTION/2 OPEN OUTBOX.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "05_TOPIC_COLLECTION/BACKSIDE/run.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "05_TOPIC_COLLECTION/BACKSIDE/topic_gui.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "05_TOPIC_COLLECTION/OPEN GUI.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      }
+    ],
+    "group": "Content",
+    "status": "live",
+    "role": "Topic scan/selection/copy, GUI and batch; reuses gui/drive_harvester and engine/text_extractor.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".venv",
+      "03_CLASSIFY",
+      "LEAN 4",
+      "engine",
+      "gui"
+    ],
+    "provisional_dependents": [
+      "apps"
+    ]
+  },
+  {
+    "folder": "_LOSSLESS_SUMMARY",
+    "file_count": 19,
+    "size_bytes": 104787,
+    "excluded_content_files": 0,
+    "tracked_files": 19,
+    "last_change": "2026-11-03T18:44:04-06:00",
+    "entry_points": [
+      {
+        "path": "_LOSSLESS_SUMMARY/Invoke-LosslessFramework.ps1",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/deepseek_call.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/lossless.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/namer.py",
+        "kind": "Python main",
+        "git": "tracked"
+      }
+    ],
+    "group": "Content",
+    "status": "live",
+    "role": "More complete Lossless launcher, templates, sample papers and nested release.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".venv",
+      "03_CLASSIFY",
+      "LEAN 4"
+    ],
+    "provisional_dependents": []
+  },
+  {
+    "folder": "canon_guard",
+    "file_count": 1571,
+    "size_bytes": 52021205,
+    "excluded_content_files": 3,
+    "tracked_files": 15,
+    "last_change": "2026-07-27T03:04:36-05:00",
+    "entry_points": [
+      {
+        "path": "canon_guard/apply_batch_reviews.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "canon_guard/batch_catalog.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "canon_guard/canon_guard.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "canon_guard/equation_workflow.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "canon_guard/ratify_reviewed.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "canon_guard/tests/test_canon_guard.py",
+        "kind": "Python main",
+        "git": "tracked"
+      }
+    ],
+    "group": "Content",
+    "status": "live",
+    "role": "Downstream canon review and audit, not first-pass FIS or identity issuance.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".venv",
+      "03_CLASSIFY",
+      "LEAN 4"
+    ],
+    "provisional_dependents": []
+  },
+  {
+    "folder": "LEAN 4",
+    "file_count": 10158,
+    "size_bytes": 357060544,
+    "excluded_content_files": 10138,
+    "tracked_files": 20,
+    "last_change": "2026-11-08T19:27:25-06:00",
+    "entry_points": [
+      {
+        "path": "LEAN 4/theophysics_corpus_indexer/export_sidecars.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "LEAN 4/theophysics_corpus_indexer/me_sidecar.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "LEAN 4/theophysics_corpus_indexer/reclassify.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "LEAN 4/theophysics_corpus_indexer/run.py",
+        "kind": "Python main",
+        "git": "tracked"
+      }
+    ],
+    "group": "Content",
+    "status": "stale",
+    "role": "Formal source/corpus tools plus excluded .lake dependencies. Build/runtime not tested.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".venv",
+      "03_CLASSIFY"
+    ],
+    "provisional_dependents": [
+      ".data",
+      "01_PROFILE",
+      "03_CLASSIFY",
+      "04_ADAPT",
+      "05_TOPIC_COLLECTION",
+      "06_FIS_HTML",
+      "10_FILE_ACTIONS",
+      "FIS PICS HTML",
+      "LossLess",
+      "Theophysics_Tagger",
+      "_FIS_ROOT_SIDECAR_ARCHIVE",
+      "_LOSSLESS_SUMMARY",
+      "agents",
+      "apps",
+      "canon_guard",
+      "docs",
+      "engine",
+      "file-intelligence-hub",
+      "file-intelligence-system",
+      "files",
+      "fis",
+      "folder_hub",
+      "gui",
+      "hub",
+      "pipeline",
+      "rule_brick",
+      "runs",
+      "scripts",
+      "services",
+      "shared",
+      "tests",
+      "tools"
+    ]
+  },
+  {
+    "folder": "LossLess",
+    "file_count": 21,
+    "size_bytes": 2309532,
+    "excluded_content_files": 0,
+    "tracked_files": 21,
+    "last_change": "2026-08-12T07:31:48-05:00",
+    "entry_points": [
+      {
+        "path": "LossLess/_LOSSLESS_SUMMARY/deepseek_call.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "LossLess/_LOSSLESS_SUMMARY/lossless.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "LossLess/_LOSSLESS_SUMMARY/namer.py",
+        "kind": "Python main",
+        "git": "tracked"
+      }
+    ],
+    "group": "Content",
+    "status": "duplicate",
+    "role": "Unpacked old Lossless script tree; two scripts match after line-ending normalization; namer differs.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".venv",
+      "03_CLASSIFY",
+      "LEAN 4"
+    ],
+    "provisional_dependents": []
+  },
+  {
+    "folder": "pipeline",
+    "file_count": 4,
+    "size_bytes": 38266,
+    "excluded_content_files": 0,
+    "tracked_files": 4,
+    "last_change": "2026-11-03T18:44:04-06:00",
+    "entry_points": [
+      {
+        "path": "pipeline/chat_fat_cutter.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "pipeline/chat_topic_segmenter.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "pipeline/power_structure_scanner.py",
+        "kind": "Python main",
+        "git": "tracked"
+      }
+    ],
+    "group": "Content",
+    "status": "live",
+    "role": "Small Python downstream helpers; do not assign Rust content-engine ownership from this folder.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".venv",
+      "03_CLASSIFY",
+      "LEAN 4"
+    ],
+    "provisional_dependents": []
+  },
+  {
+    "folder": ".git",
+    "file_count": 76,
+    "size_bytes": 85164535,
+    "excluded_content_files": 76,
+    "tracked_files": 0,
+    "last_change": "2026-11-14T19:33:03-06:00",
+    "entry_points": [],
+    "group": "Control",
+    "status": "live",
+    "role": "Repository control metadata; contents skipped.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [],
+    "provisional_dependents": []
+  },
+  {
+    "folder": ".data",
+    "file_count": 7051,
+    "size_bytes": 348204768,
+    "excluded_content_files": 5922,
+    "tracked_files": 0,
+    "last_change": "2026-11-14T19:33:02-06:00",
+    "entry_points": [
+      {
+        "path": ".data/axiom_chain_191/condense_top20.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": ".data/axiom_chain_condensed/distill_to_atoms.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": ".data/fis-acceptance/20261025-115605/messy-copy/rename_engine.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": ".data/fis-acceptance/20261025-115605/messy-copy/renamer_gui.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": ".data/fis-background-acceptance/20261025-122132/real-folder-copy/rename_engine.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": ".data/fis-background-acceptance/20261025-122132/real-folder-copy/renamer_gui.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": ".data/fis-install-check/Scripts/activate.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": ".data/fis-install-check/Scripts/activate.ps1",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": ".data/fis-install-check/Scripts/deactivate.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": ".data/fis-install-check/Scripts/pydoc.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": ".data/matching-tools/godedupe/simple_benchmark.sh",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": ".data/series_exemplar_brief.ps1",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": ".data/series_exemplar_pull.ps1",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      }
+    ],
+    "group": "Data",
+    "status": "live",
+    "role": "Ignored canonical workbook, comparison reports, inventories and shadow outputs; ownership differs by artifact.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".venv",
+      "03_CLASSIFY",
+      "10_FILE_ACTIONS",
+      "LEAN 4",
+      "engine",
+      "fis",
+      "hub",
+      "tools"
+    ],
+    "provisional_dependents": [
+      "03_CLASSIFY",
+      "apps",
+      "tests"
+    ]
+  },
+  {
+    "folder": ".superpowers",
+    "file_count": 18,
+    "size_bytes": 2301447,
+    "excluded_content_files": 0,
+    "tracked_files": 0,
+    "last_change": "2026-10-15T12:24:32-05:00",
+    "entry_points": [],
+    "group": "Data",
+    "status": "stale",
+    "role": "Local design/checkpoint evidence; retain until owner decides.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [],
+    "provisional_dependents": []
+  },
+  {
+    "folder": "_data",
+    "file_count": 75,
+    "size_bytes": 2764914,
+    "excluded_content_files": 0,
+    "tracked_files": 0,
+    "last_change": "2026-11-08T17:56:17-06:00",
+    "entry_points": [],
+    "group": "Data",
+    "status": "live",
+    "role": "Working registry and Stage 2 receipts. Default path shared by registry and mutation gate.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [],
+    "provisional_dependents": []
+  },
+  {
+    "folder": "_FIS_ROOT_SIDECAR_ARCHIVE",
+    "file_count": 90534,
+    "size_bytes": 83833353,
+    "excluded_content_files": 6281,
+    "tracked_files": 0,
+    "last_change": "2026-10-07T05:08:50-05:00",
+    "entry_points": [
+      {
+        "path": "_FIS_ROOT_SIDECAR_ARCHIVE/EVIDENCE/sidecar_corpus_indexer/theophysics_corpus_indexer/export_sidecars.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "_FIS_ROOT_SIDECAR_ARCHIVE/EVIDENCE/sidecar_corpus_indexer/theophysics_corpus_indexer/me_sidecar.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "_FIS_ROOT_SIDECAR_ARCHIVE/EVIDENCE/sidecar_corpus_indexer/theophysics_corpus_indexer/reclassify.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "_FIS_ROOT_SIDECAR_ARCHIVE/EVIDENCE/sidecar_corpus_indexer/theophysics_corpus_indexer/run.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "_FIS_ROOT_SIDECAR_ARCHIVE/apply_canon_namespaces.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      }
+    ],
+    "group": "Data",
+    "status": "stale",
+    "role": "Cold sidecar archive and evidence; not normal crawl input.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".venv",
+      "03_CLASSIFY",
+      "LEAN 4"
+    ],
+    "provisional_dependents": [
+      "apps",
+      "engine",
+      "gui"
+    ]
+  },
+  {
+    "folder": "archive",
+    "file_count": 1,
+    "size_bytes": 232,
+    "excluded_content_files": 0,
+    "tracked_files": 1,
+    "last_change": "2026-11-06T15:27:40-06:00",
+    "entry_points": [],
+    "group": "Data",
+    "status": "stale",
+    "role": "Archive staging area; preserve provenance and receipt context.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [],
+    "provisional_dependents": []
+  },
+  {
+    "folder": "data",
+    "file_count": 13,
+    "size_bytes": 13373738,
+    "excluded_content_files": 0,
+    "tracked_files": 12,
+    "last_change": "2026-11-08T16:17:35-06:00",
+    "entry_points": [],
+    "group": "Data",
+    "status": "live",
+    "role": "Versioned inputs and generated app output mixed, including tracked rename feed.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [],
+    "provisional_dependents": []
+  },
+  {
+    "folder": "migration",
+    "file_count": 4,
+    "size_bytes": 99040,
+    "excluded_content_files": 0,
+    "tracked_files": 4,
+    "last_change": "2026-11-06T15:49:07-06:00",
+    "entry_points": [],
+    "group": "Data",
+    "status": "stale",
+    "role": "Migration specifications and artifacts.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [],
+    "provisional_dependents": []
+  },
+  {
+    "folder": "runs",
+    "file_count": 2993,
+    "size_bytes": 1352857995,
+    "excluded_content_files": 129,
+    "tracked_files": 0,
+    "last_change": "2026-11-13T22:46:07-06:00",
+    "entry_points": [
+      {
+        "path": "runs/desktop_merge_supervised_20261030/merged/Browser_OS_f2834d0feb0d/scripts/preview_runner.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/desktop_merge_supervised_20261030/merged/Browser_OS_f2834d0feb0d/scripts/read_xlsx_preview.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/desktop_merge_supervised_20261030/merged/Consilience_Atlas_ATOM_b50da803a404/Nabla_Atlas_Core_v0_1/nabla_atlas/nabla_atlas.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/desktop_merge_supervised_20261030/merged/Consilience_Atlas_ATOM_b50da803a404/Rosetta Stone Connector v0.1/chain_to_node_audit.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/desktop_merge_supervised_20261030/merged/Consilience_Atlas_ATOM_b50da803a404/Rosetta Stone Connector v0.1/compare_connector_runs.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/desktop_merge_supervised_20261030/merged/Consilience_Atlas_ATOM_b50da803a404/Rosetta Stone Connector v0.1/deterministic_audit_20260814/chain_to_node_audit.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/desktop_merge_supervised_20261030/merged/Consilience_Atlas_ATOM_b50da803a404/Rosetta Stone Connector v0.1/run_rosetta_connector.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/desktop_merge_supervised_20261030/merged/GOD_Derivation_Character_8d0763f62fe7/Theophysics_Synthetic_Research_Team/Initialize-ResearchTeamCase.ps1",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/desktop_merge_supervised_20261030/merged/Skills_reviewed_complete_subset/scripts/preview_runner.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/desktop_merge_supervised_20261030/merged/Skills_reviewed_complete_subset/scripts/read_xlsx_preview.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/desktop_merge_supervised_20261030/merged/theophysics_gallery_d95bf2d65b62/build_gallery.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/DRY_RUN.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCH.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCHER.ps1",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCHER_PORTABLE.ps1",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCH_METRICS_SNAPSHOT.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCH_METRICS_SNAPSHOT_FOR_FOLDER.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/RESTORE.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/RUN_FULL.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/STATS.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/TEST_20.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/TEST_5_QUICK.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/GET_DRIVE_LINKS.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/INSTALL_DEPENDENCIES.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_BATCH_TTS.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_BUNDLE_FOR_DRIVE.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_GDRIVE_UPLOAD.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_MATH_TRANSLATION_MANAGER.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_PAPER_FORMATTER.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_PAPER_FORMATTER_PRODUCTION.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_PREPARE_DERIVED_CACHE.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_SUBSTACK_BATCH.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_SUBSTACK_COPY.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_TTS.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_TTS_AND_UPLOAD.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/SETUP.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/UPLOAD_TO_DRIVE.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/app.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/backend_scripts/generate_clean_tags.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/backend_scripts/generate_filtered_tags.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/backend_scripts/install.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/backend_scripts/install.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/backend_scripts/install.sh",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/backend_scripts/manage_blocklist.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/backend_scripts/run.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/backend_scripts/run.sh",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/backend_scripts/run_coherence_breakthrough.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/backend_scripts/run_trinity_analysis.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/conversation_to_md/app.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/conversation_to_md/cli.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/chart_generator.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/content_db.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/external_linker.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/html_dashboard_generator.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/insight_analyzer.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/lexicon_engine.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/link_analyzer.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/relationship_engine.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/semantic_aggregator.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/semantic_mermaid_generator.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/semantic_tag_extractor.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/tag_analytics_engine.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/unified_scanner.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/vault_sync_engine.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/wikipedia_filler.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/definition_processor_v2.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/enhanced_definition_engine.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/knowledge_acquisition_engine.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/theophysics_definitions.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/export_cdcm_batch.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/export_cdcm_scores.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/BACKUP_TO_SYNOLOGY.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/GENERATE_LOGOS_MAPS.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/INDEX_DEFINITIONS.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/LAUNCH_MANAGER.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/LAUNCH_THEOPHYSICS_BACKEND_V2.cmd",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/LAUNCH_THEOPHYSICS_BACKEND_V2.ps1",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/LAUNCH_V2.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/RUN_DATA_ANALYTICS.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/SCAN_PAPERS.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/main.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/papers_scorer_cdcm.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/restructure_shannon.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/MASTER_MENU.ps1",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/NUMBER_FILES.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/RUN_THEORY_DOWNLOADER.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/VaultTools.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/VaultTools.ps1",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/_theory_downloader.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/add_scores_to_folders.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/archive_master_eq_snapshot.ps1",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/batch_score_folders.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/build_vault_structure.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/ckg_score.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/daily_update.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/export_metrics_snapshot_excel.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/export_workbook_to_csv.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/extract_all_ckg_metrics.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/extract_comprehensive_ckg.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/find_duplicates.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/fix_wikilinks.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/folder_menu.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/generate_scripts_dashboard.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/generate_taxonomy_registries.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/project_yaml_lint.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/run_project_yaml_lint.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/run_utqs_excel.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/set_publish_false.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/theophysics_calculator.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/utqs_excel_checker.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/vault_clean.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/vault_health.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/vault_scaffold_builder.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/vault_score_importer.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/vault_toolkit.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/vault_watcher.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/utility/analyze_paper.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/utility/cleanup_blank_systems.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/utility/implement_images_papers_1_3.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/utility/master_equation_organizer.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/utility/orchestrator.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/utility/organize_desktop_images.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/utility/organize_root_folder.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/utility/populate_math_registries.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/utility/process_new_additions.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/utility/python folder clean.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/utility/render_paper3_complete.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/utility/render_paper3_revised_fixes.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/utility/semantic_mermaid_generator.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/utility/update_gallery.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_01/vault_rater.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_02/CALL/RUN.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_02/CALL/call_openai.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_02/CKG/RUN.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_02/CKG/run_ckg_scorer.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_02/CKG/run_comparative_analysis.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_02/DECOMPRESS/RUN.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_02/DECOMPRESS/run_decompressor.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_02/DOMAIN/RUN.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_02/DOMAIN/run_domain_extractor.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_02/LAUNCH.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_02/MENU.ps1",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_02/PAPER-REVIEW/DRY_RUN.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_02/PAPER-REVIEW/RUN.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_02/PAPER-REVIEW/batch_review.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_02/PAPER-REVIEW/review_paper.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_02/VAULT-RATER/RUN_FULL.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_02/VAULT-RATER/TSR100/lowe_scorer.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_02/VAULT-RATER/vault_rater.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_02/YAML-COPILOT/RUN.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_02/YAML-COPILOT/call_openai.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_02/YAML-COPILOT/two_step_yaml_copilot.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_02/gate_check.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/folder_merge_desktop_pilot_20261030/MERGED_02/run_all.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/publication-family/smoke/move_plan_DRAFT.ps1",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "runs/theophysics_media_publish_2026-08-24/publish_obsidian_media_links.ps1",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      }
+    ],
+    "group": "Data",
+    "status": "stale",
+    "role": "Generated supervised merge/cleanup reports and recovery artifacts; retain by receipt.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".venv",
+      "03_CLASSIFY",
+      "LEAN 4",
+      "engine"
+    ],
+    "provisional_dependents": []
+  },
+  {
+    "folder": "runtime",
+    "file_count": 7,
+    "size_bytes": 17904916,
+    "excluded_content_files": 0,
+    "tracked_files": 0,
+    "last_change": "2025-05-11T19:43:10-05:00",
+    "entry_points": [],
+    "group": "Data",
+    "status": "live",
+    "role": "Local generated runtime and tools; keep paths until consumers verified.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [],
+    "provisional_dependents": []
+  },
+  {
+    "folder": "system",
+    "file_count": 2,
+    "size_bytes": 39664,
+    "excluded_content_files": 0,
+    "tracked_files": 2,
+    "last_change": "2026-11-14T18:20:10-06:00",
+    "entry_points": [],
+    "group": "Data",
+    "status": "live",
+    "role": "Touched-by-other-work JSONL ledgers and engine state. No migration in this audit.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [],
+    "provisional_dependents": []
+  },
+  {
+    "folder": "01_PROFILE",
+    "file_count": 7,
+    "size_bytes": 35194,
+    "excluded_content_files": 3,
+    "tracked_files": 4,
+    "last_change": "2026-11-08T19:28:26-06:00",
+    "entry_points": [
+      {
+        "path": "01_PROFILE/PROFILE.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "01_PROFILE/profile_wizard.py",
+        "kind": "Python main",
+        "git": "tracked"
+      }
+    ],
+    "group": "FIS",
+    "status": "live",
+    "role": "Profile wizard; PROFILE.bat and rules capture folder context before classification.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".venv",
+      "03_CLASSIFY",
+      "LEAN 4"
+    ],
+    "provisional_dependents": [
+      "tests"
+    ]
+  },
+  {
+    "folder": "02_INVENTORY",
+    "file_count": 3,
+    "size_bytes": 1330,
+    "excluded_content_files": 0,
+    "tracked_files": 3,
+    "last_change": "2026-11-03T19:52:40-06:00",
+    "entry_points": [
+      {
+        "path": "02_INVENTORY/RUN_INVENTORY.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "02_INVENTORY/RUN_INVENTORY.sh",
+        "kind": "launcher/script",
+        "git": "tracked"
+      }
+    ],
+    "group": "FIS",
+    "status": "live",
+    "role": "RUN_INVENTORY.bat, engine.registry and engine.inventory_scan own the Stage 1 adapter boundary.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [],
+    "provisional_dependents": []
+  },
+  {
+    "folder": "06_FIS_HTML",
+    "file_count": 19,
+    "size_bytes": 980278,
+    "excluded_content_files": 2,
+    "tracked_files": 7,
+    "last_change": "2026-11-14T17:08:43-06:00",
+    "entry_points": [
+      {
+        "path": "06_FIS_HTML/REGISTRY_SCAN.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "06_FIS_HTML/fis_gates.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "06_FIS_HTML/registry_scan.py",
+        "kind": "Python main",
+        "git": "tracked"
+      }
+    ],
+    "group": "FIS",
+    "status": "live",
+    "role": "REGISTRY_SCAN.bat builds per-paper receipt view; different from the folder FIS sidecar.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".venv",
+      "03_CLASSIFY",
+      "LEAN 4",
+      "file-intelligence-system"
+    ],
+    "provisional_dependents": []
+  },
+  {
+    "folder": "file-intelligence-system",
+    "file_count": 17,
+    "size_bytes": 18850025,
+    "excluded_content_files": 8,
+    "tracked_files": 6,
+    "last_change": "2026-11-11T15:35:09-06:00",
+    "entry_points": [
+      {
+        "path": "file-intelligence-system/fis_classifier.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "file-intelligence-system/fis_folder_memory.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "file-intelligence-system/fis_folder_memory.v2.1.0.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "file-intelligence-system/fis_namer.py",
+        "kind": "Python main",
+        "git": "tracked"
+      }
+    ],
+    "group": "FIS",
+    "status": "live",
+    "role": "Compatibility classifiers and folder-memory SQLite; richer doc-type rules and legacy notes.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".venv",
+      "03_CLASSIFY",
+      "LEAN 4",
+      "engine",
+      "tools"
+    ],
+    "provisional_dependents": [
+      "06_FIS_HTML",
+      "apps",
+      "docs",
+      "gui",
+      "scripts"
+    ]
+  },
+  {
+    "folder": "fis",
+    "file_count": 152,
+    "size_bytes": 943678,
+    "excluded_content_files": 61,
+    "tracked_files": 46,
+    "last_change": "2026-11-14T17:44:54-06:00",
+    "entry_points": [
+      {
+        "path": "fis/vial.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      }
+    ],
+    "group": "FIS",
+    "status": "live",
+    "role": "Standalone CLI, scanner, index, web, gated rename and folder HTML; strongest first-pass candidate.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".venv",
+      "03_CLASSIFY",
+      "LEAN 4",
+      "tools"
+    ],
+    "provisional_dependents": [
+      ".data",
+      "03_CLASSIFY",
+      "apps",
+      "folder_hub",
+      "scripts",
+      "tests"
+    ]
+  },
+  {
+    "folder": "apps",
+    "file_count": 576,
+    "size_bytes": 152543167,
+    "excluded_content_files": 6,
+    "tracked_files": 80,
+    "last_change": "2026-11-08T16:16:01-06:00",
+    "entry_points": [
+      {
+        "path": "apps/adapt/START.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "apps/classify/START.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "apps/classify/src/engines/fis/fis_classifier.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "apps/classify/src/engines/fis/fis_namer.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "apps/classify/src/run.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "apps/fingerprint/START.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "apps/fingerprint/src/fingerprint.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "apps/fingerprint/src/run.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "apps/fis/START.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "apps/hub/START.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "apps/inventory/START.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "apps/profile/START.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "apps/rename/START.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "apps/rename/src/engine/rename_engine.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "apps/rename/src/run.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "apps/topic-collection/START.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      }
+    ],
+    "group": "GUI",
+    "status": "live",
+    "role": "App launchers and stage adapters. Root LAUNCH.bat discovers apps/*; includes classifier/fingerprint Rust.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".data",
+      ".venv",
+      "03_CLASSIFY",
+      "05_TOPIC_COLLECTION",
+      "LEAN 4",
+      "_FIS_ROOT_SIDECAR_ARCHIVE",
+      "engine",
+      "file-intelligence-system",
+      "files",
+      "fis",
+      "gui",
+      "hub",
+      "legacy-adapters",
+      "tools"
+    ],
+    "provisional_dependents": [
+      "docs",
+      "gui",
+      "tests",
+      "tools"
+    ]
+  },
+  {
+    "folder": "FIS PICS HTML",
+    "file_count": 59,
+    "size_bytes": 2255127,
+    "excluded_content_files": 0,
+    "tracked_files": 59,
+    "last_change": "2026-11-14T19:27:04-06:00",
+    "entry_points": [],
+    "group": "GUI",
+    "status": "live",
+    "role": "Simple FIS and many visual references. Prediction_GUI currently serves the exact Simple HTML path.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".venv",
+      "03_CLASSIFY",
+      "LEAN 4"
+    ],
+    "provisional_dependents": []
+  },
+  {
+    "folder": "gui",
+    "file_count": 62,
+    "size_bytes": 12265355,
+    "excluded_content_files": 17,
+    "tracked_files": 45,
+    "last_change": "2026-11-14T17:45:32-06:00",
+    "entry_points": [
+      {
+        "path": "gui/START_03_CLASSIFY_REVIEW.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "gui/START_03_CLASSIFY_VALIDATE.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "gui/START_AXIOM_SEARCH_EXPORT.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "gui/START_DAVID_OS_SEARCH.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "gui/START_DRIVE_HARVESTER.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "gui/START_FILETAGGER_GUI.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "gui/START_FILE_ACTIONS.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "gui/START_FIS_SEARCH_WORKBENCH.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "gui/START_HERE.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "gui/START_MASTER_EQUATION_INTAKE.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "gui/axiom_search_export.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "gui/canon_pins.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "gui/drive_harvester.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "gui/file_actions.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "gui/filetagger_gui.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "gui/fis_scanner_gui.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "gui/fis_search_workbench.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "gui/launcher.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "gui/master_equation_intake_gui.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "gui/operations_panel.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "gui/pipeline_tools/RUN_CLUSTER.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "gui/pipeline_tools/RUN_MINDMAP.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "gui/pipeline_tools/RUN_STATS.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "gui/pipeline_tools/companion_cluster.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "gui/pipeline_tools/companion_mindmap.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "gui/pipeline_tools/companion_stats.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "gui/theophysics_corpus_indexer/app.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "gui/theophysics_corpus_indexer/run.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      }
+    ],
+    "group": "GUI",
+    "status": "live",
+    "role": "Tk operational launchers; FIS scanner, intake and harvester. Holds tracked catalog DB.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".venv",
+      "03_CLASSIFY",
+      "LEAN 4",
+      "Theophysics_Tagger",
+      "_FIS_ROOT_SIDECAR_ARCHIVE",
+      "apps",
+      "engine",
+      "file-intelligence-hub",
+      "file-intelligence-system",
+      "hub",
+      "legacy-adapters",
+      "tools"
+    ],
+    "provisional_dependents": [
+      "05_TOPIC_COLLECTION",
+      "apps",
+      "tests"
+    ]
+  },
+  {
+    "folder": ".pytest_cache",
+    "file_count": 7,
+    "size_bytes": 27529,
+    "excluded_content_files": 0,
+    "tracked_files": 0,
+    "last_change": "2026-11-14T18:20:10-06:00",
+    "entry_points": [],
+    "group": "Generated",
+    "status": "junk",
+    "role": "Test-run cache or scratch results; no application entry point detected.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [],
+    "provisional_dependents": []
+  },
+  {
+    "folder": ".pytest_codex_resume",
+    "file_count": 14,
+    "size_bytes": 509377,
+    "excluded_content_files": 0,
+    "tracked_files": 0,
+    "last_change": "2026-11-06T22:45:03-06:00",
+    "entry_points": [],
+    "group": "Generated",
+    "status": "junk",
+    "role": "Test-run cache or scratch results; no application entry point detected.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [],
+    "provisional_dependents": []
+  },
+  {
+    "folder": ".pytest_codex_resume_core",
+    "file_count": 10,
+    "size_bytes": 1449,
+    "excluded_content_files": 0,
+    "tracked_files": 0,
+    "last_change": "2026-11-06T22:45:09-06:00",
+    "entry_points": [],
+    "group": "Generated",
+    "status": "junk",
+    "role": "Test-run cache or scratch results; no application entry point detected.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [],
+    "provisional_dependents": []
+  },
+  {
+    "folder": ".pytest_codex_rule_brick",
+    "file_count": 1,
+    "size_bytes": 28672,
+    "excluded_content_files": 0,
+    "tracked_files": 0,
+    "last_change": "2026-11-07T11:47:28-06:00",
+    "entry_points": [],
+    "group": "Generated",
+    "status": "junk",
+    "role": "Test-run cache or scratch results; no application entry point detected.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [],
+    "provisional_dependents": []
+  },
+  {
+    "folder": ".pytest_codex_rulebrick_final",
+    "file_count": 1,
+    "size_bytes": 28672,
+    "excluded_content_files": 0,
+    "tracked_files": 0,
+    "last_change": "2026-11-07T11:48:06-06:00",
+    "entry_points": [],
+    "group": "Generated",
+    "status": "junk",
+    "role": "Test-run cache or scratch results; no application entry point detected.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [],
+    "provisional_dependents": []
+  },
+  {
+    "folder": ".pytest_codex_rulebrick_run",
+    "file_count": 1,
+    "size_bytes": 28672,
+    "excluded_content_files": 0,
+    "tracked_files": 0,
+    "last_change": "2026-11-07T11:47:36-06:00",
+    "entry_points": [],
+    "group": "Generated",
+    "status": "junk",
+    "role": "Test-run cache or scratch results; no application entry point detected.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [],
+    "provisional_dependents": []
+  },
+  {
+    "folder": ".venv",
+    "file_count": 7377,
+    "size_bytes": 332205155,
+    "excluded_content_files": 7377,
+    "tracked_files": 0,
+    "last_change": "2026-11-14T18:19:57-06:00",
+    "entry_points": [],
+    "group": "Generated",
+    "status": "junk",
+    "role": "Rebuildable Python environment; skip contents, retain active interpreter path.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [],
+    "provisional_dependents": [
+      ".data",
+      "01_PROFILE",
+      "03_CLASSIFY",
+      "04_ADAPT",
+      "05_TOPIC_COLLECTION",
+      "06_FIS_HTML",
+      "10_FILE_ACTIONS",
+      "FIS PICS HTML",
+      "LEAN 4",
+      "LossLess",
+      "Theophysics_Tagger",
+      "_FIS_ROOT_SIDECAR_ARCHIVE",
+      "_LOSSLESS_SUMMARY",
+      "agents",
+      "apps",
+      "canon_guard",
+      "docs",
+      "engine",
+      "file-intelligence-hub",
+      "file-intelligence-system",
+      "files",
+      "fis",
+      "folder_hub",
+      "gui",
+      "hub",
+      "legacy-adapters",
+      "pipeline",
+      "rule_brick",
+      "runs",
+      "scripts",
+      "services",
+      "shared",
+      "tests",
+      "tools"
+    ]
+  },
+  {
+    "folder": ".wrangler",
+    "file_count": 3,
+    "size_bytes": 956,
+    "excluded_content_files": 0,
+    "tracked_files": 0,
+    "last_change": "2026-09-07T15:05:03-05:00",
+    "entry_points": [],
+    "group": "Generated",
+    "status": "junk",
+    "role": "Local Cloudflare runtime, already ignored. Check active session before cleanup.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [],
+    "provisional_dependents": []
+  },
+  {
+    "folder": "david_os.egg-info",
+    "file_count": 6,
+    "size_bytes": 6455,
+    "excluded_content_files": 0,
+    "tracked_files": 0,
+    "last_change": "2026-11-03T18:51:02-06:00",
+    "entry_points": [],
+    "group": "Generated",
+    "status": "junk",
+    "role": "Rebuildable package metadata; do not remove active installation.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [],
+    "provisional_dependents": []
+  },
+  {
+    "folder": ".github",
+    "file_count": 1,
+    "size_bytes": 873,
+    "excluded_content_files": 0,
+    "tracked_files": 1,
+    "last_change": "2026-11-03T18:44:04-06:00",
+    "entry_points": [],
+    "group": "Tooling",
+    "status": "live",
+    "role": "GitHub integration root; preserve location.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [],
+    "provisional_dependents": []
+  },
+  {
+    "folder": "agents",
+    "file_count": 59,
+    "size_bytes": 29700515,
+    "excluded_content_files": 0,
+    "tracked_files": 59,
+    "last_change": "2026-11-03T18:44:04-06:00",
+    "entry_points": [
+      {
+        "path": "agents/chi_pipeline.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "agents/chi_profiles.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "agents/filetagger.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "agents/folder_scanner.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "agents/foldertagger.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "agents/scan_report.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "agents/scanners/folder_scanner.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "agents/scanners/scan_report.py",
+        "kind": "Python main",
+        "git": "tracked"
+      }
+    ],
+    "group": "Tooling",
+    "status": "stale",
+    "role": "Agent packets and technical research examples; no current registration inferred.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".venv",
+      "03_CLASSIFY",
+      "LEAN 4"
+    ],
+    "provisional_dependents": [
+      "engine"
+    ]
+  },
+  {
+    "folder": "config",
+    "file_count": 39,
+    "size_bytes": 234634,
+    "excluded_content_files": 0,
+    "tracked_files": 39,
+    "last_change": "2026-11-11T09:47:49-06:00",
+    "entry_points": [],
+    "group": "Tooling",
+    "status": "live",
+    "role": "Rules and runtime config. Separate host paths from tracked contracts.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [],
+    "provisional_dependents": []
+  },
+  {
+    "folder": "deploy",
+    "file_count": 10,
+    "size_bytes": 19984,
+    "excluded_content_files": 0,
+    "tracked_files": 10,
+    "last_change": "2026-08-24T03:27:58-05:00",
+    "entry_points": [
+      {
+        "path": "deploy/synology/build_bundle.ps1",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "deploy/synology/test_synology_hub.ps1",
+        "kind": "launcher/script",
+        "git": "tracked"
+      }
+    ],
+    "group": "Tooling",
+    "status": "live",
+    "role": "Packaging/install artifacts, including Synology bundle; no runtime claim.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [],
+    "provisional_dependents": []
+  },
+  {
+    "folder": "docs",
+    "file_count": 68,
+    "size_bytes": 2834912,
+    "excluded_content_files": 0,
+    "tracked_files": 62,
+    "last_change": "2026-11-11T09:47:49-06:00",
+    "entry_points": [
+      {
+        "path": "docs/FIS_TEMPLATE_v2.1.0/fis_folder_memory.v2.1.0.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "docs/FIS_TEMPLATE_v2.1.0/lossless_splitter.v1.1.0.py",
+        "kind": "Python main",
+        "git": "tracked"
+      }
+    ],
+    "group": "Tooling",
+    "status": "live",
+    "role": "Specs, handoffs and dated acceptance evidence, including historical source samples.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".venv",
+      "03_CLASSIFY",
+      "LEAN 4",
+      "apps",
+      "file-intelligence-system",
+      "legacy-adapters",
+      "tools"
+    ],
+    "provisional_dependents": []
+  },
+  {
+    "folder": "engine",
+    "file_count": 214,
+    "size_bytes": 2184366,
+    "excluded_content_files": 133,
+    "tracked_files": 81,
+    "last_change": "2026-11-14T19:24:14-06:00",
+    "entry_points": [
+      {
+        "path": "engine/canon_scan.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "engine/capability.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "engine/chi_engine.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "engine/chi_pipeline_full.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "engine/chi_profiles_full.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "engine/claim_jurisdiction.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "engine/cli.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "engine/cluster_engine.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "engine/desktop_merge_survey.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "engine/filetagger_core.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "engine/flatten_dedupe.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "engine/folder_merge.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "engine/me_rename_bridge.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "engine/registry.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "engine/rename_applier.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "engine/rename_preview.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "engine/sidecar_writer.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "engine/smart_tagger.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "engine/understand.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "engine/usn_reader.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "engine/wordnet_expander_full.py",
+        "kind": "Python main",
+        "git": "tracked"
+      }
+    ],
+    "group": "Tooling",
+    "status": "live",
+    "role": "Shared registry, scan, classifier/search helpers, approval-bound writes and preference code. Preserve imports.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".venv",
+      "03_CLASSIFY",
+      "LEAN 4",
+      "Theophysics_Tagger",
+      "_FIS_ROOT_SIDECAR_ARCHIVE",
+      "agents",
+      "tools"
+    ],
+    "provisional_dependents": [
+      ".data",
+      "03_CLASSIFY",
+      "05_TOPIC_COLLECTION",
+      "apps",
+      "file-intelligence-system",
+      "folder_hub",
+      "gui",
+      "hub",
+      "runs",
+      "scripts",
+      "tests",
+      "tools"
+    ]
+  },
+  {
+    "folder": "file-intelligence-hub",
+    "file_count": 107,
+    "size_bytes": 322178,
+    "excluded_content_files": 29,
+    "tracked_files": 0,
+    "last_change": "2026-11-14T17:07:30-06:00",
+    "entry_points": [
+      {
+        "path": "file-intelligence-hub/file_intelligence_hub/watchers/native.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "file-intelligence-hub/file_intelligence_hub/watchers/runner.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "file-intelligence-hub/file_intelligence_hub/workers/runner.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      }
+    ],
+    "group": "Tooling",
+    "status": "duplicate",
+    "role": "Separate nested worktree with job/worker/watcher code; compare deltas before adopting.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".venv",
+      "03_CLASSIFY",
+      "LEAN 4"
+    ],
+    "provisional_dependents": [
+      "gui"
+    ]
+  },
+  {
+    "folder": "files",
+    "file_count": 13,
+    "size_bytes": 95763,
+    "excluded_content_files": 1,
+    "tracked_files": 7,
+    "last_change": "2026-11-08T19:33:38-06:00",
+    "entry_points": [
+      {
+        "path": "files/BATCH_ALL.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "files/BATCH_ALL.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "files/INVENTORY.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "files/run.py",
+        "kind": "Python main",
+        "git": "tracked"
+      }
+    ],
+    "group": "Tooling",
+    "status": "live",
+    "role": "Inventory kits and local output directories; maintain related launchers together.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".venv",
+      "03_CLASSIFY",
+      "LEAN 4"
+    ],
+    "provisional_dependents": [
+      "apps"
+    ]
+  },
+  {
+    "folder": "folder_hub",
+    "file_count": 7,
+    "size_bytes": 76624,
+    "excluded_content_files": 3,
+    "tracked_files": 4,
+    "last_change": "2026-11-03T18:52:22-06:00",
+    "entry_points": [],
+    "group": "Tooling",
+    "status": "live",
+    "role": "Folder view/relay with read-only attached registries, not a mutation worker.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".venv",
+      "03_CLASSIFY",
+      "LEAN 4",
+      "engine",
+      "fis",
+      "hub"
+    ],
+    "provisional_dependents": [
+      "tests"
+    ]
+  },
+  {
+    "folder": "hub",
+    "file_count": 152,
+    "size_bytes": 781302,
+    "excluded_content_files": 72,
+    "tracked_files": 80,
+    "last_change": "2026-11-14T17:45:32-06:00",
+    "entry_points": [
+      {
+        "path": "hub/watchers/native.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "hub/watchers/runner.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "hub/workers/runner.py",
+        "kind": "Python main",
+        "git": "tracked"
+      }
+    ],
+    "group": "Tooling",
+    "status": "live",
+    "role": "Runtime API, workers, watchers, memory and notices. Root dos-* console scripts bind here.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".venv",
+      "03_CLASSIFY",
+      "LEAN 4",
+      "engine"
+    ],
+    "provisional_dependents": [
+      ".data",
+      "03_CLASSIFY",
+      "apps",
+      "folder_hub",
+      "gui",
+      "scripts",
+      "tests"
+    ]
+  },
+  {
+    "folder": "schemas",
+    "file_count": 1,
+    "size_bytes": 1627,
+    "excluded_content_files": 0,
+    "tracked_files": 1,
+    "last_change": "2026-11-03T18:44:04-06:00",
+    "entry_points": [],
+    "group": "Tooling",
+    "status": "live",
+    "role": "Versioned schemas. Keep with stable registry and approval contracts.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [],
+    "provisional_dependents": []
+  },
+  {
+    "folder": "scripts",
+    "file_count": 24,
+    "size_bytes": 84323,
+    "excluded_content_files": 4,
+    "tracked_files": 20,
+    "last_change": "2026-11-13T22:36:45-06:00",
+    "entry_points": [
+      {
+        "path": "scripts/axiom_document_inventory.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "scripts/collect_file_intelligence_sources.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "scripts/desktop_cleanup_preview.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "scripts/fis/CHECK.ps1",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "scripts/fis/FIS_BACKGROUND.ps1",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "scripts/fis/INSTALL_BACKGROUND.ps1",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "scripts/fis/START_FIS.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "scripts/fis/desktop_live.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "scripts/fis_desktop_scan.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "scripts/import_grammar_workbook.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "scripts/index_memory_buckets.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "scripts/init_hub_db.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "scripts/master_equation_intake.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "scripts/paper_folder_sort.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "scripts/search_exact.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "scripts/start_search_site.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "scripts/term_closure.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "scripts/verify_fis_folder.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "scripts/youtube_dossier_eval.py",
+        "kind": "Python main",
+        "git": "tracked"
+      }
+    ],
+    "group": "Tooling",
+    "status": "live",
+    "role": "Windows and intake helpers, including explicit FIS background installer.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".venv",
+      "03_CLASSIFY",
+      "LEAN 4",
+      "engine",
+      "file-intelligence-system",
+      "fis",
+      "hub"
+    ],
+    "provisional_dependents": []
+  },
+  {
+    "folder": "services",
+    "file_count": 5,
+    "size_bytes": 6307,
+    "excluded_content_files": 0,
+    "tracked_files": 5,
+    "last_change": "2026-11-03T18:44:04-06:00",
+    "entry_points": [],
+    "group": "Tooling",
+    "status": "live",
+    "role": "Runtime service definitions; keep activation explicit.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".venv",
+      "03_CLASSIFY",
+      "LEAN 4"
+    ],
+    "provisional_dependents": []
+  },
+  {
+    "folder": "shared",
+    "file_count": 29,
+    "size_bytes": 71578,
+    "excluded_content_files": 6,
+    "tracked_files": 23,
+    "last_change": "2026-11-07T13:37:29-06:00",
+    "entry_points": [],
+    "group": "Tooling",
+    "status": "live",
+    "role": "Contracts and cross-stage helpers. Keep stable imports.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".venv",
+      "03_CLASSIFY",
+      "LEAN 4"
+    ],
+    "provisional_dependents": []
+  },
+  {
+    "folder": "tests",
+    "file_count": 154,
+    "size_bytes": 1512410,
+    "excluded_content_files": 102,
+    "tracked_files": 52,
+    "last_change": "2026-11-11T09:58:05-06:00",
+    "entry_points": [
+      {
+        "path": "tests/test_fingerprint.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tests/test_fis_background_preferences.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tests/test_fis_naming.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tests/test_fis_standalone.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tests/test_fis_vocabulary.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tests/test_topic_collection.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tests/test_topic_collection_gui.py",
+        "kind": "Python main",
+        "git": "tracked"
+      }
+    ],
+    "group": "Tooling",
+    "status": "live",
+    "role": "Regression source/fixtures; no write-heavy test suite run.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".data",
+      ".venv",
+      "01_PROFILE",
+      "03_CLASSIFY",
+      "04_ADAPT",
+      "LEAN 4",
+      "apps",
+      "engine",
+      "fis",
+      "folder_hub",
+      "gui",
+      "hub",
+      "legacy-adapters",
+      "rule_brick",
+      "tools"
+    ],
+    "provisional_dependents": []
+  },
+  {
+    "folder": "tools",
+    "file_count": 1132,
+    "size_bytes": 467798727,
+    "excluded_content_files": 8,
+    "tracked_files": 384,
+    "last_change": "2026-11-14T19:00:13-06:00",
+    "entry_points": [
+      {
+        "path": "tools/apply_routing_plan.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/codex-script-hub/install_deps.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "tools/codex-script-hub/install_startup_shortcut.ps1",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "tools/codex-script-hub/launch_script_hub.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "tools/codex-script-hub/script_dump/Excel/Excelsheets_to_CSV.ps1",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "tools/codex-script-hub/script_dump/Excel/export_workbook_to_csv.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "tools/codex-script-hub/script_dump/Markdown/Combine-All-Markdown.ps1",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "tools/codex-script-hub/script_dump/Split and Organize/VaultTools.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "tools/codex-script-hub/script_dump/Split and Organize/VaultTools.ps1",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "tools/codex-script-hub/script_dump/pdf_to_markdown.bat",
+        "kind": "launcher/script",
+        "git": "working tree only"
+      },
+      {
+        "path": "tools/codex-script-hub/script_dump/pdf_to_markdown.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "tools/codex-script-hub/script_hub.py",
+        "kind": "Python main",
+        "git": "working tree only"
+      },
+      {
+        "path": "tools/file-intelligence-sources/snapshots/FIS/INSTALL_STARTUP.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/file-intelligence-sources/snapshots/FIS/RESTART_DAEMONS.cmd",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/file-intelligence-sources/snapshots/FIS/fis_classifier.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/file-intelligence-sources/snapshots/FIS/fis_daemon.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/file-intelligence-sources/snapshots/FIS/fis_enricher.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/file-intelligence-sources/snapshots/FIS/fis_folder_daemon.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/file-intelligence-sources/snapshots/FIS/fis_namer.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/file-intelligence-sources/snapshots/FIS/fis_preference_engine.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/file-intelligence-sources/snapshots/filetagger/START_FILETAGGER_GUI.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/file-intelligence-sources/snapshots/filetagger/START_FOLDER_TAGGER_SAMPLE.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/file-intelligence-sources/snapshots/filetagger/chi_pipeline.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/file-intelligence-sources/snapshots/filetagger/chi_profiles.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/file-intelligence-sources/snapshots/filetagger/claim_jurisdiction.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/file-intelligence-sources/snapshots/filetagger/extract_math.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/file-intelligence-sources/snapshots/filetagger/files/folder_scanner.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/file-intelligence-sources/snapshots/filetagger/files/scan_report.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/file-intelligence-sources/snapshots/filetagger/filetagger.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/file-intelligence-sources/snapshots/filetagger/filetagger_chi.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/file-intelligence-sources/snapshots/filetagger/filetagger_chi_v2.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/file-intelligence-sources/snapshots/filetagger/filetagger_daemon.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/file-intelligence-sources/snapshots/filetagger/filetagger_gui.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/file-intelligence-sources/snapshots/filetagger/foldertagger.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/file-intelligence-sources/snapshots/filetagger/salvaged/auto_sort.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/file-intelligence-sources/snapshots/filetagger/salvaged/fingerprint.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/file-intelligence-sources/snapshots/filetagger/salvaged/sentinel_mcp_server.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/file-intelligence-sources/snapshots/filetagger/wordnet_expander.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/file-intelligence-sources/snapshots/filetagger/wrap_article.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/filetagger/START_FILETAGGER_GUI.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/filetagger/START_FOLDER_TAGGER_SAMPLE.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/filetagger/chi_pipeline.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/filetagger/chi_profiles.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/filetagger/claim_jurisdiction.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/filetagger/extract_math.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/filetagger/files/folder_scanner.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/filetagger/files/scan_report.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/filetagger/filetagger.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/filetagger/filetagger_chi.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/filetagger/filetagger_chi_v2.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/filetagger/filetagger_daemon.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/filetagger/filetagger_gui.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/filetagger/foldertagger.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/filetagger/salvaged/auto_sort.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/filetagger/salvaged/fingerprint.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/filetagger/salvaged/sentinel_mcp_server.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/filetagger/wordnet_expander.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/filetagger/wrap_article.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/fis-intelligence/FIS.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/fis-intelligence/fis.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/fis-intelligence/src/cli.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/fis-intelligence/src/fis_mcp_server.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/fis/FIS-HTML-Intelligence/src/cli.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/fis/FIS-HTML-Intelligence/src/fis_mcp_server.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/gdrp_readonly_pilot.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/organize/LAUNCH_GUI.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/organize/WATCH_HISTORY.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/organize/chi_generator.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/organize/chi_nightly.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/organize/classifier.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/organize/engine.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/organize/main.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/organize/manage.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/organize/organize/__main__.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/organize/organize/cli.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/organize/organize/filters/exif.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/organize/organize/filters/filecontent.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/organize/organize/filters/mimetype.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/organize/organize/gui.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/organize/organize/ledger.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/organize/organize/proof_router.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/organize/proof_route.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/organize/scan.bat",
+        "kind": "launcher/script",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/organize/tools/backside_audit.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/publication_family/format_family_report.py",
+        "kind": "Python main",
+        "git": "tracked"
+      },
+      {
+        "path": "tools/publication_family/near_duplicate_scan.py",
+        "kind": "Python main",
+        "git": "tracked"
+      }
+    ],
+    "group": "Tooling",
+    "status": "live",
+    "role": "Utilities, recovered organizer and tagger, HTML index duplicates, Rust kernel and Script Hub.",
+    "confidence": "VERIFIED source and metadata; runtime activation not tested",
+    "provisional_imports": [
+      ".venv",
+      "03_CLASSIFY",
+      "LEAN 4",
+      "apps",
+      "engine",
+      "legacy-adapters"
+    ],
+    "provisional_dependents": [
+      ".data",
+      "03_CLASSIFY",
+      "apps",
+      "docs",
+      "engine",
+      "file-intelligence-system",
+      "fis",
+      "gui",
+      "tests"
+    ]
+  }
+]

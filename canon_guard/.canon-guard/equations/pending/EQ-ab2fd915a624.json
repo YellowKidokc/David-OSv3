@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-ab2fd915a624",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.604636+00:00",
+  "source": {
+    "path": "MEQ-the-prism.md",
+    "line": 87,
+    "source_sha256": "462a86f46535fe31aa30f6ce0abfaa08a1b3ef18e1d6f131fb3ca96be662a8c6"
+  },
+  "equation": {
+    "raw": "C[χ] = ∫|χ|² f(χ) dⁿx",
+    "normalized": "c[chi]=integral|chi|^2f(chi)dⁿx",
+    "fingerprint": "ab2fd915a6240e168fe4b6fe3dda7b351215cc9dfd77ca3c2191ec2a248748c2"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

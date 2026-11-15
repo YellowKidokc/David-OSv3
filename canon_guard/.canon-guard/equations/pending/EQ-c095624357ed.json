@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-c095624357ed",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.395550+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Quantum_Spiritual_Equation.md",
+    "line": 1433,
+    "source_sha256": "bc8d080414ffa43561623957f87ccb8eaa0e5385d5ed4dc2ac8b7f940286169d"
+  },
+  "equation": {
+    "raw": "G(R\\_p) = G\\_0 e^{- \\frac{S}{R\\_p} }",
+    "normalized": "g(r\\_p)=g\\_0e^{-\\frac{s}{r\\_p}}",
+    "fingerprint": "c095624357ed395cdc1100ecee050fe28fa0cef9123996e488af5722dc34ea5b"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

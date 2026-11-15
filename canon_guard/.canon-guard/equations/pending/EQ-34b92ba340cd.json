@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-34b92ba340cd",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.029855+00:00",
+  "source": {
+    "path": "MEQ-03-solved-mathematical-examples.md",
+    "line": 340,
+    "source_sha256": "4dbfd23e509df0e73f65351fbac86c2bf9f691aea5027c97a1b63039d0fab15b"
+  },
+  "equation": {
+    "raw": "Week 3: ΔS = -1.38 EU",
+    "normalized": "week3:δs=-1.38eu",
+    "fingerprint": "34b92ba340cdbadac772f82398befccf3b3831f28332f213d104d76f16d1c265"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

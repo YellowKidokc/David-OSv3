@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-2885d8998848",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.579865+00:00",
+  "source": {
+    "path": "MEQ-00-MATH-APPENDIX-Master-Equation.md",
+    "line": 1518,
+    "source_sha256": "b3d60ff621e037d6d9c388f596d2d72b65d2e4fc956ac32d53b0d854e13d8ce8"
+  },
+  "equation": {
+    "raw": "F_{\\text{grace}}(r) = \\frac{G_0 e^{-m_G r}}{r}",
+    "normalized": "f_{grace}(r)=\\frac{g_0e^{-m_gr}}{r}",
+    "fingerprint": "2885d89988484ab579afe6056768ef2db8769327482adaca42c77a811a731ca0"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

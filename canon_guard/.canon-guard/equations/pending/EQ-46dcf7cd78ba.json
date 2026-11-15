@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-46dcf7cd78ba",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.218643+00:00",
+  "source": {
+    "path": "MEQ-138_D19.3_Law-III-Definition.md",
+    "line": 297,
+    "source_sha256": "1ba2b4adcb72697c91fc6298aad2520cafc3de4cb418d22ceab09da2d0aae1c6"
+  },
+  "equation": {
+    "raw": "\\mathcal{C}(P, Q) = \\mathcal{S}(P) + \\alpha\\mathcal{S}(Q)",
+    "normalized": "\\mathcal{c}(p,q)=\\mathcal{s}(p)+\\alpha\\mathcal{s}(q)",
+    "fingerprint": "46dcf7cd78bae023073286a6e2ca1aa84b30a127f744646503e25ef8e3760a21"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

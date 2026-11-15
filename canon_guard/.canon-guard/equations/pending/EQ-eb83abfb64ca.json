@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-eb83abfb64ca",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.599551+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Big_Deal_Request.md",
+    "line": 476,
+    "source_sha256": "f887594bf2b3c84b45c0f13dfbba4d06bd57a7eac1530ae90b87c20317f54f3a"
+  },
+  "equation": {
+    "raw": "📌 **Equation Component: Q=α∣G⟩+β∣B⟩Q = \\alpha|G⟩ + \\beta|B⟩Q=α∣G⟩+β∣B⟩**",
+    "normalized": "📌**equationcomponent:q=α∣g⟩+β∣b⟩q=\\alpha|g⟩+\\beta|b⟩q=α∣g⟩+β∣b⟩**",
+    "fingerprint": "eb83abfb64ca84b468a4b92af16abdc8ab2e93aebfe9e5341568b661024c4166"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-e334be19662e",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.188624+00:00",
+  "source": {
+    "path": "MEQ-130_PRED18.1_H0-Prediction-2025-2030.md",
+    "line": 179,
+    "source_sha256": "fae0715cd0875eb21d3d3256bdc265239b710a600ded523622b9a8bdd1fef4da"
+  },
+  "equation": {
+    "raw": "$$Z(\\chi) = 1 + 2\\alpha\\chi + O(\\chi^2)$$",
+    "normalized": "$$z(chi)=1+2\\alphachi+o(chi^2)$$",
+    "fingerprint": "e334be19662e3ea4534aa97d7b605305de64c6b83d36f9cedf76d7f0bf3859ab"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

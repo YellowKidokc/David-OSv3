@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-fd7cfd724212",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.618568+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Breaking_Down_Reality_Equation.md",
+    "line": 96,
+    "source_sha256": "3b30a263fbee24418d04e09a23be60b0385d341fc23b42efc5f50ac4cf5952c2"
+  },
+  "equation": {
+    "raw": "+ = Multiple ways they interact",
+    "normalized": "+=multiplewaystheyinteract",
+    "fingerprint": "fd7cfd72421274bf423948087b682ca3596fd17c034702903e269a03b87c881b"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

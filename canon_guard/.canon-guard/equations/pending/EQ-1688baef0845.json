@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-1688baef0845",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.188689+00:00",
+  "source": {
+    "path": "MEQ-derivation-chain.md",
+    "line": 302,
+    "source_sha256": "61df793cd5f7cd8ea4755823b7bf0d8edf9655af3919237adf17be80af4ef359"
+  },
+  "equation": {
+    "raw": "GE5 Moral Equilibrium Σ∇Lₙ = 0",
+    "normalized": "ge5moralequilibriumσ∇lₙ=0",
+    "fingerprint": "1688baef08459606ef50003a7f0d463bb3a08c5b56af423a95f2cd4c4609b7f3"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "run_id": "20261109_013338",
+  "started": "2026-11-09T01:33:38.506116+00:00",
+  "folders": [
+    {
+      "folder": "C:\\Users\\David\\Documents\\faiththruphysics.com",
+      "status": "error",
+      "profile_found": false,
+      "legacy_cards": 0,
+      "files_found": 0,
+      "content_files": 0,
+      "duplicates": 0,
+      "problems": 0,
+      "error": "02_INVENTORY/run.py not found",
+      "started": "2026-11-09T01:33:38.506152+00:00",
+      "finished": "2026-11-09T01:33:38.506825+00:00"
+    },
+    {
+      "folder": "C:\\theophysics",
+      "status": "error",
+      "profile_found": false,
+      "legacy_cards": 0,
+      "files_found": 0,
+      "content_files": 0,
+      "duplicates": 0,
+      "problems": 0,
+      "error": "02_INVENTORY/run.py not found",
+      "started": "2026-11-09T01:33:38.506847+00:00",
+      "finished": "2026-11-09T01:33:38.507368+00:00"
+    },
+    {
+      "folder": "D:\\GitHub\\David-OSv3\\_FIS_ROOT_SIDECAR_ARCHIVE\\EVIDENCE",
+      "status": "error",
+      "profile_found": false,
+      "legacy_cards": 0,
+      "files_found": 0,
+      "content_files": 0,
+      "duplicates": 0,
+      "problems": 0,
+      "error": "02_INVENTORY/run.py not found",
+      "started": "2026-11-09T01:33:38.507383+00:00",
+      "finished": "2026-11-09T01:33:38.507877+00:00"
+    }
+  ],
+  "finished": "2026-11-09T01:33:38.507886+00:00"
+}

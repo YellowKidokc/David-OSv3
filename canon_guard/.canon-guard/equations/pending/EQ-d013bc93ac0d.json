@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-d013bc93ac0d",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.257674+00:00",
+  "source": {
+    "path": "MEQ-143_D19.8_Law-VIII-Definition.md",
+    "line": 128,
+    "source_sha256": "96b379c4b1b03cfe17ad2cd49167deee2a1cd64cf76ba261738108186cb1d607"
+  },
+  "equation": {
+    "raw": "V(\\sigma^2) = \\frac{\\lambda}{4}(\\sigma^2 - v^2)^2",
+    "normalized": "v(\\sigma^2)=\\frac{\\lambda}{4}(\\sigma^2-v^2)^2",
+    "fingerprint": "d013bc93ac0d3a9d1580a585a87cf7c92a9d131d10a612ce5092df850e9cf7ad"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

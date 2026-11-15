@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-55bda4a38582",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.455419+00:00",
+  "source": {
+    "path": "MEQ-MASTER_EQUATION_COMPLETE_DERIVATION_CHAIN_CANONICAL_DRAFT.md",
+    "line": 336,
+    "source_sha256": "a23dd68a49d21051ecc94ae2dbcb3645bb22f35af0c8611a260c827a8f2966e4"
+  },
+  "equation": {
+    "raw": "Maxwell's wave equation: ∇²E − (1/c²)(∂²E/∂t²) = 0",
+    "normalized": "maxwell'swaveequation:∇^2e-(1/c^2)(partial^2e/partialt^2)=0",
+    "fingerprint": "55bda4a3858253957d5b84c120ecdd9f51d06e0c735734c43a2b43c88c429ab8"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

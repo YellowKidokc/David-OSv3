@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-4aa0682eab18",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.739470+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-UQCP_Mathematical_Refinement-Copy.md",
+    "line": 4532,
+    "source_sha256": "905e3b7ff0c2e737616e661eeb386c6241e2c450798cb98bffae8e6bc85c5c41"
+  },
+  "equation": {
+    "raw": "P_{\\text{reject}} = \\frac{1}{1 + e^{-IQI}}",
+    "normalized": "p_{reject}=\\frac{1}{1+e^{-iqi}}",
+    "fingerprint": "4aa0682eab18687fced9c754355e311a0263a7f1f69f46fbac8ab0732a682215"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

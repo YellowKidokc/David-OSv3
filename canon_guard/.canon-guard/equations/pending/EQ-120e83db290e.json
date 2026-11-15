@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-120e83db290e",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.808882+00:00",
+  "source": {
+    "path": "MEQ-Untitled16.md",
+    "line": 84,
+    "source_sha256": "e13b3e3cc7d5bd0d74dda28436f0e01584108d62c37c4a9bdc7bf2df6ce1c1d0"
+  },
+  "equation": {
+    "raw": "$Q·C = ∑ψᵢ × |cᵢ|²$",
+    "normalized": "$q*c=∑ψᵢ*|cᵢ|^2$",
+    "fingerprint": "120e83db290e5a32dcaa3bab51db9a1b4eb26879bbb1afeb1c3a3e6e62f4d510"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

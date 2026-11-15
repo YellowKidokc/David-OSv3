@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-7912e189a5fb",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.797366+00:00",
+  "source": {
+    "path": "MEQ-TRINITY_MATH.md",
+    "line": 29,
+    "source_sha256": "e2343de9220153d58de2714542217700451ead1a3a11df014bf3487dc3551273"
+  },
+  "equation": {
+    "raw": "⟨Ψ_Trinity|ρ_Trinity|Ψ_Trinity⟩ = 1",
+    "normalized": "⟨ψ_trinity|ρ_trinity|ψ_trinity⟩=1",
+    "fingerprint": "7912e189a5fb4cb5ea6f89edc3a6c654c13eaf902b23a1d07662ff1c345abac2"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

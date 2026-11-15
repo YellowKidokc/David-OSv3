@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-2fb4792e0cb9",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.969372+00:00",
+  "source": {
+    "path": "MEQ-Claude.md",
+    "line": 187,
+    "source_sha256": "8093b04a78358443d00782f29886e7307d6183d8fefd92fdcd8cd6fe4563eed9"
+  },
+  "equation": {
+    "raw": "\"equation\": \"U(Sₛ) = α·Vₜ(d) + β·Vₑ(d) + γ·log(Vₜ·Vₑ) - λ·C(d)\",",
+    "normalized": "\"equation\":\"u(sₛ)=α*vₜ(d)+β*vₑ(d)+γ*log(vₜ*vₑ)-λ*c(d)\",",
+    "fingerprint": "2fb4792e0cb960fc0d2b8cda94d5e1d9180c37060f00d0040a83fd0ae688a608"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

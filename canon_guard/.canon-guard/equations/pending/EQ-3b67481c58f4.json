@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-3b67481c58f4",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.377648+00:00",
+  "source": {
+    "path": "MEQ-00-MasterOutline.md",
+    "line": 11892,
+    "source_sha256": "082fae2f3083b27cfb2dff7b38e8a48167c5d25d33b0cc911e5168f5ab88c102"
+  },
+  "equation": {
+    "raw": "Since χ = G·M·E·S·T·K·R·Q·F·C, we can write:",
+    "normalized": "sincechi=g*m*e*s*t*k*r*q*f*c,wecanwrite:",
+    "fingerprint": "3b67481c58f44bd871617340f4ff1ca653b2c6f83a219d42a90367cc023b4ce4"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

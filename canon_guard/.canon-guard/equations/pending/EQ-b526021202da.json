@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-b526021202da",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.224716+00:00",
+  "source": {
+    "path": "MEQ-emergent_theological_structures_master_equation.md",
+    "line": 1144,
+    "source_sha256": "d185b4b10e921c54f5cfa095f39d392a61d5c0a7efd3e6202e4a343aa1016a5e"
+  },
+  "equation": {
+    "raw": "χ = ∫(G · K) dΩ",
+    "normalized": "chi=integral(g*k)dω",
+    "fingerprint": "b526021202da61a535d834cd73c7d422d25835542c623d771120f845288f37f2"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-92ded7405955",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.992829+00:00",
+  "source": {
+    "path": "MEQ-03-solved-mathematical-examples.md",
+    "line": 81,
+    "source_sha256": "4dbfd23e509df0e73f65351fbac86c2bf9f691aea5027c97a1b63039d0fab15b"
+  },
+  "equation": {
+    "raw": "χ(1) = (G(1)/S(1)) × (1 + F_total) × |Ψ(1)|",
+    "normalized": "chi(1)=(g(1)/s(1))*(1+f_total)*|ψ(1)|",
+    "fingerprint": "92ded7405955ed7f7b562af8af9d645f874218bc081bba4fbbe89da85a411f36"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

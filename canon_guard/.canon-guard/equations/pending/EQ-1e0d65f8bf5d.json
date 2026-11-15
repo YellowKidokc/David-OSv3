@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-1e0d65f8bf5d",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.046440+00:00",
+  "source": {
+    "path": "MEQ-ClaudeDavid.md",
+    "line": 984,
+    "source_sha256": "2b10b01c071b34ba6924e357a252e5c118278521d8e5d95ffad864395e9ae3ea"
+  },
+  "equation": {
+    "raw": "dᵢ = -ln(Lᵢ·Vᵢ·Iᵢ)",
+    "normalized": "dᵢ=-ln(lᵢ*vᵢ*iᵢ)",
+    "fingerprint": "1e0d65f8bf5d5e17ee066777e948a98786056b606d8a4debd5db53168f9fde33"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

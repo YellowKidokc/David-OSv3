@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-9236d4179a86",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.555072+00:00",
+  "source": {
+    "path": "MEQ-Quantum_Tunneling_Grace.md",
+    "line": 71,
+    "source_sha256": "a063859b7ed0c8d16421f2cc24377d46984a850baea10ad4112bbb0272049dc1"
+  },
+  "equation": {
+    "raw": "T = e^(-2kd)",
+    "normalized": "t=e^(-2kd)",
+    "fingerprint": "9236d4179a8692bc9d184bba48d2caf3067a409320f0ff7af482ca1799ee2eaf"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

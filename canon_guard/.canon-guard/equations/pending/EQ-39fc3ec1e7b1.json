@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-39fc3ec1e7b1",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.980814+00:00",
+  "source": {
+    "path": "MEQ-02-JesusasLivingWaterStructuredFormat.md",
+    "line": 173,
+    "source_sha256": "8d5a97cea1251dcf76ec93748cc3389a725579864f568ee5bc73973c1757a252"
+  },
+  "equation": {
+    "raw": "ρ(∂v/∂t + v·∇v) = -∇p + μ∇²v + ρg",
+    "normalized": "ρ(partialv/partialt+v*∇v)=-∇p+mu∇^2v+ρg",
+    "fingerprint": "39fc3ec1e7b1c7e28d87196c0e17758c91912624c78cf0bcb8d578454e2589bf"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

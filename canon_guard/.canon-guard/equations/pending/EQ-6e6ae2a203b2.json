@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-6e6ae2a203b2",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.734346+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-UQCP_Mathematical_Refinement-Copy.md",
+    "line": 2572,
+    "source_sha256": "905e3b7ff0c2e737616e661eeb386c6241e2c450798cb98bffae8e6bc85c5c41"
+  },
+  "equation": {
+    "raw": "F = G \\frac{m\\_1 m\\_2}{r^2}",
+    "normalized": "f=g\\frac{m\\_1m\\_2}{r^2}",
+    "fingerprint": "6e6ae2a203b22d943c65c2cd68e605a2c6826b5a8ac5f5813428dfa7710c7f73"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

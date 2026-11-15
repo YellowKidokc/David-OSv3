@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-ed6bcfd83fab",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.486743+00:00",
+  "source": {
+    "path": "MEQ-00-MasterOutline.md",
+    "line": 12102,
+    "source_sha256": "082fae2f3083b27cfb2dff7b38e8a48167c5d25d33b0cc911e5168f5ab88c102"
+  },
+  "equation": {
+    "raw": "T_μν^(C) = ∂_μC ∂_νC - g_μν [½(∂C)² - V(C)]",
+    "normalized": "t_munu^(c)=partial_mucpartial_nuc-g_munu[½(partialc)^2-v(c)]",
+    "fingerprint": "ed6bcfd83faba13349c4d46b37186ed1dbb53f26e904f9ff179614db18686b2a"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-77aabdaf3ae9",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.591632+00:00",
+  "source": {
+    "path": "MEQ-TEN_LAWS_EQUATIONS.md",
+    "line": 96,
+    "source_sha256": "729c59296932d1d6d5b1221ad0af52a056ea9eca3351c87aa8db317151237f47"
+  },
+  "equation": {
+    "raw": "F = |⟨ψ|χ⟩|²",
+    "normalized": "f=|⟨ψ|chi⟩|^2",
+    "fingerprint": "77aabdaf3ae91d74216d65d145446521edca7af568cd5c39e9a85364a3a354c6"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

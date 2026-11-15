@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-95bbd72adae0",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.048482+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Master_Equation_Integration.md",
+    "line": 323,
+    "source_sha256": "49e6048824b10611facc91d9e05bbcc0d20c4f6f295d1379e7dbce8c0c0bc084"
+  },
+  "equation": {
+    "raw": "Θ = Q + U unifies them.",
+    "normalized": "θ=q+uunifiesthem.",
+    "fingerprint": "95bbd72adae08edce0f338181fce5b8af5ccedf67a2d4c93663974718cf42681"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

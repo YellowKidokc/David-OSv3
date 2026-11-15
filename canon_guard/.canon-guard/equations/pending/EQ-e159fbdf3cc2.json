@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-e159fbdf3cc2",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.317733+00:00",
+  "source": {
+    "path": "MEQ-2.3JesusChristTheUnifyingPrinciple.md",
+    "line": 124,
+    "source_sha256": "0da410967b8f475b1f4962416d41586d795c5e841f20a5469908c41bece9f49d"
+  },
+  "equation": {
+    "raw": "\\Huge G'(R_p) = e^{-\\gamma (S - R_J) \\cdot (1-R_p)}",
+    "normalized": "\\hugeg'(r_p)=e^{-\\gamma(s-r_j)*(1-r_p)}",
+    "fingerprint": "e159fbdf3cc271c3869d6c016890e7a91a57e2fe4349cf793408a9c32399823c"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

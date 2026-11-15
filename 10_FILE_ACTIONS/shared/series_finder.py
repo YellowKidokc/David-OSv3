@@ -1,4 +1,4 @@
-"""Series Finder — scan locations for files matching known series by name patterns.
+r"""Series Finder — scan locations for files matching known series by name patterns.
 
 Reads the canonical series from Z:\SERIES\ to learn what exists,
 then searches target directories for matches and generates a movement plan.
@@ -11,10 +11,12 @@ Usage:
 import argparse
 import csv
 import hashlib
+import json
 import os
 import re
 from pathlib import Path
 from datetime import datetime
+from itertools import combinations
 
 SERIES_ROOT = Path(r"Z:\SERIES")
 
@@ -57,8 +59,10 @@ def sha256_file(path: Path) -> str:
 
 
 def scan_series_root():
-    """Read Z:\SERIES to know what's already consolidated."""
+    r"""Read Z:\SERIES to know what's already consolidated."""
     existing = {}
+    if not SERIES_ROOT.is_dir():
+        return existing
     for series_dir in SERIES_ROOT.iterdir():
         if series_dir.is_dir() and series_dir.name in SERIES_PATTERNS:
             files = list(series_dir.rglob("*"))
@@ -103,9 +107,69 @@ def scan_location(loc: Path) -> list:
     return results
 
 
+def corroborate_candidates(candidates: list[dict]) -> dict:
+    """Retain exact-copy paths and folder evidence without deciding membership."""
+    groups = {}
+    unreadable = []
+    for row in candidates:
+        path = Path(row["path"]).resolve()
+        digest = sha256_file(path)
+        if digest == "UNREADABLE":
+            unreadable.append(str(path))
+            continue
+        instances = groups.setdefault(digest, {})
+        instances.setdefault(str(path), set()).update(row["series_matches"])
+
+    evidence = []
+    for digest, instances in sorted(groups.items()):
+        folders = {}
+        for path, series_names in instances.items():
+            for series in series_names:
+                folders.setdefault(series, set()).add(str(Path(path).parent))
+        evidence.append({
+            "sha256": digest,
+            "instances": sorted(instances),
+            "series_folders": {series: sorted(paths) for series, paths in sorted(folders.items())},
+            "conflicting_series": len(folders) > 1,
+        })
+    return {"groups": evidence, "folder_overlap": folder_overlap(groups),
+            "unreadable": sorted(set(unreadable))}
+
+
+def folder_overlap(groups: dict) -> list[dict]:
+    # Denominators cover the hashed candidates in this report.
+    folder_hashes = {}
+    shared_by_pair = {}
+    for digest, instances in groups.items():
+        folders = sorted({str(Path(path).parent) for path in instances})
+        for folder in folders:
+            folder_hashes.setdefault(folder, set()).add(digest)
+        for pair in combinations(folders, 2):
+            shared_by_pair.setdefault(pair, []).append(digest)
+
+    overlaps = []
+    for (left, right), shared in shared_by_pair.items():
+        left_hashes = folder_hashes[left]
+        right_hashes = folder_hashes[right]
+        shared_set = set(shared)
+        overlaps.append({
+            "left_folder": left,
+            "right_folder": right,
+            "shared_sha256": sorted(shared_set),
+            "left_only_sha256": sorted(left_hashes - shared_set),
+            "right_only_sha256": sorted(right_hashes - shared_set),
+            "left_candidate_coverage": len(shared_set) / len(left_hashes),
+            "right_candidate_coverage": len(shared_set) / len(right_hashes),
+        })
+    return sorted(overlaps, key=lambda row: (
+        -len(row["shared_sha256"]), row["left_folder"], row["right_folder"]
+    ))
+
+
 def main():
     parser = argparse.ArgumentParser(description="Series Finder")
     parser.add_argument("--plan", type=str, help="Write CSV movement plan to this path")
+    parser.add_argument("--evidence", type=Path, help="Write exact-copy and series folder evidence to JSON")
     parser.add_argument("--locations", nargs="*", help="Override search locations")
     args = parser.parse_args()
 
@@ -130,6 +194,11 @@ def main():
 
     print(f"\nTotal matches: {len(all_found)}")
     print()
+
+    if args.evidence:
+        with args.evidence.open("x", encoding="utf-8") as output:
+            json.dump(corroborate_candidates(all_found), output, indent=2, ensure_ascii=False)
+            output.write("\n")
 
     by_series = {}
     for item in all_found:

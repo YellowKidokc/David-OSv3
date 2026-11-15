@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-afab47df18e9",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.823403+00:00",
+  "source": {
+    "path": "MEQ-Untitled211.md",
+    "line": 203,
+    "source_sha256": "fe725622dc7da88342e1305d74e6febc6d4d7f369eacb7dff559b3e8fb296e41"
+  },
+  "equation": {
+    "raw": "$$P_{collapse} = |\\psi|^2 + (RJ \\times F)$$",
+    "normalized": "$$p_{collapse}=|\\psi|^2+(rj*f)$$",
+    "fingerprint": "afab47df18e9270c465d2a1443b274eab25ad1102198fbbfb763b356211132cf"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

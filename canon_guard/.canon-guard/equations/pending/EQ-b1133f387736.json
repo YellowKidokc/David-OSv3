@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-b1133f387736",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.563844+00:00",
+  "source": {
+    "path": "MEQ-00-MATH-APPENDIX-Master-Equation.md",
+    "line": 254,
+    "source_sha256": "b3d60ff621e037d6d9c388f596d2d72b65d2e4fc956ac32d53b0d854e13d8ce8"
+  },
+  "equation": {
+    "raw": "\\hat{G} = G_0 + \\int g(x')\\delta(x-x')d^3x'",
+    "normalized": "\\hat{g}=g_0+\\intg(x')\\delta(x-x')d^3x'",
+    "fingerprint": "b1133f387736f9b24b6bba025125cbf759c6ae91772258b73ef6eef86bd43d01"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

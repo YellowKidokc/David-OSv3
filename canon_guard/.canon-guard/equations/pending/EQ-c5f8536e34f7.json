@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-c5f8536e34f7",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.079523+00:00",
+  "source": {
+    "path": "MEQ-DataAnalysis-Copy.md",
+    "line": 1738,
+    "source_sha256": "eb86e21b6fcbd67c587ed93d08daf00d25cc11c63272bc20f6e08516738af48c"
+  },
+  "equation": {
+    "raw": "> **Ψ = ∑cᵢ|ψᵢ⟩**",
+    "normalized": ">**ψ=∑cᵢ|ψᵢ⟩**",
+    "fingerprint": "c5f8536e34f70eec220f3bfb7cbec4b097b5cbe88a5ef0fc11f8872a4ac54155"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

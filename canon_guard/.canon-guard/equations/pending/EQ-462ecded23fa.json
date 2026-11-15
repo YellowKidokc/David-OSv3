@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "case_id": "EQ-462ecded23fa",
+  "status": "ratified",
+  "created_at": "2026-07-27T07:57:25.863440+00:00",
+  "source": {
+    "path": "MEQ-00-MasterOutline.md",
+    "line": 209,
+    "source_sha256": "082fae2f3083b27cfb2dff7b38e8a48167c5d25d33b0cc911e5168f5ab88c102"
+  },
+  "equation": {
+    "raw": "R_μν - ½g_μν R = 8πG T_μν",
+    "normalized": "r_munu-½g_munur=8πgt_munu",
+    "fingerprint": "462ecded23fa1151c2273f49a1427fbe11e0cf3ddc577bebbeac140ebca84125"
+  },
+  "required_review": {
+    "classification": "compatible",
+    "math_translation": "Einstein field equations: spacetime curvature is proportional to the stress-energy tensor.",
+    "plain_translation": "Matter and energy tell space how to curve.",
+    "theological_translation": "Grace (Newton-Grace) is the geometric response of creation to the presence of mass-energy.",
+    "canonical_id": "law-01-newton-grace",
+    "canonical_equation": "R_μν - ½g_μν R = 8πG T_μν",
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [
+      {
+        "reviewer": "kimi",
+        "model": "kimi-code-cli",
+        "independent": true,
+        "decision": "compatible",
+        "confidence": 0.95,
+        "evidence": [
+          "MEQ-00-MasterOutline.md:209",
+          "standard general relativity"
+        ],
+        "reviewed_at": "2026-07-27T08:02:07.444977+00:00"
+      }
+    ],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

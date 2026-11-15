@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-31332dfeaa9f",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.252737+00:00",
+  "source": {
+    "path": "MEQ-Formalism.md",
+    "line": 133,
+    "source_sha256": "ab4f431f90f7e42349148d803a3fb3c23fbceef20014302e4e379c7a95e30e98"
+  },
+  "equation": {
+    "raw": "\\delta S = \\delta \\int \\mathcal{L} \\, d^4x = 0",
+    "normalized": "\\deltas=\\delta\\int\\mathcal{l}\\,d^4x=0",
+    "fingerprint": "31332dfeaa9ffa63a538689192086580c61487c3a1cc7ba5cd2f410bb52f2544"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-94b8f48d4fa4",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.163588+00:00",
+  "source": {
+    "path": "MEQ-127_PROT18.3_Grace-Negentropy-Detection.md",
+    "line": 409,
+    "source_sha256": "4f4896e78affa22ed3b488f7801943f3493c707a7db0bf9e604c5c6f99c8fae3"
+  },
+  "equation": {
+    "raw": "I(C; G) = H(C) - H(C | G)",
+    "normalized": "i(c;g)=h(c)-h(c|g)",
+    "fingerprint": "94b8f48d4fa4569082fe6de600483396de64d965ecc67627db3675be0fe61dd3"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

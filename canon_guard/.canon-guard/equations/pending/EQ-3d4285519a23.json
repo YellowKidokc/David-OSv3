@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-3d4285519a23",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.024855+00:00",
+  "source": {
+    "path": "MEQ-03-solved-mathematical-examples.md",
+    "line": 336,
+    "source_sha256": "4dbfd23e509df0e73f65351fbac86c2bf9f691aea5027c97a1b63039d0fab15b"
+  },
+  "equation": {
+    "raw": "Entropy_reduction(t) = F_repentance × t = 0.46 × t",
+    "normalized": "entropy_reduction(t)=f_repentance*t=0.46*t",
+    "fingerprint": "3d4285519a2368886245990e5cc69778919161d869c7d5723c49ec6cd4392eb4"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

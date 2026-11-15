@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-ff2bb9bede18",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.579107+00:00",
+  "source": {
+    "path": "MEQ-StrongNuclearForce1.md",
+    "line": 83,
+    "source_sha256": "0db5d3149b91b75610019ed0d4fe9e7a3cadae83df1c6e561d731cab76a1aee7"
+  },
+  "equation": {
+    "raw": "✅ **[[[[[Quantum]]]]]] Entanglement = Spiritual Unity**",
+    "normalized": "✅**[[[[[quantum]]]]]]entanglement=spiritualunity**",
+    "fingerprint": "ff2bb9bede181f8332391a42e49dda458f5d156e09154c0a876695a67238db92"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

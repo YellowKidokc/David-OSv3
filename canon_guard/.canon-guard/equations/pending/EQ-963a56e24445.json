@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-963a56e24445",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.270742+00:00",
+  "source": {
+    "path": "MEQ-Grace-MoralAlignmentInteraction.md",
+    "line": 365,
+    "source_sha256": "d9c5ed9bd473b56834c3e79dbcb25b72c52d78165caa68c8ef8cf45b787f9e7d"
+  },
+  "equation": {
+    "raw": "G·M·F = G₀·|M|·sin(πA/2)·F₀·e^(k·t)",
+    "normalized": "g*m*f=g₀*|m|*sin(πa/2)*f₀*e^(k*t)",
+    "fingerprint": "963a56e2444507dba5469b163e57b0925d1819b9a55bf4e62d62ddd5dd0e0b18"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-ba94f6301f30",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.222652+00:00",
+  "source": {
+    "path": "MEQ-139_D19.4_Law-IV-Definition.md",
+    "line": 157,
+    "source_sha256": "4e9ce8e8c33ff3d6d62378d53a33f2e1bf38bebd6d1283174b353a8b7d5126e1"
+  },
+  "equation": {
+    "raw": "0 = G_{\\text{ext}} - \\gamma_G G^* + \\beta F^* C^*",
+    "normalized": "0=g_{ext}-\\gamma_gg^*+\\betaf^*c^*",
+    "fingerprint": "ba94f6301f3089f1e5c2ed8eb5602735d2efa55f63b7e5af8f31f063fe4e2ceb"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

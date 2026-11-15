@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-a9cb28538dd4",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.561582+00:00",
+  "source": {
+    "path": "MEQ-QuantumResearch-Wave-ParticleDualityandConsciousness.md",
+    "line": 31,
+    "source_sha256": "4a23fc64ab9974f5a2789241c23f8e335c697f4e9f2bc174d22889da1503305f"
+  },
+  "equation": {
+    "raw": "Ψ(x,t) = A·e^i(kx-ωt)",
+    "normalized": "ψ(x,t)=a*e^i(kx-ωt)",
+    "fingerprint": "a9cb28538dd463e5b874a3257e1ba73331be4123491174d3283cb91712a68d80"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

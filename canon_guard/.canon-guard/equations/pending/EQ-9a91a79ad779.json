@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-9a91a79ad779",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.350760+00:00",
+  "source": {
+    "path": "MEQ-C10L-01-Ten-Laws-Walkthrough.md",
+    "line": 329,
+    "source_sha256": "11ed80a8a8e0b24c55fba7679e54df2d44b713df6826f46742cf2190b6920a08"
+  },
+  "equation": {
+    "raw": "F = |<psi_observer|chi_field>|^2",
+    "normalized": "f=|<psi_observer|chi_field>|^2",
+    "fingerprint": "9a91a79ad779872a4848fe7e58b2311c9b238b5a886fd7fbc5e3997571667f41"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

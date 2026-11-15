@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-1bbe6ac2a7b0",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.127627+00:00",
+  "source": {
+    "path": "MEQ-DataAnalysis-Copy.md",
+    "line": 3738,
+    "source_sha256": "eb86e21b6fcbd67c587ed93d08daf00d25cc11c63272bc20f6e08516738af48c"
+  },
+  "equation": {
+    "raw": "✔ **r** = Distance from divine center",
+    "normalized": "✔**r**=distancefromdivinecenter",
+    "fingerprint": "1bbe6ac2a7b00d80e81f9c3c43d16678591d6a108b29d4c56e59008b58a53b89"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

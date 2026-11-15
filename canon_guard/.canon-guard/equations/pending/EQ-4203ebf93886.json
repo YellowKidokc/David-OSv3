@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-4203ebf93886",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.279193+00:00",
+  "source": {
+    "path": "MEQ-144_D19.9_Law-IX-Definition.md",
+    "line": 151,
+    "source_sha256": "f8f9e1af5a00c0b2f45765607600448b60f9842b854ffb50dd4411e99606225c"
+  },
+  "equation": {
+    "raw": "\\hat{K}_0 = \\sqrt{1-p}\\mathbb{1}",
+    "normalized": "\\hat{k}_0=\\sqrt{1-p}\\mathbb{1}",
+    "fingerprint": "4203ebf938865db580bf24b025df1b4bf92c35a0f1b7cf539e1d5093753b525c"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

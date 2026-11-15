@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-fdbf82840487",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.371831+00:00",
+  "source": {
+    "path": "MEQ-Law7-Copy.md",
+    "line": 196,
+    "source_sha256": "20e40f7bc12aaab9be282ed4718bf7bd9b81f88b3a7f7e45e1149af8a90a02ec"
+  },
+  "equation": {
+    "raw": "> **Δt' = Δt / sqrt(1 - v²/c²)**",
+    "normalized": ">**δt'=δt/sqrt(1-v^2/c^2)**",
+    "fingerprint": "fdbf8284048784b50ca2a529cfe64ffe5bad1783602a5e4040e2bacbd37d5b52"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

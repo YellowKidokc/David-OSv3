@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-9cd774f07725",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.899495+00:00",
+  "source": {
+    "path": "MEQ-variable-E-truth.md",
+    "line": 7,
+    "source_sha256": "98c09de1fd76f79e30b6c9d37d8c8f415e1465231499d0a29635c0af26697719"
+  },
+  "equation": {
+    "raw": "∇ · E = ρ/ε0",
+    "normalized": "∇*e=ρ/ε0",
+    "fingerprint": "9cd774f07725ced93bfb701e8f721ae8f22b23656c77f44cc226816c5a01912a"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

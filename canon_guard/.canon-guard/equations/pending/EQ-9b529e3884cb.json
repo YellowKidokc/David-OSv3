@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-9b529e3884cb",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.699731+00:00",
+  "source": {
+    "path": "MEQ-TheResearchof2WEB.md",
+    "line": 144,
+    "source_sha256": "9b9c08e4d1d2fa866bc8bff9212cf2a9721fb98f66d137fab7f02bd77d912b82"
+  },
+  "equation": {
+    "raw": "q\\=k∇T",
+    "normalized": "q\\=k∇t",
+    "fingerprint": "9b529e3884cbc65d5ed3ba3f8c345f8f775e68152560371c372cd75797cbb7dc"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

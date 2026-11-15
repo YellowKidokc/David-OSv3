@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-0a32290c9c02",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.011412+00:00",
+  "source": {
+    "path": "MEQ-Claude4-Copy.md",
+    "line": 255,
+    "source_sha256": "b34eadaaae0c3896607b0b958479dded2d3b97570143cfaf11fa81f58f5ec99f"
+  },
+  "equation": {
+    "raw": "> G_μν + Λg_μν = (8πG/c⁴)T_μν\n>",
+    "normalized": ">g_munu+λg_munu=(8πg/c⁴)t_munu>",
+    "fingerprint": "0a32290c9c0231fe63131c6a3d80a5923ac08cd1f0ac885b959658974855a818"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

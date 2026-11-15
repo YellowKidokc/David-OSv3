@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "case_id": "EQ-4d1775f1446b",
+  "status": "ratified",
+  "created_at": "2026-07-27T07:57:25.879463+00:00",
+  "source": {
+    "path": "MEQ-00-MasterOutline.md",
+    "line": 346,
+    "source_sha256": "082fae2f3083b27cfb2dff7b38e8a48167c5d25d33b0cc911e5168f5ab88c102"
+  },
+  "equation": {
+    "raw": "P(outcome) = |α|²·(1 + F·cos(θ))",
+    "normalized": "p(outcome)=|α|^2*(1+f*cos(θ))",
+    "fingerprint": "4d1775f1446b537ad3dbc8201acc71fdf19e6657007aa21c35f89106a611ac4b"
+  },
+  "required_review": {
+    "classification": "new_canonical_candidate",
+    "math_translation": "Outcome probability equals base quantum probability modulated by a faith factor and relative phase.",
+    "plain_translation": "The chance of a result is adjusted by how much faith and alignment are present.",
+    "theological_translation": "Faith does not override probability; it enters as a measurable modifier of the weights.",
+    "canonical_id": "law-07-heisenberg-faith",
+    "canonical_equation": "P(outcome) = |α|²·(1 + F·cos(θ))",
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [
+      {
+        "reviewer": "kimi",
+        "model": "kimi-code-cli",
+        "independent": true,
+        "decision": "new_canonical_candidate",
+        "confidence": 0.75,
+        "evidence": [
+          "MEQ-00-MasterOutline.md:346"
+        ],
+        "reviewed_at": "2026-07-27T08:02:07.448977+00:00"
+      }
+    ],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

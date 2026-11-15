@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-f9da723cea04",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.566845+00:00",
+  "source": {
+    "path": "MEQ-00-MATH-APPENDIX-Master-Equation.md",
+    "line": 290,
+    "source_sha256": "b3d60ff621e037d6d9c388f596d2d72b65d2e4fc956ac32d53b0d854e13d8ce8"
+  },
+  "equation": {
+    "raw": "\\hat{S} = S_0(\\hat{I} + \\hat{\\varepsilon})",
+    "normalized": "\\hat{s}=s_0(\\hat{i}+\\hat{\\varepsilon})",
+    "fingerprint": "f9da723cea04617f2bd720ed727d13a8533af4a6b96be930446f5affe205f37f"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

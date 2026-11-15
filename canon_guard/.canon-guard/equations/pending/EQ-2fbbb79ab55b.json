@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-2fbbb79ab55b",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.998828+00:00",
+  "source": {
+    "path": "MEQ-03-solved-mathematical-examples.md",
+    "line": 152,
+    "source_sha256": "4dbfd23e509df0e73f65351fbac86c2bf9f691aea5027c97a1b63039d0fab15b"
+  },
+  "equation": {
+    "raw": "F_collective = Σ F_i × Weight_i × Distance_factor_i",
+    "normalized": "f_collective=σf_i*weight_i*distance_factor_i",
+    "fingerprint": "2fbbb79ab55b75ad9a2fd75d9d21abaa623aa2c6cf070f31e50a68bb2a053863"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

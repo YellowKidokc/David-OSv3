@@ -1,0 +1,32 @@
+{
+  "stamp": "20261011-201029",
+  "documents_in_db_current_registry": 0,
+  "documents_with_tags": 0,
+  "scripture_refs": 0,
+  "tags_never_fired": 1159,
+  "frontmatter_written": 0,
+  "files_copied": 0,
+  "outputs": {
+    "documents": "C:\\Theophysics_Tagger\\02_INDEX\\20261011-201029_document_tags.csv",
+    "folders": "C:\\Theophysics_Tagger\\02_INDEX\\20261011-201029_folder_suggestions.csv",
+    "scripture": "C:\\Theophysics_Tagger\\02_INDEX\\20261011-201029_scripture_refs.csv",
+    "registry_audit": "C:\\Theophysics_Tagger\\02_INDEX\\20261011-201029_registry_audit.csv"
+  },
+  "files_seen": 0,
+  "newly_tagged": 0,
+  "unchanged_skipped": 0,
+  "read_errors": 0,
+  "semantic": "nomic-embed-text|z1",
+  "params": {
+    "title_weight": 3.0,
+    "heading_weight": 2.0,
+    "min_hits": 2.0,
+    "threshold": 0.25,
+    "max_tags": 12,
+    "w_lex": 1.0,
+    "w_sem": 0.7,
+    "sem_floor": 3.0,
+    "sem_ceil": 4.5,
+    "sem_accept": 0.5
+  }
+}

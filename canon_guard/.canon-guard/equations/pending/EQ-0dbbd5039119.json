@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-0dbbd5039119",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.904502+00:00",
+  "source": {
+    "path": "MEQ-variable-K-love.md",
+    "line": 7,
+    "source_sha256": "f7a2ffc303a08ef956a31b4121aa888c9f51d8dc496cf693814dab9c9290018f"
+  },
+  "equation": {
+    "raw": "V(r) = −g2/r · e−μr",
+    "normalized": "v(r)=-g2/r*e-mur",
+    "fingerprint": "0dbbd5039119d283d71ce2e10b18b97ab539b37450448bf50492c76a20942c42"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

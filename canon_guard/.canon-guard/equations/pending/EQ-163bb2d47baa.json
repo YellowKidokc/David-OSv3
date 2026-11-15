@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-163bb2d47baa",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.178617+00:00",
+  "source": {
+    "path": "MEQ-128_PROT18.4_Social-Coherence-Monitoring.md",
+    "line": 370,
+    "source_sha256": "e606e4a8aa8313e0679ad2c43cb669ed121cfd5e21b828396bacfdd6fc91ba9a"
+  },
+  "equation": {
+    "raw": "C_{global}(t) = \\frac{2}{N(N-1)} \\sum_{i<j} C_{ij}(t)",
+    "normalized": "c_{global}(t)=\\frac{2}{n(n-1)}\\sum_{i<j}c_{ij}(t)",
+    "fingerprint": "163bb2d47baa7af2d54eb8355fd1495acae7328c074424bcc20eb0d52ef64726"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

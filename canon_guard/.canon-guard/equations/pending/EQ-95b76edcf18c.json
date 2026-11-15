@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-95b76edcf18c",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.576109+00:00",
+  "source": {
+    "path": "MEQ-SPECULATIVE.md",
+    "line": 170,
+    "source_sha256": "b2b56a0dd4cae2ee3ec5f59dc295c220b65a5cec6f9d0bacfc3dd93282047089"
+  },
+  "equation": {
+    "raw": "lim_{t→∞} G₀e^(R_p/S) / (1+E₀e^kt+S₀e^-λR_pt) = 0",
+    "normalized": "lim_{t->∞}g₀e^(r_p/s)/(1+e₀e^kt+s₀e^-λr_pt)=0",
+    "fingerprint": "95b76edcf18c73f27b41e48027464873fda54d700f58574e39f15710d69a0f91"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

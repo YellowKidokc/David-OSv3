@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-aee28ca02092",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.630648+00:00",
+  "source": {
+    "path": "MEQ-TheMathematicalTheologyofGraceandSin.md",
+    "line": 29,
+    "source_sha256": "d2cc1c64b3a7c1a7cc047ce9c710e597aa66e5bfa0e8cd6cd54044d71468317f"
+  },
+  "equation": {
+    "raw": "$χ(t) = [G₀·e^(Rp/S) · RJ] / [1 + E₀e^(kt) - S₀e^(-λRₚt)]$",
+    "normalized": "$chi(t)=[g₀*e^(rp/s)*rj]/[1+e₀e^(kt)-s₀e^(-λrₚt)]$",
+    "fingerprint": "aee28ca02092b9c1e880798ea2f074591f2b20a4fac1f1a130c16f5f9c1d1a46"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

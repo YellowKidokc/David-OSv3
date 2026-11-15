@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-f0c10015b33a",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.835765+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-UQCP_Mathematical_Refinement-Copy.md",
+    "line": 16822,
+    "source_sha256": "905e3b7ff0c2e737616e661eeb386c6241e2c450798cb98bffae8e6bc85c5c41"
+  },
+  "equation": {
+    "raw": "T = 1/(G + S + C)",
+    "normalized": "t=1/(g+s+c)",
+    "fingerprint": "f0c10015b33ae2d8aea369b351686d113e5e7355b02faef7dc3d4548ffc639c4"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

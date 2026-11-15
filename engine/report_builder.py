@@ -27,12 +27,13 @@ def write_csv(con, out_path: Optional[str] = None) -> str:
         w = csv.writer(f)
         w.writerow(["id", "path", "current_name", "proposed_name", "domain",
                     "content_type", "status", "confidence", "decision",
-                    "context", "APPROVE", "notes"])
+                    "context", "APPROVE", "notes", "engine_predictions"])
         for i, r in enumerate(rows, 1):
             context = r["notes"] or r["reason"] or ""
             w.writerow([i, r["path"], r["name"], r["proposed_name"], r["domain"],
                         r["content_type"], r["status"],
-                        f"{(r['confidence'] or 0):.2f}", r["decision"], context, "", ""])
+                        f"{(r['confidence'] or 0):.2f}", r["decision"], context, "", "",
+                        r["engine_predictions"] if "engine_predictions" in r.keys() else ""])
     return str(out)
 
 

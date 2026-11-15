@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-f6230f933a4e",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.092553+00:00",
+  "source": {
+    "path": "MEQ-DataAnalysis-Copy.md",
+    "line": 1749,
+    "source_sha256": "eb86e21b6fcbd67c587ed93d08daf00d25cc11c63272bc20f6e08516738af48c"
+  },
+  "equation": {
+    "raw": "> **S = ∫(faith × grace)dt**",
+    "normalized": ">**s=integral(faith*grace)dt**",
+    "fingerprint": "f6230f933a4e107b6b4b9d7bf9bdee01b766a8a6b0a510495e21b2d4ed142530"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

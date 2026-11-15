@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-b75112f0d2c9",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.031361+00:00",
+  "source": {
+    "path": "MEQ-03-solved-mathematical-examples.md",
+    "line": 365,
+    "source_sha256": "4dbfd23e509df0e73f65351fbac86c2bf9f691aea5027c97a1b63039d0fab15b"
+  },
+  "equation": {
+    "raw": "Where α² + β² + γ² = 1 (normalization)",
+    "normalized": "whereα^2+β^2+γ^2=1(normalization)",
+    "fingerprint": "b75112f0d2c975c7318842627f6891f112bdccdfe871438ceb5c37a7db8cd89b"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

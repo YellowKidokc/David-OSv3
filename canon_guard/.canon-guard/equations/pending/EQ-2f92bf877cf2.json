@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-2f92bf877cf2",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.580107+00:00",
+  "source": {
+    "path": "MEQ-Study_Guide.md",
+    "line": 170,
+    "source_sha256": "ff57de8b0cd8236c57ee1c9eaacf9910c46775c5e94f10008a0c8565e125626d"
+  },
+  "equation": {
+    "raw": "Calculate: Escape Potential = (G × F) ÷ (S ÷ d²)",
+    "normalized": "calculate:escapepotential=(g*f)÷(s÷d^2)",
+    "fingerprint": "2f92bf877cf2ac1f763b5541d5ea34aa858a791b926adf19676ba5de2da88842"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

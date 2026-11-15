@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-55f1d1145798",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.573865+00:00",
+  "source": {
+    "path": "MEQ-00-MATH-APPENDIX-Master-Equation.md",
+    "line": 406,
+    "source_sha256": "b3d60ff621e037d6d9c388f596d2d72b65d2e4fc956ac32d53b0d854e13d8ce8"
+  },
+  "equation": {
+    "raw": "[T^a, T^b] = if^{abc}T^c",
+    "normalized": "[t^a,t^b]=if^{abc}t^c",
+    "fingerprint": "55f1d11457981da987233906ae2181afd87de9611e9e4466866341e156d41cb1"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

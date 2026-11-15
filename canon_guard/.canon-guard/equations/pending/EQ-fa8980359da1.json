@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-fa8980359da1",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.231658+00:00",
+  "source": {
+    "path": "MEQ-139_D19.4_Law-IV-Definition.md",
+    "line": 264,
+    "source_sha256": "4e9ce8e8c33ff3d6d62378d53a33f2e1bf38bebd6d1283174b353a8b7d5126e1"
+  },
+  "equation": {
+    "raw": "4. Solution: $\\tilde{G}(t) = \\tilde{G}(0) e^{-\\gamma_G t}$",
+    "normalized": "4.solution:$\\tilde{g}(t)=\\tilde{g}(0)e^{-\\gamma_gt}$",
+    "fingerprint": "fa8980359da190dae954df4d0af5534c633b3f9f5ac4e6c5e0a1e20e1fd7e9a9"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

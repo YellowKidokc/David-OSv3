@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-dceb294e3a45",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.167588+00:00",
+  "source": {
+    "path": "MEQ-127_PROT18.3_Grace-Negentropy-Detection.md",
+    "line": 444,
+    "source_sha256": "4f4896e78affa22ed3b488f7801943f3493c707a7db0bf9e604c5c6f99c8fae3"
+  },
+  "equation": {
+    "raw": "$$BC = \\frac{\\gamma^2 + 1}{\\kappa + 3}$$",
+    "normalized": "$$bc=\\frac{\\gamma^2+1}{\\kappa+3}$$",
+    "fingerprint": "dceb294e3a45d3462c2da03100590d440f90a48ec1671f9c394df7d6cfad0903"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-47f90c58b51c",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.763558+00:00",
+  "source": {
+    "path": "MEQ-00_MATH_SUMMARY.md",
+    "line": 6837,
+    "source_sha256": "6c68ac764c4536e2f86e24ca6255a50c7ed39ef5f5a52e797626d1dbb24cdf0e"
+  },
+  "equation": {
+    "raw": "S_{consciousness} = -k \\sum_{i} p_i \\ln(p_i) \\cdot G_c",
+    "normalized": "s_{consciousness}=-k\\sum_{i}p_i\\ln(p_i)*g_c",
+    "fingerprint": "47f90c58b51cead490741eb4bd14d2aa718848e40126aa2cd248fb5dde65d459"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

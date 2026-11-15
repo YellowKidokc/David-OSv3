@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-88f4644fed2d",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.248666+00:00",
+  "source": {
+    "path": "MEQ-141_D19.6_Law-VI-Definition.md",
+    "line": 31,
+    "source_sha256": "65a7c56b530fc33a62d87e2281fd9b47b3284083e63538d49585475910e8a046"
+  },
+  "equation": {
+    "raw": "Equivalently, coherence $C = -S$ satisfies:",
+    "normalized": "equivalently,coherence$c=-s$satisfies:",
+    "fingerprint": "88f4644fed2d5c334e8c7efa632c500a63817b08447aa6d4ba04abcfbf2d4b04"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -38,26 +38,34 @@ def labels(t):
 def words(t): return [w for w in WORD.findall(strip_fm(t).lower()) if w not in STOP]
 
 # ---- corpus pass: document frequency for rare-word weighting
+import pickle
+CACHE = OUT / 'corpus_cache.pkl'
 TOPSKIP = re.compile(r'(?i)^(zzz|a3_archive|00_inbox|legacy_import|openai_data|nested_prod|theophysics_vault|codex_excel|03_media|30_bible|\.obsidian)')
 files = []
-for top in ROOT.iterdir():
+EXTRA = [Path(r'C:\Users\David\Documents\faiththruphysics.com\ZZZZ_Master Folder\MIM')]
+for top in list(ROOT.iterdir()) + EXTRA:
     if top.is_dir() and not TOPSKIP.match(top.name):
         for dp, dn, fn in os.walk(top):
-            dn[:] = [d for d in dn if not re.match(r'(?i)(zzz|archive|backup|legacy|\.obsidian|\.git|_upgrade|raw_source|full_copy)', d)]
+            dn[:] = [d for d in dn if not re.match(r'(?i)(research|\.backside|zzz|archive|backup|legacy|\.obsidian|\.git|_upgrade|raw_source|full_copy)', d)]
             files += [Path(dp) / x for x in fn if x.endswith('.md')]
 import hashlib
-seen = set()
+seen = {}; alias = {}
 df = collections.Counter(); docs = {}
+if CACHE.exists():
+    docs, df, seen, alias = pickle.load(open(CACHE, 'rb')); files = []; print('loaded cache', len(docs), flush=True)
 for i, p in enumerate(files):
     if i % 2000 == 0: print('read', i, '/', len(files), flush=True)
     t = read(p)
     if len(t) < 300: continue
     h = hashlib.md5(t.encode('utf-8', 'replace')).hexdigest()
-    if h in seen: continue
-    seen.add(h)
+    if h in seen:
+        alias[p] = seen[h]; continue
+    seen[h] = p
     w = words(t)
     docs[p] = (skeleton(t), labels(t), collections.Counter(w))
     df.update(set(w))
+if not CACHE.exists():
+    pickle.dump((docs, df, seen, alias), open(CACHE, 'wb'))
 N = len(docs)
 idf = lambda w: math.log((N + 1) / (df[w] + 1))
 
@@ -73,7 +81,10 @@ stds = []
 for line in STD.read_text(encoding='utf-8').splitlines():
     if '\t' not in line: continue
     s, rel = line.split('\t', 1)
-    p = ROOT / rel
+    p = Path(rel) if os.path.isabs(rel) else ROOT / rel
+    if p not in docs and p in alias: p = alias[p]
+    if p not in docs and p.exists():
+        t = read(p); docs[p] = (skeleton(t), labels(t), collections.Counter(words(t)))
     if p in docs:
         sk, lb, cnt = docs[p]
         stds.append((s, p, sk, lb, fingerprint(cnt)))
@@ -93,7 +104,7 @@ for j, (p, (sk, lb, cnt)) in enumerate(docs.items()):
         cand = (score, s, shape, lab, rare)
         if not best or cand > best: best = cand
     score, s, shape, lab, rare = best
-    rows.append([s, round(score, 3), round(shape, 3), round(lab, 3), round(rare, 3), str(p.relative_to(ROOT))])
+    rows.append([s, round(score, 3), round(shape, 3), round(lab, 3), round(rare, 3), (str(p.relative_to(ROOT)) if p.is_relative_to(ROOT) else str(p))])
 
 rows.sort(key=lambda r: (r[0], -r[1]))
 with open(OUT / 'glance_matches.csv', 'w', newline='', encoding='utf-8') as f:
@@ -107,5 +118,7 @@ for s, *_ in stds:
 json.dump({'docs_scanned': N, 'series': summary}, open(OUT / 'glance_summary.json', 'w', encoding='utf-8'), indent=1)
 print('scanned', N, 'docs')
 for s, v in summary.items(): print(f"{s:6} strong {v['strong(>=.55)']:5}  likely {v['likely(.40-.55)']:5}")
+
+
 
 

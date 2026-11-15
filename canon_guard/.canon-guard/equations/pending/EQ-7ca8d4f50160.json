@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-7ca8d4f50160",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.066426+00:00",
+  "source": {
+    "path": "MEQ-10-C-coherence.md",
+    "line": 5,
+    "source_sha256": "f47bdc1cec83aacc29620c4f5ac2cad14dce06fbcacd140b4b456eb182d4bd3f"
+  },
+  "equation": {
+    "raw": "dC/dt = O�G�(1-C) - S�C + a[E,T]",
+    "normalized": "dc/dt=o�g�(1-c)-s�c+a[e,t]",
+    "fingerprint": "7ca8d4f50160df10ab26f17e4a9a53270593f692e85189e1ca83974e3c1c3391"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

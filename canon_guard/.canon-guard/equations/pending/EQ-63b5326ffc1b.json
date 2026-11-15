@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-63b5326ffc1b",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.007455+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Lossless_Summary_Meta-Prompt.md",
+    "line": 6139,
+    "source_sha256": "5b3dcd9112a700c9843470d8e3a24a85470d06981462e1b55d7c28fed2661d05"
+  },
+  "equation": {
+    "raw": "R(F)=1+∑(Fi⋅e−di)R(F) = 1 + \\sum(F_i \\cdot e^{-d_i})",
+    "normalized": "r(f)=1+∑(fi⋅e-di)r(f)=1+\\sum(f_i*e^{-d_i})",
+    "fingerprint": "63b5326ffc1b769d57d9f674e86d9fd9d71629251a9e0bc406c1284f1ef28239"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

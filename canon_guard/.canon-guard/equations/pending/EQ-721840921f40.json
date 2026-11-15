@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-721840921f40",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.226653+00:00",
+  "source": {
+    "path": "MEQ-139_D19.4_Law-IV-Definition.md",
+    "line": 227,
+    "source_sha256": "4e9ce8e8c33ff3d6d62378d53a33f2e1bf38bebd6d1283174b353a8b7d5126e1"
+  },
+  "equation": {
+    "raw": "G(t) = \\Phi_t^G(G_0)",
+    "normalized": "g(t)=\\phi_t^g(g_0)",
+    "fingerprint": "721840921f409c5cf286565b85d45975bc96dd455fe94d58b7d33413f24ab227"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

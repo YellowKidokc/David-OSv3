@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-a018c9598245",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.590624+00:00",
+  "source": {
+    "path": "MEQ-TEN_LAWS_EQUATIONS.md",
+    "line": 45,
+    "source_sha256": "729c59296932d1d6d5b1221ad0af52a056ea9eca3351c87aa8db317151237f47"
+  },
+  "equation": {
+    "raw": "C = B log₂(1 + S/N)\nS_sin ∝ -ln(Φ)",
+    "normalized": "c=blog₂(1+s/n)s_sin∝-ln(φ)",
+    "fingerprint": "a018c959824557606465ac89c38ec5485b597f6a5b5b364736b7bde6fd89d927"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-20214f8fd43a",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.297717+00:00",
+  "source": {
+    "path": "MEQ-147_T19.1_Laws-Derive-From-Chi.md",
+    "line": 290,
+    "source_sha256": "6ac9b4f0cf4403c5cb9b7ca5b1b8e873b990396475620c99431cd0b0ed228da5"
+  },
+  "equation": {
+    "raw": "\\hat{L} = \\sum_{i=1}^{10} \\lambda_i \\hat{L}_i",
+    "normalized": "\\hat{l}=\\sum_{i=1}^{10}\\lambda_i\\hat{l}_i",
+    "fingerprint": "20214f8fd43a9b2dbd442d70571713b96c7bd3e8cbc89bc974b1e81bd2fb5f68"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

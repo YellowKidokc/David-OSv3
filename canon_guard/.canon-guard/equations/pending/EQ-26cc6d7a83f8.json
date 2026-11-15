@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-26cc6d7a83f8",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.471429+00:00",
+  "source": {
+    "path": "MEQ-MasterAcademia-FaithandDoubtasHarmonicOscillationsAPracticalModel.md",
+    "line": 32,
+    "source_sha256": "4d08052dde56995754b729010e61742e58cdc0a064084965352c674625c164b5"
+  },
+  "equation": {
+    "raw": "F(t) = A · cos(ωt + φ) · e^(-γt)",
+    "normalized": "f(t)=a*cos(ωt+φ)*e^(-γt)",
+    "fingerprint": "26cc6d7a83f82ee26c89d93bbb02bf53a16f88d809e78ba33b4da547af69f96a"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

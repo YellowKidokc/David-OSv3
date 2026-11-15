@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-61bacebe9177",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.564593+00:00",
+  "source": {
+    "path": "MEQ-QUICK_REFERENCE.md",
+    "line": 36,
+    "source_sha256": "737f42be74431c3123ca68cbed2f7d32fcd3f3cc5a5f0bd8da80ceb677c86a0c"
+  },
+  "equation": {
+    "raw": "G(t) = G₀ · e^(∫r(t')dt') · (1 - R(t))",
+    "normalized": "g(t)=g₀*e^(integralr(t')dt')*(1-r(t))",
+    "fingerprint": "61bacebe917752d559a348593771a837aab76bcc20c5572c99a603bea3eaf4ff"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

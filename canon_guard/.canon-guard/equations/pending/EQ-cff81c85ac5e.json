@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-cff81c85ac5e",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.050481+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Physics_Faith_Framework-Copy.md",
+    "line": 1488,
+    "source_sha256": "d689076268d7b2d343130e39d6de74a8680d2408da4809873f61697009d40239"
+  },
+  "equation": {
+    "raw": "Ψₜᵣᵢₙᵢₜᵧ = 1/√3(|ψ₁⟩|ψ₂⟩|ψ₃⟩ + |ψ₂⟩|ψ₃⟩|ψ₁⟩ + |ψ₃⟩|ψ₁⟩|ψ₂⟩)",
+    "normalized": "ψₜᵣᵢₙᵢₜᵧ=1/√3(|ψ₁⟩|ψ₂⟩|ψ₃⟩+|ψ₂⟩|ψ₃⟩|ψ₁⟩+|ψ₃⟩|ψ₁⟩|ψ₂⟩)",
+    "fingerprint": "cff81c85ac5ed89728537d3434370a908b88ebb9ce4d8a7b8be1aba39e710604"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

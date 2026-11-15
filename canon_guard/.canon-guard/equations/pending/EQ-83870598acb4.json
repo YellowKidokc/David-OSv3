@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-83870598acb4",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.373336+00:00",
+  "source": {
+    "path": "MEQ-Law7-Copy.md",
+    "line": 201,
+    "source_sha256": "20e40f7bc12aaab9be282ed4718bf7bd9b81f88b3a7f7e45e1149af8a90a02ec"
+  },
+  "equation": {
+    "raw": "✔ **c** = Speed of light",
+    "normalized": "✔**c**=speedoflight",
+    "fingerprint": "83870598acb40e3012e60d08ca3642a2b5aaabe38a290204003a86a84bae6b43"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

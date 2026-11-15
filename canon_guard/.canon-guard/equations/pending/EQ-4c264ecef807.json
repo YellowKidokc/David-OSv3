@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-4c264ecef807",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.632580+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Cosmic_Laws_and_Parallels.md",
+    "line": 2520,
+    "source_sha256": "dd7cd8e38f25f263e72a710424a4dab60a5132217316a69cb41788c551b678da"
+  },
+  "equation": {
+    "raw": "– |ψ⟩ = α|good⟩ + β|evil⟩\\",
+    "normalized": "-|ψ⟩=α|good⟩+β|evil⟩\\",
+    "fingerprint": "4c264ecef8074daf682204a134b8698578d1caaf5f4881f0faceb07ced863686"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

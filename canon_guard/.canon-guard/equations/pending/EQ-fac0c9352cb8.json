@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-fac0c9352cb8",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.295717+00:00",
+  "source": {
+    "path": "MEQ-147_T19.1_Laws-Derive-From-Chi.md",
+    "line": 250,
+    "source_sha256": "6ac9b4f0cf4403c5cb9b7ca5b1b8e873b990396475620c99431cd0b0ed228da5"
+  },
+  "equation": {
+    "raw": "\\{L_i, L_j\\} = C_{ij}^k L_k",
+    "normalized": "\\{l_i,l_j\\}=c_{ij}^kl_k",
+    "fingerprint": "fac0c9352cb85bc12094b8b720da8dffe024b1f7cb1181098b81c47913a71442"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

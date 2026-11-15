@@ -139,6 +139,7 @@ def scan(cfg: config.ScanConfig,
                                  decision=rec.decision)
 
                 if cfg.store_db:
+                    rename_planner.capture_engine_predictions(rec)
                     db.upsert_file(con, rec.to_dict())
                     if rec.proposed_name:
                         ledger.log_rename("proposed", rec.name, rec.proposed_name,

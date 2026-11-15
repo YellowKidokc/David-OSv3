@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-a05d39c15df8",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.861835+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Keystone_Security_Device_Plan.md",
+    "line": 375,
+    "source_sha256": "2919b7ea1943d6bb4fb0d34ceaf8a55140c43cc87b0f22a72062d13c3277057a"
+  },
+  "equation": {
+    "raw": "fundamentals: \"/query?function=OVERVIEW\"",
+    "normalized": "fundamentals:\"/query?function=overview\"",
+    "fingerprint": "a05d39c15df8f48861dfe2931fd5d7096b4f56eaa99ac30e673e32ed91fcb3fb"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

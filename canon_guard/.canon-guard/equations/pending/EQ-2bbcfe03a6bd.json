@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-2bbcfe03a6bd",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.058503+00:00",
+  "source": {
+    "path": "MEQ-COLLAPSE_DECOHERENCE.md",
+    "line": 33,
+    "source_sha256": "1442dc1b8acc01bf6f54c4dd0b52effd48dc85bfe245a593526ae8277294607b"
+  },
+  "equation": {
+    "raw": "Where |α|² + |β|² = 1",
+    "normalized": "where|α|^2+|β|^2=1",
+    "fingerprint": "2bbcfe03a6bdd6d3c69e3858ab654dd5c946bc1648e956cc5c0105474e953bd9"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

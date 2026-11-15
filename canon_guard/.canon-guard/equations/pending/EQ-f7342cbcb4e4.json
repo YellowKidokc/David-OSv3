@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-f7342cbcb4e4",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.338578+00:00",
+  "source": {
+    "path": "MEQ-00-MasterOutline.md",
+    "line": 11705,
+    "source_sha256": "082fae2f3083b27cfb2dff7b38e8a48167c5d25d33b0cc911e5168f5ab88c102"
+  },
+  "equation": {
+    "raw": "ℒ_int = ∑_{i<j} g_{ij} Φ_i Φ_j + ∑_{i<j<k} κ_{ijk} Φ_i Φ_j Φ_k",
+    "normalized": "ℒ_int=∑_{i<j}g_{ij}φ_iφ_j+∑_{i<j<k}κ_{ijk}φ_iφ_jφ_k",
+    "fingerprint": "f7342cbcb4e43d9c48124f931d25166ba8f5a5a9bb4b85dd16154ea74b26a384"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

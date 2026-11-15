@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-89bd728bc756",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.023467+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Lossless_Summary_Meta-Prompt.md",
+    "line": 6691,
+    "source_sha256": "5b3dcd9112a700c9843470d8e3a24a85470d06981462e1b55d7c28fed2661d05"
+  },
+  "equation": {
+    "raw": "\\Delta S_{\\text{resurrection}} = -\\lambda \\, R_J \\, t",
+    "normalized": "\\deltas_{resurrection}=-\\lambda\\,r_j\\,t",
+    "fingerprint": "89bd728bc756913a6e40b912c06d22354eb9bbd05db4af49b641e62bd4e047d9"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

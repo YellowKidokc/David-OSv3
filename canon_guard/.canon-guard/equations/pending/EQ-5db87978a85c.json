@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-5db87978a85c",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.636580+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Effects_of_Microgravity_on_Brain.md",
+    "line": 172,
+    "source_sha256": "2ae32e1c34b7913c75a988916c0beb14891aa27b4d26c18d0948f3ef813c0341"
+  },
+  "equation": {
+    "raw": "C·Q·G = ∂Ψ/∂t",
+    "normalized": "c*q*g=partialψ/partialt",
+    "fingerprint": "5db87978a85c563771a05dc5126d97df451084d106e1493c9c4ea099cee95876"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

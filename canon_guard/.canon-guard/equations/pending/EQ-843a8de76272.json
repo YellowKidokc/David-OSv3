@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-843a8de76272",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.313732+00:00",
+  "source": {
+    "path": "MEQ-2.1WhatistheMasterEquationHigh-levelexplanation-Copy.md",
+    "line": 525,
+    "source_sha256": "2779bedf7169e04d7ed111580025e3985665142f8f5a1ca34f4d30cac323bc5a"
+  },
+  "equation": {
+    "raw": "🔹 **More alignment = stronger effect.**",
+    "normalized": "🔹**morealignment=strongereffect.**",
+    "fingerprint": "843a8de7627293fcf1b2134dbdad39c146834f5ad7d85273af7801bfb9424cc5"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

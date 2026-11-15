@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-6486b5f38b2e",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.462427+00:00",
+  "source": {
+    "path": "MEQ-MASTER_EQUATION_COMPLETE_DERIVATION_CHAIN_CANONICAL_DRAFT.md",
+    "line": 460,
+    "source_sha256": "a23dd68a49d21051ecc94ae2dbcb3645bb22f35af0c8611a260c827a8f2966e4"
+  },
+  "equation": {
+    "raw": "T = Truth / signal",
+    "normalized": "t=truth/signal",
+    "fingerprint": "6486b5f38b2e3bf6d7829c94abafbaf5ecf561471cfbd97ee68a4bcb137002c8"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

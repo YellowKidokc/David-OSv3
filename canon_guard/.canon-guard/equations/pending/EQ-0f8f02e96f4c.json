@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-0f8f02e96f4c",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.368825+00:00",
+  "source": {
+    "path": "MEQ-Law4.md",
+    "line": 101,
+    "source_sha256": "b5fd78dca653feedae0330708b817f9e47df609db317ec134d739e100602e34e"
+  },
+  "equation": {
+    "raw": "✔ **T** = Temperature (in Kelvin)",
+    "normalized": "✔**t**=temperature(inkelvin)",
+    "fingerprint": "0f8f02e96f4c8b8a14d7d41ca5cda0bb8fa40771eae2473e43c3d5445b3bb65c"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

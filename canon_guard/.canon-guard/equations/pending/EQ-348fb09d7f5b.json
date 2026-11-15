@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-348fb09d7f5b",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.377343+00:00",
+  "source": {
+    "path": "MEQ-LAW7BUNIFIEDSPRITIUAL.md",
+    "line": 22,
+    "source_sha256": "6d0b6d0de7065c8a34b088d41438618dc22c111fa358b408055686c871347d89"
+  },
+  "equation": {
+    "raw": "Θ=Q+UΘ = Q + UΘ=Q+U",
+    "normalized": "θ=q+uθ=q+uθ=q+u",
+    "fingerprint": "348fb09d7f5b4072a0042c0cc010381036db443bbcd7ccda14111a143c330d4a"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

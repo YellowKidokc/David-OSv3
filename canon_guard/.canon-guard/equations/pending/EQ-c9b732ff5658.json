@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-c9b732ff5658",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.348760+00:00",
+  "source": {
+    "path": "MEQ-C10L-01-Ten-Laws-Walkthrough.md",
+    "line": 253,
+    "source_sha256": "11ed80a8a8e0b24c55fba7679e54df2d44b713df6826f46742cf2190b6920a08"
+  },
+  "equation": {
+    "raw": "Delta x Delta p >= hbar/2",
+    "normalized": "deltaxdeltap>=hbar/2",
+    "fingerprint": "c9b732ff56589ae72ffc935c9c0bf9ad5ea3a4e57e0f97fda8e0558d5d58f5be"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

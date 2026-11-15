@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-8d5c4d332b33",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.804372+00:00",
+  "source": {
+    "path": "MEQ-Untitled10-Copy.md",
+    "line": 324,
+    "source_sha256": "33e1252569fb1979c916026f3b6cadfb5fee8d07cbcb3858431d022a00aa53e1"
+  },
+  "equation": {
+    "raw": "> $V(r) = -g² × (e^{-m×r} / r)$",
+    "normalized": ">$v(r)=-g^2*(e^{-m*r}/r)$",
+    "fingerprint": "8d5c4d332b331aa67e4a2133f16ac1fbfd70a51858ffae317662979bb502e581"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

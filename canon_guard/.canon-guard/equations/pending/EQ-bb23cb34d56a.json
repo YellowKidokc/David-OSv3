@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-bb23cb34d56a",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.404556+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Quantum_Spirituality_Connections-Copy.md",
+    "line": 1635,
+    "source_sha256": "034e132b0a465b40a5c83f48594a4f7dee68d3ae2418b254b518f236c957ed4a"
+  },
+  "equation": {
+    "raw": "Unified equation: X=∭(G⋅M⋅E⋅S⋅T⋅K⋅R⋅Q⋅F⋅C)dxdydt",
+    "normalized": "unifiedequation:x=triple_integral(g⋅m⋅e⋅s⋅t⋅k⋅r⋅q⋅f⋅c)dxdydt",
+    "fingerprint": "bb23cb34d56a433bbf23c19c7817ac82ea4f52ed974cb7d7fb40688bf0afbd64"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

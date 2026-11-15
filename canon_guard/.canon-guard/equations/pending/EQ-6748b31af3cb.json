@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-6748b31af3cb",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.194631+00:00",
+  "source": {
+    "path": "MEQ-131_PRED18.2_GCP-Event-Prediction.md",
+    "line": 309,
+    "source_sha256": "e70590c8c3976452b986d7bba5c60c2422bac097e60087bbe1eac9f4b22633da"
+  },
+  "equation": {
+    "raw": "Therefore $\\beta = 1/2$.",
+    "normalized": "therefore$\\beta=1/2$.",
+    "fingerprint": "6748b31af3cb34e55c724847e9f7e2d6f9050667b6471ded0785fc81e49accc1"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

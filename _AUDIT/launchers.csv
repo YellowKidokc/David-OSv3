@@ -1,0 +1,579 @@
+﻿source,line,command_excerpt
+LAUNCH.bat,3,"cd /d ""%~dp0"""
+LAUNCH.bat,20,"call ""apps\!app%pick%!\START.bat"""
+_LOSSLESS_SUMMARY/Invoke-LosslessFramework.ps1,279,"if (Test-Path -LiteralPath $openFile -PathType Leaf) { Invoke-Item -LiteralPath $openFile } else { Start-Process explorer.exe -ArgumentList ""`""$frameworkDir`"""" }"
+_LOSSLESS_SUMMARY/Invoke-LosslessFramework.ps1,345,"Start-Process explorer.exe -ArgumentList ""`""$frameworkDir`"""""
+tools/organize/chi_nightly.bat,3,"cd /d ""D:\DONT TOUCH BOOT UP\organize"""
+tools/organize/chi_nightly.bat,7,"python chi_generator.py scan ""D:\DONT TOUCH BOOT UP"" --update --depth 2"
+tools/organize/chi_nightly.bat,8,python chi_generator.py scan D:\LOGOS_V5 --update --depth 3
+tools/organize/chi_nightly.bat,9,python chi_generator.py scan D:\BIL --update --depth 2
+tools/organize/chi_nightly.bat,11,python classifier.py train
+tools/organize/chi_nightly.bat,13,"python engine.py scan ""D:\DONT TOUCH BOOT UP"" repo dev"
+tools/organize/LAUNCH_GUI.bat,4,"cd /d ""%~dp0"""
+tools/organize/LAUNCH_GUI.bat,8,echo Repo: %CD%
+tools/organize/LAUNCH_GUI.bat,12,"set ""PYTHON_CMD=python"""
+tools/organize/LAUNCH_GUI.bat,13,python --version >nul 2>nul
+tools/organize/LAUNCH_GUI.bat,15,py -3 --version >nul 2>nul
+tools/organize/LAUNCH_GUI.bat,17,echo Python was not found. Install Python 3.9+ and run this again.
+tools/organize/LAUNCH_GUI.bat,21,"set ""PYTHON_CMD=py -3"""
+tools/organize/LAUNCH_GUI.bat,27,echo Checking tkinter in base Python...
+tools/organize/LAUNCH_GUI.bat,30,echo tkinter is not available in this Python install.
+tools/organize/LAUNCH_GUI.bat,31,echo Install the standard Python distribution from python.org with Tcl/Tk enabled.
+tools/organize/LAUNCH_GUI.bat,37,"set ""VENV_PY=%VENV_DIR%\Scripts\python.exe"""
+tools/organize/LAUNCH_GUI.bat,65,"powershell -Command ""try { $r = Invoke-WebRequest -Uri 'http://localhost:8420/health' -TimeoutSec 2 -UseBasicParsing; Write-Host 'FIS already running.' } catch { Write-Host 'FIS not running. Starting...'; Start-Process -FilePath 'python' -ArgumentList '-m fis api' -WorkingDirectory 'D:\DONT TOUCH BOOT UP\FIS' -WindowStyle Minimized; Start-Sleep -Seconds 3; Write-Host 'FIS started on port 8420.' }"""
+tools/organize/scan.bat,3,"cd /d ""D:\DONT TOUCH BOOT UP\organize"""
+tools/organize/scan.bat,12,python engine.py status 2>nul
+tools/organize/scan.bat,39,"python engine.py scan ""%folder%"" %role% ""%label%"""
+tools/organize/scan.bat,49,"python engine.py scan ""%folder%"" %role% ""%label%"" --target"
+tools/organize/scan.bat,56,python classifier.py export
+tools/organize/scan.bat,64,python classifier.py classify-all
+tools/organize/scan.bat,73,"python chi_generator.py scan ""%folder%"" --update --depth %depth%"
+tools/organize/WATCH_HISTORY.bat,4,"cd /d ""%~dp0"""
+tools/organize/WATCH_HISTORY.bat,16,"set ""VENV_PY=%LOCALAPPDATA%\organize-gui-venv\Scripts\python.exe"""
+tools/organize/WATCH_HISTORY.bat,20,"set ""PYTHON_CMD=python"""
+tools/fis-intelligence/FIS.bat,3,"python ""%~dp0fis.py"" %*"
+tools/filetagger/START_FILETAGGER_GUI.bat,3,"cd /d ""%~dp0"""
+tools/filetagger/START_FILETAGGER_GUI.bat,4,py -3 filetagger_gui.py
+tools/filetagger/START_FILETAGGER_GUI.bat,6,python filetagger_gui.py
+tools/filetagger/START_FOLDER_TAGGER_SAMPLE.bat,2,"cd /d ""%~dp0"""
+tools/filetagger/START_FOLDER_TAGGER_SAMPLE.bat,3,"python foldertagger.py ""%~dp0sample"" --force"
+tools/file-intelligence-sources/snapshots/FIS/INSTALL_STARTUP.bat,8,set PYTHONW=C:\Users\David\AppData\Local\Programs\Python\Python312\pythonw.exe
+tools/file-intelligence-sources/snapshots/FIS/INSTALL_STARTUP.bat,20,"/TR ""\""%PYTHONW%\"" \""%FIS_DIR%\fis_daemon.py\"""" ^"
+tools/file-intelligence-sources/snapshots/FIS/INSTALL_STARTUP.bat,37,"/TR ""\""%PYTHONW%\"" \""%FIS_DIR%\fis_folder_daemon.py\"""" ^"
+tools/file-intelligence-sources/snapshots/FIS/RESTART_DAEMONS.cmd,5,"REM  Use this after editing fis_daemon.py / fis_folder_daemon.py,"
+tools/file-intelligence-sources/snapshots/FIS/RESTART_DAEMONS.cmd,16,set PYW=C:\Users\David\AppData\Local\Programs\Python\Python312\pythonw.exe
+tools/file-intelligence-sources/snapshots/FIS/RESTART_DAEMONS.cmd,17,"cd /d ""%~dp0"""
+tools/file-intelligence-sources/snapshots/FIS/RESTART_DAEMONS.cmd,20,REM  Match on the script path in the command line — pythonw has no window
+tools/file-intelligence-sources/snapshots/FIS/RESTART_DAEMONS.cmd,24,"""Get-CimInstance Win32_Process -Filter \""Name='pythonw.exe'\"" | Where-Object { $_.CommandLine -like '*fis_daemon.py*' -or $_.CommandLine -like '*fis_folder_daemon.py*' } | Select-Object -ExpandProperty ProcessId""`) do ("
+tools/file-intelligence-sources/snapshots/FIS/RESTART_DAEMONS.cmd,30,"start """" ""%PYW%"" ""%~dp0fis_daemon.py"""
+tools/file-intelligence-sources/snapshots/FIS/RESTART_DAEMONS.cmd,33,"start """" ""%PYW%"" ""%~dp0fis_folder_daemon.py"""
+tools/file-intelligence-sources/snapshots/filetagger/START_FILETAGGER_GUI.bat,3,"cd /d ""%~dp0"""
+tools/file-intelligence-sources/snapshots/filetagger/START_FILETAGGER_GUI.bat,4,py -3 filetagger_gui.py
+tools/file-intelligence-sources/snapshots/filetagger/START_FILETAGGER_GUI.bat,6,python filetagger_gui.py
+tools/file-intelligence-sources/snapshots/filetagger/START_FOLDER_TAGGER_SAMPLE.bat,2,"cd /d ""%~dp0"""
+tools/file-intelligence-sources/snapshots/filetagger/START_FOLDER_TAGGER_SAMPLE.bat,3,"python foldertagger.py ""%~dp0sample"" --force"
+tools/codex-script-hub/launch_script_hub.bat,3,"cd /d ""%~dp0"""
+tools/codex-script-hub/launch_script_hub.bat,4,python script_hub.py
+tools/codex-script-hub/script_dump/pdf_to_markdown.bat,3,"cd /d ""%~dp0"""
+tools/codex-script-hub/script_dump/pdf_to_markdown.bat,5,python pdf_to_markdown.py
+tools/codex-script-hub/script_dump/pdf_to_markdown.bat,7,python pdf_to_markdown.py %*
+tools/codex-script-hub/script_dump/Split and Organize/VaultTools.bat,2,"powershell -NoProfile -ExecutionPolicy Bypass -File ""%~dp0VaultTools.ps1"""
+tools/codex-script-hub/script_dump/Split and Organize/VaultTools.ps1,139,"$textLike = @("".txt"","".md"","".log"","".csv"","".json"","".yaml"","".yml"","".xml"","".ini"","".ps1"","".bat"","".cmd"","".py"","".ts"","".js"")"
+Theophysics_Tagger/START_TAGGER.bat,2,"cd /d ""%~dp0tools"""
+Theophysics_Tagger/START_TAGGER.bat,3,"start """" pythonw tagger3_gui.py"
+Theophysics_Tagger/START_TAGGER.bat,4,if errorlevel 1 python tagger3_gui.py
+scripts/fis/CHECK.ps1,2,$Repo = (Resolve-Path (Join-Path $PSScriptRoot '..\..')).Path
+scripts/fis/CHECK.ps1,5,python -m unittest discover -s tests -p test_fis_standalone.py -v
+scripts/fis/CHECK.ps1,7,python -m unittest discover -s tests -p test_fis_background_preferences.py -v
+scripts/fis/CHECK.ps1,9,node --check fis/static/app.js
+scripts/fis/FIS_BACKGROUND.ps1,3,"[string]$Python,"
+scripts/fis/FIS_BACKGROUND.ps1,8,$Repo = (Resolve-Path (Join-Path $PSScriptRoot '..\..')).Path
+scripts/fis/FIS_BACKGROUND.ps1,10,if (-not $Python) { $Python = (Get-Command python.exe -ErrorAction Stop).Source }
+scripts/fis/FIS_BACKGROUND.ps1,22,"function Open-Fis([string]$Screen = 'home') { Start-Process ""$baseUrl/#$Screen"" }"
+scripts/fis/FIS_BACKGROUND.ps1,38,"# Start-Process joins ArgumentList; quote paths explicitly, with no interpolated shell code."
+scripts/fis/FIS_BACKGROUND.ps1,39,"if ($State.Contains('""') -or $Python.Contains('""')) { throw 'Invalid quoted path' }"
+scripts/fis/FIS_BACKGROUND.ps1,41,$script:child = Start-Process -FilePath $Python -ArgumentList $processArgs -WorkingDirectory $Repo -WindowStyle Hidden -PassThru `
+scripts/fis/INSTALL_BACKGROUND.ps1,1,"param([string]$State, [string]$Python, [int]$Port=43107, [switch]$NoStart)"
+scripts/fis/INSTALL_BACKGROUND.ps1,3,$Repo = (Resolve-Path (Join-Path $PSScriptRoot '..\..')).Path
+scripts/fis/INSTALL_BACKGROUND.ps1,5,if (-not $Python) { $Python = (Get-Command python.exe -ErrorAction Stop).Source }
+scripts/fis/INSTALL_BACKGROUND.ps1,8,$scriptPath = Join-Path $PSScriptRoot 'FIS_BACKGROUND.ps1'
+scripts/fis/INSTALL_BACKGROUND.ps1,10,"foreach ($value in @($State,$Python,$scriptPath)) { if ($value.Contains('""')) { throw 'Invalid path' } }"
+scripts/fis/INSTALL_BACKGROUND.ps1,11,"$arguments = '-NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -File ""{0}"" -State ""{1}"" -Python ""{2}"" -Port {3}' -f $scriptPath,$State,$Python,$Port"
+scripts/fis/INSTALL_BACKGROUND.ps1,27,$manifest = @{ installed_at=(Get-Date -Format o); startup=$shortcutPath; script=$scriptPath; python=$Python; state=$State; port=$Port; trigger='User sign-in'; requires_admin=$false }
+scripts/fis/INSTALL_BACKGROUND.ps1,29,if (-not $NoStart) { Start-Process -FilePath $powershell -ArgumentList $arguments -WorkingDirectory $Repo -WindowStyle Hidden }
+scripts/fis/START_FIS.bat,2,"powershell.exe -NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -File ""%~dp0FIS_BACKGROUND.ps1"""
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,6,# dup of: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cd-01-an-introduction-to-theophysics.html
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,7,# Remove-Item -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cd-01-an-introduction-to-theophysics.html'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,8,# Set-Content -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cd-01-an-introduction-to-theophysics.html.tombstone.txt' -Value 'MOVED-CANONICAL: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cd-01-an-introduction-to-theophysics.html  (2026-09-15)'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,10,# dup of: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cd-02-the-coherence-metric.html
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,11,# Remove-Item -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cd-02-the-coherence-metric.html'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,12,# Set-Content -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cd-02-the-coherence-metric.html.tombstone.txt' -Value 'MOVED-CANONICAL: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cd-02-the-coherence-metric.html  (2026-09-15)'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,14,# dup of: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cd-03-the-only-top-down-framework.html
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,15,# Remove-Item -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cd-03-the-only-top-down-framework.html'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,16,# Set-Content -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cd-03-the-only-top-down-framework.html.tombstone.txt' -Value 'MOVED-CANONICAL: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cd-03-the-only-top-down-framework.html  (2026-09-15)'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,18,# dup of: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cd-04-the-american-coherence-collapse.html
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,19,# Remove-Item -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cd-04-the-american-coherence-collapse.html'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,20,# Set-Content -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cd-04-the-american-coherence-collapse.html.tombstone.txt' -Value 'MOVED-CANONICAL: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cd-04-the-american-coherence-collapse.html  (2026-09-15)'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,22,# dup of: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cd-05-fruits-of-the-spirit.html
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,23,# Remove-Item -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cd-05-fruits-of-the-spirit.html'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,24,# Set-Content -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cd-05-fruits-of-the-spirit.html.tombstone.txt' -Value 'MOVED-CANONICAL: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cd-05-fruits-of-the-spirit.html  (2026-09-15)'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,26,# dup of: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cd-06-the-scientific-method-redux.html
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,27,# Remove-Item -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cd-06-the-scientific-method-redux.html'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,28,# Set-Content -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cd-06-the-scientific-method-redux.html.tombstone.txt' -Value 'MOVED-CANONICAL: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cd-06-the-scientific-method-redux.html  (2026-09-15)'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,30,# dup of: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cd-07-master-coherence-analysis.html
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,31,# Remove-Item -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cd-07-master-coherence-analysis.html'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,32,# Set-Content -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cd-07-master-coherence-analysis.html.tombstone.txt' -Value 'MOVED-CANONICAL: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cd-07-master-coherence-analysis.html  (2026-09-15)'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,34,# dup of: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cd-08-the-thermodynamics-of-grace.html
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,35,# Remove-Item -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cd-08-the-thermodynamics-of-grace.html'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,36,# Set-Content -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cd-08-the-thermodynamics-of-grace.html.tombstone.txt' -Value 'MOVED-CANONICAL: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cd-08-the-thermodynamics-of-grace.html  (2026-09-15)'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,38,# dup of: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cd-09-church-debris-audit.html
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,39,# Remove-Item -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cd-09-church-debris-audit.html'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,40,# Set-Content -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cd-09-church-debris-audit.html.tombstone.txt' -Value 'MOVED-CANONICAL: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cd-09-church-debris-audit.html  (2026-09-15)'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,42,# dup of: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cd-10-cliodynamic-analysis-great-demoralization.html
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,43,# Remove-Item -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cd-10-cliodynamic-analysis-great-demoralization.html'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,44,# Set-Content -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cd-10-cliodynamic-analysis-great-demoralization.html.tombstone.txt' -Value 'MOVED-CANONICAL: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cd-10-cliodynamic-analysis-great-demoralization.html  (2026-09-15)'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,46,# dup of: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cd-11-constitutional-overlay-analysis.html
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,47,# Remove-Item -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cd-11-constitutional-overlay-analysis.html'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,48,# Set-Content -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cd-11-constitutional-overlay-analysis.html.tombstone.txt' -Value 'MOVED-CANONICAL: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cd-11-constitutional-overlay-analysis.html  (2026-09-15)'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,50,# dup of: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cd-12-reverse-sequence-hypothesis.html
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,51,# Remove-Item -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cd-12-reverse-sequence-hypothesis.html'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,52,# Set-Content -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cd-12-reverse-sequence-hypothesis.html.tombstone.txt' -Value 'MOVED-CANONICAL: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cd-12-reverse-sequence-hypothesis.html  (2026-09-15)'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,518,# dup of: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cross-domain (cd)\cd-01-an-introduction-to-theophysics.md
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,519,# Remove-Item -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cross-domain (cd)\cd-01-an-introduction-to-theophysics.md'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,520,# Set-Content -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cross-domain (cd)\cd-01-an-introduction-to-theophysics.md.tombstone.txt' -Value 'MOVED-CANONICAL: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cross-domain (cd)\cd-01-an-introduction-to-theophysics.md  (2026-09-15)'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,522,# dup of: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cross-domain (cd)\cd-02-the-coherence-metric.md
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,523,# Remove-Item -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cross-domain (cd)\cd-02-the-coherence-metric.md'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,524,# Set-Content -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cross-domain (cd)\cd-02-the-coherence-metric.md.tombstone.txt' -Value 'MOVED-CANONICAL: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cross-domain (cd)\cd-02-the-coherence-metric.md  (2026-09-15)'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,526,# dup of: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cross-domain (cd)\cd-03-the-only-top-down-framework.md
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,527,# Remove-Item -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cross-domain (cd)\cd-03-the-only-top-down-framework.md'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,528,# Set-Content -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cross-domain (cd)\cd-03-the-only-top-down-framework.md.tombstone.txt' -Value 'MOVED-CANONICAL: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cross-domain (cd)\cd-03-the-only-top-down-framework.md  (2026-09-15)'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,530,# dup of: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cross-domain (cd)\cd-04-the-american-coherence-collapse.md
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,531,# Remove-Item -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cross-domain (cd)\cd-04-the-american-coherence-collapse.md'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,532,# Set-Content -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cross-domain (cd)\cd-04-the-american-coherence-collapse.md.tombstone.txt' -Value 'MOVED-CANONICAL: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cross-domain (cd)\cd-04-the-american-coherence-collapse.md  (2026-09-15)'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,534,# dup of: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cross-domain (cd)\cd-05-fruits-of-the-spirit.md
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,535,# Remove-Item -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cross-domain (cd)\cd-05-fruits-of-the-spirit.md'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,536,# Set-Content -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cross-domain (cd)\cd-05-fruits-of-the-spirit.md.tombstone.txt' -Value 'MOVED-CANONICAL: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cross-domain (cd)\cd-05-fruits-of-the-spirit.md  (2026-09-15)'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,538,# dup of: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cross-domain (cd)\cd-06-the-scientific-method-redux.md
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,539,# Remove-Item -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cross-domain (cd)\cd-06-the-scientific-method-redux.md'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,540,# Set-Content -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cross-domain (cd)\cd-06-the-scientific-method-redux.md.tombstone.txt' -Value 'MOVED-CANONICAL: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cross-domain (cd)\cd-06-the-scientific-method-redux.md  (2026-09-15)'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,542,# dup of: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cross-domain (cd)\cd-07-master-coherence-analysis.md
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,543,# Remove-Item -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cross-domain (cd)\cd-07-master-coherence-analysis.md'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,544,# Set-Content -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cross-domain (cd)\cd-07-master-coherence-analysis.md.tombstone.txt' -Value 'MOVED-CANONICAL: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cross-domain (cd)\cd-07-master-coherence-analysis.md  (2026-09-15)'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,546,# dup of: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cross-domain (cd)\cd-08-the-thermodynamics-of-grace.md
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,547,# Remove-Item -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cross-domain (cd)\cd-08-the-thermodynamics-of-grace.md'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,548,# Set-Content -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cross-domain (cd)\cd-08-the-thermodynamics-of-grace.md.tombstone.txt' -Value 'MOVED-CANONICAL: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cross-domain (cd)\cd-08-the-thermodynamics-of-grace.md  (2026-09-15)'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,550,# dup of: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cross-domain (cd)\cd-09-church-debris-audit.md
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,551,# Remove-Item -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cross-domain (cd)\cd-09-church-debris-audit.md'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,552,# Set-Content -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cross-domain (cd)\cd-09-church-debris-audit.md.tombstone.txt' -Value 'MOVED-CANONICAL: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cross-domain (cd)\cd-09-church-debris-audit.md  (2026-09-15)'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,554,# dup of: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cross-domain (cd)\cd-10-cliodynamic-analysis-great-demoralization.md
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,555,# Remove-Item -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cross-domain (cd)\cd-10-cliodynamic-analysis-great-demoralization.md'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,556,# Set-Content -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cross-domain (cd)\cd-10-cliodynamic-analysis-great-demoralization.md.tombstone.txt' -Value 'MOVED-CANONICAL: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cross-domain (cd)\cd-10-cliodynamic-analysis-great-demoralization.md  (2026-09-15)'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,558,# dup of: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cross-domain (cd)\cd-11-constitutional-overlay-analysis.md
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,559,# Remove-Item -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cross-domain (cd)\cd-11-constitutional-overlay-analysis.md'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,560,# Set-Content -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cross-domain (cd)\cd-11-constitutional-overlay-analysis.md.tombstone.txt' -Value 'MOVED-CANONICAL: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cross-domain (cd)\cd-11-constitutional-overlay-analysis.md  (2026-09-15)'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,562,# dup of: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cross-domain (cd)\cd-12-reverse-sequence-hypothesis.md
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,563,# Remove-Item -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cross-domain (cd)\cd-12-reverse-sequence-hypothesis.md'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,564,# Set-Content -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cross-domain (cd)\cd-12-reverse-sequence-hypothesis.md.tombstone.txt' -Value 'MOVED-CANONICAL: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cross-domain (cd)\cd-12-reverse-sequence-hypothesis.md  (2026-09-15)'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,566,# dup of: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cross-domain (cd)\index.md
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,567,# Remove-Item -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cross-domain (cd)\index.md'
+runs/site-v2-audit_2026-09-15/near_dup/move_plan_DRAFT.ps1,568,# Set-Content -LiteralPath 'G:\faiththruphysics-site-v2\cross-domain\cross-domain (cd)\index.md.tombstone.txt' -Value 'MOVED-CANONICAL: G:\faiththruphysics-site-v2\backups\cross-domain-pre-deploy-20260710-142358\cross-domain (cd)\index.md  (2026-09-15)'
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/LAUNCH.bat,7,"set ""BUNDLE_DIR=%~dp0"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/MENU.ps1,19,"$CALL_SCRIPT = Join-Path $BUNDLE_DIR ""CALL\call_openai.py"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/MENU.ps1,20,"$CKG_SCRIPT  = Join-Path $BUNDLE_DIR ""CKG\run_ckg_scorer.py"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/MENU.ps1,21,"$DOM_SCRIPT  = Join-Path $BUNDLE_DIR ""DOMAIN\run_domain_extractor.py"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/MENU.ps1,22,"$DEC_SCRIPT  = Join-Path $BUNDLE_DIR ""DECOMPRESS\run_decompressor.py"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/MENU.ps1,23,"$REV_SCRIPT  = Join-Path $BUNDLE_DIR ""PAPER-REVIEW\review_paper.py"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/MENU.ps1,24,"$RAT_SCRIPT  = Join-Path $BUNDLE_DIR ""VAULT-RATER\vault_rater.py"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/MENU.ps1,32,# ---- Pre-flight: Python + openai ----
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/MENU.ps1,33,function Assert-Python {
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/MENU.ps1,35,$v = python --version 2>&1
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/MENU.ps1,36,"if ($v -notmatch ""Python"") { throw }"
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/MENU.ps1,38,"Write-Err ""Python not found. Install Python 3.8+ and add to PATH."""
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/MENU.ps1,41,"python -c ""import openai"" 2>$null"
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/MENU.ps1,73,function Run-CALL {
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/MENU.ps1,74,"Write-Header ""TSNS TAGGER / GENERIC OPENAI CALL"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/MENU.ps1,78,"# Copy file into CALL/input/, run, output goes to configured OUTPUT_PATH"
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/MENU.ps1,79,"$inputDir = Join-Path $BUNDLE_DIR ""CALL\input"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/MENU.ps1,82,python $CALL_SCRIPT
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/MENU.ps1,91,python $CKG_SCRIPT $f.FullName
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/MENU.ps1,108,python $CKG_SCRIPT $file.FullName 2>&1 | Out-Null
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/MENU.ps1,119,python $DOM_SCRIPT $f.FullName
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/MENU.ps1,135,python $DOM_SCRIPT $file.FullName 2>&1 | Out-Null
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/MENU.ps1,146,python $DEC_SCRIPT $f.FullName
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/MENU.ps1,155,python $REV_SCRIPT $f.FullName
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/MENU.ps1,171,python $REV_SCRIPT $file.FullName 2>&1 | Out-Null
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/MENU.ps1,182,python $RAT_SCRIPT --vault $folder
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/MENU.ps1,203,"(Join-Path $BUNDLE_DIR ""CALL\config.txt""),"
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/MENU.ps1,229,Assert-Python
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/MENU.ps1,242,"Write-Host ""    1.  TSNS Tagger / Generic Call  (single file)"" -ForegroundColor White"
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/MENU.ps1,269,"""1""  { Run-CALL }"
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/YAML-COPILOT/RUN.bat,6,"cd /d ""%~dp0"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/YAML-COPILOT/RUN.bat,20,where python >nul 2>&1
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/YAML-COPILOT/RUN.bat,22,echo ERROR: Python is not installed or not in PATH.
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/YAML-COPILOT/RUN.bat,27,"python -c ""import openai"" >nul 2>&1"
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/YAML-COPILOT/RUN.bat,29,echo Installing OpenAI Python package ...
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/YAML-COPILOT/RUN.bat,34,"python ""%~dp0two_step_yaml_copilot.py"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/VAULT-RATER/RUN_FULL.bat,7,"cd /d ""%~dp0"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/VAULT-RATER/RUN_FULL.bat,23,:: Check Python
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/VAULT-RATER/RUN_FULL.bat,24,where python >nul 2>&1
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/VAULT-RATER/RUN_FULL.bat,26,echo ERROR: Python not found. Install from https://www.python.org
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/VAULT-RATER/RUN_FULL.bat,32,"python -c ""import openai"" >nul 2>&1"
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/VAULT-RATER/RUN_FULL.bat,40,"if not exist ""%~dp0config.txt"" ("
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/VAULT-RATER/RUN_FULL.bat,48,"python ""%~dp0vault_rater.py"" --pass both"
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/PAPER-REVIEW/DRY_RUN.bat,4,::  No API call is made. Shows token count and cost estimate.
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/PAPER-REVIEW/DRY_RUN.bat,6,"cd /d ""%~dp0"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/PAPER-REVIEW/DRY_RUN.bat,8,echo  DRY RUN — No API call will be made.
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/PAPER-REVIEW/DRY_RUN.bat,11,python review_paper.py --dry-run
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/PAPER-REVIEW/RUN.bat,6,"cd /d ""%~dp0"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/PAPER-REVIEW/RUN.bat,39,python review_paper.py
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/DOMAIN/RUN.bat,16,"python run_domain_extractor.py ""%~1"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/DECOMPRESS/RUN.bat,16,"python run_decompressor.py ""%~1"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/CKG/RUN.bat,16,"python run_ckg_scorer.py ""%~1"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/CALL/RUN.bat,3,::  OpenAI Direct-Call  —  Double-click this file to run
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/CALL/RUN.bat,5,title OpenAI Direct-Call
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/CALL/RUN.bat,6,"cd /d ""%~dp0"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/CALL/RUN.bat,10,echo   OpenAI Direct-Call
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/CALL/RUN.bat,21,:: Check Python is available
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/CALL/RUN.bat,22,where python >nul 2>&1
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/CALL/RUN.bat,24,echo ERROR: Python is not installed or not in PATH.
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/CALL/RUN.bat,25,echo Download it from https://www.python.org/downloads/
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/CALL/RUN.bat,26,"echo Make sure to check ""Add Python to PATH"" during install."
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/CALL/RUN.bat,32,"python -c ""import openai"" >nul 2>&1"
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/CALL/RUN.bat,34,echo Installing OpenAI Python package ...
+runs/folder_merge_desktop_pilot_20261030/MERGED_02/CALL/RUN.bat,40,"python ""%~dp0call_openai.py"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/DRY_RUN.bat,3,"cd /d ""%~dp0"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/DRY_RUN.bat,4,"python ""%~dp0vault_rater.py"" --dry-run"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCH.bat,5,"powershell.exe -ExecutionPolicy Bypass -File ""%~dp0LAUNCHER_PORTABLE.ps1"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCHER.ps1,2,"# Provides organized access to all PowerShell, Python, and Batch scripts"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCHER.ps1,15,"Write-Host ""  2. Launch Backend Server (app_v2.py)"" -ForegroundColor White"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCHER.ps1,54,"Write-Host "" 29. Run Custom Python Script"" -ForegroundColor White"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCHER.ps1,83,'Python' {
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCHER.ps1,84,& python $scriptPath
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCHER.ps1,101,"'1'  { Launch-Script ""scripts\python_pipeline\main.py"" ""Python"" ""Vault App GUI"" }"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCHER.ps1,102,"'2'  { Launch-Script ""scripts\python_pipeline\app_v2.py"" ""Python"" ""Backend Server"" }"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCHER.ps1,103,"'3'  { Launch-Script ""scripts\python_pipeline\vault_rater.py"" ""Python"" ""Vault Rater"" }"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCHER.ps1,111,"'9'  { Launch-Script ""scripts\python_pipeline\analytics\dashboard.py"" ""Python"" ""Analytics Dashboard"" }"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCHER.ps1,112,"'10' { Launch-Script ""scripts\python_pipeline\analytics\generate_report.py"" ""Python"" ""Vault Report Generator"" }"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCHER.ps1,113,"'11' { Launch-Script ""scripts\python_pipeline\utils\export_data.py"" ""Python"" ""Data Exporter"" }"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCHER.ps1,116,"'13' { Launch-Script ""scripts\python_pipeline\processors\content_processor.py"" ""Python"" ""Content Processor"" }"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCHER.ps1,118,"'15' { Launch-Script ""scripts\python_pipeline\analyzers\link_analyzer.py"" ""Python"" ""Link Analyzer"" }"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCHER.ps1,119,"'16' { Launch-Script ""scripts\python_pipeline\utils\tag_manager.py"" ""Python"" ""Tag Manager"" }"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCHER.ps1,121,"'17' { Launch-Script ""scripts\python_pipeline\maintenance\create_backup.py"" ""Python"" ""Backup Creator"" }"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCHER.ps1,122,"'18' { Launch-Script ""scripts\python_pipeline\maintenance\verify_integrity.py"" ""Python"" ""Integrity Verifier"" }"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCHER.ps1,136,"$customScript = Read-Host ""Enter Python script name (relative to ENGINE folder)"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCHER.ps1,137,"Launch-Script $customScript ""Python"" ""Custom Python Script"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCHER_PORTABLE.ps1,5,"$Python = if ($env:PYTHON_EXE) { $env:PYTHON_EXE } else { ""python"" }"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCHER_PORTABLE.ps1,26,Start-Process -FilePath $Path
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCHER_PORTABLE.ps1,32,function Run-Python {
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCHER_PORTABLE.ps1,46,& $Python $ScriptPath @Args
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCHER_PORTABLE.ps1,82,"""5"" { Run-Python ""vault_rater.py"" @(""--dry-run""); Wait-Key }"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCHER_PORTABLE.ps1,83,"""6"" { Run-Python ""vault_rater.py"" @(""--stats""); Wait-Key }"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCHER_PORTABLE.ps1,84,"""7"" { Run-Python ""scripts\export_metrics_snapshot_excel.py""; Wait-Key }"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCHER_PORTABLE.ps1,88,"Run-Python ""scripts\export_metrics_snapshot_excel.py"" @(""--target-folder"", $target)"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCHER_PORTABLE.ps1,96,"Run-Python ""vault_rater.py"" @(""--pass"", ""1"", ""--limit"", ""5"", ""--skip-move"", ""--skip-frontmatter"")"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCH_METRICS_SNAPSHOT.bat,14,"cd /d ""%~dp0"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCH_METRICS_SNAPSHOT.bat,15,python scripts\export_metrics_snapshot_excel.py
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCH_METRICS_SNAPSHOT_FOR_FOLDER.bat,16,"cd /d ""%~dp0"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/LAUNCH_METRICS_SNAPSHOT_FOR_FOLDER.bat,17,"python scripts\export_metrics_snapshot_excel.py --target-folder ""%TARGET_FOLDER%"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/RESTORE.bat,3,"cd /d ""%~dp0"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/RESTORE.bat,13,"python ""%~dp0vault_rater.py"" --restore"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/RUN_FULL.bat,7,"cd /d ""%~dp0"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/RUN_FULL.bat,25,:: Check Python
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/RUN_FULL.bat,26,where python >nul 2>&1
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/RUN_FULL.bat,28,echo ERROR: Python not found. Install from https://www.python.org
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/RUN_FULL.bat,34,"python -c ""import openai"" >nul 2>&1"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/RUN_FULL.bat,42,"if not exist ""%~dp0config.txt"" ("
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/RUN_FULL.bat,50,"python ""%~dp0vault_rater.py"" --pass both"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/STATS.bat,3,"cd /d ""%~dp0"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/STATS.bat,4,"python ""%~dp0vault_rater.py"" --stats"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TEST_20.bat,3,"cd /d ""%~dp0"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TEST_20.bat,10,"python ""%~dp0vault_rater.py"" --pass both --limit 20 --skip-move"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TEST_5_QUICK.bat,3,"cd /d ""%~dp0"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TEST_5_QUICK.bat,4,"python -c ""import openai; print('openai:', openai.__version__)"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TEST_5_QUICK.bat,6,"python ""%~dp0vault_rater.py"" --pass 1 --limit 5 --skip-move --skip-frontmatter 2>&1"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/GET_DRIVE_LINKS.bat,20,"cd /d ""%~dp0.."""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/GET_DRIVE_LINKS.bat,36,call venv\Scripts\activate.bat
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/GET_DRIVE_LINKS.bat,39,"echo [WARNING] No venv found, using system Python"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/GET_DRIVE_LINKS.bat,48,cd scripts
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/GET_DRIVE_LINKS.bat,51,python get_drive_links.py
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/GET_DRIVE_LINKS.bat,53,python get_drive_links.py --scan-all
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/GET_DRIVE_LINKS.bat,55,python get_drive_links.py --scan-all --refresh
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/GET_DRIVE_LINKS.bat,57,python get_drive_links.py --scan-all --dry-run
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/GET_DRIVE_LINKS.bat,59,python get_drive_links.py --scan-all --list
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/INSTALL_DEPENDENCIES.bat,10,"cd /d ""%~dp0"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/INSTALL_DEPENDENCIES.bat,13,"if not exist ""venv\Scripts\python.exe"" ("
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/INSTALL_DEPENDENCIES.bat,23,call venv\Scripts\activate.bat
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/INSTALL_DEPENDENCIES.bat,27,python -m pip install --upgrade pip
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/INSTALL_DEPENDENCIES.bat,39,"python -c ""import edge_tts; print('  [OK] edge-tts')"" || echo   [FAIL] edge-tts"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/INSTALL_DEPENDENCIES.bat,40,"python -c ""import pandas; print('  [OK] pandas')"" || echo   [FAIL] pandas"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/INSTALL_DEPENDENCIES.bat,41,"python -c ""import openpyxl; print('  [OK] openpyxl')"" || echo   [FAIL] openpyxl"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/INSTALL_DEPENDENCIES.bat,42,"python -c ""from theophysics_normalizer import TheophysicsNormalizer; print('  [OK] theophysics_normalizer')"" || echo   [FAIL] theophysics_normalizer"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_BATCH_TTS.bat,14,"cd /d ""%~dp0"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_BATCH_TTS.bat,16,"if not exist ""venv\Scripts\python.exe"" ("
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_BATCH_TTS.bat,23,call venv\Scripts\activate
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_BATCH_TTS.bat,24,cd scripts
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_BATCH_TTS.bat,25,"python batch_tts.py --input ""..\INBOX"" --output ""..\OUTBOX"" --processed ""..\PROCESSED"" --media ""O:\00_MEDIA\Audio"" --prelude ""Faith Through Physics. Theophysics Vault. By David Lowe"" --replace-name ""David Lowe=The Author"" --replace-name ""David=The Author"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_BUNDLE_FOR_DRIVE.bat,12,"cd /d ""%~dp0"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_BUNDLE_FOR_DRIVE.bat,15,call venv\Scripts\activate.bat
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_BUNDLE_FOR_DRIVE.bat,21,python bundle_for_drive.py
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_BUNDLE_FOR_DRIVE.bat,23,python bundle_for_drive.py --bundle-only
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_BUNDLE_FOR_DRIVE.bat,25,python bundle_for_drive.py --get-links
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_GDRIVE_UPLOAD.bat,7,"cd /d ""%~dp0"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_GDRIVE_UPLOAD.bat,10,call venv\Scripts\activate.bat
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_GDRIVE_UPLOAD.bat,13,cd scripts
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_GDRIVE_UPLOAD.bat,14,python gdrive_uploader.py %*
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_MATH_TRANSLATION_MANAGER.bat,7,"cd /d ""%~dp0"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_MATH_TRANSLATION_MANAGER.bat,9,"if not exist ""venv\Scripts\python.exe"" ("
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_MATH_TRANSLATION_MANAGER.bat,15,call venv\Scripts\activate.bat
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_MATH_TRANSLATION_MANAGER.bat,16,cd scripts
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_MATH_TRANSLATION_MANAGER.bat,17,python math_translation_manager.py
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_PAPER_FORMATTER.bat,7,"cd /d ""%~dp0"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_PAPER_FORMATTER.bat,9,"if not exist ""venv\Scripts\python.exe"" ("
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_PAPER_FORMATTER.bat,15,call venv\Scripts\activate.bat
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_PAPER_FORMATTER.bat,16,cd scripts
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_PAPER_FORMATTER.bat,17,python format_papers_gui.py
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_PAPER_FORMATTER_PRODUCTION.bat,35,call venv\Scripts\activate.bat
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_PAPER_FORMATTER_PRODUCTION.bat,36,python format_papers_production.py
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_PREPARE_DERIVED_CACHE.bat,14,"cd /d ""%~dp0"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_PREPARE_DERIVED_CACHE.bat,16,"if not exist ""venv\Scripts\python.exe"" ("
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_PREPARE_DERIVED_CACHE.bat,23,call venv\Scripts\activate
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_PREPARE_DERIVED_CACHE.bat,24,cd scripts
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_PREPARE_DERIVED_CACHE.bat,25,"python prepare_derived_cache.py --source ""O:\_Theophysics_v3\04_THEOPYHISCS\The Convergence\The Turtles and the Floor"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_SUBSTACK_BATCH.bat,7,"cd /d ""%~dp0"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_SUBSTACK_COPY.bat,29,"powershell -Command ""& {Add-Type -AssemblyName System.Windows.Forms; $f = New-Object System.Windows.Forms.OpenFileDialog; $f.Filter = 'Markdown files (*.md)|*.md|Text files (*.txt)|*.txt|All files (*.*)|*.*'; $f.InitialDirectory = '%~dp0OUTBOX'; if($f.ShowDialog() -eq 'OK'){$f.FileName}}"" > ""%temp%\selected_file.txt"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_TTS.bat,26,"set ""BASE_DIR=%~dp0"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_TTS.bat,28,"set ""SCRIPT_PATH=%BASE_DIR%\scripts\tts_pipeline.py"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_TTS.bat,33,:: Python environment
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_TTS.bat,35,"if exist ""%BASE_DIR%\venv\Scripts\python.exe"" ("
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_TTS.bat,36,"set ""VENV_PATH=%BASE_DIR%\venv\Scripts\python.exe"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_TTS.bat,39,"set ""VENV_PATH=python"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_TTS.bat,60,echo    Python: %VENV_PATH%
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_TTS_AND_UPLOAD.bat,16,"cd /d ""%~dp0.."""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_TTS_AND_UPLOAD.bat,20,call venv\Scripts\activate.bat
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_TTS_AND_UPLOAD.bat,25,cd scripts
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_TTS_AND_UPLOAD.bat,30,"python tts_and_upload.py --input ""..\INBOX"" --output ""..\OUTBOX"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_TTS_AND_UPLOAD.bat,34,"python tts_and_upload.py --input ""..\INBOX"" --output ""..\OUTBOX"" --tts-only"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_TTS_AND_UPLOAD.bat,38,python tts_and_upload.py --upload-only
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_TTS_AND_UPLOAD.bat,42,python tts_and_upload.py --resume
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_TTS_AND_UPLOAD.bat,45,python tts_and_upload.py --status
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/LAUNCH_TTS_AND_UPLOAD.bat,48,python tts_and_upload.py --clear
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/SETUP.bat,7,"cd /d ""%~dp0"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/SETUP.bat,8,"set ""ROOT_DIR=%CD%"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/SETUP.bat,10,python --version >nul 2>&1
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/SETUP.bat,12,echo [ERROR] Python not found. Please install Python 3.8+
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/SETUP.bat,19,python -m venv venv
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/SETUP.bat,25,call venv\Scripts\activate.bat
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/SETUP.bat,32,cd scripts
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/SETUP.bat,33,"python -c ""import edge_tts; print('  [OK] edge-tts')"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/SETUP.bat,34,"python -c ""import pandas; print('  [OK] pandas')"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/SETUP.bat,35,"python -c ""import openpyxl; print('  [OK] openpyxl')"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/SETUP.bat,36,"python -c ""from theophysics_normalizer import TheophysicsNormalizer; n = TheophysicsNormalizer(); print('  [OK] Normalizer loaded')"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/SETUP.bat,37,cd ..
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/UPLOAD_TO_DRIVE.bat,20,"cd /d ""%~dp0"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/UPLOAD_TO_DRIVE.bat,36,call venv\Scripts\activate.bat
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/UPLOAD_TO_DRIVE.bat,39,"echo [WARNING] No venv found, using system Python"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/UPLOAD_TO_DRIVE.bat,49,python smart_upload_to_drive.py
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/UPLOAD_TO_DRIVE.bat,51,python smart_upload_to_drive.py --dry-run
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/TTS_Pipeline/UPLOAD_TO_DRIVE.bat,53,python smart_upload_to_drive.py --keep-local
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/build_vault_structure.bat,3,"set ""SCRIPT=%~dp0vault_scaffold_builder.py"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/build_vault_structure.bat,8,"python ""%SCRIPT%"" --interactive"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/daily_update.bat,19,"python ""%SCRIPTS_DIR%\vault_navigator.py"" --full --vault ""%VAULT_ROOT%"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/daily_update.bat,24,"python ""%SCRIPTS_DIR%\generate_scripts_dashboard.py"" --vault ""%VAULT_ROOT%"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/daily_update.bat,29,"python ""%SCRIPTS_DIR%\vault_toolkit.py"" clean ""%VAULT_ROOT%"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/folder_menu.bat,14,"set ""TARGET=%CD%"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/folder_menu.bat,88,"python ""%SCRIPTS_DIR%\vault_navigator.py"" --folder ""%TARGET%"" --vault ""%VAULT_ROOT%"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/folder_menu.bat,95,"python ""%SCRIPTS_DIR%\vault_navigator.py"" --mocs-only --vault ""%TARGET%"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/folder_menu.bat,106,"python ""%SCRIPTS_DIR%\vault_toolkit.py"" clean ""%TARGET%"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/folder_menu.bat,113,"python ""%SCRIPTS_DIR%\vault_toolkit.py"" clean --fix ""%TARGET%"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/folder_menu.bat,120,"python ""%SCRIPTS_DIR%\vault_toolkit.py"" clean --fix --filenames ""%TARGET%"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/folder_menu.bat,127,"python ""%SCRIPTS_DIR%\vault_toolkit.py"" health ""%TARGET%"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/folder_menu.bat,134,"python ""%SCRIPTS_DIR%\vault_toolkit.py"" bloat ""%TARGET%"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/folder_menu.bat,141,"python ""%SCRIPTS_DIR%\vault_navigator.py"" --papers-only --vault ""%VAULT_ROOT%"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/folder_menu.bat,196,"python ""%SCRIPTS_DIR%\vault_navigator.py"" --full --vault ""%VAULT_ROOT%"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/folder_menu.bat,203,"python ""%SCRIPTS_DIR%\vault_navigator.py"" --papers-only --vault ""%VAULT_ROOT%"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/folder_menu.bat,210,"python ""%SCRIPTS_DIR%\generate_scripts_dashboard.py"" --vault ""%VAULT_ROOT%"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/folder_menu.bat,217,"python ""%SCRIPTS_DIR%\vault_toolkit.py"" health ""%VAULT_ROOT%"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/MASTER_MENU.ps1,16,"$IMPORTER    = Join-Path $SCRIPT_DIR ""vault_score_importer.py"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/MASTER_MENU.ps1,42,function Check-Python {
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/MASTER_MENU.ps1,44,$v = python --version 2>&1
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/MASTER_MENU.ps1,45,"if ($v -match ""Python"") { return $true }"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/MASTER_MENU.ps1,47,"Write-Err ""Python not found. Install Python 3.8+"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/MASTER_MENU.ps1,53,Start-Process $VAULT_EXCEL
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/MASTER_MENU.ps1,70,if (!(Check-Python)) { pause; return }
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/MASTER_MENU.ps1,91,python $IMPORTER $Folder --clean
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/MASTER_MENU.ps1,93,python $IMPORTER $Folder
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/MASTER_MENU.ps1,140,"Start-Process ""cmd.exe"" -ArgumentList ""/c `""$bat`"""" -WorkingDirectory $TTS_DIR"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/MASTER_MENU.ps1,148,"Start-Process ""cmd.exe"" -ArgumentList ""/c `""$bat`"""" -WorkingDirectory $TTS_DIR -Wait"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/MASTER_MENU.ps1,154,"Start-Process ""explorer.exe"" $inbox"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/MASTER_MENU.ps1,163,"Start-Process ""cmd.exe"" -ArgumentList ""/c `""$utqsBat`"""" -WorkingDirectory $SCRIPT_DIR -Wait"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/run_project_yaml_lint.bat,3,"set ""SCRIPT=%~dp0project_yaml_lint.py"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/run_project_yaml_lint.bat,12,"python ""%SCRIPT%"" --vault-root ""%VAULT%"" --registry ""%REG%"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/RUN_THEORY_DOWNLOADER.bat,5,"python ""O:\_Theophysics_v3\_theory_downloader_auto.py"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/run_utqs_excel.bat,3,"set ""SCRIPT=%~dp0utqs_excel_checker.py"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/run_utqs_excel.bat,13,"python ""%SCRIPT%"" --workbook ""%WB%"" --init-workbook"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/run_utqs_excel.bat,16,"python ""%SCRIPT%"" --workbook ""%WB%"" --score-workbook"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/VaultTools.bat,2,"powershell -NoProfile -ExecutionPolicy Bypass -File ""%~dp0VaultTools.ps1"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/VaultTools.ps1,139,"$textLike = @("".txt"","".md"","".log"","".csv"","".json"","".yaml"","".yml"","".xml"","".ini"","".ps1"","".bat"","".cmd"","".py"","".ts"","".js"")"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/GENERATE_LOGOS_MAPS.bat,2,"cd /d ""D:\Obsidian-Theophysics-research\theophysics_manager"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/GENERATE_LOGOS_MAPS.bat,3,python core\semantic_mermaid_generator.py
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/INDEX_DEFINITIONS.bat,28,"python engine\enhanced_definition_engine.py ""%vault%"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/LAUNCH_MANAGER.bat,2,"cd /d ""%~dp0"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/LAUNCH_MANAGER.bat,11,:: 1. Check for Python
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/LAUNCH_MANAGER.bat,12,python --version >nul 2>&1
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/LAUNCH_MANAGER.bat,14,echo [CRITICAL ERROR] Python is not detected!
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/LAUNCH_MANAGER.bat,15,echo FIX: Please install Python 3.10+ from python.org
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/LAUNCH_MANAGER.bat,16,"echo      Make sure to check ""Add Python to PATH"" during installation."
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/LAUNCH_MANAGER.bat,19,echo [CHECK] Python is installed.
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/LAUNCH_MANAGER.bat,24,call venv\Scripts\activate.bat
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/LAUNCH_MANAGER.bat,26,echo [WARNING] No virtual environment 'venv' found. Using global Python.
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/LAUNCH_MANAGER.bat,27,echo           It is recommended to run: python -m venv venv
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/LAUNCH_MANAGER.bat,30,:: 3. Check for main.py
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/LAUNCH_MANAGER.bat,31,"if not exist ""main.py"" ("
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/LAUNCH_MANAGER.bat,32,echo [CRITICAL ERROR] main.py not found in current directory!
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/LAUNCH_MANAGER.bat,36,echo [CHECK] main.py found.
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/LAUNCH_MANAGER.bat,40,"python -c ""import PySide6"" >nul 2>&1"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/LAUNCH_MANAGER.bat,68,python app_v2.py > launch_log.txt 2>&1
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/LAUNCH_THEOPHYSICS_BACKEND_V2.cmd,4,"set ""SCRIPT_DIR=%~dp0"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/LAUNCH_THEOPHYSICS_BACKEND_V2.ps1,4,"$pythonExe = Join-Path $backendRoot ""venv\Scripts\python.exe"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/LAUNCH_THEOPHYSICS_BACKEND_V2.ps1,5,"$appFile = Join-Path $backendRoot ""app_v2.py"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/LAUNCH_THEOPHYSICS_BACKEND_V2.ps1,12,"Write-Error ""Python executable not found: $pythonExe"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/LAUNCH_THEOPHYSICS_BACKEND_V2.ps1,19,"$proc = Start-Process -FilePath $pythonExe -ArgumentList ""app_v2.py"" -WorkingDirectory $backendRoot -PassThru"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/LAUNCH_V2.bat,10,"cd /d ""%~dp0"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/LAUNCH_V2.bat,15,call venv\Scripts\activate.bat
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/LAUNCH_V2.bat,17,"echo No virtual environment found, using system Python"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/LAUNCH_V2.bat,23,python app_v2.py
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/RUN_DATA_ANALYTICS.bat,99,"cd /d ""%ANALYTICS_ENGINE%"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/RUN_DATA_ANALYTICS.bat,100,call RUN_COMPLETE_ANALYTICS.bat
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/RUN_DATA_ANALYTICS.bat,129,"cd /d ""%ANALYTICS_ENGINE%"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/RUN_DATA_ANALYTICS.bat,130,python generate_deep_metrics.py
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/RUN_DATA_ANALYTICS.bat,133,echo  ERROR: Deep metrics failed. Check Python dependencies.
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/RUN_DATA_ANALYTICS.bat,146,python generate_deep_dashboards.py
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/RUN_DATA_ANALYTICS.bat,164,"cd /d ""%ANALYTICS_ENGINE%"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/RUN_DATA_ANALYTICS.bat,167,python export_to_excel.py
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/RUN_DATA_ANALYTICS.bat,171,python generate_html_dashboards.py
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/RUN_DATA_ANALYTICS.bat,175,python generate_deep_dashboards.py
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/RUN_DATA_ANALYTICS.bat,197,"cd /d ""%ANALYTICS_ENGINE%"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/RUN_DATA_ANALYTICS.bat,198,python generate_llm_summary.py
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/RUN_DATA_ANALYTICS.bat,258,"cd /d ""%ANALYTICS_ENGINE%"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/RUN_DATA_ANALYTICS.bat,259,"python generate_deep_metrics.py --folder ""%FOLDER_PATH%"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/RUN_DATA_ANALYTICS.bat,273,"python generate_deep_dashboards.py --folder ""%FOLDER_NAME%"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/RUN_DATA_ANALYTICS.bat,284,"python export_to_excel.py --folder ""%FOLDER_NAME%"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/RUN_DATA_ANALYTICS.bat,295,"python generate_llm_summary.py --folder ""%FOLDER_NAME%"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/RUN_DATA_ANALYTICS.bat,327,"cd /d ""O:\999_IGNORE\Obsidian Programs\Python_Backend\analytics"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/RUN_DATA_ANALYTICS.bat,328,"start """" python THEOPHYSICS_COMMAND_CENTER.py"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/SCAN_PAPERS.bat,13,REM Check Python
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/SCAN_PAPERS.bat,14,python --version >nul 2>&1
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/SCAN_PAPERS.bat,16,echo ERROR: Python not found!
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/SCAN_PAPERS.bat,37,"python -c ""from engine.knowledge_acquisition_engine import *; import json; results = scan_papers_in_directory('.'); print(json.dumps(results['statistics'], indent=2))"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/SCAN_PAPERS.bat,40,"python -c ""from engine.knowledge_acquisition_engine import *; import json; results = scan_papers_in_directory('%dir%'); print(json.dumps(results['statistics'], indent=2))"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/launchers/SCAN_PAPERS.bat,42,python engine\knowledge_acquisition_engine.py
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/backend_scripts/install.bat,3,REM This calls the universal Python installer
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/backend_scripts/install.bat,11,REM Check if Python is available
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/backend_scripts/install.bat,12,python --version >nul 2>&1
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/backend_scripts/install.bat,14,echo ERROR: Python not found!
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/backend_scripts/install.bat,15,echo Please install Python 3.10+ from https://www.python.org/
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/backend_scripts/install.bat,21,cd ..
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/backend_scripts/install.bat,24,python scripts\install.py
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/backend_scripts/install.sh,3,# This calls the universal Python installer
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/backend_scripts/install.sh,11,# Check if Python is available
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/backend_scripts/install.sh,13,"echo ""ERROR: Python 3 not found!"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/backend_scripts/install.sh,14,"echo ""Please install Python 3.10+ from https://www.python.org/"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/backend_scripts/install.sh,19,"cd ""$(dirname ""$0"")/.."""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/backend_scripts/install.sh,22,python3 scripts/install.py
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/backend_scripts/run.bat,4,cd ..
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/backend_scripts/run.bat,16,call venv\Scripts\activate.bat
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/backend_scripts/run.bat,17,python main.py
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/backend_scripts/run.sh,4,"cd ""$(dirname ""$0"")/.."""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/backend_scripts/run.sh,16,python3 main.py
+gui/START_03_CLASSIFY_REVIEW.bat,3,"call ""%~dp0..\03_CLASSIFY\REVIEW.bat"" %*"
+gui/START_03_CLASSIFY_VALIDATE.bat,3,"call ""%~dp0..\03_CLASSIFY\VALIDATE.bat"" %*"
+gui/START_AXIOM_SEARCH_EXPORT.bat,3,"cd /d ""%~dp0"""
+gui/START_AXIOM_SEARCH_EXPORT.bat,4,python axiom_search_export.py
+gui/START_DAVID_OS_SEARCH.bat,2,"cd /d ""%~dp0.."""
+gui/START_DAVID_OS_SEARCH.bat,3,python scripts\start_search_site.py
+gui/START_DRIVE_HARVESTER.bat,3,"cd /d ""%~dp0"""
+gui/START_DRIVE_HARVESTER.bat,4,python drive_harvester.py
+gui/START_FILETAGGER_GUI.bat,3,"cd /d ""%~dp0"""
+gui/START_FILETAGGER_GUI.bat,4,py -3 filetagger_gui.py
+gui/START_FILETAGGER_GUI.bat,6,python filetagger_gui.py
+gui/START_FILE_ACTIONS.bat,2,"cd /d ""%~dp0"""
+gui/START_FILE_ACTIONS.bat,3,python file_actions.py
+gui/START_FIS_SEARCH_WORKBENCH.bat,2,"cd /d ""%~dp0.."""
+gui/START_FIS_SEARCH_WORKBENCH.bat,3,python gui\fis_search_workbench.py
+gui/START_HERE.bat,2,"cd /d ""%~dp0"""
+gui/START_HERE.bat,3,"start """" pythonw launcher.py"
+gui/START_MASTER_EQUATION_INTAKE.bat,2,"cd /d ""%~dp0.."""
+gui/START_MASTER_EQUATION_INTAKE.bat,3,python gui\master_equation_intake_gui.py
+gui/theophysics_corpus_indexer/run.bat,3,"cd /d ""D:\GitHub\David-OSv3\GUI\theophysics_corpus_indexer"""
+gui/theophysics_corpus_indexer/run.bat,4,"call ""D:\GitHub\David-OSv3\LEAN 4\theophysics_corpus_indexer\.venv\Scripts\activate.bat"""
+gui/theophysics_corpus_indexer/run.bat,5,streamlit run app.py
+gui/pipeline_tools/RUN_CLUSTER.bat,3,"cd /d ""%~dp0"""
+gui/pipeline_tools/RUN_CLUSTER.bat,4,python companion_cluster.py %*
+gui/pipeline_tools/RUN_MINDMAP.bat,3,"cd /d ""%~dp0"""
+gui/pipeline_tools/RUN_MINDMAP.bat,4,python companion_mindmap.py --open %*
+gui/pipeline_tools/RUN_STATS.bat,3,"cd /d ""%~dp0"""
+gui/pipeline_tools/RUN_STATS.bat,4,python companion_stats.py %*
+files/BATCH_ALL.bat,3,"cd /d ""%~dp0"""
+files/BATCH_ALL.bat,4,python BATCH_ALL.py %*
+files/INVENTORY.bat,3,"cd /d ""%~dp0"""
+files/INVENTORY.bat,4,python run.py %1
+apps/rename/START.bat,3,"cd /d ""%~dp0"""
+apps/rename/START.bat,4,"set ""PY=python"""
+apps/rename/START.bat,5,"if exist ""..\..\.venv\Scripts\python.exe"" set ""PY=..\..\.venv\Scripts\python.exe"""
+apps/rename/START.bat,9,"""%PY%"" src\run.py ""%FOLDER%"""
+apps/fis/START.bat,3,echo [fis] not migrated yet. Legacy source(s): fis; D:/GitHub/FIS/app; D:/GitHub/FIS/api_server.py
+apps/fingerprint/START.bat,3,"cd /d ""%~dp0"""
+apps/fingerprint/START.bat,4,"set ""PY=python"""
+apps/fingerprint/START.bat,5,"if exist ""..\..\.venv\Scripts\python.exe"" set ""PY=..\..\.venv\Scripts\python.exe"""
+apps/fingerprint/START.bat,7,where cargo >nul 2>nul && (echo Building Rust accelerator... & pushd rust & cargo build --release -q & popd)
+apps/fingerprint/START.bat,12,"""%PY%"" src\run.py ""%FOLDER%"""
+apps/classify/START.bat,3,"cd /d ""%~dp0"""
+apps/classify/START.bat,4,"set ""PY=python"""
+apps/classify/START.bat,5,"if exist ""..\..\.venv\Scripts\python.exe"" set ""PY=..\..\.venv\Scripts\python.exe"""
+apps/classify/START.bat,11,"""%PY%"" src\run.py ""%FOLDER%"" --engine %ENGINE%"
+10_FILE_ACTIONS/START_FILE_ACTIONS.bat,2,"cd /d ""%~dp0"""
+10_FILE_ACTIONS/START_FILE_ACTIONS.bat,3,python shared\file_actions.py
+06_FIS_HTML/REGISTRY_SCAN.bat,6,"python -X utf8 ""%~dp0registry_scan.py"" ""%TARGET%"""
+06_FIS_HTML/REGISTRY_SCAN.bat,8,"for /f ""delims="" %%F in ('dir /b /o-d ""%~dp0out\*_REGISTRY.html"" 2^>nul') do (start """" ""%~dp0out\%%F"" & goto :done)"
+05_TOPIC_COLLECTION/1 RUN HERE.bat,2,"cd /d ""%~dp0.."""
+05_TOPIC_COLLECTION/1 RUN HERE.bat,3,"python ""%~dp0BACKSIDE\run.py"""
+05_TOPIC_COLLECTION/2 OPEN OUTBOX.bat,2,"if not exist ""%~dp0OUTBOX"" mkdir ""%~dp0OUTBOX"""
+05_TOPIC_COLLECTION/2 OPEN OUTBOX.bat,3,"start """" ""%~dp0OUTBOX"""
+05_TOPIC_COLLECTION/OPEN GUI.bat,2,"cd /d ""%~dp0.."""
+05_TOPIC_COLLECTION/OPEN GUI.bat,3,where pythonw >nul 2>nul
+05_TOPIC_COLLECTION/OPEN GUI.bat,4,"if errorlevel 1 (python ""%~dp0BACKSIDE\topic_gui.py"") else (start """" pythonw ""%~dp0BACKSIDE\topic_gui.py"")"
+04_ADAPT/ADAPT.bat,3,"cd /d ""%~dp0"""
+04_ADAPT/ADAPT.bat,4,python adapt_cards.py %*
+03_CLASSIFY/HARVEST_CHROME_YOUTUBE.bat,3,set PY=python
+03_CLASSIFY/HARVEST_CHROME_YOUTUBE.bat,4,"if exist ""%~dp0.venv\Scripts\python.exe"" set ""PY=%~dp0.venv\Scripts\python.exe"""
+03_CLASSIFY/HARVEST_CHROME_YOUTUBE.bat,5,"cd /d ""%~dp002_CLASSIFICATION"""
+03_CLASSIFY/HARVEST_CHROME_YOUTUBE.bat,6,"""%PY%"" -m harness.adapters.chrome_history"
+03_CLASSIFY/HARVEST_CLIPBOARD_DITTO.bat,3,set PY=python
+03_CLASSIFY/HARVEST_CLIPBOARD_DITTO.bat,4,"if exist ""%~dp0.venv\Scripts\python.exe"" set ""PY=%~dp0.venv\Scripts\python.exe"""
+03_CLASSIFY/HARVEST_CLIPBOARD_DITTO.bat,5,"cd /d ""%~dp002_CLASSIFICATION"""
+03_CLASSIFY/HARVEST_CLIPBOARD_DITTO.bat,6,"""%PY%"" -m harness.adapters.clipboard ditto %*"
+03_CLASSIFY/INTAKE.bat,3,set PY=python
+03_CLASSIFY/INTAKE.bat,4,"if exist ""%~dp0.venv\Scripts\python.exe"" set ""PY=%~dp0.venv\Scripts\python.exe"""
+03_CLASSIFY/INTAKE.bat,5,"cd /d ""%~dp002_CLASSIFICATION"""
+03_CLASSIFY/INTAKE.bat,11,"""%PY%"" intake\intake.py ""%~1"""
+03_CLASSIFY/PREDICT.bat,3,set PY=python
+03_CLASSIFY/PREDICT.bat,4,"if exist ""%~dp0.venv\Scripts\python.exe"" set ""PY=%~dp0.venv\Scripts\python.exe"""
+03_CLASSIFY/PREDICT.bat,5,"cd /d ""%~dp002_CLASSIFICATION"""
+03_CLASSIFY/PREDICT.bat,6,"""%PY%"" gui\app.py"
+03_CLASSIFY/RENAME.bat,4,"cd /d ""%~dp0"""
+03_CLASSIFY/RENAME.bat,6,"python 03_RENAMING\renamer_gui.py ""S:\PROCESSED"""
+03_CLASSIFY/RENAME.bat,8,"python 03_RENAMING\renamer_gui.py ""%~1"""
+03_CLASSIFY/REPORT.bat,4,"cd /d ""%~dp0"""
+03_CLASSIFY/REPORT.bat,5,set PY=python
+03_CLASSIFY/REPORT.bat,6,"if exist ""%~dp0.venv\Scripts\python.exe"" set ""PY=%~dp0.venv\Scripts\python.exe"""
+03_CLASSIFY/REPORT.bat,7,"""%PY%"" 01_SIDECARS\sidecar_report.py %*"
+03_CLASSIFY/REVIEW.bat,3,set PY=python
+03_CLASSIFY/REVIEW.bat,4,"if exist ""%~dp0.venv\Scripts\python.exe"" set ""PY=%~dp0.venv\Scripts\python.exe"""
+03_CLASSIFY/REVIEW.bat,5,"cd /d ""%~dp0"""
+03_CLASSIFY/REVIEW.bat,6,"""%PY%"" 02_CLASSIFICATION\gui\review.py %*"
+03_CLASSIFY/SETUP_PREDICTION.bat,3,"cd /d ""%~dp0"""
+03_CLASSIFY/SETUP_PREDICTION.bat,4,if not exist .venv\Scripts\python.exe python -m venv .venv
+03_CLASSIFY/SETUP_PREDICTION.bat,5,.venv\Scripts\python.exe -m pip install --upgrade pip
+03_CLASSIFY/SETUP_PREDICTION.bat,6,.venv\Scripts\python.exe -m pip install -r requirements-prediction.txt
+03_CLASSIFY/SETUP_PREDICTION.bat,7,.venv\Scripts\python.exe 02_CLASSIFICATION\tests\smoke.py
+03_CLASSIFY/VALIDATE.bat,3,rem The validator needs nothing but Python (engines are only used by REVIEW.bat).
+03_CLASSIFY/VALIDATE.bat,4,"cd /d ""%~dp0"""
+03_CLASSIFY/VALIDATE.bat,6,"python 00_SHARED\taxonomy_validator.py ""\\192.168.2.50\h_hp\Desktop\Folders\AXIOM_CLASSIFICATION_CANON_2026-07-25 (1)\sidecars"""
+03_CLASSIFY/VALIDATE.bat,8,"python 00_SHARED\taxonomy_validator.py ""%~1"""
+03_CLASSIFY/WATCH_CLIPBOARD.bat,3,set PY=python
+03_CLASSIFY/WATCH_CLIPBOARD.bat,4,"if exist ""%~dp0.venv\Scripts\python.exe"" set ""PY=%~dp0.venv\Scripts\python.exe"""
+03_CLASSIFY/WATCH_CLIPBOARD.bat,5,"cd /d ""%~dp002_CLASSIFICATION"""
+03_CLASSIFY/WATCH_CLIPBOARD.bat,6,"""%PY%"" -m harness.adapters.clipboard watch %*"
+02_INVENTORY/RUN_INVENTORY.bat,7,"pushd ""%~dp0.."""
+02_INVENTORY/RUN_INVENTORY.bat,8,"python -m engine.registry scan ""%~1"""
+02_INVENTORY/RUN_INVENTORY.sh,7,"SCRIPT_DIR=$(CDPATH= cd -- ""$(dirname -- ""$0"")"" && pwd)"
+02_INVENTORY/RUN_INVENTORY.sh,8,"cd ""$SCRIPT_DIR/.."""
+02_INVENTORY/RUN_INVENTORY.sh,9,"python -m engine.registry scan ""$@"""
+01_PROFILE/PROFILE.bat,3,"cd /d ""%~dp0"""
+01_PROFILE/PROFILE.bat,4,python profile_wizard.py %*
+.data/matching-tools/godedupe/simple_benchmark.sh,4,cd tests || exit
+.data/matching-tools/godedupe/simple_benchmark.sh,9,cd tests_big
+.data/matching-tools/godedupe/simple_benchmark.sh,30,cd tests_small
+.data/matching-tools/godedupe/simple_benchmark.sh,35,cd identical
+.data/fis-install-check/Scripts/activate.ps1,52,& python -m pydoc $args
+.data/fis-install-check/Scripts/pydoc.bat,22,"""python.exe"" -m pydoc %*"

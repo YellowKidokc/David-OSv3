@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-8212e95567ee",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.342810+00:00",
+  "source": {
+    "path": "MEQ-Law1.md",
+    "line": 426,
+    "source_sha256": "c450820d96c35ec7dfab52af8e43a185406edb77abc35895a01d03a3cef5e28c"
+  },
+  "equation": {
+    "raw": "F = G \\cdot \\frac{m_1 \\cdot m_2}{r^2}",
+    "normalized": "f=g*\\frac{m_1*m_2}{r^2}",
+    "fingerprint": "8212e95567ee5bbd0a2343ac1661c94d698051bdc31bc59090e166e756d68899"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-4d5e996389b0",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.998406+00:00",
+  "source": {
+    "path": "MEQ-Claude1.md",
+    "line": 35,
+    "source_sha256": "eedb9b7573fd23ce1e49d714f915edff4998a5ee5b57d3e3b0bf93c823c91dc2"
+  },
+  "equation": {
+    "raw": "Developed a master equation: Χ = ∭(G·M·E·S·T·K·R·Q·F·C)dxdydt",
+    "normalized": "developedamasterequation:chi=triple_integral(g*m*e*s*t*k*r*q*f*c)dxdydt",
+    "fingerprint": "4d5e996389b03b6f4d7469a103e6668717fea59d96e83d8f61c10b5e5f9ffb9f"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

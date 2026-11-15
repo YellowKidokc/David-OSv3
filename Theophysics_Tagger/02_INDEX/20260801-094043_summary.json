@@ -1,0 +1,21 @@
+﻿{
+  "scanned_sources": [
+    "Z:\\01_FRAMEWORK",
+    "Z:\\02_DRAFTING",
+    "Z:\\Master_Equation",
+    "Z:\\Logos",
+    "Z:\\_AXIOMS_001-188",
+    "Z:\\00_AXIOMS",
+    "Z:\\Theophysics_Vault",
+    "Z:\\_ Theophysics_Case_for_Christ"
+  ],
+  "documents_tagged": 2773,
+  "paragraph_hits": 218296,
+  "sentence_hits": 332808,
+  "outputs": {
+    "documents": "C:\\Theophysics_Tagger\\02_INDEX\\20260801-094043_document_tags.csv",
+    "paragraphs": "C:\\Theophysics_Tagger\\02_INDEX\\20260801-094043_paragraph_tags.csv",
+    "sentences": "C:\\Theophysics_Tagger\\02_INDEX\\20260801-094043_sentence_tags.csv",
+    "folders": "C:\\Theophysics_Tagger\\02_INDEX\\20260801-094043_folder_suggestions.csv"
+  }
+}

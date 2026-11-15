@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-d6aaf214b777",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.190624+00:00",
+  "source": {
+    "path": "MEQ-130_PRED18.1_H0-Prediction-2025-2030.md",
+    "line": 184,
+    "source_sha256": "fae0715cd0875eb21d3d3256bdc265239b710a600ded523622b9a8bdd1fef4da"
+  },
+  "equation": {
+    "raw": "P_N = \\left(1 - \\frac{t^2}{N^2\\tau_Z^2}\\right)^N",
+    "normalized": "p_n=(1-\\frac{t^2}{n^2\\tau_z^2})^n",
+    "fingerprint": "d6aaf214b777f999aed226a30601555b1304238746b69952d280e881b6eed0ad"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-da74cf2e471d",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.818397+00:00",
+  "source": {
+    "path": "MEQ-Untitled21.md",
+    "line": 1837,
+    "source_sha256": "cb8813f982c81a64446e107292f214f20efb4e69fb68e1428e7b79feb89d5855"
+  },
+  "equation": {
+    "raw": "Faith(x) = Coherence(|Ψ_x⟩, |Ψ_God⟩)",
+    "normalized": "faith(x)=coherence(|ψ_x⟩,|ψ_god⟩)",
+    "fingerprint": "da74cf2e471d6b1ef17af24687cc8f9e8698de3fe48bb0ce6798d5f366001ae4"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

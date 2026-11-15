@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-825580fd5336",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.971877+00:00",
+  "source": {
+    "path": "MEQ-Claude.md",
+    "line": 201,
+    "source_sha256": "8093b04a78358443d00782f29886e7307d6183d8fefd92fdcd8cd6fe4563eed9"
+  },
+  "equation": {
+    "raw": "\"equation\": \"K(t) = ∫₀ᵗ[A(τ)·C(t-τ)·w(τ)]dτ\",",
+    "normalized": "\"equation\":\"k(t)=integral₀ᵗ[a(τ)*c(t-τ)*w(τ)]dτ\",",
+    "fingerprint": "825580fd53362bb002b6f3f78358df0ea347b98f906f84241912bc73823a6308"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

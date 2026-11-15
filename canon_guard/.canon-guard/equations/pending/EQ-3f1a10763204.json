@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-3f1a10763204",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.260673+00:00",
+  "source": {
+    "path": "MEQ-143_D19.8_Law-VIII-Definition.md",
+    "line": 168,
+    "source_sha256": "96b379c4b1b03cfe17ad2cd49167deee2a1cd64cf76ba261738108186cb1d607"
+  },
+  "equation": {
+    "raw": "$$\\hat{P}|x\\rangle = |-x\\rangle$$",
+    "normalized": "$$\\hat{p}|x\\rangle=|-x\\rangle$$",
+    "fingerprint": "3f1a10763204f70f89abd42e3e4eee3b6f150492bb3732d41070446bb2724267"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

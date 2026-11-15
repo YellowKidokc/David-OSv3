@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-520ce34f3894",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.993828+00:00",
+  "source": {
+    "path": "MEQ-03-solved-mathematical-examples.md",
+    "line": 82,
+    "source_sha256": "4dbfd23e509df0e73f65351fbac86c2bf9f691aea5027c97a1b63039d0fab15b"
+  },
+  "equation": {
+    "raw": "χ(1) = (5.465/3.0448) × (1 + 0.6) × 0.8",
+    "normalized": "chi(1)=(5.465/3.0448)*(1+0.6)*0.8",
+    "fingerprint": "520ce34f3894a9faefc7d7ba555bef1ccdeb7a421e4f2680af44dcc8bc010295"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

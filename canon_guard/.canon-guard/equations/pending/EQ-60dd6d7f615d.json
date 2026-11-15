@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-60dd6d7f615d",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.232726+00:00",
+  "source": {
+    "path": "MEQ-EscapeVelocity.md",
+    "line": 125,
+    "source_sha256": "dc9a232359969d865b11a9974275618a3238fc66fec58e70c4ff995e837718b2"
+  },
+  "equation": {
+    "raw": "1️⃣ **Gravity = Sin’s Pull**",
+    "normalized": "1️⃣**gravity=sin’spull**",
+    "fingerprint": "60dd6d7f615d5dbe071730ffe25424983d7dcf687f68938e16e79ece8eb60533"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

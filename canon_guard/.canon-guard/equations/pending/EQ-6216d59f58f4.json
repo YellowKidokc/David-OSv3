@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-6216d59f58f4",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.248729+00:00",
+  "source": {
+    "path": "MEQ-FIELD_EQUATIONS.md",
+    "line": 90,
+    "source_sha256": "85ea97157420e0af9b73e7f2e7c82982c5099c6530eeecde7e81a70df7615b0d"
+  },
+  "equation": {
+    "raw": "I_μν = α_E(∂_μE)(∂_νE) + α_C(∂_μC)(∂_νC) + β_EC·E·C·g_μν",
+    "normalized": "i_munu=α_e(partial_mue)(partial_nue)+α_c(partial_muc)(partial_nuc)+β_ec*e*c*g_munu",
+    "fingerprint": "6216d59f58f4d63080a6992bbccf9a04f34e9af4f352e5fc796ea6a1ff039308"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

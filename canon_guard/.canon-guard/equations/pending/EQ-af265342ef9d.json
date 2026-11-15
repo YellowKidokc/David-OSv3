@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-af265342ef9d",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.280258+00:00",
+  "source": {
+    "path": "MEQ-Grace.md",
+    "line": 174,
+    "source_sha256": "ff8a88c686ff1b55fd0a0f8768baa4a0273d360cdc45054cf23badeb220f82ed"
+  },
+  "equation": {
+    "raw": "?G/?t = Fext(t) � T(Sc \\- S) - ?G?SC",
+    "normalized": "?g/?t=fext(t)�t(sc\\-s)-?g?sc",
+    "fingerprint": "af265342ef9d6a55111c2179ea464527c653f4df2fa36833b176c22f5fc08caf"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

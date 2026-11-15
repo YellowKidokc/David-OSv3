@@ -1,0 +1,30 @@
+{
+  "DG-0001": [
+    {
+      "path": "01_INBOX\\card_template.html",
+      "sha256": "7650c759f8370e78058f0d7525c31c7e6833eda10d7f9c1257e88e3876737868",
+      "size": 10127,
+      "uid": "TP-UNK-0003"
+    },
+    {
+      "path": "_SYSTEM_MACHINERY\\card_template.html",
+      "sha256": "7650c759f8370e78058f0d7525c31c7e6833eda10d7f9c1257e88e3876737868",
+      "size": 10127,
+      "uid": "TP-UNK-0008"
+    }
+  ],
+  "DG-0002": [
+    {
+      "path": "02_DATA_AND_REGISTRY\\QUESTIONS.md",
+      "sha256": "608dc0800c133588f8f889411d2b51beb87f651e617528e1cd8cca04b56672e2",
+      "size": 7264,
+      "uid": "TP-UNK-0005"
+    },
+    {
+      "path": "QUESTIONS.md",
+      "sha256": "608dc0800c133588f8f889411d2b51beb87f651e617528e1cd8cca04b56672e2",
+      "size": 7264,
+      "uid": "TP-UNK-0034"
+    }
+  ]
+}

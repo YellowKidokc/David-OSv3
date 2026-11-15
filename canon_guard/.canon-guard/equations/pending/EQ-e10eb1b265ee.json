@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-e10eb1b265ee",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.916508+00:00",
+  "source": {
+    "path": "MEQ-VISUALIZATION-SPECIFICATIONS.md",
+    "line": 288,
+    "source_sha256": "396ccb9f55ca5d054fec7ac9dfb150ed82c24bae5e275a28ff94bab29f5f1305"
+  },
+  "equation": {
+    "raw": "3. dS/dt + dG/dt = 0",
+    "normalized": "3.ds/dt+dg/dt=0",
+    "fingerprint": "e10eb1b265ee14ac83d4143507e28687a69584f5f9e0b200ed5a4c0753678c95"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

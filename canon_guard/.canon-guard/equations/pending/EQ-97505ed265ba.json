@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-97505ed265ba",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.581614+00:00",
+  "source": {
+    "path": "MEQ-SYSTEM-ARCHITECTURE.md",
+    "line": 222,
+    "source_sha256": "f7513bd06c478d0d25c515c8a92f4f1a79f38d0d6c29be7dd814c70dfd04026b"
+  },
+  "equation": {
+    "raw": "const prevNum = num - 1;",
+    "normalized": "constprevnum=num-1;",
+    "fingerprint": "97505ed265ba706c4a00127cb9cab1b2c38e9cd962ab3dc7e1dcde17dfa3ef1f"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-1036100b3fe9",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.470427+00:00",
+  "source": {
+    "path": "MEQ-Master_Equation_Principia_Upgrade_Ten_Laws.md",
+    "line": 19,
+    "source_sha256": "bc2a8d6ccbe34107b2190e421c17a876479970bd28b318519865962fa1c4207d"
+  },
+  "equation": {
+    "raw": "χ(t) = χ₀ + ∫₀ᵗ [G_ext · ∂K/∂τ - λS(τ)] dτ",
+    "normalized": "chi(t)=chi₀+integral₀ᵗ[g_ext*partialk/partialτ-λs(τ)]dτ",
+    "fingerprint": "1036100b3fe9ce5dea15bb6dad711ef247d471b20c3d65b2f50eb0ec5e6ba34d"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

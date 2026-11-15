@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-f5a53280a453",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.505492+00:00",
+  "source": {
+    "path": "MEQ-MATH_TRANSLATION_LAYER_COMPLETE.md",
+    "line": 1046,
+    "source_sha256": "5440c159540b3383eb700f6813c8ce2639dc0b94066b2b25f8b4a3eccbad7510"
+  },
+  "equation": {
+    "raw": "$G_s(t) = e^{-\\alpha \\cdot S(t)}$",
+    "normalized": "$g_s(t)=e^{-\\alpha*s(t)}$",
+    "fingerprint": "f5a53280a453033d50f12ea0bb4c79b5cd4d1ed659ec37456d89f3ba656fdcf3"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

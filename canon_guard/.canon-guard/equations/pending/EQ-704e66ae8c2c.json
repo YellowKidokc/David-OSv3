@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-704e66ae8c2c",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.310726+00:00",
+  "source": {
+    "path": "MEQ-2.1TheMasterEquationFullStructureBreakdown.md",
+    "line": 51,
+    "source_sha256": "e7ac458ce64380d4872bd146ada6b79a7d6582b91bff4d993f31736b4d2b4248"
+  },
+  "equation": {
+    "raw": "χChrist​=RJ​⋅​∫t0​t​G(t)dt−∫t0​t​S(t)dt​",
+    "normalized": "chichrist​=rj​⋅​integralt0​t​g(t)dt-integralt0​t​s(t)dt​",
+    "fingerprint": "704e66ae8c2cf7f6c7dc54a89c8b55bd0fde64d99503a524f3543e5d27a1ae6f"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-de75bb5fcbf3",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.297777+00:00",
+  "source": {
+    "path": "MEQ-law-02-M-meaning.md",
+    "line": 3,
+    "source_sha256": "8a0eaf43b13ad4c5b0bbf0518ee4a563c6352d4ac41bbe46f0156367c588902d"
+  },
+  "equation": {
+    "raw": "M = ∫ ρmeaning(x,t) · χ(x,t) dV",
+    "normalized": "m=integralρmeaning(x,t)*chi(x,t)dv",
+    "fingerprint": "de75bb5fcbf3c4aa9eaa09e59292d24d21e3024a1e4f4e74f82f0f5b2eed9113"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

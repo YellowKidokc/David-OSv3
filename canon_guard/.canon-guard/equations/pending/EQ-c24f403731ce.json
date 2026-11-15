@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-c24f403731ce",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.686805+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Tool_Breakdown_Probability.md",
+    "line": 2249,
+    "source_sha256": "7c139cc1f702f45a13bce7c9679885a0f8b337ecd1fbf46aa0af94ccba33360f"
+  },
+  "equation": {
+    "raw": "S(t) = S\\_0 e^{-\\lambda t}",
+    "normalized": "s(t)=s\\_0e^{-\\lambdat}",
+    "fingerprint": "c24f403731ceaafa3d02bf30f5542c7a49e7bfcb3c9b7bd21a1616aa9e8fc3d0"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

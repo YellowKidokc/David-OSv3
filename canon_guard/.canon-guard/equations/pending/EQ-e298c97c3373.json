@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-e298c97c3373",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.291710+00:00",
+  "source": {
+    "path": "MEQ-146_E19.1_Full-Master-Equation.md",
+    "line": 308,
+    "source_sha256": "1bddd4faf8fe36b0c07877c622beb54e8753b3ec4b285992eecc6028018424f6"
+  },
+  "equation": {
+    "raw": "\\mathcal{H}_{master} = L^2(\\Omega, d\\mu)",
+    "normalized": "\\mathcal{h}_{master}=l^2(\\omega,d\\mu)",
+    "fingerprint": "e298c97c3373f9bc9b37eef612847ae55399d4509c2a94ba8dee8cb0b3fb93bf"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

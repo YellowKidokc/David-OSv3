@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-b69d99bfe23c",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.537553+00:00",
+  "source": {
+    "path": "MEQ-Paper2UniversalGravitationEntropySinsPull.md",
+    "line": 53,
+    "source_sha256": "6565f1ef206be042cfb9f351b74fb6855afb6cf935b5d74817028c42210fb8e7"
+  },
+  "equation": {
+    "raw": "F=G⋅m1⋅m2r2F = \\frac{G \\cdot m_1 \\cdot m_2}{r^2}F=r2G⋅m1​⋅m2​​",
+    "normalized": "f=g⋅m1⋅m2r2f=\\frac{g*m_1*m_2}{r^2}f=r2g⋅m1​⋅m2​​",
+    "fingerprint": "b69d99bfe23c8f863cc70efcc97f3374ccf5d43c2337d078cb1f5f463b936f15"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

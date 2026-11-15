@@ -64,7 +64,7 @@ class Ensemble:
         cfg = _load_cfg()
         self.mode = cfg.get("mode", "blend")
         self.cascade_margin = float(cfg.get("cascade_margin", 0.15))
-        eng_cfg = cfg.get("engines", {})
+        eng_cfg = self.engine_config = cfg.get("engines", {})
         self.weights: Dict[str, float] = {}
         self.engines: List[PreferenceEngine] = []
         for name, spec in eng_cfg.items():
@@ -88,6 +88,31 @@ class Ensemble:
 
     def predict_breakdown(self, proposal: dict) -> Dict[str, float]:
         return {e.name: e.predict(proposal) for e in self.engines if e.available}
+
+    def prediction_evidence(self, proposal: dict) -> list[dict]:
+        """Record each configured engine for this exact proposal and target."""
+        active = {engine.name: engine for engine in self.engines}
+        evidence = []
+        for name, entry in self.engine_config.items():
+            engine = active.get(name)
+            row = {"engine": name, "target": "probability of approving suggested name",
+                   "prediction": proposal.get("proposed_name"), "score": None}
+            if not entry.get("enabled"):
+                row["status"] = "Disabled"
+            elif engine is None or not engine.available:
+                row["status"] = "Unavailable"
+            elif not engine.ready:
+                row["status"] = "Insufficient training"
+            else:
+                try:
+                    value = float(engine.predict(proposal))
+                    if not 0 <= value <= 1:
+                        raise ValueError("score outside [0, 1]")
+                    row.update(status="Scored", score=round(value, 4))
+                except Exception as exc:
+                    row.update(status="Error", detail=str(exc))
+            evidence.append(row)
+        return evidence
 
     def predict(self, proposal: dict) -> float:
         voters = self._voters()

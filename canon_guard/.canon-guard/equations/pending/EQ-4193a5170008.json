@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-4193a5170008",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.267742+00:00",
+  "source": {
+    "path": "MEQ-FRUITS_OF_SPIRIT_EQUATIONS_v0.3.md",
+    "line": 118,
+    "source_sha256": "441a7d76a49ed031cdf1b0ed5595353759bd060d7b7498fea98acabf50d17bae"
+  },
+  "equation": {
+    "raw": "V(r) = \\frac{k q_1 q_2}{r} \\, e^{-r/\\lambda}",
+    "normalized": "v(r)=\\frac{kq_1q_2}{r}\\,e^{-r/\\lambda}",
+    "fingerprint": "4193a5170008532572228dd8283740f93185823f33dfe68fd724bbbf00951359"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

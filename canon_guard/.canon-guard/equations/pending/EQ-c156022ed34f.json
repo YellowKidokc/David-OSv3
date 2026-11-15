@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-c156022ed34f",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.133680+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Quantum-Spiritual_Framework_Collaboration.md",
+    "line": 3669,
+    "source_sha256": "7e33a5dd1e61be4cd83718a004b930c55ebab5cdbc9fff4148fc56bf51a0f212"
+  },
+  "equation": {
+    "raw": "m = Mass (Believers/Community Members)",
+    "normalized": "m=mass(believers/communitymembers)",
+    "fingerprint": "c156022ed34f354a44121d3706bf3afd79d90efe9ec6b13f80426228c14e9c1d"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-baaee45c4eda",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.901821+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-UQCP_Mathematical_Refinement-Copy.md",
+    "line": 17133,
+    "source_sha256": "905e3b7ff0c2e737616e661eeb386c6241e2c450798cb98bffae8e6bc85c5c41"
+  },
+  "equation": {
+    "raw": "P(miracle) = |⟨Ψ_final|e^(-H·t/iℏ)|Ψ_initial⟩|²",
+    "normalized": "p(miracle)=|⟨ψ_final|e^(-h*t/iℏ)|ψ_initial⟩|^2",
+    "fingerprint": "baaee45c4edaa53412051bdab70666a1d77ea91a437ae6f4201b6b8d13771e55"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

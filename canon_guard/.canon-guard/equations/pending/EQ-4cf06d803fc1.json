@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-4cf06d803fc1",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.465427+00:00",
+  "source": {
+    "path": "MEQ-MASTER_EQUATION_COMPLETE_DERIVATION_CHAIN_DEEP_RESEARCH.md",
+    "line": 303,
+    "source_sha256": "2e6be5c619dac134f91370a1b743043fe2f1dd92038c5ddfde5a7b9280a6e374"
+  },
+  "equation": {
+    "raw": "Time dilation: Δt' = γΔt, γ = 1/√(1 − v²/c²)",
+    "normalized": "timedilation:δt'=γδt,γ=1/√(1-v^2/c^2)",
+    "fingerprint": "4cf06d803fc119f15f3948bb176e2fdc8d098afa86ac3ab6f8ae2e26d34e67ec"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

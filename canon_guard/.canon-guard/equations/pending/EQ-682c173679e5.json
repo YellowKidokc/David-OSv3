@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-682c173679e5",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.305787+00:00",
+  "source": {
+    "path": "MEQ-law-09-F-sin.md",
+    "line": 3,
+    "source_sha256": "2834450c152b4117f0bfb626c5d70c7f77becdc47504b11aa2e13494cf87840b"
+  },
+  "equation": {
+    "raw": "dS/dt = ∫ σsin · F · dV ≥ 0",
+    "normalized": "ds/dt=integralσsin*f*dv>=0",
+    "fingerprint": "682c173679e5e8b5c148a4c287ef1f4ea8c3085a8d9249bd31a4b42604ec116d"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

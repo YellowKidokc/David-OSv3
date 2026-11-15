@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-37bb1f6dc8f4",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.542560+00:00",
+  "source": {
+    "path": "MEQ-physicsandfaithversion2.md",
+    "line": 1450,
+    "source_sha256": "7fd14de33fa998c5a0a5df4851829f468bdd5182183c2e80f9c25a0670d9a9e5"
+  },
+  "equation": {
+    "raw": "index_content += f\"- {law}\\n\"",
+    "normalized": "index_content+=f\"-{law}\\n\"",
+    "fingerprint": "37bb1f6dc8f473afbac33b38e850ae2acd8b1d7fc508a1e3af43a65f2bfa62af"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-41e03bb84e1d",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.489474+00:00",
+  "source": {
+    "path": "MEQ-MasterEqredfined.md",
+    "line": 328,
+    "source_sha256": "d108f210474798d891779a44f6b3da0e913112cc5776262832d759a183e9715b"
+  },
+  "equation": {
+    "raw": "lim(t→∞) [S(t)] = 0 but lim(t→∞) [I(t)] = ∞",
+    "normalized": "lim(t->∞)[s(t)]=0butlim(t->∞)[i(t)]=∞",
+    "fingerprint": "41e03bb84e1daa305cc35d8d65530c72b8e58062af63d83eb58d91775b5cb5a6"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

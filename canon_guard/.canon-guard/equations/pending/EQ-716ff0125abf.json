@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-716ff0125abf",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.540553+00:00",
+  "source": {
+    "path": "MEQ-PAPER_CROSSREF.md",
+    "line": 63,
+    "source_sha256": "83968dcd075a8a64927b50f0a4b1a69226ed0085a156a9999d0c512aaf99c75e"
+  },
+  "equation": {
+    "raw": "(□ + m_S²)Ψ_S = 0\nm_{e,eff} = m_e + g_S⟨Ψ_S⟩",
+    "normalized": "(□+m_s^2)ψ_s=0m_{e,eff}=m_e+g_s⟨ψ_s⟩",
+    "fingerprint": "716ff0125abf6c455251bc06ca5e75335a9267eb7299b6b391a70e8aad68c8b1"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

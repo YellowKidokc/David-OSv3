@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-b6aa4255ae98",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.732539+00:00",
+  "source": {
+    "path": "MEQ-00_MATH_SUMMARY.md",
+    "line": 6571,
+    "source_sha256": "6c68ac764c4536e2f86e24ca6255a50c7ed39ef5f5a52e797626d1dbb24cdf0e"
+  },
+  "equation": {
+    "raw": "I(D;H) = H(H) - H(H|D)",
+    "normalized": "i(d;h)=h(h)-h(h|d)",
+    "fingerprint": "b6aa4255ae986f850e66c4dfd97ad83b5c4ebbf804edd44bc7e45fc8f410904c"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

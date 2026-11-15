@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-8df3bd1a337b",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.198631+00:00",
+  "source": {
+    "path": "MEQ-133_FALS18.2_Grace-Falsification.md",
+    "line": 65,
+    "source_sha256": "06afa9b0adc67be14bf9b9d8d7a198970ce3a6427934f5a687fbfdbd07841851"
+  },
+  "equation": {
+    "raw": "\\frac{dT}{dt} = -\\kappa(T - T_0)",
+    "normalized": "\\frac{dt}{dt}=-\\kappa(t-t_0)",
+    "fingerprint": "8df3bd1a337b28987c669162a68901dc9498da67672bff038f22d506b1835393"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

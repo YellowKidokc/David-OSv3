@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-e6a36da1c669",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.286710+00:00",
+  "source": {
+    "path": "MEQ-145_D19.10_Law-X-Definition.md",
+    "line": 262,
+    "source_sha256": "648df1ff16dae741ba9421a859790c0c553c24fe66f953a3ba91df637d0b4b28"
+  },
+  "equation": {
+    "raw": "$$H(X|F,S,H) = H(X,F,S,H) - H(F,S,H)$$",
+    "normalized": "$$h(x|f,s,h)=h(x,f,s,h)-h(f,s,h)$$",
+    "fingerprint": "e6a36da1c669143e7e3dcc9f35b3cc791025c612625e79c2bf1d6c0beafc2c80"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

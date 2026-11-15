@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-2a79221d715f",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.964372+00:00",
+  "source": {
+    "path": "MEQ-Claude.md",
+    "line": 159,
+    "source_sha256": "8093b04a78358443d00782f29886e7307d6183d8fefd92fdcd8cd6fe4563eed9"
+  },
+  "equation": {
+    "raw": "\"equation\": \"G(Rₚ) = Gₘₐₓ(1-e^(-k·Rₚ))·f(S,t)\",",
+    "normalized": "\"equation\":\"g(rₚ)=gₘₐₓ(1-e^(-k*rₚ))*f(s,t)\",",
+    "fingerprint": "2a79221d715fa81319300c13765e4de9646278c3c84b56fea3e7ed8d78ca9dd7"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

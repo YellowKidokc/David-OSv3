@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-8de6d471e020",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.477952+00:00",
+  "source": {
+    "path": "MEQ-MasterEqredfined.md",
+    "line": 158,
+    "source_sha256": "d108f210474798d891779a44f6b3da0e913112cc5776262832d759a183e9715b"
+  },
+  "equation": {
+    "raw": "RJ=eRp−1R_J = e^{R_p - 1}RJ​=eRp​−1",
+    "normalized": "rj=erp-1r_j=e^{r_p-1}rj​=erp​-1",
+    "fingerprint": "8de6d471e020e299c431e753a867fc615a108da32a8c526e4b09f30b94ce14a6"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

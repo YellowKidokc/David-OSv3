@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-8698d6672264",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.507493+00:00",
+  "source": {
+    "path": "MEQ-MATH_TRANSLATION_LAYER_COMPLETE.md",
+    "line": 1215,
+    "source_sha256": "5440c159540b3383eb700f6813c8ce2639dc0b94066b2b25f8b4a3eccbad7510"
+  },
+  "equation": {
+    "raw": "$S(t^+) = S(t^-) - \\Delta S_{confessed}$",
+    "normalized": "$s(t^+)=s(t^-)-\\deltas_{confessed}$",
+    "fingerprint": "8698d66722640f6165cef87d613c4f0142e182a68340515e38c418432bfedf68"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

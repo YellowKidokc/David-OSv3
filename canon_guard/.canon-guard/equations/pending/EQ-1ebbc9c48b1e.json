@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-1ebbc9c48b1e",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.063510+00:00",
+  "source": {
+    "path": "MEQ-COLLAPSE_DECOHERENCE.md",
+    "line": 75,
+    "source_sha256": "1442dc1b8acc01bf6f54c4dd0b52effd48dc85bfe245a593526ae8277294607b"
+  },
+  "equation": {
+    "raw": "ρ_salvation(t) = e^(-γt) ρ_salvation(0) + (1-e^(-γt))ρ_decoherent",
+    "normalized": "ρ_salvation(t)=e^(-γt)ρ_salvation(0)+(1-e^(-γt))ρ_decoherent",
+    "fingerprint": "1ebbc9c48b1ec10d79c3ac89abf395fce30939355b03f598d82f9cceff7aa162"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-243cf3b20ec4",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.327742+00:00",
+  "source": {
+    "path": "MEQ-ALL.md",
+    "line": 650,
+    "source_sha256": "652dd2bf4f2eb5b5fd8580ef0d301567e80ee28ec37d621c88d9fb319e27200b"
+  },
+  "equation": {
+    "raw": "S(t) = S_0 e^{-R_J t} \\cdot (1 - \\Theta(t - t_{\\text{resurrection}}))",
+    "normalized": "s(t)=s_0e^{-r_jt}*(1-\\theta(t-t_{resurrection}))",
+    "fingerprint": "243cf3b20ec4a33466f436d1fadfac24df0893fc7595e133b9b99f5b4de41eb5"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

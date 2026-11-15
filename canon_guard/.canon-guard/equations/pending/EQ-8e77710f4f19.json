@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-8e77710f4f19",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.860648+00:00",
+  "source": {
+    "path": "MEQ-00_MATH_SUMMARY.md",
+    "line": 10358,
+    "source_sha256": "6c68ac764c4536e2f86e24ca6255a50c7ed39ef5f5a52e797626d1dbb24cdf0e"
+  },
+  "equation": {
+    "raw": "P(R) = \\frac{1}{1 + e^{-IQI}}",
+    "normalized": "p(r)=\\frac{1}{1+e^{-iqi}}",
+    "fingerprint": "8e77710f4f19316be08b26bf4686f57ade2f300d0332e366e3e2b2e4e44fbc82"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

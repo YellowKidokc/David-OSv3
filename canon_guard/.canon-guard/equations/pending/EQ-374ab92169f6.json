@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-374ab92169f6",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.822759+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-UQCP_Mathematical_Refinement-Copy.md",
+    "line": 15905,
+    "source_sha256": "905e3b7ff0c2e737616e661eeb386c6241e2c450798cb98bffae8e6bc85c5c41"
+  },
+  "equation": {
+    "raw": "3. **Spirit (T = 1/√S)**",
+    "normalized": "3.**spirit(t=1/√s)**",
+    "fingerprint": "374ab92169f63efbe56b4fe2932bcbfb6c0c83dcb4d332a7b6b5bd70e5013b4c"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

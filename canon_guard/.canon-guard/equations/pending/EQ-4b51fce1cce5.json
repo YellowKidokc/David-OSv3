@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-4b51fce1cce5",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.307725+00:00",
+  "source": {
+    "path": "MEQ-1CoverPage.md",
+    "line": 99,
+    "source_sha256": "f78285795b3de3efc2de4f686dcea0ed3184f2500e945461a29911a993f25fbc"
+  },
+  "equation": {
+    "raw": "I_{divine} = -\\sum_{i} p_i \\log_2 p_i",
+    "normalized": "i_{divine}=-\\sum_{i}p_i\\log_2p_i",
+    "fingerprint": "4b51fce1cce5a7f5d8a914234a85585ae136a5f3bb83ddbede20ee347045ebe7"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

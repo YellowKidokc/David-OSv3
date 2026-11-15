@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-fafa72f774b4",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.974926+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Lossless_Summary_Meta-Prompt.md",
+    "line": 5760,
+    "source_sha256": "5b3dcd9112a700c9843470d8e3a24a85470d06981462e1b55d7c28fed2661d05"
+  },
+  "equation": {
+    "raw": "P(faith outcome) = P_base × e^(λC)",
+    "normalized": "p(faithoutcome)=p_base*e^(λc)",
+    "fingerprint": "fafa72f774b4e2f957dfb1be5e6089ada7775c1e3e43697fd4f0ab4384006538"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

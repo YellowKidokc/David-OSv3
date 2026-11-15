@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-2a601d28b01e",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.355819+00:00",
+  "source": {
+    "path": "MEQ-LAW3.md",
+    "line": 75,
+    "source_sha256": "06f79194c3251fdbca0121db8ae459d0b22516c47e60da90c849c2d6d34de8a8"
+  },
+  "equation": {
+    "raw": "C(t) = ∫[α·L(t) - ε·S(t)] dt",
+    "normalized": "c(t)=integral[α*l(t)-ε*s(t)]dt",
+    "fingerprint": "2a601d28b01e39f5362be66317ff88df18941099002e713b2d5631fa587fb9a8"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

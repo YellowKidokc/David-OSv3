@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-45add8097ee6",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.958762+00:00",
+  "source": {
+    "path": "MEQ-01-MasterEquationOutline-Mind-Map.md",
+    "line": 73,
+    "source_sha256": "605f479be4ed01b9e02ff47b31a74c6efb05c4995e54f678066ca05bb81b23e9"
+  },
+  "equation": {
+    "raw": "Grace Field Function G(Rₚ) = Gₘₐₓ(1 − e^{−kRₚ})",
+    "normalized": "gracefieldfunctiong(rₚ)=gₘₐₓ(1-e^{-krₚ})",
+    "fingerprint": "45add8097ee6cb13210af9e502bce51d978c277704ed862fe7c44bf561385d82"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

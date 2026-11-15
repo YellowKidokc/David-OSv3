@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-45a8124ca3fe",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.304724+00:00",
+  "source": {
+    "path": "MEQ-147_T19.1_Laws-Derive-From-Chi.md",
+    "line": 304,
+    "source_sha256": "6ac9b4f0cf4403c5cb9b7ca5b1b8e873b990396475620c99431cd0b0ed228da5"
+  },
+  "equation": {
+    "raw": "\\{Q, Q^\\dagger\\} = H",
+    "normalized": "\\{q,q^\\dagger\\}=h",
+    "fingerprint": "45a8124ca3fe27d86560ee2444e75ee703a1ffad5e54c11d6d186d1db7800ed8"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-6543ccff97e9",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.475954+00:00",
+  "source": {
+    "path": "MEQ-MasterEqredfined.md",
+    "line": 147,
+    "source_sha256": "d108f210474798d891779a44f6b3da0e913112cc5776262832d759a183e9715b"
+  },
+  "equation": {
+    "raw": "S(t)=S0e−RJtS(t) = S_0 e^{-R_J t}S(t)=S0​e−RJ​t",
+    "normalized": "s(t)=s0e-rjts(t)=s_0e^{-r_jt}s(t)=s0​e-rj​t",
+    "fingerprint": "6543ccff97e9e4a24699341189bf95ca80ea9a43c94d235be68bd2e75bda2238"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

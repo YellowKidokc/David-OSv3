@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-3b22ee8edc4c",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.423398+00:00",
+  "source": {
+    "path": "MEQ-MASTER_EQUATION.md",
+    "line": 48,
+    "source_sha256": "df4139d1c51178b2edbde72277544d2733f552457943b7ecf247c1a0fe424521"
+  },
+  "equation": {
+    "raw": "L_LC = χ(t)[d/dt(G+M+E+S+T+K+R+Q+F+C)]² - S·χ(t)",
+    "normalized": "l_lc=chi(t)[d/dt(g+m+e+s+t+k+r+q+f+c)]^2-s*chi(t)",
+    "fingerprint": "3b22ee8edc4cee34d3509cd9d454b8b27fe164dcfd63932d11e92c00e2d35447"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

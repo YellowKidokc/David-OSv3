@@ -88,6 +88,22 @@ def plan_name(rec: "config.FileRecord", text: str = "") -> None:
     rec.reason = reason
 
 
+def capture_engine_predictions(rec: "config.FileRecord") -> None:
+    """Score the final proposal after the scanner's enrichment step."""
+    if not rec.proposed_name:
+        return
+    parts = Path(rec.proposed_name).stem.split(SEP)
+    if len(parts) != 5:
+        return
+    proposal = {
+        "proposed_name": rec.proposed_name, "domain_code": parts[0],
+        "ct_code": parts[1], "tags": parts[2].split(TAGSEP),
+        "status_code": parts[4],
+    }
+    model = get_engine()
+    rec.engine_predictions = model.prediction_evidence(proposal)
+
+
 def _mtime(rec) -> float:
     try:
         return Path(rec.path).stat().st_mtime

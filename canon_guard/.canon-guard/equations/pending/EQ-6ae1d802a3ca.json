@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-6ae1d802a3ca",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.055502+00:00",
+  "source": {
+    "path": "MEQ-COHERENCE_DYNAMICS.md",
+    "line": 21,
+    "source_sha256": "7a8e69a7a10b49806d183c57a2e12f052fc5a436bd4f8944755a133d95759115"
+  },
+  "equation": {
+    "raw": "dE_moral/dt = -αD(t) + βC(Ψ, χ)",
+    "normalized": "de_moral/dt=-αd(t)+βc(ψ,chi)",
+    "fingerprint": "6ae1d802a3cac4b2a73f6aaaf437c5cd0017743073521530ab7581fdad9003d9"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

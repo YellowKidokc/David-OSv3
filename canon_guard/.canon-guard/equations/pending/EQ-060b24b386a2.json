@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-060b24b386a2",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.830758+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-UQCP_Mathematical_Refinement-Copy.md",
+    "line": 16816,
+    "source_sha256": "905e3b7ff0c2e737616e661eeb386c6241e2c450798cb98bffae8e6bc85c5c41"
+  },
+  "equation": {
+    "raw": "F_spiritual = (G_divine × M_soul × M_divine) / r²",
+    "normalized": "f_spiritual=(g_divine*m_soul*m_divine)/r^2",
+    "fingerprint": "060b24b386a236c5c782e087bb45b2fac214eead6dbd68c837c38d598f7407fe"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

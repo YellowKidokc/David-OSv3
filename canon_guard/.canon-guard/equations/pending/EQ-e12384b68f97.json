@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-e12384b68f97",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.301783+00:00",
+  "source": {
+    "path": "MEQ-law-05-T-logos.md",
+    "line": 3,
+    "source_sha256": "5c351c9f87faae06c09869cc2f8e2110881e77f3aba9e829a0aaf45818bd0a26"
+  },
+  "equation": {
+    "raw": "T = −∑ pᵢ log pᵢ = I",
+    "normalized": "t=-∑pᵢlogpᵢ=i",
+    "fingerprint": "e12384b68f97c31a215fd30d299233c3578100b3e7e19ce2a47be3a4f6097a19"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

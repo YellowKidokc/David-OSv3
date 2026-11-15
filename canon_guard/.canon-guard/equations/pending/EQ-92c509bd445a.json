@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-92c509bd445a",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.552064+00:00",
+  "source": {
+    "path": "MEQ-quantum-father-paper.md",
+    "line": 125,
+    "source_sha256": "1b875f5a1bd3c16dd5bb2f041fdb61437a16d060125d4e2aa370f9d4aa159394"
+  },
+  "equation": {
+    "raw": "H_{universe} = H_{natural} + V_{Father}(x,t)",
+    "normalized": "h_{universe}=h_{natural}+v_{father}(x,t)",
+    "fingerprint": "92c509bd445a87ef9c8b6bde1d717704cc02309bf81051e4680cca7c2c81e235"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

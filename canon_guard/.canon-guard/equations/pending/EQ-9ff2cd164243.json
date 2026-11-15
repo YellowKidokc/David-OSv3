@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-9ff2cd164243",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.638656+00:00",
+  "source": {
+    "path": "MEQ-theophysics-mathematical-glossary.md",
+    "line": 123,
+    "source_sha256": "4a561e9ad179dc38191e9dcc45991ce7d0b700a76e32eb6bec46176620325ef9"
+  },
+  "equation": {
+    "raw": "χ(1) = (5.465/3.0248) × (1 + 0.6) × 0.8",
+    "normalized": "chi(1)=(5.465/3.0248)*(1+0.6)*0.8",
+    "fingerprint": "9ff2cd1642430e46f1b76163cfbffe6d3cbc1993671c4236baa39f7da29ed873"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

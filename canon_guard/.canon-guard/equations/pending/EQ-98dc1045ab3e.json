@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-98dc1045ab3e",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.346760+00:00",
+  "source": {
+    "path": "MEQ-C10L-01-Ten-Laws-Walkthrough.md",
+    "line": 183,
+    "source_sha256": "11ed80a8a8e0b24c55fba7679e54df2d44b713df6826f46742cf2190b6920a08"
+  },
+  "equation": {
+    "raw": "chi(t) = integral (G*K) dOmega(t)",
+    "normalized": "chi(t)=integral(g*k)domega(t)",
+    "fingerprint": "98dc1045ab3edfaa862d41a46d1aee8f10587813263991717840829595dfd506"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

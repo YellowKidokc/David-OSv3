@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-edf22d7340c1",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.346810+00:00",
+  "source": {
+    "path": "MEQ-LAw1A.md",
+    "line": 126,
+    "source_sha256": "4f02d990dcd68557dc834ed229bfd6d3b98dce55967d07f428d87c075c9d1326"
+  },
+  "equation": {
+    "raw": "⚖️ **F = G(m₁m₂)/r²**",
+    "normalized": "⚖️**f=g(m₁m₂)/r^2**",
+    "fingerprint": "edf22d7340c178f15375b74665eaf7e20a80705d9e82e0801546c67763182ea4"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-b2bd8d3ce63b",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.802374+00:00",
+  "source": {
+    "path": "MEQ-Untitled.md",
+    "line": 273,
+    "source_sha256": "a0ed809d9d979f05125f1644625f5451c28ab2c6c8f69d091d0fd5a82ecb7e0e"
+  },
+  "equation": {
+    "raw": "χ(t) = ∫[G(Rₚ) - S(E)] dt",
+    "normalized": "chi(t)=integral[g(rₚ)-s(e)]dt",
+    "fingerprint": "b2bd8d3ce63b1fa0a002bf137df9e8ae1ee017fdb30963231dbfce3b85eb4587"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

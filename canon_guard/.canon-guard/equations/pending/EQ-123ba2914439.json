@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-123ba2914439",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.326742+00:00",
+  "source": {
+    "path": "MEQ-62.1MasterEqSpiritualcomponents.md",
+    "line": 42,
+    "source_sha256": "451e9724a6fd9fbbca5bc73564d45818804d38038226c96593a786969bae5bd6"
+  },
+  "equation": {
+    "raw": "Out[70]= ----",
+    "normalized": "out[70]=----",
+    "fingerprint": "123ba29144393b4cf6203e0778b3b681fedb9eec90809d91dd0ece522f9f2da4"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

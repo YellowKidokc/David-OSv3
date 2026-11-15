@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-3fe329c5376e",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.376343+00:00",
+  "source": {
+    "path": "MEQ-LAW7BBridgingtheDivide.md",
+    "line": 175,
+    "source_sha256": "9b77393458a134ea8617418a42851a6a2e276a2fb88db3a2d4196dfab98d83c3"
+  },
+  "equation": {
+    "raw": "$Θ=Q+U\\Theta = Q + UΘ=Q+U$",
+    "normalized": "$θ=q+u\\theta=q+uθ=q+u$",
+    "fingerprint": "3fe329c5376e579b8669e72122763ecd92233c368b20e183cc201a3ccf4fb3af"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

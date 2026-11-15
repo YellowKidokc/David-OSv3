@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-be6c9a9d8611",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.650586+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Elijahs_Quantum_Journey.md",
+    "line": 4737,
+    "source_sha256": "e6eeb5115cc47421d45cba407a3f4809e91b8a9e7a1699843eda0947fc1e3a91"
+  },
+  "equation": {
+    "raw": "📌 **P(faith\\_outcome) = P(base) × e^(λC)**\\",
+    "normalized": "📌**p(faith\\_outcome)=p(base)*e^(λc)**\\",
+    "fingerprint": "be6c9a9d8611940c02b19cf53a046cf90bac1da951bb070f83a554602e0193d7"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

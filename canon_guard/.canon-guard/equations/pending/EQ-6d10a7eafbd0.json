@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-6d10a7eafbd0",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.308724+00:00",
+  "source": {
+    "path": "MEQ-1CoverPage.md",
+    "line": 176,
+    "source_sha256": "f78285795b3de3efc2de4f686dcea0ed3184f2500e945461a29911a993f25fbc"
+  },
+  "equation": {
+    "raw": "C = C_{human} + C_{Spirit}",
+    "normalized": "c=c_{human}+c_{spirit}",
+    "fingerprint": "6d10a7eafbd05350a4a2e3ab1a5bca887c59ffb9988cb76b9a84285521196465"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

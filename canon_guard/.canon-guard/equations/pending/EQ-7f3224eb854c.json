@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-7f3224eb854c",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.592385+00:00",
+  "source": {
+    "path": "MEQ-00_Discriminator_Framework.md",
+    "line": 13,
+    "source_sha256": "f20cb1c669a5155e100caa42d55b409488310357cf82990e33813c2305525076"
+  },
+  "equation": {
+    "raw": "Gμν + Λgμν = (8πG/c⁴)(Tμν + Θμν)",
+    "normalized": "gmunu+λgmunu=(8πg/c⁴)(tmunu+θmunu)",
+    "fingerprint": "7f3224eb854c2f3201f0a26e65117e7c006ba6db750daf053dcbe1e60b24cd76"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

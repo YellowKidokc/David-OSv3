@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-e8b505409c4f",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.801366+00:00",
+  "source": {
+    "path": "MEQ-TRINITY_MATH.md",
+    "line": 70,
+    "source_sha256": "e2343de9220153d58de2714542217700451ead1a3a11df014bf3487dc3551273"
+  },
+  "equation": {
+    "raw": "Ψ(r,t) = ∭ ψ₁(r)·ψ₂(t)·ψ₃(θ) dr dt dθ",
+    "normalized": "ψ(r,t)=triple_integralψ₁(r)*ψ₂(t)*ψ₃(θ)drdtdθ",
+    "fingerprint": "e8b505409c4ff4bcf24fbd3d251beea728067f9738de1f6203d9f1d93810af7d"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

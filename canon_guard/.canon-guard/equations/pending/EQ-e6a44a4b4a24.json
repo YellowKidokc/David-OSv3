@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-e6a44a4b4a24",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.827628+00:00",
+  "source": {
+    "path": "MEQ-00_MATH_SUMMARY.md",
+    "line": 8936,
+    "source_sha256": "6c68ac764c4536e2f86e24ca6255a50c7ed39ef5f5a52e797626d1dbb24cdf0e"
+  },
+  "equation": {
+    "raw": "P\\_{attractor}(t) = P\\_0 + \\int\\_{0}^{t} W\\_C(τ) \\cdot e^{-(t-τ)/λ} dτ",
+    "normalized": "p\\_{attractor}(t)=p\\_0+\\int\\_{0}^{t}w\\_c(τ)*e^{-(t-τ)/λ}dτ",
+    "fingerprint": "e6a44a4b4a2431e38325a90ebfe99d8c24c2408d7ae89c933150c7b9114b8729"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

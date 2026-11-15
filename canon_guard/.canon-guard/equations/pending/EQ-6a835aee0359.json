@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-6a835aee0359",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.681796+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Spiritual_Physics_Refinement.md",
+    "line": 55,
+    "source_sha256": "5d1852797d586972228c7b23e80d4d741df7ed3afcdf7db3b169aae607ba47ec"
+  },
+  "equation": {
+    "raw": "Reality(r,t) = [F⊗S⊗H] · Q(r,t) · e^(-S₀(1-Θ(t-t_R))·e^(-R_J·t)) · E_Cross",
+    "normalized": "reality(r,t)=[f⊗s⊗h]*q(r,t)*e^(-s₀(1-θ(t-t_r))*e^(-r_j*t))*e_cross",
+    "fingerprint": "6a835aee0359b0449483f85997fcdf40adf4512eeeaf772e4b061c134aca2da5"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

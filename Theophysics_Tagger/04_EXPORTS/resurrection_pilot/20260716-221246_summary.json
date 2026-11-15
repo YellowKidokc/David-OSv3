@@ -1,0 +1,20 @@
+﻿{
+  "candidate_files": 4515,
+  "ranked_docs": 4514,
+  "top40_docs_csv": "C:\\Theophysics_Tagger\\04_EXPORTS\\resurrection_pilot\\20260716-221246_top40_resurrection_docs.csv",
+  "top10_windows_csv": "C:\\Theophysics_Tagger\\04_EXPORTS\\resurrection_pilot\\20260716-221246_top10_resurrection_windows_1-1.csv",
+  "window_mode": "1-1",
+  "recommendation": "Start with 1-1 windows. If the windows feel too wide, compare hit-only 0-0. If they lack setup/caveat, compare 2-2.",
+  "top10_titles": [
+    "DEDUP_LOG",
+    "ChatGPT-Rewrite_Request_Discussion",
+    "ChatGPT-Rewrite_Request_Discussion",
+    "Consciousness quantum",
+    "ChatGPT-Quantum-Spiritual_Framework_Collaboration",
+    "ChatGPT-Quantum-Spiritual_Framework_Collaboration (1)",
+    "Consciousness quantum",
+    "ChatGPT-Quantum-Spiritual_Framework_Collaboration",
+    "Consciousness_quantum_ORIGINAL",
+    "Consciousness quantum"
+  ]
+}

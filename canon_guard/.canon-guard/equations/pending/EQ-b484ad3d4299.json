@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-b484ad3d4299",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.465715+00:00",
+  "source": {
+    "path": "MEQ-00-MasterOutline.md",
+    "line": 12061,
+    "source_sha256": "082fae2f3083b27cfb2dff7b38e8a48167c5d25d33b0cc911e5168f5ab88c102"
+  },
+  "equation": {
+    "raw": "∇L_n = ∑_i (∂L_n/∂Φ_i) ∇Φ_i",
+    "normalized": "∇l_n=∑_i(partiall_n/partialφ_i)∇φ_i",
+    "fingerprint": "b484ad3d429978b300c606b849937d1fb3c53cf11a54411363277c8abac15cf7"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

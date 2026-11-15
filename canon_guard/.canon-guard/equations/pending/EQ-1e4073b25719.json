@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-1e4073b25719",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.284773+00:00",
+  "source": {
+    "path": "MEQ-GraceasNegentropicForce.md",
+    "line": 79,
+    "source_sha256": "02865c51c31b2edbd718778691348244dd66da20e9b68e37bf8c332fbd23b756"
+  },
+  "equation": {
+    "raw": "V(x) = V₀ - G(x) · e^(-x²/2σ²)",
+    "normalized": "v(x)=v₀-g(x)*e^(-x^2/2σ^2)",
+    "fingerprint": "1e4073b257190456b4b18858ed0fd1b81ab5181b8108caa8ac85042b302ed193"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

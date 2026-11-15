@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-cd3d187471df",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.598631+00:00",
+  "source": {
+    "path": "MEQ-thatsinteresting.md",
+    "line": 110,
+    "source_sha256": "25a38cf514f936970f93375f3e3f80c43f7ebc49ee6125a1858906381a7cd4d7"
+  },
+  "equation": {
+    "raw": "🔹 **Valleys** = High-probability outcomes",
+    "normalized": "🔹**valleys**=high-probabilityoutcomes",
+    "fingerprint": "cd3d187471dfc99d0170a42872f0540ac965951647a65a43505d5105de18ac23"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

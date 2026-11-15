@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-647fef62b7d2",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.810769+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Grace_Function_Model.md",
+    "line": 4055,
+    "source_sha256": "6c4b5b1936c802221bf804bd8fe71b9acc9dbea21bbd45ee6f781f2dd5f544ab"
+  },
+  "equation": {
+    "raw": "S(t)=S0e−λRptS(t) = S_0 e^{- \\lambda R_p t}S(t)=S0​e−λRp​t",
+    "normalized": "s(t)=s0e-λrpts(t)=s_0e^{-\\lambdar_pt}s(t)=s0​e-λrp​t",
+    "fingerprint": "647fef62b7d20b15a495df717277e313e595b309b3a7b1102da8f4d64509434e"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

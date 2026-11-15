@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-8b11c9d2d711",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.792368+00:00",
+  "source": {
+    "path": "MEQ-TheUnifyingPrinciple.md",
+    "line": 57,
+    "source_sha256": "05faf60d8f03c191c1b7a0fbd960357ee4946e6abb7c6b7963cd0dbad9984547"
+  },
+  "equation": {
+    "raw": "χ′=χ+RJ\\chi' = \\chi + R_Jχ′=χ+RJ​",
+    "normalized": "chi′=chi+rjchi'=chi+r_jchi′=chi+rj​",
+    "fingerprint": "8b11c9d2d711254c3c429246ce2827acdc014324d0e063ce56bc34a055f69af2"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-9f4f219974c6",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.553071+00:00",
+  "source": {
+    "path": "MEQ-QUANTUM_MAPPINGS.md",
+    "line": 70,
+    "source_sha256": "9c03c41165b70f0849a6b93f3f776aa32ba663a0fda761b3f7a6da5ea10484ed"
+  },
+  "equation": {
+    "raw": "P(faith outcome) = P(base) × e^(λC)",
+    "normalized": "p(faithoutcome)=p(base)*e^(λc)",
+    "fingerprint": "9f4f219974c676908a0289075628abb9f5b99daa9de7343b43440f5413b8b304"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

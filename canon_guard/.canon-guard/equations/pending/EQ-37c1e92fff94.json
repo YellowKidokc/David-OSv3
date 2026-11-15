@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-37c1e92fff94",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.765534+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-UQCP_Mathematical_Refinement-Copy.md",
+    "line": 11611,
+    "source_sha256": "905e3b7ff0c2e737616e661eeb386c6241e2c450798cb98bffae8e6bc85c5c41"
+  },
+  "equation": {
+    "raw": "CopyC(x,t) = ∫(ψ*·Ô·ψ)dω",
+    "normalized": "copyc(x,t)=integral(ψ**ô*ψ)dω",
+    "fingerprint": "37c1e92fff946b7d8ed3b8be9d4b05b07bb05a3a0082187e1664b6bcdc0756e5"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

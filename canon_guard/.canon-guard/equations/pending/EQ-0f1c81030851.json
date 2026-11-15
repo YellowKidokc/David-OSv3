@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-0f1c81030851",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.182623+00:00",
+  "source": {
+    "path": "MEQ-129_PROT18.5_Phi-Virtue-Correlation-Study.md",
+    "line": 388,
+    "source_sha256": "195cffc2397267871928f7fae4ca0a90e99b7bd6f2453b08df8878d94d82e094"
+  },
+  "equation": {
+    "raw": "$$t = \\frac{r\\sqrt{n-2}}{\\sqrt{1-r^2}}$$",
+    "normalized": "$$t=\\frac{r\\sqrt{n-2}}{\\sqrt{1-r^2}}$$",
+    "fingerprint": "0f1c8103085132a32a2fd10dcbf6cdd16ac98bd30916e94443a965ed624e6edc"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

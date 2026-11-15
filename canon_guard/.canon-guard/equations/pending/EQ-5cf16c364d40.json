@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-5cf16c364d40",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.826403+00:00",
+  "source": {
+    "path": "MEQ-Untitled4-Copy.md",
+    "line": 4162,
+    "source_sha256": "21fe5fde357a2e7ba3a40b40deca1f824c0e1d6f4819fcd0dff9476c792f3906"
+  },
+  "equation": {
+    "raw": "S(t)=S0e−λtS(t) = S_0 e^{-\\lambda t}S(t)=S0​e−λt",
+    "normalized": "s(t)=s0e-λts(t)=s_0e^{-\\lambdat}s(t)=s0​e-λt",
+    "fingerprint": "5cf16c364d4088d7cf048df9785783d551d1754bd346da536ee70d40675b0fda"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

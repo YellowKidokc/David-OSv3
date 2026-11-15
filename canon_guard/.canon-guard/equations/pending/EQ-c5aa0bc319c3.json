@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-c5aa0bc319c3",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.589624+00:00",
+  "source": {
+    "path": "MEQ-TEN_LAWS_EQUATIONS.md",
+    "line": 37,
+    "source_sha256": "729c59296932d1d6d5b1221ad0af52a056ea9eca3351c87aa8db317151237f47"
+  },
+  "equation": {
+    "raw": "E = ∫T·dχ\ndE/dt = T·(dχ/dt) = T²",
+    "normalized": "e=integralt*dchide/dt=t*(dchi/dt)=t^2",
+    "fingerprint": "c5aa0bc319c3f83aebea1923bb11c350bfd10785d1bf34b4731f675e66cdd236"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

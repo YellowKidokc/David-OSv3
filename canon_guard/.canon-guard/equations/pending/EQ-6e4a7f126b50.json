@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-6e4a7f126b50",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.014419+00:00",
+  "source": {
+    "path": "MEQ-Claude8.md",
+    "line": 41,
+    "source_sha256": "b8e4c4cffeec110ee299efca0048233376e8a9c3c9e18718d4bf690bed172d2c"
+  },
+  "equation": {
+    "raw": "Main Equation: F = G * (m1 * m2) / r²",
+    "normalized": "mainequation:f=g*(m1*m2)/r^2",
+    "fingerprint": "6e4a7f126b5031364a75b105a704ebc05032f1ef4e36cd8bc0fe840fab55402b"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

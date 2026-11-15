@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-243abf71ac85",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.352769+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-AI_Partnership_Framework_Expansion-Copy.md",
+    "line": 662,
+    "source_sha256": "9919cbf3d3758a74edb8950ec6dacb53a7f7dbb6c2d1734239d5c2f8d48ad1c9"
+  },
+  "equation": {
+    "raw": "F = G * (m1 * m2) / r^2",
+    "normalized": "f=g*(m1*m2)/r^2",
+    "fingerprint": "243abf71ac85a837eac7cfd5b249bcfa380e142e8f78c1137914e484b5219200"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

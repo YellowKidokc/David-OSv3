@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-bdb9dca0fe44",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.288771+00:00",
+  "source": {
+    "path": "MEQ-Higher-DimensionalIntegration_MathematicalFound.md",
+    "line": 72,
+    "source_sha256": "26c2cf73efd8cfcd47686d2e98414ce57cbdb9909110ee165287730c87125c7e"
+  },
+  "equation": {
+    "raw": "$I = \\frac{8\\pi R^5}{15}$[^7]",
+    "normalized": "$i=\\frac{8\\pir^5}{15}$[^7]",
+    "fingerprint": "bdb9dca0fe4420b8db4052778dedba46aa50f3fd08de768e80123f997bfb8c9d"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

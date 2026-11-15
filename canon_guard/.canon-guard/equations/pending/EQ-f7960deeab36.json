@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-f7960deeab36",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.196631+00:00",
+  "source": {
+    "path": "MEQ-132_FALS18.1_Chi-Field-Falsification.md",
+    "line": 122,
+    "source_sha256": "48d078953775ea7b38db6d970e0dcaa46c071f4c471b38767110d83c6c919d4f"
+  },
+  "equation": {
+    "raw": "BC = \\frac{m_3^2 + 1}{m_4 + 3\\frac{(n-1)^2}{(n-2)(n-3)}}",
+    "normalized": "bc=\\frac{m_3^2+1}{m_4+3\\frac{(n-1)^2}{(n-2)(n-3)}}",
+    "fingerprint": "f7960deeab36866b8c2ccfb97911482c7548f0b5ae14dce62f22982dfa68097e"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-280c149a279a",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.066510+00:00",
+  "source": {
+    "path": "MEQ-COSMOLOGICAL.md",
+    "line": 13,
+    "source_sha256": "15c5b733eea992774c3c2d7eb0dc14a69a3cd2ef1b1378e845eb577c44eebf54"
+  },
+  "equation": {
+    "raw": "H²(z,ℓ) = (8πG/3)[ρ_m(z) + ρ_r(z)] + σ(ℓ)/3",
+    "normalized": "h^2(z,ℓ)=(8πg/3)[ρ_m(z)+ρ_r(z)]+σ(ℓ)/3",
+    "fingerprint": "280c149a279a575a7a231b87b9dc108de086c9b260af22c5d91cf4c26280fd13"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-6962098daa82",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.627652+00:00",
+  "source": {
+    "path": "MEQ-TheGravity-ConsciousnessHypothesis.md",
+    "line": 507,
+    "source_sha256": "458b453e70791538c27eaea2c97b9d4a098f1710b21f0ec19b05fe3419bae6bf"
+  },
+  "equation": {
+    "raw": "C = k × (G₁/G₂) × E",
+    "normalized": "c=k*(g₁/g₂)*e",
+    "fingerprint": "6962098daa82b947fef036dba40a0591cc9894fd82113ea9623d39829390f043"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

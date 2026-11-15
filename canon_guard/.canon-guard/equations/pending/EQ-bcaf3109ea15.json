@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-bcaf3109ea15",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.650662+00:00",
+  "source": {
+    "path": "MEQ-theophysics-mathematical-glossary.md",
+    "line": 215,
+    "source_sha256": "4a561e9ad179dc38191e9dcc45991ce7d0b700a76e32eb6bec46176620325ef9"
+  },
+  "equation": {
+    "raw": "M = m_spiritual × v_transformation = Σ(choices × consequences)",
+    "normalized": "m=m_spiritual*v_transformation=σ(choices*consequences)",
+    "fingerprint": "bcaf3109ea15a5192642b0d8ff0cf49a04aa2cc719fa3d0d1c26a6aa8f8fd1c5"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-25946119d165",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.700514+00:00",
+  "source": {
+    "path": "MEQ-00_MATH_SUMMARY.md",
+    "line": 6342,
+    "source_sha256": "6c68ac764c4536e2f86e24ca6255a50c7ed39ef5f5a52e797626d1dbb24cdf0e"
+  },
+  "equation": {
+    "raw": "\\hat{O}_S = \\int_{x_0}^{x_1} \\Psi(x,t_0) \\, dx",
+    "normalized": "\\hat{o}_s=\\int_{x_0}^{x_1}\\psi(x,t_0)\\,dx",
+    "fingerprint": "25946119d16515facf46909718a166996dde750f2d40cd360f8bbec06ce7862d"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

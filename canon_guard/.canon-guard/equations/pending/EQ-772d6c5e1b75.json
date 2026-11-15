@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-772d6c5e1b75",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.205637+00:00",
+  "source": {
+    "path": "MEQ-136_D19.1_Law-I-Definition.md",
+    "line": 69,
+    "source_sha256": "10a9f8ee111731f445fbc7a028dc09ad18ee1a3af43c5bf2d72986f400f80746"
+  },
+  "equation": {
+    "raw": "L = T - V = \\frac{1}{2}m\\dot{x}^2 - V(x)",
+    "normalized": "l=t-v=\\frac{1}{2}m\\dot{x}^2-v(x)",
+    "fingerprint": "772d6c5e1b7594ccbe16b3a328b5f99b16644f3ed72f4201ee8a11ce505acebe"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

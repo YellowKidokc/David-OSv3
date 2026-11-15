@@ -28,7 +28,7 @@ jobs:
       - name: Install test prerequisites
         run: |
           sudo apt-get update
-          sudo apt-get install -y xvfb poppler-utils
+          sudo apt-get install -y xvfb poppler-utils libegl1 libgl1 libopengl0 libxkbcommon-x11-0 libxcb-cursor0
           command -v rga || cargo install ripgrep_all --version 0.10.9 --locked
           python -m pip install -e '.[test]'
           python -m pip install -r work/companion-gui/requirements.txt

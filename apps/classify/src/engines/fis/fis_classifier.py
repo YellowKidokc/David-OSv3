@@ -24,6 +24,8 @@ Usage:
     from fis_classifier import classify_folder, classify_file, FolderClass
 """
 
+from shared.meq_namer import CHI_SIGNALS, score_chi_factor
+
 import json, os, re
 from collections import Counter
 from pathlib import Path
@@ -169,105 +171,6 @@ BAD_NAME_RE = re.compile(
 # CHI factor keyword signals  (the 12-variable master equation)
 # ---------------------------------------------------------------------------
 
-CHI_SIGNALS = {
-    "G": {
-        "name": "Grace",
-        "law": "L01/L08",
-        "keywords": [
-            "grace","charis","gravitational","curvature","spacetime","geodesic",
-            "gift","unmerited","favor","negentropic","provision","sovereign",
-            "sustain","external source","persistent source","common grace",
-            "gravity","einstein","tensor","manifold","frame independent",
-        ]
-    },
-    "M": {
-        "name": "Moral Alignment",
-        "law": "L02",
-        "keywords": [
-            "moral","alignment","will","repentance","conversion","momentum",
-            "inertia","obedience","surrender","submission","sanctification",
-            "moral mass","m_eff","effective mass","force","acceleration",
-            "resistance","sin nature","flesh","free will",
-        ]
-    },
-    "E": {
-        "name": "Truth Signal",
-        "law": "L03",
-        "keywords": [
-            "truth","deception","witness","testimony","light","electromagnetic",
-            "maxwell","glory","doxa","revelation","signal","noise","logos",
-            "scripture","evidence","data","empirical","statistical","measure",
-            "falsify","testable","hypothesis","verify","prediction","result",
-        ]
-    },
-    "S": {
-        "name": "Entropy",
-        "law": "L05",
-        "keywords": [
-            "entropy","thermodynamic","second law","heat death","disorder",
-            "chaos","judgment","justice","free energy","boltzmann","decay",
-            "adversary","corruption","decoherence","dissipation","equilibrium",
-            "irreversible","arrow of time","loss","noise","drift","attenuation",
-        ]
-    },
-    "T": {
-        "name": "Time / Kairos",
-        "law": "L08",
-        "keywords": [
-            "time","kairos","chronos","temporal","duration","epoch","timeline",
-            "history","sequence","order","moment","period","future","past",
-            "relativity","lorentz","proper time","dilation","symmetry",
-        ]
-    },
-    "K": {
-        "name": "Knowledge",
-        "law": "L06",
-        "keywords": [
-            "knowledge","information","shannon","logos","word","channel","capacity",
-            "bandwidth","sanctification","logos","data","encoding","fidelity",
-            "compression","transmission","noise","signal-to-noise",
-            "epistemology","axiom","foundation","ground","method",
-        ]
-    },
-    "R": {
-        "name": "Relational Frame",
-        "law": "L08",
-        "keywords": [
-            "relation","frame","reference","covenant","community","fellowship",
-            "bond","connection","love","agape","relationship","binding",
-            "lorentz","invariant","frame lock","mutual","partnership",
-        ]
-    },
-    "Q": {
-        "name": "Quantum / Uncertainty",
-        "law": "L07",
-        "keywords": [
-            "quantum","collapse","superposition","measurement","faith","observer",
-            "uncertainty","doubt","probability","wave function","planck",
-            "hilbert","entanglement","coherence","decoherence","interference",
-        ]
-    },
-    "F": {
-        "name": "Faith / Fruit",
-        "law": "L04/L07",
-        "keywords": [
-            "faith","trust","belief","hope","fruit","love","joy","peace",
-            "patience","kindness","goodness","faithfulness","gentleness",
-            "self-control","strong force","quark","binding","covenant",
-            "confinement","agape","yukawa",
-        ]
-    },
-    "C": {
-        "name": "Christ Alignment / Coherence",
-        "law": "L10",
-        "keywords": [
-            "christ","coherence","integration","shalom","kingdom","master equation",
-            "decoherence","alignment","logos","salvation","cross","resurrection",
-            "trinity","atonement","redemption","reconciliation","mediator",
-            "coherent","integrated","unified","complete","perfect",
-        ]
-    },
-}
 
 DOMAIN_SIGNALS = {
     "physics":       ["physics","quantum","field","entropy","thermodynamic","relativity",
@@ -476,15 +379,6 @@ def _folder_is_old(p: Path, days: int = 180) -> bool:
 # File CHI scorer  (the master equation: 12 variables scored 0-3)
 # ---------------------------------------------------------------------------
 
-def score_chi_factor(text: str, factor_key: str) -> int:
-    """Return 0-3 score for one CHI factor based on keyword hits in text."""
-    keywords = CHI_SIGNALS[factor_key]["keywords"]
-    low      = text.lower()
-    hits     = sum(1 for kw in keywords if kw in low)
-    if hits == 0:   return 0
-    if hits <= 2:   return 1
-    if hits <= 5:   return 2
-    return 3
 
 
 def score_domain(text: str) -> tuple[str, int]:
@@ -1109,4 +1003,5 @@ if __name__ == "__main__":
     path = sys.argv[1] if len(sys.argv) > 1 else "."
     result = classify(path)
     pprint.pprint(result, sort_dicts=False)
+
 

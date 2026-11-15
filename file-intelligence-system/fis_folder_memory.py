@@ -7,6 +7,8 @@ an existing note is preserved as a timestamped sibling first.
 
 from __future__ import annotations
 
+from shared.meq_namer import COUPLING_PAIRS, meq_namer_string, meq_namer_short, folder_meq_aggregate
+
 import argparse
 import hashlib
 import json
@@ -54,37 +56,10 @@ MEQ_VARIABLE_TAGS = {
     "C": ["C", "christ coherence"],
 }
 # ─── Master Equation Namer: coupling pairs ────────────────────────────────────
-COUPLING_PAIRS = [
-    ("G", "C"),  # Grace ↔ Christ/Coherence (L01 ↔ L10)
-    ("M", "F"),  # Moral Alignment ↔ Faith/Fruit (L02 ↔ L04)
-    ("E", "Q"),  # Truth Signal ↔ Quantum/Uncertainty (L03 ↔ L07)
-    ("S", "R"),  # Entropy ↔ Relational Frame (L05 ↔ L08)
-    ("T", "K"),  # Time/Kairos ↔ Knowledge/Logos (L08 ↔ L06)
-]
 
 
-def meq_namer_string(chi: dict) -> str:
-    """Build the Master Equation Namer identity string from a CHI vector.
-
-    Format: G3 M2 E3 S1 T2 K3 R1 Q2 F3 C3 :: [G.C] [M.F] [E.Q] [S.R] [T.K]
-    """
-    if not chi or not any(chi.values()):
-        return ""
-    vector = " ".join(f"{var}{chi.get(var, 0)}" for var in "G M E S T K R Q F C".split())
-    pairs = " ".join(f"[{a}.{b}]" for a, b in COUPLING_PAIRS)
-    return f"{vector} :: {pairs}"
 
 
-def meq_namer_short(chi: dict) -> str:
-    """Shortened MEQ name: only non-zero variables + active coupling pairs."""
-    if not chi or not any(chi.values()):
-        return ""
-    nonzero = [f"{var}{chi[var]}" for var in "G M E S T K R Q F C".split() if chi.get(var, 0) > 0]
-    active_pairs = []
-    for a, b in COUPLING_PAIRS:
-        if chi.get(a, 0) > 0 or chi.get(b, 0) > 0:
-            active_pairs.append(f"[{a}.{b}]")
-    return " ".join(nonzero) + (" :: " + " ".join(active_pairs) if active_pairs else "")
 
 
 PRESENTATION_EXTENSIONS = {".html", ".htm"}
@@ -1197,21 +1172,6 @@ def render_semantic_network(files: list) -> str:
     )
 
 
-def folder_meq_aggregate(files: list) -> str:
-    """Compute aggregate MEQ vector for the folder from all file CHI vectors."""
-    totals = {var: 0 for var in "G M E S T K R Q F C".split()}
-    count = 0
-    for row in files:
-        local = json.loads(row["local_classification_json"] or "{}")
-        chi = local.get("chi", {})
-        if chi and any(chi.values()):
-            for var in totals:
-                totals[var] += int(chi.get(var, 0))
-            count += 1
-    if count == 0:
-        return ""
-    avg = {var: min(3, round(totals[var] / count)) for var in totals}
-    return meq_namer_string(avg)
 
 
 def render_semantic_capsule(record: sqlite3.Row, files: list, children: list, formats: dict) -> str:
@@ -1637,3 +1597,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+

@@ -17,6 +17,8 @@ Auto-approval:
     confidence < QUEUE_THRESHOLD           →  skip (too uncertain)
 """
 
+from shared.meq_namer import MEQ_KEYWORDS, lossless_slug, propose_lossless_address
+
 import re
 import time
 from datetime import datetime
@@ -246,30 +248,10 @@ _JUNK  = re.compile(
 
 # Lossless-vial addressing is kept pure here so callers can use the naming
 # grammar without invoking the legacy inbox processor or rewriting a source.
-MEQ_KEYWORDS = re.compile(
-    r"\b(master[\s_-]*equation|nabla|meq|master[\s_-]*eq|chi[\s_-]*field|lagrangian|coherence[\s_-]*equation)\b",
-    re.IGNORECASE,
-)
 
 
-def lossless_slug(text: str, max_len: int = 40) -> str:
-    slug = re.sub(r"[^\w]+", "_", text).strip("_")
-    return (slug or "folder")[:max_len].rstrip("_")
 
 
-def propose_lossless_address(title: str, sample: str, source_mtime: float) -> dict:
-    """Return a stable LOSS__/MEQ__ address without writing or moving content."""
-    match = MEQ_KEYWORDS.search(f"{title}\n{sample}")
-    mode = "meq" if match else "loss"
-    prefix = "MEQ" if mode == "meq" else "LOSS"
-    date_code = datetime.fromtimestamp(source_mtime).strftime("%Y-%m-%d")
-    return {
-        "address": f"{prefix}__{lossless_slug(title)}__{date_code}",
-        "mode": mode,
-        "source_date": date_code,
-        "basis": "title_and_local_content_sample",
-        "trigger": match.group(0) if match else None,
-    }
 
 def _topic_slug(name: str, max_words: int = 4) -> str:
     """Turn a filename into a short kebab-case topic slug."""
@@ -551,4 +533,5 @@ if __name__ == "__main__":
     dry = "--dry" in sys.argv
     result = run_auto_approve(db, dry_run=dry)
     print(result)
+
 

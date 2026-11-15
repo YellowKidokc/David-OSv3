@@ -41,15 +41,22 @@
   },
   "gui_unit_tests": {
     "before": 6,
-    "after": 8
+    "after": 9
   },
   "gui_existing_smoke": "passed (nine canonical engines)",
   "paired_acceptance": "passed: real localhost GUI API, Stage 1 + v3 + FIS shared reference, explicit receipt, restart/apply/replay rejection/byte rollback",
   "identity_recovery": "passed: former-path reuse, conflict preflight, file-move-before-registry-commit recovery",
   "live_data_migration": "not performed; assignment importer defaults to dry-run",
   "ci_verified": {
-    "linux_full_and_paired_run": "https://github.com/YellowKidokc/David-OSv3/actions/runs/43732092323",
-    "windows_fis_run": "https://github.com/YellowKidokc/David-OSv3/actions/runs/43732596201",
-    "gui_backend_run": "https://github.com/YellowKidokc/Prediction_GUI/actions/runs/43731604636"
+    "linux_full_and_paired_run": "https://github.com/YellowKidokc/David-OSv3/actions/runs/43732839182",
+    "windows_fis_run": "https://github.com/YellowKidokc/David-OSv3/actions/runs/43732839309",
+    "gui_backend_run": "https://github.com/YellowKidokc/Prediction_GUI/actions/runs/43733020467"
+  },
+  "tested_code_commit": "9a86cfe67eac388bf81dbb956d0dcf34062ed121",
+  "paired_gui_commit": "3a0ee2be5c0d94fb58cbe2a20afac14cd6981708",
+  "linux_ci_root_suite": {
+    "passed": 329,
+    "failed": 0,
+    "skipped": 0
   }
 }

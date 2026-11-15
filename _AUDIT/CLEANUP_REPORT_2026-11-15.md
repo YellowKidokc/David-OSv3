@@ -192,7 +192,8 @@ David-OS backend; both applications import the same App 160 module.
 |---|---|---|
 | Root suite on untouched source | 268 passed, 17 failed | 326 passed, 3 skipped, no failures |
 | Existing identity/classifier contracts | 12 passed, 4 skipped | 14 passed, 4 skipped |
-| Prediction_GUI tests | 6 passed | 8 passed |
+| Prediction_GUI tests | 6 passed | 9 passed |
+| Linux CI full suite with native GUI tests | — | 329 passed, no failures |
 | Existing nine-engine GUI smoke | passed | passed with canonical backend |
 | Real paired acceptance | — | passed |
 | Original vs extracted App 160 outputs | baseline | identical |

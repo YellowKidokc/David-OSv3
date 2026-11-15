@@ -1,0 +1,1 @@
+Exact gitlink/source retained; runtime capabilities already salvaged in hub/; see _AUDIT/HUB_SALVAGE_2026-11-15.json.

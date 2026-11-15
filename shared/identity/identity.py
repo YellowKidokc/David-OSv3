@@ -28,7 +28,7 @@ def position_kind(pos: int) -> str:
 
 
 def parse_document_id(doc_id: str) -> dict:
-    from .registry import document_id
+    from shared.identity.registry import document_id
     current = re.fullmatch(r'(?P<series>[A-Z]{3,5})\.(?P<pos>[0-9]{2})_(?P<title>.+)', doc_id)
     if current:
         position = int(current['pos'])

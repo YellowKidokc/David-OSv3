@@ -1,0 +1,1 @@
+Duplicate resident implementation retired; explicit legacy configuration is forwarded to Tagger v3 watch.

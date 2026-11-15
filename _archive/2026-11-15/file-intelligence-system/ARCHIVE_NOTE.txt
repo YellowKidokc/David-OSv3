@@ -1,0 +1,1 @@
+Retired folder-memory snapshot; current implementation is fis/fis_folder_memory.py.

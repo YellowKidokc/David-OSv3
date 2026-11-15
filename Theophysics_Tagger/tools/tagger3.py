@@ -78,7 +78,15 @@ CREATE INDEX IF NOT EXISTS ix_files_qh ON files(quick_hash);
 def open_db(path: Path) -> sqlite3.Connection:
     con = T2.open_db(path)
     con.executescript(EXTRA_SCHEMA)
+    con.execute('CREATE TABLE IF NOT EXISTS registry_refs(path TEXT PRIMARY KEY, registry_uuid TEXT NOT NULL, registry_id TEXT)')
     return con
+
+
+def registry_ref(con, path):
+    from shared.identity.registry import IdentityRegistry
+    ref = IdentityRegistry().reference(path)
+    con.execute('INSERT OR REPLACE INTO registry_refs VALUES(?,?,?)', (str(path), ref['uuid7'], ref['registry_id']))
+    return ref
 
 
 def now() -> str:
@@ -252,6 +260,7 @@ def registry_ctx(args, con, semantic: bool | None = None) -> Ctx:
 
 # ------------------------------------------------------------------------- tagging
 def index_doc(con, ctx: Ctx, path: Path, text: str, stamp: str, force: bool, errors: list) -> tuple[str, bool]:
+    registry_ref(con, path)
     """Tag one document's text into the DB (same evidence tables as tagger2). Returns (hash, newly_tagged)."""
     tags = ctx.tags
     body, title, paras = T2.parse_doc(path, text)
@@ -430,7 +439,8 @@ def write_folder_markers(con, sources: list[Path], results: dict[str, dict], all
             prev_paths = [x.strip() for x in old.get("previous_paths", "").split(" | ") if x.strip()]
             if moved and previous not in prev_paths:
                 prev_paths.append(previous)
-            folder_id = old.get("folder_id") or f"FLD-{datetime.now():%Y%m%d}-{hashlib.sha1(current.encode()).hexdigest()[:8]}"
+            folder_ref = registry_ref(con, folder)
+            folder_id = old.get("folder_id") or folder_ref["uuid7"]
             try:
                 subdirs = sorted(d.name for d in folder.iterdir() if d.is_dir() and d.name not in SKIP_DIRS)
             except OSError:
@@ -541,6 +551,7 @@ def run_catalog(con, sources: list[Path], tagged_paths: set[str], full: bool, fo
                     errs += 1
                     continue
                 key = str(p)
+                registry_ref(con, p)
                 seen.add(key)
                 old = known.get(key)
                 if old and old[0] == st.st_size and abs(old[1] - st.st_mtime) < 1e-6:

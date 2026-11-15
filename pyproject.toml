@@ -26,8 +26,9 @@ dos-worker = "hub.workers.runner:main"
 rule-brick = "rule_brick.cli:main"
 
 [tool.setuptools.packages.find]
-include = ["hub*", "engine*", "agents*", "pipeline*", "folder_hub*", "rule_brick*", "shared*"]
+include = ["hub*", "engine*", "agents*", "pipeline*", "folder_hub*", "rule_brick*", "shared*", "fis*"]
 
 [tool.setuptools.package-data]
+fis = ["data/*.json", "data/*.md", "static/*"]
 folder_hub = ["static/*.js"]
 rule_brick = ["*.json", "*.md"]

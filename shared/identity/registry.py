@@ -8,6 +8,7 @@ Legacy records are preserved pending a reviewed alias migration.
 from __future__ import annotations
 
 import os
+from contextlib import closing
 from pathlib import Path
 import re
 import secrets
@@ -46,7 +47,7 @@ class IdentityRegistry:
     def __init__(self, path: Path | str | None = None):
         self.path = Path(path or os.environ.get('DAVID_OS_REGISTRY', DEFAULT_PATH))
         self.path.parent.mkdir(parents=True, exist_ok=True)
-        with self._connect() as con:
+        with closing(self._connect()) as con, con:
             con.execute('''CREATE TABLE IF NOT EXISTS document_identities (
                 registry_id TEXT PRIMARY KEY,
                 uuid7 TEXT NOT NULL UNIQUE,

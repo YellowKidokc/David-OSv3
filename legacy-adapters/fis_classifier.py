@@ -1,10 +1,9 @@
-"""Legacy-path stub for file-intelligence-system/fis_classifier.py. Holds NO implementation."""
-import runpy, sys
+"""Compatibility entry point for the canonical FIS classifier."""
+import sys
 from pathlib import Path
-CANONICAL = Path(r"D:\GitHub\David-OSv3\apps\classify\src\engines\fis\fis_classifier.py")
-print(f"[moved] fis_classifier now lives at {CANONICAL}  (forwarding...)", file=sys.stderr)
-sys.path.insert(0, str(CANONICAL.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 if __name__ == "__main__":
-    runpy.run_path(str(CANONICAL), run_name="__main__")
+    import runpy
+    runpy.run_module("fis.fis_classifier", run_name="__main__")
 else:
-    from fis_classifier import *  # noqa: F401,F403
+    from fis.fis_classifier import *  # noqa: F401,F403

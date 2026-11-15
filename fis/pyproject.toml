@@ -13,8 +13,8 @@ dependencies = []
 fis = "fis.cli:main"
 
 [tool.setuptools]
-packages = ["fis", "fis.preference"]
-package-dir = {fis = ".", "fis.preference" = "preference"}
+packages = ["fis", "fis.preference", "shared", "shared.identity"]
+package-dir = {fis = ".", "fis.preference" = "preference", shared = "../shared", "shared.identity" = "../shared/identity"}
 
 [tool.setuptools.package-data]
 fis = ["data/*.json", "data/*.md", "static/*"]

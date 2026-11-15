@@ -93,7 +93,7 @@ def file_hash(path: Path) -> str:
 
 def relative_link(source_folder: Path, target: Path) -> str:
     try:
-        relative = Path(__import__("os").path.relpath(target, source_folder)).as_posix()
+        relative = Path(os.path.relpath(target, source_folder)).as_posix()
         return quote(relative, safe="/-_.")
     except ValueError:
         return target.as_uri()
@@ -250,10 +250,7 @@ def local_keywords(path: Path, classification: dict[str, object]) -> list[str]:
 
     # Run smart_tagger for 4-layer disambiguation (domain, subtopic, specific, unique)
     try:
-        import sys
-        if r"D:\GitHub\David-OSv3\engine" not in sys.path:
-            sys.path.insert(0, r"D:\GitHub\David-OSv3\engine")
-        import smart_tagger
+        from engine import smart_tagger
         s_dom, s_sub, s_spec, s_uniq = smart_tagger.smart_tag_file(str(path), raw_content or text, path.name, {})
         for st in (s_dom, s_sub, s_spec, s_uniq):
             if st and st.lower() not in excluded and st not in tags:
@@ -812,6 +809,15 @@ def write_file_notes(conn: sqlite3.Connection, folders: list[Path]) -> tuple[int
     return written, skipped
 
 
+def _preserve_retired_note(note: Path) -> None:
+    """Retire a note as a timestamped sibling instead of deleting evidence."""
+    stamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%S%f")
+    target = note.with_name(f".fisnote.legacy.{stamp}.{note.name}.bak")
+    if target.exists():
+        raise FileExistsError(target)
+    note.rename(target)
+
+
 def cleanup_stale_file_notes(folders: list[Path]) -> int:
     removed = 0
     for folder in folders:
@@ -826,7 +832,7 @@ def cleanup_stale_file_notes(folders: list[Path]) -> int:
                 continue
             source_name = note.name[:-len(".fisnote")]
             if not (folder / source_name).exists():
-                note.unlink()
+                _preserve_retired_note(note)
                 removed += 1
     return removed
 
@@ -840,14 +846,14 @@ def wipe_existing_fisnotes(root: Path) -> int:
             continue
         folder_note = folder / ".fisnote"
         if folder_note.exists() and folder_note.is_file():
-            folder_note.unlink()
+            _preserve_retired_note(folder_note)
             removed += 1
     for note in root.rglob("*.fisnote"):
         if any(part.lower() in IGNORED_DIRS for part in note.parts):
             continue
         if not note.is_file():
             continue
-        note.unlink()
+        _preserve_retired_note(note)
         removed += 1
     return removed
 

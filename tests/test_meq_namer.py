@@ -50,3 +50,30 @@ def test_folder_aggregate_excludes_unscored_and_keeps_rounding():
     rows = [{'local_classification_json': json.dumps({'chi': c})} for c in ({'G': 1}, {}, {'G': 2, 'K': 3})]
     assert m.folder_meq_aggregate(rows) == m.meq_namer_string({'G': 2, 'K': 2})
     assert m.folder_meq_aggregate([]) == ''
+
+
+def test_folder_address_falls_back_to_local_folder_metadata(tmp_path):
+    from fis.fis_folder_memory import folder_lossless_address
+    folder = tmp_path / 'Ordinary-folder'
+    folder.mkdir()
+    result = folder_lossless_address(folder, [])
+    assert result['address'].startswith('LOSS__Ordinary_folder__')
+    assert result['trigger'] is None
+    (folder / 'Master_Equation.md').write_text('grace', encoding='utf-8')
+    result = folder_lossless_address(folder, [folder / 'Master_Equation.md'])
+    assert result['mode'] == 'meq'
+
+
+def test_fis_classifier_uses_shared_scoring():
+    from fis import fis_classifier
+    assert fis_classifier.CHI_SIGNALS is m.CHI_SIGNALS
+    assert fis_classifier.score_chi_factor is m.score_chi_factor
+
+
+def test_retired_notes_are_preserved_instead_of_deleted(tmp_path):
+    from fis.fis_folder_memory import wipe_existing_fisnotes
+    (tmp_path / '.fisnote').write_bytes(b'folder evidence')
+    (tmp_path / 'old.md.fisnote').write_bytes(b'file evidence')
+    assert wipe_existing_fisnotes(tmp_path) == 2
+    assert not list(tmp_path.glob('*.fisnote'))
+    assert {p.read_bytes() for p in tmp_path.glob('.fisnote.legacy.*')} == {b'folder evidence', b'file evidence'}

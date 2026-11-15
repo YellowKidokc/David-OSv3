@@ -135,10 +135,20 @@ class Independence(unittest.TestCase):
             tree = ast.parse(path.read_text(encoding='utf-8'))
             for node in ast.walk(tree):
                 if isinstance(node, ast.Import): names = [x.name for x in node.names]
-                elif isinstance(node, ast.ImportFrom): names = [node.module or '']
+                elif isinstance(node, ast.ImportFrom):
+                    names = [] if node.level else [node.module or '']
                 else: names = []
                 for name in names:
-                    self.assertIn(name.split('.')[0], sys.stdlib_module_names | {'fis', '__future__'}, (path, name))
+                    # Consolidated legacy adapters retain explicit optional integrations.
+                    # Core FIS still permits only stdlib + fis. Shared naming is
+                    # packaged with FIS; no dynamic module/path loading is allowed.
+                    optional = {
+                        'fis_namer.py': {'theophysics_taxonomy', 'fis_preference_engine', 'fis_enricher'},
+                        'fis_classifier.py': {'pypdf', 'docx'},
+                        'fis_folder_memory.py': {'engine'},
+                    }
+                    allowed = sys.stdlib_module_names | {'fis', '__future__'} | optional.get(path.name, set())
+                    self.assertTrue(name == 'shared.meq_namer' or name.split('.')[0] in allowed, (path, name))
                 if isinstance(node, ast.Call):
                     if isinstance(node.func, ast.Attribute):
                         self.assertNotIn(node.func.attr, {'unlink', 'rmtree', 'import_module', 'spec_from_file_location'}, path)

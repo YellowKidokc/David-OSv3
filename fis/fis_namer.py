@@ -20,6 +20,7 @@ Auto-approval:
 from shared.meq_namer import MEQ_KEYWORDS, lossless_slug, propose_lossless_address
 
 import re
+import os
 import time
 from datetime import datetime
 from pathlib import Path
@@ -352,7 +353,7 @@ def propose_name(rec: dict, db_path: str = "") -> dict:
                        datetime.fromtimestamp(mtime) if mtime else datetime(1970, 1, 1), ext)
         if build_filename else proposed
     )
-    if __import__("os").environ.get("FIS_NAMING_GRAMMAR", "canonical").lower() != "legacy":
+    if os.environ.get("FIS_NAMING_GRAMMAR", "canonical").lower() != "legacy":
         proposed = canonical_proposed
 
     # Build the proposal dict (needed for preference engine)

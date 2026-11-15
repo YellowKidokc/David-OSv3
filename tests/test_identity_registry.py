@@ -44,3 +44,24 @@ def test_preserves_existing_stage1_tables(tmp_path):
     registry.issue('MIM', 0, 'Mephistopheles')
     with sqlite3.connect(path) as con:
         assert con.execute('SELECT * FROM works').fetchall() == [('legacy-work',)]
+
+
+def test_observation_assignment_and_move_preserve_one_uuid(tmp_path):
+    r = IdentityRegistry(tmp_path / 'registry.sqlite')
+    source = tmp_path / 'draft.md'
+    ref = r.reference(source)
+    assert ref['registry_id'] is None and UUID(ref['uuid7']).version == 7
+    issued = r.assign(source, 'MIM', 0, 'Mephistopheles')
+    assert issued['uuid7'] == ref['uuid7']
+    destination = tmp_path / 'MIM.00_Mephistopheles.md'
+    r.relocate(source, destination)
+    assert r.reference(destination) == r.reference(source)
+    with pytest.raises(ValueError):
+        r.assign(source, 'MIM', 1, 'Other-Title')
+
+
+def test_registry_does_not_merge_distinct_paths_by_content(tmp_path):
+    r = IdentityRegistry(tmp_path / 'registry.sqlite')
+    assert r.reference(tmp_path/'a.md')['uuid7'] != r.reference(tmp_path/'b.md')['uuid7']
+    with pytest.raises(ValueError):
+        r.relocate(tmp_path/'a.md', tmp_path/'b.md')

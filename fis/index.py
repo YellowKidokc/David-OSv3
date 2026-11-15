@@ -24,6 +24,8 @@ class Store:
     def __init__(self, path=None):
         self.home = Path(path or os.environ.get("FIS_HOME", Path.home() / ".fis-standalone")).resolve()
         self.home.mkdir(parents=True, exist_ok=True)
+        from shared.identity.registry import IdentityRegistry
+        self.registry = IdentityRegistry()
         with self.connect() as con:
             con.executescript('''
             CREATE TABLE IF NOT EXISTS items(kind TEXT, id TEXT, value TEXT NOT NULL,
@@ -59,6 +61,8 @@ class Store:
         return [json.loads(row[0]) for row in rows]
 
     def record(self, row):
+        ref = self.registry.reference(row['path'])
+        row.update(registry_uuid=ref['uuid7'], registry_id=ref['registry_id'])
         with self.connect() as con:
             con.execute("INSERT OR IGNORE INTO contents VALUES(?,?)", (row['sha256'], row['size']))
             con.execute("INSERT OR REPLACE INTO instances VALUES(?,?,?)", (row['path'], row['sha256'], canonical(row)))

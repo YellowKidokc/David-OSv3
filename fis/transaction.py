@@ -140,6 +140,8 @@ def apply(store, plan_id, token, fail_after=None):
                     st = Path(op['src']).stat()
                     op['mtime_ns'], op['atime_ns'] = st.st_mtime_ns, st.st_atime_ns
                     store.op(run_id, seq, op)
+                    if not str(op['dst']).startswith(str(store.home)):
+                        store.registry.relocate(op['src'], op['dst'])
                     _move(op['src'], op['dst'])
                 else:
                     stage = store.home/'staging'/run_id/str(seq)

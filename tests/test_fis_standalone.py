@@ -148,7 +148,7 @@ class Independence(unittest.TestCase):
                         'fis_folder_memory.py': {'engine'},
                     }
                     allowed = sys.stdlib_module_names | {'fis', '__future__'} | optional.get(path.name, set())
-                    self.assertTrue(name == 'shared.meq_namer' or name.split('.')[0] in allowed, (path, name))
+                    self.assertTrue(name in {'shared.meq_namer', 'shared.identity.registry'} or name.split('.')[0] in allowed, (path, name))
                 if isinstance(node, ast.Call):
                     if isinstance(node.func, ast.Attribute):
                         self.assertNotIn(node.func.attr, {'unlink', 'rmtree', 'import_module', 'spec_from_file_location'}, path)

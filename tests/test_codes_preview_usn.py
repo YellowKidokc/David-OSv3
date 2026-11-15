@@ -10,6 +10,18 @@ from engine.code_fields import Codebook,update_codes,downstream_dependents,propo
 from engine.rename_preview import build,filename
 
 
+@pytest.fixture(autouse=True)
+def isolated_codebook(tmp_path, monkeypatch):
+    # Synthetic closed vocabulary for behavior tests, never a production taxonomy.
+    from engine import code_fields
+    codes = tmp_path / 'TEST_CODES.yaml'
+    codes.write_text("series: {MIM: test, CR: test}\nconcepts: {MO: test, LW: test} # use L1-L10\nopposition: {xHU: test}\nstatus_levels: {IN: test, WK: test, AP: test, CD: test, ES: test, RT: test}\n")
+    rules = tmp_path / 'TEST_RULES.yaml'
+    rules.write_text('R02_no_silent_changes: true\nR01_folder_density: true\n')
+    monkeypatch.setattr(code_fields, 'DEFAULT_CODES', codes)
+    monkeypatch.setattr(code_fields, 'DEFAULT_RULES', rules)
+
+
 @pytest.fixture
 def corpus(tmp_path):
     root=tmp_path/'Canonical Rebuild';root.mkdir()

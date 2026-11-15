@@ -24,7 +24,7 @@ from __future__ import annotations
 import datetime as dt
 import sys
 import uuid
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 
 REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO / "03_CLASSIFY" / "02_CLASSIFICATION"))
@@ -81,7 +81,7 @@ def convert_card_text(text: str, stem: str) -> str | None:
     # older schema variant spells it file_path — same meaning, same translation
     source_file = next((_block_value(old[k]) for k in ("source_file", "file_path")
                         if k in old and _block_value(old[k])), "")
-    source = Path(source_file).stem if source_file else ""
+    source = PureWindowsPath(source_file).stem if source_file else ""
 
     # permanent identity: keep the card's own uuid if it has one; otherwise mint
     # a deterministic one so re-running the adapter never double-mints

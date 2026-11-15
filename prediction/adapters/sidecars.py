@@ -31,8 +31,8 @@ SUBJECT_PREFIXES = ("tp-", "theo-", "phil-", "math-", "phys-", "info-", "cog-",
                     "soc-", "meth-", "cs-", "series-")
 
 
-def parse_card(path: Path) -> tuple[dict[str, str], list[str]]:
-    """Frontmatter fields and tags of one mim.v1 card. ({}, []) if it isn't one."""
+def parse_frontmatter(path: Path) -> tuple[dict[str, str], list[str]]:
+    """Raw frontmatter fields and tags of any fenced card, before the mim.v1 gate."""
     lines = path.read_text(encoding="utf-8", errors="replace").replace("\r", "").split("\n")
     if not lines or lines[0].strip() != "---":
         return {}, []
@@ -53,9 +53,34 @@ def parse_card(path: Path) -> tuple[dict[str, str], list[str]]:
                 in_tags = True
             else:
                 fields[k] = v
+    return fields, tags
+
+
+def parse_card(path: Path) -> tuple[dict[str, str], list[str]]:
+    """Frontmatter fields and tags of one mim.v1 card. ({}, []) if it isn't one."""
+    fields, tags = parse_frontmatter(path)
     if fields.get("sidecar") != "mim.v1" or fields.get("type") == "subject-index":
         return {}, []
     return fields, tags
+
+
+def card_diagnosis(path: Path) -> str:
+    """One honest sentence for a card parse_card returned empty for."""
+    try:
+        first = path.read_text(encoding="utf-8", errors="replace") \
+                  .replace("\r", "").split("\n", 1)[0]
+    except Exception as e:  # noqa: BLE001
+        return f"unreadable file: {e}"
+    if first.strip() != "---":
+        return "no frontmatter (first line is not '---') — not a card at all"
+    fields, _ = parse_frontmatter(path)
+    if not fields:
+        return "frontmatter fence present but no readable 'key: value' lines — open it"
+    if fields.get("type") == "subject-index":
+        return "subject index (00_INDEX-style) — not a per-paper card"
+    hint = (f"type '{fields['type']}'" if fields.get("type")
+            else f"keys: {', '.join(list(fields)[:5])}")
+    return f"readable card, but not stamped mim.v1 ({hint}) — run 04_ADAPT on it first"
 
 
 def values_for(facet: str, fields: dict[str, str], tags: list[str]) -> list[str]:

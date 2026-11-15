@@ -4,7 +4,7 @@ from __future__ import annotations
 import json
 import os
 from dataclasses import dataclass, field
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 from typing import Any
 
 DEFAULT_PROFILE_PATH = Path("config/folder_profiles.json")
@@ -96,12 +96,15 @@ class FolderProfileRegistry:
         return [Path(profile.path) for profile in self.profiles if profile.watch_enabled and profile.path != "*"]
 
     def match(self, file_path: str | Path) -> FolderProfile:
-        candidate = os.path.normcase(str(Path(file_path).resolve()))
+        windows = bool(PureWindowsPath(str(file_path)).drive) or "\\" in str(file_path)
+        def normalized(value):
+            return str(PureWindowsPath(value)).replace("\\", "/").casefold().rstrip("/") if windows else str(Path(value).expanduser().resolve())
+        candidate = normalized(str(file_path))
         best: tuple[int, FolderProfile] | None = None
         for profile in self.profiles:
-            root_path = Path(profile.path).expanduser().resolve()
-            root = os.path.normcase(str(root_path))
-            if candidate != root and not candidate.startswith(root + os.sep):
+            root_path = PureWindowsPath(profile.path) if windows else Path(profile.path).expanduser().resolve()
+            root = normalized(profile.path)
+            if candidate != root and not candidate.startswith(root + ("/" if windows else os.sep)):
                 continue
             score = len(root_path.parts)
             if best is None or score > best[0]:

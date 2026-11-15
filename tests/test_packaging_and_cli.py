@@ -8,7 +8,7 @@ def test_pyproject_constrains_package_discovery_and_scripts():
     with open("pyproject.toml", "rb") as handle:
         project = tomllib.load(handle)
 
-    assert project["tool"]["setuptools"]["packages"]["find"]["include"] == ["hub*", "engine*", "agents*", "pipeline*"]
+    assert project["tool"]["setuptools"]["packages"]["find"]["include"] == ["hub*", "engine*", "agents*", "pipeline*", "folder_hub*", "rule_brick*", "shared*", "fis*", "prediction*"]
     scripts = project["project"]["scripts"]
     assert scripts["dos-api"] == "hub.cli:api_main"
     assert scripts["dos-health"] == "hub.cli:health_main"

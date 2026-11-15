@@ -16,8 +16,9 @@ DEFAULT_RULES=Path('C:/theophysics/tools/FILING_RULES.yaml')
 
 
 class Codebook:
-    def __init__(self,path=DEFAULT_CODES,rules_path=DEFAULT_RULES):
-        self.path=Path(path)
+    def __init__(self,path=None,rules_path=None):
+        rules_path = rules_path or DEFAULT_RULES
+        self.path=Path(path or DEFAULT_CODES)
         raw=self.path.read_text(encoding='utf-8')
         self.data=yaml.safe_load(raw)
         self.rules=yaml.safe_load(Path(rules_path).read_text(encoding='utf-8'))

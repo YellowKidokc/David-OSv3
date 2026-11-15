@@ -1,36 +1,40 @@
 # David-OSv3 cleanup report — 2026-11-15
 
-## Status and scope
+## Final scope
 
-**Partial consolidation, draft review; not ready to merge.** Branch:
-`cleanup/v3-consolidation`, based on freshly fetched
-`combine/fis-into-david-os` at `6b14728`. No merge performed.
+Consolidation is implemented on `cleanup/v3-consolidation`, based on
+`combine/fis-into-david-os` at `6b14728`. David-OS PR #3 and companion
+Prediction_GUI PR #3 must be reviewed together. Neither has been merged.
+The initial partial-report status is superseded by this final report.
 
-Read the Nov 14 HTML audit and move CSV, then verified the selected changes
-against code. The original checkout had unrelated uncommitted edits; work was
-isolated in a separate worktree. No source data folders, H:, NAS, vaults,
-services, startup jobs or external repository files were modified. Tests used
-scratch copies and temporary databases. `work/` is untracked local scratch.
+The follow-up authorized work in Prediction_GUI. Existing uncommitted edits in
+David-OS's original checkout were preserved by using a separate worktree. No
+live data folders, H:, NAS, vault files, installed services or startup entries
+were changed. All source mutation/rollback checks used disposable fixtures.
 
-Completed: shared App 160 extraction; one implementation for each migrated FIS
-module under `fis/`; duplicate app engine and older renderer snapshot archived;
-tested new registry issuance boundary; compatibility entry points; packaging;
-selected root cleanup and contributor documentation.
+## What now has one owner
 
-Not completed: conversion of all identity producers, Prediction_GUI integration
-and removal of duplicate approval/prediction paths, hub salvage, or retirement
-of all legacy tagger launchers. These are explicit stop items below; the new
-registry module is not yet the sole live identity source. FIS still contains
-its existing approval executor and review endpoints.
+| Job | Owner | Compatibility treatment |
+|---|---|---|
+| FIS classification/naming/folder rendering | `fis/` | Legacy paths forward; duplicate app engine archived |
+| Document/root UUID issuance and explicit IDs | `shared/identity/registry.py` | Other stores carry registry references; old IDs can be aliases |
+| Master Equation namer / App 160 | `shared/meq_namer.py` | Same pure implementation used by FIS and GUI backend |
+| Document tagging/catalog/watch | `Theophysics_Tagger/tools/tagger3.py` | Legacy catalog/GUI/watch entry points delegate to v3; unique extensions share its home |
+| Prediction runner, engines and naming models | `prediction/` | David and GUI harnesses are import/state-path adapters |
+| Human decision recording | Prediction_GUI | Exact plan/rows/actor/note receipt; no confidence-based auto approval |
+| Guarded execution and recovery | `fis/transaction.py` | Validates receipt/identity/policy, consumes once, journals operations |
+| Hub control-plane capabilities | `hub/` | Recovered duplicate gitlink/source archived after comparison |
+
+Internal job keys, hashes, W/V rows and historical IDs remain preserved as local
+keys or aliases; they are not newly issued document IDs. Existing low-level
+execution tokens, root permissions and explicit legacy batch confirmation are
+execution controls, distinct from prediction generation and GUI decision records.
 
 ## Final top-level folder map
-
-One line per versioned top-level folder (including the unpopulated gitlink):
-
 - `.github/` — repository automation.
 - `01_PROFILE/` — drive/folder profile wizard and policy inputs.
 - `02_INVENTORY/` — inventory entry points and Stage 1 documentation.
-- `03_CLASSIFY/` — MIM validation/review, taxonomies and existing prediction harness; retirement pending.
+- `03_CLASSIFY/` — MIM validation/review, taxonomies and compatibility imports for canonical prediction.
 - `04_ADAPT/` — contract adaptation into MIM cards.
 - `05_TOPIC_COLLECTION/` — topic search, selection and reviewed collection.
 - `06_FIS_HTML/` — registry scan views and gates; remains a projection consumer pending identity integration.
@@ -50,8 +54,7 @@ One line per versioned top-level folder (including the unpopulated gitlink):
 - `data/` — existing versioned inputs/outputs; untouched.
 - `deploy/` — deployment definitions; nothing deployed.
 - `docs/` — operational and design documentation.
-- `engine/` — existing registry/inventory, file operations and legacy prediction/tagging consumers; migration pending.
-- `file-intelligence-hub` — gitlink at `14f6708`; source unavailable in this snapshot, salvage pending.
+- `engine/` — inventory/file operations, registry-reference consumers and legacy state/CLI adapters.
 - `file-intelligence-system/` — Python compatibility entry points only; existing database path retained.
 - `files/` — retained inventory kit and outputs; untouched.
 - `fis/` — canonical FIS implementation, including migrated classifier/namer/renderer/scorer.
@@ -60,152 +63,186 @@ One line per versioned top-level folder (including the unpopulated gitlink):
 - `hub/` — application API, jobs, nodes and workers.
 - `legacy-adapters/` — compatibility routes; FIS classifier now forwards without a hard-coded workstation path.
 - `migration/` — existing migration specifications/evidence.
+- `prediction/` — canonical inference runner/engines, naming learners, series matching and advice.
 - `pipeline/` — downstream content helpers.
 - `rule_brick/` — advisory work evidence and receipts.
 - `schemas/` — existing data contracts.
 - `scripts/` — operational entry points and migration helpers.
 - `services/` — existing service support.
-- `shared/` — dependency-light contracts, App 160 namer and tested new ID issuer.
+- `shared/` — identity authority, alias/assignment migration, App 160 and exact review contracts.
 - `tests/` — regression checks, including namer and registry coverage.
-- `tools/` — retained utilities/snapshots; old taggers still present pending parity review.
+- `tools/` — utilities and cold snapshots; filetagger entry points forward to Tagger v3-owned implementations.
 
-Root `ARCHITECTURE.md` is the short ownership map; `LAUNCH.bat` stays in place.
+The ignored `_data/registry.sqlite` is the development identity-state default;
+configure one `DAVID_OS_REGISTRY` for installed applications. `work/` is local
+scratch and is not part of the PR.
 
-## Every move
+## Every move and archive
 
-Each row is its own move commit. Other commits extract shared code, wire imports,
-add tests or document results; they do not combine independent moves.
+The full expanded ledger is `CLEANUP_MOVES_2026-11-15.csv`: repository, commit,
+original path, destination and treatment. Each independent source/file move is
+its own commit; whole-directory retirements are one logical move. Import adapters
+occupy the old paths where required, so Git sometimes reports M+A rather than R.
 
-| Commit | Original | Destination / treatment |
+- Legacy `file-intelligence-system` implementations moved into `fis/`, one
+  module per commit. Its old folder-memory snapshot is archived.
+- `apps/classify/src/engines/fis/` moved intact into
+  `_archive/2026-11-15/apps/classify/src/engines/fis/`.
+- Prediction_GUI harness/engines were salvaged into `prediction/`; unique
+  David sidecar diagnostics and gate-event adapters were retained too.
+  Duplicate harness/engine directories in both repositories are archived.
+- GUI advisory and series inference moved into `prediction/advice.py` and
+  `prediction/series_registry.py`; GUI modules now present their outputs.
+- FIS base/features/frequency/Markov algorithms moved to `prediction/naming/`.
+  Duplicate engine algorithms are archived; legacy state paths remain adapters.
+- `engine/filetagger_core.py`, both legacy filetagger GUIs, and duplicate
+  extension scripts are archived with forwarding entry points. The separate
+  daemon is archived; its adapter uses an explicit existing configuration and
+  v3's watch implementation. No watcher was launched or installed.
+- Unique folder-marker compatibility moved into Tagger v3. Its forced
+  `--new-ids` option now refuses the operation because it contradicts immutable
+  registry identity; an explicit reviewed assignment/alias is the alternative.
+- Recovered file-intelligence-hub gitlink moved to
+  `_archive/2026-11-15/file-intelligence-hub`; its exact source tar and reason
+  note are adjacent. `HUB_SALVAGE_2026-11-15.json` maps every Python module to
+  the already-salvaged `hub/` counterpart. Canonical extensions/guarded
+  replacements were kept; legacy destructive deletion was not restored.
+- Root ZIPs and workstation shortcut are under `_archive/2026-11-15/` at their
+  original relative names. The Stage 1 build brief moved into inventory docs.
+- Shared test isolation moved from `tests/conftest.py` to root `conftest.py` so
+  app/shared tests also use temporary identity state.
+
+Archive reason notes are adjacent to each retired artifact or inside a retired
+folder. Source data, generated corpora, catalogs and receipt folders were not
+moved. The source tar is a recovered code snapshot, not a live data migration.
+
+## Identity and storage
+
+Observations receive UUIDv7 references from the configured registry. They have
+no public document name until an explicit series/position/original-title
+assignment is made. The public format is `SERIES.NN_Original-Title`.
+
+Stage 1 and Folder Hub may retain scoped inventory caches, but their references
+come from the same configured authority as FIS, filebrain, χ processing,
+classifier exports and Tagger v3. A named registry assignment takes precedence
+over descriptive rename proposals. Changing scores/counts are never added to
+that identity. Envelopes no longer mint their own document roots.
+
+Legacy sidecar UUIDs remain visible as historical aliases; new sidecars carry
+the registry reference. Dotted legacy IDs still parse, and current IDs work
+through sidecar/artifact validators. Static legacy ruling fixtures remain
+compatibility imports, not a second UUID issuer.
+
+Active locations and location history are separate: a reused former path does
+not inherit the moved document's UUID. Planning/apply and rollback check identity
+conflicts; journals preserve the reference for restart recovery between the
+file move and registry commit.
+
+`python -m shared.identity.migrate MAP.json --db STATE` is dry-run by default.
+`--apply` atomically stores explicit assignments, scoped legacy aliases and
+review provenance. Conflicts roll back the entire batch. **No live assignment
+map was applied**, because the task forbids touching data folders and no reviewed
+corpus-wide mapping was supplied. Unknown assignments remain honestly unassigned.
+
+## Prediction and approval handoff
+
+`shared/review.py` is the common plan/receipt contract. FIS browser/CLI decisions
+are sent to Prediction_GUI's localhost API, which imports plans into its existing
+inbox and records explicit choices before returning receipts. Receipts bind plan
+hash, selected row IDs, actor and note. Held rows, tampered plans and edited names
+cannot be approved against an old plan. Source edits require a new proposal.
+
+David-OS validates and consumes the receipt before execution; it rejects replay.
+The GUI never changes source files. The legacy namer's batch operation now queues
+recommendations rather than approving its own predictions, and its human-decision
+compatibility function records through the same GUI boundary.
+
+The GUI API opens its ledger without instantiating the inference runner. Its
+old ledger path is preserved. The companion dependency file pins the reviewed
+David-OS backend; both applications import the same App 160 module.
+
+## Audit corrections and retained uncertainties
+
+- The original audit describes Windows checkout `4e36a9a`; this work starts
+  from the later pushed `6b14728` snapshot. Its runtime file/size counts are
+  not measurements of this isolated checkout.
+- The audit recommends GUI-owned predictions. The explicit task supersedes
+  that recommendation: inference belongs to David-OS, decisions to the GUI.
+- The initial checkout had only a hub gitlink and no `.gitmodules` URL. The
+  exact repository/commit was subsequently recovered and compared; all Python
+  module paths already had canonical counterparts under `hub/`.
+- Legacy identity validators used dotted IDs and UUID4/5 roots. The new issuer
+  uses UUIDv7/current IDs, preserves legacy aliases, and updates validators
+  rather than rewriting existing records.
+- Tagger salvage had copied extensions without redirecting old callers. Core
+  launchers and duplicate extension imports now forward to the v3 owner.
+  Existing extension utilities are retained as utilities; no new GUI features
+  or external-path exports were added or run.
+- Root three-pane mockups reference an absent `shared.css`. Their intended
+  stylesheet remains unknown; they stay in place. Simple FIS's sibling-served
+  HTML path also stays intact.
+- CSV-proposed duplicate SQLite/large-receipt moves would require data/WAL and
+  external-consumer checks. They were not performed under the no-data rule.
+- Existing registries/vocabularies are not presumed equivalent. The root
+  keyword registry and cold snapshots remain where their consumers expect them.
+
+## Validation
+
+| Check | Before cleanup | Final local result |
 |---|---|---|
-| `44c84a5` | `file-intelligence-system/structural_evidence.py` implementation | `fis/structural_evidence.py`; original path becomes a forwarding entry point |
-| `242aaed` | `file-intelligence-system/fis_namer.py` implementation | `fis/fis_namer.py`; original path forwards |
-| `b310655` | `file-intelligence-system/fis_classifier.py` implementation | `fis/fis_classifier.py`; original path forwards |
-| `a53554d` | `file-intelligence-system/fis_folder_memory.py` implementation | `fis/fis_folder_memory.py`; original path forwards; old DB default retained |
-| `03ac3bc` | `apps/classify/src/engines/fis/` | `_archive/2026-11-15/apps/classify/src/engines/fis/`; app imports canonical package |
-| `3f3a900` | `file-intelligence-system/fis_folder_memory.v2.1.0.py` | `_archive/2026-11-15/file-intelligence-system/fis_folder_memory.v2.1.0.py` |
-| `c15792b` | `files.zip` | `_archive/2026-11-15/files.zip` |
-| `797eed8` | `scripts.zip` | `_archive/2026-11-15/scripts.zip` |
-| `61b6777` | `theophysics-read - Shortcut.lnk` | `_archive/2026-11-15/theophysics-read - Shortcut.lnk` |
-| `b2f9998` | `_BUILD_BRIEF_STAGE1_INVENTORY_REGISTRY.md` | `02_INVENTORY/docs/_BUILD_BRIEF_STAGE1_INVENTORY_REGISTRY.md` |
+| Root suite on untouched source | 268 passed, 17 failed | 326 passed, 3 skipped, no failures |
+| Existing identity/classifier contracts | 12 passed, 4 skipped | 14 passed, 4 skipped |
+| Prediction_GUI tests | 6 passed | 8 passed |
+| Existing nine-engine GUI smoke | passed | passed with canonical backend |
+| Real paired acceptance | — | passed |
+| Original vs extracted App 160 outputs | baseline | identical |
+| Root + standalone wheel builds | — | passed; isolated imports/resources checked |
+| Diff whitespace | — | passed |
 
-Every archive has a one-line adjacent `ARCHIVE_NOTE.txt` or
-`<filename>.ARCHIVE_NOTE.txt`. No retired source was deleted.
+The local skips are the three native Tk tests because the shared display is not
+usable. CI supplies Xvfb to run them. The separate contract skips are three Rust
+binary checks (unbuilt executable) and parity against an unavailable external
+legacy χ source. Missing dependencies are not reported as passes.
 
-`8bfc053` extracts χ signals/scoring, full/short names, coupling pairs, folder
-aggregation and lossless addressing into `shared/meq_namer.py`. The two
-classifier/namer copies were identical before extraction. The archived app
-copies include the extraction imports; the immutable base commit retains the
-pre-extraction source for comparison.
+Baseline fixes include Windows path parsing on Linux, a portable interpreter in
+command tests, an up-to-date package-discovery assertion, explicit synthetic
+closed-vocabulary fixtures instead of private C: files, and declared test/native
+search prerequisites. Production taxonomies were not fabricated or changed.
+The clean CI runner exposed additional native Qt/search/PDF prerequisites; the
+workflow now installs them explicitly.
 
-The standalone package now ships the shared module, and the root package ships
-FIS. Legacy optional integrations remain optional and scoped. Removed dynamic
-`__import__` calls and a hard-coded D: path injection. Legacy note-cleanup calls
-now preserve retired notes as timestamped `.fisnote.legacy.*.bak` siblings;
-the no-delete safety test remains enforced. No cleanup was run on live folders.
+The paired acceptance uses a real localhost GUI API and temporary databases:
+Stage 1 inventory → registry assignment → Tagger v3 → FIS prediction → explicit
+GUI receipt → restart → apply → replay rejection → byte-for-byte rollback.
+Additional tests cover stale/edited/held proposals, alias conflicts and atomic
+migration rollback, reused paths, registry conflicts before mutation, and a
+process interruption between the file move and identity update.
 
-## Where the audit differs from this checkout or the task
+App 160 comparison covers 40 full/short vector inputs, 80 scoring inputs,
+four addresses and a folder aggregate. Tests retain scoring boundaries,
+substring/repeated-keyword behavior, slot/pair order, UNSCORED and folder/date
+fallbacks. No new inference model or source-changing feature was introduced.
 
-- Audit was based on `4e36a9a`; pushed snapshot is `6b14728` and contains newer
-  FIS/engine work. Runtime counts from the author's Windows checkout are not
-  counts for this isolated source checkout.
-- Audit recommends Prediction_GUI own predictions and approvals. The explicit
-  task supersedes that recommendation: David-OS produces, GUI displays/records.
-- Audit describes hub source as available. Git records only an unpopulated
-  mode-160000 gitlink, with no `.gitmodules` URL. Its implementation cannot be
-  assessed from this checkout; no salvage was invented.
-- Existing identity standard/parser uses `SERIES.POSITION.SLUG`; layers also
-  derive UUID5, while Stage 1 has W/V records. These are not the requested
-  `SERIES.NN_Original-Title` plus UUIDv7. New issuer preserves rather than
-  reinterprets these records.
-- Previous commit already copied filetagger extensions into Tagger v3. Its
-  README explicitly says they are not wired into the core/GUI yet. Copying
-  source is not proof that legacy callers can be retired without regression.
-- The three-pane root mockups reference `./shared.css`, absent at repo root.
-  The CSV treats their move as local; their existing stylesheet dependency
-  needs resolution first, so they stay put.
-- Audit's duplicate SQLite and multi-GB receipt moves are data moves and
-  require WAL/consumer verification. This task forbids touching data folders;
-  those items stay put, including the live Simple FIS wrapper.
-- Root archives use `_archive/<date>/<original-path>` as explicitly requested,
-  rather than the CSV's older `archive/root-packages` proposal.
+Machine-readable results are in `CLEANUP_VALIDATION_2026-11-15.json`. The PR
+contains Linux full/paired checks plus the existing Windows FIS safety checks;
+Prediction_GUI has its own backend-pin/unit/smoke workflow. CI status is also
+visible on the linked PRs; no merge was performed.
 
-## Test results
+## Operational questions for David
 
-The default Python lacked pytest. The existing environment then stopped on
-missing rapidfuzz. Installed declared test/runtime dependencies into local
-scratch; used the existing GUI-capable environment with those dependencies.
-The actual full baseline ran on an untouched `git archive 6b14728` copy before
-comparing to the changed tree.
+1. **Which real documents receive which series/positions?** Recommendation:
+   review an explicit assignment map, including scoped aliases for repeated W/V
+   keys, and run the dry-run importer before any approved data migration.
+   Code migration is implemented; live corpus conversion is intentionally not run.
+2. **Which residents/shortcuts should be appointed after deployment?**
+   Recommendation: use the preserved launch paths, point every process at one
+   registry, install the paired backend pin, and review explicit watcher roots.
+   No startup setting or live resident was inspected or changed here. The retired daemon's separate telemetry files are not rewritten; use v3's status/output when deploying.
+3. **What is the intended stylesheet for the three-pane mockups?**
+   Recommendation: identify it before moving the views together.
+4. **When may old catalogs, duplicate SQLite snapshots and large receipts move?**
+   Recommendation: a separate data migration with writers stopped, snapshot/WAL
+   hashes, consumer mapping and reversible provenance. Keep them untouched now.
 
-| Check | Before | After |
-|---|---|---|
-| Root pytest suite, same interpreter/environment | 268 passed, 17 failed | 297 passed, 17 failed |
-| `apps/classify/tests shared/identity`, scratch venv | 12 passed, 4 skipped | 12 passed, 4 skipped |
-| Focused namer/registry/FIS/app suite | — | 56 passed, 4 skipped |
-| Original vs extracted namer outputs | baseline | identical |
-| Standalone wheel build and imports outside repo | — | passed |
-| `git diff --check` | — | passed |
-
-No new failures remain. The 17 pre-existing failures cover missing taxonomy
-files, Windows launcher/path assumptions, missing rga, missing display, SQLite
-FTS configuration, and an outdated exact package-list assertion. They are not
-reported as passes. Exact failed test names and comparison counts are in
-`CLEANUP_VALIDATION_2026-11-15.json`. Rust binary/old external χ parity tests
-skip because their prerequisites are unavailable.
-
-Full-suite command (from each tree):
-
-```sh
-QT_QPA_PLATFORM=offscreen \
-PYTHONPATH=/workspace/work/david-osv3-consolidation/work/venv/lib/python3.12/site-packages \
-/workspace/David-OSv3/.venv/bin/python -m pytest -q
-```
-
-Namer regression comparison includes 40 full/short vector inputs, 80 scoring
-inputs, four addresses and one folder aggregate. Tests lock substring matching,
-repeated-keyword counting, thresholds 0/1/2/3, slot/pair order, sparse vectors,
-UNSCORED display fallback, local-time date behavior and folder metadata fallback.
-Registry tests cover UUID version/variant, restart stability, concurrent issuance,
-immutable original title, bad assignments and preservation of legacy tables.
-
-The import safety test now recognizes relative package imports, the exact shared
-namer module and file-scoped optional legacy integrations. Its prohibitions on
-deletes, dynamic code/module loading and path injection remain intact.
-
-## Open questions and recommendations — stopped items
-
-1. **How should existing W/V, dotted document, UUID5 and path-hash identities map
-   to explicit series/position assignments?** Recommendation: keep the existing
-   Stage 1 SQLite as authority; build a reviewed alias/assignment migration and
-   switch producers atomically. The tested new issuer is ready as a boundary,
-   but adding it does not retire existing issuers. Do not auto-assign a generic
-   series or derive document identity from a hash. This item remains unfinished.
-2. **May the coordinated change include the external Prediction_GUI repository?**
-   Recommendation: a companion PR there should consume David-OS plans and the
-   installed shared namer, and submit explicit decisions bound to plan hash/row
-   IDs. Then retire its inference runner and redirect David-OS approval views
-   to that contract. The current rule forbids edits outside this repository;
-   removing working approval paths here alone would break them. No shared GUI
-   interface has been claimed as implemented.
-3. **Where is file-intelligence-hub's source at gitlink `14f6708`?** Recommendation:
-   supply its repository URL or source snapshot, inspect unique capabilities,
-   salvage into `fis/`, and archive the remainder in a dedicated commit. Keep
-   the gitlink until that review is possible.
-4. **Which legacy tagger capabilities/callers must remain supported?**
-   Recommendation: verify Tagger v3's salvaged extensions against the existing
-   filetagger GUI, `engine/filetagger_core.py`, and `tools/filetagger` before
-   redirecting launchers and archiving code. Their CLI/schema differences mean
-   a launcher replacement alone is not behavior-preserving. Keep current callers
-   in place; no new tagging feature was introduced to bridge an unverified gap.
-5. **Which stylesheet is the intended three-pane reference?** Recommendation:
-   identify it first, then move all three views together in a dedicated commit.
-   Keep Simple FIS at its current sibling-served path until GUI coordination.
-6. **When can duplicate databases/large receipts be retired?** Recommendation:
-   a separate approved data migration with readers mapped, writers stopped,
-   snapshot/WAL verification, and reversible alias/receipt handling. Leave the
-   keyword registry where it is until authority/consumers are resolved too.
-
-These stop items are why the PR is a draft. The requested single identity source,
-full tagger retirement, hub salvage and completed prediction split must not be
-represented as done by this initial consolidation.
+These are deployment/data or unresolved-reference decisions, not permission
+requests for the completed code consolidation. PRs remain unmerged for review.

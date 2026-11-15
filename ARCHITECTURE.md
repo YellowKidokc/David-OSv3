@@ -1,56 +1,68 @@
-# David-OSv3 ownership
+# David-OSv3: who owns what
 
-`fis/` owns file intelligence. Start with `python -m fis --help`; `fis/service.py`
-is the existing scan/proposal boundary, and `fis/transaction.py` is its guarded
-executor. `apps/classify` is a classification contract adapter, importing
-`fis.fis_classifier`; it no longer carries a second FIS engine. The legacy
-folder renderer and compressed-name proposer also live in `fis/`.
-`file-intelligence-system/*.py` and `legacy-adapters/fis_classifier.py` are
-compatibility entry points, not separate implementations. Existing database
-paths remain unchanged; no live data migration has been performed.
+- **FIS — `fis/`:** scan, classify, generate proposals, folder views, guarded
+  execution and rollback. `apps/classify` exports contracts from this owner.
+  `file-intelligence-system/` contains forwarding entry points.
+- **Identity — `shared/identity/registry.py`:** the only document/root UUID
+  issuer. Configure **one `DAVID_OS_REGISTRY`** for every application. The
+  development default is `_data/registry.sqlite`; installed deployments should
+  set an explicit owned state path. Other SQLite stores are inventories,
+  caches, projections or execution/review journals, not identity authorities.
+- **App 160 — `shared/meq_namer.py`:** pure χ scoring, full/short names, ten
+  slots/pairs, MEQ__/LOSS__ addressing and folder aggregation. FIS and the
+  installed Prediction_GUI backend import this same module.
+- **Tagger — `Theophysics_Tagger/tools/tagger3.py`:** the supported document
+  tagger/catalog and watcher. Unique extensions live under `ext_filetagger/`;
+  older catalog/GUI/extension launch paths forward here. `tagger2.py` remains
+  v3's implementation dependency. FIS facets and descriptive name tags are
+  evidence adapters, not another catalog authority.
+- **Prediction — `prediction/`:** David-OS owns event inference, engines,
+  scoring, rename-preference algorithms, series matching and advice. Older
+  harness/preference imports are adapters. Prediction_GUI owns presentation
+  and the durable record of explicit human choices.
+- **Control plane — `hub/`:** jobs, nodes, memory and related APIs. The old
+  file-intelligence-hub source already had counterparts here; its exact source
+  and gitlink are archived, with a comparison receipt.
 
-`shared/meq_namer.py` owns App 160: ten χ slots, coupling pairs, keyword scoring,
-full/short labels, lossless MEQ__/LOSS__ addresses and folder aggregation.
-It has no filesystem writes, approval decisions or ID issuance. FIS imports
-it directly. Prediction_GUI can import the same module from an installed
-David-OS/FIS distribution; its external checkout has not been changed here.
-These computed labels are descriptive metadata, not permanent document IDs.
+## Identity flow
 
-`Theophysics_Tagger/tools/tagger3.py` and `tagger3_gui.py` are the designated
-Tagger v3. `ext_filetagger/` already contains salvaged extensions, but their
-integration and remaining legacy launchers need verification before retirement.
-The smaller FIS facet matcher (`fis/tag.py`) describes scan evidence; it is not
-a replacement catalog or a new Tagger v3 service.
+An observation receives a registry-issued UUIDv7. It stays **unassigned** until
+an explicit series, two-digit position and original title are supplied. The
+issued public name is `SERIES.NN_Original-Title`; neither classifiers nor GUI
+clients invent one. An assigned ID overrides descriptive rename suggestions.
+Scores and relation counts remain computed metadata.
 
-## Identity migration boundary
+Inventory, FIS, filebrain, classification exports and Tagger v3 store registry
+references. Existing W/V keys, content hashes and historical sidecar IDs remain
+local record keys or legacy aliases; they are not replacement permanent IDs.
+Envelopes require a supplied root instead of minting one.
 
-`shared/identity/registry.py:IdentityRegistry` is the issuance boundary for new
-`SERIES.NN_Original-Title` IDs plus UUIDv7. It requires an explicit assignment,
-keeps titles immutable, and uses the existing Stage 1 `_data/registry.sqlite`
-by default (`DAVID_OS_REGISTRY` can select a configured registry). Other
-components should store that issued reference. Scores and relation counts are
-computed metadata and never part of the permanent ID.
+Active locations and location history are separate. A verified rename transfers
+the location while retaining its history; a new file at the old path gets a new
+reference. The executor journals the registry reference so restart/rollback can
+recover even between the file move and registry update.
 
-**Migration remains open:** Stage 1 W/V records, legacy document IDs, UUID5
-identity envelopes, filebrain/catalog and standalone path hashes still exist.
-The new issuer is tested but is not yet wired into those producers. No claim
-is made that there is already one identity source. Keep old records and map
-aliases explicitly before switching producers; do not infer a series/position
-from a hash or rewrite existing names during cleanup.
+`python -m shared.identity.migrate assignments.json --db PATH` validates an
+explicit map without writing. `--apply` applies assignments/aliases atomically
+and records provenance. Conflicting aliases fail instead of merging identities.
+**No live corpus assignments or database migration were run during cleanup.**
 
-## Prediction and approval boundary
+## Proposal → approval → execution
 
-The required ownership is David-OS produces suggestions; Prediction_GUI renders
-them and records explicit approvals. Existing `fis/service.make_plan` provides
-plan IDs, hashes, row IDs and advisory preference scores; an approval must bind
-to that exact proposal before the guarded executor can apply it.
+FIS produces an immutable plan. `shared/review.py` binds a decision to the exact
+plan hash, selected row IDs, actor and note. Prediction_GUI renders that plan in
+its existing inbox and records the choice before returning a receipt. Edited
+names need a new David-OS plan; held rows cannot be approved.
 
-**Split remains open:** current FIS approval/review endpoints and the external
-Prediction_GUI runner/ledger have not been removed. Its checkout is outside
-this repository, and removing either side before a coordinated adapter would
-break working approval paths. Do not treat a naming-confidence decision as a
-human approval or a next-event predictor as a rename-preference learner.
+The FIS browser/CLI send decisions to `PREDICTION_GUI_URL` (default localhost
+port 2831). David-OS validates the receipt, records its consumption, then calls
+its guarded executor. A receipt cannot be replayed. Prediction_GUI never moves
+source files and never turns confidence into automatic approval. The legacy
+namer batch now queues recommendations too. Executor tokens, root policies and
+HTML-only crawler permissions are execution controls, not competing predictors.
 
-See `_AUDIT/CLEANUP_REPORT_2026-11-15.md` for moves, validation, the submodule
-salvage blocker, and the remaining decisions. Retired source lives in
-`_archive/2026-11-15/<original-path>` with a reason; data folders stay in place.
+Install the paired Prediction_GUI dependency pin before using the new handoff.
+The supported roots/launch paths and pre-existing data locations are retained;
+no resident was started or installed. Retirement uses
+`_archive/2026-11-15/<original-path>` with a reason note. See the cleanup report
+and move CSV under `_AUDIT/` for evidence and remaining operational decisions.

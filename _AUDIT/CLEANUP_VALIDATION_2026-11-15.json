@@ -5,11 +5,18 @@
     "failed": 17
   },
   "after": {
+    "passed": 326,
+    "failed": 0,
+    "skipped": 3
+  },
+  "same_failure_set": false,
+  "namer_baseline_output_comparison": "identical: 40 full/short vectors, 80 keyword scoring inputs, 4 lossless addresses, 1 folder aggregate",
+  "wheel_isolation": "passed: standalone CLI, packaged legacy registry resources (36 fixture documents), nine packaged engines, and installed Tagger v3 scan outside source tree",
+  "initial_consolidation_after": {
     "passed": 297,
     "failed": 17
   },
-  "same_failure_set": true,
-  "failures": [
+  "baseline_failures_resolved": [
     "tests/test_adapt_glossary.py::test_older_file_path_variant_maps_to_source_file",
     "tests/test_codes_preview_usn.py::test_codes_lifecycle_and_separate_publication",
     "tests/test_codes_preview_usn.py::test_dry_run_names_density_and_misspellings",
@@ -28,6 +35,21 @@
     "tests/test_topic_collection_gui.py::TopicGUITests::test_deep_sources_become_flat_rows_with_hierarchy_retained",
     "tests/test_topic_collection_gui.py::TopicGUITests::test_selection_preview_and_layout_change_invalidates_copy"
   ],
-  "namer_baseline_output_comparison": "identical: 40 full/short vectors, 80 keyword scoring inputs, 4 lossless addresses, 1 folder aggregate",
-  "wheel_isolation": "canonical classifier, folder renderer and shared namer imported outside repo"
+  "contract_suite": {
+    "passed": 14,
+    "skipped": 4
+  },
+  "gui_unit_tests": {
+    "before": 6,
+    "after": 8
+  },
+  "gui_existing_smoke": "passed (nine canonical engines)",
+  "paired_acceptance": "passed: real localhost GUI API, Stage 1 + v3 + FIS shared reference, explicit receipt, restart/apply/replay rejection/byte rollback",
+  "identity_recovery": "passed: former-path reuse, conflict preflight, file-move-before-registry-commit recovery",
+  "live_data_migration": "not performed; assignment importer defaults to dry-run",
+  "ci_verified": {
+    "linux_full_and_paired_run": "https://github.com/YellowKidokc/David-OSv3/actions/runs/43732092323",
+    "windows_fis_run": "https://github.com/YellowKidokc/David-OSv3/actions/runs/43732596201",
+    "gui_backend_run": "https://github.com/YellowKidokc/Prediction_GUI/actions/runs/43731604636"
+  }
 }

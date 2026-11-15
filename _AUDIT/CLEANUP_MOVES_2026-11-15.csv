@@ -1,0 +1,106 @@
+repository,commit,original,destination,treatment
+David-OSv3,44c84a5,file-intelligence-system/structural_evidence.py,fis/structural_evidence.py,implementation/document move
+David-OSv3,242aaed,file-intelligence-system/fis_namer.py,fis/fis_namer.py,implementation/document move
+David-OSv3,b310655,file-intelligence-system/fis_classifier.py,fis/fis_classifier.py,implementation/document move
+David-OSv3,a53554d,file-intelligence-system/fis_folder_memory.py,fis/fis_folder_memory.py,implementation/document move
+David-OSv3,03ac3bc,apps/classify/src/engines/fis/fis_classifier.py,_archive/2026-11-15/apps/classify/src/engines/fis/fis_classifier.py,archive; forwarding adapter retained where needed
+David-OSv3,03ac3bc,apps/classify/src/engines/fis/fis_namer.py,_archive/2026-11-15/apps/classify/src/engines/fis/fis_namer.py,archive; forwarding adapter retained where needed
+David-OSv3,03ac3bc,apps/classify/src/engines/fis/structural_evidence.py,_archive/2026-11-15/apps/classify/src/engines/fis/structural_evidence.py,archive; forwarding adapter retained where needed
+David-OSv3,3f3a900,file-intelligence-system/fis_folder_memory.v2.1.0.py,_archive/2026-11-15/file-intelligence-system/fis_folder_memory.v2.1.0.py,archive; forwarding adapter retained where needed
+David-OSv3,c15792b,files.zip,_archive/2026-11-15/files.zip,archive; forwarding adapter retained where needed
+David-OSv3,797eed8,scripts.zip,_archive/2026-11-15/scripts.zip,archive; forwarding adapter retained where needed
+David-OSv3,61b6777,theophysics-read - Shortcut.lnk,_archive/2026-11-15/theophysics-read - Shortcut.lnk,archive; forwarding adapter retained where needed
+David-OSv3,b2f9998,_BUILD_BRIEF_STAGE1_INVENTORY_REGISTRY.md,02_INVENTORY/docs/_BUILD_BRIEF_STAGE1_INVENTORY_REGISTRY.md,implementation/document move
+David-OSv3,b59496d,03_CLASSIFY/02_CLASSIFICATION/harness/__init__.py,_archive/2026-11-15/03_CLASSIFY/02_CLASSIFICATION/harness/__init__.py,archive; forwarding adapter retained where needed
+David-OSv3,b59496d,03_CLASSIFY/02_CLASSIFICATION/harness/adapters/__init__.py,_archive/2026-11-15/03_CLASSIFY/02_CLASSIFICATION/harness/adapters/__init__.py,archive; forwarding adapter retained where needed
+David-OSv3,b59496d,03_CLASSIFY/02_CLASSIFICATION/harness/adapters/chrome_history.py,_archive/2026-11-15/03_CLASSIFY/02_CLASSIFICATION/harness/adapters/chrome_history.py,archive; forwarding adapter retained where needed
+David-OSv3,b59496d,03_CLASSIFY/02_CLASSIFICATION/harness/adapters/clipboard.py,_archive/2026-11-15/03_CLASSIFY/02_CLASSIFICATION/harness/adapters/clipboard.py,archive; forwarding adapter retained where needed
+David-OSv3,b59496d,03_CLASSIFY/02_CLASSIFICATION/harness/adapters/csv_events.py,_archive/2026-11-15/03_CLASSIFY/02_CLASSIFICATION/harness/adapters/csv_events.py,archive; forwarding adapter retained where needed
+David-OSv3,b59496d,03_CLASSIFY/02_CLASSIFICATION/harness/adapters/gate_events.py,_archive/2026-11-15/03_CLASSIFY/02_CLASSIFICATION/harness/adapters/gate_events.py,archive; forwarding adapter retained where needed
+David-OSv3,b59496d,03_CLASSIFY/02_CLASSIFICATION/harness/adapters/sidecars.py,_archive/2026-11-15/03_CLASSIFY/02_CLASSIFICATION/harness/adapters/sidecars.py,archive; forwarding adapter retained where needed
+David-OSv3,b59496d,03_CLASSIFY/02_CLASSIFICATION/harness/contract.py,_archive/2026-11-15/03_CLASSIFY/02_CLASSIFICATION/harness/contract.py,archive; forwarding adapter retained where needed
+David-OSv3,b59496d,03_CLASSIFY/02_CLASSIFICATION/harness/ledger.py,_archive/2026-11-15/03_CLASSIFY/02_CLASSIFICATION/harness/ledger.py,archive; forwarding adapter retained where needed
+David-OSv3,b59496d,03_CLASSIFY/02_CLASSIFICATION/harness/registry.py,_archive/2026-11-15/03_CLASSIFY/02_CLASSIFICATION/harness/registry.py,archive; forwarding adapter retained where needed
+David-OSv3,b59496d,03_CLASSIFY/02_CLASSIFICATION/harness/runner.py,_archive/2026-11-15/03_CLASSIFY/02_CLASSIFICATION/harness/runner.py,archive; forwarding adapter retained where needed
+David-OSv3,d17306c,03_CLASSIFY/02_CLASSIFICATION/engines/_TEMPLATE/engine.py,_archive/2026-11-15/03_CLASSIFY/02_CLASSIFICATION/engines/_TEMPLATE/engine.py,archive; forwarding adapter retained where needed
+David-OSv3,d17306c,03_CLASSIFY/02_CLASSIFICATION/engines/__init__.py,_archive/2026-11-15/03_CLASSIFY/02_CLASSIFICATION/engines/__init__.py,archive; forwarding adapter retained where needed
+David-OSv3,d17306c,03_CLASSIFY/02_CLASSIFICATION/engines/bandit_mabwiser/engine.json,_archive/2026-11-15/03_CLASSIFY/02_CLASSIFICATION/engines/bandit_mabwiser/engine.json,archive; forwarding adapter retained where needed
+David-OSv3,d17306c,03_CLASSIFY/02_CLASSIFICATION/engines/bandit_mabwiser/engine.py,_archive/2026-11-15/03_CLASSIFY/02_CLASSIFICATION/engines/bandit_mabwiser/engine.py,archive; forwarding adapter retained where needed
+David-OSv3,d17306c,03_CLASSIFY/02_CLASSIFICATION/engines/channel_streak/engine.json,_archive/2026-11-15/03_CLASSIFY/02_CLASSIFICATION/engines/channel_streak/engine.json,archive; forwarding adapter retained where needed
+David-OSv3,d17306c,03_CLASSIFY/02_CLASSIFICATION/engines/channel_streak/engine.py,_archive/2026-11-15/03_CLASSIFY/02_CLASSIFICATION/engines/channel_streak/engine.py,archive; forwarding adapter retained where needed
+David-OSv3,d17306c,03_CLASSIFY/02_CLASSIFICATION/engines/cpt_sequence/engine.json,_archive/2026-11-15/03_CLASSIFY/02_CLASSIFICATION/engines/cpt_sequence/engine.json,archive; forwarding adapter retained where needed
+David-OSv3,d17306c,03_CLASSIFY/02_CLASSIFICATION/engines/cpt_sequence/engine.py,_archive/2026-11-15/03_CLASSIFY/02_CLASSIFICATION/engines/cpt_sequence/engine.py,archive; forwarding adapter retained where needed
+David-OSv3,d17306c,03_CLASSIFY/02_CLASSIFICATION/engines/ensemble_weighted/engine.json,_archive/2026-11-15/03_CLASSIFY/02_CLASSIFICATION/engines/ensemble_weighted/engine.json,archive; forwarding adapter retained where needed
+David-OSv3,d17306c,03_CLASSIFY/02_CLASSIFICATION/engines/ensemble_weighted/engine.py,_archive/2026-11-15/03_CLASSIFY/02_CLASSIFICATION/engines/ensemble_weighted/engine.py,archive; forwarding adapter retained where needed
+David-OSv3,d17306c,03_CLASSIFY/02_CLASSIFICATION/engines/frequency_baseline/engine.json,_archive/2026-11-15/03_CLASSIFY/02_CLASSIFICATION/engines/frequency_baseline/engine.json,archive; forwarding adapter retained where needed
+David-OSv3,d17306c,03_CLASSIFY/02_CLASSIFICATION/engines/frequency_baseline/engine.py,_archive/2026-11-15/03_CLASSIFY/02_CLASSIFICATION/engines/frequency_baseline/engine.py,archive; forwarding adapter retained where needed
+David-OSv3,d17306c,03_CLASSIFY/02_CLASSIFICATION/engines/name_words/engine.json,_archive/2026-11-15/03_CLASSIFY/02_CLASSIFICATION/engines/name_words/engine.json,archive; forwarding adapter retained where needed
+David-OSv3,d17306c,03_CLASSIFY/02_CLASSIFICATION/engines/name_words/engine.py,_archive/2026-11-15/03_CLASSIFY/02_CLASSIFICATION/engines/name_words/engine.py,archive; forwarding adapter retained where needed
+David-OSv3,d17306c,03_CLASSIFY/02_CLASSIFICATION/engines/recency_baseline/engine.json,_archive/2026-11-15/03_CLASSIFY/02_CLASSIFICATION/engines/recency_baseline/engine.json,archive; forwarding adapter retained where needed
+David-OSv3,d17306c,03_CLASSIFY/02_CLASSIFICATION/engines/recency_baseline/engine.py,_archive/2026-11-15/03_CLASSIFY/02_CLASSIFICATION/engines/recency_baseline/engine.py,archive; forwarding adapter retained where needed
+David-OSv3,d17306c,03_CLASSIFY/02_CLASSIFICATION/engines/river_online/engine.json,_archive/2026-11-15/03_CLASSIFY/02_CLASSIFICATION/engines/river_online/engine.json,archive; forwarding adapter retained where needed
+David-OSv3,d17306c,03_CLASSIFY/02_CLASSIFICATION/engines/river_online/engine.py,_archive/2026-11-15/03_CLASSIFY/02_CLASSIFICATION/engines/river_online/engine.py,archive; forwarding adapter retained where needed
+David-OSv3,d17306c,03_CLASSIFY/02_CLASSIFICATION/engines/sklearn_context/engine.json,_archive/2026-11-15/03_CLASSIFY/02_CLASSIFICATION/engines/sklearn_context/engine.json,archive; forwarding adapter retained where needed
+David-OSv3,d17306c,03_CLASSIFY/02_CLASSIFICATION/engines/sklearn_context/engine.py,_archive/2026-11-15/03_CLASSIFY/02_CLASSIFICATION/engines/sklearn_context/engine.py,archive; forwarding adapter retained where needed
+David-OSv3,6a41b22,file-intelligence-hub,_archive/2026-11-15/file-intelligence-hub,archive; forwarding adapter retained where needed
+David-OSv3,f7c7d00,engine/filetagger_core.py,_archive/2026-11-15/engine/filetagger_core.py,archive; forwarding adapter retained where needed
+David-OSv3,d5bbaf1,gui/filetagger_gui.py,_archive/2026-11-15/gui/filetagger_gui.py,archive; forwarding adapter retained where needed
+David-OSv3,6d097af,tools/filetagger/chi_pipeline.py,_archive/2026-11-15/tools/filetagger/chi_pipeline.py,archive; forwarding adapter retained where needed
+David-OSv3,989c918,tools/filetagger/chi_profiles.py,_archive/2026-11-15/tools/filetagger/chi_profiles.py,archive; forwarding adapter retained where needed
+David-OSv3,072ec9f,tools/filetagger/claim_jurisdiction.py,_archive/2026-11-15/tools/filetagger/claim_jurisdiction.py,archive; forwarding adapter retained where needed
+David-OSv3,c089cbe,tools/filetagger/export_math_csv.py,_archive/2026-11-15/tools/filetagger/export_math_csv.py,archive; forwarding adapter retained where needed
+David-OSv3,498580a,tools/filetagger/extract_math.py,_archive/2026-11-15/tools/filetagger/extract_math.py,archive; forwarding adapter retained where needed
+David-OSv3,3579726,tools/filetagger/filetagger.py,_archive/2026-11-15/tools/filetagger/filetagger.py,archive; forwarding adapter retained where needed
+David-OSv3,5bd4f69,tools/filetagger/filetagger_chi.py,_archive/2026-11-15/tools/filetagger/filetagger_chi.py,archive; forwarding adapter retained where needed
+David-OSv3,efa3f5f,tools/filetagger/filetagger_chi_v2.py,_archive/2026-11-15/tools/filetagger/filetagger_chi_v2.py,archive; forwarding adapter retained where needed
+David-OSv3,4461ade,tools/filetagger/filetagger_gui.py,_archive/2026-11-15/tools/filetagger/filetagger_gui.py,archive; forwarding adapter retained where needed
+David-OSv3,0290686,tools/filetagger/gen_audit.py,_archive/2026-11-15/tools/filetagger/gen_audit.py,archive; forwarding adapter retained where needed
+David-OSv3,6ad38a5,tools/filetagger/read_math_templates.py,_archive/2026-11-15/tools/filetagger/read_math_templates.py,archive; forwarding adapter retained where needed
+David-OSv3,3d2109b,tools/filetagger/show_chi.py,_archive/2026-11-15/tools/filetagger/show_chi.py,archive; forwarding adapter retained where needed
+David-OSv3,e0fb286,tools/filetagger/show_site_claims.py,_archive/2026-11-15/tools/filetagger/show_site_claims.py,archive; forwarding adapter retained where needed
+David-OSv3,d7771db,tools/filetagger/wordnet_cluster.py,_archive/2026-11-15/tools/filetagger/wordnet_cluster.py,archive; forwarding adapter retained where needed
+David-OSv3,032156e,tools/filetagger/wordnet_deep.py,_archive/2026-11-15/tools/filetagger/wordnet_deep.py,archive; forwarding adapter retained where needed
+David-OSv3,76ef150,tools/filetagger/wordnet_expander.py,_archive/2026-11-15/tools/filetagger/wordnet_expander.py,archive; forwarding adapter retained where needed
+David-OSv3,842c42a,tools/filetagger/wrap_article.py,_archive/2026-11-15/tools/filetagger/wrap_article.py,archive; forwarding adapter retained where needed
+David-OSv3,7fb4177,fis/preference/base.py,prediction/naming/base.py,canonical algorithm move; import adapter retained
+David-OSv3,5c68e37,fis/preference/features.py,prediction/naming/features.py,canonical algorithm move; import adapter retained
+David-OSv3,606af07,fis/preference/frequency.py,prediction/naming/frequency.py,canonical algorithm move; import adapter retained
+David-OSv3,72f1b4e,fis/preference/markov_engine.py,prediction/naming/markov_engine.py,canonical algorithm move; import adapter retained
+David-OSv3,c1a2c0e,engine/preference/base.py,_archive/2026-11-15/engine/preference/base.py,archive; forwarding adapter retained where needed
+David-OSv3,72c706a,engine/preference/frequency.py,_archive/2026-11-15/engine/preference/frequency.py,archive; forwarding adapter retained where needed
+David-OSv3,eda3d3e,engine/preference/markov_engine.py,_archive/2026-11-15/engine/preference/markov_engine.py,archive; forwarding adapter retained where needed
+David-OSv3,974877d,tools/filetagger/foldertagger.py,Theophysics_Tagger/tools/ext_filetagger/legacy_folder_markers.py,implementation/document move
+David-OSv3,8f57fbe,tools/filetagger/filetagger_daemon.py,_archive/2026-11-15/tools/filetagger/filetagger_daemon.py,archive; forwarding adapter retained where needed
+David-OSv3,c9cec4c,tests/conftest.py,conftest.py,implementation/document move
+Prediction_GUI,4374d7f,harness/__init__.py,_archive/2026-11-15/harness/__init__.py,archive; forwarding adapter retained where needed
+Prediction_GUI,4374d7f,harness/adapters/__init__.py,_archive/2026-11-15/harness/adapters/__init__.py,archive; forwarding adapter retained where needed
+Prediction_GUI,4374d7f,harness/adapters/chrome_history.py,_archive/2026-11-15/harness/adapters/chrome_history.py,archive; forwarding adapter retained where needed
+Prediction_GUI,4374d7f,harness/adapters/clipboard.py,_archive/2026-11-15/harness/adapters/clipboard.py,archive; forwarding adapter retained where needed
+Prediction_GUI,4374d7f,harness/adapters/csv_events.py,_archive/2026-11-15/harness/adapters/csv_events.py,archive; forwarding adapter retained where needed
+Prediction_GUI,4374d7f,harness/adapters/sidecars.py,_archive/2026-11-15/harness/adapters/sidecars.py,archive; forwarding adapter retained where needed
+Prediction_GUI,4374d7f,harness/contract.py,_archive/2026-11-15/harness/contract.py,archive; forwarding adapter retained where needed
+Prediction_GUI,4374d7f,harness/ledger.py,_archive/2026-11-15/harness/ledger.py,archive; forwarding adapter retained where needed
+Prediction_GUI,4374d7f,harness/registry.py,_archive/2026-11-15/harness/registry.py,archive; forwarding adapter retained where needed
+Prediction_GUI,4374d7f,harness/runner.py,_archive/2026-11-15/harness/runner.py,archive; forwarding adapter retained where needed
+Prediction_GUI,a34dc74,engines/_TEMPLATE/engine.py,_archive/2026-11-15/engines/_TEMPLATE/engine.py,archive; forwarding adapter retained where needed
+Prediction_GUI,a34dc74,engines/__init__.py,_archive/2026-11-15/engines/__init__.py,archive; forwarding adapter retained where needed
+Prediction_GUI,a34dc74,engines/bandit_mabwiser/engine.json,_archive/2026-11-15/engines/bandit_mabwiser/engine.json,archive; forwarding adapter retained where needed
+Prediction_GUI,a34dc74,engines/bandit_mabwiser/engine.py,_archive/2026-11-15/engines/bandit_mabwiser/engine.py,archive; forwarding adapter retained where needed
+Prediction_GUI,a34dc74,engines/channel_streak/engine.json,_archive/2026-11-15/engines/channel_streak/engine.json,archive; forwarding adapter retained where needed
+Prediction_GUI,a34dc74,engines/channel_streak/engine.py,_archive/2026-11-15/engines/channel_streak/engine.py,archive; forwarding adapter retained where needed
+Prediction_GUI,a34dc74,engines/cpt_sequence/engine.json,_archive/2026-11-15/engines/cpt_sequence/engine.json,archive; forwarding adapter retained where needed
+Prediction_GUI,a34dc74,engines/cpt_sequence/engine.py,_archive/2026-11-15/engines/cpt_sequence/engine.py,archive; forwarding adapter retained where needed
+Prediction_GUI,a34dc74,engines/ensemble_weighted/engine.json,_archive/2026-11-15/engines/ensemble_weighted/engine.json,archive; forwarding adapter retained where needed
+Prediction_GUI,a34dc74,engines/ensemble_weighted/engine.py,_archive/2026-11-15/engines/ensemble_weighted/engine.py,archive; forwarding adapter retained where needed
+Prediction_GUI,a34dc74,engines/frequency_baseline/engine.json,_archive/2026-11-15/engines/frequency_baseline/engine.json,archive; forwarding adapter retained where needed
+Prediction_GUI,a34dc74,engines/frequency_baseline/engine.py,_archive/2026-11-15/engines/frequency_baseline/engine.py,archive; forwarding adapter retained where needed
+Prediction_GUI,a34dc74,engines/name_words/engine.json,_archive/2026-11-15/engines/name_words/engine.json,archive; forwarding adapter retained where needed
+Prediction_GUI,a34dc74,engines/name_words/engine.py,_archive/2026-11-15/engines/name_words/engine.py,archive; forwarding adapter retained where needed
+Prediction_GUI,a34dc74,engines/recency_baseline/engine.json,_archive/2026-11-15/engines/recency_baseline/engine.json,archive; forwarding adapter retained where needed
+Prediction_GUI,a34dc74,engines/recency_baseline/engine.py,_archive/2026-11-15/engines/recency_baseline/engine.py,archive; forwarding adapter retained where needed
+Prediction_GUI,a34dc74,engines/river_online/engine.json,_archive/2026-11-15/engines/river_online/engine.json,archive; forwarding adapter retained where needed
+Prediction_GUI,a34dc74,engines/river_online/engine.py,_archive/2026-11-15/engines/river_online/engine.py,archive; forwarding adapter retained where needed
+Prediction_GUI,a34dc74,engines/sklearn_context/engine.json,_archive/2026-11-15/engines/sklearn_context/engine.json,archive; forwarding adapter retained where needed
+Prediction_GUI,a34dc74,engines/sklearn_context/engine.py,_archive/2026-11-15/engines/sklearn_context/engine.py,archive; forwarding adapter retained where needed
+Prediction_GUI,03275fb,notifications/forge.py,_archive/2026-11-15/notifications/forge.py,archive; forwarding adapter retained where needed
+Prediction_GUI,c95df34,notifications/adapters/series_registry.py,_archive/2026-11-15/notifications/adapters/series_registry.py,archive; forwarding adapter retained where needed

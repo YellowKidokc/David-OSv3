@@ -29,3 +29,17 @@ def test_legacy_marker_renderer_uses_registry_uuid_and_blocks_remint(tmp_path):
     assert token in render(tmp_path,tmp_path)
     with pytest.raises(ValueError, match='immutable'):
         render(tmp_path,tmp_path,force_new_id=True)
+
+
+def test_legacy_watch_preserves_explicit_roots_and_exclusions(tmp_path, monkeypatch):
+    import json,sys
+    from types import SimpleNamespace
+    from engine.tagger_v3 import watch_legacy_config
+    fake=SimpleNamespace(SKIP_DIRS=set(),SKIP_NAMES=set(),main=lambda args:args)
+    monkeypatch.setitem(sys.modules,'tagger3',fake)
+    settings=tmp_path/'watch.json'
+    settings.write_text(json.dumps({'watch_folders':[str(tmp_path/'a'),str(tmp_path/'b')],
+        'db_path':str(tmp_path/'catalog.sqlite'),'skip_dirs':['private'],'skip_names':['secret.txt']}))
+    args=watch_legacy_config(settings)
+    assert args[0]=='watch' and args.count('--source')==2
+    assert 'private' in fake.SKIP_DIRS and 'secret.txt' in fake.SKIP_NAMES

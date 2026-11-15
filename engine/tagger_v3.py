@@ -66,6 +66,14 @@ def watch_legacy_config(config_path):
     args = legacy_arguments([roots[0], '--db', data['db_path'], '--quickhash'])
     args[0] = 'watch'
     for root in roots[1:]: args.extend(['--source', root])
+    filters = {}
+    for key, default in [('skip_dirs', ['salvaged', 'sample']), ('skip_names', [])]:
+        value = data.get(key, default)
+        if not isinstance(value, list) or not all(isinstance(name, str) and name for name in value):
+            raise ValueError(f'legacy {key} must be a list of names')
+        filters[key] = value
     sys.path.insert(0, str(TOOLS))
-    from tagger3 import main as canonical_main
-    return canonical_main(args)
+    import tagger3
+    tagger3.SKIP_DIRS.update(filters['skip_dirs'])
+    tagger3.SKIP_NAMES.update(filters['skip_names'])
+    return tagger3.main(args)

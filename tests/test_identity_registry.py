@@ -80,3 +80,22 @@ def test_explicit_migration_is_dry_by_default_and_atomic(tmp_path):
     with pytest.raises(ValueError): migrate(mapping, path, True)
     with sqlite3.connect(path) as con:
         assert con.execute('SELECT count(*) FROM document_identities').fetchone()[0] == 1
+
+
+def test_alias_lookup_and_failed_batch_roll_back_all_assignments(tmp_path):
+    from shared.identity.migrate import migrate
+    path=tmp_path/'registry.sqlite'
+    r=IdentityRegistry(path)
+    issued=r.assign(tmp_path/'a.md','MIM',0,'Original')
+    r.alias(issued['uuid7'],'work','W000001')
+    assert r.lookup('W000001',scheme='work') == issued
+    # Second entry conflicts with an alias already stored in the database,
+    # after the first new assignment has been attempted inside the transaction.
+    entries=[{'path':str(tmp_path/name), 'series':'MIM','position':pos,'original_title':name,
+              'aliases':([{'scheme':'work','value':'W000001'}] if pos==2 else [])}
+             for name,pos in [('b.md',1),('c.md',2)]]
+    with pytest.raises(ValueError): migrate({'reviewed_by':'David','entries':entries},path,True)
+    with sqlite3.connect(path) as con:
+        assert con.execute('SELECT count(*) FROM document_identities').fetchone()[0] == 1
+        assert con.execute('SELECT count(*) FROM identity_locations').fetchone()[0] == 1
+        assert con.execute('SELECT count(*) FROM identity_migrations').fetchone()[0] == 0

@@ -32,6 +32,10 @@ def migrate(mapping, db, apply=False):
     try:
         with con:
             con.execute('BEGIN IMMEDIATE')
+            con.execute('CREATE TABLE IF NOT EXISTS identity_migrations(mapping_hash TEXT PRIMARY KEY, reviewed_by TEXT NOT NULL, mapping_json TEXT NOT NULL)')
+            from shared.review import digest
+            con.execute('INSERT OR IGNORE INTO identity_migrations VALUES(?,?,?)',
+                        (digest(mapping), mapping['reviewed_by'], json.dumps(mapping, sort_keys=True)))
             result = []
             for entry in plan:
                 ref = registry.assign(entry['path'], entry['series'], entry['position'], entry['original_title'], con=con)

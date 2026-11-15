@@ -298,7 +298,8 @@ def scan(roots, db_path=REPO/'_data/registry.sqlite', output=None, *, exclude_ro
             (output.is_relative_to(root) and not any(output.is_relative_to(p) for p in excluded))):
             raise ValueError('Registry and exports must be outside source roots')
     stats = {'added': 0, 'changed': 0, 'unchanged': 0, 'hashed': 0, 'extracted': 0, 'missing': 0, 'errors': 0}
-    issuer = IdentityRegistry(db_path)
+    issuer = IdentityRegistry()
+    shared_connection = issuer.path.resolve() == db_path
     run = uuid.uuid4().hex
     with connect(db_path) as con:
         if 'registry_uuid' not in {r[1] for r in con.execute('PRAGMA table_info(files)')}:
@@ -325,7 +326,7 @@ def scan(roots, db_path=REPO/'_data/registry.sqlite', output=None, *, exclude_ro
                         raise ValueError(f'Scan limit {max_files} reached; transaction rolled back. Narrow this hub or raise its configured limit.')
                     seen.add(identity)
                     old = con.execute('SELECT * FROM files WHERE path=?', (identity,)).fetchone()
-                    reference = issuer.reference(identity, con=con)
+                    reference = issuer.reference(identity, con=con) if shared_connection else issuer.reference(identity)
                     if old and old['registry_uuid'] != reference['uuid7']:
                         con.execute('UPDATE files SET registry_uuid=? WHERE path=?', (reference['uuid7'], identity))
                     try:

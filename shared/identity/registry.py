@@ -158,12 +158,28 @@ class IdentityRegistry:
         finally:
             con.close()
 
-    def lookup(self, reference: str) -> dict | None:
+    def lookup(self, reference: str, scheme: str | None = None) -> dict | None:
         con = self._connect()
         try:
             row = con.execute('SELECT * FROM document_identities WHERE registry_id=? OR uuid7=?',
                               (reference, reference)).fetchone()
-            return dict(row) if row else None
+            if row:
+                return dict(row)
+            if con.execute('SELECT 1 FROM registry_objects WHERE uuid7=?', (reference,)).fetchone():
+                return {'uuid7': reference, 'registry_id': None}
+            sql = 'SELECT DISTINCT uuid7 FROM identity_aliases WHERE alias=?'
+            args = (reference,)
+            if scheme is not None:
+                sql += ' AND scheme=?'
+                args = (reference, scheme)
+            aliases = con.execute(sql, args).fetchall()
+            if len(aliases) > 1:
+                raise ValueError('ambiguous legacy alias; specify its scheme')
+            if not aliases:
+                return None
+            token = aliases[0][0]
+            row = con.execute('SELECT * FROM document_identities WHERE uuid7=?', (token,)).fetchone()
+            return dict(row) if row else {'uuid7': token, 'registry_id': None}
         finally:
             con.close()
 
@@ -179,6 +195,7 @@ def location_key(path):
 
 def initialize(con):
     # Individual statements preserve the caller's surrounding transaction.
+    con.execute("CREATE TABLE IF NOT EXISTS identity_migrations(mapping_hash TEXT PRIMARY KEY, reviewed_by TEXT NOT NULL, mapping_json TEXT NOT NULL)")
     con.execute("CREATE TABLE IF NOT EXISTS registry_objects(uuid7 TEXT PRIMARY KEY)")
     con.execute("CREATE TABLE IF NOT EXISTS identity_locations(path TEXT PRIMARY KEY, uuid7 TEXT NOT NULL REFERENCES registry_objects(uuid7))")
     con.execute("CREATE TABLE IF NOT EXISTS identity_aliases(scheme TEXT, alias TEXT, uuid7 TEXT NOT NULL REFERENCES registry_objects(uuid7), PRIMARY KEY(scheme,alias))")

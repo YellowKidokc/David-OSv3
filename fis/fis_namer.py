@@ -417,9 +417,9 @@ def propose_name(rec: dict, db_path: str = "") -> dict:
 
 def run_auto_approve(db_path: str, dry_run: bool = False) -> dict:
     """
-    Scan fis_catalog.db, generate names for all classified files,
-    auto-approve high-confidence ones, queue the rest.
-    Every auto-approve feeds the preference engine so it learns immediately.
+    Scan fis_catalog.db and generate advisory names for classified files.
+    All recommendations are queued for explicit GUI review.
+    The historical entry-point name is retained for callers; it never approves.
     Returns summary counts.
     """
     import sqlite3
@@ -459,23 +459,14 @@ def run_auto_approve(db_path: str, dry_run: bool = False) -> dict:
             name = rec["name"] + (rec["ext"] or "")
             prop = result.get("proposed_name", "—")
             print(f"  [{tag:4s}] {name:<40s} -> {prop}")
-            counts[{"auto_approve":"auto_approved"}.get(decision, decision)] += 1
+            counts["queued" if decision in {"auto_approve", "queue"} else "skipped"] += 1
             continue
 
-        if decision == "auto_approve":
-            c.execute(
-                "UPDATE files SET proposed_name=?, approved=1, approval_note=? WHERE rowid=?",
-                (result["proposed_name"], result["reason"], rec["rowid"])
-            )
-            # teach the preference engine this was auto-approved
-            if engine:
-                engine.learn(result, approved=True, note="auto_approve")
-            counts["auto_approved"] += 1
-
-        elif decision == "queue":
+        # A model recommendation is advisory. Only GUI receipts can approve.
+        if decision in {"auto_approve", "queue"}:
             c.execute(
                 "UPDATE files SET proposed_name=?, approved=NULL, approval_note=? WHERE rowid=?",
-                (result["proposed_name"], result["reason"], rec["rowid"])
+                (result["proposed_name"], "GUI review required: " + result["reason"], rec["rowid"])
             )
             counts["queued"] += 1
 
@@ -492,36 +483,32 @@ def run_auto_approve(db_path: str, dry_run: bool = False) -> dict:
 
 
 def record_user_decision(db_path: str, file_rowid: int, approved: bool, note: str = ""):
-    """
-    Called when user manually approves or rejects a queued naming proposal.
-    Updates the DB and immediately teaches the preference engine.
-    """
+    """Legacy database projection of an explicit decision recorded by the GUI."""
     import sqlite3
-    engine = _get_pref_engine() if PREF_ENGINE_OK else None
+    from fis.approval import record_decision
+    from fis.index import digest
+    from fis.fingerprint import sha256_file
+    from fis.transaction import plan_hash
+    from shared.identity.registry import IdentityRegistry
+    with sqlite3.connect(db_path) as con:
+        con.row_factory = sqlite3.Row
+        row = con.execute('SELECT path,proposed_name FROM files WHERE rowid=?', (file_rowid,)).fetchone()
+        if row is None or not row['proposed_name']:
+            raise ValueError('legacy proposal is missing; regenerate before review')
+        path = Path(row['path']).resolve()
+        name = row['proposed_name']
+        if Path(name).name != name or '/' in name or "\\" in name:
+            raise ValueError('proposal must stay in its source folder')
+        ref = IdentityRegistry().reference(path)
+        plan = {'id': digest([str(Path(db_path).resolve()), file_rowid, name]),
+                'root': str(path.parent), 'rows': [{'id': str(file_rowid), 'kind':'rename',
+                'path':str(path), 'target':str(path.with_name(name)), 'folder':str(path.parent),
+                'sha256':sha256_file(path), 'flag':'', 'file':{'registry_uuid':ref['uuid7'], 'registry_id':ref['registry_id']}}]}
+        plan['hash'] = plan_hash(plan)
+        receipt = record_decision(plan, [str(file_rowid)], 'approved' if approved else 'rejected', note=note)
+        con.execute('UPDATE files SET approved=?,approval_note=? WHERE rowid=?',
+                    (int(approved), 'GUI receipt ' + receipt['id'] + ': ' + note, file_rowid))
 
-    con = sqlite3.connect(db_path)
-    c   = con.cursor()
-    row = c.execute(
-        "SELECT proposed_name, chi_domain, content_type, chi_confidence FROM files WHERE rowid=?",
-        (file_rowid,)
-    ).fetchone()
-    if row:
-        proposal = {
-            "proposed_name": row[0],
-            "domain_code":   row[0].split("__")[0] if row[0] else "GN",
-            "ct_code":       row[0].split("__")[1] if row[0] and "__" in row[0] else "DOC",
-            "tags":          row[0].split("__")[2].split("-") if row[0] and row[0].count("__") >= 2 else [],
-            "status_code":   row[0].split("__")[4].split(".")[0] if row[0] and row[0].count("__") >= 4 else "AC",
-        }
-        c.execute(
-            "UPDATE files SET approved=?, approval_note=? WHERE rowid=?",
-            (1 if approved else 0, note, file_rowid)
-        )
-        con.commit()
-        if engine:
-            engine.learn(proposal, approved=approved, note=note)
-            engine.save()
-    con.close()
 
 
 # ---------------------------------------------------------------------------

@@ -24,6 +24,13 @@ def test_inventory_identity_tagger_prediction_gui_apply_rollback(tmp_path, monke
     document.write_bytes(original)
     registry = IdentityRegistry(os.environ['DAVID_OS_REGISTRY'])
     issued = registry.assign(document, 'MIM', 0, 'Mephistopheles')
+    # Stage 1 may keep a scoped inventory cache, but issuance still uses the same registry.
+    from engine.registry import scan as inventory_scan
+    inventory_db = tmp_path/'inventory'/'registry.sqlite'
+    inventory_scan([source], inventory_db)
+    import sqlite3
+    with sqlite3.connect(inventory_db) as con:
+        assert con.execute('SELECT registry_uuid FROM files WHERE path=?', (str(document),)).fetchone()[0] == issued['uuid7']
     tagged_db = tmp_path/'tagger.sqlite'
     subprocess.run([sys.executable, str(repo/'Theophysics_Tagger/tools/tagger3.py'), 'scan',
         '--source',str(source),'--db',str(tagged_db),'--output',str(tmp_path/'exports'),

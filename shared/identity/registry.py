@@ -94,13 +94,13 @@ class IdentityRegistry:
                 connection.close()
         initialize(con)
         key = location_key(path)
-        row = con.execute('SELECT uuid7 FROM identity_locations WHERE path=?', (key,)).fetchone()
-        if row:
+        row = con.execute('SELECT uuid7,active FROM identity_locations WHERE path=?', (key,)).fetchone()
+        if row and row['active']:
             token = row[0]
         else:
             token = _uuid7()
             con.execute('INSERT INTO registry_objects(uuid7) VALUES(?)', (token,))
-            con.execute('INSERT INTO identity_locations VALUES(?,?)', (key, token))
+            con.execute('INSERT INTO identity_locations(path,uuid7,active) VALUES(?,?,1) ON CONFLICT(path) DO UPDATE SET uuid7=excluded.uuid7,active=1', (key, token))
         issued = con.execute('SELECT registry_id FROM document_identities WHERE uuid7=?', (token,)).fetchone()
         return {'uuid7': token, 'registry_id': issued[0] if issued else None}
 
@@ -143,18 +143,47 @@ class IdentityRegistry:
             raise ValueError('legacy alias already belongs to another object')
         con.execute('INSERT OR IGNORE INTO identity_aliases VALUES(?,?,?)', (scheme, alias, token))
 
-    def relocate(self, old_path, new_path):
-        """Add a location alias after a verified move; retain old path for rollback."""
+    def validate_relocation(self, old_path, new_path, token, *, recovery=False):
+        con = self._connect()
+        try:
+            old = con.execute('SELECT uuid7,active FROM identity_locations WHERE path=?', (location_key(old_path),)).fetchone()
+            new = con.execute('SELECT uuid7,active FROM identity_locations WHERE path=?', (location_key(new_path),)).fetchone()
+            if recovery:
+                if old and old['active'] and old['uuid7'] != token:
+                    raise ValueError('source registry identity changed after proposal')
+                if not ((old and old['active'] and old['uuid7'] == token) or (new and new['active'] and new['uuid7'] == token)):
+                    raise ValueError('journal identity is not at either recovery location')
+            elif not old or not old['active'] or old['uuid7'] != token:
+                raise ValueError('source registry identity changed after proposal')
+            if new and new['active'] and new['uuid7'] != token:
+                raise ValueError('target belongs to another registry identity')
+        finally:
+            con.close()
+
+    def relocate(self, old_path, new_path, *, token=None):
+        """Transfer an active location after a verified move; retain its history."""
+        old_key, new_key = location_key(old_path), location_key(new_path)
         con = self._connect()
         try:
             with con:
                 con.execute('BEGIN IMMEDIATE')
-                ref = self.reference(old_path, con=con)
-                found = con.execute('SELECT uuid7 FROM identity_locations WHERE path=?', (location_key(new_path),)).fetchone()
-                if found and found[0] != ref['uuid7']:
+                old = con.execute('SELECT uuid7,active FROM identity_locations WHERE path=?', (old_key,)).fetchone()
+                new = con.execute('SELECT uuid7,active FROM identity_locations WHERE path=?', (new_key,)).fetchone()
+                token = token or (old['uuid7'] if old and old['active'] else None)
+                if not token or not con.execute('SELECT 1 FROM registry_objects WHERE uuid7=?', (token,)).fetchone():
+                    raise ValueError('move requires an existing registry reference')
+                if old and old['active'] and old['uuid7'] != token:
+                    raise ValueError('source location belongs to another registry identity')
+                if new and new['active'] and new['uuid7'] != token:
                     raise ValueError('target belongs to another registry identity')
-                con.execute('INSERT OR IGNORE INTO identity_locations VALUES(?,?)', (location_key(new_path), ref['uuid7']))
-                return ref
+                # A journal token permits recovery when the file move committed
+                # before its location update. It never mints another document.
+                if old_key != new_key:
+                    con.execute('INSERT OR IGNORE INTO identity_location_history VALUES(?,?)', (old_key, token))
+                    con.execute('UPDATE identity_locations SET active=0 WHERE path=? AND uuid7=?', (old_key, token))
+                con.execute('INSERT INTO identity_locations(path,uuid7,active) VALUES(?,?,1) ON CONFLICT(path) DO UPDATE SET uuid7=excluded.uuid7,active=1', (new_key, token))
+                row = con.execute('SELECT registry_id FROM document_identities WHERE uuid7=?', (token,)).fetchone()
+                return {'uuid7': token, 'registry_id': row[0] if row else None}
         finally:
             con.close()
 
@@ -197,6 +226,9 @@ def initialize(con):
     # Individual statements preserve the caller's surrounding transaction.
     con.execute("CREATE TABLE IF NOT EXISTS identity_migrations(mapping_hash TEXT PRIMARY KEY, reviewed_by TEXT NOT NULL, mapping_json TEXT NOT NULL)")
     con.execute("CREATE TABLE IF NOT EXISTS registry_objects(uuid7 TEXT PRIMARY KEY)")
-    con.execute("CREATE TABLE IF NOT EXISTS identity_locations(path TEXT PRIMARY KEY, uuid7 TEXT NOT NULL REFERENCES registry_objects(uuid7))")
+    con.execute("CREATE TABLE IF NOT EXISTS identity_locations(path TEXT PRIMARY KEY, uuid7 TEXT NOT NULL REFERENCES registry_objects(uuid7), active INTEGER NOT NULL DEFAULT 1)")
+    if 'active' not in {row[1] for row in con.execute('PRAGMA table_info(identity_locations)')}:
+        con.execute('ALTER TABLE identity_locations ADD COLUMN active INTEGER NOT NULL DEFAULT 1')
+    con.execute('CREATE TABLE IF NOT EXISTS identity_location_history(path TEXT, uuid7 TEXT, PRIMARY KEY(path,uuid7))')
     con.execute("CREATE TABLE IF NOT EXISTS identity_aliases(scheme TEXT, alias TEXT, uuid7 TEXT NOT NULL REFERENCES registry_objects(uuid7), PRIMARY KEY(scheme,alias))")
     con.execute("INSERT OR IGNORE INTO registry_objects SELECT uuid7 FROM document_identities")

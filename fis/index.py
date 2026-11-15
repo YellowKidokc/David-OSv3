@@ -63,6 +63,12 @@ class Store:
     def record(self, row):
         ref = self.registry.reference(row['path'])
         row.update(registry_uuid=ref['uuid7'], registry_id=ref['registry_id'])
+        if ref['registry_id'] and 'rename' in row:
+            # Permanent identity is authoritative; computed metadata cannot rename it.
+            row['rename'] = {**row['rename'], 'name': ref['registry_id'] + Path(row['path']).suffix,
+                'grammar_id': 'registry-id-v1', 'confidence': 1.0,
+                'why': [{'rule':'registry-assignment', 'evidence':ref['registry_id']}]}
+
         with self.connect() as con:
             con.execute("INSERT OR IGNORE INTO contents VALUES(?,?)", (row['sha256'], row['size']))
             con.execute("INSERT OR REPLACE INTO instances VALUES(?,?,?)", (row['path'], row['sha256'], canonical(row)))

@@ -55,9 +55,10 @@ def test_observation_assignment_and_move_preserve_one_uuid(tmp_path):
     assert issued['uuid7'] == ref['uuid7']
     destination = tmp_path / 'MIM.00_Mephistopheles.md'
     r.relocate(source, destination)
-    assert r.reference(destination) == r.reference(source)
+    assert r.reference(destination)['uuid7'] == issued['uuid7']
+    assert r.reference(source)['uuid7'] != issued['uuid7']  # a reused old path is a different observation
     with pytest.raises(ValueError):
-        r.assign(source, 'MIM', 1, 'Other-Title')
+        r.assign(destination, 'MIM', 1, 'Other-Title')
 
 
 def test_registry_does_not_merge_distinct_paths_by_content(tmp_path):
@@ -99,3 +100,14 @@ def test_alias_lookup_and_failed_batch_roll_back_all_assignments(tmp_path):
         assert con.execute('SELECT count(*) FROM document_identities').fetchone()[0] == 1
         assert con.execute('SELECT count(*) FROM identity_locations').fetchone()[0] == 1
         assert con.execute('SELECT count(*) FROM identity_migrations').fetchone()[0] == 0
+
+
+def test_location_history_does_not_claim_a_reused_original_path(tmp_path):
+    r=IdentityRegistry(tmp_path/'registry.sqlite')
+    original=r.reference(tmp_path/'old.md')
+    r.relocate(tmp_path/'old.md',tmp_path/'new.md')
+    replacement=r.reference(tmp_path/'old.md')
+    assert replacement['uuid7'] != original['uuid7']
+    assert r.reference(tmp_path/'new.md')['uuid7'] == original['uuid7']
+    with pytest.raises(ValueError):
+        r.relocate(tmp_path/'new.md',tmp_path/'old.md',token=original['uuid7'])

@@ -42,6 +42,7 @@ def test_inventory_identity_tagger_prediction_gui_apply_rollback(tmp_path, monke
     store = Store(tmp_path/'fis-state'); service.configure_root(store, source)
     plan = service.make_plan(store, source, html=False)
     assert plan['rows'] and plan['rows'][0]['file']['registry_uuid'] == issued['uuid7']
+    assert Path(plan['rows'][0]['target']).name == 'MIM.00_Mephistopheles.md'
     assert plan['rows'][0]['preference']['auto_approval'] is False
     env = os.environ.copy()
     env['PYTHONPATH'] = os.pathsep.join([str(repo),str(gui)])
@@ -67,6 +68,7 @@ def test_inventory_identity_tagger_prediction_gui_apply_rollback(tmp_path, monke
         with pytest.raises(PermissionError): approval.authorize(restarted, receipt)
         assert transaction.undo(Store(tmp_path/'fis-state'), run['id'])['conflicts'] == []
         assert document.read_bytes() == original and not target.exists()
+        assert registry.reference(document)['uuid7'] == issued['uuid7']
     finally:
         process.terminate()
         try: process.communicate(timeout=10)

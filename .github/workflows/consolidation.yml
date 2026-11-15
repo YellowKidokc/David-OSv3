@@ -8,7 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       QT_QPA_PLATFORM: offscreen
-      DAVID_OS_REGISTRY: ${{ runner.temp }}/identity/registry.sqlite
       PREDICTION_GUI_ROOT: ${{ github.workspace }}/work/companion-gui
     steps:
       - uses: actions/checkout@v4

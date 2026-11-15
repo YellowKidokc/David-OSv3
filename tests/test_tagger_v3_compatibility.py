@@ -43,3 +43,15 @@ def test_legacy_watch_preserves_explicit_roots_and_exclusions(tmp_path, monkeypa
     args=watch_legacy_config(settings)
     assert args[0]=='watch' and args.count('--source')==2
     assert 'private' in fake.SKIP_DIRS and 'secret.txt' in fake.SKIP_NAMES
+
+
+def test_old_marker_id_is_an_alias_with_a_registry_reference(tmp_path):
+    import runpy,os
+    from shared.identity.registry import IdentityRegistry
+    file=Path(__file__).resolve().parents[1]/'Theophysics_Tagger/tools/ext_filetagger/legacy_folder_markers.py'
+    (tmp_path/'.folder.fmeta').write_text('folder_id: OLD-FOLDER\n')
+    text=runpy.run_path(str(file))['marker_body'](tmp_path,tmp_path)
+    registry=IdentityRegistry(os.environ['DAVID_OS_REGISTRY'])
+    reference=registry.reference(tmp_path)
+    assert 'folder_id: OLD-FOLDER' in text and f"registry_uuid: {reference['uuid7']}" in text
+    assert registry.lookup('OLD-FOLDER',scheme='legacy-folder-id')==reference

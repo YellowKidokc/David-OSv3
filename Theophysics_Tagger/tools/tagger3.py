@@ -462,6 +462,7 @@ def write_folder_markers(con, sources: list[Path], results: dict[str, dict], all
             body = "\n".join([
                 "# folder meta (Theophysics Convergence Tagger v3)",
                 f"folder_id: {folder_id}",
+                f"registry_uuid: {folder_ref['uuid7']}",
                 f"name: {folder.name}",
                 f"current_path: {current}",
                 f"previous_paths: {' | '.join(prev_paths)}",

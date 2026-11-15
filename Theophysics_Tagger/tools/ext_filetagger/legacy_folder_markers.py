@@ -156,10 +156,12 @@ def marker_body(path: Path, root: Path, force_new_id: bool = False) -> str:
     previous_path = existing.get("current_path", "")
     if force_new_id:
         raise ValueError('--new-ids conflicts with registry-owned immutable identities; use an explicit reviewed assignment')
-    folder_id = existing.get("folder_id", "")
-    if not folder_id:
-        from shared.identity.registry import IdentityRegistry
-        folder_id = IdentityRegistry().reference(path)['uuid7']
+    from shared.identity.registry import IdentityRegistry
+    registry = IdentityRegistry()
+    reference = registry.reference(path)
+    folder_id = existing.get("folder_id", "") or reference['uuid7']
+    if folder_id != reference['uuid7']:
+        registry.alias(reference['uuid7'], 'legacy-folder-id', folder_id)
 
     child_dirs, child_files, ext_counts, total_bytes = summarize_folder(path)
     tags = extract_tags(path, child_dirs, child_files)
@@ -190,6 +192,7 @@ def marker_body(path: Path, root: Path, force_new_id: bool = False) -> str:
     body = [
         "# folder meta",
         f"folder_id: {folder_id}",
+        f"registry_uuid: {reference['uuid7']}",
         f"name: {path.name}",
         f"current_path: {current_path}",
         f"root: {root.resolve()}",

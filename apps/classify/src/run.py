@@ -17,9 +17,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 SRC = Path(__file__).resolve().parent
-sys.path.insert(0, str(SRC / "engines" / "fis"))
+sys.path.insert(0, str(SRC.parents[2]))
 sys.path.insert(0, str(SRC / "engines" / "chi"))
-import fis_classifier  # noqa: E402
+from fis import fis_classifier  # noqa: E402
 import chi_classifier  # noqa: E402
 import subprocess  # noqa: E402
 import tempfile  # noqa: E402

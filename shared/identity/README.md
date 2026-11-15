@@ -1,3 +1,5 @@
+> Current issuance profile: `registry.py` issues UUIDv7 and `SERIES.NN_Original-Title`. Dotted IDs and older envelopes remain readable as historical references; the versioned standards below are retained for compatibility. See [the architecture](../../ARCHITECTURE.md).
+
 # identity
 
 **The official registry is `D:\theophysics-data\registry\document_registry.sqlite`**, built by the crew on 2026-11-07:

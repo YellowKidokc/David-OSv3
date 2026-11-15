@@ -99,3 +99,7 @@ python -m engine.rename_applier undo "CHANGESET_ID"
 simulation plus an explicit `apply --plan ... --confirm` command. The optional `--me-enrich --me-intake-db PATH`
 arguments add Master Equation intake metadata without changing the observe-only
 intake analyzer.
+
+## Contributor ownership map
+
+See [ARCHITECTURE.md](ARCHITECTURE.md) for canonical owners and the remaining identity/prediction migration boundaries. Cleanup evidence and open questions are in [_AUDIT/CLEANUP_REPORT_2026-11-15.md](_AUDIT/CLEANUP_REPORT_2026-11-15.md).

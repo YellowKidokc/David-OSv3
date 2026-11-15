@@ -17,4 +17,5 @@ packages = ["fis", "fis.preference", "shared", "shared.identity", "prediction", 
 package-dir = {fis = ".", "fis.preference" = "preference", shared = "../shared", "shared.identity" = "../shared/identity", prediction = "../prediction", "prediction.naming" = "../prediction/naming"}
 
 [tool.setuptools.package-data]
+"shared.identity" = ["*.json", "*.sql", "*.md"]
 fis = ["data/*.json", "data/*.md", "static/*"]

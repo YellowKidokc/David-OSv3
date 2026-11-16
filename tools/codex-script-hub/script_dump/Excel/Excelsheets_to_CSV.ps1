@@ -1,3 +1,5 @@
+param([Parameter(Mandatory=$true)][string]$InputFolder, [Parameter(Mandatory=$true)][string]$OutputFolder)
+
 $Excel = New-Object -ComObject Excel.Application
 $Excel.Visible = $false
 $Excel.DisplayAlerts = $false
@@ -5,8 +7,6 @@ $Excel.ScreenUpdating = $false
 $Excel.EnableEvents = $false
 $Excel.Calculation = -4135  # Manual
 
-$InputFolder  = "C:\Excel\Input"
-$OutputFolder = "C:\Excel\CSV"
 
 if (!(Test-Path $OutputFolder)) {
     New-Item -ItemType Directory -Path $OutputFolder | Out-Null

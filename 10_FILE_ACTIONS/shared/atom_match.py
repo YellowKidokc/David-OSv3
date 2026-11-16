@@ -16,6 +16,8 @@ Usage:
     matcher.merge_into_families(matches)                # update families in scan_db
 """
 from __future__ import annotations
+from shared.runtime_config import path_setting as _portable_path
+from pathlib import Path as _PortablePath
 
 import asyncio
 import hashlib
@@ -25,7 +27,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Optional
 
-ATOMS_REPO = Path(r"D:\GitHub\Faith-through-physics-atoms")
+ATOMS_REPO = Path(str(_portable_path('DAVID_OS_LEGACY_ATOM_MATCH_FAITH_THROUGH_PHYSICS_ATOMS', 'legacy_atom_match_faith_through_physics_atoms', _PortablePath(__file__).resolve().parents[2] / '_local/Faith-through-physics-atoms')))
 
 
 class AtomMatcher:

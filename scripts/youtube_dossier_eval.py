@@ -3,11 +3,13 @@ Written by Claude (chat), Nov 13, 2026. Standard library only. Reads DEEPSEEK_AP
 Never overwrites: writes new files into <paper>/.data/api/ (created if missing).
 Usage: python youtube_dossier_eval.py [paper_numbers...]   (default: 00 and 02-20)
 """
+from shared.runtime_config import path_setting as _portable_path
+from pathlib import Path as _PortablePath
 import os, sys, json, re, glob, time, threading, urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from datetime import date
 
-ROOT = r"C:\Users\David\Documents\faiththruphysics.com\ZZZZ_Master Folder\MIM"
+ROOT = str(_portable_path('DAVID_OS_LEGACY_YOUTUBE_DOSSIER_EVAL_MIM', 'legacy_youtube_dossier_eval_mim', _PortablePath(__file__).resolve().parents[1] / '_local/MIM'))
 KEY = os.environ.get("DEEPSEEK_API_KEY")
 MODEL = "deepseek-chat"
 PRICE_IN, PRICE_OUT = 0.27 / 1e6, 1.10 / 1e6   # USD per token, approx

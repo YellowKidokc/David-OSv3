@@ -16,6 +16,8 @@ Features:
  - Live progress, rate, ETA
 """
 from __future__ import annotations
+from shared.runtime_config import path_setting as _portable_path
+from pathlib import Path as _PortablePath
 
 import os
 import sys
@@ -48,7 +50,7 @@ except ImportError:  # keep the scanner runnable on minimal PySide6 installs
 
 # ── Add engine to path ──────────────────────────
 REPO = Path(__file__).resolve().parents[1]
-RICH_REVIEW_HTML = Path(r"\\192.168.2.50\h_hp\Desktop\FIS_v2_recursive_semantic.html")
+RICH_REVIEW_HTML = Path(str(_portable_path('DAVID_OS_LEGACY_FIS_SCANNER_GUI_FIS_V2_RECURSIVE_SEMANTIC_HTML', 'legacy_fis_scanner_gui_fis_v2_recursive_semantic_html', _PortablePath(__file__).resolve().parents[1] / '_local/FIS_v2_recursive_semantic.html')))
 
 
 if QWebEnginePage is not None:
@@ -380,7 +382,7 @@ class FISScannerWindow(QMainWindow):
         folder_lay = QVBoxLayout(folder_box)
         self.folder_input = QTextEdit()
         self.folder_input.setMaximumHeight(80)
-        self.folder_input.setPlainText("H:\\Desktop")
+        self.folder_input.setPlainText(str(_portable_path('DAVID_OS_LEGACY_FIS_SCANNER_GUI_DESKTOP', 'legacy_fis_scanner_gui_desktop', _PortablePath(__file__).resolve().parents[1] / '_local/Desktop')))
         self.folder_input.setFont(QFont("Consolas", 10))
         folder_lay.addWidget(self.folder_input)
         browse_row = QHBoxLayout()
@@ -397,7 +399,7 @@ class FISScannerWindow(QMainWindow):
         # SQLite location
         db_row = QHBoxLayout()
         db_row.addWidget(QLabel("SQLite DB:"))
-        self.db_input = QLineEdit(r"Z:\.fis\fis_master.sqlite")
+        self.db_input = QLineEdit(str(_portable_path('DAVID_OS_LEGACY_FIS_SCANNER_GUI_FIS_MASTER_SQLITE', 'legacy_fis_scanner_gui_fis_master_sqlite', _PortablePath(__file__).resolve().parents[1] / '_local/fis_master.sqlite')))
         self.db_input.setMinimumWidth(350)
         db_row.addWidget(self.db_input)
         db_browse = QPushButton("Browse")
@@ -486,7 +488,7 @@ class FISScannerWindow(QMainWindow):
 
         agg_ctrl = QHBoxLayout()
         agg_ctrl.addWidget(QLabel("DB:"))
-        self.agg_db_input = QLineEdit(r"Z:\.fis\fis_master.sqlite")
+        self.agg_db_input = QLineEdit(str(_portable_path('DAVID_OS_LEGACY_FIS_SCANNER_GUI_FIS_MASTER_SQLITE', 'legacy_fis_scanner_gui_fis_master_sqlite', _PortablePath(__file__).resolve().parents[1] / '_local/fis_master.sqlite')))
         agg_ctrl.addWidget(self.agg_db_input)
         load_btn = QPushButton("Load")
         load_btn.clicked.connect(self._load_aggregate)

@@ -11,6 +11,8 @@ DER-001 exact duplicates are flagged, never deleted.
     python rename_engine.py "S:\\PROCESSED"            print proposals (dry run)
 """
 from __future__ import annotations
+from shared.runtime_config import path_setting as _portable_path
+from pathlib import Path as _PortablePath
 
 import csv
 import datetime as dt
@@ -392,6 +394,6 @@ def export_xlsx(props: list[Proposal], finals: dict[str, str], checked: set[str]
 if __name__ == "__main__":
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
-    root = Path(sys.argv[1] if len(sys.argv) > 1 else r"S:\PROCESSED")
+    root = Path(sys.argv[1] if len(sys.argv) > 1 else str(_portable_path('DAVID_OS_LEGACY_RENAME_ENGINE_PROCESSED', 'legacy_rename_engine_processed', _PortablePath(__file__).resolve().parents[2] / '_local/PROCESSED')))
     for pr in propose(root):
         print(f"{pr.confidence:.2f}  {pr.flag or '':<16} {pr.path.name}\n      -> {pr.proposed}   [{'; '.join(pr.why)}]")

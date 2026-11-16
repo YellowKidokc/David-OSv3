@@ -1,4 +1,6 @@
 """Timed desktop pass with the existing FIS worker and local River monitor."""
+from shared.runtime_config import path_setting as _portable_path
+from pathlib import Path as _PortablePath
 import json
 import sys
 import threading
@@ -11,7 +13,7 @@ from fis import service
 from fis.web import make_server
 
 if __name__ == '__main__':
-    root = Path(r'\\192.168.2.50\h_hp\Desktop')
+    root = Path(str(_portable_path('DAVID_OS_LEGACY_DESKTOP_LIVE_DESKTOP', 'legacy_desktop_live_desktop', _PortablePath(__file__).resolve().parents[2] / '_local/Desktop')))
     store = Store(root.parent/'_FIS_DESKTOP_STATE')
     service.configure_root(store, root, html=True)
     server = make_server(store, 43108)

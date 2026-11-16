@@ -14,6 +14,8 @@ USAGE:
 """
 
 from __future__ import annotations
+from shared.runtime_config import path_setting as _portable_path
+from pathlib import Path as _PortablePath
 
 import json
 import os
@@ -28,7 +30,7 @@ from typing import Any
 # ──────────────────────────────────────────────────────────────────
 # CONFIG — change this one line when you copy the folder elsewhere
 # ──────────────────────────────────────────────────────────────────
-OUTBOX_ROOT = r"\\192.168.2.50\h_hp\Desktop\_____pipeline-workflows-main\EVIDENCE_CHAIN_INTAKE\OUTBOX\01_CLASSIFIED_LIBRARY"
+OUTBOX_ROOT = str(_portable_path('DAVID_OS_LEGACY_COMPANION_CLUSTER_01_CLASSIFIED_LIBRARY', 'legacy_companion_cluster_01_classified_library', _PortablePath(__file__).resolve().parents[2] / '_local/01_CLASSIFIED_LIBRARY'))
 
 # Minimum similarity score (0–1) for two papers to be considered related
 CLUSTER_THRESHOLD = 0.25

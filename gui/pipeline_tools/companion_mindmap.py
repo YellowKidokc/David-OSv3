@@ -18,6 +18,8 @@ Reuses the parser from companion_cluster.py (must be in the same folder).
 """
 
 from __future__ import annotations
+from shared.runtime_config import path_setting as _portable_path
+from pathlib import Path as _PortablePath
 
 import json
 import os
@@ -28,7 +30,7 @@ from pathlib import Path
 # ──────────────────────────────────────────────────────────────────
 # CONFIG — change this one line when you copy the folder elsewhere
 # ──────────────────────────────────────────────────────────────────
-OUTBOX_ROOT = r"H:\Desktop\_____pipeline-workflows-main\EVIDENCE_CHAIN_INTAKE\OUTBOX"
+OUTBOX_ROOT = str(_portable_path('DAVID_OS_LEGACY_COMPANION_MINDMAP_OUTBOX', 'legacy_companion_mindmap_outbox', _PortablePath(__file__).resolve().parents[2] / '_local/OUTBOX'))
 
 # Minimum composite similarity to draw an edge
 EDGE_THRESHOLD = 0.12

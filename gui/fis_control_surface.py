@@ -5,13 +5,15 @@ index source files into SQLite, but no action here renames, moves, overwrites, o
 deletes a source file.
 """
 from __future__ import annotations
+from shared.runtime_config import path_setting as _portable_path
+from pathlib import Path as _PortablePath
 
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Iterable
 
 
-DEFAULT_TARGET = Path(r"\\192.168.2.50\g_github\D_DRIVE_FULL\GitHub\faiththruphysics-site-data")
+DEFAULT_TARGET = Path(str(_portable_path('DAVID_OS_LEGACY_FIS_CONTROL_SURFACE_FAITHTHRUPHYSICS_SITE_DATA', 'legacy_fis_control_surface_faiththruphysics_site_data', _PortablePath(__file__).resolve().parents[1] / '_local/faiththruphysics-site-data')))
 
 
 @dataclass(frozen=True)

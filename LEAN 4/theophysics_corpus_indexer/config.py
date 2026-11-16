@@ -1,6 +1,8 @@
 """Configuration for the Theophysics corpus indexer."""
 
 from __future__ import annotations
+from shared.runtime_config import path_setting as _portable_path
+from pathlib import Path as _PortablePath
 
 import hashlib
 import json
@@ -21,8 +23,8 @@ SOURCE_ROOTS: list[str] = [
     "//192.168.2.50/h_hp/Desktop/___Pipeline_Done_New/One page paper API/LEAN4",
     "//192.168.2.50/h_hp/Desktop/___Pipeline_Done_New/One page paper API/EVIDENCE/OUTBOX",
     "//192.168.2.50/h_hp/Desktop/_____pipeline-workflows-main/LEAN_FLOOR",
-    "D:/TEMP_LEAN_ZIP",
-    "C:/Users/David/Documents/faiththruphysics.com/04_MASTER_EQUATION",
+    str(_portable_path('DAVID_OS_LEGACY_CONFIG_TEMP_LEAN_ZIP', 'legacy_config_temp_lean_zip', _PortablePath(__file__).resolve().parents[2] / '_local/TEMP_LEAN_ZIP')),
+    str(_portable_path('DAVID_OS_LEGACY_CONFIG_04_MASTER_EQUATION', 'legacy_config_04_master_equation', _PortablePath(__file__).resolve().parents[2] / '_local/04_MASTER_EQUATION')),
 ]
 
 SKIP_DIRS: set[str] = {".lake", ".git", ".venv", "__pycache__", "node_modules", "_support"}

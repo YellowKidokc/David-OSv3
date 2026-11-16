@@ -47,6 +47,9 @@ Historical generated tagger CSVs are losslessly compressed under
 Machine-specific folder assignments, watch profiles and search roots are archived
 under `_archive/2026-11-15/machine-config`; fresh clones start with no watched roots
 and search the clone itself. Configure your own roots before enabling watchers.
+Additional standalone-tool paths are listed in `_AUDIT/PORTABLE_PATH_SETTINGS.json`
+and in `config.example.yaml`. Override them through YAML or the listed environment
+variables; their defaults point to `_local` inputs rather than personal drives.
 Archived code, audit evidence and Windows-path test fixtures retain historical
 paths; they are not portable runtime defaults.
 

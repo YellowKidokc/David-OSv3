@@ -14,6 +14,8 @@ Runs standalone (``python gui/operations_panel.py``) or mounts as a tab in
 fis_scanner_gui.
 """
 from __future__ import annotations
+from shared.runtime_config import path_setting as _portable_path
+from pathlib import Path as _PortablePath
 
 import json
 import sys
@@ -75,7 +77,7 @@ class OperationsPanel(QWidget):
 
         target = QGroupBox("Folder")
         row = QHBoxLayout(target)
-        self.folder = QLineEdit(r"G:\faiththruphysics-site-v2")
+        self.folder = QLineEdit(str(_portable_path('DAVID_OS_LEGACY_OPERATIONS_PANEL_FAITHTHRUPHYSICS_SITE_V2', 'legacy_operations_panel_faiththruphysics_site_v2', _PortablePath(__file__).resolve().parents[1] / '_local/faiththruphysics-site-v2')))
         self.folder.setFont(QFont("Consolas", 10))
         browse = QPushButton("Browse…")
         browse.clicked.connect(self._browse)

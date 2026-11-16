@@ -11,6 +11,8 @@
 """
 
 from __future__ import annotations
+from shared.runtime_config import path_setting as _portable_path
+from pathlib import Path as _PortablePath
 
 import csv
 import hashlib
@@ -35,7 +37,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-ME_ROOT = Path("C:/Users/David/Documents/faiththruphysics.com/04_MASTER_EQUATION")
+ME_ROOT = Path(str(_portable_path('DAVID_OS_LEGACY_ME_SIDECAR_04_MASTER_EQUATION', 'legacy_me_sidecar_04_master_equation', _PortablePath(__file__).resolve().parents[2] / '_local/04_MASTER_EQUATION')))
 REVIEW_ROOT = Path("//192.168.2.50/h_hp/Desktop/REVIEW")
 
 CLAIM_ID = "ME"

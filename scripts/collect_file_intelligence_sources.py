@@ -4,6 +4,8 @@ Run from any directory. Existing snapshots are verified, never overwritten.
 Databases, logs, caches, archives and user documents stay at their source paths.
 """
 from __future__ import annotations
+from shared.runtime_config import path_setting as _portable_path
+from pathlib import Path as _PortablePath
 
 import ast
 import hashlib
@@ -14,8 +16,8 @@ import shutil
 REPO = Path(__file__).resolve().parents[1]
 DEST = REPO / "tools" / "file-intelligence-sources"
 ROOTS = {
-    "FIS": Path(r"D:\DONT TOUCH BOOT UP\FIS"),
-    "filetagger": Path(r"D:\DONT TOUCH BOOT UP\filetagger"),
+    "FIS": Path(str(_portable_path('DAVID_OS_LEGACY_COLLECT_FILE_INTELLIGENCE_SOURCES_FIS', 'legacy_collect_file_intelligence_sources_fis', _PortablePath(__file__).resolve().parents[1] / '_local/FIS'))),
+    "filetagger": Path(str(_portable_path('DAVID_OS_LEGACY_COLLECT_FILE_INTELLIGENCE_SOURCES_FILETAGGER', 'legacy_collect_file_intelligence_sources_filetagger', _PortablePath(__file__).resolve().parents[1] / '_local/filetagger'))),
 }
 EXTENSIONS = {".py", ".ps1", ".bat", ".cmd", ".sh", ".md", ".json", ".yaml", ".yml", ".toml", ".txt"}
 SKIP = {".git", ".venv", "venv", "__pycache__", "node_modules", "target", "DISABLE_RECEIPTS"}

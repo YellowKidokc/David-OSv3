@@ -61,8 +61,7 @@ if errorlevel 1 (
 echo Launching GUI...
 
 REM --- Start FIS API if not already running ---
-echo Checking FIS on port 8420...
-powershell -Command "try { $r = Invoke-WebRequest -Uri 'http://localhost:8420/health' -TimeoutSec 2 -UseBasicParsing; Write-Host 'FIS already running.' } catch { Write-Host 'FIS not running. Starting...'; Start-Process -FilePath 'python' -ArgumentList '-m fis api' -WorkingDirectory 'D:\DONT TOUCH BOOT UP\FIS' -WindowStyle Minimized; Start-Sleep -Seconds 3; Write-Host 'FIS started on port 8420.' }"
+echo Start the canonical FIS service with python run.py -m fis serve if needed.
 echo.
 
 "%VENV_PY%" -m organize.gui %*

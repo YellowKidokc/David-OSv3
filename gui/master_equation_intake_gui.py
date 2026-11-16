@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Independent GUI for observe-only Master Equation intake analysis."""
 from __future__ import annotations
+from shared.runtime_config import path_setting as _portable_path
+from pathlib import Path as _PortablePath
 
 import csv
 import json
@@ -19,7 +21,7 @@ sys.path.insert(0, str(REPO))
 from engine.master_equation_intake import analyze  # noqa: E402
 
 
-DEFAULT_SOURCE = Path(r"C:\theophysics\OPUS\Master Equation")
+DEFAULT_SOURCE = Path(str(_portable_path('DAVID_OS_LEGACY_MASTER_EQUATION_INTAKE_GUI_MASTER_EQUATION', 'legacy_master_equation_intake_gui_master_equation', _PortablePath(__file__).resolve().parents[1] / '_local/Master Equation')))
 DEFAULT_OUTPUT = REPO / "runs" / "master_equation_gui"
 
 

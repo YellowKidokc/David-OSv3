@@ -15,6 +15,8 @@ Usage:
 
 Requires: DEEPSEEK_API_KEY in environment or Windows registry.
 """
+from shared.runtime_config import path_setting as _portable_path
+from pathlib import Path as _PortablePath
 import argparse
 import json
 import os
@@ -23,7 +25,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 # Add the quick_call station to path
-QUICK_CALL_DIR = Path(r"D:\GitHub\pipeline-workflows\API\000_QUICK_CALL")
+QUICK_CALL_DIR = Path(str(_portable_path('DAVID_OS_LEGACY_DEEP_IDENTIFY_TO_QUICKCALL_000_QUICK_CALL', 'legacy_deep_identify_to_quickcall_000_quick_call', _PortablePath(__file__).resolve().parents[2] / '_local/000_QUICK_CALL')))
 sys.path.insert(0, str(QUICK_CALL_DIR))
 
 

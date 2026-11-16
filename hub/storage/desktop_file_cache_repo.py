@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import json
 import sqlite3
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 from typing import Any
 
 JsonDict = dict[str, Any]
@@ -37,7 +37,7 @@ class DesktopFileCacheRepo:
         tags: list[str] | None = None,
         metadata: JsonDict | None = None,
     ) -> JsonDict:
-        path = Path(full_path)
+        path = PureWindowsPath(full_path) if PureWindowsPath(full_path).drive else Path(full_path)
         normalized_path = _normalize(path)
         self.conn.execute(
             """

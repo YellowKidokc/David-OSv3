@@ -10,7 +10,7 @@ from fastapi.responses import FileResponse
 
 router = APIRouter(prefix="/apps", tags=["apps"])
 
-DEFAULT_APPS_ROOT = Path(os.environ.get("FIHUB_APPS_ROOT", r"D:\GitHub\David-OS\apps"))
+DEFAULT_APPS_ROOT = Path(os.environ.get("FIHUB_APPS_ROOT", Path(__file__).resolve().parents[2] / "apps"))
 APP_ID_RE = re.compile(r"^[A-Za-z0-9_. -]+$")
 
 

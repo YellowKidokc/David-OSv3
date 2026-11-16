@@ -1,7 +1,9 @@
-﻿"""Glance matcher: score every vault page against one standard page per series.
+"""Glance matcher: score every vault page against one standard page per series.
 Read-only. Signals: skeleton (page shape), rare words, boilerplate lines.
 Usage: python glance_match.py <vault_root> <standards.tsv> <out_dir>
 """
+from shared.runtime_config import path_setting as _portable_path
+from pathlib import Path as _PortablePath
 import sys, os, re, math, json, csv, difflib, collections
 from pathlib import Path
 
@@ -42,7 +44,7 @@ import pickle
 CACHE = OUT / 'corpus_cache.pkl'
 TOPSKIP = re.compile(r'(?i)^(zzz|a3_archive|00_inbox|legacy_import|openai_data|nested_prod|theophysics_vault|codex_excel|03_media|30_bible|\.obsidian)')
 files = []
-EXTRA = [Path(r'C:\Users\David\Documents\faiththruphysics.com\ZZZZ_Master Folder\MIM')]
+EXTRA = [Path(str(_portable_path('DAVID_OS_LEGACY_GLANCE_MATCH_MIM', 'legacy_glance_match_mim', _PortablePath(__file__).resolve().parents[2] / '_local/MIM')))]
 for top in list(ROOT.iterdir()) + EXTRA:
     if top.is_dir() and not TOPSKIP.match(top.name):
         for dp, dn, fn in os.walk(top):

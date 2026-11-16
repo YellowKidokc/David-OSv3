@@ -15,7 +15,7 @@ VERSION = 'fis-folder-hub/1.0'
 
 
 class FolderHub:
-    """Each named scope owns a registry; central commands never grant file mutation."""
+    """Each scope owns an inventory projection; shared registry references provide identity."""
 
     def __init__(self, home):
         self.home = Path(home).resolve()

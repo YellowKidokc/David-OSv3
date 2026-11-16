@@ -1,5 +1,8 @@
+import os
+from pathlib import Path
+DATA_DIR = Path(os.environ.get("THEOPHYSICS_LEGACY_DATA", Path(__file__).resolve().parents[2] / "data_filetagger"))
 import sqlite3
-db = sqlite3.connect(r'D:\DONT TOUCH BOOT UP\filetagger\chi_catalog.db')
+db = sqlite3.connect(str(DATA_DIR / 'chi_catalog.db'))
 print("=" * 60)
 print("  CHI FACTOR DISTRIBUTION -- Theophysics Vault v5")
 print("  50,820 files scanned")

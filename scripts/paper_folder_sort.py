@@ -33,6 +33,8 @@ OUTBOX/00_UNTOUCHED, OUTBOX/BY_* shelves, CANONIZATION). Override with the
 --*-dirs options if another API folder names things differently.
 """
 from __future__ import annotations
+from shared.runtime_config import path_setting as _portable_path
+from pathlib import Path as _PortablePath
 
 import argparse
 import hashlib
@@ -226,7 +228,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--source", required=True, help="API pipeline folder to sort (UNC or local)")
     ap.add_argument("--dest", required=True, help="delivery folder (created if needed; never cleaned)")
-    ap.add_argument("--work", default=r"D:\paper_sort_work", help="local scratch for mirror+staging")
+    ap.add_argument("--work", default=str(_portable_path('DAVID_OS_LEGACY_PAPER_FOLDER_SORT_PAPER_SORT_WORK', 'legacy_paper_folder_sort_paper_sort_work', _PortablePath(__file__).resolve().parents[1] / '_local/paper_sort_work')), help="local scratch for mirror+staging")
     ap.add_argument("--no-mirror", action="store_true", help=r"reuse existing <work>\SRC")
     ap.add_argument("--dry-run", action="store_true", help="census + stage only, no push")
     ap.add_argument("--original-dirs", nargs="+", default=["PROCESSED_ORIGINALS", "00_ORIGINALS_PRESERVED", "INBOX"])

@@ -1,9 +1,9 @@
 @echo off
 title CHI Folder Scanner
-cd /d "D:\DONT TOUCH BOOT UP\organize"
+cd /d "%~dp0"
 echo.
 echo  ================================================================
-echo   CHI FOLDER SCANNER — Pick folders, scan, export to Excel
+echo   CHI FOLDER SCANNER ï¿½ Pick folders, scan, export to Excel
 echo  ================================================================
 echo.
 
@@ -75,5 +75,9 @@ echo.
 goto MENU
 
 :OPEN_EXCEL
-start "" "C:\Users\lowes\Desktop\Bil_FIle_Naming.xlsx"
+if not defined DAVID_OS_REVIEW_WORKBOOK (
+  echo Set DAVID_OS_REVIEW_WORKBOOK to your review workbook path.
+) else (
+  start "" "%DAVID_OS_REVIEW_WORKBOOK%"
+)
 goto MENU

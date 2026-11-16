@@ -22,6 +22,7 @@ from pathlib import Path
 
 from engine.fingerprint import sha256_file
 from engine import text_extractor
+from shared.identity.registry import IdentityRegistry
 
 REPO = Path(__file__).resolve().parents[1]
 TOOL = 'stage1-registry/1.1'
@@ -297,8 +298,12 @@ def scan(roots, db_path=REPO/'_data/registry.sqlite', output=None, *, exclude_ro
             (output.is_relative_to(root) and not any(output.is_relative_to(p) for p in excluded))):
             raise ValueError('Registry and exports must be outside source roots')
     stats = {'added': 0, 'changed': 0, 'unchanged': 0, 'hashed': 0, 'extracted': 0, 'missing': 0, 'errors': 0}
+    issuer = IdentityRegistry()
+    shared_connection = issuer.path.resolve() == db_path
     run = uuid.uuid4().hex
     with connect(db_path) as con:
+        if 'registry_uuid' not in {r[1] for r in con.execute('PRAGMA table_info(files)')}:
+            con.execute('ALTER TABLE files ADD COLUMN registry_uuid TEXT')
         seen = set()
         for root in roots:
             walk_errors = []
@@ -321,6 +326,9 @@ def scan(roots, db_path=REPO/'_data/registry.sqlite', output=None, *, exclude_ro
                         raise ValueError(f'Scan limit {max_files} reached; transaction rolled back. Narrow this hub or raise its configured limit.')
                     seen.add(identity)
                     old = con.execute('SELECT * FROM files WHERE path=?', (identity,)).fetchone()
+                    reference = issuer.reference(identity, con=con) if shared_connection else issuer.reference(identity)
+                    if old and old['registry_uuid'] != reference['uuid7']:
+                        con.execute('UPDATE files SET registry_uuid=? WHERE path=?', (reference['uuid7'], identity))
                     try:
                         if path.is_symlink():
                             raise OSError('Linked file not read')
@@ -345,6 +353,7 @@ def scan(roots, db_path=REPO/'_data/registry.sqlite', output=None, *, exclude_ro
                         row = dict(path=identity, root=str(root), drive=path.drive, size=None, mtime_ns=None,
                                    sha256=None, text_sha256=None, extension=path.suffix.lower(), readable='failed',
                                    extraction_error=str(error), extraction_method='failed', normalization='NFC-whitespace-v1', observed_title=path.stem)
+                    row['registry_uuid'] = reference['uuid7']
                     row['version_id'] = assign_version(con, row, old, run) if not old or old['sha256'] != row['sha256'] or old['text_sha256'] != row['text_sha256'] else old['version_id']
                     row.update(first_seen=old['first_seen'] if old else now(), last_seen=now(), present=1, tool_version=TOOL, rulebook_version=RULEBOOK)
                     columns = list(row)

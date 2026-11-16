@@ -1,3 +1,4 @@
+import sys
 from hub.storage.db import Database
 from hub.storage.job_repo import JobRepo
 from hub.storage.memory_repo import MemoryRepo
@@ -49,7 +50,7 @@ def test_memory_items_can_be_embedded_and_vector_searched(tmp_path):
 def test_command_line_job_captures_output(tmp_path):
     db = Database(tmp_path / "hub.sqlite3")
     repo = JobRepo(db.conn)
-    repo.create_job("command_line", {"command": ["py", "-3.12", "-c", "print('hello command')"], "timeout_seconds": 30})
+    repo.create_job("command_line", {"command": [sys.executable, "-c", "print('hello command')"], "timeout_seconds": 30})
 
     processed = WorkerRunner(repo).run_once(limit=1)[0]
 

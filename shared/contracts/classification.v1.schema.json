@@ -68,6 +68,18 @@
       "items": {
         "type": "string"
       }
+    },
+    "registry_uuid": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Reference issued by the shared identity registry; never a content hash."
+    },
+    "registry_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Assigned SERIES.NN_Original-Title, or null while unresolved."
     }
   }
 }

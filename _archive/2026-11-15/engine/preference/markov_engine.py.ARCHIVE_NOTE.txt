@@ -1,0 +1,1 @@
+Duplicate naming algorithm retired; canonical implementation is prediction/naming/.

@@ -24,7 +24,7 @@ from __future__ import annotations
 import datetime as dt
 import sys
 import uuid
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 
 REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO / "03_CLASSIFY" / "02_CLASSIFICATION"))
@@ -35,7 +35,7 @@ from taxonomy_validator import VALID_STANDING  # noqa: E402
 
 # keys this tool writes itself — original blocks with these names are replaced
 MANAGED = {"sidecar", "subject", "source", "source_file", "standing",
-           "folder_class", "tags", "adapted_from", "adapted_at", "uuid"}
+           "folder_class", "tags", "adapted_from", "adapted_at", "uuid", "registry_uuid"}
 
 
 def _split_blocks(fm_lines: list[str]) -> list[list[str]]:
@@ -81,20 +81,24 @@ def convert_card_text(text: str, stem: str) -> str | None:
     # older schema variant spells it file_path — same meaning, same translation
     source_file = next((_block_value(old[k]) for k in ("source_file", "file_path")
                         if k in old and _block_value(old[k])), "")
-    source = Path(source_file).stem if source_file else ""
+    source = PureWindowsPath(source_file).stem if source_file else ""
 
-    # permanent identity: keep the card's own uuid if it has one; otherwise mint
-    # a deterministic one so re-running the adapter never double-mints
+    # Registry is the only issuer; preserve an existing UUID as a legacy alias.
     card_uuid = _block_value(old["uuid"]) if "uuid" in old else ""
-    if not card_uuid:
-        card_uuid = str(uuid.uuid5(uuid.NAMESPACE_URL,
-                                   f"david-os:mim.v1:{source_file or stem}"))
+    from shared.identity.registry import IdentityRegistry
+    registry = IdentityRegistry()
+    reference = registry.reference(source_file or stem)
+    if card_uuid:
+        registry.alias(reference['uuid7'], 'legacy-sidecar-uuid', card_uuid)
+    else:
+        card_uuid = reference['uuid7']
 
     out = [
         "---",
         "sidecar: mim.v1",
         f"subject: {stem}",
         f"uuid: {card_uuid}",
+        f"registry_uuid: {reference['uuid7']}",
         f'source: "[[{source}]]"' if source else "source:",
         f'source_file: "{source_file}"' if source_file else "source_file:",
         f"standing: {standing}" if standing else "standing:",

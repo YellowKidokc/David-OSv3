@@ -1,0 +1,296 @@
+[
+  {
+    "file": "03_CLASSIFY/03_RENAMING/rename_engine.py",
+    "line": 395,
+    "environment": "DAVID_OS_LEGACY_RENAME_ENGINE_PROCESSED",
+    "yaml_key": "legacy_rename_engine_processed",
+    "default": "_local/PROCESSED"
+  },
+  {
+    "file": "03_CLASSIFY/03_RENAMING/renamer_gui.py",
+    "line": 32,
+    "environment": "DAVID_OS_LEGACY_RENAMER_GUI_PROCESSED",
+    "yaml_key": "legacy_renamer_gui_processed",
+    "default": "_local/PROCESSED"
+  },
+  {
+    "file": "03_CLASSIFY/03_RENAMING/renamer_gui.py",
+    "line": 306,
+    "environment": "DAVID_OS_LEGACY_RENAMER_GUI_PROCESSED",
+    "yaml_key": "legacy_renamer_gui_processed",
+    "default": "_local/PROCESSED"
+  },
+  {
+    "file": "06_FIS_HTML/registry_scan.py",
+    "line": 498,
+    "environment": "DAVID_OS_LEGACY_REGISTRY_SCAN_FILE_INTELLIGENCE_SYSTEM",
+    "yaml_key": "legacy_registry_scan_file_intelligence_system",
+    "default": "_local/file-intelligence-system"
+  },
+  {
+    "file": "10_FILE_ACTIONS/shared/atom_match.py",
+    "line": 28,
+    "environment": "DAVID_OS_LEGACY_ATOM_MATCH_FAITH_THROUGH_PHYSICS_ATOMS",
+    "yaml_key": "legacy_atom_match_faith_through_physics_atoms",
+    "default": "_local/Faith-through-physics-atoms"
+  },
+  {
+    "file": "10_FILE_ACTIONS/shared/deep_identify_to_quickcall.py",
+    "line": 26,
+    "environment": "DAVID_OS_LEGACY_DEEP_IDENTIFY_TO_QUICKCALL_000_QUICK_CALL",
+    "yaml_key": "legacy_deep_identify_to_quickcall_000_quick_call",
+    "default": "_local/000_QUICK_CALL"
+  },
+  {
+    "file": "10_FILE_ACTIONS/shared/glance_match.py",
+    "line": 45,
+    "environment": "DAVID_OS_LEGACY_GLANCE_MATCH_MIM",
+    "yaml_key": "legacy_glance_match_mim",
+    "default": "_local/MIM"
+  },
+  {
+    "file": "10_FILE_ACTIONS/shared/series_finder.py",
+    "line": 21,
+    "environment": "DAVID_OS_LEGACY_SERIES_FINDER_SERIES",
+    "yaml_key": "legacy_series_finder_series",
+    "default": "_local/SERIES"
+  },
+  {
+    "file": "10_FILE_ACTIONS/shared/series_finder.py",
+    "line": 43,
+    "environment": "DAVID_OS_LEGACY_SERIES_FINDER_FAITHTHRUPHYSICS_COM",
+    "yaml_key": "legacy_series_finder_faiththruphysics_com",
+    "default": "_local/faiththruphysics.com"
+  },
+  {
+    "file": "10_FILE_ACTIONS/shared/series_finder.py",
+    "line": 44,
+    "environment": "DAVID_OS_LEGACY_SERIES_FINDER_RECYCLE",
+    "yaml_key": "legacy_series_finder_recycle",
+    "default": "_local/#recycle"
+  },
+  {
+    "file": "10_FILE_ACTIONS/shared/series_finder.py",
+    "line": 45,
+    "environment": "DAVID_OS_LEGACY_SERIES_FINDER_MASTER_EQ",
+    "yaml_key": "legacy_series_finder_master_eq",
+    "default": "_local/___MASTER_EQ"
+  },
+  {
+    "file": "10_FILE_ACTIONS/shared/series_finder.py",
+    "line": 46,
+    "environment": "DAVID_OS_LEGACY_SERIES_FINDER_SERIES",
+    "yaml_key": "legacy_series_finder_series",
+    "default": "_local/SERIES"
+  },
+  {
+    "file": "LEAN 4/theophysics_corpus_indexer/config.py",
+    "line": 24,
+    "environment": "DAVID_OS_LEGACY_CONFIG_TEMP_LEAN_ZIP",
+    "yaml_key": "legacy_config_temp_lean_zip",
+    "default": "_local/TEMP_LEAN_ZIP"
+  },
+  {
+    "file": "LEAN 4/theophysics_corpus_indexer/config.py",
+    "line": 25,
+    "environment": "DAVID_OS_LEGACY_CONFIG_04_MASTER_EQUATION",
+    "yaml_key": "legacy_config_04_master_equation",
+    "default": "_local/04_MASTER_EQUATION"
+  },
+  {
+    "file": "LEAN 4/theophysics_corpus_indexer/me_sidecar.py",
+    "line": 38,
+    "environment": "DAVID_OS_LEGACY_ME_SIDECAR_04_MASTER_EQUATION",
+    "yaml_key": "legacy_me_sidecar_04_master_equation",
+    "default": "_local/04_MASTER_EQUATION"
+  },
+  {
+    "file": "apps/classify/src/engines/chi/chi_classifier.py",
+    "line": 18,
+    "environment": "DAVID_OS_LEGACY_CHI_CLASSIFIER_THEOPHYSICS",
+    "yaml_key": "legacy_chi_classifier_theophysics",
+    "default": "_local/THEOPHYSICS"
+  },
+  {
+    "file": "apps/rename/src/engine/rename_engine.py",
+    "line": 400,
+    "environment": "DAVID_OS_LEGACY_RENAME_ENGINE_PROCESSED",
+    "yaml_key": "legacy_rename_engine_processed",
+    "default": "_local/PROCESSED"
+  },
+  {
+    "file": "files/BATCH_ALL.py",
+    "line": 31,
+    "environment": "DAVID_OS_LEGACY_BATCH_ALL_THEOPHYSICS_V5",
+    "yaml_key": "legacy_batch_all_theophysics_v5",
+    "default": "_local/_Theophysics_v5"
+  },
+  {
+    "file": "files/BATCH_ALL.py",
+    "line": 33,
+    "environment": "DAVID_OS_LEGACY_BATCH_ALL_FAITHTHRUPHYSICS_COM",
+    "yaml_key": "legacy_batch_all_faiththruphysics_com",
+    "default": "_local/faiththruphysics.com"
+  },
+  {
+    "file": "files/BATCH_ALL.py",
+    "line": 35,
+    "environment": "DAVID_OS_LEGACY_BATCH_ALL_THEOPHYSICS",
+    "yaml_key": "legacy_batch_all_theophysics",
+    "default": "_local/theophysics"
+  },
+  {
+    "file": "files/BATCH_ALL.py",
+    "line": 37,
+    "environment": "DAVID_OS_LEGACY_BATCH_ALL_EVIDENCE",
+    "yaml_key": "legacy_batch_all_evidence",
+    "default": "_local/EVIDENCE"
+  },
+  {
+    "file": "gui/axiom_search_export.py",
+    "line": 39,
+    "environment": "DAVID_OS_LEGACY_AXIOM_SEARCH_EXPORT_FIS_FOLDER_MEMORY_SQLITE",
+    "yaml_key": "legacy_axiom_search_export_fis_folder_memory_sqlite",
+    "default": "_local/fis_folder_memory.sqlite"
+  },
+  {
+    "file": "gui/axiom_search_export.py",
+    "line": 40,
+    "environment": "DAVID_OS_LEGACY_AXIOM_SEARCH_EXPORT_FIS_FOLDER_MEMORY_SQLITE",
+    "yaml_key": "legacy_axiom_search_export_fis_folder_memory_sqlite",
+    "default": "_local/fis_folder_memory.sqlite"
+  },
+  {
+    "file": "gui/fis_control_surface.py",
+    "line": 14,
+    "environment": "DAVID_OS_LEGACY_FIS_CONTROL_SURFACE_FAITHTHRUPHYSICS_SITE_DATA",
+    "yaml_key": "legacy_fis_control_surface_faiththruphysics_site_data",
+    "default": "_local/faiththruphysics-site-data"
+  },
+  {
+    "file": "gui/fis_scanner_gui.py",
+    "line": 51,
+    "environment": "DAVID_OS_LEGACY_FIS_SCANNER_GUI_FIS_V2_RECURSIVE_SEMANTIC_HTML",
+    "yaml_key": "legacy_fis_scanner_gui_fis_v2_recursive_semantic_html",
+    "default": "_local/FIS_v2_recursive_semantic.html"
+  },
+  {
+    "file": "gui/fis_scanner_gui.py",
+    "line": 383,
+    "environment": "DAVID_OS_LEGACY_FIS_SCANNER_GUI_DESKTOP",
+    "yaml_key": "legacy_fis_scanner_gui_desktop",
+    "default": "_local/Desktop"
+  },
+  {
+    "file": "gui/fis_scanner_gui.py",
+    "line": 400,
+    "environment": "DAVID_OS_LEGACY_FIS_SCANNER_GUI_FIS_MASTER_SQLITE",
+    "yaml_key": "legacy_fis_scanner_gui_fis_master_sqlite",
+    "default": "_local/fis_master.sqlite"
+  },
+  {
+    "file": "gui/fis_scanner_gui.py",
+    "line": 489,
+    "environment": "DAVID_OS_LEGACY_FIS_SCANNER_GUI_FIS_MASTER_SQLITE",
+    "yaml_key": "legacy_fis_scanner_gui_fis_master_sqlite",
+    "default": "_local/fis_master.sqlite"
+  },
+  {
+    "file": "gui/master_equation_intake_gui.py",
+    "line": 22,
+    "environment": "DAVID_OS_LEGACY_MASTER_EQUATION_INTAKE_GUI_MASTER_EQUATION",
+    "yaml_key": "legacy_master_equation_intake_gui_master_equation",
+    "default": "_local/Master Equation"
+  },
+  {
+    "file": "gui/operations_panel.py",
+    "line": 78,
+    "environment": "DAVID_OS_LEGACY_OPERATIONS_PANEL_FAITHTHRUPHYSICS_SITE_V2",
+    "yaml_key": "legacy_operations_panel_faiththruphysics_site_v2",
+    "default": "_local/faiththruphysics-site-v2"
+  },
+  {
+    "file": "gui/pipeline_tools/companion_cluster.py",
+    "line": 31,
+    "environment": "DAVID_OS_LEGACY_COMPANION_CLUSTER_01_CLASSIFIED_LIBRARY",
+    "yaml_key": "legacy_companion_cluster_01_classified_library",
+    "default": "_local/01_CLASSIFIED_LIBRARY"
+  },
+  {
+    "file": "gui/pipeline_tools/companion_mindmap.py",
+    "line": 31,
+    "environment": "DAVID_OS_LEGACY_COMPANION_MINDMAP_OUTBOX",
+    "yaml_key": "legacy_companion_mindmap_outbox",
+    "default": "_local/OUTBOX"
+  },
+  {
+    "file": "scripts/collect_file_intelligence_sources.py",
+    "line": 17,
+    "environment": "DAVID_OS_LEGACY_COLLECT_FILE_INTELLIGENCE_SOURCES_FIS",
+    "yaml_key": "legacy_collect_file_intelligence_sources_fis",
+    "default": "_local/FIS"
+  },
+  {
+    "file": "scripts/collect_file_intelligence_sources.py",
+    "line": 18,
+    "environment": "DAVID_OS_LEGACY_COLLECT_FILE_INTELLIGENCE_SOURCES_FILETAGGER",
+    "yaml_key": "legacy_collect_file_intelligence_sources_filetagger",
+    "default": "_local/filetagger"
+  },
+  {
+    "file": "scripts/fis/desktop_live.py",
+    "line": 14,
+    "environment": "DAVID_OS_LEGACY_DESKTOP_LIVE_DESKTOP",
+    "yaml_key": "legacy_desktop_live_desktop",
+    "default": "_local/Desktop"
+  },
+  {
+    "file": "scripts/fis_desktop_scan.py",
+    "line": 35,
+    "environment": "DAVID_OS_LEGACY_FIS_DESKTOP_SCAN_DESKTOP",
+    "yaml_key": "legacy_fis_desktop_scan_desktop",
+    "default": "_local/Desktop"
+  },
+  {
+    "file": "scripts/import_grammar_workbook.py",
+    "line": 12,
+    "environment": "DAVID_OS_LEGACY_IMPORT_GRAMMAR_WORKBOOK_GRAMMAR_TXT",
+    "yaml_key": "legacy_import_grammar_workbook_grammar_txt",
+    "default": "_local/grammar.txt"
+  },
+  {
+    "file": "scripts/paper_folder_sort.py",
+    "line": 229,
+    "environment": "DAVID_OS_LEGACY_PAPER_FOLDER_SORT_PAPER_SORT_WORK",
+    "yaml_key": "legacy_paper_folder_sort_paper_sort_work",
+    "default": "_local/paper_sort_work"
+  },
+  {
+    "file": "scripts/youtube_dossier_eval.py",
+    "line": 10,
+    "environment": "DAVID_OS_LEGACY_YOUTUBE_DOSSIER_EVAL_MIM",
+    "yaml_key": "legacy_youtube_dossier_eval_mim",
+    "default": "_local/MIM"
+  },
+  {
+    "file": "tools/codex-script-hub/script_hub.py",
+    "line": 765,
+    "environment": "DAVID_OS_LEGACY_SCRIPT_HUB_FILE_INTELLIGENCE_SYSTEM",
+    "yaml_key": "legacy_script_hub_file_intelligence_system",
+    "default": "_local/file-intelligence-system"
+  },
+  {
+    "file": "tools/codex-script-hub/script_hub.py",
+    "line": 98,
+    "environment": "DAVID_OS_LEGACY_SCRIPT_HUB_ORGANIZE",
+    "yaml_key": "legacy_script_hub_organize",
+    "default": "_local/organize"
+  },
+  {
+    "file": "tools/filetagger/salvaged/chi_classifier.py",
+    "line": 18,
+    "environment": "DAVID_OS_LEGACY_CHI_CLASSIFIER_THEOPHYSICS",
+    "yaml_key": "legacy_chi_classifier_theophysics",
+    "default": "_local/THEOPHYSICS"
+  }
+]

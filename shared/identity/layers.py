@@ -31,7 +31,9 @@ def derive_uuid(root_uuid: str | uuid.UUID, category: str, key: str) -> str:
 
 def build_envelope(root_uuid: str | uuid.UUID | None = None,
                    human_id: str | None = None) -> dict[str, Any]:
-    root = normalize_uuid(root_uuid or uuid.uuid4())
+    if root_uuid is None:
+        raise ValueError('root_uuid must be supplied by the identity registry')
+    root = normalize_uuid(root_uuid)
     identifiers = []
     if human_id:
         identifiers.append({"order": 10, "scheme": "human_canonical_id", "value": human_id,

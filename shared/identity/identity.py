@@ -8,7 +8,9 @@ import json, re, sqlite3
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-OFFICIAL_REGISTRY = Path("D:/theophysics-data/registry/document_registry.sqlite")  # read-only for apps
+from shared.identity.registry import DEFAULT_PATH
+import os
+OFFICIAL_REGISTRY = Path(os.environ.get("DAVID_OS_REGISTRY", DEFAULT_PATH))  # read-only for apps
 DOC_ID = re.compile(r"^(?P<series>[A-Z]{3,5})\.(?P<pos>[0-9]{2})\.(?P<slug>[A-Z0-9]+)$")
 ARTIFACT_ROLES = {
     "source", "source.markdown", "source.html", "html.blue", "html.site", "render.blue", "render.site",
@@ -28,9 +30,16 @@ def position_kind(pos: int) -> str:
 
 
 def parse_document_id(doc_id: str) -> dict:
-    m = DOC_ID.match(doc_id)
+    from shared.identity.registry import document_id
+    current = re.fullmatch(r'(?P<series>[A-Z]{3,5})\.(?P<pos>[0-9]{2})_(?P<title>.+)', doc_id)
+    if current:
+        position = int(current['pos'])
+        document_id(current['series'], position, current['title'])
+        return {'series': current['series'], 'position': position, 'slug': current['title'], 'kind': position_kind(position)}
+    # Dotted IDs remain readable as historical aliases, not a second issuer.
+    m = DOC_ID.fullmatch(doc_id)
     if not m:
-        raise ValueError(f"not SERIES.POSITION.SLUG: {doc_id!r}")
+        raise ValueError(f"not a registry ID or legacy dotted alias: {doc_id!r}")
     pos = int(m["pos"])
     return {"series": m["series"], "position": pos, "slug": m["slug"], "kind": position_kind(pos)}
 

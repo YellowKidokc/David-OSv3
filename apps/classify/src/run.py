@@ -17,10 +17,11 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 SRC = Path(__file__).resolve().parent
-sys.path.insert(0, str(SRC / "engines" / "fis"))
+sys.path.insert(0, str(SRC.parents[2]))
 sys.path.insert(0, str(SRC / "engines" / "chi"))
-import fis_classifier  # noqa: E402
+from fis import fis_classifier  # noqa: E402
 import chi_classifier  # noqa: E402
+from shared.identity.registry import IdentityRegistry  # noqa: E402
 import subprocess  # noqa: E402
 import tempfile  # noqa: E402
 
@@ -53,6 +54,8 @@ def run_lexicon(paths: list[Path], ignore_frontmatter: bool = False) -> list[dic
             recs += [json.loads(l) for l in out.read_text(encoding="utf-8").splitlines() if l.strip()]
     for r in recs:
         r.pop("cache_key", None)
+        reference = IdentityRegistry().reference(r["source_path"])
+        r.update(registry_uuid=reference["uuid7"], registry_id=reference["registry_id"])
     return recs
 
 APP_VERSION = "0.1.0"
@@ -102,6 +105,8 @@ def classify_paths(paths: list[Path], engine: str = "fis", allow_ai: bool = Fals
                "created_at": now, "source_path": str(p), "classifier": engine}
         try:
             rec["sha256"] = sha256_file(p)
+            reference = IdentityRegistry().reference(p)
+            rec.update(registry_uuid=reference["uuid7"], registry_id=reference["registry_id"])
             labels, evidence, raw = run_fis(p, allow_ai) if engine == "fis" else run_chi(p)
             low = min((l["confidence"] for l in labels), default=0) < 0.45
             rec.update(status="needs_review" if low else "ok", labels=labels, evidence=evidence, raw=raw)

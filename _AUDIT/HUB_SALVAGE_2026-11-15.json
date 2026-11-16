@@ -1,0 +1,283 @@
+{
+  "source": "https://github.com/YellowKidokc/file-intelligence-hub",
+  "commit": "14f6708606c744d6277977f093ecfa844d0f7efd",
+  "files": [
+    {
+      "source": "file_intelligence_hub/__init__.py",
+      "owner": "hub/__init__.py",
+      "source_sha256": "e5ce237761081eb8cc7fc992b23b3500cbd419a58357e2afdf6373e8e271cb38",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/api/__init__.py",
+      "owner": "hub/api/__init__.py",
+      "source_sha256": "9f3c752ac8986a52ff62e5ca13a69c5bc0e3e5f966320d3e8b883260ed20579e",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/api/app.py",
+      "owner": "hub/api/app.py",
+      "source_sha256": "8409b325d9cd16aebdd191267a7eeb3265a9c5f366fb4f35e2586bb626719d41",
+      "comparison": "canonical includes extensions or guarded replacements"
+    },
+    {
+      "source": "file_intelligence_hub/api/routes_commands.py",
+      "owner": "hub/api/routes_commands.py",
+      "source_sha256": "ba4c02d2c2c68da4017909d101ba39beaf5d5120b699c9a561ea770a26601718",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/api/routes_file_actions.py",
+      "owner": "hub/api/routes_file_actions.py",
+      "source_sha256": "5e5987b01f5e409017cd92c351bdb7023973219260053c9cfc6c5226669fc097",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/api/routes_intelligence.py",
+      "owner": "hub/api/routes_intelligence.py",
+      "source_sha256": "d894b2e80061f8d5ccf9abe5e07abf303edbef75c6308e7fdbaacba431bad62f",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/api/routes_jobs.py",
+      "owner": "hub/api/routes_jobs.py",
+      "source_sha256": "8b8e392d95aac1a466452a4264b1609a28f122044b745a01f9026f5a43bca064",
+      "comparison": "canonical includes extensions or guarded replacements"
+    },
+    {
+      "source": "file_intelligence_hub/api/routes_memory.py",
+      "owner": "hub/api/routes_memory.py",
+      "source_sha256": "8439d10a7d43ea57fc2a6ef5fd176bb93151e0525204bdf7c3b66d808cf8b630",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/api/routes_nodes.py",
+      "owner": "hub/api/routes_nodes.py",
+      "source_sha256": "7da2e3a889c84143726594deb5eaf65732f0a6b6e90061d95c13e9ad46e9cb92",
+      "comparison": "canonical includes extensions or guarded replacements"
+    },
+    {
+      "source": "file_intelligence_hub/api/routes_top_of_mind.py",
+      "owner": "hub/api/routes_top_of_mind.py",
+      "source_sha256": "aada4bd2cca1bcea0ee126b59dd8277b6f3953108a7c0f0000b8d3f232ec77bc",
+      "comparison": "canonical includes extensions or guarded replacements"
+    },
+    {
+      "source": "file_intelligence_hub/cli.py",
+      "owner": "hub/cli.py",
+      "source_sha256": "0450fe232eeb1c4be8e6be7f0b3ff0052a9d688377e128b356a438044a31809a",
+      "comparison": "canonical includes extensions or guarded replacements"
+    },
+    {
+      "source": "file_intelligence_hub/config/__init__.py",
+      "owner": "hub/config/__init__.py",
+      "source_sha256": "709c4fd9d686292903bb6040542a48393a563c1f438281e804e8f289ae9c47cc",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/config/folder_profiles.py",
+      "owner": "hub/config/folder_profiles.py",
+      "source_sha256": "cbbb9975543a2a877f5447d2913675288162abec66e3ce614a39f1546222b104",
+      "comparison": "canonical includes extensions or guarded replacements"
+    },
+    {
+      "source": "file_intelligence_hub/core/__init__.py",
+      "owner": "hub/core/__init__.py",
+      "source_sha256": "9f3c752ac8986a52ff62e5ca13a69c5bc0e3e5f966320d3e8b883260ed20579e",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/core/job_manager.py",
+      "owner": "hub/core/job_manager.py",
+      "source_sha256": "b7c3e68abda911993f29588c2761219bd37666fcb8cf2b542d44bfcb28baa862",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/core/review_gate.py",
+      "owner": "hub/core/review_gate.py",
+      "source_sha256": "a067f445364204fbf0117909f3db09f2e9c7f80b65b83bcf27b583a851e75fca",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/intelligence/__init__.py",
+      "owner": "hub/intelligence/__init__.py",
+      "source_sha256": "890b4731c3c2e51c72b65722511d10822c32ca2bd2a4c918b5e03ce509f52446",
+      "comparison": "canonical includes extensions or guarded replacements"
+    },
+    {
+      "source": "file_intelligence_hub/intelligence/file_feature_builder.py",
+      "owner": "hub/intelligence/file_feature_builder.py",
+      "source_sha256": "c6599674cce9e65aa03abd95bce050403c836265b1b8bb33a8d3c5ac50aa4bfe",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/intelligence/folder_feature_builder.py",
+      "owner": "hub/intelligence/folder_feature_builder.py",
+      "source_sha256": "6ddc0a1485e45a8079c2100d01c0dc3bf63961ea493ab571719e7430ccb2f58e",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/rules/__init__.py",
+      "owner": "hub/rules/__init__.py",
+      "source_sha256": "9f3c752ac8986a52ff62e5ca13a69c5bc0e3e5f966320d3e8b883260ed20579e",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/rules/thresholds.py",
+      "owner": "hub/rules/thresholds.py",
+      "source_sha256": "0f10bdcca8831f5a8d599ab86bacbf02d9d3c774e9e26bd27123ee0fcfe016da",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/services/__init__.py",
+      "owner": "hub/services/__init__.py",
+      "source_sha256": "c4a685130fbac4f5fd7b26b4033ebb846b80fd2701e965625c60a1ec423d75f2",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/services/node_health.py",
+      "owner": "hub/services/node_health.py",
+      "source_sha256": "c5f2006a599b0891efc7aebf5a70d5c8a3d5bafb456b31205fd7e0a0d0d5bd3b",
+      "comparison": "canonical includes extensions or guarded replacements"
+    },
+    {
+      "source": "file_intelligence_hub/storage/__init__.py",
+      "owner": "hub/storage/__init__.py",
+      "source_sha256": "9f3c752ac8986a52ff62e5ca13a69c5bc0e3e5f966320d3e8b883260ed20579e",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/storage/db.py",
+      "owner": "hub/storage/db.py",
+      "source_sha256": "2505f1ee952297bc67a1acdc3904d86e740e2e4bdcf45b8ee25704cfbfa5752d",
+      "comparison": "canonical includes extensions or guarded replacements"
+    },
+    {
+      "source": "file_intelligence_hub/storage/intelligence_repo.py",
+      "owner": "hub/storage/intelligence_repo.py",
+      "source_sha256": "2ce15e66cb21c30212ee17814ca124bb2eac95cc6922d15058499998c1aa0fde",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/storage/job_repo.py",
+      "owner": "hub/storage/job_repo.py",
+      "source_sha256": "ef7a3e683aa59861f0df7f42ee2949ab79237d98384f8a6017aa371421e29f8d",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/storage/memory_repo.py",
+      "owner": "hub/storage/memory_repo.py",
+      "source_sha256": "971290eedf43485ac4f697f14f81628ef31c4b16998fbb446be21b0325176e36",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/storage/node_repo.py",
+      "owner": "hub/storage/node_repo.py",
+      "source_sha256": "8855ba206b99d610bd6d3a18f9999bada9dc956b9d98b37211bfb63db692ea74",
+      "comparison": "canonical includes extensions or guarded replacements"
+    },
+    {
+      "source": "file_intelligence_hub/storage/top_of_mind_repo.py",
+      "owner": "hub/storage/top_of_mind_repo.py",
+      "source_sha256": "45609da9bc575a8d4ef1349644de6228e55f109c9aef11322e4a91aca3d65c5b",
+      "comparison": "canonical includes extensions or guarded replacements"
+    },
+    {
+      "source": "file_intelligence_hub/watchers/__init__.py",
+      "owner": "hub/watchers/__init__.py",
+      "source_sha256": "9f3c752ac8986a52ff62e5ca13a69c5bc0e3e5f966320d3e8b883260ed20579e",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/watchers/event_normalizer.py",
+      "owner": "hub/watchers/event_normalizer.py",
+      "source_sha256": "493308a2378df4e0ddd07afb49c76747e1f4f2414789632e0f07ba2bc779384e",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/watchers/native.py",
+      "owner": "hub/watchers/native.py",
+      "source_sha256": "97bfb88b421875ad71bc21ec31423c7a084cd5e9529815ab2773dbe940ed938e",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/watchers/runner.py",
+      "owner": "hub/watchers/runner.py",
+      "source_sha256": "726b83e3408e2416193c6fc78ce336c02bd0e461f7d17ea126fa7c1493d75953",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/workers/__init__.py",
+      "owner": "hub/workers/__init__.py",
+      "source_sha256": "9f3c752ac8986a52ff62e5ca13a69c5bc0e3e5f966320d3e8b883260ed20579e",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/workers/asset_pair_worker.py",
+      "owner": "hub/workers/asset_pair_worker.py",
+      "source_sha256": "8ac2bae8bcf7f9d627928f4736016ff293f6273550c383821ad952b8f948ba1a",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/workers/classify_worker.py",
+      "owner": "hub/workers/classify_worker.py",
+      "source_sha256": "a80548505206df520559eb353d1a10c15bbe75e8bf36bf683a929dfcea9b081f",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/workers/command_worker.py",
+      "owner": "hub/workers/command_worker.py",
+      "source_sha256": "8c4038156783993b3d1d655134b7bd9545adbc4fa497c28a6e219838b74dfeb9",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/workers/embedding_worker.py",
+      "owner": "hub/workers/embedding_worker.py",
+      "source_sha256": "18f36f0dc61fa2399435a442a73987e93a55997de6bc9563fad134209a8a6576",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/workers/file_action_worker.py",
+      "owner": "hub/workers/file_action_worker.py",
+      "source_sha256": "04b14e5eca986bd7e03d7c289f62fd4c643eecfda97a12c56a485bcba661a102",
+      "comparison": "canonical includes extensions or guarded replacements"
+    },
+    {
+      "source": "file_intelligence_hub/workers/folder_summary_worker.py",
+      "owner": "hub/workers/folder_summary_worker.py",
+      "source_sha256": "63e7db56e79c3ddcc7088a5b845fc0104f872e6de900efe9944dc89ff28fe37d",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/workers/hash_worker.py",
+      "owner": "hub/workers/hash_worker.py",
+      "source_sha256": "c2091d20677204fdb6403ae84adcafe6499a9dcf11b9f720ca8d7b38c7582f91",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/workers/parsers.py",
+      "owner": "hub/workers/parsers.py",
+      "source_sha256": "8d737953802869d8e69de806220ecc841967c80147b6af68358514eaf00153e0",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/workers/rename_worker.py",
+      "owner": "hub/workers/rename_worker.py",
+      "source_sha256": "bfd48e6b9d9075d9340b7d19e2093aa265e2002d931c5ce2c6585e8cce95d97b",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/workers/review_worker.py",
+      "owner": "hub/workers/review_worker.py",
+      "source_sha256": "de588e6b039716faa99c3bcbf9cd9aadb861086d59ae6bd5a7cd6b734ce01714",
+      "comparison": "identical after package rename"
+    },
+    {
+      "source": "file_intelligence_hub/workers/runner.py",
+      "owner": "hub/workers/runner.py",
+      "source_sha256": "41ae4e8ff35458eaf66340778200265cfaba4031828f583b9061f61eda6f72e9",
+      "comparison": "identical after package rename"
+    }
+  ],
+  "review": "All Python module paths exist in hub/. Differences are port default, richer node/request fields, added routing/schema/storage features, and guarded file-action replacements. Legacy destructive delete is deliberately not restored. No unique missing runtime module identified."
+}

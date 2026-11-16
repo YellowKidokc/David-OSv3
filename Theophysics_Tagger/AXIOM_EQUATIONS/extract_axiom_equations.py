@@ -2,6 +2,7 @@
 legacy sequential record's Formal Expression) into one Excel workbook and one
 long Markdown paper. Read-only on the source folders."""
 import re
+import os
 import sys
 from pathlib import Path
 
@@ -9,8 +10,7 @@ from openpyxl import Workbook
 from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
 
-SRC = Path(r"C:\Users\David\Documents\faiththruphysics.com\Canon\AXIOM\LIVE"
-           r"\10_VAULTS~00_ Production~21_AXIOM NODES")
+SRC = Path(os.environ.get("THEOPHYSICS_AXIOM_SOURCE", Path(__file__).resolve().parents[1] / "sources" / "axiom"))
 LEGACY = SRC / "90_LEGACY_SEQUENTIAL_PROJECTIONS__0001_TO_0009"
 OUT = Path(__file__).parent
 

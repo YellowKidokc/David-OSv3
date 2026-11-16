@@ -6,7 +6,7 @@ Prints where the canonical app lives and forwards the same CLI arguments to it.
 import runpy, sys
 from pathlib import Path
 
-CANONICAL = Path(r"D:\GitHub\David-OSv3\apps\fingerprint\src\fingerprint.py")
+CANONICAL = (Path(__file__).resolve().parents[1] / 'apps/fingerprint/src/fingerprint.py')
 print(f"[moved] fingerprint now lives at {CANONICAL.parent.parent}  (forwarding...)", file=sys.stderr)
 if __name__ == "__main__":
     sys.path.insert(0, str(CANONICAL.parent))

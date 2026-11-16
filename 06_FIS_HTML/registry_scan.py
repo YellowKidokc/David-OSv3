@@ -9,6 +9,8 @@ Read-only on the scanned folder. It writes exactly one file: the page.
 One record per paper id. A step is marked done only when a receipt was found on disk.
 Standard library only. Written by Claude with David, 2026-11-11.
 """
+from shared.runtime_config import path_setting as _portable_path
+from pathlib import Path as _PortablePath
 import argparse, datetime, hashlib, json, os, re, sys
 from pathlib import Path
 
@@ -495,7 +497,7 @@ def main():
     ap = argparse.ArgumentParser(description="Build the registry page for a folder of papers.")
     ap.add_argument("folder")
     ap.add_argument("--out", help="Where to write the page. Default: .\\out\\<folder name>_REGISTRY.html")
-    ap.add_argument("--fis", default=r"D:\GitHub\David-OSv3\file-intelligence-system",
+    ap.add_argument("--fis", default=str(_portable_path('DAVID_OS_LEGACY_REGISTRY_SCAN_FILE_INTELLIGENCE_SYSTEM', 'legacy_registry_scan_file_intelligence_system', _PortablePath(__file__).resolve().parents[1] / '_local/file-intelligence-system')),
                     help="Folder holding the FIS engine (fis_folder_memory.py). Supplies Master Equation names and keywords.")
     a = ap.parse_args()
     root = Path(a.folder)

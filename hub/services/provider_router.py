@@ -41,7 +41,7 @@ class Provider:
     def resolved_key(self) -> str:
         if self.key_env:
             return os.environ.get(self.key_env, "").strip()
-        return self.key.strip()
+        return ""
 
     @property
     def has_key(self) -> bool:
@@ -76,13 +76,15 @@ def _save_raw(data: dict[str, Any]) -> None:
 
 
 def _to_provider(raw: dict[str, Any]) -> Provider:
+    if raw.get("key"):
+        raise ValueError("Provider credentials must come from the key_env environment variable")
     return Provider(
         id=raw["id"],
         label=raw.get("label", raw["id"]),
         base_url=raw.get("base_url", "").rstrip("/"),
         model=raw.get("model", "auto"),
         key_env=raw.get("key_env", ""),
-        key=raw.get("key", ""),
+        key="",
         priority=raw.get("priority", 100),
         enabled=raw.get("enabled", True),
         auto_approved=raw.get("auto_approved", False),
@@ -98,7 +100,6 @@ def _from_provider(p: Provider) -> dict[str, Any]:
         "base_url": p.base_url,
         "model": p.model,
         "key_env": p.key_env,
-        "key": p.key,
         "priority": p.priority,
         "enabled": p.enabled,
         "auto_approved": p.auto_approved,

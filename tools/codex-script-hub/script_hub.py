@@ -8,6 +8,8 @@ and provides quick actions for running, opening, pinning, and copying paths.
 """
 
 from __future__ import annotations
+from shared.runtime_config import path_setting as _portable_path
+from pathlib import Path as _PortablePath
 
 import json
 import os
@@ -95,7 +97,7 @@ class ScriptHubConfig:
         for candidate, label in [
             (APP_DIR / "script_dump", "Script Dump"),
             (APP_DIR, "Project Root"),
-            (Path(r"D:\DONT TOUCH BOOT UP\organize"), "Organize"),
+            (Path(str(_portable_path('DAVID_OS_LEGACY_SCRIPT_HUB_ORGANIZE', 'legacy_script_hub_organize', _PortablePath(__file__).resolve().parents[2] / '_local/organize'))), "Organize"),
         ]:
             if candidate.exists():
                 resolved = str(candidate.resolve())
@@ -762,7 +764,7 @@ class ScriptHub(QMainWindow):
         folder = QFileDialog.getExistingDirectory(self, "Folder to run the FIS pipeline on")
         if not folder:
             return
-        fis = Path(r"D:\GitHub\David-OS\file-intelligence-system")
+        fis = Path(str(_portable_path('DAVID_OS_LEGACY_SCRIPT_HUB_FILE_INTELLIGENCE_SYSTEM', 'legacy_script_hub_file_intelligence_system', _PortablePath(__file__).resolve().parents[2] / '_local/file-intelligence-system')))
         scanner = fis / "fis_folder_memory.py"
         if not scanner.exists():
             QMessageBox.warning(self, "FIS missing", f"Cannot find {scanner}")

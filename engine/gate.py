@@ -14,7 +14,7 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass, field
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 
 ALLOW, PREVIEW, ASK, BLOCK, DROP = "allow", "preview", "ask", "block", "drop"
 _RANK = {ALLOW: 0, PREVIEW: 1, ASK: 2, BLOCK: 3}
@@ -27,8 +27,8 @@ SECRET_NAMES = {".env", ".env.local", ".env.production", ".env.development",
 SECRET_SUFFIXES = (".pem", ".key", ".pfx", ".p12")
 PROJECT_MARKERS = {"package.json", "pyproject.toml", "requirements.txt", "cargo.toml",
                    "pom.xml", "build.gradle", ".git", ".gitignore", "node_modules"}
-SYSTEM_PREFIXES = ("c:\\windows", "c:\\program files", "c:\\program files (x86)",
-                   "/c/windows", "/etc", "/usr", "/bin", "/sbin")
+SYSTEM_PREFIXES = ("/etc", "/usr", "/bin", "/sbin")
+WINDOWS_SYSTEM_NAMES = {"windows", "program files", "program files (x86)"}
 
 _RULE_JSONS = ("guardrails.v1.json", "actions_master.v1.json",
                "action_conditions.v1.json", "compatibility_matrix.v1.json",
@@ -51,8 +51,14 @@ def _norm(p: str) -> str:
 
 
 def _is_system(p: str) -> bool:
-    n = _norm(p)
-    return any(n.startswith(s) for s in SYSTEM_PREFIXES)
+    windows = PureWindowsPath(p)
+    if windows.drive and len(windows.parts) > 1 and windows.parts[1].casefold() in WINDOWS_SYSTEM_NAMES:
+        return True
+    normalized = str(p).replace("\\", "/").casefold().rstrip("/")
+    parts = normalized.split("/")
+    if len(parts) >= 3 and len(parts[1]) == 1 and parts[1].isalpha() and parts[2] in WINDOWS_SYSTEM_NAMES:
+        return True
+    return any(normalized == prefix or normalized.startswith(prefix + "/") for prefix in SYSTEM_PREFIXES)
 
 
 def _is_secret(p: str) -> bool:

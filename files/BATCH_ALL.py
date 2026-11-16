@@ -13,6 +13,8 @@ This script does NOT run 03_CLASSIFY automatically — classification needs
 human rulings. It queues folders for the review GUI instead.
 """
 from __future__ import annotations
+from shared.runtime_config import path_setting as _portable_path
+from pathlib import Path as _PortablePath
 
 import json
 import subprocess
@@ -28,13 +30,13 @@ BATCH_LOG = DAVIDOSV3 / "data" / "batch_runs"
 # Default source folders — everything that holds papers
 DEFAULT_FOLDERS = [
     # Vault
-    r"O:\_Theophysics_v5",
+    str(_portable_path('DAVID_OS_LEGACY_BATCH_ALL_THEOPHYSICS_V5', 'legacy_batch_all_theophysics_v5', _PortablePath(__file__).resolve().parents[1] / '_local/_Theophysics_v5')),
     # Production
-    r"C:\Users\David\Documents\faiththruphysics.com",
+    str(_portable_path('DAVID_OS_LEGACY_BATCH_ALL_FAITHTHRUPHYSICS_COM', 'legacy_batch_all_faiththruphysics_com', _PortablePath(__file__).resolve().parents[1] / '_local/faiththruphysics.com')),
     # Canon builds
-    r"C:\theophysics",
+    str(_portable_path('DAVID_OS_LEGACY_BATCH_ALL_THEOPHYSICS', 'legacy_batch_all_theophysics', _PortablePath(__file__).resolve().parents[1] / '_local/theophysics')),
     # Evidence chain
-    r"D:\GitHub\David-OSv3\_FIS_ROOT_SIDECAR_ARCHIVE\EVIDENCE",
+    str(_portable_path('DAVID_OS_LEGACY_BATCH_ALL_EVIDENCE', 'legacy_batch_all_evidence', _PortablePath(__file__).resolve().parents[1] / '_local/EVIDENCE')),
     # Desktop working folders (add as needed)
     # r"H:\Desktop 2\MASTER_EQUATION_TEST",
 ]

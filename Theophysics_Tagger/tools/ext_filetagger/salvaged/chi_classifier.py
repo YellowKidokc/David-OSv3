@@ -10,12 +10,13 @@ Chi classification tells you WHAT IT'S FOR.
 """
 
 import re
+import os
 from collections import defaultdict
 from pathlib import Path
 from typing import Optional
 
 # Root path for the Master Equation File System
-MEQS_ROOT = r"C:\Users\lowes\Desktop\Theophysics-OS-clone\Master_Equation_File_System_Starter\THEOPHYSICS"
+MEQS_ROOT = os.environ.get("THEOPHYSICS_MEQS_ROOT", str(Path(__file__).resolve().parents[3] / "sources"))
 
 
 # ─── CHI FACTOR DEFINITIONS ──────────────────────────────────────────────────

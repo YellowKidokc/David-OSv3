@@ -1,0 +1,49 @@
+name: Consolidation contracts and acceptance
+on:
+  pull_request:
+  push:
+    branches: ['cleanup/v3-consolidation']
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    env:
+      QT_QPA_PLATFORM: offscreen
+      PREDICTION_GUI_ROOT: ${{ github.workspace }}/work/companion-gui
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: YellowKidokc/Prediction_GUI
+          ref: cleanup/v3-consolidation
+          path: work/companion-gui
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/bin
+            ~/.cargo/registry
+          key: ${{ runner.os }}-ripgrep-all-0.10.9
+      - name: Install test prerequisites
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xvfb poppler-utils ripgrep pandoc libegl1 libgl1 libopengl0 libxkbcommon-x11-0 libxcb-cursor0
+          command -v rga || cargo install ripgrep_all --version 0.10.9 --locked
+          rga --version
+          rg --version
+          python -m pip install -e '.[test]'
+          python -m pip install -r work/companion-gui/requirements.txt
+      - name: Run repository tests and real companion acceptance
+        run: xvfb-run -a python -m pytest -q
+      - name: Run existing identity and classifier contracts
+        run: python -m pytest -q shared/identity apps/classify/tests
+      - name: Verify companion review and inference compatibility
+        working-directory: work/companion-gui
+        run: |
+          python -m unittest discover -s tests -p 'test_*.py'
+          python tests/smoke.py
+      - name: Build both distributions
+        run: |
+          python -m pip wheel --no-deps . --wheel-dir work/dist
+          python -m pip wheel --no-deps ./fis --wheel-dir work/dist-fis

@@ -67,11 +67,23 @@ class API:
             return service.configure_root(s, preview['root'], preview['enable_html'])
         if action == 'approve-apply':
             # Separate approval receipt and executor, one visible browser action.
-            token = transaction.approve(s, data['plan'], data['hash'], data['rows'])
+            from fis.approval import record_decision, authorize
+            plan = s.get('plan', data['plan'])
+            transaction.verify_plan(plan)
+            if plan['hash'] != data['hash']:
+                raise ValueError('Plan changed; reload before approving')
+            receipt = record_decision(plan, data['rows'], 'approved')
+            token = authorize(s, receipt)
             return transaction.apply(s, data['plan'], token)
         if action == 'edit-plan':
             return service.edit_plan(s, data['plan'], data['hash'], data['edits'])
         if action == 'reject':
+            from fis.approval import record_decision
+            plan = s.get('plan', data['plan'])
+            transaction.verify_plan(plan)
+            if plan['hash'] != data['hash']:
+                raise ValueError('Plan changed; reload before rejecting')
+            record_decision(plan, data['rows'], 'rejected', note=data.get('reason', 'Not my preferred name'))
             return review.reject(s, data['plan'], data['hash'], data['rows'], data.get('reason', 'Not my preferred name'))
         if action == 'rollback-preview':
             value = transaction.rollback_preview(s, data['run'], data.get('folder'))
@@ -188,8 +200,7 @@ def make_server(store, port=43107):
                     if target and desktop != home / 'Desktop' and Path(target) == home / 'Desktop':
                         target = str(desktop)
                     shortcuts = [{'name': n, 'path': str(p)} for n, p in
-                                 (('Home', home), ('Desktop', desktop), ('Documents', documents),
-                                  ('NAS Desktop', Path(r'\\192.168.2.50\h_hp\Desktop')))
+                                 (('Home', home), ('Desktop', desktop), ('Documents', documents))
                                  if p.is_dir()]
                     shortcuts += [{'name': f'{d}:\\', 'path': f'{d}:\\'} for d in 'CDEFGHIJKLMNOPQRSTUVWXYZ'
                                   if os.path.isdir(f'{d}:\\')]

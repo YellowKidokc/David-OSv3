@@ -21,11 +21,11 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-FIS = Path(r"D:\GitHub\David-OS\file-intelligence-system")
+FIS = Path(__file__).resolve().parents[2]
 GUI = FIS / "approval-gui"
 sys.path.insert(0, str(FIS))
 sys.path.insert(0, str(FIS.parent / "engine"))
-from theophysics_taxonomy import build_filename  # noqa: E402
+from engine.theophysics_taxonomy import build_filename  # noqa: E402
 
 OUTPUT_NAME = re.compile(r" · ([0-9]+_[A-Z0-9_]+|ANALYSIS|CKG|STORIES)\.md$")
 STATUS = {"RUN": "DR", "RWK": "DR", "API": "RV", "CAN": "FN"}       # fistag stage -> FIS lifecycle status
@@ -33,7 +33,7 @@ STATUS = {"RUN": "DR", "RWK": "DR", "API": "RV", "CAN": "FN"}       # fistag sta
 
 def engine():
     try:
-        from preference.ensemble import get_ensemble
+        from engine.preference.ensemble import get_ensemble
         return get_ensemble()
     except Exception as e:  # the engines are optional; proposals still go in without scores
         print(f"(prediction engines not loaded: {e})")

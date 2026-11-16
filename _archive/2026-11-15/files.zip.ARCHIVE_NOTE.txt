@@ -1,0 +1,1 @@
+Historical root package or workstation shortcut; retained as provenance, not an active entry point.

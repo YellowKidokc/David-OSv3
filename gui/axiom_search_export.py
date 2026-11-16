@@ -8,6 +8,8 @@ Run:  python D:\\GitHub\\David-OSv3\\gui\\axiom_search_export.py
 Deps: pip install PySide6 --break-system-packages
 """
 from __future__ import annotations
+from shared.runtime_config import path_setting as _portable_path
+from pathlib import Path as _PortablePath
 
 import csv
 import json
@@ -36,8 +38,8 @@ REGISTRY_DB = FIS_DIR / "fis_folder_memory.sqlite"
 # Fallback if running from a different location
 if not REGISTRY_DB.exists():
     for candidate in [
-        Path(r"D:\GitHub\David-OSv3\file-intelligence-system\fis_folder_memory.sqlite"),
-        Path(r"D:\GitHub\David-OS\file-intelligence-system\fis_folder_memory.sqlite"),
+        Path(str(_portable_path('DAVID_OS_LEGACY_AXIOM_SEARCH_EXPORT_FIS_FOLDER_MEMORY_SQLITE', 'legacy_axiom_search_export_fis_folder_memory_sqlite', _PortablePath(__file__).resolve().parents[1] / '_local/fis_folder_memory.sqlite'))),
+        Path(str(_portable_path('DAVID_OS_LEGACY_AXIOM_SEARCH_EXPORT_FIS_FOLDER_MEMORY_SQLITE', 'legacy_axiom_search_export_fis_folder_memory_sqlite', _PortablePath(__file__).resolve().parents[1] / '_local/fis_folder_memory.sqlite'))),
     ]:
         if candidate.exists():
             REGISTRY_DB = candidate

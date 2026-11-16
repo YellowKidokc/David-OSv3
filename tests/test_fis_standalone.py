@@ -135,10 +135,20 @@ class Independence(unittest.TestCase):
             tree = ast.parse(path.read_text(encoding='utf-8'))
             for node in ast.walk(tree):
                 if isinstance(node, ast.Import): names = [x.name for x in node.names]
-                elif isinstance(node, ast.ImportFrom): names = [node.module or '']
+                elif isinstance(node, ast.ImportFrom):
+                    names = [] if node.level else [node.module or '']
                 else: names = []
                 for name in names:
-                    self.assertIn(name.split('.')[0], sys.stdlib_module_names | {'fis', '__future__'}, (path, name))
+                    # Consolidated legacy adapters retain explicit optional integrations.
+                    # Core FIS still permits only stdlib + fis. Shared naming is
+                    # packaged with FIS; no dynamic module/path loading is allowed.
+                    optional = {
+                        'fis_namer.py': {'theophysics_taxonomy', 'fis_preference_engine', 'fis_enricher'},
+                        'fis_classifier.py': {'pypdf', 'docx'},
+                        'fis_folder_memory.py': {'engine'},
+                    }
+                    allowed = sys.stdlib_module_names | {'fis', '__future__'} | optional.get(path.name, set())
+                    self.assertTrue(name in {'shared.meq_namer', 'shared.identity.registry', 'shared.review', 'prediction.naming.base', 'prediction.naming.features', 'prediction.naming.frequency', 'prediction.naming.markov_engine'} or name.split('.')[0] in allowed, (path, name))
                 if isinstance(node, ast.Call):
                     if isinstance(node.func, ast.Attribute):
                         self.assertNotIn(node.func.attr, {'unlink', 'rmtree', 'import_module', 'spec_from_file_location'}, path)
@@ -151,7 +161,11 @@ class Independence(unittest.TestCase):
     def test_isolated_package_without_repo(self):
         repo = Path(__file__).resolve().parents[1]
         with tempfile.TemporaryDirectory() as td:
-            shutil.copytree(repo/'fis', Path(td)/'fis', ignore=shutil.ignore_patterns('__pycache__'))
+            for package in ('fis', 'shared'):
+                shutil.copytree(repo/package, Path(td)/package, ignore=shutil.ignore_patterns('__pycache__', 'test_*.py'))
+            (Path(td)/'prediction').mkdir()
+            shutil.copy2(repo/'prediction/__init__.py', Path(td)/'prediction/__init__.py')
+            shutil.copytree(repo/'prediction/naming', Path(td)/'prediction/naming', ignore=shutil.ignore_patterns('__pycache__'))
             result = subprocess.run([sys.executable, '-m', 'fis', '--help'], cwd=td, capture_output=True, text=True,
                                     env={k:v for k,v in os.environ.items() if k != 'PYTHONPATH'})
             self.assertEqual(result.returncode, 0, result.stderr)
@@ -209,6 +223,11 @@ class Background(Foundation):
         self.assertFalse((self.root/'FIS.html').exists())
 
     def test_browser_real_api_host_token_approval_and_rollback(self):
+        from unittest.mock import patch
+        from shared.review import decision_receipt
+        gui_record = patch('fis.approval.record_decision', side_effect=lambda plan, rows, decision: decision_receipt(plan, rows, decision, 'David'))
+        gui_record.start()
+        self.addCleanup(gui_record.stop)
         from fis.web import make_server
         import threading
         import urllib.request

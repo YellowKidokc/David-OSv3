@@ -7,6 +7,8 @@ can be undone run-by-run. Rules: rename_rules.yaml (clue words), edited by hand.
     python renamer_gui.py ["S:\\PROCESSED"]
 """
 from __future__ import annotations
+from shared.runtime_config import path_setting as _portable_path
+from pathlib import Path as _PortablePath
 
 import queue
 import sys
@@ -29,7 +31,7 @@ FILTERS = ["All", "Checked", "Unchecked", "Flagged", "Low confidence (< 0.5)", "
 
 
 class Renamer(tk.Tk):
-    def __init__(self, folder: str = r"S:\PROCESSED"):
+    def __init__(self, folder: str = str(_portable_path('DAVID_OS_LEGACY_RENAMER_GUI_PROCESSED', 'legacy_renamer_gui_processed', _PortablePath(__file__).resolve().parents[2] / '_local/PROCESSED'))):
         super().__init__()
         self.title("03 · Renamer")
         self.geometry("1500x820")
@@ -303,4 +305,4 @@ class Renamer(tk.Tk):
 
 
 if __name__ == "__main__":
-    Renamer(sys.argv[1] if len(sys.argv) > 1 else r"S:\PROCESSED").mainloop()
+    Renamer(sys.argv[1] if len(sys.argv) > 1 else str(_portable_path('DAVID_OS_LEGACY_RENAMER_GUI_PROCESSED', 'legacy_renamer_gui_processed', _PortablePath(__file__).resolve().parents[2] / '_local/PROCESSED'))).mainloop()

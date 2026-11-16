@@ -29,7 +29,10 @@ class TopicGUITests(unittest.TestCase):
         (self.source / 'grace.txt').write_text('Charis and restoration')
         self.plan = plan_collection({'topic': 'grace', 'roots': [str(self.source)], 'synonyms': ['charis'],
                                      'extensions': ['.md', '.txt']}, progress=lambda _: None)
-        self.app = gui.TopicCollectionGUI()
+        try:
+            self.app = gui.TopicCollectionGUI()
+        except __import__('tkinter').TclError as exc:
+            self.skipTest(f'Tk display unavailable: {exc}')
         self.app.withdraw()
         self.addCleanup(self.app.destroy)
         self.app.load_plan(self.plan, self.base)

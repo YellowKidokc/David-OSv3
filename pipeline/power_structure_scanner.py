@@ -507,7 +507,7 @@ def scan_vault(vault_root: str, output_path: str = None):
 if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser(description="Scan Theophysics vault for power structure content")
-    parser.add_argument("--vault", default=r"O:\_Theophysics_v5", help="Vault root path")
+    parser.add_argument("--vault", required=True, help="Vault root path")
     parser.add_argument("--output", default=None, help="Output manifest path")
     args = parser.parse_args()
 

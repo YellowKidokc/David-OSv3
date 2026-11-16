@@ -1,12 +1,9 @@
 import openpyxl, sys
 sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
-files = [
-    r"\\192.168.2.50\brain\15_TEMPLATES\Master_EQ_Chain.xlsx",
-    r"\\192.168.2.50\brain\15_TEMPLATES\MASTER_EQUATION_WORKBOOK.xlsx",
-    r"\\192.168.2.50\brain\15_TEMPLATES\MATH_TRANSLATION_MASTER_FIXED.xlsx",
-    r"\\192.168.2.50\brain\15_TEMPLATES\MATH_TRANSLATION_TABLE_REAL.xlsx",
-]
+files = sys.argv[1:]
+if not files:
+    raise SystemExit("Supply workbook paths as command-line arguments")
 
 for fpath in files:
     try:

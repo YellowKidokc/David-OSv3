@@ -1,0 +1,62 @@
+{
+  "base_commit": "6b147281bfc0b109290306de3c1807af30d3fd30",
+  "before": {
+    "passed": 268,
+    "failed": 17
+  },
+  "after": {
+    "passed": 326,
+    "failed": 0,
+    "skipped": 3
+  },
+  "same_failure_set": false,
+  "namer_baseline_output_comparison": "identical: 40 full/short vectors, 80 keyword scoring inputs, 4 lossless addresses, 1 folder aggregate",
+  "wheel_isolation": "passed: standalone CLI, packaged legacy registry resources (36 fixture documents), nine packaged engines, and installed Tagger v3 scan outside source tree",
+  "initial_consolidation_after": {
+    "passed": 297,
+    "failed": 17
+  },
+  "baseline_failures_resolved": [
+    "tests/test_adapt_glossary.py::test_older_file_path_variant_maps_to_source_file",
+    "tests/test_codes_preview_usn.py::test_codes_lifecycle_and_separate_publication",
+    "tests/test_codes_preview_usn.py::test_dry_run_names_density_and_misspellings",
+    "tests/test_exact_search.py::test_real_literal_and_provenance",
+    "tests/test_exact_search.py::test_limit_and_no_matches",
+    "tests/test_exact_search.py::test_invalid_regex_reports_failure",
+    "tests/test_exact_search.py::test_api_auth_and_validation",
+    "tests/test_exact_search.py::test_pdf_docx_zip_sqlite",
+    "tests/test_file_cache.py::test_desktop_file_cache_upsert_and_search",
+    "tests/test_file_cache.py::test_file_cache_http_routes",
+    "tests/test_folder_profiles_extended.py::test_windows_case_insensitive_prefix_match",
+    "tests/test_memory_and_commands.py::test_command_line_job_captures_output",
+    "tests/test_packaging_and_cli.py::test_pyproject_constrains_package_discovery_and_scripts",
+    "tests/test_search_site_connection.py::test_hidden_files_are_explicit",
+    "tests/test_topic_collection_gui.py::TopicGUITests::test_background_search_uses_explicit_formats",
+    "tests/test_topic_collection_gui.py::TopicGUITests::test_deep_sources_become_flat_rows_with_hierarchy_retained",
+    "tests/test_topic_collection_gui.py::TopicGUITests::test_selection_preview_and_layout_change_invalidates_copy"
+  ],
+  "contract_suite": {
+    "passed": 14,
+    "skipped": 4
+  },
+  "gui_unit_tests": {
+    "before": 6,
+    "after": 9
+  },
+  "gui_existing_smoke": "passed (nine canonical engines)",
+  "paired_acceptance": "passed: real localhost GUI API, Stage 1 + v3 + FIS shared reference, explicit receipt, restart/apply/replay rejection/byte rollback",
+  "identity_recovery": "passed: former-path reuse, conflict preflight, file-move-before-registry-commit recovery",
+  "live_data_migration": "not performed; assignment importer defaults to dry-run",
+  "ci_verified": {
+    "linux_full_and_paired_run": "https://github.com/YellowKidokc/David-OSv3/actions/runs/43732839182",
+    "windows_fis_run": "https://github.com/YellowKidokc/David-OSv3/actions/runs/43732839309",
+    "gui_backend_run": "https://github.com/YellowKidokc/Prediction_GUI/actions/runs/43733020467"
+  },
+  "tested_code_commit": "9a86cfe67eac388bf81dbb956d0dcf34062ed121",
+  "paired_gui_commit": "3a0ee2be5c0d94fb58cbe2a20afac14cd6981708",
+  "linux_ci_root_suite": {
+    "passed": 329,
+    "failed": 0,
+    "skipped": 0
+  }
+}

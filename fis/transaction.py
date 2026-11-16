@@ -51,7 +51,8 @@ def selected_ops(plan, rows, run, home):
             continue
         if row['kind'] == 'rename':
             operations.append({'kind': 'move', 'src': row['path'], 'dst': row['target'],
-                               'hash': row['sha256'], 'folder': row['folder']})
+                               'hash': row['sha256'], 'folder': row['folder'],
+                               'registry_uuid': row.get('file', {}).get('registry_uuid')})
         elif row['kind'] == 'html':
             p = Path(row['path'])
             mirrored = Path(row['folder']).relative_to(plan['root'])
@@ -91,6 +92,8 @@ def preflight(store, plan, approval):
                 raise PermissionError('Rename must stay in its folder')
             if target.exists():
                 raise FileExistsError(target)
+            ref = r.get('file', {}).get('registry_uuid') or store.registry.reference(p)['uuid7']
+            store.registry.validate_relocation(p, target, ref)
             if not p.is_file() or sha256_file(p) != r['sha256']:
                 raise ValueError('Source changed after plan: '+str(p))
         else:
@@ -125,6 +128,8 @@ def apply(store, plan_id, token, fail_after=None):
         run = {'id': run_id, 'plan': plan_id, 'root': plan['root'], 'status': 'applying',
                'created': time.time(), 'approval': token, 'error': None}
         for seq, op in enumerate(operations):
+            if op['kind'] == 'move' and not gate.under(op['dst'], store.home) and not op.get('registry_uuid'):
+                op['registry_uuid'] = store.registry.reference(op['src'])['uuid7']
             op.update({'seq': seq, 'status': 'prepared'})
             store.op(run_id, seq, op)
         store.put('run', run_id, run)
@@ -141,6 +146,8 @@ def apply(store, plan_id, token, fail_after=None):
                     op['mtime_ns'], op['atime_ns'] = st.st_mtime_ns, st.st_atime_ns
                     store.op(run_id, seq, op)
                     _move(op['src'], op['dst'])
+                    if op.get('registry_uuid'):
+                        store.registry.relocate(op['src'], op['dst'], token=op['registry_uuid'])
                 else:
                     stage = store.home/'staging'/run_id/str(seq)
                     stage.parent.mkdir(parents=True, exist_ok=True)
@@ -205,6 +212,12 @@ def rollback_preview(store, run_id, folder=None):
         elif op['kind'] == 'move' and src is not None:
             conflicts.append({'path': op['src'], 'why': 'original path is occupied'})
         else:
+            if op.get('registry_uuid'):
+                try:
+                    store.registry.validate_relocation(op['dst'], op['src'], op['registry_uuid'], recovery=True)
+                except ValueError as error:
+                    conflicts.append({'path': op['src'], 'why': str(error)})
+                    continue
             state[op['dst']] = None
             if op['kind'] == 'move':
                 state[op['src']] = op['hash']
@@ -229,6 +242,8 @@ def undo(store, run_id, folder=None):
                 else:
                     dst = store.home/'quarantine'/run_id/str(op['seq'])/Path(op['dst']).name
                     _move(op['dst'], dst)
+            if op.get('registry_uuid'):
+                store.registry.relocate(op['dst'], op['src'], token=op['registry_uuid'])
             op['status'] = 'undone'
             store.op(run_id, op['seq'], op)
         run = store.get('run', run_id)

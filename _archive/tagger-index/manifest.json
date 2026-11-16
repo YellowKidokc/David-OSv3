@@ -1,0 +1,34 @@
+[
+  {
+    "source": "Theophysics_Tagger/02_INDEX/20260801-094043_paragraph_tags.csv",
+    "archive": "_archive/tagger-index/20260801-094043_paragraph_tags.csv.gz",
+    "bytes": 83774051,
+    "sha256": "1c658d23337a6520adaf7881e8689d9524e5949a957cb3d64cece162378dabe0",
+    "compressed_bytes": 19385716,
+    "archive_sha256": "7248465fc2a62cfda84ddb2827feb01b405d301f199830f8d05b6d5d412eac7f"
+  },
+  {
+    "source": "Theophysics_Tagger/02_INDEX/20260801-094043_sentence_tags.csv",
+    "archive": "_archive/tagger-index/20260801-094043_sentence_tags.csv.gz",
+    "bytes": 95316149,
+    "sha256": "ea05f283c3da1c587da6610b3bddab27fc0c07869bf1a736aacc02114ef43e8a",
+    "compressed_bytes": 19010538,
+    "archive_sha256": "a7dacd03035135f9248128222b13f085967c60dc4180c6abde573d9b875704ce"
+  },
+  {
+    "source": "Theophysics_Tagger/02_INDEX/20260801-095405_paragraph_tags.csv",
+    "archive": "_archive/tagger-index/20260801-095405_paragraph_tags.csv.gz",
+    "bytes": 43140889,
+    "sha256": "f7d7a4c8cfacf6122d0725a1f3df37be29162a2bbeaf292c4e015d5fb6378b1d",
+    "compressed_bytes": 10287771,
+    "archive_sha256": "12e3f602a9999e3f7a490bb8313cd9058eb7ca77dfd9ff4727992b92a143be8a"
+  },
+  {
+    "source": "Theophysics_Tagger/02_INDEX/20260801-095405_sentence_tags.csv",
+    "archive": "_archive/tagger-index/20260801-095405_sentence_tags.csv.gz",
+    "bytes": 47554295,
+    "sha256": "e69ceca13ea5377aa04c0f4515b1b81f81deead5ba3a4983d6efc737d6e08c47",
+    "compressed_bytes": 9909670,
+    "archive_sha256": "821b80d80d61792d44a701b52db04fac2e7ed47f34a68ac5aa12027b9016936f"
+  }
+]

@@ -8,6 +8,8 @@ This is the PRIMARY classification pass. Domain classification (THEOPHYSICS,
 DEVELOPMENT, etc.) is secondary — it tells you WHAT KIND of file it is.
 Chi classification tells you WHAT IT'S FOR.
 """
+from shared.runtime_config import path_setting as _portable_path
+from pathlib import Path as _PortablePath
 
 import re
 from collections import defaultdict
@@ -15,7 +17,7 @@ from pathlib import Path
 from typing import Optional
 
 # Root path for the Master Equation File System
-MEQS_ROOT = r"C:\Users\lowes\Desktop\Theophysics-OS-clone\Master_Equation_File_System_Starter\THEOPHYSICS"
+MEQS_ROOT = str(_portable_path('DAVID_OS_LEGACY_CHI_CLASSIFIER_THEOPHYSICS', 'legacy_chi_classifier_theophysics', _PortablePath(__file__).resolve().parents[3] / '_local/THEOPHYSICS'))
 
 
 # ─── CHI FACTOR DEFINITIONS ──────────────────────────────────────────────────

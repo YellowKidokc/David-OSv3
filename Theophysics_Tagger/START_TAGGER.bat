@@ -1,4 +1,3 @@
 @echo off
-cd /d "%~dp0tools"
-start "" pythonw tagger3_gui.py
-if errorlevel 1 python tagger3_gui.py
+python "%~dp0..\run.py" -m Theophysics_Tagger.tools.tagger3_gui %*
+exit /b %errorlevel%

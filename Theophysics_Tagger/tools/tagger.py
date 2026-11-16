@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """Theophysics Convergence Tagger.
 
 Read-only by default. Scans .md/.txt files, tags at document/paragraph/sentence
@@ -16,7 +16,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 
-ROOT = Path(r"C:\Theophysics_Tagger")
+ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_REGISTRY = ROOT / "01_REGISTRY" / "combined_tag_registry.csv"
 DEFAULT_OUTPUT = ROOT / "02_INDEX"
 DEFAULT_TAGGED = ROOT / "03_TAGGED"

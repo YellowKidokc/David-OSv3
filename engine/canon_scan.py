@@ -2,7 +2,7 @@
 """fis_canon_scan.py - Canonization dispersal + scan. POF 2828 | August 2026
 
 The canon loop:
-  1. David edits ONE central registry: D:\\GitHub\\David-OS\\system\\canon_rules.json
+  1. David edits ONE central registry: system/canon_rules.json
      ("the master equation should be X", "Law 7 = Quantum", grammar rulings...)
   2. This script disperses those rulings into every scanned folder's .fisnote,
      in a CANONIZATION section below a divider line (so the folder itself
@@ -29,7 +29,8 @@ except ModuleNotFoundError:  # direct `python engine/canon_scan.py ...` launch
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
     from engine.path_write_policy import fisnote_write_allowed
 
-REGISTRY = Path(r"D:\GitHub\David-OS\system\canon_rules.json")
+from shared.runtime_config import path_setting
+REGISTRY = path_setting("DAVID_OS_CANON_RULES", "canon_rules", Path(__file__).resolve().parents[1] / "system" / "canon_rules.json")
 NLP_URL = "http://localhost:8700/nlp/contradiction"
 NLP_MODEL = "contradiction_fast"   # fast DeBERTa; use contradiction_primary for final passes
 NLP_THRESHOLD = 0.60          # contradiction prob -> CONTRADICTION alert
@@ -240,7 +241,7 @@ def write_reports(target: Path, hits, files_scanned, stamp, nlp_state, use_nlp, 
     out = [f"# CANON SCAN - WANTED vs WRITTEN - {stamp}", "",
            f"Registry: `{REGISTRY}` (updated {data.get('updated','?')})",
            f"Files scanned: {files_scanned} | files flagged: {len(by_file)} | alerts: {len(hits)}",
-           f"NLP layer: {'ON - ' + str(nlp_state['calls']) + ' contradiction calls' if use_nlp and nlp_state['calls'] else 'off / unavailable (start D:\\GitHub\\BACKSIDE-NLP-NEW\\nlp_api\\RUN.bat)'}",
+           f"NLP layer: {'ON - ' + str(nlp_state['calls']) + ' contradiction calls' if use_nlp and nlp_state['calls'] else 'off / unavailable (start the configured local NLP service)'}",
            "", "**This report changes nothing.** Go line by line; for each item decide:",
            "fix the file, mark it historical/superseded, or exempt it by ruling.", ""]
     if not hits:

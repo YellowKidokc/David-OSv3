@@ -2,11 +2,12 @@
 from __future__ import annotations
 
 from pathlib import Path
+import os
 
 
 GENERATED_FISNOTES_ENABLED = False
-BLOCKED_FISNOTE_DRIVES = {"Z:"}
-BLOCKED_FISNOTE_ROOTS = (Path(r"D:\GitHub"), Path(r"G:\GitHub"))
+BLOCKED_FISNOTE_DRIVES = set(filter(None, os.environ.get("FISNOTE_BLOCKED_DRIVES", "").upper().split(",")))
+BLOCKED_FISNOTE_ROOTS = tuple(Path(p).expanduser() for p in os.environ.get("FISNOTE_BLOCKED_ROOTS", "").split(os.pathsep) if p)
 
 
 PROTECTED_ROOTS: list[Path] = []

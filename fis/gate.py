@@ -2,7 +2,7 @@
 import json
 import os
 from pathlib import Path
-from fis.gate_rules import Gate, SECRET_NAMES, SECRET_SUFFIXES
+from fis.gate_rules import Gate, SECRET_NAMES, SECRET_SUFFIXES, _is_system
 
 DATA = Path(__file__).parent / "data"
 SKIP = {'.git', '.venv', 'venv', 'node_modules', 'target', '__pycache__', '.obsidian',
@@ -44,12 +44,9 @@ def unsafe(path, config):
         return 'secret file'
     if any(under(resolved, x) for x in config.get('protected', [])):
         return 'protected root'
-    # Match actual path boundaries, not prefixes such as /binary or C:\\WindowsNotes.
-    systems = [Path(os.environ.get('SystemRoot', 'C:/Windows')),
-               Path('C:/Program Files'), Path('C:/Program Files (x86)')]
-    if os.name != 'nt':
-        systems += [Path('/etc'), Path('/usr'), Path('/bin'), Path('/sbin')]
-    if any(under(resolved, x) for x in systems):
+    # System roots are protected on every drive, including cross-platform dry runs.
+    configured_systems = [os.environ[k] for k in ('SystemRoot', 'ProgramFiles', 'ProgramFiles(x86)') if os.environ.get(k)]
+    if _is_system(str(p)) or any(under(resolved, x) for x in configured_systems):
         return 'system root'
     return ''
 

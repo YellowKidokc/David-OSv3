@@ -16,6 +16,8 @@ files, or promote canon status.
 """
 
 from __future__ import annotations
+from shared.runtime_config import path_setting as _portable_path
+from pathlib import Path as _PortablePath
 
 import argparse
 import sys
@@ -32,7 +34,7 @@ from fis_folder_memory import scan  # noqa: E402
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Build desktop-wide FIS HTML, sidecars, and SQLite index.")
-    parser.add_argument("--root", type=Path, default=Path(r"H:\Desktop"), help="Desktop root to scan")
+    parser.add_argument("--root", type=Path, default=Path(str(_portable_path('DAVID_OS_LEGACY_FIS_DESKTOP_SCAN_DESKTOP', 'legacy_fis_desktop_scan_desktop', _PortablePath(__file__).resolve().parents[1] / '_local/Desktop'))), help="Desktop root to scan")
     parser.add_argument("--db", type=Path, help="SQLite index path; default is <root>\\.fis\\fis_index.sqlite")
     parser.add_argument("--ai-limit", type=int, default=0, help="Local Ollama enrichment limit; default disables AI")
     parser.add_argument("--local-ai", action="store_true", help="Enable local Ollama retrieval enrichment")

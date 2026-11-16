@@ -1,11 +1,14 @@
+import os
+from pathlib import Path
+DATA_DIR = Path(os.environ.get("THEOPHYSICS_LEGACY_DATA", Path(__file__).resolve().parents[2] / "data_filetagger"))
 import json, csv
 from pathlib import Path
 
-data = json.loads(Path(r"D:\DONT TOUCH BOOT UP\filetagger\consciousness_math.json").read_text(encoding="utf-8"))
+data = json.loads(Path(str(DATA_DIR / 'consciousness_math.json')).read_text(encoding="utf-8"))
 eqs = data["equations"]
 real = [e for e in eqs if e["type"] in ("display_math", "inline_math", "eq_box")]
 
-out = r"D:\DONT TOUCH BOOT UP\filetagger\consciousness_equations_for_excel.csv"
+out = str(DATA_DIR / 'consciousness_equations_for_excel.csv')
 with open(out, "w", newline="", encoding="utf-8") as f:
     w = csv.writer(f)
     w.writerow(["ID", "Type", "Equation_Raw", "Source_File", "Context",

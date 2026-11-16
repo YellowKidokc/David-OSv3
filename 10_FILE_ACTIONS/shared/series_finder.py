@@ -7,6 +7,8 @@ Usage:
     python series_finder.py                    # dry-run report
     python series_finder.py --plan plan.csv    # write CSV movement plan
 """
+from shared.runtime_config import path_setting as _portable_path
+from pathlib import Path as _PortablePath
 
 import argparse
 import csv
@@ -18,7 +20,7 @@ from pathlib import Path
 from datetime import datetime
 from itertools import combinations
 
-SERIES_ROOT = Path(r"Z:\SERIES")
+SERIES_ROOT = Path(str(_portable_path('DAVID_OS_LEGACY_SERIES_FINDER_SERIES', 'legacy_series_finder_series', _PortablePath(__file__).resolve().parents[2] / '_local/SERIES')))
 
 SERIES_PATTERNS = {
     "01_MORAL_SUBSTRATE": {
@@ -40,10 +42,10 @@ SERIES_PATTERNS = {
 }
 
 SEARCH_LOCATIONS = [
-    Path(r"C:\Users\David\Documents\faiththruphysics.com"),
-    Path(r"Z:\#recycle"),
-    Path(r"Z:\___MASTER_EQ"),
-    Path(r"Z:\SERIES"),
+    Path(str(_portable_path('DAVID_OS_LEGACY_SERIES_FINDER_FAITHTHRUPHYSICS_COM', 'legacy_series_finder_faiththruphysics_com', _PortablePath(__file__).resolve().parents[2] / '_local/faiththruphysics.com'))),
+    Path(str(_portable_path('DAVID_OS_LEGACY_SERIES_FINDER_RECYCLE', 'legacy_series_finder_recycle', _PortablePath(__file__).resolve().parents[2] / '_local/#recycle'))),
+    Path(str(_portable_path('DAVID_OS_LEGACY_SERIES_FINDER_MASTER_EQ', 'legacy_series_finder_master_eq', _PortablePath(__file__).resolve().parents[2] / '_local/___MASTER_EQ'))),
+    Path(str(_portable_path('DAVID_OS_LEGACY_SERIES_FINDER_SERIES', 'legacy_series_finder_series', _PortablePath(__file__).resolve().parents[2] / '_local/SERIES'))),
 ]
 
 

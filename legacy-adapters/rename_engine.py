@@ -3,7 +3,7 @@ NOTE: the Renamer window (renamer_gui.py) also uses apply()/undo from this modul
 so this stub must not replace the original until the window is migrated too."""
 import runpy, sys
 from pathlib import Path
-CANONICAL = Path(r"D:\GitHub\David-OSv3\apps\rename\src\engine\rename_engine.py")
+CANONICAL = (Path(__file__).resolve().parents[1] / 'apps/rename/src/engine/rename_engine.py')
 print(f"[moved] rename_engine now lives at {CANONICAL}  (forwarding...)", file=sys.stderr)
 sys.path.insert(0, str(CANONICAL.parent))
 if __name__ == "__main__":

@@ -4,12 +4,14 @@ Reads the tab-separated dump (grammar.txt) and writes the four rule JSONs.
 Idempotent; safe to re-run. Stdlib only.
 """
 from __future__ import annotations
+from shared.runtime_config import path_setting as _portable_path
+from pathlib import Path as _PortablePath
 import json
 import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]
-DUMP = Path(r"C:\Users\David\AppData\Local\Temp\fisxlsx\grammar.txt")
+DUMP = Path(str(_portable_path('DAVID_OS_LEGACY_IMPORT_GRAMMAR_WORKBOOK_GRAMMAR_TXT', 'legacy_import_grammar_workbook_grammar_txt', _PortablePath(__file__).resolve().parents[1] / '_local/grammar.txt')))
 OUT = REPO / "config" / "rules"
 
 SHEETS = {  # sheet name -> (output filename, schema id, id column)

@@ -1,5 +1,7 @@
 $ErrorActionPreference = 'Stop'
 $Repo = (Resolve-Path (Join-Path $PSScriptRoot '..\..')).Path
+$PreviousRegistry = $env:DAVID_OS_REGISTRY
+$env:DAVID_OS_REGISTRY = Join-Path ([IO.Path]::GetTempPath()) ("david-os-test-" + [guid]::NewGuid().ToString() + ".sqlite")
 Push-Location $Repo
 try {
     python -m unittest discover -s tests -p test_fis_standalone.py -v
@@ -8,4 +10,7 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'FIS background/preference acceptance failed' }
     node --check fis/static/app.js
     if ($LASTEXITCODE -ne 0) { throw 'FIS browser script syntax failed' }
-} finally { Pop-Location }
+} finally {
+    Pop-Location
+    $env:DAVID_OS_REGISTRY = $PreviousRegistry
+}

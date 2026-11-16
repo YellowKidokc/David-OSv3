@@ -18,6 +18,8 @@ ROOT = Path(__file__).resolve().parents[2]
 def load_config():
     path = Path(os.environ.get("DAVIDOS_SEARCH_CONFIG", ROOT / "config/search.json"))
     cfg = json.loads(path.read_text(encoding="utf-8-sig"))
+    cfg["roots"] = {alias: str((path.resolve().parent / value).resolve())
+                    for alias, value in cfg.get("roots", {}).items()}
     extra = ROOT / '.data/search-locations.json'
     if extra.is_file() and not os.environ.get('DAVIDOS_SEARCH_CONFIG'):
         cfg['roots'].update(json.loads(extra.read_text(encoding='utf-8')))

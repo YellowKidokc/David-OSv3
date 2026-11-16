@@ -66,3 +66,17 @@ def test_registry_and_triggers(tmp_path):
     con.execute("INSERT INTO artifacts(artifact_id, document_id, artifact_role, content_sha256) VALUES ('x','DLAY.05.WATER','audit','00')")
     with pytest.raises(sqlite3.DatabaseError, match="append-only"):
         con.execute("UPDATE artifacts SET content_sha256='11' WHERE artifact_id='x'")
+
+
+def test_current_registry_id_and_legacy_alias_both_validate():
+    parsed=I.parse_document_id('MIM.00_Mephistopheles')
+    assert parsed['series']=='MIM' and parsed['position']==0 and parsed['slug']=='Mephistopheles'
+    assert I.parse_artifact_ref('MIM.00_Mephistopheles::audit')['role']=='audit'
+    assert I.parse_document_id('DLAY.05.WATER')['slug']=='WATER'
+    sc=sidecar(document_id='MIM.00_Mephistopheles')
+    assert I.check_sidecar(sc)==[]
+    jsonschema=pytest.importorskip('jsonschema')
+    import json
+    schema=json.loads((I.HERE/'sidecar.v1.schema.json').read_text())
+    jsonschema.validate(sc,schema)
+    with pytest.raises(ValueError): I.parse_document_id('MIM.00_bad/name')

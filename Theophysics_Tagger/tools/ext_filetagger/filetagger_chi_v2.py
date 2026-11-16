@@ -12,8 +12,8 @@ Classifies every file against:
 Fast. Incremental. Multicore. Zero dependencies beyond stdlib + pypdf.
 
 Usage:
-  python filetagger_chi_v2.py "O:\\_Theophysics_v5"
-  python filetagger_chi_v2.py "O:\\_Theophysics_v5" --sidecar --db vault.db
+  python filetagger_chi_v2.py "path/to/source"
+  python filetagger_chi_v2.py "path/to/source" --sidecar --db vault.db
   python filetagger_chi_v2.py --summary --db vault.db
 """
 import os, sys, re, hashlib, sqlite3, argparse, datetime
@@ -21,7 +21,7 @@ from multiprocessing import Pool, cpu_count
 from pathlib import Path
 
 # Add FIS for chi_classifier
-FIS_DIR = r"D:\DONT TOUCH BOOT UP\FIS"
+FIS_DIR = str(Path(__file__).resolve().parents[3] / "engine")
 if FIS_DIR not in sys.path:
     sys.path.insert(0, FIS_DIR)
 

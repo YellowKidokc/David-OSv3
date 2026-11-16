@@ -1,11 +1,10 @@
-﻿{
-  "registry": "C:\\Theophysics_Tagger\\01_REGISTRY\\tag_registry.csv",
+{
+  "registry": "01_REGISTRY/tag_registry.csv",
   "default_sources": [
-    "O:\\_Theophysics_v5",
-    "\\\\192.168.2.50\\h_hp\\Desktop\\TEN_LAWS_CANONICAL"
+    "sources"
   ],
-  "output_dir": "C:\\Theophysics_Tagger\\02_INDEX",
-  "tagged_dir": "C:\\Theophysics_Tagger\\03_TAGGED",
+  "output_dir": "02_INDEX",
+  "tagged_dir": "03_TAGGED",
   "extensions": [
     ".md",
     ".txt"

@@ -1,4 +1,52 @@
 # David-OS v3
+
+## Clone → setup → run
+
+Python 3.11+ and Git are required. The clone can live in any folder, including a
+folder with spaces or a network share. The virtual environment lives separately
+on local disk: `%LOCALAPPDATA%/david-os/venvs` on Windows, `~/.cache/david-os/venvs`
+on Linux, or `~/Library/Caches/david-os/venvs` on macOS. Each clone gets its own
+stable environment. Set `DAVID_OS_VENV` to override it with a local disk path;
+setup rejects network mounts on Linux and non-fixed drives on Windows.
+
+```sh
+git clone --branch cleanup/v3-consolidation https://github.com/YellowKidokc/David-OSv3.git
+cd David-OSv3
+python setup_env.py
+python run.py -m fis --help
+```
+
+No activation or sibling checkout is required. Windows users can use `py` in place
+of `python`. Re-run setup after moving the clone or updating its dependency pin.
+`python run.py` uses the same local environment from any working directory; give
+its absolute path when calling from outside the clone.
+
+Copy `config.example.yaml` to `config.yaml` if you need custom paths, and set
+`DAVID_OS_CONFIG` to that file's absolute path. Paths inside the YAML resolve
+relative to the YAML file. Environment variables override configured paths.
+`DAVID_OS_STATE_DIR`, `DAVID_OS_REFERENCE_DB`, `DAVID_OS_LEXICON`,
+`THEOPHYSICS_SERIES_FOLDER` and `DAVID_OS_CANON_RULES` override the matching paths.
+`THEOPHYSICS_SERIES_REGISTRY` names an explicit series workbook; matching reports
+a missing workbook until one is configured. `DAVID_OS_REGISTRY` selects the central
+identity SQLite database. No personal corpus or remote disk is required for setup.
+
+API keys and service tokens come from the process environment only. For hosted
+DeepSeek use `DEEPSEEK_BACKEND=api` and `DEEPSEEK_API_KEY`; the default local Ollama
+backend needs no key. Never put keys in YAML, source files, launchers or a token
+JSON file. The optional YAML loader rejects credential fields. `config.yaml` and
+`.env` files are ignored by Git; the application does not load `.env` files.
+
+Install test dependencies with `python setup_env.py --test`. Run checks with
+`python run.py -m pytest -q`. For the Tagger CLI use
+`python run.py -m Theophysics_Tagger.tools.tagger3 --help`.
+For the Tagger window install PySide6 (`python run.py -m pip install PySide6`),
+then use `python run.py -m Theophysics_Tagger.tools.tagger3_gui`.
+
+Historical generated tagger CSVs are losslessly compressed under
+`_archive/tagger-index/`, with SHA-256 hashes and restoration instructions.
+Archived code, audit evidence and Windows-path test fixtures retain historical
+paths; they are not portable runtime defaults.
+
 ## Personal Infrastructure System
 
 One SQLite database. One FastAPI server. Port 10000.

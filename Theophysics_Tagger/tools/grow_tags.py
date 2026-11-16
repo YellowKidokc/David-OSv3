@@ -35,7 +35,7 @@ ROOT = Path(__file__).resolve().parent.parent
 REG = ROOT / "01_REGISTRY"
 SEED, GROWN, COMBINED = REG / "tag_registry.csv", REG / "grown_tags.csv", REG / "combined_tag_registry.csv"
 CANDIDATES = ROOT / "06_REVIEW" / "candidate_tags.csv"
-DEFAULT_ROOT = Path(os.environ.get("USERPROFILE", r"C:\Users\David")) / r"Documents\faiththruphysics.com\10_VAULTS\_Theophysics_v5\04_THEOPYHISCS"
+DEFAULT_ROOT = Path(os.environ.get("THEOPHYSICS_SOURCE_ROOT", ROOT / "sources"))
 FIELDS = ["tag", "slug", "category", "parent_path", "aliases", "master_equation_variable", "route_enabled", "scope",
           "description", "secondary_categories"]
 CAND_FIELDS = ["keep", "tag", "category", "parent_path", "aliases", "description", "source", "doc_count", "example", "found_at"]

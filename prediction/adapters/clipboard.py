@@ -11,7 +11,7 @@ in context as a short hash + 80-char preview, never the full text.
 Optional: --ollama <model> asks your local Ollama for a one-word topic label.
 
     python -m harness.adapters.clipboard ditto                  (default %APPDATA%\\Ditto\\Ditto.db)
-    python -m harness.adapters.clipboard ditto "D:\\Ditto\\Ditto.db"
+    python -m harness.adapters.clipboard ditto "path/to/Ditto.db"
     python -m harness.adapters.clipboard watch [--ollama llama3.2]
 
 CopyQ keeps its history in binary tab files, not SQLite — not supported here.

@@ -2,14 +2,15 @@
 """Merge the seed registry with every tag already present in canonical papers."""
 
 import csv
+import os
 import re
 from pathlib import Path
 
-ROOT = Path(r"C:\Theophysics_Tagger")
+ROOT = Path(__file__).resolve().parents[1]
 SEED = ROOT / "01_REGISTRY" / "tag_registry.csv"
 GROWN = ROOT / "01_REGISTRY" / "grown_tags.csv"
-PAPER_TAGS = Path(r"\\192.168.2.50\h_hp\Desktop\_____pipeline-workflows-main\EVIDENCE_CHAIN_INTAKE\OUTBOX\01_CLASSIFIED_LIBRARY\02_BY_TAG\00_TAG_REGISTRY.csv")
-LIBRARY_INDEX = Path(r"\\192.168.2.50\h_hp\Desktop\_____pipeline-workflows-main\EVIDENCE_CHAIN_INTAKE\OUTBOX\01_CLASSIFIED_LIBRARY\00_LIBRARY_LOCATIONS.md")
+PAPER_TAGS = Path(os.environ.get("THEOPHYSICS_PAPER_TAGS", ROOT / "sources" / "paper_tags.csv"))
+LIBRARY_INDEX = Path(os.environ.get("THEOPHYSICS_LIBRARY_INDEX", ROOT / "sources" / "library_locations.md"))
 OUTPUT = ROOT / "01_REGISTRY" / "combined_tag_registry.csv"
 SOURCE_LIST = ROOT / "01_REGISTRY" / "canonical_186_sources.txt"
 

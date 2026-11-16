@@ -10,9 +10,10 @@ from pathlib import Path
 import yaml
 
 from engine import registry
+from shared.runtime_config import path_setting
 
-DEFAULT_CODES=Path('C:/theophysics/tools/KEYWORD_CODES.yaml')
-DEFAULT_RULES=Path('C:/theophysics/tools/FILING_RULES.yaml')
+DEFAULT_CODES=path_setting("DAVID_OS_KEYWORD_CODES", "keyword_codes", Path(__file__).resolve().parents[1] / "config" / "KEYWORD_CODES.yaml")
+DEFAULT_RULES=path_setting("DAVID_OS_FILING_RULES", "filing_rules", Path(__file__).resolve().parents[1] / "config" / "FILING_RULES.yaml")
 
 
 class Codebook:

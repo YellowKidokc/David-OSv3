@@ -33,3 +33,11 @@ data/saved-searches/
 10_FILE_ACTIONS/logs/
 system/ledger/*.jsonl
 
+
+# Machine-specific configuration and credentials
+config.yaml
+.env
+.env.*
+!.env.example
+build/
+*.egg-info/

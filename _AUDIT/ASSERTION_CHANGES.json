@@ -1,0 +1,929 @@
+[
+  {
+    "repo": "David-OSv3",
+    "file": "gui/filetagger_gui.py",
+    "scope": "FileTaggerPopup._run_process",
+    "change": "delete",
+    "before": [
+      {
+        "line": 160,
+        "code": "assert self.process.stdout is not None",
+        "canonical": "Assert(test=Compare(left=Attribute(value=Attribute(value=Name(id='self', ctx=Load()), attr='process', ctx=Load()), attr='stdout', ctx=Load()), ops=[IsNot()], comparators=[Constant(value=None)]))"
+      }
+    ],
+    "after": [],
+    "why": "The duplicate popup implementation was archived and replaced by a forwarder to Tagger v3. Its subprocess-stdout assertion moved with the historical implementation; the forwarder owns no subprocess. It was not removed to hide a failing test."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "shared/identity/test_identity.py",
+    "scope": "test_current_registry_id_and_legacy_alias_both_validate",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 73,
+        "code": "assert parsed['series']=='MIM' and parsed['position']==0 and parsed['slug']=='Mephistopheles'",
+        "canonical": "Assert(test=BoolOp(op=And(), values=[Compare(left=Subscript(value=Name(id='parsed', ctx=Load()), slice=Constant(value='series'), ctx=Load()), ops=[Eq()], comparators=[Constant(value='MIM')]), Compare(left=Subscript(value=Name(id='parsed', ctx=Load()), slice=Constant(value='position'), ctx=Load()), ops=[Eq()], comparators=[Constant(value=0)]), Compare(left=Subscript(value=Name(id='parsed', ctx=Load()), slice=Constant(value='slug'), ctx=Load()), ops=[Eq()], comparators=[Constant(value='Mephistopheles')])]))"
+      },
+      {
+        "line": 74,
+        "code": "assert I.parse_artifact_ref('MIM.00_Mephistopheles::audit')['role']=='audit'",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Call(func=Attribute(value=Name(id='I', ctx=Load()), attr='parse_artifact_ref', ctx=Load()), args=[Constant(value='MIM.00_Mephistopheles::audit')], keywords=[]), slice=Constant(value='role'), ctx=Load()), ops=[Eq()], comparators=[Constant(value='audit')]))"
+      },
+      {
+        "line": 75,
+        "code": "assert I.parse_document_id('DLAY.05.WATER')['slug']=='WATER'",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Call(func=Attribute(value=Name(id='I', ctx=Load()), attr='parse_document_id', ctx=Load()), args=[Constant(value='DLAY.05.WATER')], keywords=[]), slice=Constant(value='slug'), ctx=Load()), ops=[Eq()], comparators=[Constant(value='WATER')]))"
+      },
+      {
+        "line": 77,
+        "code": "assert I.check_sidecar(sc)==[]",
+        "canonical": "Assert(test=Compare(left=Call(func=Attribute(value=Name(id='I', ctx=Load()), attr='check_sidecar', ctx=Load()), args=[Name(id='sc', ctx=Load())], keywords=[]), ops=[Eq()], comparators=[List(elts=[], ctx=Load())]))"
+      }
+    ],
+    "why": "The identity schema now accepts registry_id alongside historical dotted ID aliases; the existing validation assertions still pass."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_consolidation_acceptance.py",
+    "scope": "test_inventory_identity_tagger_prediction_gui_apply_rollback",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 33,
+        "code": "assert con.execute('SELECT registry_uuid FROM files WHERE path=?', (str(document),)).fetchone()[0] == issued['uuid7']",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Call(func=Attribute(value=Call(func=Attribute(value=Name(id='con', ctx=Load()), attr='execute', ctx=Load()), args=[Constant(value='SELECT registry_uuid FROM files WHERE path=?'), Tuple(elts=[Call(func=Name(id='str', ctx=Load()), args=[Name(id='document', ctx=Load())], keywords=[])], ctx=Load())], keywords=[]), attr='fetchone', ctx=Load()), args=[], keywords=[]), slice=Constant(value=0), ctx=Load()), ops=[Eq()], comparators=[Subscript(value=Name(id='issued', ctx=Load()), slice=Constant(value='uuid7'), ctx=Load())]))"
+      },
+      {
+        "line": 40,
+        "code": "assert con.execute('SELECT registry_uuid FROM registry_refs WHERE path=?',(str(document),)).fetchone()[0] == issued['uuid7']",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Call(func=Attribute(value=Call(func=Attribute(value=Name(id='con', ctx=Load()), attr='execute', ctx=Load()), args=[Constant(value='SELECT registry_uuid FROM registry_refs WHERE path=?'), Tuple(elts=[Call(func=Name(id='str', ctx=Load()), args=[Name(id='document', ctx=Load())], keywords=[])], ctx=Load())], keywords=[]), attr='fetchone', ctx=Load()), args=[], keywords=[]), slice=Constant(value=0), ctx=Load()), ops=[Eq()], comparators=[Subscript(value=Name(id='issued', ctx=Load()), slice=Constant(value='uuid7'), ctx=Load())]))"
+      },
+      {
+        "line": 41,
+        "code": "assert document.read_bytes() == original",
+        "canonical": "Assert(test=Compare(left=Call(func=Attribute(value=Name(id='document', ctx=Load()), attr='read_bytes', ctx=Load()), args=[], keywords=[]), ops=[Eq()], comparators=[Name(id='original', ctx=Load())]))"
+      },
+      {
+        "line": 44,
+        "code": "assert plan['rows'] and plan['rows'][0]['file']['registry_uuid'] == issued['uuid7']",
+        "canonical": "Assert(test=BoolOp(op=And(), values=[Subscript(value=Name(id='plan', ctx=Load()), slice=Constant(value='rows'), ctx=Load()), Compare(left=Subscript(value=Subscript(value=Subscript(value=Subscript(value=Name(id='plan', ctx=Load()), slice=Constant(value='rows'), ctx=Load()), slice=Constant(value=0), ctx=Load()), slice=Constant(value='file'), ctx=Load()), slice=Constant(value='registry_uuid'), ctx=Load()), ops=[Eq()], comparators=[Subscript(value=Name(id='issued', ctx=Load()), slice=Constant(value='uuid7'), ctx=Load())])]))"
+      },
+      {
+        "line": 45,
+        "code": "assert Path(plan['rows'][0]['target']).name == 'MIM.00_Mephistopheles.md'",
+        "canonical": "Assert(test=Compare(left=Attribute(value=Call(func=Name(id='Path', ctx=Load()), args=[Subscript(value=Subscript(value=Subscript(value=Name(id='plan', ctx=Load()), slice=Constant(value='rows'), ctx=Load()), slice=Constant(value=0), ctx=Load()), slice=Constant(value='target'), ctx=Load())], keywords=[]), attr='name', ctx=Load()), ops=[Eq()], comparators=[Constant(value='MIM.00_Mephistopheles.md')]))"
+      },
+      {
+        "line": 46,
+        "code": "assert plan['rows'][0]['preference']['auto_approval'] is False",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Subscript(value=Subscript(value=Subscript(value=Name(id='plan', ctx=Load()), slice=Constant(value='rows'), ctx=Load()), slice=Constant(value=0), ctx=Load()), slice=Constant(value='preference'), ctx=Load()), slice=Constant(value='auto_approval'), ctx=Load()), ops=[Is()], comparators=[Constant(value=False)]))"
+      },
+      {
+        "line": 54,
+        "code": "assert port.isdigit(), process.stderr.read() if process.poll() is not None else 'GUI failed to start'",
+        "canonical": "Assert(test=Call(func=Attribute(value=Name(id='port', ctx=Load()), attr='isdigit', ctx=Load()), args=[], keywords=[]), msg=IfExp(test=Compare(left=Call(func=Attribute(value=Name(id='process', ctx=Load()), attr='poll', ctx=Load()), args=[], keywords=[]), ops=[IsNot()], comparators=[Constant(value=None)]), body=Call(func=Attribute(value=Attribute(value=Name(id='process', ctx=Load()), attr='stderr', ctx=Load()), attr='read', ctx=Load()), args=[], keywords=[]), orelse=Constant(value='GUI failed to start')))"
+      },
+      {
+        "line": 60,
+        "code": "assert con.execute('SELECT decision,actor FROM notification_decisions').fetchall() == [('approved','David')]",
+        "canonical": "Assert(test=Compare(left=Call(func=Attribute(value=Call(func=Attribute(value=Name(id='con', ctx=Load()), attr='execute', ctx=Load()), args=[Constant(value='SELECT decision,actor FROM notification_decisions')], keywords=[]), attr='fetchall', ctx=Load()), args=[], keywords=[]), ops=[Eq()], comparators=[List(elts=[Tuple(elts=[Constant(value='approved'), Constant(value='David')], ctx=Load())], ctx=Load())]))"
+      },
+      {
+        "line": 64,
+        "code": "assert run['status'] == 'applied'",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Name(id='run', ctx=Load()), slice=Constant(value='status'), ctx=Load()), ops=[Eq()], comparators=[Constant(value='applied')]))"
+      },
+      {
+        "line": 66,
+        "code": "assert target.read_bytes() == original",
+        "canonical": "Assert(test=Compare(left=Call(func=Attribute(value=Name(id='target', ctx=Load()), attr='read_bytes', ctx=Load()), args=[], keywords=[]), ops=[Eq()], comparators=[Name(id='original', ctx=Load())]))"
+      },
+      {
+        "line": 67,
+        "code": "assert registry.reference(target)['uuid7'] == issued['uuid7']",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Call(func=Attribute(value=Name(id='registry', ctx=Load()), attr='reference', ctx=Load()), args=[Name(id='target', ctx=Load())], keywords=[]), slice=Constant(value='uuid7'), ctx=Load()), ops=[Eq()], comparators=[Subscript(value=Name(id='issued', ctx=Load()), slice=Constant(value='uuid7'), ctx=Load())]))"
+      },
+      {
+        "line": 69,
+        "code": "assert transaction.undo(Store(tmp_path/'fis-state'), run['id'])['conflicts'] == []",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Call(func=Attribute(value=Name(id='transaction', ctx=Load()), attr='undo', ctx=Load()), args=[Call(func=Name(id='Store', ctx=Load()), args=[BinOp(left=Name(id='tmp_path', ctx=Load()), op=Div(), right=Constant(value='fis-state'))], keywords=[]), Subscript(value=Name(id='run', ctx=Load()), slice=Constant(value='id'), ctx=Load())], keywords=[]), slice=Constant(value='conflicts'), ctx=Load()), ops=[Eq()], comparators=[List(elts=[], ctx=Load())]))"
+      },
+      {
+        "line": 70,
+        "code": "assert document.read_bytes() == original and not target.exists()",
+        "canonical": "Assert(test=BoolOp(op=And(), values=[Compare(left=Call(func=Attribute(value=Name(id='document', ctx=Load()), attr='read_bytes', ctx=Load()), args=[], keywords=[]), ops=[Eq()], comparators=[Name(id='original', ctx=Load())]), UnaryOp(op=Not(), operand=Call(func=Attribute(value=Name(id='target', ctx=Load()), attr='exists', ctx=Load()), args=[], keywords=[]))]))"
+      },
+      {
+        "line": 71,
+        "code": "assert registry.reference(document)['uuid7'] == issued['uuid7']",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Call(func=Attribute(value=Name(id='registry', ctx=Load()), attr='reference', ctx=Load()), args=[Name(id='document', ctx=Load())], keywords=[]), slice=Constant(value='uuid7'), ctx=Load()), ops=[Eq()], comparators=[Subscript(value=Name(id='issued', ctx=Load()), slice=Constant(value='uuid7'), ctx=Load())]))"
+      }
+    ],
+    "why": "Lock the real inventory \u2192 central identity \u2192 tagger \u2192 suggestion \u2192 GUI decision \u2192 apply/replay/rollback path. Identity and original bytes must survive across owners and restart."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_fis_standalone.py",
+    "scope": "Independence.test_import_allowlist_and_no_delete_or_path_injection",
+    "change": "replace",
+    "before": [
+      {
+        "line": 141,
+        "code": "self.assertIn(name.split('.')[0], sys.stdlib_module_names | {'fis', '__future__'}, (path, name))",
+        "canonical": "Call(func=Attribute(value=Name(id='self', ctx=Load()), attr='assertIn', ctx=Load()), args=[Subscript(value=Call(func=Attribute(value=Name(id='name', ctx=Load()), attr='split', ctx=Load()), args=[Constant(value='.')], keywords=[]), slice=Constant(value=0), ctx=Load()), BinOp(left=Attribute(value=Name(id='sys', ctx=Load()), attr='stdlib_module_names', ctx=Load()), op=BitOr(), right=Set(elts=[Constant(value='fis'), Constant(value='__future__')])), Tuple(elts=[Name(id='path', ctx=Load()), Name(id='name', ctx=Load())], ctx=Load())], keywords=[])"
+      }
+    ],
+    "after": [
+      {
+        "line": 151,
+        "code": "self.assertTrue(name in {'shared.meq_namer', 'shared.identity.registry', 'shared.review', 'prediction.naming.base', 'prediction.naming.features', 'prediction.naming.frequency', 'prediction.naming.markov_engine'} or name.split('.')[0] in allowed, (path, name))",
+        "canonical": "Call(func=Attribute(value=Name(id='self', ctx=Load()), attr='assertTrue', ctx=Load()), args=[BoolOp(op=Or(), values=[Compare(left=Name(id='name', ctx=Load()), ops=[In()], comparators=[Set(elts=[Constant(value='shared.meq_namer'), Constant(value='shared.identity.registry'), Constant(value='shared.review'), Constant(value='prediction.naming.base'), Constant(value='prediction.naming.features'), Constant(value='prediction.naming.frequency'), Constant(value='prediction.naming.markov_engine')])]), Compare(left=Subscript(value=Call(func=Attribute(value=Name(id='name', ctx=Load()), attr='split', ctx=Load()), args=[Constant(value='.')], keywords=[]), slice=Constant(value=0), ctx=Load()), ops=[In()], comparators=[Name(id='allowed', ctx=Load())])]), Tuple(elts=[Name(id='path', ctx=Load()), Name(id='name', ctx=Load())], ctx=Load())], keywords=[])"
+      }
+    ],
+    "why": "The independent FIS boundary now explicitly permits the canonical identity, review and naming modules. This retains a closed import allowlist; inference/GUI/service dependencies remain forbidden."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_identity_registry.py",
+    "scope": "test_alias_lookup_and_failed_batch_roll_back_all_assignments",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 92,
+        "code": "assert r.lookup('W000001',scheme='work') == issued",
+        "canonical": "Assert(test=Compare(left=Call(func=Attribute(value=Name(id='r', ctx=Load()), attr='lookup', ctx=Load()), args=[Constant(value='W000001')], keywords=[keyword(arg='scheme', value=Constant(value='work'))]), ops=[Eq()], comparators=[Name(id='issued', ctx=Load())]))"
+      },
+      {
+        "line": 100,
+        "code": "assert con.execute('SELECT count(*) FROM document_identities').fetchone()[0] == 1",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Call(func=Attribute(value=Call(func=Attribute(value=Name(id='con', ctx=Load()), attr='execute', ctx=Load()), args=[Constant(value='SELECT count(*) FROM document_identities')], keywords=[]), attr='fetchone', ctx=Load()), args=[], keywords=[]), slice=Constant(value=0), ctx=Load()), ops=[Eq()], comparators=[Constant(value=1)]))"
+      },
+      {
+        "line": 101,
+        "code": "assert con.execute('SELECT count(*) FROM identity_locations').fetchone()[0] == 1",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Call(func=Attribute(value=Call(func=Attribute(value=Name(id='con', ctx=Load()), attr='execute', ctx=Load()), args=[Constant(value='SELECT count(*) FROM identity_locations')], keywords=[]), attr='fetchone', ctx=Load()), args=[], keywords=[]), slice=Constant(value=0), ctx=Load()), ops=[Eq()], comparators=[Constant(value=1)]))"
+      },
+      {
+        "line": 102,
+        "code": "assert con.execute('SELECT count(*) FROM identity_migrations').fetchone()[0] == 0",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Call(func=Attribute(value=Call(func=Attribute(value=Name(id='con', ctx=Load()), attr='execute', ctx=Load()), args=[Constant(value='SELECT count(*) FROM identity_migrations')], keywords=[]), attr='fetchone', ctx=Load()), args=[], keywords=[]), slice=Constant(value=0), ctx=Load()), ops=[Eq()], comparators=[Constant(value=0)]))"
+      }
+    ],
+    "why": "Lock UUIDv7 issuance, explicit series assignments, legacy aliases, idempotent migration, concurrency, location history and separate identity after old-path reuse."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_identity_registry.py",
+    "scope": "test_concurrent_issuance_has_one_winner",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 28,
+        "code": "assert len({r['uuid7'] for r in rows}) == 1",
+        "canonical": "Assert(test=Compare(left=Call(func=Name(id='len', ctx=Load()), args=[SetComp(elt=Subscript(value=Name(id='r', ctx=Load()), slice=Constant(value='uuid7'), ctx=Load()), generators=[comprehension(target=Name(id='r', ctx=Store()), iter=Name(id='rows', ctx=Load()), ifs=[], is_async=0)])], keywords=[]), ops=[Eq()], comparators=[Constant(value=1)]))"
+      }
+    ],
+    "why": "Lock UUIDv7 issuance, explicit series assignments, legacy aliases, idempotent migration, concurrency, location history and separate identity after old-path reuse."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_identity_registry.py",
+    "scope": "test_explicit_migration_is_dry_by_default_and_atomic",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 76,
+        "code": "assert not migrate(mapping, path)['applied'] and not path.exists()",
+        "canonical": "Assert(test=BoolOp(op=And(), values=[UnaryOp(op=Not(), operand=Subscript(value=Call(func=Name(id='migrate', ctx=Load()), args=[Name(id='mapping', ctx=Load()), Name(id='path', ctx=Load())], keywords=[]), slice=Constant(value='applied'), ctx=Load())), UnaryOp(op=Not(), operand=Call(func=Attribute(value=Name(id='path', ctx=Load()), attr='exists', ctx=Load()), args=[], keywords=[]))]))"
+      },
+      {
+        "line": 78,
+        "code": "assert migrate(mapping, path, True) == first",
+        "canonical": "Assert(test=Compare(left=Call(func=Name(id='migrate', ctx=Load()), args=[Name(id='mapping', ctx=Load()), Name(id='path', ctx=Load()), Constant(value=True)], keywords=[]), ops=[Eq()], comparators=[Name(id='first', ctx=Load())]))"
+      },
+      {
+        "line": 83,
+        "code": "assert con.execute('SELECT count(*) FROM document_identities').fetchone()[0] == 1",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Call(func=Attribute(value=Call(func=Attribute(value=Name(id='con', ctx=Load()), attr='execute', ctx=Load()), args=[Constant(value='SELECT count(*) FROM document_identities')], keywords=[]), attr='fetchone', ctx=Load()), args=[], keywords=[]), slice=Constant(value=0), ctx=Load()), ops=[Eq()], comparators=[Constant(value=1)]))"
+      }
+    ],
+    "why": "Lock UUIDv7 issuance, explicit series assignments, legacy aliases, idempotent migration, concurrency, location history and separate identity after old-path reuse."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_identity_registry.py",
+    "scope": "test_issue_reopen_and_lookup",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 13,
+        "code": "assert row['registry_id'] == 'MIM.00_Mephistopheles'",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Name(id='row', ctx=Load()), slice=Constant(value='registry_id'), ctx=Load()), ops=[Eq()], comparators=[Constant(value='MIM.00_Mephistopheles')]))"
+      },
+      {
+        "line": 15,
+        "code": "assert token.version == 7 and token.variant == 'specified in RFC 4122'",
+        "canonical": "Assert(test=BoolOp(op=And(), values=[Compare(left=Attribute(value=Name(id='token', ctx=Load()), attr='version', ctx=Load()), ops=[Eq()], comparators=[Constant(value=7)]), Compare(left=Attribute(value=Name(id='token', ctx=Load()), attr='variant', ctx=Load()), ops=[Eq()], comparators=[Constant(value='specified in RFC 4122')])]))"
+      },
+      {
+        "line": 17,
+        "code": "assert reopened.issue('MIM', 0, 'Mephistopheles') == row",
+        "canonical": "Assert(test=Compare(left=Call(func=Attribute(value=Name(id='reopened', ctx=Load()), attr='issue', ctx=Load()), args=[Constant(value='MIM'), Constant(value=0), Constant(value='Mephistopheles')], keywords=[]), ops=[Eq()], comparators=[Name(id='row', ctx=Load())]))"
+      },
+      {
+        "line": 18,
+        "code": "assert reopened.lookup(row['uuid7']) == reopened.lookup(row['registry_id']) == row",
+        "canonical": "Assert(test=Compare(left=Call(func=Attribute(value=Name(id='reopened', ctx=Load()), attr='lookup', ctx=Load()), args=[Subscript(value=Name(id='row', ctx=Load()), slice=Constant(value='uuid7'), ctx=Load())], keywords=[]), ops=[Eq(), Eq()], comparators=[Call(func=Attribute(value=Name(id='reopened', ctx=Load()), attr='lookup', ctx=Load()), args=[Subscript(value=Name(id='row', ctx=Load()), slice=Constant(value='registry_id'), ctx=Load())], keywords=[]), Name(id='row', ctx=Load())]))"
+      },
+      {
+        "line": 19,
+        "code": "assert reopened.lookup('unknown') is None",
+        "canonical": "Assert(test=Compare(left=Call(func=Attribute(value=Name(id='reopened', ctx=Load()), attr='lookup', ctx=Load()), args=[Constant(value='unknown')], keywords=[]), ops=[Is()], comparators=[Constant(value=None)]))"
+      }
+    ],
+    "why": "Lock UUIDv7 issuance, explicit series assignments, legacy aliases, idempotent migration, concurrency, location history and separate identity after old-path reuse."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_identity_registry.py",
+    "scope": "test_location_history_does_not_claim_a_reused_original_path",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 110,
+        "code": "assert replacement['uuid7'] != original['uuid7']",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Name(id='replacement', ctx=Load()), slice=Constant(value='uuid7'), ctx=Load()), ops=[NotEq()], comparators=[Subscript(value=Name(id='original', ctx=Load()), slice=Constant(value='uuid7'), ctx=Load())]))"
+      },
+      {
+        "line": 111,
+        "code": "assert r.reference(tmp_path/'new.md')['uuid7'] == original['uuid7']",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Call(func=Attribute(value=Name(id='r', ctx=Load()), attr='reference', ctx=Load()), args=[BinOp(left=Name(id='tmp_path', ctx=Load()), op=Div(), right=Constant(value='new.md'))], keywords=[]), slice=Constant(value='uuid7'), ctx=Load()), ops=[Eq()], comparators=[Subscript(value=Name(id='original', ctx=Load()), slice=Constant(value='uuid7'), ctx=Load())]))"
+      }
+    ],
+    "why": "Lock UUIDv7 issuance, explicit series assignments, legacy aliases, idempotent migration, concurrency, location history and separate identity after old-path reuse."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_identity_registry.py",
+    "scope": "test_observation_assignment_and_move_preserve_one_uuid",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 53,
+        "code": "assert ref['registry_id'] is None and UUID(ref['uuid7']).version == 7",
+        "canonical": "Assert(test=BoolOp(op=And(), values=[Compare(left=Subscript(value=Name(id='ref', ctx=Load()), slice=Constant(value='registry_id'), ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), Compare(left=Attribute(value=Call(func=Name(id='UUID', ctx=Load()), args=[Subscript(value=Name(id='ref', ctx=Load()), slice=Constant(value='uuid7'), ctx=Load())], keywords=[]), attr='version', ctx=Load()), ops=[Eq()], comparators=[Constant(value=7)])]))"
+      },
+      {
+        "line": 55,
+        "code": "assert issued['uuid7'] == ref['uuid7']",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Name(id='issued', ctx=Load()), slice=Constant(value='uuid7'), ctx=Load()), ops=[Eq()], comparators=[Subscript(value=Name(id='ref', ctx=Load()), slice=Constant(value='uuid7'), ctx=Load())]))"
+      },
+      {
+        "line": 58,
+        "code": "assert r.reference(destination)['uuid7'] == issued['uuid7']",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Call(func=Attribute(value=Name(id='r', ctx=Load()), attr='reference', ctx=Load()), args=[Name(id='destination', ctx=Load())], keywords=[]), slice=Constant(value='uuid7'), ctx=Load()), ops=[Eq()], comparators=[Subscript(value=Name(id='issued', ctx=Load()), slice=Constant(value='uuid7'), ctx=Load())]))"
+      },
+      {
+        "line": 59,
+        "code": "assert r.reference(source)['uuid7'] != issued['uuid7']",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Call(func=Attribute(value=Name(id='r', ctx=Load()), attr='reference', ctx=Load()), args=[Name(id='source', ctx=Load())], keywords=[]), slice=Constant(value='uuid7'), ctx=Load()), ops=[NotEq()], comparators=[Subscript(value=Name(id='issued', ctx=Load()), slice=Constant(value='uuid7'), ctx=Load())]))"
+      }
+    ],
+    "why": "Lock UUIDv7 issuance, explicit series assignments, legacy aliases, idempotent migration, concurrency, location history and separate identity after old-path reuse."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_identity_registry.py",
+    "scope": "test_preserves_existing_stage1_tables",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 46,
+        "code": "assert con.execute('SELECT * FROM works').fetchall() == [('legacy-work',)]",
+        "canonical": "Assert(test=Compare(left=Call(func=Attribute(value=Call(func=Attribute(value=Name(id='con', ctx=Load()), attr='execute', ctx=Load()), args=[Constant(value='SELECT * FROM works')], keywords=[]), attr='fetchall', ctx=Load()), args=[], keywords=[]), ops=[Eq()], comparators=[List(elts=[Tuple(elts=[Constant(value='legacy-work')], ctx=Load())], ctx=Load())]))"
+      }
+    ],
+    "why": "Lock UUIDv7 issuance, explicit series assignments, legacy aliases, idempotent migration, concurrency, location history and separate identity after old-path reuse."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_identity_registry.py",
+    "scope": "test_registry_does_not_merge_distinct_paths_by_content",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 66,
+        "code": "assert r.reference(tmp_path/'a.md')['uuid7'] != r.reference(tmp_path/'b.md')['uuid7']",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Call(func=Attribute(value=Name(id='r', ctx=Load()), attr='reference', ctx=Load()), args=[BinOp(left=Name(id='tmp_path', ctx=Load()), op=Div(), right=Constant(value='a.md'))], keywords=[]), slice=Constant(value='uuid7'), ctx=Load()), ops=[NotEq()], comparators=[Subscript(value=Call(func=Attribute(value=Name(id='r', ctx=Load()), attr='reference', ctx=Load()), args=[BinOp(left=Name(id='tmp_path', ctx=Load()), op=Div(), right=Constant(value='b.md'))], keywords=[]), slice=Constant(value='uuid7'), ctx=Load())]))"
+      }
+    ],
+    "why": "Lock UUIDv7 issuance, explicit series assignments, legacy aliases, idempotent migration, concurrency, location history and separate identity after old-path reuse."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_legacy_namer_review.py",
+    "scope": "test_legacy_batch_cannot_approve_its_own_predictions",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 11,
+        "code": "assert counts['auto_approved']==0 and counts['queued']==1",
+        "canonical": "Assert(test=BoolOp(op=And(), values=[Compare(left=Subscript(value=Name(id='counts', ctx=Load()), slice=Constant(value='auto_approved'), ctx=Load()), ops=[Eq()], comparators=[Constant(value=0)]), Compare(left=Subscript(value=Name(id='counts', ctx=Load()), slice=Constant(value='queued'), ctx=Load()), ops=[Eq()], comparators=[Constant(value=1)])]))"
+      },
+      {
+        "line": 14,
+        "code": "assert proposed and approved is None and 'GUI review required' in note",
+        "canonical": "Assert(test=BoolOp(op=And(), values=[Name(id='proposed', ctx=Load()), Compare(left=Name(id='approved', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), Compare(left=Constant(value='GUI review required'), ops=[In()], comparators=[Name(id='note', ctx=Load())])]))"
+      }
+    ],
+    "why": "High-confidence legacy suggestions must enter GUI review and cannot authorize their own mutations."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_meq_namer.py",
+    "scope": "test_fis_classifier_uses_shared_scoring",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 69,
+        "code": "assert fis_classifier.CHI_SIGNALS is m.CHI_SIGNALS",
+        "canonical": "Assert(test=Compare(left=Attribute(value=Name(id='fis_classifier', ctx=Load()), attr='CHI_SIGNALS', ctx=Load()), ops=[Is()], comparators=[Attribute(value=Name(id='m', ctx=Load()), attr='CHI_SIGNALS', ctx=Load())]))"
+      },
+      {
+        "line": 70,
+        "code": "assert fis_classifier.score_chi_factor is m.score_chi_factor",
+        "canonical": "Assert(test=Compare(left=Attribute(value=Name(id='fis_classifier', ctx=Load()), attr='score_chi_factor', ctx=Load()), ops=[Is()], comparators=[Attribute(value=Name(id='m', ctx=Load()), attr='score_chi_factor', ctx=Load())]))"
+      }
+    ],
+    "why": "Lock the extracted App 160 behavior (including unusual scoring rules), exact text formatting, shared function ownership and preservation of legacy evidence."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_meq_namer.py",
+    "scope": "test_folder_address_falls_back_to_local_folder_metadata",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 60,
+        "code": "assert result['address'].startswith('LOSS__Ordinary_folder__')",
+        "canonical": "Assert(test=Call(func=Attribute(value=Subscript(value=Name(id='result', ctx=Load()), slice=Constant(value='address'), ctx=Load()), attr='startswith', ctx=Load()), args=[Constant(value='LOSS__Ordinary_folder__')], keywords=[]))"
+      },
+      {
+        "line": 61,
+        "code": "assert result['trigger'] is None",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Name(id='result', ctx=Load()), slice=Constant(value='trigger'), ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]))"
+      },
+      {
+        "line": 64,
+        "code": "assert result['mode'] == 'meq'",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Name(id='result', ctx=Load()), slice=Constant(value='mode'), ctx=Load()), ops=[Eq()], comparators=[Constant(value='meq')]))"
+      }
+    ],
+    "why": "Lock the extracted App 160 behavior (including unusual scoring rules), exact text formatting, shared function ownership and preservation of legacy evidence."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_meq_namer.py",
+    "scope": "test_folder_aggregate_excludes_unscored_and_keeps_rounding",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 51,
+        "code": "assert m.folder_meq_aggregate(rows) == m.meq_namer_string({'G': 2, 'K': 2})",
+        "canonical": "Assert(test=Compare(left=Call(func=Attribute(value=Name(id='m', ctx=Load()), attr='folder_meq_aggregate', ctx=Load()), args=[Name(id='rows', ctx=Load())], keywords=[]), ops=[Eq()], comparators=[Call(func=Attribute(value=Name(id='m', ctx=Load()), attr='meq_namer_string', ctx=Load()), args=[Dict(keys=[Constant(value='G'), Constant(value='K')], values=[Constant(value=2), Constant(value=2)])], keywords=[])]))"
+      },
+      {
+        "line": 52,
+        "code": "assert m.folder_meq_aggregate([]) == ''",
+        "canonical": "Assert(test=Compare(left=Call(func=Attribute(value=Name(id='m', ctx=Load()), attr='folder_meq_aggregate', ctx=Load()), args=[List(elts=[], ctx=Load())], keywords=[]), ops=[Eq()], comparators=[Constant(value='')]))"
+      }
+    ],
+    "why": "Lock the extracted App 160 behavior (including unusual scoring rules), exact text formatting, shared function ownership and preservation of legacy evidence."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_meq_namer.py",
+    "scope": "test_legacy_substrings_and_repeated_keywords",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 32,
+        "code": "assert m.score_chi_factor('logos', 'K') == 1",
+        "canonical": "Assert(test=Compare(left=Call(func=Attribute(value=Name(id='m', ctx=Load()), attr='score_chi_factor', ctx=Load()), args=[Constant(value='logos'), Constant(value='K')], keywords=[]), ops=[Eq()], comparators=[Constant(value=1)]))"
+      },
+      {
+        "line": 33,
+        "code": "assert m.score_chi_factor('logos shannon', 'K') == 2",
+        "canonical": "Assert(test=Compare(left=Call(func=Attribute(value=Name(id='m', ctx=Load()), attr='score_chi_factor', ctx=Load()), args=[Constant(value='logos shannon'), Constant(value='K')], keywords=[]), ops=[Eq()], comparators=[Constant(value=2)]))"
+      },
+      {
+        "line": 34,
+        "code": "assert m.score_chi_factor('graceful', 'G') == 1",
+        "canonical": "Assert(test=Compare(left=Call(func=Attribute(value=Name(id='m', ctx=Load()), attr='score_chi_factor', ctx=Load()), args=[Constant(value='graceful'), Constant(value='G')], keywords=[]), ops=[Eq()], comparators=[Constant(value=1)]))"
+      }
+    ],
+    "why": "Lock the extracted App 160 behavior (including unusual scoring rules), exact text formatting, shared function ownership and preservation of legacy evidence."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_meq_namer.py",
+    "scope": "test_lossless_address",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 43,
+        "code": "assert r['address'] == f'{prefix}__{m.lossless_slug(title)}__{datetime.fromtimestamp(stamp):%Y-%m-%d}'",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Name(id='r', ctx=Load()), slice=Constant(value='address'), ctx=Load()), ops=[Eq()], comparators=[JoinedStr(values=[FormattedValue(value=Name(id='prefix', ctx=Load()), conversion=-1), Constant(value='__'), FormattedValue(value=Call(func=Attribute(value=Name(id='m', ctx=Load()), attr='lossless_slug', ctx=Load()), args=[Name(id='title', ctx=Load())], keywords=[]), conversion=-1), Constant(value='__'), FormattedValue(value=Call(func=Attribute(value=Name(id='datetime', ctx=Load()), attr='fromtimestamp', ctx=Load()), args=[Name(id='stamp', ctx=Load())], keywords=[]), conversion=-1, format_spec=JoinedStr(values=[Constant(value='%Y-%m-%d')]))])]))"
+      },
+      {
+        "line": 44,
+        "code": "assert r['basis'] == 'title_and_local_content_sample'",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Name(id='r', ctx=Load()), slice=Constant(value='basis'), ctx=Load()), ops=[Eq()], comparators=[Constant(value='title_and_local_content_sample')]))"
+      },
+      {
+        "line": 45,
+        "code": "assert m.lossless_slug('') == 'folder'",
+        "canonical": "Assert(test=Compare(left=Call(func=Attribute(value=Name(id='m', ctx=Load()), attr='lossless_slug', ctx=Load()), args=[Constant(value='')], keywords=[]), ops=[Eq()], comparators=[Constant(value='folder')]))"
+      },
+      {
+        "line": 46,
+        "code": "assert len(m.lossless_slug('x' * 100)) == 40",
+        "canonical": "Assert(test=Compare(left=Call(func=Name(id='len', ctx=Load()), args=[Call(func=Attribute(value=Name(id='m', ctx=Load()), attr='lossless_slug', ctx=Load()), args=[BinOp(left=Constant(value='x'), op=Mult(), right=Constant(value=100))], keywords=[])], keywords=[]), ops=[Eq()], comparators=[Constant(value=40)]))"
+      }
+    ],
+    "why": "Lock the extracted App 160 behavior (including unusual scoring rules), exact text formatting, shared function ownership and preservation of legacy evidence."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_meq_namer.py",
+    "scope": "test_retired_notes_are_preserved_instead_of_deleted",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 77,
+        "code": "assert wipe_existing_fisnotes(tmp_path) == 2",
+        "canonical": "Assert(test=Compare(left=Call(func=Name(id='wipe_existing_fisnotes', ctx=Load()), args=[Name(id='tmp_path', ctx=Load())], keywords=[]), ops=[Eq()], comparators=[Constant(value=2)]))"
+      },
+      {
+        "line": 78,
+        "code": "assert not list(tmp_path.glob('*.fisnote'))",
+        "canonical": "Assert(test=UnaryOp(op=Not(), operand=Call(func=Name(id='list', ctx=Load()), args=[Call(func=Attribute(value=Name(id='tmp_path', ctx=Load()), attr='glob', ctx=Load()), args=[Constant(value='*.fisnote')], keywords=[])], keywords=[])))"
+      },
+      {
+        "line": 79,
+        "code": "assert {p.read_bytes() for p in tmp_path.glob('.fisnote.legacy.*')} == {b'folder evidence', b'file evidence'}",
+        "canonical": "Assert(test=Compare(left=SetComp(elt=Call(func=Attribute(value=Name(id='p', ctx=Load()), attr='read_bytes', ctx=Load()), args=[], keywords=[]), generators=[comprehension(target=Name(id='p', ctx=Store()), iter=Call(func=Attribute(value=Name(id='tmp_path', ctx=Load()), attr='glob', ctx=Load()), args=[Constant(value='.fisnote.legacy.*')], keywords=[]), ifs=[], is_async=0)]), ops=[Eq()], comparators=[Set(elts=[Constant(value=b'folder evidence'), Constant(value=b'file evidence')])]))"
+      }
+    ],
+    "why": "Lock the extracted App 160 behavior (including unusual scoring rules), exact text formatting, shared function ownership and preservation of legacy evidence."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_meq_namer.py",
+    "scope": "test_scoring_boundaries",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 28,
+        "code": "assert m.score_chi_factor(text.upper(), 'G') == expected",
+        "canonical": "Assert(test=Compare(left=Call(func=Attribute(value=Name(id='m', ctx=Load()), attr='score_chi_factor', ctx=Load()), args=[Call(func=Attribute(value=Name(id='text', ctx=Load()), attr='upper', ctx=Load()), args=[], keywords=[]), Constant(value='G')], keywords=[]), ops=[Eq()], comparators=[Name(id='expected', ctx=Load())]))"
+      }
+    ],
+    "why": "Lock the extracted App 160 behavior (including unusual scoring rules), exact text formatting, shared function ownership and preservation of legacy evidence."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_meq_namer.py",
+    "scope": "test_slot_and_pair_order",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 13,
+        "code": "assert m.meq_namer_string(chi) == 'G3 M3 E3 S3 T3 K3 R3 Q3 F3 C3 :: [G.C] [M.F] [E.Q] [S.R] [T.K]'",
+        "canonical": "Assert(test=Compare(left=Call(func=Attribute(value=Name(id='m', ctx=Load()), attr='meq_namer_string', ctx=Load()), args=[Name(id='chi', ctx=Load())], keywords=[]), ops=[Eq()], comparators=[Constant(value='G3 M3 E3 S3 T3 K3 R3 Q3 F3 C3 :: [G.C] [M.F] [E.Q] [S.R] [T.K]')]))"
+      },
+      {
+        "line": 14,
+        "code": "assert m.meq_namer_short({'K': 2, 'G': 1}) == 'G1 K2 :: [G.C] [T.K]'",
+        "canonical": "Assert(test=Compare(left=Call(func=Attribute(value=Name(id='m', ctx=Load()), attr='meq_namer_short', ctx=Load()), args=[Dict(keys=[Constant(value='K'), Constant(value='G')], values=[Constant(value=2), Constant(value=1)])], keywords=[]), ops=[Eq()], comparators=[Constant(value='G1 K2 :: [G.C] [T.K]')]))"
+      },
+      {
+        "line": 15,
+        "code": "assert m.meq_namer_string({'G': 1}).startswith('G1 M0 E0 S0 T0 K0 R0 Q0 F0 C0 :: ')",
+        "canonical": "Assert(test=Call(func=Attribute(value=Call(func=Attribute(value=Name(id='m', ctx=Load()), attr='meq_namer_string', ctx=Load()), args=[Dict(keys=[Constant(value='G')], values=[Constant(value=1)])], keywords=[]), attr='startswith', ctx=Load()), args=[Constant(value='G1 M0 E0 S0 T0 K0 R0 Q0 F0 C0 :: ')], keywords=[]))"
+      }
+    ],
+    "why": "Lock the extracted App 160 behavior (including unusual scoring rules), exact text formatting, shared function ownership and preservation of legacy evidence."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_meq_namer.py",
+    "scope": "test_unscored",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 20,
+        "code": "assert m.meq_namer_string(chi) == m.meq_namer_short(chi) == ''",
+        "canonical": "Assert(test=Compare(left=Call(func=Attribute(value=Name(id='m', ctx=Load()), attr='meq_namer_string', ctx=Load()), args=[Name(id='chi', ctx=Load())], keywords=[]), ops=[Eq(), Eq()], comparators=[Call(func=Attribute(value=Name(id='m', ctx=Load()), attr='meq_namer_short', ctx=Load()), args=[Name(id='chi', ctx=Load())], keywords=[]), Constant(value='')]))"
+      },
+      {
+        "line": 21,
+        "code": "assert (m.meq_namer_short(chi) or m.meq_namer_string(chi) or m.UNSCORED) == 'UNSCORED'",
+        "canonical": "Assert(test=Compare(left=BoolOp(op=Or(), values=[Call(func=Attribute(value=Name(id='m', ctx=Load()), attr='meq_namer_short', ctx=Load()), args=[Name(id='chi', ctx=Load())], keywords=[]), Call(func=Attribute(value=Name(id='m', ctx=Load()), attr='meq_namer_string', ctx=Load()), args=[Name(id='chi', ctx=Load())], keywords=[]), Attribute(value=Name(id='m', ctx=Load()), attr='UNSCORED', ctx=Load())]), ops=[Eq()], comparators=[Constant(value='UNSCORED')]))"
+      }
+    ],
+    "why": "Lock the extracted App 160 behavior (including unusual scoring rules), exact text formatting, shared function ownership and preservation of legacy evidence."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_packaging_and_cli.py",
+    "scope": "test_pyproject_constrains_package_discovery_and_scripts",
+    "change": "replace",
+    "before": [
+      {
+        "line": 11,
+        "code": "assert project[\"tool\"][\"setuptools\"][\"packages\"][\"find\"][\"include\"] == [\"hub*\", \"engine*\", \"agents*\", \"pipeline*\"]",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Subscript(value=Subscript(value=Subscript(value=Subscript(value=Name(id='project', ctx=Load()), slice=Constant(value='tool'), ctx=Load()), slice=Constant(value='setuptools'), ctx=Load()), slice=Constant(value='packages'), ctx=Load()), slice=Constant(value='find'), ctx=Load()), slice=Constant(value='include'), ctx=Load()), ops=[Eq()], comparators=[List(elts=[Constant(value='hub*'), Constant(value='engine*'), Constant(value='agents*'), Constant(value='pipeline*')], ctx=Load())]))"
+      }
+    ],
+    "after": [
+      {
+        "line": 11,
+        "code": "assert project[\"tool\"][\"setuptools\"][\"packages\"][\"find\"][\"include\"] == [\"hub*\", \"engine*\", \"agents*\", \"pipeline*\", \"folder_hub*\", \"rule_brick*\", \"shared*\", \"fis*\", \"prediction*\", \"Theophysics_Tagger*\"]",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Subscript(value=Subscript(value=Subscript(value=Subscript(value=Name(id='project', ctx=Load()), slice=Constant(value='tool'), ctx=Load()), slice=Constant(value='setuptools'), ctx=Load()), slice=Constant(value='packages'), ctx=Load()), slice=Constant(value='find'), ctx=Load()), slice=Constant(value='include'), ctx=Load()), ops=[Eq()], comparators=[List(elts=[Constant(value='hub*'), Constant(value='engine*'), Constant(value='agents*'), Constant(value='pipeline*'), Constant(value='folder_hub*'), Constant(value='rule_brick*'), Constant(value='shared*'), Constant(value='fis*'), Constant(value='prediction*'), Constant(value='Theophysics_Tagger*')], ctx=Load())]))"
+      }
+    ],
+    "why": "The wheel must include every consolidated canonical package, plus the already-present folder_hub and rule_brick packages. The old exact list was stale; the replacement remains an exact package allowlist."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_portability.py",
+    "scope": "test_config_paths_resolve_against_config_file_and_environment_wins",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 17,
+        "code": "assert path_setting('DAVID_OS_STATE_DIR', 'state_dir', 'unused') == folder / 'local state'",
+        "canonical": "Assert(test=Compare(left=Call(func=Name(id='path_setting', ctx=Load()), args=[Constant(value='DAVID_OS_STATE_DIR'), Constant(value='state_dir'), Constant(value='unused')], keywords=[]), ops=[Eq()], comparators=[BinOp(left=Name(id='folder', ctx=Load()), op=Div(), right=Constant(value='local state'))]))"
+      },
+      {
+        "line": 20,
+        "code": "assert path_setting('DAVID_OS_STATE_DIR', 'state_dir', 'unused') == override",
+        "canonical": "Assert(test=Compare(left=Call(func=Name(id='path_setting', ctx=Load()), args=[Constant(value='DAVID_OS_STATE_DIR'), Constant(value='state_dir'), Constant(value='unused')], keywords=[]), ops=[Eq()], comparators=[Name(id='override', ctx=Load())]))"
+      }
+    ],
+    "why": "Verify relocation-independent config paths, environment precedence, rejection of configured credentials, all-drive system-root protection and allowance of similarly named ordinary folders."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_portability.py",
+    "scope": "test_similar_folder_names_are_not_system_roots",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 40,
+        "code": "assert not _is_system(path)",
+        "canonical": "Assert(test=UnaryOp(op=Not(), operand=Call(func=Name(id='_is_system', ctx=Load()), args=[Name(id='path', ctx=Load())], keywords=[])))"
+      }
+    ],
+    "why": "Verify relocation-independent config paths, environment precedence, rejection of configured credentials, all-drive system-root protection and allowance of similarly named ordinary folders."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_portability.py",
+    "scope": "test_system_roots_stay_protected_on_any_drive",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 34,
+        "code": "assert _is_system(path)",
+        "canonical": "Assert(test=Call(func=Name(id='_is_system', ctx=Load()), args=[Name(id='path', ctx=Load())], keywords=[]))"
+      },
+      {
+        "line": 35,
+        "code": "assert gate.unsafe(path, gate.defaults()) == 'system root'",
+        "canonical": "Assert(test=Compare(left=Call(func=Attribute(value=Name(id='gate', ctx=Load()), attr='unsafe', ctx=Load()), args=[Name(id='path', ctx=Load()), Call(func=Attribute(value=Name(id='gate', ctx=Load()), attr='defaults', ctx=Load()), args=[], keywords=[])], keywords=[]), ops=[Eq()], comparators=[Constant(value='system root')]))"
+      }
+    ],
+    "why": "Verify relocation-independent config paths, environment precedence, rejection of configured credentials, all-drive system-root protection and allowance of similarly named ordinary folders."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_review_contract.py",
+    "scope": "test_approval_binds_exact_rows_plan_and_survives_restart",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 23,
+        "code": "assert run['status'] == 'applied'",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Name(id='run', ctx=Load()), slice=Constant(value='status'), ctx=Load()), ops=[Eq()], comparators=[Constant(value='applied')]))"
+      },
+      {
+        "line": 25,
+        "code": "assert store.registry.reference(new_path)['uuid7'] == plan['rows'][0]['file']['registry_uuid']",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Call(func=Attribute(value=Attribute(value=Name(id='store', ctx=Load()), attr='registry', ctx=Load()), attr='reference', ctx=Load()), args=[Name(id='new_path', ctx=Load())], keywords=[]), slice=Constant(value='uuid7'), ctx=Load()), ops=[Eq()], comparators=[Subscript(value=Subscript(value=Subscript(value=Subscript(value=Name(id='plan', ctx=Load()), slice=Constant(value='rows'), ctx=Load()), slice=Constant(value=0), ctx=Load()), slice=Constant(value='file'), ctx=Load()), slice=Constant(value='registry_uuid'), ctx=Load())]))"
+      },
+      {
+        "line": 26,
+        "code": "assert transaction.undo(Store(tmp_path/'state'), run['id'])['conflicts'] == []",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Call(func=Attribute(value=Name(id='transaction', ctx=Load()), attr='undo', ctx=Load()), args=[Call(func=Name(id='Store', ctx=Load()), args=[BinOp(left=Name(id='tmp_path', ctx=Load()), op=Div(), right=Constant(value='state'))], keywords=[]), Subscript(value=Name(id='run', ctx=Load()), slice=Constant(value='id'), ctx=Load())], keywords=[]), slice=Constant(value='conflicts'), ctx=Load()), ops=[Eq()], comparators=[List(elts=[], ctx=Load())]))"
+      },
+      {
+        "line": 27,
+        "code": "assert {p.name: p.read_bytes() for p in root.iterdir()} == before",
+        "canonical": "Assert(test=Compare(left=DictComp(key=Attribute(value=Name(id='p', ctx=Load()), attr='name', ctx=Load()), value=Call(func=Attribute(value=Name(id='p', ctx=Load()), attr='read_bytes', ctx=Load()), args=[], keywords=[]), generators=[comprehension(target=Name(id='p', ctx=Store()), iter=Call(func=Attribute(value=Name(id='root', ctx=Load()), attr='iterdir', ctx=Load()), args=[], keywords=[]), ifs=[], is_async=0)]), ops=[Eq()], comparators=[Name(id='before', ctx=Load())]))"
+      }
+    ],
+    "why": "Require exact immutable plan/row/actor/decision binding and reject edited, stale, held or replayed approvals."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_review_contract.py",
+    "scope": "test_registry_target_conflict_stops_before_source_mutation",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 51,
+        "code": "assert source.read_text()=='A method and evidence'",
+        "canonical": "Assert(test=Compare(left=Call(func=Attribute(value=Name(id='source', ctx=Load()), attr='read_text', ctx=Load()), args=[], keywords=[]), ops=[Eq()], comparators=[Constant(value='A method and evidence')]))"
+      },
+      {
+        "line": 52,
+        "code": "assert not Path(row['target']).exists()",
+        "canonical": "Assert(test=UnaryOp(op=Not(), operand=Call(func=Attribute(value=Call(func=Name(id='Path', ctx=Load()), args=[Subscript(value=Name(id='row', ctx=Load()), slice=Constant(value='target'), ctx=Load())], keywords=[]), attr='exists', ctx=Load()), args=[], keywords=[])))"
+      }
+    ],
+    "why": "Require exact immutable plan/row/actor/decision binding and reject edited, stale, held or replayed approvals."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_review_contract.py",
+    "scope": "test_restart_recovers_file_move_before_registry_commit",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 67,
+        "code": "assert transaction.undo(restarted,run['id'])['conflicts']==[]",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Call(func=Attribute(value=Name(id='transaction', ctx=Load()), attr='undo', ctx=Load()), args=[Name(id='restarted', ctx=Load()), Subscript(value=Name(id='run', ctx=Load()), slice=Constant(value='id'), ctx=Load())], keywords=[]), slice=Constant(value='conflicts'), ctx=Load()), ops=[Eq()], comparators=[List(elts=[], ctx=Load())]))"
+      },
+      {
+        "line": 68,
+        "code": "assert source.read_text()=='A method and evidence'",
+        "canonical": "Assert(test=Compare(left=Call(func=Attribute(value=Name(id='source', ctx=Load()), attr='read_text', ctx=Load()), args=[], keywords=[]), ops=[Eq()], comparators=[Constant(value='A method and evidence')]))"
+      },
+      {
+        "line": 69,
+        "code": "assert restarted.registry.reference(source)['uuid7']==row['file']['registry_uuid']",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Call(func=Attribute(value=Attribute(value=Name(id='restarted', ctx=Load()), attr='registry', ctx=Load()), attr='reference', ctx=Load()), args=[Name(id='source', ctx=Load())], keywords=[]), slice=Constant(value='uuid7'), ctx=Load()), ops=[Eq()], comparators=[Subscript(value=Subscript(value=Name(id='row', ctx=Load()), slice=Constant(value='file'), ctx=Load()), slice=Constant(value='registry_uuid'), ctx=Load())]))"
+      }
+    ],
+    "why": "Require exact immutable plan/row/actor/decision binding and reject edited, stale, held or replayed approvals."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_tagger_v3_compatibility.py",
+    "scope": "test_legacy_catalog_is_preserved_and_options_forward",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 13,
+        "code": "assert args[:2] == ['scan','--catalog']",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Name(id='args', ctx=Load()), slice=Slice(upper=Constant(value=2)), ctx=Load()), ops=[Eq()], comparators=[List(elts=[Constant(value='scan'), Constant(value='--catalog')], ctx=Load())]))"
+      },
+      {
+        "line": 14,
+        "code": "assert args[args.index('--db')+1] == str(tmp_path/'legacy.tagger3.db')",
+        "canonical": "Assert(test=Compare(left=Subscript(value=Name(id='args', ctx=Load()), slice=BinOp(left=Call(func=Attribute(value=Name(id='args', ctx=Load()), attr='index', ctx=Load()), args=[Constant(value='--db')], keywords=[]), op=Add(), right=Constant(value=1)), ctx=Load()), ops=[Eq()], comparators=[Call(func=Name(id='str', ctx=Load()), args=[BinOp(left=Name(id='tmp_path', ctx=Load()), op=Div(), right=Constant(value='legacy.tagger3.db'))], keywords=[])]))"
+      },
+      {
+        "line": 15,
+        "code": "assert '--write-sidecars' in args and '--force' in args",
+        "canonical": "Assert(test=BoolOp(op=And(), values=[Compare(left=Constant(value='--write-sidecars'), ops=[In()], comparators=[Name(id='args', ctx=Load())]), Compare(left=Constant(value='--force'), ops=[In()], comparators=[Name(id='args', ctx=Load())])]))"
+      },
+      {
+        "line": 16,
+        "code": "assert '--full-hash' not in args",
+        "canonical": "Assert(test=Compare(left=Constant(value='--full-hash'), ops=[NotIn()], comparators=[Name(id='args', ctx=Load())]))"
+      },
+      {
+        "line": 17,
+        "code": "assert db.read_bytes() == before",
+        "canonical": "Assert(test=Compare(left=Call(func=Attribute(value=Name(id='db', ctx=Load()), attr='read_bytes', ctx=Load()), args=[], keywords=[]), ops=[Eq()], comparators=[Name(id='before', ctx=Load())]))"
+      }
+    ],
+    "why": "Lock compatibility arguments, exclusion filters and historical folder IDs while delegating work to Tagger v3 and central issuance."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_tagger_v3_compatibility.py",
+    "scope": "test_legacy_marker_renderer_uses_registry_uuid_and_blocks_remint",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 28,
+        "code": "assert UUID(token).version == 7",
+        "canonical": "Assert(test=Compare(left=Attribute(value=Call(func=Name(id='UUID', ctx=Load()), args=[Name(id='token', ctx=Load())], keywords=[]), attr='version', ctx=Load()), ops=[Eq()], comparators=[Constant(value=7)]))"
+      },
+      {
+        "line": 29,
+        "code": "assert token in render(tmp_path,tmp_path)",
+        "canonical": "Assert(test=Compare(left=Name(id='token', ctx=Load()), ops=[In()], comparators=[Call(func=Name(id='render', ctx=Load()), args=[Name(id='tmp_path', ctx=Load()), Name(id='tmp_path', ctx=Load())], keywords=[])]))"
+      }
+    ],
+    "why": "Lock compatibility arguments, exclusion filters and historical folder IDs while delegating work to Tagger v3 and central issuance."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_tagger_v3_compatibility.py",
+    "scope": "test_legacy_watch_preserves_explicit_roots_and_exclusions",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 44,
+        "code": "assert args[0]=='watch' and args.count('--source')==2",
+        "canonical": "Assert(test=BoolOp(op=And(), values=[Compare(left=Subscript(value=Name(id='args', ctx=Load()), slice=Constant(value=0), ctx=Load()), ops=[Eq()], comparators=[Constant(value='watch')]), Compare(left=Call(func=Attribute(value=Name(id='args', ctx=Load()), attr='count', ctx=Load()), args=[Constant(value='--source')], keywords=[]), ops=[Eq()], comparators=[Constant(value=2)])]))"
+      },
+      {
+        "line": 45,
+        "code": "assert 'private' in fake.SKIP_DIRS and 'secret.txt' in fake.SKIP_NAMES",
+        "canonical": "Assert(test=BoolOp(op=And(), values=[Compare(left=Constant(value='private'), ops=[In()], comparators=[Attribute(value=Name(id='fake', ctx=Load()), attr='SKIP_DIRS', ctx=Load())]), Compare(left=Constant(value='secret.txt'), ops=[In()], comparators=[Attribute(value=Name(id='fake', ctx=Load()), attr='SKIP_NAMES', ctx=Load())])]))"
+      }
+    ],
+    "why": "Lock compatibility arguments, exclusion filters and historical folder IDs while delegating work to Tagger v3 and central issuance."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_tagger_v3_compatibility.py",
+    "scope": "test_old_marker_id_is_an_alias_with_a_registry_reference",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 56,
+        "code": "assert 'folder_id: OLD-FOLDER' in text and f\"registry_uuid: {reference['uuid7']}\" in text",
+        "canonical": "Assert(test=BoolOp(op=And(), values=[Compare(left=Constant(value='folder_id: OLD-FOLDER'), ops=[In()], comparators=[Name(id='text', ctx=Load())]), Compare(left=JoinedStr(values=[Constant(value='registry_uuid: '), FormattedValue(value=Subscript(value=Name(id='reference', ctx=Load()), slice=Constant(value='uuid7'), ctx=Load()), conversion=-1)]), ops=[In()], comparators=[Name(id='text', ctx=Load())])]))"
+      },
+      {
+        "line": 57,
+        "code": "assert registry.lookup('OLD-FOLDER',scheme='legacy-folder-id')==reference",
+        "canonical": "Assert(test=Compare(left=Call(func=Attribute(value=Name(id='registry', ctx=Load()), attr='lookup', ctx=Load()), args=[Constant(value='OLD-FOLDER')], keywords=[keyword(arg='scheme', value=Constant(value='legacy-folder-id'))]), ops=[Eq()], comparators=[Name(id='reference', ctx=Load())]))"
+      }
+    ],
+    "why": "Lock compatibility arguments, exclusion filters and historical folder IDs while delegating work to Tagger v3 and central issuance."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tools/filetagger/filetagger_gui.py",
+    "scope": "FileTaggerPopup._run_process",
+    "change": "delete",
+    "before": [
+      {
+        "line": 157,
+        "code": "assert self.process.stdout is not None",
+        "canonical": "Assert(test=Compare(left=Attribute(value=Attribute(value=Name(id='self', ctx=Load()), attr='process', ctx=Load()), attr='stdout', ctx=Load()), ops=[IsNot()], comparators=[Constant(value=None)]))"
+      }
+    ],
+    "after": [],
+    "why": "The duplicate popup implementation was archived and replaced by a forwarder to Tagger v3. Its subprocess-stdout assertion moved with the historical implementation; the forwarder owns no subprocess. It was not removed to hide a failing test."
+  },
+  {
+    "repo": "Prediction_GUI",
+    "file": "tests/test_fis_review.py",
+    "scope": "FISReviewTests.test_edits_holds_and_modified_plan_cannot_approve",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 45,
+        "code": "self.assertRaises(ValueError)",
+        "canonical": "Call(func=Attribute(value=Name(id='self', ctx=Load()), attr='assertRaises', ctx=Load()), args=[Name(id='ValueError', ctx=Load())], keywords=[])"
+      },
+      {
+        "line": 47,
+        "code": "self.assertRaises(ValueError)",
+        "canonical": "Call(func=Attribute(value=Name(id='self', ctx=Load()), attr='assertRaises', ctx=Load()), args=[Name(id='ValueError', ctx=Load())], keywords=[])"
+      },
+      {
+        "line": 49,
+        "code": "self.assertRaises(ValueError)",
+        "canonical": "Call(func=Attribute(value=Name(id='self', ctx=Load()), attr='assertRaises', ctx=Load()), args=[Name(id='ValueError', ctx=Load())], keywords=[])"
+      },
+      {
+        "line": 50,
+        "code": "self.assertTrue(all(i['status']=='pending' for i in self.engine.store.items(batch)))",
+        "canonical": "Call(func=Attribute(value=Name(id='self', ctx=Load()), attr='assertTrue', ctx=Load()), args=[Call(func=Name(id='all', ctx=Load()), args=[GeneratorExp(elt=Compare(left=Subscript(value=Name(id='i', ctx=Load()), slice=Constant(value='status'), ctx=Load()), ops=[Eq()], comparators=[Constant(value='pending')]), generators=[comprehension(target=Name(id='i', ctx=Store()), iter=Call(func=Attribute(value=Attribute(value=Attribute(value=Name(id='self', ctx=Load()), attr='engine', ctx=Load()), attr='store', ctx=Load()), attr='items', ctx=Load()), args=[Name(id='batch', ctx=Load())], keywords=[]), ifs=[], is_async=0)])], keywords=[])], keywords=[])"
+      }
+    ],
+    "why": "Require exact immutable plan/row/actor/decision binding, reject changed or held plans, and persist explicit decisions across reopening."
+  },
+  {
+    "repo": "Prediction_GUI",
+    "file": "tests/test_fis_review.py",
+    "scope": "FISReviewTests.test_exact_receipt_and_restart",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 25,
+        "code": "self.assertEqual(batch, submit_plan(self.engine, self.plan))",
+        "canonical": "Call(func=Attribute(value=Name(id='self', ctx=Load()), attr='assertEqual', ctx=Load()), args=[Name(id='batch', ctx=Load()), Call(func=Name(id='submit_plan', ctx=Load()), args=[Attribute(value=Name(id='self', ctx=Load()), attr='engine', ctx=Load()), Attribute(value=Name(id='self', ctx=Load()), attr='plan', ctx=Load())], keywords=[])], keywords=[])"
+      },
+      {
+        "line": 29,
+        "code": "self.assertEqual(receipt, decide(second, self.plan, ['r1'], 'approved', 'David'))",
+        "canonical": "Call(func=Attribute(value=Name(id='self', ctx=Load()), attr='assertEqual', ctx=Load()), args=[Name(id='receipt', ctx=Load()), Call(func=Name(id='decide', ctx=Load()), args=[Name(id='second', ctx=Load()), Attribute(value=Name(id='self', ctx=Load()), attr='plan', ctx=Load()), List(elts=[Constant(value='r1')], ctx=Load()), Constant(value='approved'), Constant(value='David')], keywords=[])], keywords=[])"
+      },
+      {
+        "line": 30,
+        "code": "self.assertEqual(second.store.items(batch)[0]['status'], 'approved')",
+        "canonical": "Call(func=Attribute(value=Name(id='self', ctx=Load()), attr='assertEqual', ctx=Load()), args=[Subscript(value=Subscript(value=Call(func=Attribute(value=Attribute(value=Name(id='second', ctx=Load()), attr='store', ctx=Load()), attr='items', ctx=Load()), args=[Name(id='batch', ctx=Load())], keywords=[]), slice=Constant(value=0), ctx=Load()), slice=Constant(value='status'), ctx=Load()), Constant(value='approved')], keywords=[])"
+      },
+      {
+        "line": 31,
+        "code": "self.assertRaises(ValueError)",
+        "canonical": "Call(func=Attribute(value=Name(id='self', ctx=Load()), attr='assertRaises', ctx=Load()), args=[Name(id='ValueError', ctx=Load())], keywords=[])"
+      },
+      {
+        "line": 32,
+        "code": "self.assertTrue(meq_namer_string({'G':3}).startswith('G3 M0'))",
+        "canonical": "Call(func=Attribute(value=Name(id='self', ctx=Load()), attr='assertTrue', ctx=Load()), args=[Call(func=Attribute(value=Call(func=Name(id='meq_namer_string', ctx=Load()), args=[Dict(keys=[Constant(value='G')], values=[Constant(value=3)])], keywords=[]), attr='startswith', ctx=Load()), args=[Constant(value='G3 M0')], keywords=[])], keywords=[])"
+      }
+    ],
+    "why": "Require exact immutable plan/row/actor/decision binding, reject changed or held plans, and persist explicit decisions across reopening."
+  },
+  {
+    "repo": "Prediction_GUI",
+    "file": "tests/test_fis_review.py",
+    "scope": "FISReviewTests.test_receipt_cannot_claim_a_competing_actors_choice",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 40,
+        "code": "self.assertRaisesRegex(ValueError, 'recorded decision differs')",
+        "canonical": "Call(func=Attribute(value=Name(id='self', ctx=Load()), attr='assertRaisesRegex', ctx=Load()), args=[Name(id='ValueError', ctx=Load()), Constant(value='recorded decision differs')], keywords=[])"
+      }
+    ],
+    "why": "Require exact immutable plan/row/actor/decision binding, reject changed or held plans, and persist explicit decisions across reopening."
+  },
+  {
+    "repo": "Prediction_GUI",
+    "file": "tests/test_notifications.py",
+    "scope": "NotificationEngineTests.test_gui_never_auto_approves_suggestions",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 39,
+        "code": "self.assertEqual([i[\"status\"] for i in self.engine.store.items(batch)], [\"pending\", \"pending\"])",
+        "canonical": "Call(func=Attribute(value=Name(id='self', ctx=Load()), attr='assertEqual', ctx=Load()), args=[ListComp(elt=Subscript(value=Name(id='i', ctx=Load()), slice=Constant(value='status'), ctx=Load()), generators=[comprehension(target=Name(id='i', ctx=Store()), iter=Call(func=Attribute(value=Attribute(value=Attribute(value=Name(id='self', ctx=Load()), attr='engine', ctx=Load()), attr='store', ctx=Load()), attr='items', ctx=Load()), args=[Name(id='batch', ctx=Load())], keywords=[]), ifs=[], is_async=0)]), List(elts=[Constant(value='pending'), Constant(value='pending')], ctx=Load())], keywords=[])"
+      }
+    ],
+    "why": "Confidence is advisory. Both rows must stay pending until an explicit GUI decision; the old expected automatic approval violated the reviewed mutation boundary."
+  },
+  {
+    "repo": "Prediction_GUI",
+    "file": "tests/test_notifications.py",
+    "scope": "NotificationEngineTests.test_only_explicit_safe_work_auto_approves",
+    "change": "delete",
+    "before": [
+      {
+        "line": 39,
+        "code": "self.assertEqual([i[\"status\"] for i in self.engine.store.items(batch)], [\"approved\", \"pending\"])",
+        "canonical": "Call(func=Attribute(value=Name(id='self', ctx=Load()), attr='assertEqual', ctx=Load()), args=[ListComp(elt=Subscript(value=Name(id='i', ctx=Load()), slice=Constant(value='status'), ctx=Load()), generators=[comprehension(target=Name(id='i', ctx=Store()), iter=Call(func=Attribute(value=Attribute(value=Attribute(value=Name(id='self', ctx=Load()), attr='engine', ctx=Load()), attr='store', ctx=Load()), attr='items', ctx=Load()), args=[Name(id='batch', ctx=Load())], keywords=[]), ifs=[], is_async=0)]), List(elts=[Constant(value='approved'), Constant(value='pending')], ctx=Load())], keywords=[])"
+      }
+    ],
+    "after": [],
+    "why": "Confidence is advisory. Both rows must stay pending until an explicit GUI decision; the old expected automatic approval violated the reviewed mutation boundary."
+  }
+]

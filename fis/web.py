@@ -200,8 +200,7 @@ def make_server(store, port=43107):
                     if target and desktop != home / 'Desktop' and Path(target) == home / 'Desktop':
                         target = str(desktop)
                     shortcuts = [{'name': n, 'path': str(p)} for n, p in
-                                 (('Home', home), ('Desktop', desktop), ('Documents', documents),
-                                  ('NAS Desktop', Path(r'\\192.168.2.50\h_hp\Desktop')))
+                                 (('Home', home), ('Desktop', desktop), ('Documents', documents))
                                  if p.is_dir()]
                     shortcuts += [{'name': f'{d}:\\', 'path': f'{d}:\\'} for d in 'CDEFGHIJKLMNOPQRSTUVWXYZ'
                                   if os.path.isdir(f'{d}:\\')]

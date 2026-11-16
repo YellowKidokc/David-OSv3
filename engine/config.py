@@ -15,13 +15,14 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Optional, Dict, List, Any
 import json
+from shared.runtime_config import path_setting
 
 # --------------------------------------------------------------------------- #
 # Paths
 # --------------------------------------------------------------------------- #
 PROJECT_DIR = Path(__file__).resolve().parent.parent      # ...\theophysics-fis
-CONFIG_DIR  = PROJECT_DIR / "config"
-SYSTEM_DIR  = PROJECT_DIR / "system"
+CONFIG_DIR  = path_setting("DAVID_OS_CONFIG_DIR", "config_dir", PROJECT_DIR / "config")
+SYSTEM_DIR  = path_setting("DAVID_OS_STATE_DIR", "state_dir", PROJECT_DIR / "system")
 DB_DIR      = SYSTEM_DIR / "db"
 LEDGER_DIR  = SYSTEM_DIR / "ledger"
 PLANS_DIR   = SYSTEM_DIR / "rename_plans"
@@ -36,10 +37,10 @@ DB_PATH = DB_DIR / "filebrain.sqlite"
 
 # Reference corpus — the real 819k-row catalog (read-only enrichment lookups).
 # fis_catalog.db is 0 bytes (never ran); do NOT use it.
-REFERENCE_DB_PATH = r"D:\DONT TOUCH BOOT UP\filetagger\chi_catalog_v2.db"
+REFERENCE_DB_PATH = str(path_setting("DAVID_OS_REFERENCE_DB", "reference_db", DB_DIR / "reference.sqlite"))
 
 # Optional lexicon workbook for the chi engine.
-LEXICON_PATH = r"D:\DONT TOUCH BOOT UP\theophysics_cross_domain_lexicon.xlsx"
+LEXICON_PATH = str(path_setting("DAVID_OS_LEXICON", "lexicon", CONFIG_DIR / "lexicon.xlsx"))
 
 # Ledger files (JSONL, append-only).
 EVENTS_LOG  = LEDGER_DIR / "file_events.jsonl"

@@ -1,10 +1,13 @@
+import os
+from pathlib import Path
+DATA_DIR = Path(os.environ.get("THEOPHYSICS_LEGACY_DATA", Path(__file__).resolve().parents[2] / "data_filetagger"))
 #!/usr/bin/env python3
 """Generate a Theophysics Corpus Audit Report from chi_catalog_v2.db."""
 import sqlite3, datetime
 from pathlib import Path
 
-DB = r"D:\DONT TOUCH BOOT UP\filetagger\chi_catalog_v2.db"
-OUT = r"D:\DONT TOUCH BOOT UP\filetagger\corpus_audit.html"
+DB = str(DATA_DIR / 'chi_catalog_v2.db')
+OUT = str(DATA_DIR / 'corpus_audit.html')
 
 db = sqlite3.connect(DB)
 total = db.execute("SELECT COUNT(*) FROM files").fetchone()[0]

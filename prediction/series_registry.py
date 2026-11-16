@@ -5,7 +5,8 @@ import os, re
 from difflib import SequenceMatcher
 from pathlib import Path
 
-DEFAULT_FOLDER = Path(r"C:\Users\David\Documents\faiththruphysics.com\40_MEDIA\80_REGISTRY")
+from shared.runtime_config import path_setting
+DEFAULT_FOLDER = path_setting("THEOPHYSICS_SERIES_FOLDER", "series_folder", Path.home() / "Documents" / "series-registry")
 
 def locate() -> Path:
     explicit = os.environ.get("THEOPHYSICS_SERIES_REGISTRY")

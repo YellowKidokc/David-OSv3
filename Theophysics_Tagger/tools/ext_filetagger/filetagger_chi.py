@@ -5,16 +5,16 @@ Merges filetagger's fast scanning with chi_classifier's framework vocabulary.
 Every file gets classified against G·M·E·S·T·K·R·Q·F·C.
 
 Usage:
-  python filetagger_chi.py "O:\\_Theophysics_v4"
-  python filetagger_chi.py "D:\\GitHub\\faiththruphysics-site" --sidecar
-  python filetagger_chi.py "X:\\folder" --db chi_catalog.db --workers 6
+  python filetagger_chi.py "path/to/source"
+  python filetagger_chi.py "path/to/source" --sidecar
+  python filetagger_chi.py "path/to/source" --db chi_catalog.db --workers 6
 """
 import os, sys, re, hashlib, sqlite3, argparse, datetime
 from multiprocessing import Pool, cpu_count
 from pathlib import Path
 
 # Add FIS to path for chi_classifier
-FIS_DIR = r"D:\DONT TOUCH BOOT UP\FIS"
+FIS_DIR = str(Path(__file__).resolve().parents[3] / "engine")
 if FIS_DIR not in sys.path:
     sys.path.insert(0, FIS_DIR)
 
@@ -241,7 +241,7 @@ def main():
 
     root = a.path_opt or a.path
     if not root or not os.path.isdir(root):
-        ap.error('give a folder, e.g.  python filetagger_chi.py "O:\\_Theophysics_v4"')
+        ap.error('give a folder, e.g.  python filetagger_chi.py "path/to/source"')
 
     db = sqlite3.connect(a.db)
     db.execute(SCHEMA)

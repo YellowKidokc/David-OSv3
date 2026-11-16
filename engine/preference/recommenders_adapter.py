@@ -1,9 +1,8 @@
 """
 recommenders_adapter.py — best-effort bridge to Microsoft Recommenders.
 
-The repo is cloned at D:\\GitHub\\recommenders but the package isn't pip-installed
-and its models need heavy deps (lightgbm / tensorflow). This adapter:
-  - puts the repo on sys.path so `import recommenders...` works,
+Install the optional packages in this environment. This adapter:
+  - uses the installed `recommenders` package,
   - implements a LightGBM-backed approval predictor (the Recommenders content/CTR
     model family maps cleanly onto our approve/reject task),
   - reports available=False with an install hint when lightgbm is missing, so the
@@ -21,10 +20,6 @@ from pathlib import Path
 import config
 from .base import PreferenceEngine
 from . import features
-
-_REPO = Path(r"D:\GitHub\recommenders")
-if _REPO.exists() and str(_REPO) not in sys.path:
-    sys.path.append(str(_REPO))   # append, not insert, to avoid shadowing our modules
 
 try:
     import lightgbm as lgb          # the engine recommenders.models.lightgbm wraps

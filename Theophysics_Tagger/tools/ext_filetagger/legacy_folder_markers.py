@@ -11,10 +11,10 @@ folder_id is preserved. If the folder moved, the marker records the previous
 path and the current path.
 
 Usage:
-  python foldertagger.py "D:\\Some\\Folder"
-  python foldertagger.py "D:\\Some\\Folder" --dry-run
-  python foldertagger.py "D:\\Some\\Folder" --max-depth 3
-  python foldertagger.py "D:\\Some\\Folder" --force
+  python foldertagger.py "path/to/source"
+  python foldertagger.py "path/to/source" --dry-run
+  python foldertagger.py "path/to/source" --max-depth 3
+  python foldertagger.py "path/to/source" --force
 """
 
 from __future__ import annotations

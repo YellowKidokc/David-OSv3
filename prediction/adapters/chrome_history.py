@@ -7,7 +7,7 @@ context = {channel? (unknown from history alone), title, url, hour, dow}.
 Channel is filled later by the yt worker; the harness keys on 'subject' until then.
 
     python -m harness.adapters.chrome_history            (default profile)
-    python -m harness.adapters.chrome_history "C:\\...\\Profile 2\\History"
+    python -m harness.adapters.chrome_history "path/to/Profile/History"
 """
 from __future__ import annotations
 

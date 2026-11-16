@@ -1,6 +1,6 @@
 # Assertion change inventory
 
-Compared with the PR bases: David-OS `6b147281` and Prediction_GUI `84250f26`. Includes Python `assert` and unittest `assert*` calls in changed Python files. Pure archive moves are excluded. Each block lists all changed assertions, including new regression tests. Existing assertions were not edited in the portability follow-up; new portability regression assertions are included.
+Compared with the PR bases: David-OS `6b147281` and Prediction_GUI `84250f26`. Includes Python `assert`, unittest `assert*` calls and pytest `raises` expectations in changed Python files. Pure archive moves are excluded. Each block lists all changed assertions, including new regression tests. Existing assertions were not edited in the portability follow-up; new portability regression assertions are included.
 
 ## 1. David-OSv3/gui/filetagger_gui.py — FileTaggerPopup._run_process
 
@@ -26,9 +26,21 @@ assert I.parse_artifact_ref('MIM.00_Mephistopheles::audit')['role']=='audit'
 assert I.parse_document_id('DLAY.05.WATER')['slug']=='WATER'
 # line 77
 assert I.check_sidecar(sc)==[]
+# line 82
+pytest.raises(ValueError)
 ```
 
-## 3. David-OSv3/tests/test_consolidation_acceptance.py — test_inventory_identity_tagger_prediction_gui_apply_rollback
+## 3. David-OSv3/shared/identity/test_layers.py — test_envelope_cannot_mint_a_document_root
+
+Only the central registry may mint a document root; the envelope must reject attempts to issue a second identity.
+
+After:
+```python
+# line 41
+pytest.raises(ValueError, match="registry")
+```
+
+## 4. David-OSv3/tests/test_consolidation_acceptance.py — test_inventory_identity_tagger_prediction_gui_apply_rollback
 
 Lock the real inventory → central identity → tagger → suggestion → GUI decision → apply/replay/rollback path. Identity and original bytes must survive across owners and restart.
 
@@ -56,6 +68,8 @@ assert run['status'] == 'applied'
 assert target.read_bytes() == original
 # line 67
 assert registry.reference(target)['uuid7'] == issued['uuid7']
+# line 68
+pytest.raises(PermissionError)
 # line 69
 assert transaction.undo(Store(tmp_path/'fis-state'), run['id'])['conflicts'] == []
 # line 70
@@ -64,7 +78,7 @@ assert document.read_bytes() == original and not target.exists()
 assert registry.reference(document)['uuid7'] == issued['uuid7']
 ```
 
-## 4. David-OSv3/tests/test_fis_standalone.py — Independence.test_import_allowlist_and_no_delete_or_path_injection
+## 5. David-OSv3/tests/test_fis_standalone.py — Independence.test_import_allowlist_and_no_delete_or_path_injection
 
 The independent FIS boundary now explicitly permits the canonical identity, review and naming modules. This retains a closed import allowlist; inference/GUI/service dependencies remain forbidden.
 
@@ -80,7 +94,7 @@ After:
 self.assertTrue(name in {'shared.meq_namer', 'shared.identity.registry', 'shared.review', 'prediction.naming.base', 'prediction.naming.features', 'prediction.naming.frequency', 'prediction.naming.markov_engine'} or name.split('.')[0] in allowed, (path, name))
 ```
 
-## 5. David-OSv3/tests/test_identity_registry.py — test_alias_lookup_and_failed_batch_roll_back_all_assignments
+## 6. David-OSv3/tests/test_identity_registry.py — test_alias_lookup_and_failed_batch_roll_back_all_assignments
 
 Lock UUIDv7 issuance, explicit series assignments, legacy aliases, idempotent migration, concurrency, location history and separate identity after old-path reuse.
 
@@ -88,6 +102,8 @@ After:
 ```python
 # line 92
 assert r.lookup('W000001',scheme='work') == issued
+# line 98
+pytest.raises(ValueError)
 # line 100
 assert con.execute('SELECT count(*) FROM document_identities').fetchone()[0] == 1
 # line 101
@@ -96,7 +112,7 @@ assert con.execute('SELECT count(*) FROM identity_locations').fetchone()[0] == 1
 assert con.execute('SELECT count(*) FROM identity_migrations').fetchone()[0] == 0
 ```
 
-## 6. David-OSv3/tests/test_identity_registry.py — test_concurrent_issuance_has_one_winner
+## 7. David-OSv3/tests/test_identity_registry.py — test_concurrent_issuance_has_one_winner
 
 Lock UUIDv7 issuance, explicit series assignments, legacy aliases, idempotent migration, concurrency, location history and separate identity after old-path reuse.
 
@@ -106,7 +122,7 @@ After:
 assert len({r['uuid7'] for r in rows}) == 1
 ```
 
-## 7. David-OSv3/tests/test_identity_registry.py — test_explicit_migration_is_dry_by_default_and_atomic
+## 8. David-OSv3/tests/test_identity_registry.py — test_explicit_migration_is_dry_by_default_and_atomic
 
 Lock UUIDv7 issuance, explicit series assignments, legacy aliases, idempotent migration, concurrency, location history and separate identity after old-path reuse.
 
@@ -116,11 +132,23 @@ After:
 assert not migrate(mapping, path)['applied'] and not path.exists()
 # line 78
 assert migrate(mapping, path, True) == first
+# line 81
+pytest.raises(ValueError)
 # line 83
 assert con.execute('SELECT count(*) FROM document_identities').fetchone()[0] == 1
 ```
 
-## 8. David-OSv3/tests/test_identity_registry.py — test_issue_reopen_and_lookup
+## 9. David-OSv3/tests/test_identity_registry.py — test_invalid_assignment_is_not_issued
+
+Lock UUIDv7 issuance, explicit series assignments, legacy aliases, idempotent migration, concurrency, location history and separate identity after old-path reuse.
+
+After:
+```python
+# line 34
+pytest.raises(ValueError)
+```
+
+## 10. David-OSv3/tests/test_identity_registry.py — test_issue_reopen_and_lookup
 
 Lock UUIDv7 issuance, explicit series assignments, legacy aliases, idempotent migration, concurrency, location history and separate identity after old-path reuse.
 
@@ -136,9 +164,11 @@ assert reopened.issue('MIM', 0, 'Mephistopheles') == row
 assert reopened.lookup(row['uuid7']) == reopened.lookup(row['registry_id']) == row
 # line 19
 assert reopened.lookup('unknown') is None
+# line 20
+pytest.raises(ValueError, match='immutable')
 ```
 
-## 9. David-OSv3/tests/test_identity_registry.py — test_location_history_does_not_claim_a_reused_original_path
+## 11. David-OSv3/tests/test_identity_registry.py — test_location_history_does_not_claim_a_reused_original_path
 
 Lock UUIDv7 issuance, explicit series assignments, legacy aliases, idempotent migration, concurrency, location history and separate identity after old-path reuse.
 
@@ -148,9 +178,11 @@ After:
 assert replacement['uuid7'] != original['uuid7']
 # line 111
 assert r.reference(tmp_path/'new.md')['uuid7'] == original['uuid7']
+# line 112
+pytest.raises(ValueError)
 ```
 
-## 10. David-OSv3/tests/test_identity_registry.py — test_observation_assignment_and_move_preserve_one_uuid
+## 12. David-OSv3/tests/test_identity_registry.py — test_observation_assignment_and_move_preserve_one_uuid
 
 Lock UUIDv7 issuance, explicit series assignments, legacy aliases, idempotent migration, concurrency, location history and separate identity after old-path reuse.
 
@@ -164,9 +196,11 @@ assert issued['uuid7'] == ref['uuid7']
 assert r.reference(destination)['uuid7'] == issued['uuid7']
 # line 59
 assert r.reference(source)['uuid7'] != issued['uuid7']
+# line 60
+pytest.raises(ValueError)
 ```
 
-## 11. David-OSv3/tests/test_identity_registry.py — test_preserves_existing_stage1_tables
+## 13. David-OSv3/tests/test_identity_registry.py — test_preserves_existing_stage1_tables
 
 Lock UUIDv7 issuance, explicit series assignments, legacy aliases, idempotent migration, concurrency, location history and separate identity after old-path reuse.
 
@@ -176,7 +210,7 @@ After:
 assert con.execute('SELECT * FROM works').fetchall() == [('legacy-work',)]
 ```
 
-## 12. David-OSv3/tests/test_identity_registry.py — test_registry_does_not_merge_distinct_paths_by_content
+## 14. David-OSv3/tests/test_identity_registry.py — test_registry_does_not_merge_distinct_paths_by_content
 
 Lock UUIDv7 issuance, explicit series assignments, legacy aliases, idempotent migration, concurrency, location history and separate identity after old-path reuse.
 
@@ -184,9 +218,11 @@ After:
 ```python
 # line 66
 assert r.reference(tmp_path/'a.md')['uuid7'] != r.reference(tmp_path/'b.md')['uuid7']
+# line 67
+pytest.raises(ValueError)
 ```
 
-## 13. David-OSv3/tests/test_legacy_namer_review.py — test_legacy_batch_cannot_approve_its_own_predictions
+## 15. David-OSv3/tests/test_legacy_namer_review.py — test_legacy_batch_cannot_approve_its_own_predictions
 
 High-confidence legacy suggestions must enter GUI review and cannot authorize their own mutations.
 
@@ -198,7 +234,7 @@ assert counts['auto_approved']==0 and counts['queued']==1
 assert proposed and approved is None and 'GUI review required' in note
 ```
 
-## 14. David-OSv3/tests/test_meq_namer.py — test_fis_classifier_uses_shared_scoring
+## 16. David-OSv3/tests/test_meq_namer.py — test_fis_classifier_uses_shared_scoring
 
 Lock the extracted App 160 behavior (including unusual scoring rules), exact text formatting, shared function ownership and preservation of legacy evidence.
 
@@ -210,7 +246,7 @@ assert fis_classifier.CHI_SIGNALS is m.CHI_SIGNALS
 assert fis_classifier.score_chi_factor is m.score_chi_factor
 ```
 
-## 15. David-OSv3/tests/test_meq_namer.py — test_folder_address_falls_back_to_local_folder_metadata
+## 17. David-OSv3/tests/test_meq_namer.py — test_folder_address_falls_back_to_local_folder_metadata
 
 Lock the extracted App 160 behavior (including unusual scoring rules), exact text formatting, shared function ownership and preservation of legacy evidence.
 
@@ -224,7 +260,7 @@ assert result['trigger'] is None
 assert result['mode'] == 'meq'
 ```
 
-## 16. David-OSv3/tests/test_meq_namer.py — test_folder_aggregate_excludes_unscored_and_keeps_rounding
+## 18. David-OSv3/tests/test_meq_namer.py — test_folder_aggregate_excludes_unscored_and_keeps_rounding
 
 Lock the extracted App 160 behavior (including unusual scoring rules), exact text formatting, shared function ownership and preservation of legacy evidence.
 
@@ -236,7 +272,7 @@ assert m.folder_meq_aggregate(rows) == m.meq_namer_string({'G': 2, 'K': 2})
 assert m.folder_meq_aggregate([]) == ''
 ```
 
-## 17. David-OSv3/tests/test_meq_namer.py — test_legacy_substrings_and_repeated_keywords
+## 19. David-OSv3/tests/test_meq_namer.py — test_legacy_substrings_and_repeated_keywords
 
 Lock the extracted App 160 behavior (including unusual scoring rules), exact text formatting, shared function ownership and preservation of legacy evidence.
 
@@ -250,7 +286,7 @@ assert m.score_chi_factor('logos shannon', 'K') == 2
 assert m.score_chi_factor('graceful', 'G') == 1
 ```
 
-## 18. David-OSv3/tests/test_meq_namer.py — test_lossless_address
+## 20. David-OSv3/tests/test_meq_namer.py — test_lossless_address
 
 Lock the extracted App 160 behavior (including unusual scoring rules), exact text formatting, shared function ownership and preservation of legacy evidence.
 
@@ -266,7 +302,7 @@ assert m.lossless_slug('') == 'folder'
 assert len(m.lossless_slug('x' * 100)) == 40
 ```
 
-## 19. David-OSv3/tests/test_meq_namer.py — test_retired_notes_are_preserved_instead_of_deleted
+## 21. David-OSv3/tests/test_meq_namer.py — test_retired_notes_are_preserved_instead_of_deleted
 
 Lock the extracted App 160 behavior (including unusual scoring rules), exact text formatting, shared function ownership and preservation of legacy evidence.
 
@@ -280,7 +316,7 @@ assert not list(tmp_path.glob('*.fisnote'))
 assert {p.read_bytes() for p in tmp_path.glob('.fisnote.legacy.*')} == {b'folder evidence', b'file evidence'}
 ```
 
-## 20. David-OSv3/tests/test_meq_namer.py — test_scoring_boundaries
+## 22. David-OSv3/tests/test_meq_namer.py — test_scoring_boundaries
 
 Lock the extracted App 160 behavior (including unusual scoring rules), exact text formatting, shared function ownership and preservation of legacy evidence.
 
@@ -290,7 +326,7 @@ After:
 assert m.score_chi_factor(text.upper(), 'G') == expected
 ```
 
-## 21. David-OSv3/tests/test_meq_namer.py — test_slot_and_pair_order
+## 23. David-OSv3/tests/test_meq_namer.py — test_slot_and_pair_order
 
 Lock the extracted App 160 behavior (including unusual scoring rules), exact text formatting, shared function ownership and preservation of legacy evidence.
 
@@ -304,7 +340,7 @@ assert m.meq_namer_short({'K': 2, 'G': 1}) == 'G1 K2 :: [G.C] [T.K]'
 assert m.meq_namer_string({'G': 1}).startswith('G1 M0 E0 S0 T0 K0 R0 Q0 F0 C0 :: ')
 ```
 
-## 22. David-OSv3/tests/test_meq_namer.py — test_unscored
+## 24. David-OSv3/tests/test_meq_namer.py — test_unscored
 
 Lock the extracted App 160 behavior (including unusual scoring rules), exact text formatting, shared function ownership and preservation of legacy evidence.
 
@@ -316,7 +352,7 @@ assert m.meq_namer_string(chi) == m.meq_namer_short(chi) == ''
 assert (m.meq_namer_short(chi) or m.meq_namer_string(chi) or m.UNSCORED) == 'UNSCORED'
 ```
 
-## 23. David-OSv3/tests/test_packaging_and_cli.py — test_pyproject_constrains_package_discovery_and_scripts
+## 25. David-OSv3/tests/test_packaging_and_cli.py — test_pyproject_constrains_package_discovery_and_scripts
 
 The wheel must include every consolidated canonical package, plus the already-present folder_hub and rule_brick packages. The old exact list was stale; the replacement remains an exact package allowlist.
 
@@ -332,7 +368,7 @@ After:
 assert project["tool"]["setuptools"]["packages"]["find"]["include"] == ["hub*", "engine*", "agents*", "pipeline*", "folder_hub*", "rule_brick*", "shared*", "fis*", "prediction*", "Theophysics_Tagger*"]
 ```
 
-## 24. David-OSv3/tests/test_portability.py — test_config_paths_resolve_against_config_file_and_environment_wins
+## 26. David-OSv3/tests/test_portability.py — test_config_paths_resolve_against_config_file_and_environment_wins
 
 Verify relocation-independent config paths, environment precedence, rejection of configured credentials, all-drive system-root protection and allowance of similarly named ordinary folders.
 
@@ -344,7 +380,31 @@ assert path_setting('DAVID_OS_STATE_DIR', 'state_dir', 'unused') == folder / 'lo
 assert path_setting('DAVID_OS_STATE_DIR', 'state_dir', 'unused') == override
 ```
 
-## 25. David-OSv3/tests/test_portability.py — test_similar_folder_names_are_not_system_roots
+## 27. David-OSv3/tests/test_portability.py — test_credentials_are_rejected_in_config
+
+Verify relocation-independent config paths, environment precedence, rejection of configured credentials, all-drive system-root protection and allowance of similarly named ordinary folders.
+
+After:
+```python
+# line 28
+pytest.raises(ValueError, match='environment variables only')
+```
+
+## 28. David-OSv3/tests/test_portability.py — test_provider_keys_can_only_come_from_environment
+
+Verify relocation-independent config paths, environment precedence, rejection of configured credentials, all-drive system-root protection and allowance of similarly named ordinary folders.
+
+After:
+```python
+# line 47
+assert provider.resolved_key == 'test-placeholder'
+# line 48
+assert 'key' not in _from_provider(provider)
+# line 49
+pytest.raises(ValueError, match='environment variable')
+```
+
+## 29. David-OSv3/tests/test_portability.py — test_similar_folder_names_are_not_system_roots
 
 Verify relocation-independent config paths, environment precedence, rejection of configured credentials, all-drive system-root protection and allowance of similarly named ordinary folders.
 
@@ -354,7 +414,7 @@ After:
 assert not _is_system(path)
 ```
 
-## 26. David-OSv3/tests/test_portability.py — test_system_roots_stay_protected_on_any_drive
+## 30. David-OSv3/tests/test_portability.py — test_system_roots_stay_protected_on_any_drive
 
 Verify relocation-independent config paths, environment precedence, rejection of configured credentials, all-drive system-root protection and allowance of similarly named ordinary folders.
 
@@ -366,12 +426,16 @@ assert _is_system(path)
 assert gate.unsafe(path, gate.defaults()) == 'system root'
 ```
 
-## 27. David-OSv3/tests/test_review_contract.py — test_approval_binds_exact_rows_plan_and_survives_restart
+## 31. David-OSv3/tests/test_review_contract.py — test_approval_binds_exact_rows_plan_and_survives_restart
 
 Require exact immutable plan/row/actor/decision binding and reject edited, stale, held or replayed approvals.
 
 After:
 ```python
+# line 18
+pytest.raises(ValueError)
+# line 20
+pytest.raises(PermissionError)
 # line 23
 assert run['status'] == 'applied'
 # line 25
@@ -382,24 +446,42 @@ assert transaction.undo(Store(tmp_path/'state'), run['id'])['conflicts'] == []
 assert {p.name: p.read_bytes() for p in root.iterdir()} == before
 ```
 
-## 28. David-OSv3/tests/test_review_contract.py — test_registry_target_conflict_stops_before_source_mutation
+## 32. David-OSv3/tests/test_review_contract.py — test_flagged_unknown_and_rejected_rows_cannot_authorize
 
 Require exact immutable plan/row/actor/decision binding and reject edited, stale, held or replayed approvals.
 
 After:
 ```python
+# line 35
+pytest.raises(ValueError)
+# line 36
+pytest.raises(ValueError)
+# line 38
+pytest.raises(PermissionError)
+```
+
+## 33. David-OSv3/tests/test_review_contract.py — test_registry_target_conflict_stops_before_source_mutation
+
+Require exact immutable plan/row/actor/decision binding and reject edited, stale, held or replayed approvals.
+
+After:
+```python
+# line 49
+pytest.raises(ValueError,match='another registry')
 # line 51
 assert source.read_text()=='A method and evidence'
 # line 52
 assert not Path(row['target']).exists()
 ```
 
-## 29. David-OSv3/tests/test_review_contract.py — test_restart_recovers_file_move_before_registry_commit
+## 34. David-OSv3/tests/test_review_contract.py — test_restart_recovers_file_move_before_registry_commit
 
 Require exact immutable plan/row/actor/decision binding and reject edited, stale, held or replayed approvals.
 
 After:
 ```python
+# line 64
+pytest.raises(RuntimeError)
 # line 67
 assert transaction.undo(restarted,run['id'])['conflicts']==[]
 # line 68
@@ -408,7 +490,7 @@ assert source.read_text()=='A method and evidence'
 assert restarted.registry.reference(source)['uuid7']==row['file']['registry_uuid']
 ```
 
-## 30. David-OSv3/tests/test_tagger_v3_compatibility.py — test_legacy_catalog_is_preserved_and_options_forward
+## 35. David-OSv3/tests/test_tagger_v3_compatibility.py — test_legacy_catalog_is_preserved_and_options_forward
 
 Lock compatibility arguments, exclusion filters and historical folder IDs while delegating work to Tagger v3 and central issuance.
 
@@ -426,7 +508,7 @@ assert '--full-hash' not in args
 assert db.read_bytes() == before
 ```
 
-## 31. David-OSv3/tests/test_tagger_v3_compatibility.py — test_legacy_marker_renderer_uses_registry_uuid_and_blocks_remint
+## 36. David-OSv3/tests/test_tagger_v3_compatibility.py — test_legacy_marker_renderer_uses_registry_uuid_and_blocks_remint
 
 Lock compatibility arguments, exclusion filters and historical folder IDs while delegating work to Tagger v3 and central issuance.
 
@@ -436,9 +518,11 @@ After:
 assert UUID(token).version == 7
 # line 29
 assert token in render(tmp_path,tmp_path)
+# line 30
+pytest.raises(ValueError, match='immutable')
 ```
 
-## 32. David-OSv3/tests/test_tagger_v3_compatibility.py — test_legacy_watch_preserves_explicit_roots_and_exclusions
+## 37. David-OSv3/tests/test_tagger_v3_compatibility.py — test_legacy_watch_preserves_explicit_roots_and_exclusions
 
 Lock compatibility arguments, exclusion filters and historical folder IDs while delegating work to Tagger v3 and central issuance.
 
@@ -450,7 +534,7 @@ assert args[0]=='watch' and args.count('--source')==2
 assert 'private' in fake.SKIP_DIRS and 'secret.txt' in fake.SKIP_NAMES
 ```
 
-## 33. David-OSv3/tests/test_tagger_v3_compatibility.py — test_old_marker_id_is_an_alias_with_a_registry_reference
+## 38. David-OSv3/tests/test_tagger_v3_compatibility.py — test_old_marker_id_is_an_alias_with_a_registry_reference
 
 Lock compatibility arguments, exclusion filters and historical folder IDs while delegating work to Tagger v3 and central issuance.
 
@@ -462,7 +546,7 @@ assert 'folder_id: OLD-FOLDER' in text and f"registry_uuid: {reference['uuid7']}
 assert registry.lookup('OLD-FOLDER',scheme='legacy-folder-id')==reference
 ```
 
-## 34. David-OSv3/tools/filetagger/filetagger_gui.py — FileTaggerPopup._run_process
+## 39. David-OSv3/tools/filetagger/filetagger_gui.py — FileTaggerPopup._run_process
 
 The duplicate popup implementation was archived and replaced by a forwarder to Tagger v3. Its subprocess-stdout assertion moved with the historical implementation; the forwarder owns no subprocess. It was not removed to hide a failing test.
 
@@ -472,7 +556,7 @@ Before:
 assert self.process.stdout is not None
 ```
 
-## 35. Prediction_GUI/tests/test_fis_review.py — FISReviewTests.test_edits_holds_and_modified_plan_cannot_approve
+## 40. Prediction_GUI/tests/test_fis_review.py — FISReviewTests.test_edits_holds_and_modified_plan_cannot_approve
 
 Require exact immutable plan/row/actor/decision binding, reject changed or held plans, and persist explicit decisions across reopening.
 
@@ -488,7 +572,7 @@ self.assertRaises(ValueError)
 self.assertTrue(all(i['status']=='pending' for i in self.engine.store.items(batch)))
 ```
 
-## 36. Prediction_GUI/tests/test_fis_review.py — FISReviewTests.test_exact_receipt_and_restart
+## 41. Prediction_GUI/tests/test_fis_review.py — FISReviewTests.test_exact_receipt_and_restart
 
 Require exact immutable plan/row/actor/decision binding, reject changed or held plans, and persist explicit decisions across reopening.
 
@@ -506,7 +590,7 @@ self.assertRaises(ValueError)
 self.assertTrue(meq_namer_string({'G':3}).startswith('G3 M0'))
 ```
 
-## 37. Prediction_GUI/tests/test_fis_review.py — FISReviewTests.test_receipt_cannot_claim_a_competing_actors_choice
+## 42. Prediction_GUI/tests/test_fis_review.py — FISReviewTests.test_receipt_cannot_claim_a_competing_actors_choice
 
 Require exact immutable plan/row/actor/decision binding, reject changed or held plans, and persist explicit decisions across reopening.
 
@@ -516,7 +600,7 @@ After:
 self.assertRaisesRegex(ValueError, 'recorded decision differs')
 ```
 
-## 38. Prediction_GUI/tests/test_notifications.py — NotificationEngineTests.test_gui_never_auto_approves_suggestions
+## 43. Prediction_GUI/tests/test_notifications.py — NotificationEngineTests.test_gui_never_auto_approves_suggestions
 
 Confidence is advisory. Both rows must stay pending until an explicit GUI decision; the old expected automatic approval violated the reviewed mutation boundary.
 
@@ -526,7 +610,7 @@ After:
 self.assertEqual([i["status"] for i in self.engine.store.items(batch)], ["pending", "pending"])
 ```
 
-## 39. Prediction_GUI/tests/test_notifications.py — NotificationEngineTests.test_only_explicit_safe_work_auto_approves
+## 44. Prediction_GUI/tests/test_notifications.py — NotificationEngineTests.test_only_explicit_safe_work_auto_approves
 
 Confidence is advisory. Both rows must stay pending until an explicit GUI decision; the old expected automatic approval violated the reviewed mutation boundary.
 

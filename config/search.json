@@ -1,9 +1,7 @@
 {
-  "rga_path": "runtime/search-tools/rga/ripgrep_all-v0.10.9-x86_64-pc-windows-msvc/rga.exe",
+  "rga_path": "",
   "roots": {
-    "david-os": "D:\\GitHub\\David-OSv3",
-    "theophysics": "\\\\192.168.2.50\\h_hp\\Desktop",
-    "lean": "\\\\192.168.2.50\\h_hp\\Desktop 2\\LEAN 4"
+    "david-os": ".."
   },
   "default_roots": [
     "david-os"
@@ -14,8 +12,7 @@
     "runtime/search-tools/ripgrep",
     "runtime/search-tools/poppler/bin",
     "runtime/search-tools/pandoc",
-    "runtime/search-tools/ffmpeg/bin",
-    "C:\\Users\\David\\AppData\\Local\\Microsoft\\WinGet\\Packages\\oschwartz10612.Poppler_Microsoft.Winget.Source_8wekyb3d8bbwe\\poppler-25.07.0\\Library\\bin"
+    "runtime/search-tools/ffmpeg/bin"
   ],
   "canonical_register": {}
 }

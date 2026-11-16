@@ -40,9 +40,29 @@
         "line": 77,
         "code": "assert I.check_sidecar(sc)==[]",
         "canonical": "Assert(test=Compare(left=Call(func=Attribute(value=Name(id='I', ctx=Load()), attr='check_sidecar', ctx=Load()), args=[Name(id='sc', ctx=Load())], keywords=[]), ops=[Eq()], comparators=[List(elts=[], ctx=Load())]))"
+      },
+      {
+        "line": 82,
+        "code": "pytest.raises(ValueError)",
+        "canonical": "Call(func=Attribute(value=Name(id='pytest', ctx=Load()), attr='raises', ctx=Load()), args=[Name(id='ValueError', ctx=Load())], keywords=[])"
       }
     ],
     "why": "The identity schema now accepts registry_id alongside historical dotted ID aliases; the existing validation assertions still pass."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "shared/identity/test_layers.py",
+    "scope": "test_envelope_cannot_mint_a_document_root",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 41,
+        "code": "pytest.raises(ValueError, match=\"registry\")",
+        "canonical": "Call(func=Attribute(value=Name(id='pytest', ctx=Load()), attr='raises', ctx=Load()), args=[Name(id='ValueError', ctx=Load())], keywords=[keyword(arg='match', value=Constant(value='registry'))])"
+      }
+    ],
+    "why": "Only the central registry may mint a document root; the envelope must reject attempts to issue a second identity."
   },
   {
     "repo": "David-OSv3",
@@ -107,6 +127,11 @@
         "canonical": "Assert(test=Compare(left=Subscript(value=Call(func=Attribute(value=Name(id='registry', ctx=Load()), attr='reference', ctx=Load()), args=[Name(id='target', ctx=Load())], keywords=[]), slice=Constant(value='uuid7'), ctx=Load()), ops=[Eq()], comparators=[Subscript(value=Name(id='issued', ctx=Load()), slice=Constant(value='uuid7'), ctx=Load())]))"
       },
       {
+        "line": 68,
+        "code": "pytest.raises(PermissionError)",
+        "canonical": "Call(func=Attribute(value=Name(id='pytest', ctx=Load()), attr='raises', ctx=Load()), args=[Name(id='PermissionError', ctx=Load())], keywords=[])"
+      },
+      {
         "line": 69,
         "code": "assert transaction.undo(Store(tmp_path/'fis-state'), run['id'])['conflicts'] == []",
         "canonical": "Assert(test=Compare(left=Subscript(value=Call(func=Attribute(value=Name(id='transaction', ctx=Load()), attr='undo', ctx=Load()), args=[Call(func=Name(id='Store', ctx=Load()), args=[BinOp(left=Name(id='tmp_path', ctx=Load()), op=Div(), right=Constant(value='fis-state'))], keywords=[]), Subscript(value=Name(id='run', ctx=Load()), slice=Constant(value='id'), ctx=Load())], keywords=[]), slice=Constant(value='conflicts'), ctx=Load()), ops=[Eq()], comparators=[List(elts=[], ctx=Load())]))"
@@ -156,6 +181,11 @@
         "line": 92,
         "code": "assert r.lookup('W000001',scheme='work') == issued",
         "canonical": "Assert(test=Compare(left=Call(func=Attribute(value=Name(id='r', ctx=Load()), attr='lookup', ctx=Load()), args=[Constant(value='W000001')], keywords=[keyword(arg='scheme', value=Constant(value='work'))]), ops=[Eq()], comparators=[Name(id='issued', ctx=Load())]))"
+      },
+      {
+        "line": 98,
+        "code": "pytest.raises(ValueError)",
+        "canonical": "Call(func=Attribute(value=Name(id='pytest', ctx=Load()), attr='raises', ctx=Load()), args=[Name(id='ValueError', ctx=Load())], keywords=[])"
       },
       {
         "line": 100,
@@ -208,9 +238,29 @@
         "canonical": "Assert(test=Compare(left=Call(func=Name(id='migrate', ctx=Load()), args=[Name(id='mapping', ctx=Load()), Name(id='path', ctx=Load()), Constant(value=True)], keywords=[]), ops=[Eq()], comparators=[Name(id='first', ctx=Load())]))"
       },
       {
+        "line": 81,
+        "code": "pytest.raises(ValueError)",
+        "canonical": "Call(func=Attribute(value=Name(id='pytest', ctx=Load()), attr='raises', ctx=Load()), args=[Name(id='ValueError', ctx=Load())], keywords=[])"
+      },
+      {
         "line": 83,
         "code": "assert con.execute('SELECT count(*) FROM document_identities').fetchone()[0] == 1",
         "canonical": "Assert(test=Compare(left=Subscript(value=Call(func=Attribute(value=Call(func=Attribute(value=Name(id='con', ctx=Load()), attr='execute', ctx=Load()), args=[Constant(value='SELECT count(*) FROM document_identities')], keywords=[]), attr='fetchone', ctx=Load()), args=[], keywords=[]), slice=Constant(value=0), ctx=Load()), ops=[Eq()], comparators=[Constant(value=1)]))"
+      }
+    ],
+    "why": "Lock UUIDv7 issuance, explicit series assignments, legacy aliases, idempotent migration, concurrency, location history and separate identity after old-path reuse."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_identity_registry.py",
+    "scope": "test_invalid_assignment_is_not_issued",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 34,
+        "code": "pytest.raises(ValueError)",
+        "canonical": "Call(func=Attribute(value=Name(id='pytest', ctx=Load()), attr='raises', ctx=Load()), args=[Name(id='ValueError', ctx=Load())], keywords=[])"
       }
     ],
     "why": "Lock UUIDv7 issuance, explicit series assignments, legacy aliases, idempotent migration, concurrency, location history and separate identity after old-path reuse."
@@ -246,6 +296,11 @@
         "line": 19,
         "code": "assert reopened.lookup('unknown') is None",
         "canonical": "Assert(test=Compare(left=Call(func=Attribute(value=Name(id='reopened', ctx=Load()), attr='lookup', ctx=Load()), args=[Constant(value='unknown')], keywords=[]), ops=[Is()], comparators=[Constant(value=None)]))"
+      },
+      {
+        "line": 20,
+        "code": "pytest.raises(ValueError, match='immutable')",
+        "canonical": "Call(func=Attribute(value=Name(id='pytest', ctx=Load()), attr='raises', ctx=Load()), args=[Name(id='ValueError', ctx=Load())], keywords=[keyword(arg='match', value=Constant(value='immutable'))])"
       }
     ],
     "why": "Lock UUIDv7 issuance, explicit series assignments, legacy aliases, idempotent migration, concurrency, location history and separate identity after old-path reuse."
@@ -266,6 +321,11 @@
         "line": 111,
         "code": "assert r.reference(tmp_path/'new.md')['uuid7'] == original['uuid7']",
         "canonical": "Assert(test=Compare(left=Subscript(value=Call(func=Attribute(value=Name(id='r', ctx=Load()), attr='reference', ctx=Load()), args=[BinOp(left=Name(id='tmp_path', ctx=Load()), op=Div(), right=Constant(value='new.md'))], keywords=[]), slice=Constant(value='uuid7'), ctx=Load()), ops=[Eq()], comparators=[Subscript(value=Name(id='original', ctx=Load()), slice=Constant(value='uuid7'), ctx=Load())]))"
+      },
+      {
+        "line": 112,
+        "code": "pytest.raises(ValueError)",
+        "canonical": "Call(func=Attribute(value=Name(id='pytest', ctx=Load()), attr='raises', ctx=Load()), args=[Name(id='ValueError', ctx=Load())], keywords=[])"
       }
     ],
     "why": "Lock UUIDv7 issuance, explicit series assignments, legacy aliases, idempotent migration, concurrency, location history and separate identity after old-path reuse."
@@ -296,6 +356,11 @@
         "line": 59,
         "code": "assert r.reference(source)['uuid7'] != issued['uuid7']",
         "canonical": "Assert(test=Compare(left=Subscript(value=Call(func=Attribute(value=Name(id='r', ctx=Load()), attr='reference', ctx=Load()), args=[Name(id='source', ctx=Load())], keywords=[]), slice=Constant(value='uuid7'), ctx=Load()), ops=[NotEq()], comparators=[Subscript(value=Name(id='issued', ctx=Load()), slice=Constant(value='uuid7'), ctx=Load())]))"
+      },
+      {
+        "line": 60,
+        "code": "pytest.raises(ValueError)",
+        "canonical": "Call(func=Attribute(value=Name(id='pytest', ctx=Load()), attr='raises', ctx=Load()), args=[Name(id='ValueError', ctx=Load())], keywords=[])"
       }
     ],
     "why": "Lock UUIDv7 issuance, explicit series assignments, legacy aliases, idempotent migration, concurrency, location history and separate identity after old-path reuse."
@@ -326,6 +391,11 @@
         "line": 66,
         "code": "assert r.reference(tmp_path/'a.md')['uuid7'] != r.reference(tmp_path/'b.md')['uuid7']",
         "canonical": "Assert(test=Compare(left=Subscript(value=Call(func=Attribute(value=Name(id='r', ctx=Load()), attr='reference', ctx=Load()), args=[BinOp(left=Name(id='tmp_path', ctx=Load()), op=Div(), right=Constant(value='a.md'))], keywords=[]), slice=Constant(value='uuid7'), ctx=Load()), ops=[NotEq()], comparators=[Subscript(value=Call(func=Attribute(value=Name(id='r', ctx=Load()), attr='reference', ctx=Load()), args=[BinOp(left=Name(id='tmp_path', ctx=Load()), op=Div(), right=Constant(value='b.md'))], keywords=[]), slice=Constant(value='uuid7'), ctx=Load())]))"
+      },
+      {
+        "line": 67,
+        "code": "pytest.raises(ValueError)",
+        "canonical": "Call(func=Attribute(value=Name(id='pytest', ctx=Load()), attr='raises', ctx=Load()), args=[Name(id='ValueError', ctx=Load())], keywords=[])"
       }
     ],
     "why": "Lock UUIDv7 issuance, explicit series assignments, legacy aliases, idempotent migration, concurrency, location history and separate identity after old-path reuse."
@@ -599,6 +669,46 @@
   {
     "repo": "David-OSv3",
     "file": "tests/test_portability.py",
+    "scope": "test_credentials_are_rejected_in_config",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 28,
+        "code": "pytest.raises(ValueError, match='environment variables only')",
+        "canonical": "Call(func=Attribute(value=Name(id='pytest', ctx=Load()), attr='raises', ctx=Load()), args=[Name(id='ValueError', ctx=Load())], keywords=[keyword(arg='match', value=Constant(value='environment variables only'))])"
+      }
+    ],
+    "why": "Verify relocation-independent config paths, environment precedence, rejection of configured credentials, all-drive system-root protection and allowance of similarly named ordinary folders."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_portability.py",
+    "scope": "test_provider_keys_can_only_come_from_environment",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 47,
+        "code": "assert provider.resolved_key == 'test-placeholder'",
+        "canonical": "Assert(test=Compare(left=Attribute(value=Name(id='provider', ctx=Load()), attr='resolved_key', ctx=Load()), ops=[Eq()], comparators=[Constant(value='test-placeholder')]))"
+      },
+      {
+        "line": 48,
+        "code": "assert 'key' not in _from_provider(provider)",
+        "canonical": "Assert(test=Compare(left=Constant(value='key'), ops=[NotIn()], comparators=[Call(func=Name(id='_from_provider', ctx=Load()), args=[Name(id='provider', ctx=Load())], keywords=[])]))"
+      },
+      {
+        "line": 49,
+        "code": "pytest.raises(ValueError, match='environment variable')",
+        "canonical": "Call(func=Attribute(value=Name(id='pytest', ctx=Load()), attr='raises', ctx=Load()), args=[Name(id='ValueError', ctx=Load())], keywords=[keyword(arg='match', value=Constant(value='environment variable'))])"
+      }
+    ],
+    "why": "Verify relocation-independent config paths, environment precedence, rejection of configured credentials, all-drive system-root protection and allowance of similarly named ordinary folders."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_portability.py",
     "scope": "test_similar_folder_names_are_not_system_roots",
     "change": "insert",
     "before": [],
@@ -639,6 +749,16 @@
     "before": [],
     "after": [
       {
+        "line": 18,
+        "code": "pytest.raises(ValueError)",
+        "canonical": "Call(func=Attribute(value=Name(id='pytest', ctx=Load()), attr='raises', ctx=Load()), args=[Name(id='ValueError', ctx=Load())], keywords=[])"
+      },
+      {
+        "line": 20,
+        "code": "pytest.raises(PermissionError)",
+        "canonical": "Call(func=Attribute(value=Name(id='pytest', ctx=Load()), attr='raises', ctx=Load()), args=[Name(id='PermissionError', ctx=Load())], keywords=[])"
+      },
+      {
         "line": 23,
         "code": "assert run['status'] == 'applied'",
         "canonical": "Assert(test=Compare(left=Subscript(value=Name(id='run', ctx=Load()), slice=Constant(value='status'), ctx=Load()), ops=[Eq()], comparators=[Constant(value='applied')]))"
@@ -664,10 +784,40 @@
   {
     "repo": "David-OSv3",
     "file": "tests/test_review_contract.py",
+    "scope": "test_flagged_unknown_and_rejected_rows_cannot_authorize",
+    "change": "insert",
+    "before": [],
+    "after": [
+      {
+        "line": 35,
+        "code": "pytest.raises(ValueError)",
+        "canonical": "Call(func=Attribute(value=Name(id='pytest', ctx=Load()), attr='raises', ctx=Load()), args=[Name(id='ValueError', ctx=Load())], keywords=[])"
+      },
+      {
+        "line": 36,
+        "code": "pytest.raises(ValueError)",
+        "canonical": "Call(func=Attribute(value=Name(id='pytest', ctx=Load()), attr='raises', ctx=Load()), args=[Name(id='ValueError', ctx=Load())], keywords=[])"
+      },
+      {
+        "line": 38,
+        "code": "pytest.raises(PermissionError)",
+        "canonical": "Call(func=Attribute(value=Name(id='pytest', ctx=Load()), attr='raises', ctx=Load()), args=[Name(id='PermissionError', ctx=Load())], keywords=[])"
+      }
+    ],
+    "why": "Require exact immutable plan/row/actor/decision binding and reject edited, stale, held or replayed approvals."
+  },
+  {
+    "repo": "David-OSv3",
+    "file": "tests/test_review_contract.py",
     "scope": "test_registry_target_conflict_stops_before_source_mutation",
     "change": "insert",
     "before": [],
     "after": [
+      {
+        "line": 49,
+        "code": "pytest.raises(ValueError,match='another registry')",
+        "canonical": "Call(func=Attribute(value=Name(id='pytest', ctx=Load()), attr='raises', ctx=Load()), args=[Name(id='ValueError', ctx=Load())], keywords=[keyword(arg='match', value=Constant(value='another registry'))])"
+      },
       {
         "line": 51,
         "code": "assert source.read_text()=='A method and evidence'",
@@ -688,6 +838,11 @@
     "change": "insert",
     "before": [],
     "after": [
+      {
+        "line": 64,
+        "code": "pytest.raises(RuntimeError)",
+        "canonical": "Call(func=Attribute(value=Name(id='pytest', ctx=Load()), attr='raises', ctx=Load()), args=[Name(id='RuntimeError', ctx=Load())], keywords=[])"
+      },
       {
         "line": 67,
         "code": "assert transaction.undo(restarted,run['id'])['conflicts']==[]",
@@ -757,6 +912,11 @@
         "line": 29,
         "code": "assert token in render(tmp_path,tmp_path)",
         "canonical": "Assert(test=Compare(left=Name(id='token', ctx=Load()), ops=[In()], comparators=[Call(func=Name(id='render', ctx=Load()), args=[Name(id='tmp_path', ctx=Load()), Name(id='tmp_path', ctx=Load())], keywords=[])]))"
+      },
+      {
+        "line": 30,
+        "code": "pytest.raises(ValueError, match='immutable')",
+        "canonical": "Call(func=Attribute(value=Name(id='pytest', ctx=Load()), attr='raises', ctx=Load()), args=[Name(id='ValueError', ctx=Load())], keywords=[keyword(arg='match', value=Constant(value='immutable'))])"
       }
     ],
     "why": "Lock compatibility arguments, exclusion filters and historical folder IDs while delegating work to Tagger v3 and central issuance."

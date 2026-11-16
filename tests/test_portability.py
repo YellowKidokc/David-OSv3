@@ -38,3 +38,13 @@ def test_system_roots_stay_protected_on_any_drive(path):
 @pytest.mark.parametrize('path', ['X:/WindowsNotes/a', '/binary/a', '/tmp/usr-notes/a'])
 def test_similar_folder_names_are_not_system_roots(path):
     assert not _is_system(path)
+
+
+def test_provider_keys_can_only_come_from_environment(monkeypatch):
+    from hub.services.provider_router import _to_provider, _from_provider
+    monkeypatch.setenv('PORTABILITY_TEST_PROVIDER_KEY', 'test-placeholder')
+    provider = _to_provider({'id': 'test', 'key_env': 'PORTABILITY_TEST_PROVIDER_KEY'})
+    assert provider.resolved_key == 'test-placeholder'
+    assert 'key' not in _from_provider(provider)
+    with pytest.raises(ValueError, match='environment variable'):
+        _to_provider({'id': 'test', 'key': 'forbidden-test-placeholder'})

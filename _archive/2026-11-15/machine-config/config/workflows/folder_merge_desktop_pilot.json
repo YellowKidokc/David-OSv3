@@ -1,0 +1,16 @@
+{
+  "workflow_id": "folder_merge_desktop_pilot",
+  "mode": "copy_only_pilot",
+  "destination_policy": "largest_bytes",
+  "conflict_policy": "keep_both",
+  "roots": [
+    "\\\\192.168.2.50\\h_hp\\Desktop\\Folders\\01_ENGINE",
+    "\\\\192.168.2.50\\h_hp\\Desktop\\Folders\\01_ENGINE (1)",
+    "\\\\192.168.2.50\\h_hp\\Desktop\\Folders\\02_OPENAI",
+    "\\\\192.168.2.50\\h_hp\\Desktop\\Folders\\02_OPENAI (1)",
+    "\\\\192.168.2.50\\h_hp\\Desktop\\Folders\\articles"
+  ],
+  "minimum_shared_hashes": 3,
+  "minimum_hash_containment": 0.6,
+  "output": "D:/GitHub/David-OSv3/runs/folder_merge_desktop_pilot_20261030"
+}

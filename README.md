@@ -39,11 +39,14 @@ JSON file. The optional YAML loader rejects credential fields. `config.yaml` and
 Install test dependencies with `python setup_env.py --test`. Run checks with
 `python run.py -m pytest -q`. For the Tagger CLI use
 `python run.py -m Theophysics_Tagger.tools.tagger3 --help`.
-For the Tagger window install PySide6 (`python run.py -m pip install PySide6`),
+For the Tagger window install tkinter through your operating system,
 then use `python run.py -m Theophysics_Tagger.tools.tagger3_gui`.
 
 Historical generated tagger CSVs are losslessly compressed under
 `_archive/tagger-index/`, with SHA-256 hashes and restoration instructions.
+Machine-specific folder assignments, watch profiles and search roots are archived
+under `_archive/2026-11-15/machine-config`; fresh clones start with no watched roots
+and search the clone itself. Configure your own roots before enabling watchers.
 Archived code, audit evidence and Windows-path test fixtures retain historical
 paths; they are not portable runtime defaults.
 

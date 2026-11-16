@@ -1,0 +1,10 @@
+{
+  "remaining_runtime_path_literals": [],
+  "exclusions": [
+    "archives",
+    "audit evidence",
+    "tests",
+    "source snapshots",
+    "reference imports"
+  ]
+}

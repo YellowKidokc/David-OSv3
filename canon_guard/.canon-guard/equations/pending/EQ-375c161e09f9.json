@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-375c161e09f9",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.968372+00:00",
+  "source": {
+    "path": "MEQ-Claude.md",
+    "line": 180,
+    "source_sha256": "8093b04a78358443d00782f29886e7307d6183d8fefd92fdcd8cd6fe4563eed9"
+  },
+  "equation": {
+    "raw": "\"equation\": \"R(F) = Rₘₐₓ·(1+e^(-k·(F-F₀)))^(-1)·E(t)\",",
+    "normalized": "\"equation\":\"r(f)=rₘₐₓ*(1+e^(-k*(f-f₀)))^(-1)*e(t)\",",
+    "fingerprint": "375c161e09f93bb349c4bcc34de7f013820be67dfcef49891d9553b5e76d451f"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

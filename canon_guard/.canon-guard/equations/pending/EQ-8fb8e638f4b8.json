@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-8fb8e638f4b8",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.302785+00:00",
+  "source": {
+    "path": "MEQ-law-06-K-love.md",
+    "line": 3,
+    "source_sha256": "b6766deacf30989d23bd93ea9f1a3d1e70cc4f189cb96b576db4b2eb6eb5e14a"
+  },
+  "equation": {
+    "raw": "V(r) = −g²e−μr/r",
+    "normalized": "v(r)=-g^2e-mur/r",
+    "fingerprint": "8fb8e638f4b846e93ea5ca1965334d3c9b876b10aba1cd2a4f2668b827d25959"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

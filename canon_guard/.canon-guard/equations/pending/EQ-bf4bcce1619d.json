@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-bf4bcce1619d",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.690806+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Trinity_Pattern_of_Reality.md",
+    "line": 79,
+    "source_sha256": "2dc07683dd107674173e8efce5ca7eba51cb6e6fe2bc8ff1a908f270c8927c62"
+  },
+  "equation": {
+    "raw": "🔹 Ψ = The total reality state",
+    "normalized": "🔹ψ=thetotalrealitystate",
+    "fingerprint": "bf4bcce1619d97cf89d3f67606551dcd8f15a27a935dae9b7f40388d44281937"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

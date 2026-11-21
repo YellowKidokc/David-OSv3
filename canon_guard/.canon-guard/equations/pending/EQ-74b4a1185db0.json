@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-74b4a1185db0",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.099472+00:00",
+  "source": {
+    "path": "MEQ-10.md",
+    "line": 1337,
+    "source_sha256": "fba2739802e5abaa4ecd6e7da4de10128ba6bc68dcff2be1c87f77ec78a7f554"
+  },
+  "equation": {
+    "raw": "F=∑fiF = \\sum f_iF=∑fi​",
+    "normalized": "f=∑fif=\\sumf_if=∑fi​",
+    "fingerprint": "74b4a1185db049a49e620129bbbfa9b0c71f05627f28f4cce0d0fb07b626f959"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

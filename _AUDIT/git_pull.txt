@@ -1,0 +1,2 @@
+Already up to date.
+git pull exit code: 0

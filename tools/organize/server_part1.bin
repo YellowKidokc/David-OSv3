@@ -1,0 +1,26 @@
+# -*- coding: utf-8 -*-
+"""
+Organize Server - Lightweight file organizer backend
+Run: python server.py | Serves on 0.0.0.0:8500
+"""
+import json, os, hashlib
+from http.server import HTTPServer, BaseHTTPRequestHandler
+from urllib.parse import urlparse, parse_qs, unquote
+from pathlib import Path
+from collections import defaultdict
+
+PORT = 8500
+HTML_DIR = os.path.dirname(os.path.abspath(__file__))
+
+EXT_MAP = {
+    "Documents": [".pdf",".doc",".docx",".txt",".md",".rtf",".odt",".epub"],
+    "Spreadsheets": [".xlsx",".xls",".csv",".tsv",".xlsm"],
+    "Images": [".png",".jpg",".jpeg",".gif",".bmp",".svg",".webp",".ico",".tif",".tiff"],
+    "Audio": [".mp3",".wav",".m4a",".flac",".aac",".ogg",".wma"],
+    "Video": [".mp4",".mkv",".avi",".mov",".wmv",".webm",".flv"],
+    "Code": [".py",".js",".ts",".jsx",".tsx",".html",".css",".json",".yml",".yaml",".toml",".rs",".go",".java",".cpp",".c",".h",".lean"],
+    "Archives": [".zip",".rar",".7z",".tar",".gz",".bz2"],
+    "PowerPoint": [".pptx",".ppt"],
+    "Data": [".sql",".db",".sqlite",".jsonl",".parquet"],
+}
+

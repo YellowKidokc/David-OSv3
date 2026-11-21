@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-a462bb1155dd",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.876698+00:00",
+  "source": {
+    "path": "MEQ-00_MATH_SUMMARY.md",
+    "line": 11136,
+    "source_sha256": "6c68ac764c4536e2f86e24ca6255a50c7ed39ef5f5a52e797626d1dbb24cdf0e"
+  },
+  "equation": {
+    "raw": "P(outcome) = P₀(outcome) × e^(kF)",
+    "normalized": "p(outcome)=p₀(outcome)*e^(kf)",
+    "fingerprint": "a462bb1155dd719221b38e5f7f7344bd9c4b3b43962f10c2fa303d57d1de2f1d"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

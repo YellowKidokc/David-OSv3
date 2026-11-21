@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-22d1ff630b39",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.060503+00:00",
+  "source": {
+    "path": "MEQ-COLLAPSE_DECOHERENCE.md",
+    "line": 39,
+    "source_sha256": "1442dc1b8acc01bf6f54c4dd0b52effd48dc85bfe245a593526ae8277294607b"
+  },
+  "equation": {
+    "raw": "iℏ ∂|Ψ(t)⟩/∂t = Ĥ(t)|Ψ(t)⟩ + Ĝ|Ψ(t)⟩",
+    "normalized": "iℏpartial|ψ(t)⟩/partialt=ĥ(t)|ψ(t)⟩+ĝ|ψ(t)⟩",
+    "fingerprint": "22d1ff630b392f9f452e3a5d3c5a993afc26c490cd693bb6fee0d56663f7288a"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

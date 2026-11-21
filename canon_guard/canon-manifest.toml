@@ -1,0 +1,79 @@
+[manifest]
+schema = 1
+name = "POF 2828 canonical authority"
+exclude = [".git", ".canon-guard", "canon_guard/tests"]
+
+# IMPORTANT: version and supersession are explicit decisions, never inferred from
+# filenames, modification time, #canon tags, or the newest date.
+
+[[documents]]
+id = "master-equation"
+path = "canon/no-drift-master-equation.md"
+version = "1.0.0"
+effective_date = "2026-04-16"
+authority = 100
+locked = true
+# Add sha256 after David ratifies the exact bytes:
+# sha256 = "..."
+
+[[documents]]
+id = "spiritual-derivatives"
+path = "canon/no-drift-spiritual-derivatives.md"
+version = "1.0.0"
+effective_date = "2026-04-16"
+authority = 100
+locked = true
+
+[[documents]]
+id = "consilience-rule"
+path = "canon/the-consilience-rule.md"
+version = "1.0.0"
+effective_date = "2026-07-25"
+authority = 100
+locked = true
+
+# Rules are deliberately conservative. A safe fix must be exact and reversible.
+
+[[claims]]
+id = "BARE_HEDGE"
+mode = "forbid"
+pattern = '(?im)^(?!.*consilience).*does not (?:constitute )?pro(?:ve|of) (?:the |a )?theolog(?:y|ical claim).*$'
+replacement = '\g<0> It is consilience—independent domains arriving at the same structure through independent methods. [See: SOURCE PAPER LINK]'
+message = "Cross-domain non-proof hedge lacks the required consilience statement and source link."
+severity = "error"
+safe_fix = false
+canonical_id = "consilience-rule"
+scope = ["**/*.md"]
+exclude_scope = ["canon/the-consilience-rule.md"]
+
+[[claims]]
+id = "C_IS_FACTOR"
+mode = "forbid"
+pattern = '(?i)\bC\s+is\s+(?:just\s+)?(?:the\s+)?tenth\s+factor\b'
+message = "C is being described as an ordinary tenth factor; canon says C IS χ / the integrator."
+severity = "critical"
+safe_fix = false
+canonical_id = "master-equation"
+scope = ["**/*.md", "**/*.txt", "**/*.tex"]
+
+[[claims]]
+id = "AUTO_NEWEST_CANON"
+mode = "forbid"
+pattern = '(?i)\b(?:newest|latest|most recent)\s+(?:file|document|date)\s+(?:automatically\s+)?(?:wins|is canonical)\b'
+message = "Canonical authority cannot be inferred from recency."
+severity = "error"
+safe_fix = false
+scope = ["**/*.md", "**/*.txt"]
+
+[[equation_aliases]]
+id = "MASTER_EQUATION_DRIFT"
+detect = 'χ\s*=|\\chi\s*='
+# Formal canonical form (July 26, 2026 ruling): C_W wraps the product; C is not a factor.
+canonical = 'χ(X) = C_W[ ∏ᵢ Xᵢ ]'
+views = [
+  { name = "teaching", canonical = 'χ = ∭ (G · M · E · S · T · K · R · Q · F · C) dx dy dt' }
+]
+message = "Possible Master Equation drift. Semantic adjudication required; never auto-fixed."
+severity = "error"
+safe_fix = false
+canonical_id = "master-equation"

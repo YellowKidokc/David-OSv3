@@ -1,0 +1,12 @@
+{
+  "sources": [],
+  "options": {
+    "semantic": false,
+    "catalog": true,
+    "sidecars": false,
+    "markers": false,
+    "paragraphs": false,
+    "copy": false,
+    "frontmatter": false
+  }
+}

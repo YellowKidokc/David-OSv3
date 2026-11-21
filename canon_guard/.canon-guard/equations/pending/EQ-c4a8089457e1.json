@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-c4a8089457e1",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.860423+00:00",
+  "source": {
+    "path": "MEQ-Untitled4-Copy.md",
+    "line": 7218,
+    "source_sha256": "21fe5fde357a2e7ba3a40b40deca1f824c0e1d6f4819fcd0dff9476c792f3906"
+  },
+  "equation": {
+    "raw": "S=GsMsCr2S = G_s \\frac{M_s C}{r^2}S=Gs​r2Ms​C​",
+    "normalized": "s=gsmscr2s=g_s\\frac{m_sc}{r^2}s=gs​r2ms​c​",
+    "fingerprint": "c4a8089457e168127839c2b3f4cd77e3d9a1864fe5901027c79efdafcb23be55"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

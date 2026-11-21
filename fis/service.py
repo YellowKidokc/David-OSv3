@@ -95,9 +95,13 @@ def make_plan(store, root, recursive=True, html=True, template='fable', on_file=
             dirs[:] = [d for d in dirs if not gate.unsafe(Path(here)/d, gate.policy(store))]
             folders.add(str(Path(here)))
     if html:
+        # Folders with only a file or two are noise; they get no page until they grow.
+        min_files = int(gate.policy(store).get('html_min_files', 3))
         for folder in sorted(folders):
-            notes = legacy_notes(folder)
             sources = [r for r in result['files'] if r['folder'] == folder]
+            if len(sources) < min_files:
+                continue
+            notes = legacy_notes(folder)
             p = Path(folder)/'FIS.html'
             if p.is_symlink():
                 raise PermissionError('HTML destination is a link')

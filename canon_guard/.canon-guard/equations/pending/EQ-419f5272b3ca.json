@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-419f5272b3ca",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.314733+00:00",
+  "source": {
+    "path": "MEQ-2.1WhatistheMasterEquationHigh-levelexplanation11-Copy.md",
+    "line": 86,
+    "source_sha256": "d7835de208497b4974e90dda0bc4b89e3ad2bb9200ed2decd277b6b20f33d90f"
+  },
+  "equation": {
+    "raw": "\\Huge \\chi' = \\chi + R_J",
+    "normalized": "\\hugechi'=chi+r_j",
+    "fingerprint": "419f5272b3ca9f7b102c01c1e9c184a6faf5ace09709503b0ad39cbc332fcb13"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

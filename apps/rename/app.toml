@@ -1,0 +1,7 @@
+name = "rename"
+description = "Rename proposals (never executes alone)"
+status = "parity-verified"  # skeleton | migrating | parity-verified | canonical
+port = 0  # 0 = no server
+data_dir = "data/rename"
+may_import = ["shared"]  # never other apps
+legacy_sources = ["03_CLASSIFY/03_RENAMING", "D:/GitHub/FIS/naming_engine.py"]

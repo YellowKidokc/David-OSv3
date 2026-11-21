@@ -1,0 +1,18 @@
+[package]
+name = "lexicon_classify"
+version = "0.1.0"
+edition = "2021"
+description = "Pass 1 lexicon classifier (no network, read-only)"
+
+[dependencies]
+serde_json = { version = "1", features = ["preserve_order"] }
+sha2 = "0.10"
+walkdir = "2"
+rayon = "1"
+regex = "1"
+chrono = { version = "0.4", default-features = false, features = ["clock"] }
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1

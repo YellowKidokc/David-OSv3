@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FIS Graphic</title>
+<style>
+:root{color-scheme:dark;--bg:#1a120b;--panel:#24180f;--panel2:#2e2015;--line:#4a3423;--text:#f3e6d3;--muted:#b49a7c;--a1:#d9a05b;--a2:#f2c98a;--a3:#8c5a2e;--a4:#c46a3a;--a5:#7e8c5a}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 20% 0%,#2b1c10,var(--bg) 60%);color:var(--text);font:14px/1.5 Georgia,serif;min-height:100vh}
+.wrap{max-width:1500px;margin:auto;padding:26px}
+.eyebrow{font:11px ui-monospace,Consolas,monospace;letter-spacing:2px;color:var(--a1)}
+h1{font-size:36px;margin:4px 0;font-weight:600}h2{font:12px ui-monospace,Consolas,monospace;letter-spacing:2px;text-transform:uppercase;color:var(--a1);margin:0 0 10px}
+.muted{color:var(--muted)}code{font:12px ui-monospace,Consolas,monospace;color:var(--a2)}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:18px}
+.card{background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:10px;padding:16px;box-shadow:0 6px 24px rgba(0,0,0,.35)}
+.s4{grid-column:span 4}.s5{grid-column:span 5}.s7{grid-column:span 7}.s8{grid-column:span 8}.s12{grid-column:span 12}.s6{grid-column:span 6}
+svg{width:100%;height:auto;display:block}svg text{fill:var(--text);font-family:ui-monospace,Consolas,monospace}
+.gauges{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.tip{position:fixed;pointer-events:none;background:#0d0805;border:1px solid var(--a1);padding:6px 9px;border-radius:5px;font:12px ui-monospace,Consolas,monospace;display:none;max-width:320px;z-index:9}
+button{background:var(--panel2);border:1px solid var(--line);color:var(--text);padding:7px 12px;border-radius:6px;cursor:pointer;font:12px ui-monospace,Consolas,monospace}button:hover{border-color:var(--a1)}
+.legend span{display:inline-block;margin-right:12px;font:11px ui-monospace,Consolas,monospace}.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+@media(max-width:1000px){.s4,.s5,.s6,.s7,.s8{grid-column:span 12}}
+</style></head><body>
+<div class="wrap">
+<div class="eyebrow">FIS FOLDER BRAIN / GRAPHIC VIEW</div>
+<h1 id="title"></h1><div class="muted" id="sub"></div>
+<div style="margin-top:10px"><code id="meq"></code> &nbsp; <button id="copyAI">Copy for AI</button></div>
+<div class="grid">
+ <div class="card s5"><h2>Folder signature · CHI radar</h2><svg id="radar" viewBox="0 0 400 400"></svg></div>
+ <div class="card s7"><h2>Keyword constellation · files ↔ shared concepts</h2><svg id="net" viewBox="0 0 700 500"></svg><div class="legend" id="leg"></div></div>
+ <div class="card s8"><h2>CHI heatmap · each file's dimension profile</h2><svg id="heat"></svg></div>
+ <div class="card s4"><h2>Folder vitals</h2><div class="gauges" id="gauges"></div></div>
+ <div class="card s6"><h2>Mass · bytes per file</h2><svg id="mass"></svg></div>
+ <div class="card s6"><h2>Composition · type &amp; dominant signal</h2><svg id="donut" viewBox="0 0 600 260"></svg></div>
+</div></div>
+<div class="tip" id="tip"></div>
+<script type="application/json" id="fis-folder-record">{"schema": "fis.folder/2.1", "folder": {"folder_id": "FLD-c44f28a1525c", "path": "D:\\THEOPHYSICS_REFINED_PAPERS", "name": "THEOPHYSICS_REFINED_PAPERS", "folder_type": "document", "purpose": "UNRESOLVED", "domain": "unclassified", "status": "active", "owner": "UNRESOLVED", "canonical_source": 0, "file_count": 0, "child_folder_count": 5, "created_at": "2026-09-03T08:40:10+00:00", "last_scanned": "2026-09-03T08:56:07+00:00", "compressed_name": "TH__DOC__GN__20260903__AC", "compressed_name_detail": {"code": "TH__DOC__GN__20260903__AC", "domain": "TH", "domain_meaning": "theophysics", "ct": "DOC", "tags": [], "date": "20260903", "status": "AC", "tag_meanings": {}}, "lossless_address": "LOSS__THEOPHYSICS_REFINED_PAPERS__2026-09-03", "lossless_address_detail": {"address": "LOSS__THEOPHYSICS_REFINED_PAPERS__2026-09-03", "mode": "loss", "source_date": "2026-09-03", "basis": "title_and_local_content_sample", "trigger": null}, "meq_aggregate": ""}, "files": [], "child_folders": [{"name": "01_Genesis_to_Quantum_Refined", "type": "mixed", "file_count": 2}, {"name": "02_Canonical_Treatises", "type": "document", "file_count": 2}, {"name": "03_Core_Cannon_Papers", "type": "document", "file_count": 22}, {"name": "04_Moral_Substrate_and_Trilemma", "type": "mixed", "file_count": 5}, {"name": "05_Axiom_Nodes_191", "type": "mixed", "file_count": 191}], "signals": {"folder_signal": 0, "activity": 0, "depth": 0, "explicit_links": 0, "presentation": 0, "registry": 0}}</script>
+<script>
+const D=JSON.parse(document.getElementById('fis-folder-record').textContent),F=D.files||[],fo=D.folder||{},SIG=D.signals||{};
+const $=id=>document.getElementById(id),NS='http://www.w3.org/2000/svg',esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const PAL=['#d9a05b','#c46a3a','#7e8c5a','#a8784a','#e8c07a','#8c5a2e','#b5835a','#9c6b4e','#d4b483','#6b4a2e'];
+const DIMS=['G','M','E','S','T','K','R','Q','F','C'],DN={G:'Grace',M:'Mass',E:'Truth',S:'Entropy',T:'Time',K:'Knowledge',R:'Relation',Q:'Quantum',F:'Faith',C:'Code'};
+const tip=$('tip');function hov(el,t){el.addEventListener('mousemove',e=>{tip.style.display='block';tip.innerHTML=t;tip.style.left=e.clientX+14+'px';tip.style.top=e.clientY+14+'px'});el.addEventListener('mouseleave',()=>tip.style.display='none')}
+function E(p,tag,a,t){const e=document.createElementNS(NS,tag);for(const k in a)e.setAttribute(k,a[k]);if(t!=null)e.textContent=t;p.appendChild(e);return e}
+document.title='FIS Graphic | '+(fo.name||'');$('title').textContent=fo.name||'';$('sub').textContent=`${F.length} files · ${(fo.compressed_name||'')} · scanned ${fo.last_scanned||'—'}`;$('meq').textContent=fo.meq_aggregate||'';
+// aggregate chi
+const agg={};DIMS.forEach(d=>agg[d]=0);F.forEach(f=>{for(const k in (f.chi_vector||{}))agg[k]=(agg[k]||0)+f.chi_vector[k]});
+// RADAR
+(()=>{const s=$('radar'),cx=200,cy=200,R=150,mx=Math.max(1,...DIMS.map(d=>agg[d]));
+for(let r=1;r<=4;r++)E(s,'polygon',{points:DIMS.map((d,i)=>{const a=i/DIMS.length*2*Math.PI-Math.PI/2;return[cx+Math.cos(a)*R*r/4,cy+Math.sin(a)*R*r/4]}).join(' '),fill:'none',stroke:'#4a3423'});
+DIMS.forEach((d,i)=>{const a=i/DIMS.length*2*Math.PI-Math.PI/2;E(s,'line',{x1:cx,y1:cy,x2:cx+Math.cos(a)*R,y2:cy+Math.sin(a)*R,stroke:'#3a2819'});E(s,'text',{x:cx+Math.cos(a)*(R+22),y:cy+Math.sin(a)*(R+22)+4,'text-anchor':'middle','font-size':12,fill:'#f2c98a'},d)});
+const pts=DIMS.map((d,i)=>{const a=i/DIMS.length*2*Math.PI-Math.PI/2,v=agg[d]/mx*R;return[cx+Math.cos(a)*v,cy+Math.sin(a)*v]});
+E(s,'polygon',{points:pts.join(' '),fill:'rgba(217,160,91,.35)',stroke:'#d9a05b','stroke-width':2});
+pts.forEach((p,i)=>{const c=E(s,'circle',{cx:p[0],cy:p[1],r:5,fill:'#f2c98a'});hov(c,`${DIMS[i]} · ${DN[DIMS[i]]}<br>total ${agg[DIMS[i]]}`)})})();
+// NETWORK
+(()=>{const s=$('net'),W=700,H=500,norm=k=>k.toLowerCase().replace(/[_\/]+/g,' ').replace(/\s+/g,' ').trim();
+const kmap=new Map();F.forEach((f,i)=>(f.keywords||[]).forEach(k=>{if(k.length<3)return;const n=norm(k);if(!kmap.has(n))kmap.set(n,{label:k,f:new Set()});kmap.get(n).f.add(i)}));
+const K=[...kmap.values()].filter(k=>k.f.size>1).sort((a,b)=>b.f.size-a.f.size).slice(0,18);
+const types=[...new Set(F.map(f=>f.type))];
+const fn=F.map((f,i)=>{const a=i/F.length*2*Math.PI;return{x:W/2+Math.cos(a)*210,y:H/2+Math.sin(a)*200,f}});
+const kn=K.map((k,i)=>{const a=i/K.length*2*Math.PI+.3;const r=60+(i%3)*35;return{x:W/2+Math.cos(a)*r,y:H/2+Math.sin(a)*r,k}});
+kn.forEach(n=>n.k.f.forEach(i=>E(s,'line',{x1:n.x,y1:n.y,x2:fn[i].x,y2:fn[i].y,stroke:'#8c5a2e','stroke-opacity':.45})));
+kn.forEach(n=>{const r=6+n.k.f.size*3;const c=E(s,'circle',{cx:n.x,cy:n.y,r,fill:'#2e2015',stroke:'#f2c98a'});hov(c,`<b>${esc(n.k.label)}</b><br>${[...n.k.f].map(i=>esc(F[i].name)).join('<br>')}`);E(s,'text',{x:n.x,y:n.y-r-3,'text-anchor':'middle','font-size':10,fill:'#f2c98a'},n.k.label.slice(0,16))});
+fn.forEach(n=>{const r=8+Math.sqrt((n.f.size_bytes||0)/1000)*1.5;const c=E(s,'circle',{cx:n.x,cy:n.y,r,fill:PAL[types.indexOf(n.f.type)%PAL.length],stroke:'#1a120b','stroke-width':2});hov(c,`<b>${esc(n.f.name)}</b><br>${esc(n.f.type)} · ${esc(n.f.dominant_chi||'')}<br>${(n.f.size_bytes||0).toLocaleString()} B`);
+ const out=n.x>W/2;E(s,'text',{x:n.x+(out?r+4:-r-4),y:n.y+4,'text-anchor':out?'start':'end','font-size':11},n.f.name.slice(0,26))});
+$('leg').innerHTML=types.map((t,i)=>`<span><i style="background:${PAL[i%PAL.length]}"></i>${esc(t)}</span>`).join('')+'<span><i style="border:1px solid #f2c98a"></i>shared keyword</span>'})();
+// HEATMAP
+(()=>{const s=$('heat'),lw=210,cw=44,ch=26,W=lw+DIMS.length*cw,H=30+F.length*ch;s.setAttribute('viewBox',`0 0 ${W} ${H}`);
+const mx=Math.max(1,...F.flatMap(f=>Object.values(f.chi_vector||{0:0})));
+DIMS.forEach((d,j)=>E(s,'text',{x:lw+j*cw+cw/2,y:18,'text-anchor':'middle','font-size':12,fill:'#f2c98a'},d));
+F.forEach((f,i)=>{E(s,'text',{x:lw-8,y:30+i*ch+17,'text-anchor':'end','font-size':11},f.name.slice(0,28));
+ DIMS.forEach((d,j)=>{const v=(f.chi_vector||{})[d]||0;const r=E(s,'rect',{x:lw+j*cw+2,y:30+i*ch+2,width:cw-4,height:ch-4,rx:4,fill:v?`rgba(217,160,91,${.2+.8*v/mx})`:'#2a1c12'});hov(r,`${esc(f.name)}<br>${d} ${DN[d]} = ${v}`);if(v)E(s,'text',{x:lw+j*cw+cw/2,y:30+i*ch+17,'text-anchor':'middle','font-size':11,fill:'#1a120b'},v)})})})();
+// GAUGES
+(()=>{$('gauges').innerHTML=Object.entries(SIG).map(([k,v])=>{const a=Math.min(100,v)/100*Math.PI,x=50-Math.cos(a)*38,y=50-Math.sin(a)*38;
+ return `<svg viewBox="0 0 100 70"><path d="M12 50 A38 38 0 0 1 88 50" fill="none" stroke="#3a2819" stroke-width="9" stroke-linecap="round"/><path d="M12 50 A38 38 0 0 1 ${x.toFixed(1)} ${y.toFixed(1)}" fill="none" stroke="#d9a05b" stroke-width="9" stroke-linecap="round"/><text x="50" y="48" text-anchor="middle" font-size="16" fill="#f2c98a">${v}</text><text x="50" y="66" text-anchor="middle" font-size="8" fill="#b49a7c">${esc(k.replace(/_/g,' '))}</text></svg>`}).join('')||'<span class="muted">no signals</span>'})();
+// MASS
+(()=>{const s=$('mass'),fs=[...F].sort((a,b)=>(b.size_bytes||0)-(a.size_bytes||0)),bh=24,W=600,H=fs.length*bh+10,mx=Math.max(1,...fs.map(f=>f.size_bytes||0));s.setAttribute('viewBox',`0 0 ${W} ${H}`);
+fs.forEach((f,i)=>{const w=(f.size_bytes||0)/mx*360;const r=E(s,'rect',{x:200,y:i*bh+4,width:Math.max(2,w),height:bh-6,rx:4,fill:PAL[i%PAL.length]});hov(r,`${esc(f.name)}<br>${(f.size_bytes||0).toLocaleString()} bytes`);
+ E(s,'text',{x:192,y:i*bh+20,'text-anchor':'end','font-size':11},f.name.slice(0,26));E(s,'text',{x:206+w,y:i*bh+20,'font-size':10,fill:'#b49a7c'},((f.size_bytes||0)/1024).toFixed(1)+'k')})})();
+// DONUTS
+(()=>{const s=$('donut');function donut(cx,title,counts){const tot=Object.values(counts).reduce((a,b)=>a+b,0)||1;let a0=-Math.PI/2;
+ Object.entries(counts).forEach(([k,v],i)=>{const a1=a0+v/tot*2*Math.PI,R=85,r=50,la=a1-a0>Math.PI?1:0,p=(a,rr)=>[cx+Math.cos(a)*rr,130+Math.sin(a)*rr];
+  const d=`M${p(a0,R)} A${R} ${R} 0 ${la} 1 ${p(a1,R)} L${p(a1,r)} A${r} ${r} 0 ${la} 0 ${p(a0,r)}Z`;const el=E(s,'path',{d,fill:PAL[i%PAL.length],stroke:'#1a120b','stroke-width':2});hov(el,`${esc(k)}: ${v}`);a0=a1});
+ E(s,'text',{x:cx,y:134,'text-anchor':'middle','font-size':13,fill:'#f2c98a'},title)}
+ const c=(key)=>F.reduce((m,f)=>{const k=(f[key]||'none').split(' / ')[0];m[k]=(m[k]||0)+1;return m},{});
+ donut(150,'type',c('type'));donut(450,'signal',c('dominant_chi'))})();
+$('copyAI').onclick=()=>{const p={folder:fo.name,meq:fo.meq_aggregate,chi_totals:agg,signals:SIG,files:F.map(f=>({name:f.name,type:f.type,chi:f.chi_vector,keywords:f.keywords}))};
+ navigator.clipboard.writeText('Analyze this folder profile. What unifies it, what is the outlier, where should it live in the vault?\n\n'+JSON.stringify(p,null,1)).then(()=>{$('copyAI').textContent='Copied ✓';setTimeout(()=>$('copyAI').textContent='Copy for AI',1500)})};
+</script></body></html>

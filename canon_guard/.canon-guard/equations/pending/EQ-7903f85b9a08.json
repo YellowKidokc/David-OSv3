@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-7903f85b9a08",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.624648+00:00",
+  "source": {
+    "path": "MEQ-Thebreakdownofequation.md",
+    "line": 1182,
+    "source_sha256": "1d5664ecbf4e238a0f08802631751e3c185a0ff2fe054efdf93aa7c40ebf8535"
+  },
+  "equation": {
+    "raw": "\\chi(t+T) = \\chi(t)",
+    "normalized": "chi(t+t)=chi(t)",
+    "fingerprint": "7903f85b9a08edbae5d4068c93431a226289ab2e5c88fb9eb39fe67e9d35cb9a"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

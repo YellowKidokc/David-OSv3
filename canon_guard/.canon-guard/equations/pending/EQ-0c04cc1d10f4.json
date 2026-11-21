@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-0c04cc1d10f4",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.315732+00:00",
+  "source": {
+    "path": "MEQ-2.1WhatistheMasterEquationHigh-levelexplanation11-Copy.md",
+    "line": 349,
+    "source_sha256": "d7835de208497b4974e90dda0bc4b89e3ad2bb9200ed2decd277b6b20f33d90f"
+  },
+  "equation": {
+    "raw": "G(Rp)=G0e(Rp/S)G(R_p) = G_0 e^{(R_p/S)}G(Rp​)=G0​e(Rp​/S)",
+    "normalized": "g(rp)=g0e(rp/s)g(r_p)=g_0e^{(r_p/s)}g(rp​)=g0​e(rp​/s)",
+    "fingerprint": "0c04cc1d10f4fe993b75552bddc9a38333c7ec102abb996e911906d132b5922e"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-69739ce5045e",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.658669+00:00",
+  "source": {
+    "path": "MEQ-THEOPHYSICS_THE_FULL_EXPLANATION.md",
+    "line": 200,
+    "source_sha256": "62068387239bf001857ed4b8443dfc82561d1430d3f0ae50d8452f18ab1244ce"
+  },
+  "equation": {
+    "raw": "Mathematically: ∇×**B** = μ₀**J** + μ₀ε₀∂**E**/∂t",
+    "normalized": "mathematically:∇***b**=mu₀**j**+mu₀ε₀partial**e**/partialt",
+    "fingerprint": "69739ce5045e7c752b0902fba5b86753fe88786c0b4df7a397fddf7977aee4c2"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

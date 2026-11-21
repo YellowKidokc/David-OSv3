@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-5cb1f84b8d73",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.747671+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Grace_Function_Model.md",
+    "line": 391,
+    "source_sha256": "6c4b5b1936c802221bf804bd8fe71b9acc9dbea21bbd45ee6f781f2dd5f544ab"
+  },
+  "equation": {
+    "raw": "$Q=α∣G⟩+β∣B⟩Q = \\alpha |G\\rangle + \\beta |B\\rangleQ=α∣G⟩+β∣B⟩$",
+    "normalized": "$q=α∣g⟩+β∣b⟩q=\\alpha|g\\rangle+\\beta|b\\rangleq=α∣g⟩+β∣b⟩$",
+    "fingerprint": "5cb1f84b8d739de07f4af25122bdebc420bc921cac1b095d7d54eac4b00239aa"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-250c42667574",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.398549+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Quantum_Spiritual_Equation_Explained.md",
+    "line": 1496,
+    "source_sha256": "881ffc9c73b0b6e9ef43df41bdbdbfb37567b5c93799a5ca87e4c642ed9f0aa2"
+  },
+  "equation": {
+    "raw": "✅ **|B⟩** = The bad path.\\",
+    "normalized": "✅**|b⟩**=thebadpath.\\",
+    "fingerprint": "250c42667574caa3107a5f0593609ceb23f9eb826741a54cf866a953041b80af"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

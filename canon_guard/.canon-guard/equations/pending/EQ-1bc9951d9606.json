@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-1bc9951d9606",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.316792+00:00",
+  "source": {
+    "path": "MEQ-Law04.md",
+    "line": 45,
+    "source_sha256": "696a10fdb87b19fb1a1eac5e24476338f117fb4050bb39150282b44c85ba2d78"
+  },
+  "equation": {
+    "raw": "S = k * ln W",
+    "normalized": "s=k*lnw",
+    "fingerprint": "1bc9951d960607c9467ee6eef2e7910cd05daa1f3c9952930790e391e6d6f54d"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

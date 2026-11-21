@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-9f8430ddcea3",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.363626+00:00",
+  "source": {
+    "path": "MEQ-00-MasterOutline.md",
+    "line": 11819,
+    "source_sha256": "082fae2f3083b27cfb2dff7b38e8a48167c5d25d33b0cc911e5168f5ab88c102"
+  },
+  "equation": {
+    "raw": "□C - m_C² C = g_{QC} Q + g_{CG} G + ...",
+    "normalized": "□c-m_c^2c=g_{qc}q+g_{cg}g+...",
+    "fingerprint": "9f8430ddcea3626c8b8682056bd37b8d27f82d59e618c1d9321eeb76c97a89c2"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

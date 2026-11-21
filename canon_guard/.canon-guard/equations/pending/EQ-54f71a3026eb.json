@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-54f71a3026eb",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.631656+00:00",
+  "source": {
+    "path": "MEQ-TheMathematicalTheologyofGraceandSin.md",
+    "line": 101,
+    "source_sha256": "d2cc1c64b3a7c1a7cc047ce9c710e597aa66e5bfa0e8cd6cd54044d71468317f"
+  },
+  "equation": {
+    "raw": "d²χ/dt² = 0",
+    "normalized": "d^2chi/dt^2=0",
+    "fingerprint": "54f71a3026eb9284a5351d39c909de9fbf1d308cf26df1021b1e760307b3ae37"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

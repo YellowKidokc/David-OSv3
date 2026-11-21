@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-1008f94d82d6",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.119619+00:00",
+  "source": {
+    "path": "MEQ-DataAnalysis-Copy.md",
+    "line": 3733,
+    "source_sha256": "eb86e21b6fcbd67c587ed93d08daf00d25cc11c63272bc20f6e08516738af48c"
+  },
+  "equation": {
+    "raw": "> **B = U * (1 - sin) / r²**",
+    "normalized": ">**b=u*(1-sin)/r^2**",
+    "fingerprint": "1008f94d82d645ed7232ea36b852859e9dcf39ce4c65587c526bb22cdcdb1bc3"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

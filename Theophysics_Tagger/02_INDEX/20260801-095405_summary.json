@@ -1,0 +1,17 @@
+﻿{
+  "scanned_sources": [
+    "Z:\\01_FRAMEWORK",
+    "Z:\\02_DRAFTING",
+    "Z:\\Master_Equation",
+    "Z:\\Logos"
+  ],
+  "documents_tagged": 1861,
+  "paragraph_hits": 116846,
+  "sentence_hits": 174039,
+  "outputs": {
+    "documents": "C:\\Theophysics_Tagger\\02_INDEX\\20260801-095405_document_tags.csv",
+    "paragraphs": "C:\\Theophysics_Tagger\\02_INDEX\\20260801-095405_paragraph_tags.csv",
+    "sentences": "C:\\Theophysics_Tagger\\02_INDEX\\20260801-095405_sentence_tags.csv",
+    "folders": "C:\\Theophysics_Tagger\\02_INDEX\\20260801-095405_folder_suggestions.csv"
+  }
+}

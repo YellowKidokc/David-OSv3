@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-1fe30ac8e7d1",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.281700+00:00",
+  "source": {
+    "path": "MEQ-144_D19.9_Law-IX-Definition.md",
+    "line": 172,
+    "source_sha256": "f8f9e1af5a00c0b2f45765607600448b60f9842b854ffb50dd4411e99606225c"
+  },
+  "equation": {
+    "raw": "$$\\Delta I = I_{after} - I_{before} > 0$$",
+    "normalized": "$$\\deltai=i_{after}-i_{before}>0$$",
+    "fingerprint": "1fe30ac8e7d167cba719a55871ee77a5d61fa44f63dc5e1eb93428226bd61c03"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

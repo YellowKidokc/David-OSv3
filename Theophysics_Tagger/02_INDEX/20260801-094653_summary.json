@@ -1,0 +1,14 @@
+﻿{
+  "scanned_sources": [
+    "D:\\GitHub\\faiththruphysics-site-data\\B_consciousness"
+  ],
+  "documents_tagged": 3,
+  "paragraph_hits": 5,
+  "sentence_hits": 40,
+  "outputs": {
+    "documents": "C:\\Theophysics_Tagger\\02_INDEX\\20260801-094653_document_tags.csv",
+    "paragraphs": "C:\\Theophysics_Tagger\\02_INDEX\\20260801-094653_paragraph_tags.csv",
+    "sentences": "C:\\Theophysics_Tagger\\02_INDEX\\20260801-094653_sentence_tags.csv",
+    "folders": "C:\\Theophysics_Tagger\\02_INDEX\\20260801-094653_folder_suggestions.csv"
+  }
+}

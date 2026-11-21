@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-6b91b71cb093",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.996828+00:00",
+  "source": {
+    "path": "MEQ-03-solved-mathematical-examples.md",
+    "line": 136,
+    "source_sha256": "4dbfd23e509df0e73f65351fbac86c2bf9f691aea5027c97a1b63039d0fab15b"
+  },
+  "equation": {
+    "raw": "Σ[P(t-k) × e^(-k/τ_p)] = 3×e^(-1/4) + 2×e^(-2/4) + 4×e^(-3/4) + 1×e^(-4/4)",
+    "normalized": "σ[p(t-k)*e^(-k/τ_p)]=3*e^(-1/4)+2*e^(-2/4)+4*e^(-3/4)+1*e^(-4/4)",
+    "fingerprint": "6b91b71cb09376b255c9bf3a74b683305d3734b2ad43841dc4737b3f18260940"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

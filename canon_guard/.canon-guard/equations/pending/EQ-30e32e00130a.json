@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-30e32e00130a",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.007837+00:00",
+  "source": {
+    "path": "MEQ-03-solved-mathematical-examples.md",
+    "line": 198,
+    "source_sha256": "4dbfd23e509df0e73f65351fbac86c2bf9f691aea5027c97a1b63039d0fab15b"
+  },
+  "equation": {
+    "raw": "P_miracle = 1 - 0.199 = **0.801** or **80.1%**",
+    "normalized": "p_miracle=1-0.199=**0.801**or**80.1%**",
+    "fingerprint": "30e32e00130acc6ac7fba558d89681c6be32592dfd89a2d5d9ad1145a2af06ab"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

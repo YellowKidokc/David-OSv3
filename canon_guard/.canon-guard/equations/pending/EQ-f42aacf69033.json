@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-f42aacf69033",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.560073+00:00",
+  "source": {
+    "path": "MEQ-QuantumEntanglementasaSpiritualMetaphor.md",
+    "line": 81,
+    "source_sha256": "e864b8306af7fc65601692464b2af1180ead368ed5e13b7ea0a1127dc09fd39c"
+  },
+  "equation": {
+    "raw": "✔ **↑↓, ↓↑ = Individual Believers (Interconnected Souls)**",
+    "normalized": "✔**↑↓,↓↑=individualbelievers(interconnectedsouls)**",
+    "fingerprint": "f42aacf69033f61d629366483f25312fd76b7c87917f75f16c50593d73200b5f"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

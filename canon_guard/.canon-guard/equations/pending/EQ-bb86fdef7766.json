@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-bb86fdef7766",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.408379+00:00",
+  "source": {
+    "path": "MEQ-LLC_CANONICAL_v5.md",
+    "line": 265,
+    "source_sha256": "321a0d8efb87e9a7003d387014ecef8b34ed2bb865dd3ca41c10e33271a91cfd"
+  },
+  "equation": {
+    "raw": "J_χ = ∇P             [coherence current]",
+    "normalized": "j_chi=∇p[coherencecurrent]",
+    "fingerprint": "bb86fdef7766c8d1ebf581c453d0daa8c50e6f210855574b978c89b643a786de"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

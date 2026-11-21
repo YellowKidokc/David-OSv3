@@ -1,0 +1,125 @@
+{
+  "_about": "fistag.py: which FIS domain a tag belongs to. A tag counts for a domain when its tag name, category or parent_path contains one of the words (case-insensitive). The domain with the most weighted hits wins; none at all = TPH. Codes are the FIS filename taxonomy (David-OS/file-intelligence-system/config/theophysics_filename_taxonomy.json).",
+  "domains": {
+    "MEQ": [
+      "master equation",
+      "master eq",
+      "masterequation",
+      "chi field",
+      "coherence"
+    ],
+    "LAW": [
+      "ten laws",
+      "law of",
+      "laws/",
+      "/laws",
+      "conservation"
+    ],
+    "CON": [
+      "conscious",
+      "observer",
+      "mind",
+      "self-reference",
+      "measurement"
+    ],
+    "GRC": [
+      "grace",
+      "redemption",
+      "atonement",
+      "salvation",
+      "forgive"
+    ],
+    "INF": [
+      "information",
+      "logos",
+      "shannon",
+      "entropy",
+      "signal",
+      "communication"
+    ],
+    "FRM": [
+      "lean",
+      "proof",
+      "formal",
+      "theorem",
+      "axiom chain"
+    ],
+    "AXM": [
+      "axiom",
+      "derivation grammar",
+      "root axiom",
+      "four debts"
+    ],
+    "ETH": [
+      "moral",
+      "ethic",
+      "justice",
+      "sin",
+      "virtue",
+      "fruit"
+    ],
+    "COS": [
+      "cosmolog",
+      "big bang",
+      "creation",
+      "hubble",
+      "universe"
+    ],
+    "PHY": [
+      "physics",
+      "quantum",
+      "relativity",
+      "thermodynamic",
+      "gauge",
+      "symmetry",
+      "field equation",
+      "born rule"
+    ],
+    "THE": [
+      "doctrine",
+      "christianlife",
+      "christian life",
+      "church",
+      "scripture",
+      "trinity",
+      "christ",
+      "spirit",
+      "eschatolog",
+      "gospel"
+    ],
+    "ALN": [
+      "ai alignment",
+      "logos code",
+      "alignment"
+    ],
+    "PUB": [
+      "publication",
+      "website",
+      "substack"
+    ],
+    "OPS": [
+      "infrastructure",
+      "tool",
+      "pipeline"
+    ]
+  },
+  "stages": {
+    "RUN": "first run: tagged, not changed since",
+    "RWK": "reworking: edited since it was first tagged",
+    "API": "API-checked: a station's analysis is on it or beside it",
+    "CAN": "canonical"
+  },
+  "canon_folders": [
+    "canon",
+    "canonical",
+    "01_canon",
+    "00_canonical"
+  ],
+  "coco_db": "D:\\GitHub\\Canonizationv1\\theophysics_pipeline.db",
+  "weights": {
+    "THE": 0.3,
+    "OPS": 0.5,
+    "PUB": 0.5
+  },
+  "_about_weights": "Doctrine tags are half the registry and would win every paper; a broad domain counts at this fraction so a paper's specific subject (MEQ, LAW, CON ...) wins when it is clearly there. Missing = 1."
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-c6c3b87a03a1",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.370825+00:00",
+  "source": {
+    "path": "MEQ-Law5FirstLaw.md",
+    "line": 54,
+    "source_sha256": "4c98edfdd942c41c10b4e79fe35c01b5193860af5fabd344c8c08836de266b35"
+  },
+  "equation": {
+    "raw": "z = (λₒbserved - λₑmitted) / λₑmitted",
+    "normalized": "z=(λₒbserved-λₑmitted)/λₑmitted",
+    "fingerprint": "c6c3b87a03a1c19849ce7b81dd9ed4f40cab749d9a35068e337226a301d998c3"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

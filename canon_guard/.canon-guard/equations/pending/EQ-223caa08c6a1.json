@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-223caa08c6a1",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.484473+00:00",
+  "source": {
+    "path": "MEQ-MasterEqredfined.md",
+    "line": 298,
+    "source_sha256": "d108f210474798d891779a44f6b3da0e913112cc5776262832d759a183e9715b"
+  },
+  "equation": {
+    "raw": "R_J(personal) = R_J(universal) · (1 - e^(-F·t))",
+    "normalized": "r_j(personal)=r_j(universal)*(1-e^(-f*t))",
+    "fingerprint": "223caa08c6a140aae767aacd2d22cdc201b6784a441fb1b4deb82dfde39d9741"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

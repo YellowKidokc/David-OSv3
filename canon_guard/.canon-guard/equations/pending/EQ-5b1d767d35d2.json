@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-5b1d767d35d2",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.704819+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Ultimate_Integration_Framework-Copy.md",
+    "line": 287,
+    "source_sha256": "d08dfe9bf1397dab82455a81a4642c54bd76546a6f2d59972445fe51df9d2c66"
+  },
+  "equation": {
+    "raw": "_S = L(1-sin) / r²_",
+    "normalized": "_s=l(1-sin)/r^2_",
+    "fingerprint": "5b1d767d35d2a406490f1e1291b737351269b5d2bc19e4a6533efa7bf854f802"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

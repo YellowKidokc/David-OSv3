@@ -36,7 +36,7 @@ def inventory(root, config=None, recursive=True, on_file=None, on_stage=None, vo
         for name in sorted(names):
             p = here/name
             reason = gate.unsafe(p, config)
-            if reason or name == 'FIS.html' or name.endswith('.fisnote') or name in {'.fmeta', '.folder.fmeta'}:
+            if reason or name.casefold() == 'fis.html' or name.casefold().endswith(('.fisnote', '.fmeta', '.fis.json', '.vial.md')):
                 skipped.append({'path': str(p), 'why': reason or 'metadata sidecar'})
                 continue
             try:

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-9c02ba1da807",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.663436+00:00",
+  "source": {
+    "path": "MEQ-00_MATH_SUMMARY.md",
+    "line": 837,
+    "source_sha256": "6c68ac764c4536e2f86e24ca6255a50c7ed39ef5f5a52e797626d1dbb24cdf0e"
+  },
+  "equation": {
+    "raw": "1 + \\sum_{i=1}^{n} F_i e^{-d_i}",
+    "normalized": "1+\\sum_{i=1}^{n}f_ie^{-d_i}",
+    "fingerprint": "9c02ba1da80797b99e28215f83ec7e881eaecf884f240bba30cabf863c81eeac"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

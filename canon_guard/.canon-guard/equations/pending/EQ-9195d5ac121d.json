@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-9195d5ac121d",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.421389+00:00",
+  "source": {
+    "path": "MEQ-MASTER_EQUATION.md",
+    "line": 33,
+    "source_sha256": "df4139d1c51178b2edbde72277544d2733f552457943b7ecf247c1a0fe424521"
+  },
+  "equation": {
+    "raw": "ℒ = ℒ_GR + ℒ_W + ℒ_χ + ℒ_int",
+    "normalized": "ℒ=ℒ_gr+ℒ_w+ℒ_chi+ℒ_int",
+    "fingerprint": "9195d5ac121da87c47fe1c6293bccbfe8cec6af677273d775ddad4c68c7ef8ae"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

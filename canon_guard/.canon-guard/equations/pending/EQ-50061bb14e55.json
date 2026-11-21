@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-50061bb14e55",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.909501+00:00",
+  "source": {
+    "path": "MEQ-variable-T-logos.md",
+    "line": 25,
+    "source_sha256": "ad6143e69568a737f34fcfe13b42fbc89faeb1b2a0932c916e9d382b70266b33"
+  },
+  "equation": {
+    "raw": "∂T/∂t = −∇SI + κT · G · Q · Θ(Φ)",
+    "normalized": "partialt/partialt=-∇si+κt*g*q*θ(φ)",
+    "fingerprint": "50061bb14e558a84f49d3aafe193cb3973c06926acdba34b5ff1f6300d01d1a5"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

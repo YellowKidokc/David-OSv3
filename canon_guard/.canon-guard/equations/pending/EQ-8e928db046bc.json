@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-8e928db046bc",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.392549+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Quantum_Salvation_Entanglement_Analysis.md",
+    "line": 201,
+    "source_sha256": "ea85c0ebd21dd9354e73d6e68f58ac0d8e1818f03c3c1aa56cd332c4715a3e58"
+  },
+  "equation": {
+    "raw": "H(X) = -∑ P(x_i) log₂ P(x_i)",
+    "normalized": "h(x)=-∑p(x_i)log₂p(x_i)",
+    "fingerprint": "8e928db046bc49ba243a81ea99f7b9aa7ae6124d3fd4946480158f8828823273"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

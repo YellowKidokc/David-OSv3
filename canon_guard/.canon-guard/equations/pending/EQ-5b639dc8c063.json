@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-5b639dc8c063",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.078945+00:00",
+  "source": {
+    "path": "MEQ-10.md",
+    "line": 858,
+    "source_sha256": "fba2739802e5abaa4ecd6e7da4de10128ba6bc68dcff2be1c87f77ec78a7f554"
+  },
+  "equation": {
+    "raw": "> **E = mc² (Energy-Mass Equivalence)**",
+    "normalized": ">**e=mc^2(energy-massequivalence)**",
+    "fingerprint": "5b639dc8c063ec0b598e74f33073b26516b4ec92cf9c73244edef0f90fa21832"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

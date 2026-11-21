@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-64fd5e3d8608",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.491476+00:00",
+  "source": {
+    "path": "MEQ-MasterEquation1.md",
+    "line": 268,
+    "source_sha256": "f01eabd33328791b7455ff9fa98878cdbd86db480f5718a55950542fdc11cc41"
+  },
+  "equation": {
+    "raw": "$S(t)=S0e−λRptS(t) = S_0 e^{-\\lambda R_p t}S(t)=S0​e−λRp​t$",
+    "normalized": "$s(t)=s0e-λrpts(t)=s_0e^{-\\lambdar_pt}s(t)=s0​e-λrp​t$",
+    "fingerprint": "64fd5e3d860881133c56758c9834149f62ecbae1ac86e2fda73b79d83330da62"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

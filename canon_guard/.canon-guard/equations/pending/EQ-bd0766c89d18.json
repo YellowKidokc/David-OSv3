@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-bd0766c89d18",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.626573+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Content_Formatting_Request.md",
+    "line": 824,
+    "source_sha256": "5f1c0b2ef633e7127849139a4524f85cd3506966bef01122141f3cf6c3824d9a"
+  },
+  "equation": {
+    "raw": "\\Huge R(F) = 1 + \\sum\\_{i=1}^{n} F\\_i e^{-d\\_i}",
+    "normalized": "\\huger(f)=1+\\sum\\_{i=1}^{n}f\\_ie^{-d\\_i}",
+    "fingerprint": "bd0766c89d18dc5a7e4b3f4a9fb30242f1bfc586f3f88b34a8901b0a4b205359"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

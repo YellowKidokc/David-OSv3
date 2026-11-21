@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-e06b9c6121a7",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.178172+00:00",
+  "source": {
+    "path": "MEQ-derivation-chain.md",
+    "line": 174,
+    "source_sha256": "61df793cd5f7cd8ea4755823b7bf0d8edf9655af3919237adf17be80af4ef359"
+  },
+  "equation": {
+    "raw": "□χ + V'(χ) + J_grace = 0",
+    "normalized": "□chi+v'(chi)+j_grace=0",
+    "fingerprint": "e06b9c6121a79943f8b33a6255e71918607b63f8c855e83d289eb74ddf75334f"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

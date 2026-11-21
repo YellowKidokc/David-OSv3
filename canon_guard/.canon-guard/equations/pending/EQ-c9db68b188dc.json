@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-c9db68b188dc",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.848822+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Hello_Summary.md",
+    "line": 2292,
+    "source_sha256": "4bb99de2720fffb37f459f661bc4f43b59723fa3412dc23e4a9a4eac6645ac2a"
+  },
+  "equation": {
+    "raw": "$$ G = G_0 e^{-\\frac{S}{R_p}} $$",
+    "normalized": "$$g=g_0e^{-\\frac{s}{r_p}}$$",
+    "fingerprint": "c9db68b188dc8fa5f3a4e0f6c005356b63bf469fe5c32aa8a86401c40d9bcdb9"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

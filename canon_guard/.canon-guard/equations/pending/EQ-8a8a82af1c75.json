@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-8a8a82af1c75",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.909720+00:00",
+  "source": {
+    "path": "MEQ-00_MATH_SUMMARY.md",
+    "line": 11728,
+    "source_sha256": "6c68ac764c4536e2f86e24ca6255a50c7ed39ef5f5a52e797626d1dbb24cdf0e"
+  },
+  "equation": {
+    "raw": "S(t) = S_0 \\cdot e^{kt} \\cdot e^{-\\lambda R_p t}",
+    "normalized": "s(t)=s_0*e^{kt}*e^{-\\lambdar_pt}",
+    "fingerprint": "8a8a82af1c755e7ae3c1bbc068784259e8800e24e06b5b049fe7f0b6ec45d01e"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

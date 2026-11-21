@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-8d0ceb48fcd0",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.611644+00:00",
+  "source": {
+    "path": "MEQ-Thebreakdownofequation.md",
+    "line": 173,
+    "source_sha256": "1d5664ecbf4e238a0f08802631751e3c185a0ff2fe054efdf93aa7c40ebf8535"
+  },
+  "equation": {
+    "raw": "R(F)=F1.51+F1.5R(F) = \\frac{F^{1.5}}{1 + F^{1.5}}R(F)=1+F1.5F1.5​",
+    "normalized": "r(f)=f1.51+f1.5r(f)=\\frac{f^{1.5}}{1+f^{1.5}}r(f)=1+f1.5f1.5​",
+    "fingerprint": "8d0ceb48fcd012e187f73425c3cf9c680c80682533da015742b6fc98c6626708"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

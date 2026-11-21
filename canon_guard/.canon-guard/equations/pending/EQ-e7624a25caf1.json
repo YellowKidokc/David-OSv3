@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-e7624a25caf1",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.000406+00:00",
+  "source": {
+    "path": "MEQ-Claude18.md",
+    "line": 163,
+    "source_sha256": "9b3d66937833f5bb93bdf2e10a66eafd8727675afba34fc6bffd8ff2ce088875"
+  },
+  "equation": {
+    "raw": "I(s) = I₀e^(-αd(1-C))",
+    "normalized": "i(s)=i₀e^(-αd(1-c))",
+    "fingerprint": "e7624a25caf13013f849c0649e394b6c1ab3b2ba1ea7cddec78566a5b036b804"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

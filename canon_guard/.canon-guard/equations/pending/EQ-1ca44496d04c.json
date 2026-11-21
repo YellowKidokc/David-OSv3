@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-1ca44496d04c",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.245666+00:00",
+  "source": {
+    "path": "MEQ-140_D19.5_Law-V-Definition.md",
+    "line": 233,
+    "source_sha256": "1a85b6eb263342b80c1dc3e766b9049b3e24c592a600c4fecee35eea739a47fc"
+  },
+  "equation": {
+    "raw": "$$\\{J_i, J_j\\} = f_{ij}^k J_k$$",
+    "normalized": "$$\\{j_i,j_j\\}=f_{ij}^kj_k$$",
+    "fingerprint": "1ca44496d04c2bbaabd3dec524b5dcec8d81f637cb29d06886a50aceeebc9a9d"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

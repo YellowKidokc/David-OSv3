@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-c03f6e8c973d",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.479951+00:00",
+  "source": {
+    "path": "MEQ-MasterEqredfined.md",
+    "line": 177,
+    "source_sha256": "d108f210474798d891779a44f6b3da0e913112cc5776262832d759a183e9715b"
+  },
+  "equation": {
+    "raw": "H(p,q)=−∑p(x)log⁡q(x)H(p, q) = - \\sum p(x) \\log q(x)H(p,q)=−∑p(x)logq(x)",
+    "normalized": "h(p,q)=-∑p(x)log⁡q(x)h(p,q)=-\\sump(x)\\logq(x)h(p,q)=-∑p(x)logq(x)",
+    "fingerprint": "c03f6e8c973d4af41badc92bd91ead9c430451e01cc56c0895683ce23e7b0db0"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

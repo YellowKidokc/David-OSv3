@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-56b879bd0d12",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.785719+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Grace_Function_Model.md",
+    "line": 3512,
+    "source_sha256": "6c4b5b1936c802221bf804bd8fe71b9acc9dbea21bbd45ee6f781f2dd5f544ab"
+  },
+  "equation": {
+    "raw": "χ=∭(",
+    "normalized": "chi=triple_integral(",
+    "fingerprint": "56b879bd0d12cd3b5bcf56abae28506acb4584447f735a8f0b2ebf25fb0e79a7"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

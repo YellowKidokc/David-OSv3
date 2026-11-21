@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-4256a9dc3042",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.521501+00:00",
+  "source": {
+    "path": "MEQ-MoralAlignmentVector.md",
+    "line": 191,
+    "source_sha256": "efa71ecac0c1f5367f82bec73d6d4fd122d03df25190f4e2e2e7f984f7c467a2"
+  },
+  "equation": {
+    "raw": "A(M) = w1·A(Mj) + w2·A(Mt) + w3·A(Mi) + w4·A(Mp)",
+    "normalized": "a(m)=w1*a(mj)+w2*a(mt)+w3*a(mi)+w4*a(mp)",
+    "fingerprint": "4256a9dc3042c8a9d6faa60103a3bb264efc9e18c13db0f7465b098885eeda48"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

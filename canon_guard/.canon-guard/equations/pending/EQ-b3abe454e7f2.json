@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-b3abe454e7f2",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.838409+00:00",
+  "source": {
+    "path": "MEQ-Untitled4-Copy.md",
+    "line": 4946,
+    "source_sha256": "21fe5fde357a2e7ba3a40b40deca1f824c0e1d6f4819fcd0dff9476c792f3906"
+  },
+  "equation": {
+    "raw": "P(A)=∑i∣ci∣2P(A) = \\sum_i |c_i|^2P(A)=i∑​∣ci​∣2",
+    "normalized": "p(a)=∑i∣ci∣2p(a)=\\sum_i|c_i|^2p(a)=i∑​∣ci​∣2",
+    "fingerprint": "b3abe454e7f228d31cbce1b8906c43621221683003e53b2f0ec25e9c865d290a"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

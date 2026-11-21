@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-24abf9049200",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.085464+00:00",
+  "source": {
+    "path": "MEQ-10.md",
+    "line": 947,
+    "source_sha256": "fba2739802e5abaa4ecd6e7da4de10128ba6bc68dcff2be1c87f77ec78a7f554"
+  },
+  "equation": {
+    "raw": "> **F = k(q₁q₂)/r² (Electromagnetism)**",
+    "normalized": ">**f=k(q₁q₂)/r^2(electromagnetism)**",
+    "fingerprint": "24abf9049200d80aca027d37b75f6d9cfb5c7286932234b1080f69ab4a6301db"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

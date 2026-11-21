@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-b75d93848fb9",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.816775+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Grace_Function_Model.md",
+    "line": 4331,
+    "source_sha256": "6c4b5b1936c802221bf804bd8fe71b9acc9dbea21bbd45ee6f781f2dd5f544ab"
+  },
+  "equation": {
+    "raw": "χ=G−S⋅e−Q⋅T(R,F)χ = G - S \\cdot e^{-Q} \\cdot T(R, F)χ=G−S⋅e−Q⋅T(R,F)",
+    "normalized": "chi=g-s⋅e-q⋅t(r,f)chi=g-s*e^{-q}*t(r,f)chi=g-s⋅e-q⋅t(r,f)",
+    "fingerprint": "b75d93848fb98d5e0b8068506b8ae724f4360213031e691b2ea2a5c114e7d928"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

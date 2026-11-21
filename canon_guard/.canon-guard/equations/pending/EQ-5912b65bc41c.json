@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-5912b65bc41c",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.354819+00:00",
+  "source": {
+    "path": "MEQ-Law2Academy.md",
+    "line": 51,
+    "source_sha256": "4aea9fe4f4eedfef04725b4684f9422a482e92fb2154f2b15b5d8b90d901f542"
+  },
+  "equation": {
+    "raw": "V(r)=−g2e−mrrV(r) = -g^2 \\frac{e^{-m r}}{r}",
+    "normalized": "v(r)=-g2e-mrrv(r)=-g^2\\frac{e^{-mr}}{r}",
+    "fingerprint": "5912b65bc41cea6aba295ba8960767801c45fd865458f70d6e55f91bc842b2cb"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

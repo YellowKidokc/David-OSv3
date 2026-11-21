@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-e75e38633e75",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.364826+00:00",
+  "source": {
+    "path": "MEQ-LAW3TheMaxwellsEquationsofSpiritualTransmission.md",
+    "line": 164,
+    "source_sha256": "c3aaffd922811839147b313250362022b29a6960c5871b2ab08f45dc3ddfdd34"
+  },
+  "equation": {
+    "raw": "∂ℂ/∂t = α(𝕋 × ℂ)",
+    "normalized": "partialℂ/partialt=α(𝕋*ℂ)",
+    "fingerprint": "e75e38633e75dd0a6afba92a6602666238bd8b18ffedc419cd110f9dc2ba12e8"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

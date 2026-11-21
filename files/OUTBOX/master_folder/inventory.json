@@ -1,0 +1,770 @@
+{
+  "folder": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder",
+  "folder_slug": "master_folder",
+  "container_code": "UNK",
+  "scanned_at": "2026-11-09T01:32:24.042007+00:00",
+  "total_files": 59,
+  "content_files": 34,
+  "duplicates": 4,
+  "problems": 25,
+  "files": [
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\00_PLEASE_READ_ME.md",
+      "relative_path": "00_PLEASE_READ_ME.md",
+      "filename": "00_PLEASE_READ_ME.md",
+      "extension": ".md",
+      "size_bytes": 3691,
+      "sha256": "8b5c69d24bb87ce8ebba09ddd5e938c787da6e92c34da070855d29adde8213fc",
+      "uid": "TP-UNK-0001",
+      "modified_utc": "2026-11-07T18:21:40.455973+00:00",
+      "flags": [],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\00_READ_FIRST_README.md",
+      "relative_path": "00_READ_FIRST_README.md",
+      "filename": "00_READ_FIRST_README.md",
+      "extension": ".md",
+      "size_bytes": 9532,
+      "sha256": "7b4d4bec62aff07fdad6c512e2f6bf75d8b957df5e4022fc87e4045b273bbc9b",
+      "uid": "TP-UNK-0002",
+      "modified_utc": "2026-11-07T18:16:45.037909+00:00",
+      "flags": [],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\01_INBOX\\card_template.html",
+      "relative_path": "01_INBOX\\card_template.html",
+      "filename": "card_template.html",
+      "extension": ".html",
+      "size_bytes": 10127,
+      "sha256": "7650c759f8370e78058f0d7525c31c7e6833eda10d7f9c1257e88e3876737868",
+      "uid": "TP-UNK-0003",
+      "modified_utc": "2026-11-07T18:03:17.821668+00:00",
+      "flags": [],
+      "duplicate_group": "DG-0001"
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\01_INBOX\\README.md",
+      "relative_path": "01_INBOX\\README.md",
+      "filename": "README.md",
+      "extension": ".md",
+      "size_bytes": 668,
+      "sha256": "4271571d43c8e2aa0bbb4ea801c15351257fb759f18a0fd38de50c72c5ef9867",
+      "uid": "TP-UNK-0004",
+      "modified_utc": "2026-11-07T18:21:40.457071+00:00",
+      "flags": [],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\01_INBOX\\record_MIM.06.ACTS.json",
+      "relative_path": "01_INBOX\\record_MIM.06.ACTS.json",
+      "filename": "record_MIM.06.ACTS.json",
+      "extension": ".json",
+      "size_bytes": 1698,
+      "sha256": "9378cfc50bf3a5a04e68753d977c136f41c8ffe985bc5bd1687e25087826cf96",
+      "uid": "",
+      "modified_utc": "2026-11-07T18:03:17.823276+00:00",
+      "flags": [
+        "NON_CONTENT"
+      ],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\01_INBOX\\render_card.py",
+      "relative_path": "01_INBOX\\render_card.py",
+      "filename": "render_card.py",
+      "extension": ".py",
+      "size_bytes": 791,
+      "sha256": "3075f86ec3d997a930097e08673e2b55bf4bc011727f4d780ba1d5dcf273db1d",
+      "uid": "",
+      "modified_utc": "2026-11-07T18:03:17.822211+00:00",
+      "flags": [
+        "NON_CONTENT"
+      ],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\02_DATA_AND_REGISTRY\\CLEAN_INVENTORY.csv",
+      "relative_path": "02_DATA_AND_REGISTRY\\CLEAN_INVENTORY.csv",
+      "filename": "CLEAN_INVENTORY.csv",
+      "extension": ".csv",
+      "size_bytes": 21523,
+      "sha256": "dfe0e99b4bd3cea55e5334422f99664b0dba84f5b917939b84d44465270fa93d",
+      "uid": "",
+      "modified_utc": "2026-11-07T17:26:07.180802+00:00",
+      "flags": [
+        "NON_CONTENT"
+      ],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\02_DATA_AND_REGISTRY\\MASTER_CLASSIFICATION_SHEET.xlsx",
+      "relative_path": "02_DATA_AND_REGISTRY\\MASTER_CLASSIFICATION_SHEET.xlsx",
+      "filename": "MASTER_CLASSIFICATION_SHEET.xlsx",
+      "extension": ".xlsx",
+      "size_bytes": 39378,
+      "sha256": "f784bf689cfe8bccfe6d410cf4ef1223460ada2b25eac79eb88b98cfe3a2cb4a",
+      "uid": "",
+      "modified_utc": "2026-11-07T18:02:27.966621+00:00",
+      "flags": [
+        "NON_CONTENT"
+      ],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\02_DATA_AND_REGISTRY\\PROPOSED_REGISTRY_MASTER.csv",
+      "relative_path": "02_DATA_AND_REGISTRY\\PROPOSED_REGISTRY_MASTER.csv",
+      "filename": "PROPOSED_REGISTRY_MASTER.csv",
+      "extension": ".csv",
+      "size_bytes": 45761,
+      "sha256": "248bcdca7e420bcdd7b61da790cb3552631ff72289b8858071352f423f1cf198",
+      "uid": "",
+      "modified_utc": "2026-11-07T18:03:49.852426+00:00",
+      "flags": [
+        "NON_CONTENT"
+      ],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\02_DATA_AND_REGISTRY\\QUESTIONS.md",
+      "relative_path": "02_DATA_AND_REGISTRY\\QUESTIONS.md",
+      "filename": "QUESTIONS.md",
+      "extension": ".md",
+      "size_bytes": 7264,
+      "sha256": "608dc0800c133588f8f889411d2b51beb87f651e617528e1cd8cca04b56672e2",
+      "uid": "TP-UNK-0005",
+      "modified_utc": "2026-11-07T17:27:51.798414+00:00",
+      "flags": [],
+      "duplicate_group": "DG-0002"
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\02_DATA_AND_REGISTRY\\README.md",
+      "relative_path": "02_DATA_AND_REGISTRY\\README.md",
+      "filename": "README.md",
+      "extension": ".md",
+      "size_bytes": 1047,
+      "sha256": "2cade1a984de6bd5a8b6b52bcab86bdb307588c08e27332693fca2d76b5969df",
+      "uid": "TP-UNK-0006",
+      "modified_utc": "2026-11-07T18:21:40.457607+00:00",
+      "flags": [],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\03_RESEARCH_ARCHIVE\\README.md",
+      "relative_path": "03_RESEARCH_ARCHIVE\\README.md",
+      "filename": "README.md",
+      "extension": ".md",
+      "size_bytes": 1979,
+      "sha256": "926af63316a695ee14c4d47811b9840b846fe3649c9b05e9e3aaa9bca1f5312a",
+      "uid": "TP-UNK-0007",
+      "modified_utc": "2026-11-07T18:21:40.458148+00:00",
+      "flags": [],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\_SYSTEM_MACHINERY\\card_template.html",
+      "relative_path": "_SYSTEM_MACHINERY\\card_template.html",
+      "filename": "card_template.html",
+      "extension": ".html",
+      "size_bytes": 10127,
+      "sha256": "7650c759f8370e78058f0d7525c31c7e6833eda10d7f9c1257e88e3876737868",
+      "uid": "TP-UNK-0008",
+      "modified_utc": "2026-11-07T18:03:17.818303+00:00",
+      "flags": [],
+      "duplicate_group": "DG-0001"
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\_SYSTEM_MACHINERY\\check_api_alignment.py",
+      "relative_path": "_SYSTEM_MACHINERY\\check_api_alignment.py",
+      "filename": "check_api_alignment.py",
+      "extension": ".py",
+      "size_bytes": 1867,
+      "sha256": "035f0152cf152b3b49df5a343cecb640854cb848b2a71c9057c6118646cef747",
+      "uid": "",
+      "modified_utc": "2026-11-07T18:08:28.330708+00:00",
+      "flags": [
+        "NON_CONTENT"
+      ],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\_SYSTEM_MACHINERY\\files.zip",
+      "relative_path": "_SYSTEM_MACHINERY\\files.zip",
+      "filename": "files.zip",
+      "extension": ".zip",
+      "size_bytes": 5605,
+      "sha256": "324862201061d84197d0f877cbcfcf5734b8897ac334dfc88143ae6fe3b9a45c",
+      "uid": "",
+      "modified_utc": "2026-11-07T18:02:52.988811+00:00",
+      "flags": [
+        "NON_CONTENT"
+      ],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\_SYSTEM_MACHINERY\\gate_checker.py",
+      "relative_path": "_SYSTEM_MACHINERY\\gate_checker.py",
+      "filename": "gate_checker.py",
+      "extension": ".py",
+      "size_bytes": 6169,
+      "sha256": "8735070c58f49a2b2f7c96aba003f1fecce285f08d546a2613eb267c779a32a4",
+      "uid": "",
+      "modified_utc": "2026-11-07T18:11:12.450260+00:00",
+      "flags": [
+        "NON_CONTENT"
+      ],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\_SYSTEM_MACHINERY\\MIM.00.MEPHISTO.html",
+      "relative_path": "_SYSTEM_MACHINERY\\MIM.00.MEPHISTO.html",
+      "filename": "MIM.00.MEPHISTO.html",
+      "extension": ".html",
+      "size_bytes": 12534,
+      "sha256": "27769c9073ee64a80729056326744e6e9ad4092167ba4fe71cbeadc63db68359",
+      "uid": "TP-UNK-0009",
+      "modified_utc": "2026-11-07T18:04:14.780384+00:00",
+      "flags": [],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\_SYSTEM_MACHINERY\\MIM.01.TRUTH.html",
+      "relative_path": "_SYSTEM_MACHINERY\\MIM.01.TRUTH.html",
+      "filename": "MIM.01.TRUTH.html",
+      "extension": ".html",
+      "size_bytes": 12550,
+      "sha256": "de948e97bc860149dd941681903c120e40211a611e062b10163083835548aa10",
+      "uid": "TP-UNK-0010",
+      "modified_utc": "2026-11-07T18:04:14.891541+00:00",
+      "flags": [],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\_SYSTEM_MACHINERY\\MIM.02.DISTINCT.html",
+      "relative_path": "_SYSTEM_MACHINERY\\MIM.02.DISTINCT.html",
+      "filename": "MIM.02.DISTINCT.html",
+      "extension": ".html",
+      "size_bytes": 12541,
+      "sha256": "d2dfd48b41185ba8cd54b946e54d2e173943f452ebcff6155745875a0f9eef93",
+      "uid": "TP-UNK-0011",
+      "modified_utc": "2026-11-07T18:04:15.001052+00:00",
+      "flags": [],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\_SYSTEM_MACHINERY\\MIM.03.KNOWER.html",
+      "relative_path": "_SYSTEM_MACHINERY\\MIM.03.KNOWER.html",
+      "filename": "MIM.03.KNOWER.html",
+      "extension": ".html",
+      "size_bytes": 12561,
+      "sha256": "1cf2ee2689213aa5e502d0296c6d60a639100893ab6f86213694dc9733df215e",
+      "uid": "TP-UNK-0012",
+      "modified_utc": "2026-11-07T18:04:15.091259+00:00",
+      "flags": [],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\_SYSTEM_MACHINERY\\MIM.04.INVARIANCE.html",
+      "relative_path": "_SYSTEM_MACHINERY\\MIM.04.INVARIANCE.html",
+      "filename": "MIM.04.INVARIANCE.html",
+      "extension": ".html",
+      "size_bytes": 12532,
+      "sha256": "d8056b76f9c3d5c54b603f1d7b245ccbb7dec51f21292d8d2aafe3423b97ad8a",
+      "uid": "TP-UNK-0013",
+      "modified_utc": "2026-11-07T18:04:15.203892+00:00",
+      "flags": [],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\_SYSTEM_MACHINERY\\MIM.05.WORD.html",
+      "relative_path": "_SYSTEM_MACHINERY\\MIM.05.WORD.html",
+      "filename": "MIM.05.WORD.html",
+      "extension": ".html",
+      "size_bytes": 12574,
+      "sha256": "23b4b698eb15019fd26e39127cd463d5e8cbb4f8212587e503cb71797771c48b",
+      "uid": "TP-UNK-0014",
+      "modified_utc": "2026-11-07T18:04:15.310133+00:00",
+      "flags": [],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\_SYSTEM_MACHINERY\\MIM.06.ACTS.html",
+      "relative_path": "_SYSTEM_MACHINERY\\MIM.06.ACTS.html",
+      "filename": "MIM.06.ACTS.html",
+      "extension": ".html",
+      "size_bytes": 12556,
+      "sha256": "1f048f5b38a601588e71bf080489bb52812519d534adb79a762566d0e18957b9",
+      "uid": "TP-UNK-0015",
+      "modified_utc": "2026-11-07T18:03:29.322796+00:00",
+      "flags": [],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\_SYSTEM_MACHINERY\\MIM.07.CHOICE.html",
+      "relative_path": "_SYSTEM_MACHINERY\\MIM.07.CHOICE.html",
+      "filename": "MIM.07.CHOICE.html",
+      "extension": ".html",
+      "size_bytes": 12536,
+      "sha256": "5da55b84ba2f4b2b7e9bfe4150e15e361c45a57ecd384d317cf4bbcef97202b4",
+      "uid": "TP-UNK-0016",
+      "modified_utc": "2026-11-07T18:04:15.422258+00:00",
+      "flags": [],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\_SYSTEM_MACHINERY\\MIM.08.FITS.html",
+      "relative_path": "_SYSTEM_MACHINERY\\MIM.08.FITS.html",
+      "filename": "MIM.08.FITS.html",
+      "extension": ".html",
+      "size_bytes": 12572,
+      "sha256": "8ef0ddc2ea9c3ef601b20986d939ad029e29d959995f4abee7e4d257430a539f",
+      "uid": "TP-UNK-0017",
+      "modified_utc": "2026-11-07T18:04:15.517667+00:00",
+      "flags": [],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\_SYSTEM_MACHINERY\\MIM.09.NORMS.html",
+      "relative_path": "_SYSTEM_MACHINERY\\MIM.09.NORMS.html",
+      "filename": "MIM.09.NORMS.html",
+      "extension": ".html",
+      "size_bytes": 12561,
+      "sha256": "6d519659ba76b04a0ebfd572b59a65e390a9f511a52ecd222b798900916b4849",
+      "uid": "TP-UNK-0018",
+      "modified_utc": "2026-11-07T18:04:15.612238+00:00",
+      "flags": [],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\_SYSTEM_MACHINERY\\MIM.10.COMMIT.html",
+      "relative_path": "_SYSTEM_MACHINERY\\MIM.10.COMMIT.html",
+      "filename": "MIM.10.COMMIT.html",
+      "extension": ".html",
+      "size_bytes": 12557,
+      "sha256": "86eef2be21c11d62298ab4a1ca6b67f0d116cc96a65905d596b580f41c11028c",
+      "uid": "TP-UNK-0019",
+      "modified_utc": "2026-11-07T18:04:15.719127+00:00",
+      "flags": [],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\_SYSTEM_MACHINERY\\README.md",
+      "relative_path": "_SYSTEM_MACHINERY\\README.md",
+      "filename": "README.md",
+      "extension": ".md",
+      "size_bytes": 1067,
+      "sha256": "0ad22e1f515869ff410594f9813f179cc50396b996bf4aa9836eaea27ea68213",
+      "uid": "TP-UNK-0020",
+      "modified_utc": "2026-11-07T18:21:40.459883+00:00",
+      "flags": [],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\_SYSTEM_MACHINERY\\record_MIM.00.MEPHISTO.json",
+      "relative_path": "_SYSTEM_MACHINERY\\record_MIM.00.MEPHISTO.json",
+      "filename": "record_MIM.00.MEPHISTO.json",
+      "extension": ".json",
+      "size_bytes": 2282,
+      "sha256": "7eef5fa1ef8b666b5492c0759e247edb7f6bfe24ad5ab667550e78cfd270152b",
+      "uid": "",
+      "modified_utc": "2026-11-07T18:04:14.689631+00:00",
+      "flags": [
+        "NON_CONTENT"
+      ],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\_SYSTEM_MACHINERY\\record_MIM.01.TRUTH.json",
+      "relative_path": "_SYSTEM_MACHINERY\\record_MIM.01.TRUTH.json",
+      "filename": "record_MIM.01.TRUTH.json",
+      "extension": ".json",
+      "size_bytes": 2314,
+      "sha256": "97a6a8808ff1ffba1140ebb84a3c45f1c2c86bfa4744bc878d6dfaa3444ce97a",
+      "uid": "",
+      "modified_utc": "2026-11-07T18:04:14.791662+00:00",
+      "flags": [
+        "NON_CONTENT"
+      ],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\_SYSTEM_MACHINERY\\record_MIM.02.DISTINCT.json",
+      "relative_path": "_SYSTEM_MACHINERY\\record_MIM.02.DISTINCT.json",
+      "filename": "record_MIM.02.DISTINCT.json",
+      "extension": ".json",
+      "size_bytes": 2306,
+      "sha256": "4c9898495d85752cf0ea1ca68096541abb95f9ee7b13b6eb7080fb0d5033af2d",
+      "uid": "",
+      "modified_utc": "2026-11-07T18:04:14.904790+00:00",
+      "flags": [
+        "NON_CONTENT"
+      ],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\_SYSTEM_MACHINERY\\record_MIM.03.KNOWER.json",
+      "relative_path": "_SYSTEM_MACHINERY\\record_MIM.03.KNOWER.json",
+      "filename": "record_MIM.03.KNOWER.json",
+      "extension": ".json",
+      "size_bytes": 2331,
+      "sha256": "265aad6854593c018090f63581da1befed71d6e18fa8612d456850a1e18cf98f",
+      "uid": "",
+      "modified_utc": "2026-11-07T18:04:15.009915+00:00",
+      "flags": [
+        "NON_CONTENT"
+      ],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\_SYSTEM_MACHINERY\\record_MIM.04.INVARIANCE.json",
+      "relative_path": "_SYSTEM_MACHINERY\\record_MIM.04.INVARIANCE.json",
+      "filename": "record_MIM.04.INVARIANCE.json",
+      "extension": ".json",
+      "size_bytes": 2296,
+      "sha256": "57e796f61e5182f09ba68ceac52197db31eee88489a5f52631265684758bb63e",
+      "uid": "",
+      "modified_utc": "2026-11-07T18:04:15.104717+00:00",
+      "flags": [
+        "NON_CONTENT"
+      ],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\_SYSTEM_MACHINERY\\record_MIM.05.WORD.json",
+      "relative_path": "_SYSTEM_MACHINERY\\record_MIM.05.WORD.json",
+      "filename": "record_MIM.05.WORD.json",
+      "extension": ".json",
+      "size_bytes": 2340,
+      "sha256": "bedae4929b8f570d108d18315d05d312d452d5a4d4ef2d80723fe9949bdabab2",
+      "uid": "",
+      "modified_utc": "2026-11-07T18:04:15.213310+00:00",
+      "flags": [
+        "NON_CONTENT"
+      ],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\_SYSTEM_MACHINERY\\record_MIM.06.ACTS.json",
+      "relative_path": "_SYSTEM_MACHINERY\\record_MIM.06.ACTS.json",
+      "filename": "record_MIM.06.ACTS.json",
+      "extension": ".json",
+      "size_bytes": 1698,
+      "sha256": "9378cfc50bf3a5a04e68753d977c136f41c8ffe985bc5bd1687e25087826cf96",
+      "uid": "",
+      "modified_utc": "2026-11-07T18:03:17.820356+00:00",
+      "flags": [
+        "NON_CONTENT"
+      ],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\_SYSTEM_MACHINERY\\record_MIM.07.CHOICE.json",
+      "relative_path": "_SYSTEM_MACHINERY\\record_MIM.07.CHOICE.json",
+      "filename": "record_MIM.07.CHOICE.json",
+      "extension": ".json",
+      "size_bytes": 2308,
+      "sha256": "93d149a6767bd6513676aa824c0667cfa996894a5e17477344bd8919c75801f0",
+      "uid": "",
+      "modified_utc": "2026-11-07T18:04:15.324171+00:00",
+      "flags": [
+        "NON_CONTENT"
+      ],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\_SYSTEM_MACHINERY\\record_MIM.08.FITS.json",
+      "relative_path": "_SYSTEM_MACHINERY\\record_MIM.08.FITS.json",
+      "filename": "record_MIM.08.FITS.json",
+      "extension": ".json",
+      "size_bytes": 2338,
+      "sha256": "89eaf20c95d4f6cde59184313de2554422ff35919b11c4c543613d5d0880a9af",
+      "uid": "",
+      "modified_utc": "2026-11-07T18:04:15.437223+00:00",
+      "flags": [
+        "NON_CONTENT"
+      ],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\_SYSTEM_MACHINERY\\record_MIM.09.NORMS.json",
+      "relative_path": "_SYSTEM_MACHINERY\\record_MIM.09.NORMS.json",
+      "filename": "record_MIM.09.NORMS.json",
+      "extension": ".json",
+      "size_bytes": 2335,
+      "sha256": "dbd1ed296d79c1c8b1e16a02fe04b7623784aa6520bd7767d105d842ea392a49",
+      "uid": "",
+      "modified_utc": "2026-11-07T18:04:15.529559+00:00",
+      "flags": [
+        "NON_CONTENT"
+      ],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\_SYSTEM_MACHINERY\\record_MIM.10.COMMIT.json",
+      "relative_path": "_SYSTEM_MACHINERY\\record_MIM.10.COMMIT.json",
+      "filename": "record_MIM.10.COMMIT.json",
+      "extension": ".json",
+      "size_bytes": 2325,
+      "sha256": "ae7370a991deeb3ba18b5f7fe079aeec7c0100c2d6ce14cc5a8a40713563e84a",
+      "uid": "",
+      "modified_utc": "2026-11-07T18:04:15.625290+00:00",
+      "flags": [
+        "NON_CONTENT"
+      ],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\_SYSTEM_MACHINERY\\render_all_cards.py",
+      "relative_path": "_SYSTEM_MACHINERY\\render_all_cards.py",
+      "filename": "render_all_cards.py",
+      "extension": ".py",
+      "size_bytes": 2090,
+      "sha256": "9be97040f93f50653c646b036d0840058ced604606a9c34d06debc968fa58f44",
+      "uid": "",
+      "modified_utc": "2026-11-07T18:04:06.736159+00:00",
+      "flags": [
+        "NON_CONTENT"
+      ],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\_SYSTEM_MACHINERY\\render_card.py",
+      "relative_path": "_SYSTEM_MACHINERY\\render_card.py",
+      "filename": "render_card.py",
+      "extension": ".py",
+      "size_bytes": 791,
+      "sha256": "3075f86ec3d997a930097e08673e2b55bf4bc011727f4d780ba1d5dcf273db1d",
+      "uid": "",
+      "modified_utc": "2026-11-07T18:03:17.819810+00:00",
+      "flags": [
+        "NON_CONTENT"
+      ],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\_SYSTEM_MACHINERY\\STATION_MAP.html",
+      "relative_path": "_SYSTEM_MACHINERY\\STATION_MAP.html",
+      "filename": "STATION_MAP.html",
+      "extension": ".html",
+      "size_bytes": 26381,
+      "sha256": "c13b41e938b96b31215b3ff5f4c46bfa44a011763a0e2fc5ae9236dd476bff94",
+      "uid": "TP-UNK-0021",
+      "modified_utc": "2026-11-07T18:08:57.916565+00:00",
+      "flags": [],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\CLEAN_INVENTORY.csv",
+      "relative_path": "CLEAN_INVENTORY.csv",
+      "filename": "CLEAN_INVENTORY.csv",
+      "extension": ".csv",
+      "size_bytes": 21523,
+      "sha256": "dfe0e99b4bd3cea55e5334422f99664b0dba84f5b917939b84d44465270fa93d",
+      "uid": "",
+      "modified_utc": "2026-11-07T17:26:07.180802+00:00",
+      "flags": [
+        "NON_CONTENT"
+      ],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\Clipboard Text.txt",
+      "relative_path": "Clipboard Text.txt",
+      "filename": "Clipboard Text.txt",
+      "extension": ".txt",
+      "size_bytes": 465,
+      "sha256": "093a747173734029fbe523a18169dfd6f95c5c762c21043368ffa014b308d4aa",
+      "uid": "TP-UNK-0022",
+      "modified_utc": "2026-11-07T18:13:40.320433+00:00",
+      "flags": [],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\MASTER_CLASSIFICATION_SHEET.xlsx",
+      "relative_path": "MASTER_CLASSIFICATION_SHEET.xlsx",
+      "filename": "MASTER_CLASSIFICATION_SHEET.xlsx",
+      "extension": ".xlsx",
+      "size_bytes": 39378,
+      "sha256": "f784bf689cfe8bccfe6d410cf4ef1223460ada2b25eac79eb88b98cfe3a2cb4a",
+      "uid": "",
+      "modified_utc": "2026-11-07T18:02:27.966621+00:00",
+      "flags": [
+        "NON_CONTENT"
+      ],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\MIM.00.MEPHISTO.md",
+      "relative_path": "MIM.00.MEPHISTO.md",
+      "filename": "MIM.00.MEPHISTO.md",
+      "extension": ".md",
+      "size_bytes": 13629,
+      "sha256": "57daef5f9eeacccf0d1fe724d8338fd46ea692a366fda3a60caf455d2edccf06",
+      "uid": "TP-UNK-0023",
+      "modified_utc": "2026-11-07T08:52:31.155025+00:00",
+      "flags": [],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\MIM.01.TRUTH.md",
+      "relative_path": "MIM.01.TRUTH.md",
+      "filename": "MIM.01.TRUTH.md",
+      "extension": ".md",
+      "size_bytes": 14653,
+      "sha256": "d18be8645efa810b79ef36bf9912ec6a7aa0c3413eda1ffa238c4a323d02b24c",
+      "uid": "TP-UNK-0024",
+      "modified_utc": "2026-11-07T08:50:36.150431+00:00",
+      "flags": [],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\MIM.02.DISTINCT.md",
+      "relative_path": "MIM.02.DISTINCT.md",
+      "filename": "MIM.02.DISTINCT.md",
+      "extension": ".md",
+      "size_bytes": 19465,
+      "sha256": "2609667adf8387d9bb305b7889e210529212fbf3d0d6b4e6186bf34e9e38f481",
+      "uid": "TP-UNK-0025",
+      "modified_utc": "2026-11-07T08:52:59.286541+00:00",
+      "flags": [],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\MIM.03.KNOWER.md",
+      "relative_path": "MIM.03.KNOWER.md",
+      "filename": "MIM.03.KNOWER.md",
+      "extension": ".md",
+      "size_bytes": 15386,
+      "sha256": "b4cbeb624b0b6ed189c5f41c6ebf49877c64215baef396708199347b5f38b5bc",
+      "uid": "TP-UNK-0026",
+      "modified_utc": "2026-11-07T08:53:50.839372+00:00",
+      "flags": [],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\MIM.04.INVARIANCE.md",
+      "relative_path": "MIM.04.INVARIANCE.md",
+      "filename": "MIM.04.INVARIANCE.md",
+      "extension": ".md",
+      "size_bytes": 19777,
+      "sha256": "d735e02e30e63917b6165141ed0eae5d0f805672ac4355bbd85175de7da39c90",
+      "uid": "TP-UNK-0027",
+      "modified_utc": "2026-11-07T09:16:27.239798+00:00",
+      "flags": [],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\MIM.05.WORD.md",
+      "relative_path": "MIM.05.WORD.md",
+      "filename": "MIM.05.WORD.md",
+      "extension": ".md",
+      "size_bytes": 14076,
+      "sha256": "ee4982f2d0cd90a0305740ce3aec746a91e5000313865ba0f33789366f3f86a4",
+      "uid": "TP-UNK-0028",
+      "modified_utc": "2026-11-07T02:27:50.180829+00:00",
+      "flags": [],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\MIM.06.ACTS.md",
+      "relative_path": "MIM.06.ACTS.md",
+      "filename": "MIM.06.ACTS.md",
+      "extension": ".md",
+      "size_bytes": 12198,
+      "sha256": "7cb043656f4bb7135d01834298ecb9d1d5bd0dfd3f7ca2028bc345a010561685",
+      "uid": "TP-UNK-0029",
+      "modified_utc": "2026-11-07T02:27:50.205865+00:00",
+      "flags": [],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\MIM.07.CHOICE.md",
+      "relative_path": "MIM.07.CHOICE.md",
+      "filename": "MIM.07.CHOICE.md",
+      "extension": ".md",
+      "size_bytes": 12080,
+      "sha256": "7d4d5b198885c22b9fb983be0b868627fd04196cd7cc2aa9206123b1885a9429",
+      "uid": "TP-UNK-0030",
+      "modified_utc": "2026-11-07T02:27:50.909299+00:00",
+      "flags": [],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\MIM.08.FITS.md",
+      "relative_path": "MIM.08.FITS.md",
+      "filename": "MIM.08.FITS.md",
+      "extension": ".md",
+      "size_bytes": 14825,
+      "sha256": "c05c2b8b984b6502db700dc7f18891c99bba1a339dfcfd3e0d24d058144b6cd1",
+      "uid": "TP-UNK-0031",
+      "modified_utc": "2026-11-07T02:27:50.945859+00:00",
+      "flags": [],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\MIM.09.NORMS.md",
+      "relative_path": "MIM.09.NORMS.md",
+      "filename": "MIM.09.NORMS.md",
+      "extension": ".md",
+      "size_bytes": 14427,
+      "sha256": "7bbd8dc2a469360b8a020c823de7af9e902d32d26c88992831660c35b66afdb3",
+      "uid": "TP-UNK-0032",
+      "modified_utc": "2026-11-05T03:45:17.894388+00:00",
+      "flags": [],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\MIM.10.COMMIT.md",
+      "relative_path": "MIM.10.COMMIT.md",
+      "filename": "MIM.10.COMMIT.md",
+      "extension": ".md",
+      "size_bytes": 14689,
+      "sha256": "6e60a300e5cf0729975cfaaf78c1d4a223287ab67b1d3963427ea64caf91ab78",
+      "uid": "TP-UNK-0033",
+      "modified_utc": "2026-11-05T03:45:15.482918+00:00",
+      "flags": [],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\ONE_MASTER_TRUTH_REGISTRY.xlsx",
+      "relative_path": "ONE_MASTER_TRUTH_REGISTRY.xlsx",
+      "filename": "ONE_MASTER_TRUTH_REGISTRY.xlsx",
+      "extension": ".xlsx",
+      "size_bytes": 21203,
+      "sha256": "1cdbcebe509d6e6fff5ee87a10a1d1c802e3d7176b02e9907ca8415aca521441",
+      "uid": "",
+      "modified_utc": "2026-11-07T18:03:49.910172+00:00",
+      "flags": [
+        "NON_CONTENT"
+      ],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\PROPOSED_REGISTRY_MASTER.csv",
+      "relative_path": "PROPOSED_REGISTRY_MASTER.csv",
+      "filename": "PROPOSED_REGISTRY_MASTER.csv",
+      "extension": ".csv",
+      "size_bytes": 45761,
+      "sha256": "248bcdca7e420bcdd7b61da790cb3552631ff72289b8858071352f423f1cf198",
+      "uid": "",
+      "modified_utc": "2026-11-07T18:03:49.852426+00:00",
+      "flags": [
+        "NON_CONTENT"
+      ],
+      "duplicate_group": null
+    },
+    {
+      "path": "C:\\Users\\David\\Documents\\faiththruphysics.com\\Master Folder\\QUESTIONS.md",
+      "relative_path": "QUESTIONS.md",
+      "filename": "QUESTIONS.md",
+      "extension": ".md",
+      "size_bytes": 7264,
+      "sha256": "608dc0800c133588f8f889411d2b51beb87f651e617528e1cd8cca04b56672e2",
+      "uid": "TP-UNK-0034",
+      "modified_utc": "2026-11-07T17:27:51.798414+00:00",
+      "flags": [],
+      "duplicate_group": "DG-0002"
+    }
+  ]
+}

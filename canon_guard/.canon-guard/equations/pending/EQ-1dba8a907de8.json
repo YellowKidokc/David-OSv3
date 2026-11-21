@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-1dba8a907de8",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.727751+00:00",
+  "source": {
+    "path": "MEQ-TheUnifiedFrameworkofConsciousnessPhysicsandSpirituality1.md",
+    "line": 5077,
+    "source_sha256": "be90edbe239d14df21d03f83e18d891d7b47e73fafc89c737757c8bfb039a8d5"
+  },
+  "equation": {
+    "raw": "'8,3\\x19^^L|1h6\\x01|R\\x18\\x04_\\\\dN\\x18<lOwUuWU1=qc7\\n',",
+    "normalized": "'8,3\\x19^^l|1h6\\x01|r\\x18\\x04_\\\\dn\\x18<lowuuwu1=qc7\\n',",
+    "fingerprint": "1dba8a907de840368205d7e031d223cb07b1872715b444a79bc2d1543f731dd4"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

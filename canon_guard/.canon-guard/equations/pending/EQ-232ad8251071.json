@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-232ad8251071",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.208637+00:00",
+  "source": {
+    "path": "MEQ-137_D19.2_Law-II-Definition.md",
+    "line": 114,
+    "source_sha256": "9ad16c5ef5e54b240ec1bb70331d662332daeb12643162046f4ef1198ec34a69"
+  },
+  "equation": {
+    "raw": "K = \\sum_i I(X; Y_i) = \\sum_i H(X) - H(X|Y_i)",
+    "normalized": "k=\\sum_ii(x;y_i)=\\sum_ih(x)-h(x|y_i)",
+    "fingerprint": "232ad8251071813d16dbf42000049023d4362aec027d95fc71de2be91f2ce8b0"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

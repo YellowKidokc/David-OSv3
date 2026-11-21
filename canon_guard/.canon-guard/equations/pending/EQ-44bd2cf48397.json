@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-44bd2cf48397",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.007413+00:00",
+  "source": {
+    "path": "MEQ-Claude24.md",
+    "line": 287,
+    "source_sha256": "aa2d4755d680c32ea8f540ee6ad6019ebd43e1cc117fd446dc6c8a445b536b00"
+  },
+  "equation": {
+    "raw": "F(x,y) = ∫∫ O(ξ,η)R(x-ξ,y-η)dξdη",
+    "normalized": "f(x,y)=integralintegralo(ξ,η)r(x-ξ,y-η)dξdη",
+    "fingerprint": "44bd2cf48397f35c4de7f4c274be2ee77d57f4bd249fa062f05355c084f809fc"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

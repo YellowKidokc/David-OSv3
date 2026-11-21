@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-7a4f0bfa5175",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.736663+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Faith_Physics_Organizer_Code.md",
+    "line": 2141,
+    "source_sha256": "f04feb050a245558f0327f38360a27f9fdd04a6a610aba17838874ed98eb2572"
+  },
+  "equation": {
+    "raw": "index_content += f\"## {cat} Concepts\\n\\n\"",
+    "normalized": "index_content+=f\"##{cat}concepts\\n\\n\"",
+    "fingerprint": "7a4f0bfa5175e6ede5837bc76b6d623919e2254a1090c1b22c60e2239cd4e6ce"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

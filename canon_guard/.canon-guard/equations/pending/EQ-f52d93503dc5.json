@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-f52d93503dc5",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.407380+00:00",
+  "source": {
+    "path": "MEQ-LLC_CANONICAL_v5.md",
+    "line": 262,
+    "source_sha256": "321a0d8efb87e9a7003d387014ecef8b34ed2bb865dd3ca41c10e33271a91cfd"
+  },
+  "equation": {
+    "raw": "L_LLC(q,q̇,λ;W) = ½ q̇ᵀA(q;W)q̇ + μ·P(q;W) − V(χ) + λ·∇²P(q;W) + G_ext(t)·χ",
+    "normalized": "l_llc(q,q̇,λ;w)=½q̇ᵀa(q;w)q̇+mu*p(q;w)-v(chi)+λ*∇^2p(q;w)+g_ext(t)*chi",
+    "fingerprint": "f52d93503dc5c38a42f1fde79ac2c50b1331a762e0c6411843a05851c712205e"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

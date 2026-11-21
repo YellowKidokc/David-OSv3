@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "case_id": "EQ-b649a80e4c1d",
+  "status": "ratified",
+  "created_at": "2026-07-27T07:57:25.882467+00:00",
+  "source": {
+    "path": "MEQ-00-MasterOutline.md",
+    "line": 783,
+    "source_sha256": "082fae2f3083b27cfb2dff7b38e8a48167c5d25d33b0cc911e5168f5ab88c102"
+  },
+  "equation": {
+    "raw": "dS/dt = Σᵢ f(Δᵢ) - R(Λ)",
+    "normalized": "ds/dt=σᵢf(δᵢ)-r(λ)",
+    "fingerprint": "b649a80e4c1d40b0227be816983b3e6e793eb266628ebb5edde83ca18f647887"
+  },
+  "required_review": {
+    "classification": "new_canonical_candidate",
+    "math_translation": "Entropy rate equals the sum of all alignment-gap contributions minus a restoration term depending on the Law variable.",
+    "plain_translation": "Disorder grows with every way the system is out of alignment, minus the repair effect of judgment.",
+    "theological_translation": "Sin fragments; righteousness restores. Net entropy is the balance.",
+    "canonical_id": "law-05-clausius-judgment",
+    "canonical_equation": "dS/dt = Σ_i f(Δ_i) - R(Λ)",
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [
+      {
+        "reviewer": "kimi",
+        "model": "kimi-code-cli",
+        "independent": true,
+        "decision": "new_canonical_candidate",
+        "confidence": 0.8,
+        "evidence": [
+          "MEQ-00-MasterOutline.md:783"
+        ],
+        "reviewed_at": "2026-07-27T08:02:07.449977+00:00"
+      }
+    ],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

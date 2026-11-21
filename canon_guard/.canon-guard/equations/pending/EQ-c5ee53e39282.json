@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-c5ee53e39282",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.140631+00:00",
+  "source": {
+    "path": "MEQ-DataAnalysis-Copy.md",
+    "line": 10978,
+    "source_sha256": "eb86e21b6fcbd67c587ed93d08daf00d25cc11c63272bc20f6e08516738af48c"
+  },
+  "equation": {
+    "raw": "🔹 **F = G(m₁m₂)/r²**",
+    "normalized": "🔹**f=g(m₁m₂)/r^2**",
+    "fingerprint": "c5ee53e392829d6aabf46ab9d57ad8b0ad88dc1a048e9c319ba7668baa76a002"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

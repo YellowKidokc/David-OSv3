@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-cd7d076b6fd0",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.349809+00:00",
+  "source": {
+    "path": "MEQ-Law1EnhancedTemplate.md",
+    "line": 168,
+    "source_sha256": "21afc185709aabb41d1a86017431934e5a4e3f03d71f70240db5113e9b7e1f89"
+  },
+  "equation": {
+    "raw": "$F_{sin} = K \\frac{S_1 S_2}{d^2}$",
+    "normalized": "$f_{sin}=k\\frac{s_1s_2}{d^2}$",
+    "fingerprint": "cd7d076b6fd020f1181f15aa484523348e5f2128d4a14da4e25fa1cce3927019"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

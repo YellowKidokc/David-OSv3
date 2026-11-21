@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-e59d046ba7db",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.601636+00:00",
+  "source": {
+    "path": "MEQ-the-prism.md",
+    "line": 55,
+    "source_sha256": "462a86f46535fe31aa30f6ce0abfaa08a1b3ef18e1d6f131fb3ca96be662a8c6"
+  },
+  "equation": {
+    "raw": "H(X) = −Σ p·log p",
+    "normalized": "h(x)=-σp*logp",
+    "fingerprint": "e59d046ba7db85a5a461c12ed286865e8cc864e20e35984e60aef483f87f1971"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-8c1640700ba0",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.966773+00:00",
+  "source": {
+    "path": "MEQ-01-MasterEquationOutline-Mind-Map.md",
+    "line": 378,
+    "source_sha256": "605f479be4ed01b9e02ff47b31a74c6efb05c4995e54f678066ca05bb81b23e9"
+  },
+  "equation": {
+    "raw": "ΦT=I0e–μd\\Phi_T = I_0 e^{–\\mu d}ΦT​=I0​e–μd",
+    "normalized": "φt=i0e-mud\\phi_t=i_0e^{-\\mud}φt​=i0​e-mud",
+    "fingerprint": "8c1640700ba058a6b6891dab90e47450a91e9148b6d706cb02a6c82c4a4788c8"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

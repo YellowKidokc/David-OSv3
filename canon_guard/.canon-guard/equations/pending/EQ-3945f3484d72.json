@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-3945f3484d72",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.586624+00:00",
+  "source": {
+    "path": "MEQ-TEN_LAWS_EQUATIONS.md",
+    "line": 21,
+    "source_sha256": "729c59296932d1d6d5b1221ad0af52a056ea9eca3351c87aa8db317151237f47"
+  },
+  "equation": {
+    "raw": "∂²χ/∂x² = -ρ_info = -M/V\n∇²χ = ∫∇²(G·K) dΩ = -4πρ_info",
+    "normalized": "partial^2chi/partialx^2=-ρ_info=-m/v∇^2chi=integral∇^2(g*k)dω=-4πρ_info",
+    "fingerprint": "3945f3484d7228b7f4f59f4859a7f300db33638eace97bb71ecf5504e451f34f"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-60cc62928bb9",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.333803+00:00",
+  "source": {
+    "path": "MEQ-Law1-Copy.md",
+    "line": 240,
+    "source_sha256": "e2028fa1dc5755d4b2be4f4b65e096ed6376f070bfdf69ba19b637321998d52c"
+  },
+  "equation": {
+    "raw": "F=G⋅m1m2r2F = G \\cdot \\frac{m_1 m_2}{r^2}F=G⋅r2m1​m2​​",
+    "normalized": "f=g⋅m1m2r2f=g*\\frac{m_1m_2}{r^2}f=g⋅r2m1​m2​​",
+    "fingerprint": "60cc62928bb98c69328b88553763a2166f1cea0e5bc2dc2512543b34612af66b"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

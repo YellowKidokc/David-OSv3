@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-a78bd7fb6166",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.041433+00:00",
+  "source": {
+    "path": "MEQ-ClaudeDavid.md",
+    "line": 892,
+    "source_sha256": "2b10b01c071b34ba6924e357a252e5c118278521d8e5d95ffad864395e9ae3ea"
+  },
+  "equation": {
+    "raw": "p'(outcome) = F·p(outcome)",
+    "normalized": "p'(outcome)=f*p(outcome)",
+    "fingerprint": "a78bd7fb6166bd4358aa1824b41189d614a76f8491c55aab2987dfcf4360d10f"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

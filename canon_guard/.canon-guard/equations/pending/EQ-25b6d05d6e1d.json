@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-25b6d05d6e1d",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.242731+00:00",
+  "source": {
+    "path": "MEQ-FIELD_EQUATIONS.md",
+    "line": 48,
+    "source_sha256": "85ea97157420e0af9b73e7f2e7c82982c5099c6530eeecde7e81a70df7615b0d"
+  },
+  "equation": {
+    "raw": "L_Soul = ½(∂_μ Ψ_S)(∂^μ Ψ_S) - ½m_S² Ψ_S²",
+    "normalized": "l_soul=½(partial_muψ_s)(partial^muψ_s)-½m_s^2ψ_s^2",
+    "fingerprint": "25b6d05d6e1d87f4dd0ba345a030ed010a000e6db69c1a625327d276edb4dca8"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

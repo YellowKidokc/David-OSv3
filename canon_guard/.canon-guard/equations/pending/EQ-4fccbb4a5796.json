@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-4fccbb4a5796",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.322740+00:00",
+  "source": {
+    "path": "MEQ-3.md",
+    "line": 527,
+    "source_sha256": "bac11d16ac15b56f604ef8ca82f12e96d1e7d392bbc2fd6310b8f202d5d2ee09"
+  },
+  "equation": {
+    "raw": "> **ΔS = Q / T**",
+    "normalized": ">**δs=q/t**",
+    "fingerprint": "4fccbb4a579655453f1488e2ceabd5cc29228b5f32191c501688ed7995d94c09"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

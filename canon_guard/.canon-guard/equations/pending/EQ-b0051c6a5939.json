@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-b0051c6a5939",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.668679+00:00",
+  "source": {
+    "path": "MEQ-THEOPHYSICS_THE_FULL_EXPLANATION.md",
+    "line": 447,
+    "source_sha256": "62068387239bf001857ed4b8443dfc82561d1430d3f0ae50d8452f18ab1244ce"
+  },
+  "equation": {
+    "raw": "Spiritual: ∇·**T** = ρ_L/ε_s / ∇×**T** = -∂**W**/∂t / ∂²**T**/∂t² = λ²∇²**T**",
+    "normalized": "spiritual:∇***t**=ρ_l/ε_s/∇***t**=-partial**w**/partialt/partial^2**t**/partialt^2=λ^2∇^2**t**",
+    "fingerprint": "b0051c6a5939629fa0f6e3e8bdd27a956563bb37c1433c1a127534a97a12e993"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

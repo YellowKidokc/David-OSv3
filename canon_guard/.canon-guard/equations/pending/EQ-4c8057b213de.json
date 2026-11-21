@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-4c8057b213de",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.971803+00:00",
+  "source": {
+    "path": "MEQ-01-MasterEquationOutline-Mind-Map.md",
+    "line": 1709,
+    "source_sha256": "605f479be4ed01b9e02ff47b31a74c6efb05c4995e54f678066ca05bb81b23e9"
+  },
+  "equation": {
+    "raw": "∮ΨLogos dΣ=0∮ Ψ_{Logos} \\, dΣ = 0∮ΨLogos​dΣ=0",
+    "normalized": "∮ψlogosdσ=0∮ψ_{logos}\\,dσ=0∮ψlogos​dσ=0",
+    "fingerprint": "4c8057b213de79fc0812cc2ab5b85dfc97e7613abf9c3c33bcc7ea7c3209f126"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

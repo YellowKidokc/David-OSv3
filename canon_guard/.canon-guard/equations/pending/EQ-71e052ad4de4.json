@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-71e052ad4de4",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.526508+00:00",
+  "source": {
+    "path": "MEQ-Obsidian-Math-friendlyformat.md",
+    "line": 69,
+    "source_sha256": "495bcec28abdc466b551001aa75875bd67a0b7c0e5d26f1aaf48f7197535911f"
+  },
+  "equation": {
+    "raw": "G(R_p) = e^{-\\gamma S}",
+    "normalized": "g(r_p)=e^{-\\gammas}",
+    "fingerprint": "71e052ad4de49ee4db106fc570e38c3525285516afd8fd76a41fe1e6caa9da79"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

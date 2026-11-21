@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-790d38b50d85",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.086040+00:00",
+  "source": {
+    "path": "MEQ-DataAnalysis-Copy.md",
+    "line": 1739,
+    "source_sha256": "eb86e21b6fcbd67c587ed93d08daf00d25cc11c63272bc20f6e08516738af48c"
+  },
+  "equation": {
+    "raw": "> 🔹 Ψ = The total reality state",
+    "normalized": ">🔹ψ=thetotalrealitystate",
+    "fingerprint": "790d38b50d850656d0be406bb5ade1af03f7fa98d2cd7305c0b36180ee9b67b2"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

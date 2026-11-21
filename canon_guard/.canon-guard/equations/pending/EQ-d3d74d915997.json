@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-d3d74d915997",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.584381+00:00",
+  "source": {
+    "path": "MEQ-00-MATH-APPENDIX-Master-Equation.md",
+    "line": 2252,
+    "source_sha256": "b3d60ff621e037d6d9c388f596d2d72b65d2e4fc956ac32d53b0d854e13d8ce8"
+  },
+  "equation": {
+    "raw": "\\Box G - m_G^2 G = -gS",
+    "normalized": "\\boxg-m_g^2g=-gs",
+    "fingerprint": "d3d74d915997fb48debc95e40061b10c1d05c6485e822af6b90ccacb9b5279a6"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

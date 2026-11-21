@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-a193f0e27519",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.276259+00:00",
+  "source": {
+    "path": "MEQ-Grace.md",
+    "line": 149,
+    "source_sha256": "ff8a88c686ff1b55fd0a0f8768baa4a0273d360cdc45054cf23badeb220f82ed"
+  },
+  "equation": {
+    "raw": "Define G such that: G|s = -1? = |s = +1?",
+    "normalized": "definegsuchthat:g|s=-1?=|s=+1?",
+    "fingerprint": "a193f0e27519f266e7efc633cd8eabad46a4a5d76dd6f3bab10943108d71089d"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

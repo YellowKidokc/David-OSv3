@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-3163a15317a0",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.634655+00:00",
+  "source": {
+    "path": "MEQ-theophysics-mathematical-glossary.md",
+    "line": 54,
+    "source_sha256": "4a561e9ad179dc38191e9dcc45991ce7d0b700a76e32eb6bec46176620325ef9"
+  },
+  "equation": {
+    "raw": "T_trinity = |Father⟩⊗|Son⟩⊗|Spirit⟩",
+    "normalized": "t_trinity=|father⟩⊗|son⟩⊗|spirit⟩",
+    "fingerprint": "3163a15317a05029a93e48a195f668adb787669e09b7c2e06e6489833b90c4f5"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-2db244a79b7e",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.623573+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Consciousness_Research_Framework.md",
+    "line": 667,
+    "source_sha256": "b885adb8f59567f3a6a5c2924e662f218f07acc3007364baa9a4d033ff86ad0c"
+  },
+  "equation": {
+    "raw": "model=\"gpt-4\",",
+    "normalized": "model=\"gpt-4\",",
+    "fingerprint": "2db244a79b7e47998868a55a62cdfe4bd5d5680e81eb0e933217e978322a0748"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-8effb2583d30",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.279258+00:00",
+  "source": {
+    "path": "MEQ-Grace.md",
+    "line": 163,
+    "source_sha256": "ff8a88c686ff1b55fd0a0f8768baa4a0273d360cdc45054cf23badeb220f82ed"
+  },
+  "equation": {
+    "raw": "G|-? = |+? (flips the fallen state)",
+    "normalized": "g|-?=|+?(flipsthefallenstate)",
+    "fingerprint": "8effb2583d305171c8ab54e6e6609295763dc03fadb34f98dd2ae7f92a619423"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

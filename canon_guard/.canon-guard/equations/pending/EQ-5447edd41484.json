@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-5447edd41484",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.293779+00:00",
+  "source": {
+    "path": "MEQ-JesusSeries-CompleteFramework.md",
+    "line": 57,
+    "source_sha256": "ea333ce6426539d027e6b86568e9fa24840c06ab5510548de0f0d62677f82b56"
+  },
+  "equation": {
+    "raw": "χ = ∭(L·W·T·B·V·S·P·I·R)dxdydt",
+    "normalized": "chi=triple_integral(l*w*t*b*v*s*p*i*r)dxdydt",
+    "fingerprint": "5447edd4148497cde2e3c7404c51427b2343ce008ec7896528cfd020c958e021"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

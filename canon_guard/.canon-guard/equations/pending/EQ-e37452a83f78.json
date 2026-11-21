@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-e37452a83f78",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.280258+00:00",
+  "source": {
+    "path": "MEQ-GRACE_FUNCTION.md",
+    "line": 53,
+    "source_sha256": "b0308fec2e06a008182e909c5fc50b0aaa2d6bddd246aea7062aacf0d8e66358"
+  },
+  "equation": {
+    "raw": "G′(Rp) = e^(-γ(S-RJ))⋅(1-Rp)",
+    "normalized": "g′(rp)=e^(-γ(s-rj))⋅(1-rp)",
+    "fingerprint": "e37452a83f78013576fe3bb4dab4b4e612ccdf26be367b2eadd38c5776fb7d2c"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

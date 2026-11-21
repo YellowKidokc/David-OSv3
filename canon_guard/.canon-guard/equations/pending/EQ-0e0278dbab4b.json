@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-0e0278dbab4b",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.465588+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Rewrite_Request_Discussion.md",
+    "line": 1304,
+    "source_sha256": "4673908bb9401928d44c4d7a26988b5c3a55bd07b59330f57cc20e96447958ca"
+  },
+  "equation": {
+    "raw": "\\Huge R(F) = \\frac{F^{1.5}}{1 + F^{1.5}}",
+    "normalized": "\\huger(f)=\\frac{f^{1.5}}{1+f^{1.5}}",
+    "fingerprint": "0e0278dbab4bc33479ab7f8356799c06c8108eb21e4d55a274bb078aa7d12f30"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

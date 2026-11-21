@@ -1,0 +1,257 @@
+{
+  "schema": "theophysics-classification/2.0",
+  "created": "2026-11-07",
+  "description": "Multi-axis document classification. Each axis is independent. The classifier answers ALL axes per file, not one flat code.",
+
+  "axes": {
+
+    "physical_home": {
+      "description": "WHERE the file physically lives. Exactly one. This is the folder destination.",
+      "exclusive": true,
+      "values": {
+        "00_ORIENTATION":       "Inbox, navigation, governing docs, templates, handoffs",
+        "10_ACTIVE_EFFORTS":    "Files belonging to a named project with a goal and finish line",
+        "20_KNOWLEDGE_ATLAS":   "Reusable concepts, definitions, terms, models, mechanisms, domains",
+        "30_SOURCES":           "External material: papers, books, scripture, datasets, transcripts, web captures",
+        "40_CANONIZATION":      "Files in the epistemic pipeline: candidates, evaluated, or canon",
+        "50_PRODUCTION":        "Files headed for publication: articles, series, books, social, video, submissions",
+        "60_MEDIA_DATA":        "Binary media, structured data, databases, embeddings, model outputs",
+        "70_PEOPLE_WORLDVIEWS": "People profiles, traditions, worldviews, rival models, comparisons",
+        "80_SYSTEM":            "Code, tools, automation, pipelines, configs, prompts, infrastructure",
+        "90_ARCHIVE":           "Superseded, old drafts, snapshots, backups, dead forks",
+        "99_REVIEW":            "Needs human decision: duplicates, low confidence, conflicts, quarantine"
+      }
+    },
+
+    "physical_subfolder": {
+      "description": "The specific subfolder within the physical_home. Drawn from the exhaustive structure on disk. The classifier proposes; David approves.",
+      "exclusive": true,
+      "type": "free_path",
+      "example": "10_ACTIVE_EFFORTS/01_PROJECTS/MASTER_EQUATION"
+    },
+
+    "document_type": {
+      "description": "WHAT the file IS as a production artifact. Exactly one.",
+      "exclusive": true,
+      "values": {
+        "article":          "Standalone reader-facing narrative or argument",
+        "support_paper":    "Backs up or extends a canonical claim",
+        "series_paper":     "Part of a numbered series",
+        "formal_paper":     "Academic-grade paper with citations and methodology",
+        "book_chapter":     "Chapter of a longer work",
+        "story":            "Narrative fiction or testimony",
+        "devotional":       "Spiritual reflection or meditation",
+        "explainer":        "Educational walkthrough of a concept",
+        "proof":            "Formal derivation or demonstration",
+        "lean_file":        "Lean 4 source code for formal verification",
+        "source":           "External reference material (paper, book, transcript)",
+        "transcript":       "Audio/video transcript",
+        "dataset":          "Structured data file",
+        "media":            "Image, audio, video, or binary asset",
+        "index":            "Table of contents, map, or navigation document",
+        "template":         "Reusable template or procedure",
+        "prompt":           "AI prompt, session export, or crew brief",
+        "code":             "Script, program, tool, or configuration",
+        "draft":            "Unfinished working document",
+        "note":             "Working note, scratch, brainstorm, or session log",
+        "receipt":          "Operations log, sort receipt, migration receipt",
+        "ruling":           "David's recorded decision on an open question",
+        "submission":       "Grant application, journal submission, cover letter",
+        "social_post":      "Short-form content for social platforms",
+        "presentation":     "Slides or presentation material",
+        "infographic":      "Visual explanation or diagram",
+        "unknown":          "Cannot determine document type"
+      }
+    },
+
+    "epistemic_roles": {
+      "description": "WHAT the file DOES in the knowledge system. A file can serve multiple roles. Non-exclusive.",
+      "exclusive": false,
+      "values": {
+        "claim":            "Makes a truth-apt assertion that can be tested",
+        "evidence":         "Provides empirical observation, measurement, or data",
+        "proof":            "Provides formal derivation or logical demonstration",
+        "process":          "Documents a methodology or derivation chain",
+        "bridge":           "Establishes cross-domain structural correspondence",
+        "prediction":       "Makes a testable prediction",
+        "falsifier":        "Defines a kill condition or failure criterion",
+        "objection":        "Presents the strongest argument against a claim",
+        "countermodel":     "Presents an alternative explanation",
+        "ruling":           "Records David's decision on an open question",
+        "axiom":            "States a foundational assumption",
+        "definition":       "Defines a term precisely",
+        "dependency":       "Maps what depends on what",
+        "model":            "Presents a thought experiment or test case",
+        "open_question":    "Raises an unresolved issue",
+        "historical_case":  "Argues from textual or historical evidence",
+        "lived_fruit":      "Documents real-world evidence of transformation",
+        "scripture_anchor": "Grounds a claim in specific scripture",
+        "worldview":        "Describes a competing framework",
+        "governance":       "Controls the canonization process itself",
+        "none":             "File has no epistemic role (media, config, receipt, etc.)"
+      }
+    },
+
+    "subject_domains": {
+      "description": "WHAT DOMAIN(S) the file operates in. Non-exclusive — cross-domain work gets multiple.",
+      "exclusive": false,
+      "values": {
+        "physics":          "Classical mechanics, quantum, relativity, thermodynamics, EM, nuclear",
+        "information":      "Shannon theory, entropy, channel capacity, coding",
+        "mathematics":      "Pure math, logic, proof theory, set theory, topology",
+        "consciousness":    "Measurement problem, observer, awareness, qualia",
+        "morality":         "Ethics, moral philosophy, sin, virtue, corruption, justice",
+        "psychology":       "Cognitive science, behavioral mechanics, decision-making",
+        "theology":         "Doctrine, Christology, soteriology, pneumatology, eschatology",
+        "scripture":        "Biblical text, exegesis, hermeneutics, textual criticism",
+        "history":          "Historical events, church history, ancient near east",
+        "philosophy":       "Epistemology, metaphysics, ontology, logic",
+        "sociology":        "Cultural analysis, moral decline, institutional behavior",
+        "economics":        "Economic theory, money, markets, thermodynamic economics",
+        "technology":       "AI, computing, engineering, infrastructure",
+        "theophysics":      "Cross-domain: the framework itself, master equation, ten laws",
+        "apologetics":      "Arguments for/against Christian theism",
+        "other":            "Domain not listed above"
+      }
+    },
+
+    "lifecycle": {
+      "description": "WHERE the file is in its lifecycle. Exactly one.",
+      "exclusive": true,
+      "values": {
+        "inbox":        "Unprocessed, just arrived",
+        "working":      "Active work in progress",
+        "draft":        "Written but not reviewed",
+        "review":       "Under review or audit",
+        "final":        "Complete, not yet published",
+        "published":    "Released to the public",
+        "superseded":   "Replaced by a newer version",
+        "archived":     "Preserved but no longer active",
+        "deferred":     "Parked for future work",
+        "abandoned":    "Dead end, kept for reference"
+      }
+    },
+
+    "canon_status": {
+      "description": "WHERE the file is in the canonization pipeline. Exactly one. ONLY David can set 'admitted'.",
+      "exclusive": true,
+      "values": {
+        "not_evaluated":    "Has not entered the canonization pipeline",
+        "candidate":        "Submitted for evaluation",
+        "evaluated":        "Reviewed but not yet ruled on",
+        "admitted":         "DAVID ONLY. Admitted to canon by recorded ruling.",
+        "rejected":         "Evaluated and rejected",
+        "superseded":       "Was canon, now replaced by a newer ruling",
+        "withdrawn":        "Pulled back by David before ruling"
+      },
+      "rules": [
+        "The classifier NEVER assigns 'admitted'. That requires David's recorded ruling with a ruling_id.",
+        "The classifier MAY propose 'candidate' or 'evaluated' based on content quality and completeness.",
+        "Default for new files is 'not_evaluated'."
+      ]
+    },
+
+    "series": {
+      "description": "Which named series the file belongs to, if any. From the series registry.",
+      "exclusive": true,
+      "type": "registry_lookup",
+      "registry": "series_registry.csv",
+      "example": "MEQU"
+    },
+
+    "effort": {
+      "description": "Which active project/effort the file belongs to, if any.",
+      "exclusive": true,
+      "type": "registry_lookup",
+      "registry": "active_efforts",
+      "example": "MASTER_EQUATION"
+    },
+
+    "chi_primary": {
+      "description": "The dominant Master Equation variable. Single letter.",
+      "exclusive": true,
+      "values": {
+        "G": "Grace/Gravitation (Law 1)",
+        "M": "Motion/Moral Force (Law 2)",
+        "E": "Electromagnetism/Truth (Law 3)",
+        "S": "Strong Force/Love (Law 4)",
+        "T": "Thermodynamics/Judgment (Law 5)",
+        "K": "Information/Logos (Law 6)",
+        "Q": "Quantum/Faith (Law 7)",
+        "R": "Relativity/Grace-Frame (Law 8)",
+        "F": "Weak Force/Moral Conservation (Law 9)",
+        "C": "Coherence/Christ (Law 10)",
+        "CHI": "System-level: the equation itself, not one variable",
+        "none": "No Master Equation relevance"
+      }
+    },
+
+    "chi_secondary": {
+      "description": "Other Master Equation variables present. Non-exclusive.",
+      "exclusive": false,
+      "type": "same_as",
+      "reference": "chi_primary"
+    }
+  },
+
+  "candidate_objects": {
+    "description": "Load-bearing propositions INSIDE the file. Up to 8. Each gets its own epistemic_role, a verbatim quote (max 40 words), and a note on why it's load-bearing. Every object starts as CANDIDATE_DRAFT — NOT ADMITTED.",
+    "max": 8,
+    "shape": {
+      "type": "epistemic_role value",
+      "quote": "verbatim from the text, max 40 words",
+      "note": "why this is load-bearing",
+      "status": "CANDIDATE_DRAFT — NOT ADMITTED"
+    }
+  },
+
+  "output_shape": {
+    "description": "What the classifier returns per file",
+    "example": {
+      "file": "path/to/file.md",
+      "sha256": "abc123...",
+      "physical_home": "10_ACTIVE_EFFORTS",
+      "physical_subfolder": "10_ACTIVE_EFFORTS/01_PROJECTS/MASTER_EQUATION",
+      "document_type": "series_paper",
+      "epistemic_roles": ["claim", "bridge", "evidence"],
+      "subject_domains": ["physics", "theology", "theophysics"],
+      "lifecycle": "final",
+      "canon_status": "candidate",
+      "series": "MEQU",
+      "effort": "MASTER_EQUATION",
+      "chi_primary": "G",
+      "chi_secondary": ["M", "T"],
+      "confidence": 0.87,
+      "reason": "Law 1 paper mapping Newtonian gravitation to sin/grace with cross-domain structural correspondence",
+      "candidate_objects": [
+        {
+          "type": "claim",
+          "quote": "Grace is the only frame-independent quantity in the moral domain",
+          "note": "Central thesis of the paper, maps to general covariance",
+          "status": "CANDIDATE_DRAFT — NOT ADMITTED"
+        },
+        {
+          "type": "bridge",
+          "quote": "The inverse-square law of gravitation maps structurally to the inverse-square decay of unrepented sin",
+          "note": "Primary cross-domain isomorphism, testable against Law 5",
+          "status": "CANDIDATE_DRAFT — NOT ADMITTED"
+        }
+      ],
+      "open_questions": ["Does the grace frame-independence claim survive the Law 8 frame apparatus?"],
+      "flags": []
+    }
+  },
+
+  "rules": [
+    "R1: Nothing is moved, renamed, or edited. Output goes to OUTBOX only.",
+    "R2: Rules engine runs first (extension, filename). LLM only for prose files rules didn't resolve.",
+    "R3: canon_status 'admitted' is NEVER assigned by the classifier. Requires David's recorded ruling.",
+    "R4: Every axis gets an answer. 'unknown' or 'none' is a valid answer — empty is not.",
+    "R5: candidate_objects quotes must be VERBATIM from the excerpt. Non-verbatim quotes are flagged.",
+    "R6: Cached by sha256 + taxonomy_hash + prompt_version. Same file won't re-classify unless something changes.",
+    "R7: physical_home decides the folder. All other axes become frontmatter properties.",
+    "R8: Disagreement between rule engine and LLM goes to 99_REVIEW.",
+    "R9: Confidence below 0.5 on physical_home goes to 99_REVIEW.",
+    "R10: Files that qualify for multiple physical_homes go to the one matching their PRIMARY function. The others appear through Base views."
+  ]
+}

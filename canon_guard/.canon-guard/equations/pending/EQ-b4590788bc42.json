@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-b4590788bc42",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.897495+00:00",
+  "source": {
+    "path": "MEQ-Untitled9.md",
+    "line": 904,
+    "source_sha256": "dd357c0d48a08a360fc93e33287b1a3968a538cfc32131111bda82f0979f79e3"
+  },
+  "equation": {
+    "raw": "CopyK(t) = ∫₀ᵗ A(τ)·e^(-λ(t-τ))dτ",
+    "normalized": "copyk(t)=integral₀ᵗa(τ)*e^(-λ(t-τ))dτ",
+    "fingerprint": "b4590788bc4271cf61e0a5ee2a94072feaf9686967760699b580e993fe75b65f"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

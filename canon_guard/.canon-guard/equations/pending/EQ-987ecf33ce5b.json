@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-987ecf33ce5b",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.769200+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-UQCP_Mathematical_Refinement-Copy.md",
+    "line": 12476,
+    "source_sha256": "905e3b7ff0c2e737616e661eeb386c6241e2c450798cb98bffae8e6bc85c5c41"
+  },
+  "equation": {
+    "raw": "\\Delta C = -kG \\cdot \\Delta Q",
+    "normalized": "\\deltac=-kg*\\deltaq",
+    "fingerprint": "987ecf33ce5b727e5fa29bccbefbe8c7215da6a7131fbba787d9b4c3c4637e68"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

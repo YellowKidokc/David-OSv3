@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-17c6f3747b30",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.532554+00:00",
+  "source": {
+    "path": "MEQ-OPERATORS.md",
+    "line": 49,
+    "source_sha256": "520ae900ffb78b4b7fdbe77819dd2b048be111f5c98313b10273e9eafe19aacd"
+  },
+  "equation": {
+    "raw": "Γ(Ψ,Ω) = λ·Ω(t)·(1 - |⟨Ψ|Ψ_coherent⟩|²)",
+    "normalized": "γ(ψ,ω)=λ*ω(t)*(1-|⟨ψ|ψ_coherent⟩|^2)",
+    "fingerprint": "17c6f3747b30840e04f10951f728eaad22037204c5cf804a238e5bbe8437b6fe"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

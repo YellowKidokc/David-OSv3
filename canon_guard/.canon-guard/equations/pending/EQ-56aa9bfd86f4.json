@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-56aa9bfd86f4",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.970276+00:00",
+  "source": {
+    "path": "MEQ-01-MasterEquationOutline-Mind-Map.md",
+    "line": 582,
+    "source_sha256": "605f479be4ed01b9e02ff47b31a74c6efb05c4995e54f678066ca05bb81b23e9"
+  },
+  "equation": {
+    "raw": "S(t)=S0+kln⁡Ω(t)S(t) = S_0 + k\\ln{\\Omega(t)}S(t)=S0​+klnΩ(t)",
+    "normalized": "s(t)=s0+kln⁡ω(t)s(t)=s_0+k\\ln{\\omega(t)}s(t)=s0​+klnω(t)",
+    "fingerprint": "56aa9bfd86f4734870ae24e2e782ba1e7f37ac0bd78e27f1ad2e53dca562b9a5"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

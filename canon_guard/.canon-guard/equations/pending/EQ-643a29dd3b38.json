@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-643a29dd3b38",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.071510+00:00",
+  "source": {
+    "path": "MEQ-DataAnalysis-Copy.md",
+    "line": 221,
+    "source_sha256": "eb86e21b6fcbd67c587ed93d08daf00d25cc11c63272bc20f6e08516738af48c"
+  },
+  "equation": {
+    "raw": "3  Equation: F = G(m₁m₂)/r² → Capturing the unive...",
+    "normalized": "3equation:f=g(m₁m₂)/r^2->capturingtheunive...",
+    "fingerprint": "643a29dd3b38dc02958c2fcefa8908dcb463c82b9b355297bb888c0cc3508026"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

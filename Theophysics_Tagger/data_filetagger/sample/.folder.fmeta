@@ -1,0 +1,28 @@
+# folder meta
+folder_id: edf66111-447c-41c4-a028-aa6e72e69e70
+name: sample
+current_path: D:\DONT TOUCH BOOT UP\filetagger\sample
+root: D:\DONT TOUCH BOOT UP\filetagger\sample
+relative_path: .
+first_scanned: 2026-06-22 21:27:24
+last_scanned: 2026-06-24 12:11:22
+moved_since_last_scan: no
+previous_paths: 
+fingerprint: 6ecde660d8a0a215
+child_folder_count: 0
+file_count: 8
+total_file_bytes: 4827
+extensions: .chi=5, .md=1, .fisnote=1, .txt=1
+tags: budget, notes, install, readme, fmeta, forecast, folder, txt
+category: 
+notes: 
+
+## outline
+- [file] .folder.fmeta.chi
+- [file] budget_notes.md
+- [file] budget_notes.md.chi
+- [file] budget_notes.md.fmeta.chi
+- [file] FIS_FOLDER_INDEX.fisnote
+- [file] install_readme.txt
+- [file] install_readme.txt.chi
+- [file] install_readme.txt.fmeta.chi

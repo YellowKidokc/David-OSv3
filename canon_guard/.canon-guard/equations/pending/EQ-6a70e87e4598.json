@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-6a70e87e4598",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.238724+00:00",
+  "source": {
+    "path": "MEQ-FIELD_EQUATIONS.md",
+    "line": 19,
+    "source_sha256": "85ea97157420e0af9b73e7f2e7c82982c5099c6530eeecde7e81a70df7615b0d"
+  },
+  "equation": {
+    "raw": "G_μν = 8πT_μν + ξC_μν",
+    "normalized": "g_munu=8πt_munu+ξc_munu",
+    "fingerprint": "6a70e87e45986ff082d2c63b04250e754525917a6f8afa1c1cf147d2d7c16abe"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-510b2c37a40a",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.402821+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-AI_Partnership_Framework_Expansion-Copy.md",
+    "line": 746,
+    "source_sha256": "9919cbf3d3758a74edb8950ec6dacb53a7f7dbb6c2d1734239d5c2f8d48ad1c9"
+  },
+  "equation": {
+    "raw": "S = L(1-sin)/r² → Spiritual Domain",
+    "normalized": "s=l(1-sin)/r^2->spiritualdomain",
+    "fingerprint": "510b2c37a40a3912224a958c7ed260a8b54abfc3173dacb53e3016e78b394f66"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

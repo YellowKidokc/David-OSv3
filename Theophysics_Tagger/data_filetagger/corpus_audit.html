@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Theophysics Corpus Audit Report</title>
+<style>
+:root{--bg:#050505;--surface:#0a0a0a;--surface2:#111;--border:#222;
+--text:#e5e3df;--text-dim:#9a9a9a;--gold:#d4af37;--green:#4ade80;
+--amber:#fb923c;--red:#f87171;--blue:#38bdf8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);
+color:var(--text);line-height:1.5;padding:24px}
+.container{max-width:1100px;margin:0 auto}
+h1{font-family:'Oswald',sans-serif;font-size:28px;color:var(--gold);
+border-bottom:2px solid var(--gold);padding-bottom:12px;margin-bottom:24px}
+h2{font-size:16px;color:var(--gold);margin:32px 0 12px;
+text-transform:uppercase;letter-spacing:1px}
+.card{background:var(--surface);border:1px solid var(--border);
+border-radius:8px;padding:20px;margin-bottom:16px}
+table{width:100%;border-collapse:collapse}
+td{padding:6px 8px;border-bottom:1px solid #1a1a1a;vertical-align:middle}
+.stat{display:inline-block;text-align:center;padding:12px 24px;
+background:var(--surface2);border-radius:8px;margin:4px}
+.stat .num{font-size:32px;font-weight:700;color:var(--gold)}
+.stat .label{font-size:11px;color:var(--text-dim);text-transform:uppercase}
+.gap{border-left:3px solid var(--red);padding-left:12px;margin:8px 0;
+color:var(--text-dim);font-size:13px}
+.strong{border-left:3px solid var(--green);padding-left:12px;margin:8px 0;
+color:var(--text-dim);font-size:13px}
+</style></head>
+<body><div class="container">
+
+<h1>THEOPHYSICS CORPUS AUDIT REPORT</h1>
+<div style="color:var(--text-dim);margin-bottom:24px;font-size:13px">
+Generated: 2026-06-23 12:11 | Engine: filetagger_chi_v2.py | POF 2828
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px">
+<div class="stat"><div class="num">46,390</div><div class="label">Total Files</div></div>
+<div class="stat"><div class="num">43,053</div><div class="label">Classified</div></div>
+<div class="stat"><div class="num">3,337</div><div class="label">Unclassified</div></div>
+<div class="stat"><div class="num">92.8%</div><div class="label">Coverage</div></div>
+</div>
+<h2>Chi Factor Distribution (Master Equation)</h2><div class="card"><table><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">[E] Truth Signal</td>
+        <td style="text-align:right;width:80px;color:#d4af37">13,687</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#d4af37;height:18px;width:100%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px">avg 42.4%</td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">[K] Knowledge/Info</td>
+        <td style="text-align:right;width:80px;color:#d4af37">12,343</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#d4af37;height:18px;width:90.18046321326807%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px">avg 35.1%</td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">[CHI] Master Equation</td>
+        <td style="text-align:right;width:80px;color:#d4af37">4,287</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#d4af37;height:18px;width:31.321692116606997%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px">avg 40.4%</td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">[F] Moral Force</td>
+        <td style="text-align:right;width:80px;color:#d4af37">3,503</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#d4af37;height:18px;width:25.59362899101337%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px">avg 36.0%</td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">[Q] Quantum/Faith</td>
+        <td style="text-align:right;width:80px;color:#d4af37">2,627</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#d4af37;height:18px;width:19.193395192518448%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px">avg 37.1%</td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">[T] Time/Kairos</td>
+        <td style="text-align:right;width:80px;color:#d4af37">1,712</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#d4af37;height:18px;width:12.508219478337107%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px">avg 46.6%</td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">[G] Grace</td>
+        <td style="text-align:right;width:80px;color:#d4af37">1,462</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#d4af37;height:18px;width:10.681668736757507%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px">avg 35.9%</td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">[C] Coherence/Christ</td>
+        <td style="text-align:right;width:80px;color:#d4af37">1,325</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#d4af37;height:18px;width:9.680718930371885%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px">avg 44.7%</td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">[S] Entropy/Judgment</td>
+        <td style="text-align:right;width:80px;color:#d4af37">838</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#d4af37;height:18px;width:6.122598085774823%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px">avg 29.7%</td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">[M] Moral Alignment</td>
+        <td style="text-align:right;width:80px;color:#d4af37">829</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#d4af37;height:18px;width:6.056842259077958%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px">avg 33.8%</td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">[R] Relational</td>
+        <td style="text-align:right;width:80px;color:#d4af37">440</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#d4af37;height:18px;width:3.2147293051800983%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px">avg 35.2%</td>
+    </tr></table></div><h2>Gap Analysis</h2><div class="card"><div class="gap"><strong>[R] Relational</strong> - 440 files. This factor is underrepresented in the corpus.</div><div class="gap"><strong>[M] Moral Alignment</strong> - 829 files. This factor is underrepresented in the corpus.</div><div class="gap"><strong>[S] Entropy/Judgment</strong> - 838 files. This factor is underrepresented in the corpus.</div><div class="strong"><strong>[E] Truth Signal</strong> - 13,687 files. Strong coverage.</div><div class="strong"><strong>[K] Knowledge/Info</strong> - 12,343 files. Strong coverage.</div><div class="strong"><strong>[CHI] Master Equation</strong> - 4,287 files. Strong coverage.</div></div><h2>Domain Distribution</h2><div class="card"><table><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">physics</td>
+        <td style="text-align:right;width:80px;color:#d4af37">15,018</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#38bdf8;height:18px;width:100%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">theology</td>
+        <td style="text-align:right;width:80px;color:#d4af37">8,324</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#38bdf8;height:18px;width:55.426821147955785%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">epistemology</td>
+        <td style="text-align:right;width:80px;color:#d4af37">6,397</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#38bdf8;height:18px;width:42.595552004261556%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">formal_math</td>
+        <td style="text-align:right;width:80px;color:#d4af37">3,730</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#38bdf8;height:18px;width:24.836862431748568%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">history</td>
+        <td style="text-align:right;width:80px;color:#d4af37">2,930</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#38bdf8;height:18px;width:19.50992142762019%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">information</td>
+        <td style="text-align:right;width:80px;color:#d4af37">1,332</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#38bdf8;height:18px;width:8.869356771873752%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">sociology</td>
+        <td style="text-align:right;width:80px;color:#d4af37">1,143</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#38bdf8;height:18px;width:7.610866959648421%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">morality</td>
+        <td style="text-align:right;width:80px;color:#d4af37">729</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#38bdf8;height:18px;width:4.854174990011986%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">consciousness</td>
+        <td style="text-align:right;width:80px;color:#d4af37">727</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#38bdf8;height:18px;width:4.8408576375016645%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">psychology</td>
+        <td style="text-align:right;width:80px;color:#d4af37">189</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#38bdf8;height:18px;width:1.2584898122253296%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr></table></div><h2>Ten Laws Coverage</h2><div class="card"><table><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">L10_Coherence_Christ</td>
+        <td style="text-align:right;width:80px;color:#d4af37">7,082</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#4ade80;height:18px;width:100%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">L07_Quantum_Faith</td>
+        <td style="text-align:right;width:80px;color:#d4af37">6,068</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#4ade80;height:18px;width:85.6820107314318%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">L06_Info_Logos</td>
+        <td style="text-align:right;width:80px;color:#d4af37">4,513</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#4ade80;height:18px;width:63.724936458627504%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">L01_Gravity_Grace</td>
+        <td style="text-align:right;width:80px;color:#d4af37">4,475</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#4ade80;height:18px;width:63.18836486868117%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">L02_Motion_Will</td>
+        <td style="text-align:right;width:80px;color:#d4af37">4,095</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#4ade80;height:18px;width:57.82264896921774%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">L08_Relativity_Grace</td>
+        <td style="text-align:right;width:80px;color:#d4af37">4,080</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#4ade80;height:18px;width:57.61084439423891%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">L03_EM_Truth</td>
+        <td style="text-align:right;width:80px;color:#d4af37">3,613</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#4ade80;height:18px;width:51.016661959898336%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">L05_Thermo_Justice</td>
+        <td style="text-align:right;width:80px;color:#d4af37">1,756</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#4ade80;height:18px;width:24.795255577520475%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">L04_Strong_Love</td>
+        <td style="text-align:right;width:80px;color:#d4af37">750</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#4ade80;height:18px;width:10.590228748940977%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">L09_Weak_Conservation</td>
+        <td style="text-align:right;width:80px;color:#d4af37">22</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#4ade80;height:18px;width:0.31064670996893534%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr></table></div><div class="card"><div class="gap"><strong>L09_Weak_Conservation</strong> - only 22 files. Needs attention.</div></div><h2>Content Types</h2><div class="card"><table><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">document</td>
+        <td style="text-align:right;width:80px;color:#d4af37">33,146</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#fb923c;height:18px;width:100%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">image</td>
+        <td style="text-align:right;width:80px;color:#d4af37">3,925</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#fb923c;height:18px;width:11.841549508236287%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">code</td>
+        <td style="text-align:right;width:80px;color:#d4af37">3,181</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#fb923c;height:18px;width:9.596934773426657%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">data</td>
+        <td style="text-align:right;width:80px;color:#d4af37">1,539</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#fb923c;height:18px;width:4.643094189344113%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">paper</td>
+        <td style="text-align:right;width:80px;color:#d4af37">1,443</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#fb923c;height:18px;width:4.353466481626742%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">proof</td>
+        <td style="text-align:right;width:80px;color:#d4af37">1,378</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#fb923c;height:18px;width:4.157364387859771%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">binary</td>
+        <td style="text-align:right;width:80px;color:#d4af37">1,141</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#fb923c;height:18px;width:3.4423459844325106%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">config</td>
+        <td style="text-align:right;width:80px;color:#d4af37">529</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#fb923c;height:18px;width:1.5959693477342667%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">audio</td>
+        <td style="text-align:right;width:80px;color:#d4af37">92</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#fb923c;height:18px;width:0.27755988656248115%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">video</td>
+        <td style="text-align:right;width:80px;color:#d4af37">16</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#fb923c;height:18px;width:0.04827128461956194%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr></table></div><h2>File Extensions</h2><div class="card"><table><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">.md</td>
+        <td style="text-align:right;width:80px;color:#d4af37">31,302</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#9a9a9a;height:18px;width:100%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">.html</td>
+        <td style="text-align:right;width:80px;color:#d4af37">3,470</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#9a9a9a;height:18px;width:11.085553638745129%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">.png</td>
+        <td style="text-align:right;width:80px;color:#d4af37">3,339</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#9a9a9a;height:18px;width:10.667050028752156%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">.py</td>
+        <td style="text-align:right;width:80px;color:#d4af37">2,773</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#9a9a9a;height:18px;width:8.85885885885886%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">.json</td>
+        <td style="text-align:right;width:80px;color:#d4af37">1,063</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#9a9a9a;height:18px;width:3.395949140629992%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">.svg</td>
+        <td style="text-align:right;width:80px;color:#d4af37">549</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#9a9a9a;height:18px;width:1.7538815411155837%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">.yaml</td>
+        <td style="text-align:right;width:80px;color:#d4af37">522</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#9a9a9a;height:18px;width:1.6676250718803909%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">.docx</td>
+        <td style="text-align:right;width:80px;color:#d4af37">440</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#9a9a9a;height:18px;width:1.4056609801290654%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">.bak</td>
+        <td style="text-align:right;width:80px;color:#d4af37">381</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#9a9a9a;height:18px;width:1.2171746214299406%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">.txt</td>
+        <td style="text-align:right;width:80px;color:#d4af37">377</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#9a9a9a;height:18px;width:1.2043958852469492%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">.csv</td>
+        <td style="text-align:right;width:80px;color:#d4af37">299</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#9a9a9a;height:18px;width:0.9552105296786148%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">.pdf</td>
+        <td style="text-align:right;width:80px;color:#d4af37">298</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#9a9a9a;height:18px;width:0.9520158456328668%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">[none]</td>
+        <td style="text-align:right;width:80px;color:#d4af37">229</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#9a9a9a;height:18px;width:0.7315826464762635%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">.ps1</td>
+        <td style="text-align:right;width:80px;color:#d4af37">180</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#9a9a9a;height:18px;width:0.5750431282346177%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr><tr>
+        <td style="font-family:monospace;font-weight:600;width:200px">.xlsx</td>
+        <td style="text-align:right;width:80px;color:#d4af37">176</td>
+        <td style="width:300px;padding:4px 8px"><div style="background:#9a9a9a;height:18px;width:0.562264392051626%;border-radius:3px;min-width:2px"></div></td>
+        <td style="color:#9a9a9a;font-size:12px"></td>
+    </tr></table></div><h2>Highest Evidence Density</h2><div class="card"><table><tr><td style="color:var(--text-dim)">Score</td><td style="color:var(--text-dim)">Chi</td><td style="color:var(--text-dim)">Domain</td><td style="color:var(--text-dim)">File</td></tr><tr><td style="color:var(--gold)">62.5%</td><td>[E]</td><td>history</td><td style="font-size:12px">03_10_Semantic_Precursor_Language_Fails_First_CDCM_20260226_</td></tr><tr><td style="color:var(--gold)">50.0%</td><td>[E]</td><td>epistemology</td><td style="font-size:12px">129_PROT18.5_Phi-Virtue-Correlation-Study.md</td></tr><tr><td style="color:var(--gold)">50.0%</td><td>[E]</td><td>epistemology</td><td style="font-size:12px">FP-008_THE_NUCLEATION_THESIS_V2_review.md</td></tr><tr><td style="color:var(--gold)">50.0%</td><td>[E]</td><td>epistemology</td><td style="font-size:12px">FP-008_THE_NUCLEATION_THESIS_V2_review.md</td></tr><tr><td style="color:var(--gold)">50.0%</td><td>[E]</td><td>epistemology</td><td style="font-size:12px">FP-008_THE_NUCLEATION_THESIS_V2_review.md</td></tr><tr><td style="color:var(--gold)">50.0%</td><td>[E]</td><td>history</td><td style="font-size:12px">EVD-STAT-001_Global_Correlation_Anchor.sync-conflict-2026052</td></tr><tr><td style="color:var(--gold)">50.0%</td><td>[E]</td><td>formal_math</td><td style="font-size:12px">96_Empirical_Protocol_Face_by_Face_Ten_Laws_2026-02-17.md</td></tr><tr><td style="color:var(--gold)">50.0%</td><td>[E]</td><td>history</td><td style="font-size:12px">Church_Debris_Audit_Denominational_Fragmentation_CDCM_202602</td></tr><tr><td style="color:var(--gold)">50.0%</td><td>[E]</td><td>physics</td><td style="font-size:12px">00_INTRODUCTION_Coherence_Gradient.md</td></tr><tr><td style="color:var(--gold)">50.0%</td><td>[E]</td><td>formal_math</td><td style="font-size:12px">96_Empirical_Protocol_Face_by_Face_Ten_Laws_2026-02-17_HP_Ma</td></tr><tr><td style="color:var(--gold)">50.0%</td><td>[E]</td><td>formal_math</td><td style="font-size:12px">96_Empirical_Protocol_Face_by_Face_Ten_Laws_2026-02-17.md</td></tr><tr><td style="color:var(--gold)">50.0%</td><td>[E]</td><td>epistemology</td><td style="font-size:12px">129_PROT18.5_Phi-Virtue-Correlation-Study.md</td></tr><tr><td style="color:var(--gold)">50.0%</td><td>[E]</td><td>epistemology</td><td style="font-size:12px">FP-008_THE_NUCLEATION_THESIS_V2_review.md</td></tr><tr><td style="color:var(--gold)">50.0%</td><td>[Q]</td><td>physics</td><td style="font-size:12px">046_A6.2_Collapse_7q.md</td></tr><tr><td style="color:var(--gold)">50.0%</td><td>[Q]</td><td>physics</td><td style="font-size:12px">046_A6.2_Collapse_7q.md</td></tr></table></div><h2>Fruit Presence (top files)</h2><div class="card"><table><tr><td style="color:var(--green)">99.0%</td><td>[R]</td><td>theology</td><td style="font-size:12px">fruits_radar.json</td></tr><tr><td style="color:var(--green)">99.0%</td><td>[R]</td><td>theology</td><td style="font-size:12px">anti_fruits.json</td></tr><tr><td style="color:var(--green)">99.0%</td><td>[R]</td><td>theology</td><td style="font-size:12px">fruits_scorer.py</td></tr><tr><td style="color:var(--green)">99.0%</td><td>[R]</td><td>epistemology</td><td style="font-size:12px">vault_graph.json</td></tr><tr><td style="color:var(--green)">99.0%</td><td>[R]</td><td>morality</td><td style="font-size:12px">vault_graph.json</td></tr><tr><td style="color:var(--green)">99.0%</td><td>[R]</td><td>morality</td><td style="font-size:12px">vault_graph.json</td></tr><tr><td style="color:var(--green)">99.0%</td><td>[R]</td><td>consciousness</td><td style="font-size:12px">vault_graph.json</td></tr><tr><td style="color:var(--green)">99.0%</td><td>[R]</td><td>morality</td><td style="font-size:12px">vault_graph.json</td></tr><tr><td style="color:var(--green)">99.0%</td><td>[R]</td><td>epistemology</td><td style="font-size:12px">vault_graph.json</td></tr><tr><td style="color:var(--green)">99.0%</td><td>[R]</td><td>morality</td><td style="font-size:12px">vault_graph.json</td></tr></table></div><h2>Anti-Fruit Presence (watch list)</h2><div class="card"><table><tr><td style="color:var(--red)">40.0%</td><td>[Q]</td><td>psychology</td><td style="font-size:12px">Theophysics psychology domain.md</td></tr><tr><td style="color:var(--red)">40.0%</td><td>[S]</td><td>theology</td><td style="font-size:12px">_Overview.md</td></tr><tr><td style="color:var(--red)">20.0%</td><td>[K]</td><td>formal_math</td><td style="font-size:12px">SKILL.md</td></tr><tr><td style="color:var(--red)">20.0%</td><td>[E]</td><td>epistemology</td><td style="font-size:12px">ONBOARDING_RESTRUCTURE_2026-03-26.md</td></tr><tr><td style="color:var(--red)">20.0%</td><td>[S]</td><td>physics</td><td style="font-size:12px">fix_yaml_issues.py</td></tr><tr><td style="color:var(--red)">20.0%</td><td>[K]</td><td>physics</td><td style="font-size:12px">03.md</td></tr><tr><td style="color:var(--red)">20.0%</td><td>[E]</td><td>sociology</td><td style="font-size:12px">01.md</td></tr><tr><td style="color:var(--red)">20.0%</td><td>[K]</td><td>physics</td><td style="font-size:12px">04.md</td></tr><tr><td style="color:var(--red)">20.0%</td><td>[E]</td><td>history</td><td style="font-size:12px">02.md</td></tr><tr><td style="color:var(--red)">20.0%</td><td>[T]</td><td>history</td><td style="font-size:12px">02.md</td></tr></table></div>
+<h2>Methodology</h2>
+<div class="card" style="font-size:13px;color:var(--text-dim)">
+<p>This report was generated by filetagger_chi_v2.py using keyword classification
+against the Master Equation vocabulary (10 chi factors, 10 domains, 10 Laws).
+Classification is based on sampled text (first 4KB for text files, first 2 pages
+for PDFs). Confidence scores reflect keyword density, not semantic understanding.</p>
+<p style="margin-top:8px">Files with evidence density or fruit/anti-fruit scores
+above threshold are candidates for deep analysis via
+chi_jm_diagnostic_engine_v4_gold.py.</p>
+</div>
+
+</div></body></html>

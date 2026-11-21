@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-8e77fb0f6f1a",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.367825+00:00",
+  "source": {
+    "path": "MEQ-Law4.md",
+    "line": 99,
+    "source_sha256": "b5fd78dca653feedae0330708b817f9e47df609db317ec134d739e100602e34e"
+  },
+  "equation": {
+    "raw": "✔ **ΔS** = Change in entropy",
+    "normalized": "✔**δs**=changeinentropy",
+    "fingerprint": "8e77fb0f6f1a6f3a205714ef03174b2b8db58c38b81d13d3cd11e2c8768f3da9"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

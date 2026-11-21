@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-cfcbb532620d",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.651770+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Scientific_Curiosity_and_NDA.md",
+    "line": 2329,
+    "source_sha256": "77fe614a39c063992cd296b8dbdfbd34243730c137eeac5265edac085aa24138"
+  },
+  "equation": {
+    "raw": "P_i = \\frac{e^{F_i}}{\\sum e^{F_i}}",
+    "normalized": "p_i=\\frac{e^{f_i}}{\\sume^{f_i}}",
+    "fingerprint": "cfcbb532620dfdb6ec57cec46eaf1ac5666caf9fd7de4cffb298217713ae6e7d"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-ba81b29f0bf7",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.289709+00:00",
+  "source": {
+    "path": "MEQ-145_D19.10_Law-X-Definition.md",
+    "line": 282,
+    "source_sha256": "648df1ff16dae741ba9421a859790c0c553c24fe66f953a3ba91df637d0b4b28"
+  },
+  "equation": {
+    "raw": "$$i^2 = j^2 = k^2 = ijk = -1$$",
+    "normalized": "$$i^2=j^2=k^2=ijk=-1$$",
+    "fingerprint": "ba81b29f0bf774b22c1107bb10161468477e2cfd7027b520f68973a218c36e18"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

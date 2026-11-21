@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-462d577c0e9c",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.790599+00:00",
+  "source": {
+    "path": "MEQ-00_MATH_SUMMARY.md",
+    "line": 8673,
+    "source_sha256": "6c68ac764c4536e2f86e24ca6255a50c7ed39ef5f5a52e797626d1dbb24cdf0e"
+  },
+  "equation": {
+    "raw": "R_J = e^{-\\lambda \\cdot B_d}",
+    "normalized": "r_j=e^{-\\lambda*b_d}",
+    "fingerprint": "462d577c0e9ce541c5906ea4895d19baef30de823ab00a4563c11f95e66abfed"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

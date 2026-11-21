@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-418ef74c665b",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.311733+00:00",
+  "source": {
+    "path": "MEQ-2.1WhatistheMasterEquationHigh-levelexplanation-Copy.md",
+    "line": 474,
+    "source_sha256": "2779bedf7169e04d7ed111580025e3985665142f8f5a1ca34f4d30cac323bc5a"
+  },
+  "equation": {
+    "raw": "\\Huge G(R_p) = e^{-\\gamma S \\cdot (1-R_p)}",
+    "normalized": "\\hugeg(r_p)=e^{-\\gammas*(1-r_p)}",
+    "fingerprint": "418ef74c665b2d39b78c8f4749e26946cfc4cd6f1974a3b33b3a2794f7ec7fc8"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

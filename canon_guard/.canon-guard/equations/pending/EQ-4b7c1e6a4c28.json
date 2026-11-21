@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-4b7c1e6a4c28",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.228717+00:00",
+  "source": {
+    "path": "MEQ-Entropy.md",
+    "line": 81,
+    "source_sha256": "d4e847f6fa7ac0b8b6454781caa567a530a0e4d563ec70003c207a5680ef7456"
+  },
+  "equation": {
+    "raw": "ΔS = ΔSnatural - G(Rp)",
+    "normalized": "δs=δsnatural-g(rp)",
+    "fingerprint": "4b7c1e6a4c28226d65f9d30071efdbfb790a2526073435323a711ae3f3a50e13"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

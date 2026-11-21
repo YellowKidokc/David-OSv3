@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-d90973f4a0b3",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.558072+00:00",
+  "source": {
+    "path": "MEQ-QuantumEntanglementasaSpiritualMetaphor.md",
+    "line": 78,
+    "source_sha256": "e864b8306af7fc65601692464b2af1180ead368ed5e13b7ea0a1127dc09fd39c"
+  },
+  "equation": {
+    "raw": "Ψ=(1/√2)(∣↑↓⟩+∣↓↑⟩)Ψ = (1/√2) ( |↑↓⟩ + |↓↑⟩ )",
+    "normalized": "ψ=(1/√2)(∣↑↓⟩+∣↓↑⟩)ψ=(1/√2)(|↑↓⟩+|↓↑⟩)",
+    "fingerprint": "d90973f4a0b358e0919101bd1828031e0622b2335a0e68c963bf83b0a126e0f6"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -716,6 +716,8 @@ body {
   .hero { padding-top: 42px; }
   .main { padding: 28px 16px 42px; }
 }
+
+.prediction-workspace{max-width:1680px;margin:20px auto;padding:0 18px}.prediction-workspace[hidden]{display:none}.prediction-workspace iframe{display:block;width:100%;min-height:760px;border:1px solid #314254;border-radius:12px}.prediction-workspace .prediction-tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 10px}.engine-votes{margin-top:8px;font-size:.8rem}.engine-votes li{margin-bottom:3px}
 </style>
 </head>
 <body>
@@ -723,7 +725,7 @@ body {
   <div class="brand">RIVER <span>FIS</span></div>
   <div class="topnav">
     <a class="mode-link" href="/">Advanced Mode</a>
-    <span class="status">API connected</span>
+    <span class="status" id="riverApiStatus">Checking River API</span>
   </div>
 </div>
 
@@ -736,6 +738,7 @@ body {
     <button class="quick-link" id="heroScanBtn">Scan folder first</button>
     <button class="quick-link" data-flow="intel">Let intelligence sort</button>
     <button class="quick-link" data-flow="rename">Rename files</button>
+    <button class="quick-link" id="predictionDeskBtn" aria-expanded="false" aria-controls="predictionWorkspace">Prediction engines and approvals</button>
     <button class="quick-link" data-flow="cache">Build file cache</button>
     <button class="quick-link" data-flow="create">Create from template</button>
   </div>
@@ -745,10 +748,52 @@ body {
   <div id="app"></div>
 </main>
 
+<section class="prediction-workspace" id="predictionWorkspace" hidden aria-label="Prediction engines and approvals">
+  <div class="prediction-tools">
+    <button class="btn btn-ghost" id="closePredictionDesk">Return to guided actions</button>
+    <a class="mode-link" id="openPredictionGrid">Open full review grid</a>
+  </div>
+  <iframe id="predictionFrame" title="Prediction engines and approval hubs"></iframe>
+</section>
+
 <footer class="footer">Preview first. Nothing destructive without approval.</footer>
 
 <script>
 const API = "http://127.0.0.1:61845";
+const PREDICTION_DESK = location.pathname === "/fis/simple" ? location.origin+"/dashboard" : "http://127.0.0.1:2831/dashboard";
+function showPredictionDesk(hub, batch){
+  const workspace=document.getElementById("predictionWorkspace");
+  const toggle=document.getElementById("predictionDeskBtn");
+  const params=new URLSearchParams();
+  if(hub)params.set("hub",hub);
+  if(batch)params.set("batch",batch);
+  document.getElementById("openPredictionGrid").href=PREDICTION_DESK+"#"+params.toString();
+  params.set("embed","1");
+  const frame=document.getElementById("predictionFrame");
+  if(frame.src!==PREDICTION_DESK+"#"+params.toString())frame.src=PREDICTION_DESK+"#"+params.toString();
+  workspace.hidden=false;toggle.setAttribute("aria-expanded","true");
+  workspace.scrollIntoView({block:"start"});
+}
+document.getElementById("predictionDeskBtn").onclick=()=>showPredictionDesk("prediction");
+document.getElementById("closePredictionDesk").onclick=()=>{
+  document.getElementById("predictionWorkspace").hidden=true;
+  const toggle=document.getElementById("predictionDeskBtn");
+  toggle.setAttribute("aria-expanded","false");toggle.focus();
+};
+async function showRiverStatus(){
+  const status=document.getElementById("riverApiStatus");
+  try{
+    const response=await fetch(API+"/api/cache/status",{signal:AbortSignal.timeout(3500)});
+    status.textContent=response.ok?"River API connected":"River API unavailable";
+  }catch{status.textContent="River API unavailable"}
+}
+function renameEngineVotes(row){
+  const votes=Array.isArray(row.engine_predictions)?row.engine_predictions:[];
+  if(!votes.length)return '<span class="rename-path">No engine votes recorded for this proposal.</span>';
+  return '<details class="engine-votes"><summary>Engine votes</summary><ul>'+votes.map(v=>
+    '<li>'+esc(v.engine)+': '+esc(typeof v.score==="number"?Math.round(v.score*100)+"% approve":v.status||"No vote")+'</li>'
+  ).join("")+'</ul></details>';
+}
 const DEFAULT_PATH = "C:\\Users\\lowes\\OneDrive\\A";
 let state = {
   flow: null,
@@ -1788,6 +1833,7 @@ function renameSampleResult(r) {
               <div>
                 <span class="tag ${row.status === "collision" ? "tag-amber" : "tag-green"}">${esc(row.status || "would_rename")}</span>
                 <div class="rename-path">${esc(row.reason || "")}</div>
+                ${renameEngineVotes(row)}
               </div>
             </div>
           `).join("") : `<div class="approval-empty">No rows in this sample group.</div>`}
@@ -2068,6 +2114,9 @@ function render() {
 
 render();
 loadStats();
+showRiverStatus();
+const predictionOpen = new URLSearchParams(location.search);
+if(predictionOpen.get("hub")||predictionOpen.get("batch"))showPredictionDesk(predictionOpen.get("hub"),predictionOpen.get("batch"));
 </script>
 </body>
 </html>

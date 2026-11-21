@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-98e3c5579848",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.381655+00:00",
+  "source": {
+    "path": "MEQ-00-MasterOutline.md",
+    "line": 11905,
+    "source_sha256": "082fae2f3083b27cfb2dff7b38e8a48167c5d25d33b0cc911e5168f5ab88c102"
+  },
+  "equation": {
+    "raw": "∂χ/∂L_n = ∂/∂(∏_{i∈I_n} Φ_i) [∏_{j=1}^{10} Φ_j]",
+    "normalized": "partialchi/partiall_n=partial/partial(∏_{i∈i_n}φ_i)[∏_{j=1}^{10}φ_j]",
+    "fingerprint": "98e3c5579848d72c4f65b385705269c47dcdbfe7c3ae8eb126ffea5e868921ed"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

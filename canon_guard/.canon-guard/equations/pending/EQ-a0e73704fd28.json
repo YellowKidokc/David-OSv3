@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-a0e73704fd28",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.054495+00:00",
+  "source": {
+    "path": "MEQ-COHERENCE_DYNAMICS.md",
+    "line": 15,
+    "source_sha256": "7a8e69a7a10b49806d183c57a2e12f052fc5a436bd4f8944755a133d95759115"
+  },
+  "equation": {
+    "raw": "𝒞[χ] = ∫ (Fisher information) dV",
+    "normalized": "𝒞[chi]=integral(fisherinformation)dv",
+    "fingerprint": "a0e73704fd28c469fd255abc465be9db5f2a25da2791a098efcf7d52860bc3d1"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

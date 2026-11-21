@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-7c5e9e98db4a",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.642764+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Scientific_Curiosity_and_NDA.md",
+    "line": 1699,
+    "source_sha256": "77fe614a39c063992cd296b8dbdfbd34243730c137eeac5265edac085aa24138"
+  },
+  "equation": {
+    "raw": "E(t) = E\\_0 e^{kt}",
+    "normalized": "e(t)=e\\_0e^{kt}",
+    "fingerprint": "7c5e9e98db4a8811610a3f840e4b345d13ed6cb1491f4d53c1e9a42aec055a75"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

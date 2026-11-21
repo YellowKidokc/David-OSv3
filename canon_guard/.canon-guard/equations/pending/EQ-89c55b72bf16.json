@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-89c55b72bf16",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.896378+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Lossless_Summary_Meta-Prompt.md",
+    "line": 2021,
+    "source_sha256": "5b3dcd9112a700c9843470d8e3a24a85470d06981462e1b55d7c28fed2661d05"
+  },
+  "equation": {
+    "raw": "equation: \"Δ = ℏ * (1 + spiritual_conflict)\"",
+    "normalized": "equation:\"δ=ℏ*(1+spiritual_conflict)\"",
+    "fingerprint": "89c55b72bf16049bc1098eda9b37f21c9f6666b11c3f03d6dd1e059288765ed5"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

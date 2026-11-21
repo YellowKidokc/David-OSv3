@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-583a84665ca3",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.290709+00:00",
+  "source": {
+    "path": "MEQ-146_E19.1_Full-Master-Equation.md",
+    "line": 248,
+    "source_sha256": "1bddd4faf8fe36b0c07877c622beb54e8753b3ec4b285992eecc6028018424f6"
+  },
+  "equation": {
+    "raw": "1. Action: $S = \\int \\mathcal{L}_{master} d^4x$",
+    "normalized": "1.action:$s=\\int\\mathcal{l}_{master}d^4x$",
+    "fingerprint": "583a84665ca3d8e71cfce931620996ad84c49b1b3a34dccc47fefbbf5bb8302d"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-9ca248dc9341",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.450412+00:00",
+  "source": {
+    "path": "MEQ-MASTER_EQUATION_COMPLETE_DERIVATION_CHAIN_CANONICAL_DRAFT.md",
+    "line": 217,
+    "source_sha256": "a23dd68a49d21051ecc94ae2dbcb3645bb22f35af0c8611a260c827a8f2966e4"
+  },
+  "equation": {
+    "raw": "V(r) = −αs/r + k·r       (Yukawa/Cornell potential)",
+    "normalized": "v(r)=-αs/r+k*r(yukawa/cornellpotential)",
+    "fingerprint": "9ca248dc93411951b77515404af4a875d8adfe97bfafae29fbfd00c3448447be"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

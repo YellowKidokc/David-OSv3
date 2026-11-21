@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-2ce7066b4419",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.806882+00:00",
+  "source": {
+    "path": "MEQ-Untitled16.md",
+    "line": 68,
+    "source_sha256": "e13b3e3cc7d5bd0d74dda28436f0e01584108d62c37c4a9bdc7bf2df6ce1c1d0"
+  },
+  "equation": {
+    "raw": "$G(Rp) = G₀ × e^(Rp/τ)$",
+    "normalized": "$g(rp)=g₀*e^(rp/τ)$",
+    "fingerprint": "2ce7066b44195ee40e00884d2d88e9f273d5e2518db92dfdac5cfc83ea6d28a3"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

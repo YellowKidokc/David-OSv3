@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-d47e36ec0018",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.254739+00:00",
+  "source": {
+    "path": "MEQ-Formalism.md",
+    "line": 151,
+    "source_sha256": "ab4f431f90f7e42349148d803a3fb3c23fbceef20014302e4e379c7a95e30e98"
+  },
+  "equation": {
+    "raw": "(\\Box + m_G^2) G = J_G",
+    "normalized": "(\\box+m_g^2)g=j_g",
+    "fingerprint": "d47e36ec0018cbb6c9bbb01a9950ac027ddd45a8114527bda13a782e0d833f05"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

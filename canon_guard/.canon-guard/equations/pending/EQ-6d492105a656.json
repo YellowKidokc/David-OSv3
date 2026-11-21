@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-6d492105a656",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.068510+00:00",
+  "source": {
+    "path": "MEQ-COSMOLOGICAL.md",
+    "line": 19,
+    "source_sha256": "15c5b733eea992774c3c2d7eb0dc14a69a3cd2ef1b1378e845eb577c44eebf54"
+  },
+  "equation": {
+    "raw": "σ(ℓ) = σ₀ exp(-ℓ/ℓ_G)",
+    "normalized": "σ(ℓ)=σ₀exp(-ℓ/ℓ_g)",
+    "fingerprint": "6d492105a6562b2bb145dee10f44f908042dd017c17aa3d1e4f90e15adc62191"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

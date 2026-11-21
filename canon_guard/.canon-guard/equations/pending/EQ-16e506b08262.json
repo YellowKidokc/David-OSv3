@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-16e506b08262",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.516501+00:00",
+  "source": {
+    "path": "MEQ-MoralAlignmentVector.md",
+    "line": 52,
+    "source_sha256": "efa71ecac0c1f5367f82bec73d6d4fd122d03df25190f4e2e2e7f984f7c467a2"
+  },
+  "equation": {
+    "raw": "A(M) = M·D / (|M|·|D|)",
+    "normalized": "a(m)=m*d/(|m|*|d|)",
+    "fingerprint": "16e506b08262eecbc46b80ea1bad3257908049b7f7d4b14c397b23c3c72f7608"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

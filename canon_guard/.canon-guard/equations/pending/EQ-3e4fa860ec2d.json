@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-3e4fa860ec2d",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.500484+00:00",
+  "source": {
+    "path": "MEQ-MATH_TRANSLATION_LAYER_COMPLETE.md",
+    "line": 264,
+    "source_sha256": "5440c159540b3383eb700f6813c8ce2639dc0b94066b2b25f8b4a3eccbad7510"
+  },
+  "equation": {
+    "raw": "R(F) = \\frac{F^{3/2}}{1 + F^{3/2}}",
+    "normalized": "r(f)=\\frac{f^{3/2}}{1+f^{3/2}}",
+    "fingerprint": "3e4fa860ec2debbdd2e4545949cdcf20ad01e3fc3aff55ea07648b9a0cfa1a50"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

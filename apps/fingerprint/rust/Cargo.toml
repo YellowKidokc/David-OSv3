@@ -1,0 +1,11 @@
+[package]
+name = "fis_minhash"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+md-5 = "0.10"
+
+[profile.release]
+opt-level = 3
+lto = true

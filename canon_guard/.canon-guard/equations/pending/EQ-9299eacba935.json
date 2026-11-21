@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-9299eacba935",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.337805+00:00",
+  "source": {
+    "path": "MEQ-Law1-Copy.md",
+    "line": 244,
+    "source_sha256": "e2028fa1dc5755d4b2be4f4b65e096ed6376f070bfdf69ba19b637321998d52c"
+  },
+  "equation": {
+    "raw": "✔ **m₁, m₂** = Masses of Two Objects",
+    "normalized": "✔**m₁,m₂**=massesoftwoobjects",
+    "fingerprint": "9299eacba935c8fbd93e7eb3cc879777896497f580c06087d510dc842bc49dcb"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

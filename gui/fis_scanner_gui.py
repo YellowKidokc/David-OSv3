@@ -458,8 +458,11 @@ class FISScannerWindow(QMainWindow):
         layout.addWidget(recent_box)
 
         # FIS pages
-        fis_box = QGroupBox("FIS Pages (double-click to open)")
+        fis_box = QGroupBox("FIS Pages")
         fis_lay = QVBoxLayout(fis_box)
+        add_pages = QPushButton("Add existing FIS pages")
+        add_pages.clicked.connect(self._browse_fis_pages)
+        fis_lay.addWidget(add_pages)
         self.fis_list = QListWidget()
         self.fis_list.setMaximumHeight(100)
         self.fis_list.itemDoubleClicked.connect(self._open_fis)
@@ -730,12 +733,30 @@ class FISScannerWindow(QMainWindow):
             self.recent_list.takeItem(50)
 
     def _on_folder_done(self, folder):
-        self.fis_list.addItem(QListWidgetItem(f"📁 {folder}"))
+        page = Path(folder) / "FIS.html"
+        if page.is_file():
+            self._add_fis_page(page)
+
+    def _browse_fis_pages(self):
+        paths, _ = QFileDialog.getOpenFileNames(self, "Add existing FIS pages", "", "HTML pages (*.html)")
+        for path in paths:
+            self._add_fis_page(Path(path))
+
+    def _add_fis_page(self, path: Path):
+        path = path.resolve()
+        if any(self.fis_list.item(i).data(Qt.UserRole) == str(path) for i in range(self.fis_list.count())):
+            return
+        item = QListWidgetItem(f"{path.parent.name} / {path.name}")
+        item.setData(Qt.UserRole, str(path))
+        item.setToolTip(str(path))
+        self.fis_list.addItem(item)
 
     def _open_fis(self, item):
-        folder = item.text().replace("📁 ", "")
-        fis = Path(folder) / "FIS.html"
-        webbrowser.open(str(fis) if fis.exists() else str(folder))
+        path = Path(item.data(Qt.UserRole))
+        if path.is_file():
+            webbrowser.open(path.as_uri())
+        else:
+            self._on_error(f"FIS page is missing: {path}")
 
     def _on_complete(self, total, elapsed):
         # Check for more folders to scan

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-45bd048e60bf",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.252674+00:00",
+  "source": {
+    "path": "MEQ-141_D19.6_Law-VI-Definition.md",
+    "line": 191,
+    "source_sha256": "65a7c56b530fc33a62d87e2281fd9b47b3284083e63538d49585475910e8a046"
+  },
+  "equation": {
+    "raw": "$$H = \\int f \\ln f \\, d^3v$$",
+    "normalized": "$$h=\\intf\\lnf\\,d^3v$$",
+    "fingerprint": "45bd048e60bfdaf75bd6d6c2c8fea861b29c1ccc2b4717d6ca24aeb135694f48"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

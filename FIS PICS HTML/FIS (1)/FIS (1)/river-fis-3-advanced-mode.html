@@ -1,0 +1,1754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>River FIS — Advanced Workbench</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #080808;
+  --surface: #0f0f10;
+  --surface2: #17181b;
+  --surface3: #202229;
+  --surface4: #282a32;
+  --border: #2b2d36;
+  --border-dim: #1c1e25;
+  --gold: #d4af37;
+  --gold-dim: rgba(212,175,55,0.12);
+  --amber: #fbbf24;
+  --text: #e6e6e6;
+  --text-dim: #989ba6;
+  --text-muted: #5b5d66;
+  --green: #34d399;
+  --blue: #60a5fa;
+  --purple: #a78bfa;
+  --red: #f87171;
+  --teal: #2dd4bf;
+  --orange: #fb923c;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: Inter, system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.55;
+  font-size: 13.5px;
+}
+.serif { font-family: "Crimson Text", serif; }
+.mono { font-family: "JetBrains Mono", monospace; font-size: 12px; }
+
+/* Window */
+.window {
+  max-width: 1480px;
+  margin: 18px auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+}
+.titlebar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 18px;
+  background: linear-gradient(180deg, #111114, #0c0c0e);
+  border-bottom: 1px solid var(--border);
+}
+.dots { display: flex; gap: 8px; }
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.dot.r { background: #ff5f57; } .dot.y { background: #febc2e; } .dot.g { background: #28c840; }
+.brand {
+  margin-left: 8px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  font-size: 12.5px;
+}
+.brand span { color: var(--gold); }
+.titlebar-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.mode-label {
+  font-size: 11px;
+  color: var(--text-dim);
+  border: 1px solid var(--purple);
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: rgba(167,139,250,0.06);
+}
+.mode-label strong { color: var(--purple); }
+.api-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  color: var(--green);
+}
+.api-status::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green);
+}
+
+/* Engines */
+.engines {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  padding: 0 24px;
+  overflow-x: auto;
+}
+.engine {
+  padding: 14px 22px;
+  font-size: 12.5px;
+  color: var(--text-dim);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+.engine:hover { color: var(--text); }
+.engine.active {
+  color: var(--purple);
+  border-bottom-color: var(--purple);
+  background: linear-gradient(180deg, transparent, rgba(167,139,250,0.08));
+}
+
+/* Page header */
+.page-head {
+  padding: 22px 28px 14px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--surface), transparent);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 18px;
+  align-items: end;
+}
+.page-head h1 {
+  font-family: "Crimson Text", serif;
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.page-head h1 span { color: var(--purple); }
+.page-head p {
+  font-size: 12.5px;
+  color: var(--text-dim);
+  max-width: 720px;
+}
+.back-link {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: var(--text-muted);
+  font-size: 11px;
+  text-decoration: none;
+  letter-spacing: 0.06em;
+}
+.back-link:hover { color: var(--purple); }
+
+/* Scan context strip */
+.scan-context {
+  padding: 14px 28px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr;
+  gap: 18px;
+}
+.context-item .lbl {
+  font-size: 9.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 3px;
+}
+.context-item .val {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12.5px;
+  color: var(--text);
+}
+.context-item.num .val {
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--purple);
+}
+
+/* ===== Advanced grid layout — FIXED ZONES ===== */
+.advanced {
+  display: grid;
+  grid-template-columns: 280px minmax(0,1fr) 380px;
+  grid-template-rows: minmax(420px, 1fr) auto;
+  grid-template-areas:
+    "left center right"
+    "bottom bottom bottom";
+  gap: 12px;
+  padding: 14px;
+  background: var(--bg);
+}
+
+.zone {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+}
+.zone-head {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.zone-title {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.zone-title .num-marker {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--purple);
+  color: #1a0d35;
+  font-family: Inter, sans-serif;
+  font-weight: 800;
+  text-align: center;
+  line-height: 20px;
+  margin-right: 8px;
+  font-size: 10px;
+  letter-spacing: 0;
+  vertical-align: 1px;
+}
+.zone-body {
+  padding: 14px 16px;
+  overflow-y: auto;
+  flex: 1;
+}
+.zone-body::-webkit-scrollbar { width: 8px; }
+.zone-body::-webkit-scrollbar-track { background: var(--surface); }
+.zone-body::-webkit-scrollbar-thumb { background: var(--surface4); border-radius: 4px; }
+.zone-body::-webkit-scrollbar-thumb:hover { background: var(--border); }
+
+.left { grid-area: left; }
+.center { grid-area: center; }
+.right { grid-area: right; }
+.bottom { grid-area: bottom; min-height: 220px; }
+
+/* ===== LEFT — Selection tree ===== */
+.sel-group {
+  margin-bottom: 6px;
+}
+.sel-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.12s;
+  font-size: 12.5px;
+}
+.sel-row:hover { background: var(--surface3); }
+.sel-row.checked { background: rgba(167,139,250,0.1); }
+.sel-row .cb {
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.sel-row.checked .cb {
+  background: var(--purple);
+  border-color: var(--purple);
+}
+.sel-row.checked .cb::after { content: "✓"; color: #1a0d35; font-size: 10px; font-weight: 800; }
+.sel-row .label { flex: 1; color: var(--text); }
+.sel-row .count {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.sel-row.checked .count { color: var(--purple); font-weight: 600; }
+.sel-row.parent { font-weight: 600; }
+.sel-row.parent .chevron {
+  color: var(--text-muted);
+  font-size: 9px;
+  transition: transform 0.15s;
+}
+.sel-row.parent.open .chevron { transform: rotate(90deg); }
+.sel-children {
+  display: none;
+  padding-left: 22px;
+  border-left: 1px dashed var(--border-dim);
+  margin-left: 14px;
+}
+.sel-children.open { display: block; }
+.sel-children .sel-row { font-size: 11.5px; }
+
+.sel-divider {
+  height: 1px;
+  background: var(--border-dim);
+  margin: 10px 0;
+}
+.sel-input-row {
+  display: flex;
+  gap: 6px;
+  padding: 6px 10px;
+}
+.sel-input {
+  flex: 1;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 6px 8px;
+  color: var(--text);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  outline: none;
+}
+.sel-input:focus { border-color: var(--purple); }
+
+.clear-sel {
+  width: 100%;
+  margin-top: 12px;
+  padding: 8px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 11.5px;
+}
+.clear-sel:hover { color: var(--red); border-color: var(--red); }
+
+/* ===== CENTER — Selected working set ===== */
+.set-summary {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+.set-summary.empty { text-align: center; color: var(--text-muted); padding: 36px 16px; }
+.set-num {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--purple);
+  font-family: Inter, sans-serif;
+  line-height: 1;
+}
+.set-label {
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+.set-size {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-top: 8px;
+}
+.set-filters {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-dim);
+}
+.filter-chip {
+  background: rgba(167,139,250,0.1);
+  border: 1px solid var(--purple);
+  color: var(--purple);
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 10.5px;
+  font-weight: 600;
+}
+
+.set-refine {
+  margin-bottom: 12px;
+  display: flex;
+  gap: 6px;
+}
+.set-refine input {
+  flex: 1;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 8px 12px;
+  color: var(--text);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11.5px;
+  outline: none;
+}
+.set-refine input:focus { border-color: var(--purple); }
+
+.set-samples {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 12px 14px;
+}
+.set-samples-label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+.sample-row {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--text-dim);
+  padding: 4px 0;
+  border-bottom: 1px dashed var(--border-dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sample-row:last-child { border-bottom: 0; }
+.sample-more {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 8px;
+  font-style: italic;
+}
+
+.set-warn {
+  margin-top: 12px;
+  padding: 10px 12px;
+  background: rgba(251,146,60,0.08);
+  border: 1px solid var(--orange);
+  border-radius: 6px;
+  font-size: 11.5px;
+  color: var(--orange);
+}
+.set-warn strong { font-weight: 700; }
+
+/* ===== RIGHT — Action builder ===== */
+.actions-list { display: flex; flex-direction: column; gap: 4px; }
+.action-item {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  overflow: hidden;
+  transition: border-color 0.15s;
+}
+.action-item.selected {
+  border-color: var(--purple);
+  background: linear-gradient(180deg, rgba(167,139,250,0.06), var(--bg));
+}
+.action-row {
+  display: grid;
+  grid-template-columns: 26px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+.action-row:hover { background: var(--surface3); }
+.action-num {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-align: center;
+}
+.action-name {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text);
+}
+.action-color-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.action-item.selected .action-name { color: var(--purple); font-weight: 600; }
+
+.action-config {
+  display: none;
+  padding: 14px 14px 12px;
+  border-top: 1px solid var(--border-dim);
+  background: var(--surface);
+}
+.action-item.selected .action-config { display: block; }
+.config-group {
+  margin-bottom: 12px;
+}
+.config-label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.config-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+.config-option:hover { background: var(--surface3); color: var(--text); }
+.config-option input {
+  margin: 0;
+  accent-color: var(--purple);
+}
+.config-option.selected { color: var(--text); }
+
+.add-to-plan-btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  background: var(--purple);
+  color: #1a0d35;
+  border: none;
+  border-radius: 6px;
+  font-family: Inter, sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.add-to-plan-btn:hover {
+  background: #c4a5ff;
+  box-shadow: 0 0 20px rgba(167,139,250,0.35);
+}
+.add-to-plan-btn:disabled {
+  background: var(--surface3);
+  color: var(--text-muted);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ===== BOTTOM — Execution plan ===== */
+.plan-head {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface3);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+.plan-title-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.plan-title {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.plan-title .num-marker {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--purple);
+  color: #1a0d35;
+  font-family: Inter, sans-serif;
+  font-weight: 800;
+  text-align: center;
+  line-height: 20px;
+  margin-right: 8px;
+  font-size: 10px;
+  letter-spacing: 0;
+  vertical-align: 1px;
+}
+.recommended-order {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.recommended-order strong { color: var(--gold); }
+.plan-actions {
+  display: flex;
+  gap: 8px;
+}
+.btn {
+  border: 1px solid var(--border);
+  background: var(--surface3);
+  color: var(--text);
+  padding: 9px 16px;
+  border-radius: 6px;
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.15s;
+}
+.btn:hover { border-color: var(--purple); color: var(--purple); }
+.btn-simulate {
+  background: var(--surface4);
+  color: var(--gold);
+  border-color: var(--gold);
+}
+.btn-simulate:hover {
+  background: var(--gold-dim);
+  color: var(--gold);
+  border-color: var(--gold);
+}
+.btn-run {
+  background: var(--amber);
+  color: #1a1100;
+  border-color: var(--amber);
+  font-weight: 700;
+}
+.btn-run:hover {
+  background: #ffce4a;
+  box-shadow: 0 0 22px rgba(251,191,36,0.4);
+}
+.btn-run:disabled {
+  background: var(--surface3);
+  color: var(--text-muted);
+  border-color: var(--border);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.btn-reset {
+  background: transparent;
+  color: var(--text-dim);
+}
+.btn-reset:hover { color: var(--red); border-color: var(--red); }
+
+.plan-body {
+  padding: 14px 18px;
+  max-height: 340px;
+  overflow-y: auto;
+}
+.plan-empty {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 30px 14px;
+  font-size: 13px;
+}
+.plan-empty-hint {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  margin-top: 6px;
+  font-style: italic;
+}
+
+.plan-row {
+  display: grid;
+  grid-template-columns: 24px 28px auto 1fr auto auto;
+  gap: 12px;
+  align-items: center;
+  padding: 11px 13px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-left-width: 3px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  cursor: grab;
+  transition: all 0.15s;
+}
+.plan-row:hover { border-color: var(--purple); }
+.plan-row.dragging { opacity: 0.5; cursor: grabbing; }
+.plan-row.drag-over { border-top: 2px solid var(--purple); }
+.plan-handle {
+  font-family: "JetBrains Mono", monospace;
+  color: var(--text-muted);
+  font-size: 14px;
+  user-select: none;
+}
+.plan-num {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: var(--text-dim);
+  font-weight: 600;
+  text-align: center;
+}
+.plan-action-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+.plan-action-detail {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11.5px;
+  color: var(--text-dim);
+}
+.plan-scope {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  background: var(--surface3);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+.plan-remove {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  width: 26px;
+  height: 26px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
+.plan-remove:hover { color: var(--red); border-color: var(--red); }
+
+.plan-warning {
+  margin-top: 10px;
+  padding: 10px 12px;
+  background: rgba(251,146,60,0.08);
+  border: 1px solid var(--orange);
+  border-radius: 6px;
+  font-size: 11.5px;
+  color: var(--orange);
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+.plan-warning strong { font-weight: 700; }
+.plan-warning .fix {
+  margin-left: auto;
+  background: var(--orange);
+  color: #2a1500;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.plan-status {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-dim);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11.5px;
+  color: var(--text-muted);
+}
+.plan-status .ok { color: var(--green); }
+.plan-status .warn { color: var(--orange); }
+
+/* Color-coded left borders per action type */
+.plan-row[data-action="rename"]      { border-left-color: var(--teal); }
+.plan-row[data-action="copy"]        { border-left-color: var(--blue); }
+.plan-row[data-action="move"]        { border-left-color: var(--purple); }
+.plan-row[data-action="deduplicate"] { border-left-color: var(--gold); }
+.plan-row[data-action="archive"]     { border-left-color: var(--red); }
+.plan-row[data-action="createfolders"]{ border-left-color: var(--green); }
+.plan-row[data-action="split"]       { border-left-color: var(--amber); }
+.plan-row[data-action="merge"]       { border-left-color: var(--blue); }
+.plan-row[data-action="tag"]         { border-left-color: var(--purple); }
+.plan-row[data-action="report"]      { border-left-color: var(--text-muted); }
+
+/* Modal */
+.modal-bg {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.modal-bg.active { display: flex; }
+.modal {
+  background: var(--surface2);
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+  max-width: 720px;
+  width: 100%;
+  max-height: 86vh;
+  overflow-y: auto;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 30px rgba(212,175,55,0.18);
+}
+.modal-head {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal-head h2 {
+  font-family: "Crimson Text", serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--gold);
+}
+.modal-close {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.modal-body { padding: 22px 24px; }
+.sim-stat {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--border-dim);
+  font-size: 13px;
+}
+.sim-stat .key { color: var(--text-dim); }
+.sim-stat .val { font-family: "JetBrains Mono", monospace; color: var(--gold); font-weight: 600; }
+.sim-section { margin-top: 16px; }
+.sim-section h3 {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.sim-list { font-family: "JetBrains Mono", monospace; font-size: 11.5px; color: var(--text-dim); }
+.sim-list div { padding: 3px 0; }
+.modal-foot {
+  padding: 16px 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+@media (max-width: 1180px) {
+  .advanced {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas: "left" "center" "right" "bottom";
+  }
+  .zone { min-height: 280px; }
+  .scan-context { grid-template-columns: repeat(2, 1fr); }
+  .fis-layer-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* FIS Quick Actions strip — blue intelligence-layer presence on the Advanced page */
+.fis-layer {
+  margin: 14px 14px 0;
+  background: linear-gradient(180deg, rgba(56,189,248,0.08), rgba(56,189,248,0.02));
+  border: 1px solid #38bdf8;
+  border-radius: 10px;
+  padding: 14px 18px;
+  position: relative;
+  overflow: hidden;
+}
+.fis-layer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 8% 50%, rgba(56,189,248,0.10) 0%, transparent 45%);
+  pointer-events: none;
+}
+.fis-layer-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 10px;
+  position: relative;
+  flex-wrap: wrap;
+}
+.fis-layer-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #38bdf8;
+}
+.fis-spark { font-size: 14px; }
+.fis-layer-status {
+  background: rgba(56,189,248,0.14);
+  color: #38bdf8;
+  border: 1px solid #38bdf8;
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+.fis-layer-hint {
+  font-size: 11.5px;
+  color: var(--text-dim);
+  font-style: italic;
+}
+.fis-layer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  position: relative;
+}
+.fis-quick {
+  background: rgba(56,189,248,0.04);
+  border: 1px solid rgba(56,189,248,0.4);
+  color: #38bdf8;
+  border-radius: 8px;
+  padding: 12px 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: Inter, sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  transition: all 0.15s;
+}
+.fis-quick:hover {
+  background: rgba(56,189,248,0.12);
+  border-color: #38bdf8;
+  box-shadow: 0 0 18px rgba(56,189,248,0.25);
+  transform: translateY(-1px);
+}
+.fis-quick-icon { font-size: 16px; }
+.fis-quick-name { font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="window">
+
+  <!-- Title bar -->
+  <div class="titlebar">
+    <div class="dots">
+      <div class="dot r"></div>
+      <div class="dot y"></div>
+      <div class="dot g"></div>
+    </div>
+    <div class="brand">RIVER <span>FIS</span></div>
+    <div class="titlebar-right">
+      <div class="mode-label">Mode: <strong>Advanced Workbench</strong></div>
+      <div class="api-status">API connected</div>
+    </div>
+  </div>
+
+  <!-- Engines -->
+  <div class="engines">
+    <div class="engine">Manual</div>
+    <div class="engine">File Intelligence System</div>
+    <div class="engine active">Advanced Workbench</div>
+    <div class="engine">File Creation Automation</div>
+  </div>
+
+  <!-- Page head -->
+  <div class="page-head">
+    <div>
+      <a class="back-link" href="river-fis-1-scan-pick.html">← Back to Scan</a>
+      <h1>Advanced <span>Workbench</span></h1>
+      <p>Build a file-action plan: choose what to act on, choose what to do, put the actions in order, then simulate before anything changes.</p>
+    </div>
+    <div style="text-align: right;">
+      <div style="font-size:10.5px;letter-spacing:0.22em;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Workflow</div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--text);">
+        Select <span style="color:var(--text-muted);">→</span> Build <span style="color:var(--text-muted);">→</span> Order <span style="color:var(--text-muted);">→</span> Simulate <span style="color:var(--text-muted);">→</span> Run
+      </div>
+    </div>
+  </div>
+
+  <!-- Scan context -->
+  <div class="scan-context">
+    <div class="context-item">
+      <div class="lbl">Scanned Folder</div>
+      <div class="val">C:\Users\david\Downloads</div>
+    </div>
+    <div class="context-item num">
+      <div class="lbl">Files</div>
+      <div class="val">2,968,345</div>
+    </div>
+    <div class="context-item num">
+      <div class="lbl">Folders</div>
+      <div class="val">142,807</div>
+    </div>
+    <div class="context-item num">
+      <div class="lbl">Dupe Groups</div>
+      <div class="val">10,241</div>
+    </div>
+    <div class="context-item num">
+      <div class="lbl">Anomalies</div>
+      <div class="val">7,639</div>
+    </div>
+  </div>
+
+  <!-- FIS Quick Actions strip — blue intelligence-layer presence -->
+  <div class="fis-layer">
+    <div class="fis-layer-head">
+      <div class="fis-layer-label">
+        <span class="fis-spark">✨</span>
+        <span>FIS Quick Actions</span>
+        <span class="fis-layer-status">Unlocked this session</span>
+      </div>
+      <div class="fis-layer-hint">Available because you walked through Simple Mode's three questions. Cross-mode for this session.</div>
+    </div>
+    <div class="fis-layer-grid">
+      <button class="fis-quick" onclick="alert('Sort Files — opens the FIS quick sort tool. Not wired in this prototype.')">
+        <span class="fis-quick-icon">⚖</span>
+        <span class="fis-quick-name">Sort Files</span>
+      </button>
+      <button class="fis-quick" onclick="alert('Rename Files — opens advanced rename with rules. Not wired in this prototype.')">
+        <span class="fis-quick-icon">✏</span>
+        <span class="fis-quick-name">Rename Files</span>
+      </button>
+      <button class="fis-quick" onclick="alert('Create Folder — builds folder structure from templates. Not wired in this prototype.')">
+        <span class="fis-quick-icon">📂</span>
+        <span class="fis-quick-name">Create Folder</span>
+      </button>
+      <button class="fis-quick" onclick="alert('Merge / Split — merges duplicates or splits large sets. Not wired in this prototype.')">
+        <span class="fis-quick-icon">⇆</span>
+        <span class="fis-quick-name">Merge / Split</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- The 4-zone grid -->
+  <div class="advanced">
+
+    <!-- LEFT — Selection -->
+    <div class="zone left">
+      <div class="zone-head">
+        <div class="zone-title"><span class="num-marker">1</span>Select Scope</div>
+      </div>
+      <div class="zone-body" id="selectionPanel">
+        <!-- generated by JS -->
+      </div>
+    </div>
+
+    <!-- CENTER — Working set -->
+    <div class="zone center">
+      <div class="zone-head">
+        <div class="zone-title"><span class="num-marker">2</span>Selected Working Set</div>
+      </div>
+      <div class="zone-body">
+        <div class="set-summary" id="setSummary">
+          <div class="set-num" id="setNum">0</div>
+          <div class="set-label">Items Selected</div>
+          <div class="set-size" id="setSize">Pick scopes on the left to begin</div>
+          <div class="set-filters" id="setFilters" style="display:none;"></div>
+        </div>
+        <div class="set-refine">
+          <input type="text" placeholder="Refine by path, name pattern, or extension…" id="refineInput">
+        </div>
+        <div class="set-samples" id="setSamples" style="display:none;">
+          <div class="set-samples-label">Sample paths in scope</div>
+          <div id="sampleList"></div>
+          <div class="sample-more" id="sampleMore"></div>
+        </div>
+        <div class="set-warn" id="setWarn" style="display:none;">
+          <strong>92 protected files in scope</strong> — these will be skipped automatically by every action.
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT — Action builder -->
+    <div class="zone right">
+      <div class="zone-head">
+        <div class="zone-title"><span class="num-marker">3</span>Build Action</div>
+      </div>
+      <div class="zone-body">
+        <div class="actions-list" id="actionsList"></div>
+      </div>
+    </div>
+
+    <!-- BOTTOM — Execution plan -->
+    <div class="zone bottom">
+      <div class="plan-head">
+        <div class="plan-title-row">
+          <div class="plan-title"><span class="num-marker">4</span>Execution Plan</div>
+          <div class="recommended-order">
+            Recommended: <strong>Dedupe → Create folders → Rename → Move → Archive → Verify/Report</strong>
+          </div>
+        </div>
+        <div class="plan-actions">
+          <button class="btn btn-reset" onclick="resetPlan()">Reset</button>
+          <button class="btn btn-simulate" onclick="simulate()" id="simBtn" disabled>Simulate</button>
+          <button class="btn btn-run" onclick="runPlan()" id="runBtn" disabled>Run Plan</button>
+        </div>
+      </div>
+      <div class="plan-body">
+        <div id="planList"></div>
+        <div id="planWarnings"></div>
+        <div class="plan-status" id="planStatus">
+          <div>No actions queued yet</div>
+          <div>Build an action on the right, then click <strong>Add to Execution Plan</strong></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Simulate modal -->
+<div class="modal-bg" id="simModal">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Simulation Report (Dry Run)</h2>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <div class="modal-body" id="simBody"></div>
+    <div class="modal-foot">
+      <button class="btn" onclick="closeModal()">Close</button>
+      <button class="btn btn-run" onclick="confirmRun()">Looks good — Run for real</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ================== DATA ==================
+
+const SELECTION_TREE = [
+  { id: 'all', label: 'Everything', count: '2,968,345 files' },
+  { id: 'dupes', label: 'Duplicate Groups', count: '10,241 groups' },
+  { id: 'naming', label: 'Naming Anomalies', count: '7,639 files' },
+  {
+    id: 'buckets', label: 'Anomaly Buckets', isParent: true,
+    children: [
+      { id: 'b-samename', label: 'Same name, different content', count: '312' },
+      { id: 'b-samecontent', label: 'Same content, different name', count: '487' },
+      { id: 'b-near', label: 'Near duplicate', count: '178' },
+      { id: 'b-protected', label: 'Protected item involved', count: '92' },
+      { id: 'b-unknown', label: 'Unknown file type', count: '64' },
+      { id: 'b-exists', label: 'Already exists in target', count: '204' },
+    ]
+  },
+  {
+    id: 'ext', label: 'By Extension', isParent: true,
+    children: [
+      { id: 'ext-jpg', label: '.jpg', count: '931,427' },
+      { id: 'ext-pdf', label: '.pdf', count: '87,212' },
+      { id: 'ext-docx', label: '.docx', count: '42,108' },
+      { id: 'ext-psd', label: '.psd', count: '3,847' },
+      { id: 'ext-mp4', label: '.mp4', count: '1,204' },
+      { id: 'ext-zip', label: '.zip', count: '892' },
+    ]
+  },
+  { id: 'folders', label: 'Folders', count: '142,807', hasFilter: true },
+  { id: 'protected', label: 'Protected (read-only)', count: '3,617', readonly: true },
+];
+
+const SAMPLE_PATHS_BY_SCOPE = {
+  dupes: [
+    'C:\\Downloads\\report-final.pdf',
+    'C:\\Downloads\\report-final (1).pdf',
+    'C:\\Downloads\\report-final (2).pdf',
+    'C:\\Downloads\\old\\report-final.pdf',
+    'C:\\Downloads\\report-final copy.pdf',
+  ],
+  naming: [
+    'C:\\Photos\\IMG_ 00123 .JPG',
+    'C:\\Docs\\project final_v2 (1).psd',
+    'C:\\Desktop\\draft --- copy -- final.txt',
+    'C:\\Work\\2023-05-01 Report  FINAL .xlsx',
+    'C:\\Backup\\Client Files\\new folder\\ doc .docx',
+  ],
+  'ext-pdf': [
+    'C:\\Downloads\\invoice-q3.pdf',
+    'C:\\Documents\\thesis-draft.pdf',
+    'C:\\Desktop\\receipts\\amazon.pdf',
+    'C:\\Downloads\\manual-v2.pdf',
+    'C:\\Documents\\contracts\\nda-acme.pdf',
+  ],
+  'ext-jpg': [
+    'C:\\Photos\\2024\\IMG_2419.jpg',
+    'C:\\Downloads\\screenshot.jpg',
+    'C:\\Desktop\\camera-roll\\IMG_8821.jpg',
+    'C:\\Photos\\old\\vacation-103.jpg',
+    'C:\\Photos\\2023\\IMG_0001.jpg',
+  ],
+};
+
+const ACTIONS = [
+  {
+    id: 'rename', name: 'Rename', color: 'teal',
+    config: [
+      { key: 'template', label: 'Naming template', type: 'radio',
+        options: [
+          { v: 'kebab', label: 'kebab-case (recommended)' },
+          { v: 'snake', label: 'snake_case' },
+          { v: 'title', label: 'Title Case' },
+          { v: 'lower', label: 'all-lowercase' },
+        ], default: 'kebab' },
+      { key: 'extlower', label: 'Lowercase extension', type: 'check', default: true },
+      { key: 'stripver', label: 'Strip version suffixes  (1), _v2, copy', type: 'check', default: true },
+    ]
+  },
+  {
+    id: 'copy', name: 'Copy', color: 'blue',
+    config: [
+      { key: 'target', label: 'Target path', type: 'input', placeholder: '~/Documents/copies/', default: '' },
+      { key: 'overwrite', label: 'Overwrite if exists', type: 'check', default: false },
+    ]
+  },
+  {
+    id: 'move', name: 'Move', color: 'purple',
+    config: [
+      { key: 'target', label: 'Target path', type: 'input', placeholder: '~/Documents/', default: '' },
+      { key: 'crossdev', label: 'Allow cross-device (slower, copy+delete)', type: 'check', default: true },
+    ]
+  },
+  {
+    id: 'deduplicate', name: 'Deduplicate', color: 'gold',
+    config: [
+      { key: 'target', label: 'Target', type: 'radio',
+        options: [
+          { v: 'exact', label: 'Exact duplicates only (SHA-256)' },
+          { v: 'near', label: 'Near duplicates (perceptual hash)' },
+          { v: 'both', label: 'Both exact and near' },
+        ], default: 'exact' },
+      { key: 'keeper', label: 'Keeper rule', type: 'radio',
+        options: [
+          { v: 'newest', label: 'Keep newest modified' },
+          { v: 'oldest', label: 'Keep oldest modified' },
+          { v: 'cleanest', label: 'Keep cleanest filename' },
+          { v: 'preferred', label: 'Keep in preferred folder' },
+          { v: 'manual', label: 'Manual selection (review each)' },
+        ], default: 'newest' },
+      { key: 'result', label: 'Result for non-keepers', type: 'radio',
+        options: [
+          { v: 'recycle', label: 'Recycle' },
+          { v: 'review', label: 'Move to /review/' },
+          { v: 'flag', label: 'Flag only, no action' },
+        ], default: 'recycle' },
+    ]
+  },
+  {
+    id: 'archive', name: 'Archive / Recycle', color: 'red',
+    config: [
+      { key: 'mode', label: 'Mode', type: 'radio',
+        options: [
+          { v: 'archive', label: 'Archive (zip + move)' },
+          { v: 'recycle', label: 'Send to recycle bin' },
+          { v: 'review', label: 'Move to /review/ folder' },
+        ], default: 'archive' },
+      { key: 'target', label: 'Archive path', type: 'input', placeholder: '~/Archive/', default: '~/Archive/' },
+    ]
+  },
+  {
+    id: 'createfolders', name: 'Create Folders', color: 'green',
+    config: [
+      { key: 'structure', label: 'Structure', type: 'radio',
+        options: [
+          { v: 'by-type', label: 'By content type (~/Photos, ~/Documents, ~/Projects)' },
+          { v: 'by-date', label: 'By year/month (~/2024/03/)' },
+          { v: 'custom', label: 'Custom path template' },
+        ], default: 'by-type' },
+    ]
+  },
+  {
+    id: 'split', name: 'Split', color: 'amber',
+    config: [
+      { key: 'by', label: 'Split by', type: 'radio',
+        options: [
+          { v: 'size', label: 'File size' },
+          { v: 'date', label: 'Date range' },
+          { v: 'count', label: 'Count per folder' },
+        ], default: 'size' },
+    ]
+  },
+  {
+    id: 'merge', name: 'Merge', color: 'blue',
+    config: [
+      { key: 'mode', label: 'Merge mode', type: 'radio',
+        options: [
+          { v: 'concat', label: 'Concatenate (text/PDF)' },
+          { v: 'folder', label: 'Merge folders (deduped)' },
+        ], default: 'folder' },
+    ]
+  },
+  {
+    id: 'tag', name: 'Tag / Metadata', color: 'purple',
+    config: [
+      { key: 'op', label: 'Operation', type: 'radio',
+        options: [
+          { v: 'add', label: 'Add tag' },
+          { v: 'remove', label: 'Remove tag' },
+          { v: 'rewrite-meta', label: 'Rewrite metadata (EXIF/ID3)' },
+        ], default: 'add' },
+      { key: 'tag', label: 'Tag value', type: 'input', placeholder: 'sorted-by-river', default: '' },
+    ]
+  },
+  {
+    id: 'report', name: 'Report', color: 'text-muted',
+    config: [
+      { key: 'format', label: 'Format', type: 'radio',
+        options: [
+          { v: 'json', label: 'JSON ledger' },
+          { v: 'csv', label: 'CSV summary' },
+          { v: 'html', label: 'HTML report' },
+        ], default: 'json' },
+    ]
+  },
+];
+
+const RECOMMENDED_ORDER = ['deduplicate', 'createfolders', 'rename', 'move', 'copy', 'archive', 'split', 'merge', 'tag', 'report'];
+
+// ================== STATE ==================
+const state = {
+  selection: new Set(),   // ids from SELECTION_TREE
+  activeAction: null,
+  actionConfig: {},       // { 'deduplicate': { target: 'exact', keeper: 'newest', ... } }
+  plan: [],               // [{id, actionId, params, scopeLabel, summary}]
+  expandedParents: new Set(['buckets']),
+};
+
+// Initialize default action config
+ACTIONS.forEach(a => {
+  state.actionConfig[a.id] = {};
+  a.config.forEach(c => { state.actionConfig[a.id][c.key] = c.default; });
+});
+
+// ================== RENDER ==================
+function renderSelection() {
+  const el = document.getElementById('selectionPanel');
+  let html = '';
+  SELECTION_TREE.forEach(node => {
+    const isChecked = state.selection.has(node.id);
+    const isOpen = state.expandedParents.has(node.id);
+    if (node.isParent) {
+      html += `<div class="sel-row parent ${isOpen ? 'open':''}" onclick="toggleParent('${node.id}')">`;
+      html += `<span class="chevron">▶</span>`;
+      html += `<span class="label">${node.label}</span>`;
+      html += `</div>`;
+      html += `<div class="sel-children ${isOpen ? 'open':''}">`;
+      node.children.forEach(child => {
+        const cChecked = state.selection.has(child.id);
+        html += `<div class="sel-row ${cChecked ? 'checked':''}" onclick="toggleSelection('${child.id}')">`;
+        html += `<span class="cb"></span>`;
+        html += `<span class="label">${child.label}</span>`;
+        html += `<span class="count">${child.count}</span>`;
+        html += `</div>`;
+      });
+      html += `</div>`;
+    } else {
+      const cls = node.readonly ? 'readonly' : '';
+      html += `<div class="sel-row ${isChecked ? 'checked':''} ${cls}" onclick="toggleSelection('${node.id}')">`;
+      html += `<span class="cb"></span>`;
+      html += `<span class="label">${node.label}</span>`;
+      html += `<span class="count">${node.count}</span>`;
+      html += `</div>`;
+      if (node.hasFilter) {
+        html += `<div class="sel-input-row"><input type="text" class="sel-input" placeholder="Filter by folder name…"></div>`;
+      }
+    }
+    if (['naming','buckets','folders'].includes(node.id)) html += `<div class="sel-divider"></div>`;
+  });
+  html += `<button class="clear-sel" onclick="clearSelection()">Clear Selection</button>`;
+  el.innerHTML = html;
+}
+
+function toggleParent(id) {
+  if (state.expandedParents.has(id)) state.expandedParents.delete(id);
+  else state.expandedParents.add(id);
+  renderSelection();
+}
+
+function toggleSelection(id) {
+  if (state.selection.has(id)) state.selection.delete(id);
+  else state.selection.add(id);
+  renderSelection();
+  renderCenter();
+  renderActions(); // refresh "add to plan" enable state
+}
+
+function clearSelection() {
+  state.selection.clear();
+  renderSelection();
+  renderCenter();
+  renderActions();
+}
+
+// ----- CENTER -----
+function getSelectionCount() {
+  // synthetic — sum from labels
+  const counts = {
+    'all': 2968345, 'dupes': 10241, 'naming': 7639,
+    'b-samename': 312, 'b-samecontent': 487, 'b-near': 178, 'b-protected': 92, 'b-unknown': 64, 'b-exists': 204,
+    'ext-jpg': 931427, 'ext-pdf': 87212, 'ext-docx': 42108, 'ext-psd': 3847, 'ext-mp4': 1204, 'ext-zip': 892,
+    'folders': 142807, 'protected': 3617,
+  };
+  let total = 0;
+  state.selection.forEach(id => { total += counts[id] || 0; });
+  return total;
+}
+
+function getSelectionLabels() {
+  const labels = [];
+  state.selection.forEach(id => {
+    for (const node of SELECTION_TREE) {
+      if (node.id === id) { labels.push(node.label); break; }
+      if (node.children) {
+        const c = node.children.find(x => x.id === id);
+        if (c) { labels.push(c.label); break; }
+      }
+    }
+  });
+  return labels;
+}
+
+function getSampleForSelection() {
+  for (const id of state.selection) {
+    if (SAMPLE_PATHS_BY_SCOPE[id]) return SAMPLE_PATHS_BY_SCOPE[id];
+  }
+  return null;
+}
+
+function renderCenter() {
+  const num = getSelectionCount();
+  const labels = getSelectionLabels();
+  const setNumEl = document.getElementById('setNum');
+  const setSizeEl = document.getElementById('setSize');
+  const filtersEl = document.getElementById('setFilters');
+  const samplesEl = document.getElementById('setSamples');
+  const warnEl = document.getElementById('setWarn');
+
+  setNumEl.textContent = num.toLocaleString();
+  if (num === 0) {
+    setSizeEl.textContent = 'Pick scopes on the left to begin';
+    filtersEl.style.display = 'none';
+    samplesEl.style.display = 'none';
+    warnEl.style.display = 'none';
+    return;
+  }
+
+  // Rough size estimate
+  const avgKb = 240;
+  const sizeMb = (num * avgKb) / 1024;
+  const sizeStr = sizeMb > 1024 ? (sizeMb/1024).toFixed(1) + ' GB' : sizeMb.toFixed(0) + ' MB';
+  setSizeEl.textContent = `~${sizeStr} estimated · ${num.toLocaleString()} items in scope`;
+
+  filtersEl.style.display = 'flex';
+  filtersEl.innerHTML = labels.map(l => `<span class="filter-chip">${l}</span>`).join('');
+
+  const samples = getSampleForSelection();
+  if (samples) {
+    samplesEl.style.display = 'block';
+    document.getElementById('sampleList').innerHTML = samples.map(p => `<div class="sample-row">${p}</div>`).join('');
+    document.getElementById('sampleMore').textContent = `… ${(num - samples.length).toLocaleString()} more`;
+  } else {
+    samplesEl.style.display = 'none';
+  }
+
+  // Show protected warning if relevant
+  if (state.selection.has('protected') || state.selection.has('all') || state.selection.has('b-protected')) {
+    warnEl.style.display = 'block';
+  } else {
+    warnEl.style.display = 'none';
+  }
+}
+
+// ----- RIGHT: actions -----
+function renderActions() {
+  const el = document.getElementById('actionsList');
+  let html = '';
+  ACTIONS.forEach((a, i) => {
+    const isActive = state.activeAction === a.id;
+    html += `<div class="action-item ${isActive ? 'selected':''}">`;
+    html += `<div class="action-row" onclick="selectAction('${a.id}')">`;
+    html += `<div class="action-num">${i+1}</div>`;
+    html += `<div class="action-name">${a.name}</div>`;
+    html += `<div class="action-color-dot" style="background: var(--${a.color});"></div>`;
+    html += `</div>`;
+    if (isActive) {
+      html += `<div class="action-config">`;
+      a.config.forEach(c => {
+        html += `<div class="config-group">`;
+        html += `<div class="config-label">${c.label}</div>`;
+        if (c.type === 'radio') {
+          c.options.forEach(opt => {
+            const sel = state.actionConfig[a.id][c.key] === opt.v;
+            html += `<label class="config-option ${sel ? 'selected':''}">`;
+            html += `<input type="radio" name="${a.id}-${c.key}" ${sel ? 'checked':''} onchange="setConfig('${a.id}','${c.key}','${opt.v}')">`;
+            html += `<span>${opt.label}</span></label>`;
+          });
+        } else if (c.type === 'check') {
+          const sel = !!state.actionConfig[a.id][c.key];
+          html += `<label class="config-option ${sel ? 'selected':''}">`;
+          html += `<input type="checkbox" ${sel ? 'checked':''} onchange="setConfig('${a.id}','${c.key}',this.checked)">`;
+          html += `<span>${c.label}</span></label>`;
+        } else if (c.type === 'input') {
+          html += `<input type="text" class="sel-input" style="width:100%" placeholder="${c.placeholder||''}" value="${state.actionConfig[a.id][c.key]||''}" onchange="setConfig('${a.id}','${c.key}',this.value)">`;
+        }
+        html += `</div>`;
+      });
+      const canAdd = state.selection.size > 0;
+      html += `<button class="add-to-plan-btn" ${canAdd?'':'disabled'} onclick="addToPlan('${a.id}')">`;
+      html += canAdd ? `+ Add to Execution Plan` : `Select scope first`;
+      html += `</button>`;
+      html += `</div>`;
+    }
+    html += `</div>`;
+  });
+  el.innerHTML = html;
+}
+
+function selectAction(id) {
+  state.activeAction = state.activeAction === id ? null : id;
+  renderActions();
+}
+
+function setConfig(actionId, key, value) {
+  state.actionConfig[actionId][key] = value;
+  renderActions();
+}
+
+// ----- BOTTOM: plan -----
+function summarizeAction(actionId) {
+  const a = ACTIONS.find(x => x.id === actionId);
+  const cfg = state.actionConfig[actionId];
+  const parts = [];
+  a.config.forEach(c => {
+    const v = cfg[c.key];
+    if (c.type === 'radio') {
+      const opt = c.options.find(o => o.v === v);
+      if (opt) parts.push(opt.label.split(' (')[0].replace(/^Keep /, ''));
+    } else if (c.type === 'check' && v) {
+      parts.push(c.label.toLowerCase());
+    } else if (c.type === 'input' && v) {
+      parts.push(`→ ${v}`);
+    }
+  });
+  return parts.join(' · ');
+}
+
+function scopeSummary() {
+  const labels = getSelectionLabels();
+  if (labels.length === 1) return labels[0];
+  if (labels.length === 2) return `${labels[0]} + ${labels[1]}`;
+  return `${labels[0]} + ${labels.length-1} more`;
+}
+
+function addToPlan(actionId) {
+  if (state.selection.size === 0) return;
+  const a = ACTIONS.find(x => x.id === actionId);
+  state.plan.push({
+    id: 'p' + Date.now() + Math.random().toString(36).slice(2,7),
+    actionId,
+    actionName: a.name,
+    detail: summarizeAction(actionId),
+    scope: scopeSummary(),
+  });
+  renderPlan();
+}
+
+function removeFromPlan(id) {
+  state.plan = state.plan.filter(p => p.id !== id);
+  renderPlan();
+}
+
+function resetPlan() {
+  if (state.plan.length === 0) return;
+  if (!confirm('Reset the entire execution plan?')) return;
+  state.plan = [];
+  renderPlan();
+}
+
+function validateOrder() {
+  // Find first index in plan where action's recommended position is LATER than the next action's
+  const issues = [];
+  for (let i = 0; i < state.plan.length - 1; i++) {
+    const cur = RECOMMENDED_ORDER.indexOf(state.plan[i].actionId);
+    const nxt = RECOMMENDED_ORDER.indexOf(state.plan[i+1].actionId);
+    if (cur > nxt) {
+      issues.push({
+        idx: i,
+        msg: `<strong>${state.plan[i].actionName}</strong> at step ${i+1} should come AFTER <strong>${state.plan[i+1].actionName}</strong> at step ${i+2}.`,
+        fixIdx: i+1,
+      });
+    }
+  }
+  return issues;
+}
+
+function renderPlan() {
+  const list = document.getElementById('planList');
+  const warnings = document.getElementById('planWarnings');
+  const status = document.getElementById('planStatus');
+  const simBtn = document.getElementById('simBtn');
+  const runBtn = document.getElementById('runBtn');
+
+  if (state.plan.length === 0) {
+    list.innerHTML = `<div class="plan-empty">No actions queued yet<div class="plan-empty-hint">Build an action on the right, then click Add to Execution Plan</div></div>`;
+    warnings.innerHTML = '';
+    status.innerHTML = `<div>No actions queued yet</div><div>Build an action on the right, then click <strong>Add to Execution Plan</strong></div>`;
+    simBtn.disabled = true;
+    runBtn.disabled = true;
+    return;
+  }
+
+  let html = '';
+  state.plan.forEach((p, i) => {
+    html += `<div class="plan-row" data-action="${p.actionId}" draggable="true" data-id="${p.id}" data-idx="${i}">`;
+    html += `<div class="plan-handle">≡</div>`;
+    html += `<div class="plan-num">${i+1}</div>`;
+    html += `<div><div class="plan-action-name">${p.actionName}</div><div class="plan-action-detail">${p.detail}</div></div>`;
+    html += `<div></div>`;
+    html += `<div class="plan-scope">${p.scope}</div>`;
+    html += `<button class="plan-remove" onclick="removeFromPlan('${p.id}')">✕</button>`;
+    html += `</div>`;
+  });
+  list.innerHTML = html;
+  attachDrag();
+
+  const issues = validateOrder();
+  if (issues.length > 0) {
+    warnings.innerHTML = issues.map(iss =>
+      `<div class="plan-warning">⚠ <span><strong>Order conflict.</strong> ${iss.msg}</span><button class="fix" onclick="swapRows(${iss.idx},${iss.fixIdx})">Auto-fix</button></div>`
+    ).join('');
+    status.innerHTML = `<div class="warn">⚠ ${issues.length} order ${issues.length===1?'conflict':'conflicts'} detected</div><div>Auto-fix or override and continue</div>`;
+  } else {
+    warnings.innerHTML = '';
+    status.innerHTML = `<div class="ok">✓ Order matches recommendation</div><div>${state.plan.length} actions queued · ready to simulate</div>`;
+  }
+
+  simBtn.disabled = false;
+  runBtn.disabled = true;  // requires simulate first
+}
+
+function swapRows(a, b) {
+  const tmp = state.plan[a];
+  state.plan[a] = state.plan[b];
+  state.plan[b] = tmp;
+  renderPlan();
+}
+
+// ----- Drag and drop -----
+let dragSrcIdx = null;
+function attachDrag() {
+  document.querySelectorAll('.plan-row').forEach(row => {
+    row.addEventListener('dragstart', e => {
+      dragSrcIdx = parseInt(row.dataset.idx);
+      row.classList.add('dragging');
+      e.dataTransfer.effectAllowed = 'move';
+    });
+    row.addEventListener('dragend', () => {
+      row.classList.remove('dragging');
+      document.querySelectorAll('.plan-row').forEach(r => r.classList.remove('drag-over'));
+    });
+    row.addEventListener('dragover', e => {
+      e.preventDefault();
+      row.classList.add('drag-over');
+      e.dataTransfer.dropEffect = 'move';
+    });
+    row.addEventListener('dragleave', () => row.classList.remove('drag-over'));
+    row.addEventListener('drop', e => {
+      e.preventDefault();
+      const dstIdx = parseInt(row.dataset.idx);
+      if (dragSrcIdx === null || dragSrcIdx === dstIdx) return;
+      const moved = state.plan.splice(dragSrcIdx, 1)[0];
+      state.plan.splice(dstIdx, 0, moved);
+      dragSrcIdx = null;
+      renderPlan();
+    });
+  });
+}
+
+// ----- Simulate / Run -----
+async function simulate() {
+  if (state.plan.length === 0) return;
+  const scan_id = sessionStorage.getItem('fis_scan_id') || localStorage.getItem('fis_scan_id');
+  const API_BASE = localStorage.getItem('fisApiBase') || 'http://localhost:8420';
+  try {
+    const planRes = await fetch(`${API_BASE}/api/plan/advanced`, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({scan_id, stage:'advanced_workbench', actions: state.plan.map(p => ({type: p.actionId === 'createfolders' ? 'create_folder' : p.actionId, scope:{label:p.scope}, parameters:{detail:p.detail}, safety:'preview_only', reason:'Built in Advanced Workbench', requires_approval:true}))})});
+    const plan = await planRes.json(); if (!planRes.ok) throw new Error(plan.error || 'plan failed');
+    state.activePlanId = plan.plan_id;
+    const simRes = await fetch(`${API_BASE}/api/simulate`, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({plan_id: plan.plan_id})});
+    const sim = await simRes.json(); if (!simRes.ok) throw new Error(sim.error || 'simulate failed');
+  const totalScope = getSelectionCount();
+  let willRename = 0, willRecycle = 0, willMove = 0, willCreate = 0;
+  state.plan.forEach(p => {
+    if (p.actionId === 'rename') willRename += Math.floor(totalScope * 0.4);
+    if (p.actionId === 'deduplicate') willRecycle += Math.floor(totalScope * 0.08);
+    if (p.actionId === 'move' || p.actionId === 'copy') willMove += Math.floor(totalScope * 0.6);
+    if (p.actionId === 'createfolders') willCreate += Math.floor(totalScope / 200);
+    if (p.actionId === 'archive') willRecycle += Math.floor(totalScope * 0.05);
+  });
+
+  const body = document.getElementById('simBody');
+  let html = '';
+  html += `<div class="sim-stat"><div class="key">Items in scope</div><div class="val">${totalScope.toLocaleString()}</div></div>`;
+  html += `<div class="sim-stat"><div class="key">Actions to run</div><div class="val">${state.plan.length}</div></div>`;
+  if (willRename) html += `<div class="sim-stat"><div class="key">Files renamed</div><div class="val">${willRename.toLocaleString()}</div></div>`;
+  if (willRecycle) html += `<div class="sim-stat"><div class="key">Items recycled / archived</div><div class="val">${willRecycle.toLocaleString()}</div></div>`;
+  if (willMove) html += `<div class="sim-stat"><div class="key">Items moved / copied</div><div class="val">${willMove.toLocaleString()}</div></div>`;
+  if (willCreate) html += `<div class="sim-stat"><div class="key">Folders created</div><div class="val">${willCreate.toLocaleString()}</div></div>`;
+  html += `<div class="sim-stat"><div class="key">Estimated runtime</div><div class="val">~${Math.max(1, Math.ceil(totalScope/350000))} min</div></div>`;
+  html += `<div class="sim-stat"><div class="key">Reversible?</div><div class="val" style="color:var(--green);">Yes — rollback ledger written</div></div>`;
+  html += `<div class="sim-section"><h3>Sample operations</h3><div class="sim-list">`;
+  state.plan.forEach((p, i) => {
+    html += `<div>[${i+1}] ${p.actionName} · ${p.detail} · on ${p.scope}</div>`;
+  });
+  html += `</div></div>`;
+  html += `<div class="sim-section"><h3>Two-phase commit</h3><div class="sim-list">`;
+  html += `<div>Phase A → stage to .river-staging/<txn_id>/</div>`;
+  html += `<div>Phase B → atomic apply + send2trash (never unlink)</div>`;
+  html += `<div>On error → rollback from ledger, revert to pre-run state</div>`;
+  html += `</div></div>`;
+  body.innerHTML = html;
+
+  document.getElementById('simModal').classList.add('active');
+  document.getElementById('runBtn').disabled = false;
+  } catch (err) { alert('Simulation failed: ' + err.message); }
+}
+
+function confirmRun() {
+  closeModal();
+  if (confirm(`Run ${state.plan.length} actions on ${getSelectionCount().toLocaleString()} items?\n\nNothing has been touched yet. Click OK to start the two-phase commit.`)) {
+    fetch(`${localStorage.getItem('fisApiBase') || 'http://localhost:8420'}/api/execute`, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({plan_id: state.activePlanId, confirmation:'APPROVE'})}).then(r=>r.json()).then(data=>alert(data.message || data.status || 'Execution response received.')); 
+  }
+}
+
+function runPlan() {
+  // Called from main Run button — but we require simulate first
+  if (document.getElementById('runBtn').disabled) {
+    alert('Run Simulate first to verify the dry-run report.');
+    return;
+  }
+  confirmRun();
+}
+
+function closeModal() {
+  document.getElementById('simModal').classList.remove('active');
+}
+
+// ================== INIT ==================
+renderSelection();
+renderCenter();
+renderActions();
+renderPlan();
+</script>
+
+</body>
+</html>

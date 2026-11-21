@@ -196,6 +196,7 @@ class FileRecord:
     decision: Optional[str] = None            # auto_approve | queue | skip
     reason: Optional[str] = None
     confidence: Optional[float] = None
+    engine_predictions: List[dict] = field(default_factory=list)
     approved: Optional[bool] = None
     notes: str = ""
 

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-85155c5e985e",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.411382+00:00",
+  "source": {
+    "path": "MEQ-LLC_CANONICAL_v5.md",
+    "line": 271,
+    "source_sha256": "321a0d8efb87e9a7003d387014ecef8b34ed2bb865dd3ca41c10e33271a91cfd"
+  },
+  "equation": {
+    "raw": "v̈_k = μ·∏_{j≠k}vⱼ(W) + λ·∇²(∏_{j≠k}vⱼ(W)) + G_ext(t)",
+    "normalized": "v̈_k=mu*∏_{j≠k}vⱼ(w)+λ*∇^2(∏_{j≠k}vⱼ(w))+g_ext(t)",
+    "fingerprint": "85155c5e985e94f400c3fc437a92055dc395d9ebe37b05fcadbcf945530af970"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

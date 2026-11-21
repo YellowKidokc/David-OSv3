@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-e3aa2dff100b",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.868786+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-UQCP_Mathematical_Refinement-Copy.md",
+    "line": 17009,
+    "source_sha256": "905e3b7ff0c2e737616e661eeb386c6241e2c450798cb98bffae8e6bc85c5c41"
+  },
+  "equation": {
+    "raw": "F_spiritual = (Ω_resonance × C_soul) / d²",
+    "normalized": "f_spiritual=(ω_resonance*c_soul)/d^2",
+    "fingerprint": "e3aa2dff100b3a31ef53c6fa688d6e8cd3ccf8a8d59f9ef2953883880da0bc77"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

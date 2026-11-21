@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-a092a38ecb0f",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.623406+00:00",
+  "source": {
+    "path": "MEQ-00_MATH_SUMMARY.md",
+    "line": 493,
+    "source_sha256": "6c68ac764c4536e2f86e24ca6255a50c7ed39ef5f5a52e797626d1dbb24cdf0e"
+  },
+  "equation": {
+    "raw": "V(φ) = -μ²φ²/2 + λφ⁴/4 + γφ(∇²φ) + κφ∇ψ",
+    "normalized": "v(φ)=-mu^2φ^2/2+λφ⁴/4+γφ(∇^2φ)+κφ∇ψ",
+    "fingerprint": "a092a38ecb0f8784af78c9f385264c0efe31626595d767c2744c6caf309455e9"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

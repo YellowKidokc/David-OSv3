@@ -239,12 +239,24 @@ def _select_persona(messages: list[ChatMessage], metadata: dict[str, Any] | None
     else:
         for value in _metadata_values(metadata or {}):
             normalized = value.lower().replace("_", "-").replace(" ", "-")
-            for alias, candidate in ALIAS_TO_PERSONA.items():
-                if alias == normalized or alias in normalized:
-                    persona = candidate
-                    reason = f"metadata:{value}"
-                    break
+            # Metadata is a structured routing field, so require an exact
+            # alias, persona id, or label.  Substring matching lets short
+            # aliases such as "g" (Gemini) steal explicit targets like "gpt".
+            persona = ALIAS_TO_PERSONA.get(normalized)
+            if persona is None:
+                persona = next(
+                    (
+                        candidate
+                        for candidate in PERSONAS.values()
+                        if normalized in {
+                            candidate.id.lower().replace("_", "-").replace(" ", "-"),
+                            candidate.label.lower().replace("_", "-").replace(" ", "-"),
+                        }
+                    ),
+                    None,
+                )
             if persona:
+                reason = f"metadata:{value}"
                 break
     if not persona:
         persona = PERSONAS["kimi"]

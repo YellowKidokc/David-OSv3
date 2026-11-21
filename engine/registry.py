@@ -28,6 +28,10 @@ TOOL = 'stage1-registry/1.1'
 RULEBOOK = 'TAG_TAXONOMY_v0.4'
 PROTOCOL = 'nabla-atlas/0-3-v1'
 VARIABLES = 'GMESTKRQFC'
+PLAIN_TEXT_EXTENSIONS = {
+    '.md', '.markdown', '.txt', '.fisnote', '.rst', '.lean', '.json', '.jsonld',
+    '.yaml', '.yml', '.toml', '.csv', '.py', '.log', '.diff', '.bat', '.ps1',
+}
 FIREWALL = ('a valid signature proves the ENCODING is consistent, never that the classification is accurate or the claims true; '
             'E scores disorder OF THE ARTIFACT, not its subject (a clear paper about brokenness is E0); '
             'confidence is stored separately and never makes a document disordered; '
@@ -133,11 +137,42 @@ def normalize(text):
     return ' '.join(unicodedata.normalize('NFC', text).split())
 
 
+def decode_bom_segments(raw):
+    """Decode UTF-8 text containing one or more embedded UTF-16 BOM sections."""
+    markers = []
+    for bom, encoding in ((b'\xff\xfe', 'utf-16-le'), (b'\xfe\xff', 'utf-16-be')):
+        start = 0
+        while True:
+            offset = raw.find(bom, start)
+            if offset < 0:
+                break
+            markers.append((offset, bom, encoding))
+            start = offset + len(bom)
+    markers.sort()
+    if not markers:
+        return raw.decode('utf-8-sig'), 'complete-utf8'
+    pieces = []
+    cursor = 0
+    encoding = 'utf-8-sig'
+    for offset, bom, next_encoding in markers:
+        segment = raw[cursor:offset]
+        if segment:
+            pieces.append(segment.decode(encoding))
+        cursor = offset + len(bom)
+        encoding = next_encoding
+    if cursor < len(raw):
+        pieces.append(raw[cursor:].decode(encoding))
+    method = 'complete-utf16-bom' if markers[0][0] == 0 and len(markers) == 1 else 'complete-mixed-bom'
+    return ''.join(pieces), method
+
+
 def extract(path):
     ext = path.suffix.lower()
-    if ext in {'.md', '.markdown', '.txt', '.fisnote', '.rst'}:
+    if ext in PLAIN_TEXT_EXTENSIONS:
         try:
-            return path.read_text(encoding='utf-8-sig'), 'yes', None, 'complete-utf8'
+            raw = path.read_bytes()
+            text, method = decode_bom_segments(raw)
+            return text, 'yes', None, method
         except (OSError, UnicodeError) as error:
             return '', 'failed', str(error), 'complete-utf8'
     if ext in {'.pdf', '.docx', '.html', '.htm'}:

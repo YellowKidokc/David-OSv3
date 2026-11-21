@@ -1,0 +1,28 @@
+---
+fis_schema: "folder-index.v1"
+folder_id: "FLD-20260906-9415633b"
+folder: "David-OS\ZZZ_ARCHIVE_CLEANUP_2026-08-13\_salvage_boot_up\organize\_backside_audit\ppk"
+folder_class: "project"
+confidence: 0.6
+dependency_risk: 0.0
+dominant_family: "code"
+dominant_ratio: 0.952
+file_count: 21
+classified_at: "2026-09-06T05:54:53"
+allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
+suggested_name: "ppk"
+---
+
+# FIS Folder Index: ppk
+
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 21  ·  **Dominant**: code (95%)
+
+## Allowed actions
+- index
+- rename_internal
+- subfolder_sort
+- archive_exports
+
+**Suggested name**: `ppk`  (not applied — review before use)
+
+<!-- FIS folder-index.v1: parseable note; safe to regenerate. -->

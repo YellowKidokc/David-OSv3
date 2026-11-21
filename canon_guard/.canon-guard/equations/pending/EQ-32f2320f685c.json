@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-32f2320f685c",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.811387+00:00",
+  "source": {
+    "path": "MEQ-Untitled16.md",
+    "line": 110,
+    "source_sha256": "e13b3e3cc7d5bd0d74dda28436f0e01584108d62c37c4a9bdc7bf2df6ce1c1d0"
+  },
+  "equation": {
+    "raw": "$Wc(x) = I × F × A × C$",
+    "normalized": "$wc(x)=i*f*a*c$",
+    "fingerprint": "32f2320f685cf03bc73b2f3662a1e3249bb941a0a9c34631fed7775f98f10c3c"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

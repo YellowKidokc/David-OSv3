@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-e2a89bb8b40f",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.022427+00:00",
+  "source": {
+    "path": "MEQ-ClaudeDavid.md",
+    "line": 207,
+    "source_sha256": "2b10b01c071b34ba6924e357a252e5c118278521d8e5d95ffad864395e9ae3ea"
+  },
+  "equation": {
+    "raw": "7. Grace Propagation Speed: c_g = c × (1 + F)",
+    "normalized": "7.gracepropagationspeed:c_g=c*(1+f)",
+    "fingerprint": "e2a89bb8b40f1a352eefc1f66f05385eb197a0b23c866ca1dd4089c18b12b76b"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

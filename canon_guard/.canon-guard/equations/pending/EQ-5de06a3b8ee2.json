@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-5de06a3b8ee2",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.793369+00:00",
+  "source": {
+    "path": "MEQ-TheUnquantifiable1.md",
+    "line": 90,
+    "source_sha256": "acb93129114fb25c71cec6d82e798c72b69ffb3041897819ffd97e8743b44e9b"
+  },
+  "equation": {
+    "raw": "χ=∭(G(R",
+    "normalized": "chi=triple_integral(g(r",
+    "fingerprint": "5de06a3b8ee274427f6dfe8de14fd128692177d7c685cc468ad33ac22111f521"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

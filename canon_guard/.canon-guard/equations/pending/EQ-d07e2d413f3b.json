@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-d07e2d413f3b",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.225654+00:00",
+  "source": {
+    "path": "MEQ-139_D19.4_Law-IV-Definition.md",
+    "line": 160,
+    "source_sha256": "4e9ce8e8c33ff3d6d62378d53a33f2e1bf38bebd6d1283174b353a8b7d5126e1"
+  },
+  "equation": {
+    "raw": "$$G^* = \\frac{\\beta F^* C^*}{\\gamma_G}$$",
+    "normalized": "$$g^*=\\frac{\\betaf^*c^*}{\\gamma_g}$$",
+    "fingerprint": "d07e2d413f3babd35c91369196ff413a8d8b5893c2f7eb37efa9f476cd3453c9"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "david-os/fingerprint.v1",
+  "title": "fingerprint v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "producer",
+    "created_at",
+    "source_path",
+    "sha256",
+    "status",
+    "content_hash"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "fingerprint.v1"
+    },
+    "producer": {
+      "type": "string",
+      "description": "app name + version"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source_path": {
+      "type": "string"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ok",
+        "error",
+        "skipped",
+        "needs_review"
+      ]
+    },
+    "content_hash": {
+      "type": "string"
+    },
+    "minhash_k": {
+      "type": "integer"
+    },
+    "minhash": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "decimal u128 strings"
+    },
+    "near_duplicates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "sha256": {
+            "type": "string"
+          },
+          "similarity": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}

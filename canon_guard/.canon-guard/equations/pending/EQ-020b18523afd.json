@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-020b18523afd",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.172659+00:00",
+  "source": {
+    "path": "MEQ-DC-SpeedOfLight.md",
+    "line": 39,
+    "source_sha256": "712a494a4127a79aa7d86658894f4d8f835e63b53cb5065f74958bc1cd0d28fe"
+  },
+  "equation": {
+    "raw": "\\Delta x' = \\gamma(\\Delta x - v\\Delta t)",
+    "normalized": "\\deltax'=\\gamma(\\deltax-v\\deltat)",
+    "fingerprint": "020b18523afddc3c6d4dc3f6db835eff38a191f065bad4cbaa311d762097302c"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

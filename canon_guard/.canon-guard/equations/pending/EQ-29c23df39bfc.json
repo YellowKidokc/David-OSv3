@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-29c23df39bfc",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.266742+00:00",
+  "source": {
+    "path": "MEQ-FRUITS_OF_SPIRIT_EQUATIONS.md",
+    "line": 162,
+    "source_sha256": "1bd25fa3f88a1c040f26ed4f987768f10eec70ba7c7b554297fb692a83d4fe6c"
+  },
+  "equation": {
+    "raw": "ρ = repentance intensity (0-1).",
+    "normalized": "ρ=repentanceintensity(0-1).",
+    "fingerprint": "29c23df39bfcb43a4beb566d9d7094d35b0585fc53525be548aec806fd634aaf"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

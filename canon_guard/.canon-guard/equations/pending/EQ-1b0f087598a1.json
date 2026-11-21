@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-1b0f087598a1",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.352818+00:00",
+  "source": {
+    "path": "MEQ-Law1FinalforSubstackwithFunFacts.md",
+    "line": 216,
+    "source_sha256": "1b2ce26aca02fe4bb92e40cce325f8dc0bd3cf308b262f91479b774a9e068f9d"
+  },
+  "equation": {
+    "raw": "dχ/dt = G(Rp)(1+E+S)e^(-(Q·C)) R(F) U(Ss) - δχ + K(t)·D(Ss) + Ω·T(F,S,t)",
+    "normalized": "dchi/dt=g(rp)(1+e+s)e^(-(q*c))r(f)u(ss)-δchi+k(t)*d(ss)+ω*t(f,s,t)",
+    "fingerprint": "1b0f087598a1dd32754047a20c8e3d85131e781794598c60987186d051857c18"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

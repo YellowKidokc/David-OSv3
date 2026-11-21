@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "case_id": "EQ-5ea8dd87c694",
+  "status": "ratified",
+  "created_at": "2026-07-27T07:57:25.872461+00:00",
+  "source": {
+    "path": "MEQ-00-MasterOutline.md",
+    "line": 269,
+    "source_sha256": "082fae2f3083b27cfb2dff7b38e8a48167c5d25d33b0cc911e5168f5ab88c102"
+  },
+  "equation": {
+    "raw": "ρ_ij = e^(-Q·d_ij) · ψ_i · ψ*_j",
+    "normalized": "ρ_ij=e^(-q*d_ij)*ψ_i*ψ*_j",
+    "fingerprint": "5ea8dd87c694a6d4fda36fcba92691f93c1fd4bb27eb8041280ac3e4de003907"
+  },
+  "required_review": {
+    "classification": "new_canonical_candidate",
+    "math_translation": "Density-matrix element decays exponentially with faith-distance between states i and j.",
+    "plain_translation": "Two possibilities interfere less when they are far apart in faith-space.",
+    "theological_translation": "Faith sets the coherence length between spiritual possibilities; unbelief is distance.",
+    "canonical_id": "law-07-heisenberg-faith",
+    "canonical_equation": "ρ_ij = e^(-Q·d_ij) · ψ_i · ψ*_j",
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [
+      {
+        "reviewer": "kimi",
+        "model": "kimi-code-cli",
+        "independent": true,
+        "decision": "new_canonical_candidate",
+        "confidence": 0.75,
+        "evidence": [
+          "MEQ-00-MasterOutline.md:269"
+        ],
+        "reviewed_at": "2026-07-27T08:02:07.446979+00:00"
+      }
+    ],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

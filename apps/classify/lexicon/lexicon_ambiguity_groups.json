@@ -1,0 +1,261 @@
+{
+  "schema": "theophysics-lexicon-ambiguity/1.0",
+  "author": "Claude (Opus 5.5), hand-written 2026-11-06 — the judgment layer; API expansion is checked against this",
+  "principle": "An ambiguous word never classifies alone. It only selects a sense when a sense cue is present nearby (same sentence, heading, filename, or path). With no cue, it contributes weight 0 and flags the ambiguity group.",
+  "groups": [
+    {
+      "word": "proof",
+      "senses": [
+        {"sense": "formal mathematical proof", "axis": "epistemic_roles", "value_id": "proof", "weight": 7,
+         "cues_any": ["theorem", "lemma", "qed", "∎", "by induction", "contradiction", "corollary", "proposition", "derivation", "hence", "therefore by"]},
+        {"sense": "Lean machine-checked proof", "axis": "document_type", "value_id": "lean_file", "weight": 9,
+         "cues_any": [".lean", "theorem", "lemma", "lake build", "mathlib", "sorry", "#print axioms", "by simp", "by exact"]},
+        {"sense": "empirical support called 'proof'", "axis": "epistemic_roles", "value_id": "evidence", "weight": 4,
+         "cues_any": ["data", "measured", "observed", "sample", "p <", "p-value", "experiment", "survey", "replicated"]},
+        {"sense": "apologetic or philosophical argument", "axis": "subject_domains", "value_id": "apologetics", "weight": 3,
+         "cues_any": ["proof of god", "proofs for god", "cosmological argument", "ontological argument", "argument from"]},
+        {"sense": "rhetorical use", "axis": null, "value_id": null, "weight": 0,
+         "cues_any": ["living proof", "proof is in the pudding", "proof that i", "the proof is"]}
+      ],
+      "never_alone": true,
+      "note": "'Proof' in this corpus is often used for arguments that are not proofs. Book Zero: VERIFIED means Lean kernel-checked; only the Lean sense may support that."
+    },
+    {
+      "word": "claim",
+      "senses": [
+        {"sense": "truth-apt assertion being tested", "axis": "epistemic_roles", "value_id": "claim", "weight": 5,
+         "cues_any": ["kill condition", "falsif", "testable", "we claim", "the claim that", "claim id", "CLM-"]},
+        {"sense": "canon pipeline claim object", "axis": "canon_status", "value_id": "candidate", "weight": 3,
+         "cues_any": ["CANDIDATE_DRAFT", "candidate", "02A", "01A_CLAIMS", "claim card"]},
+        {"sense": "ordinary speech ('he claims', 'insurance claim')", "axis": null, "value_id": null, "weight": 0,
+         "cues_any": ["claims to be", "insurance", "claimed responsibility", "baggage claim"]}
+      ],
+      "never_alone": true
+    },
+    {
+      "word": "evidence",
+      "senses": [
+        {"sense": "empirical evidence", "axis": "epistemic_roles", "value_id": "evidence", "weight": 5,
+         "cues_any": ["data", "measurement", "dataset", "observed", "study", "sample size", "statistic", "correlation", "replicat"]},
+        {"sense": "historical/textual evidence", "axis": "epistemic_roles", "value_id": "historical_case", "weight": 5,
+         "cues_any": ["manuscript", "historian", "archaeolog", "early church", "tacitus", "josephus", "dating", "codex"]},
+        {"sense": "evidence-engine system files", "axis": "physical_home", "value_id": "80_SYSTEM", "weight": 3,
+         "cues_any": ["evidence engine", "pipeline", "schema", "template", "intake"]}
+      ],
+      "never_alone": true
+    },
+    {
+      "word": "canon",
+      "senses": [
+        {"sense": "Theophysics canonization pipeline", "axis": "physical_home", "value_id": "40_CANONIZATION", "weight": 4,
+         "cues_any": ["canonization", "candidate", "admission", "ruling", "gate 1", "gate 2", "canon-engine", "promote"]},
+        {"sense": "biblical canon", "axis": "subject_domains", "value_id": "scripture", "weight": 5,
+         "cues_any": ["muratorian", "apocrypha", "deuterocanon", "athanasius' festal", "council of carthage", "books of the bible"]},
+        {"sense": "literary/fan canon, camera brand, 'canonical' file label", "axis": null, "value_id": null, "weight": 0,
+         "cues_any": ["canon eos", "fan canon", "canonical url", "canonical link", "_CANONICAL"]}
+      ],
+      "never_alone": true,
+      "hard_rule": "No lexical evidence can ever set canon_status=admitted. 'admitted' requires a ruling_id from David."
+    },
+    {
+      "word": "registry",
+      "senses": [
+        {"sense": "concept/term/tag registry", "axis": "physical_home", "value_id": "20_KNOWLEDGE_ATLAS", "weight": 5,
+         "cues_any": ["tag", "term", "concept", "glossary", "definition", "theological tags", "physics tags"]},
+        {"sense": "navigation/index registry", "axis": "physical_home", "value_id": "00_ORIENTATION", "weight": 5,
+         "cues_any": ["index", "map of content", "MOC", "reading order", "start here", "table of contents", "navigation"]},
+        {"sense": "canon/claim registry", "axis": "physical_home", "value_id": "40_CANONIZATION", "weight": 5,
+         "cues_any": ["claim registry", "canon registry", "admission", "ruling_id", "candidate id", "CLM-"]},
+        {"sense": "software/service/model registry", "axis": "physical_home", "value_id": "80_SYSTEM", "weight": 5,
+         "cues_any": ["station", "api", "endpoint", "port", "service", "model registry", "config", "station.json", "provider"]},
+        {"sense": "dataset registry", "axis": "physical_home", "value_id": "60_MEDIA_DATA", "weight": 5,
+         "cues_any": ["dataset", "csv", "rows", "columns", "schema", "sqlite", "table"]},
+        {"sense": "provenance/receipt registry", "axis": "document_type", "value_id": "receipt", "weight": 5,
+         "cues_any": ["sha256", "hash", "provenance", "receipt", "moved", "migration", "checksum"]}
+      ],
+      "never_alone": true,
+      "note": "The 2026-11-06 run sent 37 tag registries to system/tools by the word alone. The governing object decides."
+    },
+    {
+      "word": "model",
+      "senses": [
+        {"sense": "thought experiment / test case", "axis": "epistemic_roles", "value_id": "model", "weight": 4,
+         "cues_any": ["suppose", "imagine", "thought experiment", "test case", "toy model", "scenario"]},
+        {"sense": "mathematical/physical model", "axis": "subject_domains", "value_id": "mathematics", "weight": 3,
+         "cues_any": ["equation", "parameter", "differential", "lagrangian", "simulation", "fit"]},
+        {"sense": "rival explanatory model / worldview", "axis": "epistemic_roles", "value_id": "countermodel", "weight": 4,
+         "cues_any": ["alternative explanation", "rival", "naturalism", "competing model", "countermodel"]},
+        {"sense": "AI/LLM model", "axis": "subject_domains", "value_id": "technology", "weight": 4,
+         "cues_any": ["llm", "gpt", "claude", "deepseek", "model id", "tokens", "inference", "fine-tun"]}
+      ],
+      "never_alone": true
+    },
+    {
+      "word": "law",
+      "senses": [
+        {"sense": "one of the Ten Laws (Master Equation)", "axis": "subject_domains", "value_id": "theophysics", "weight": 5,
+         "cues_any": ["law 1", "law 2", "law 3", "law 4", "law 5", "law 6", "law 7", "law 8", "law 9", "law 10", "ten laws", "master equation", "χ", "chi"]},
+        {"sense": "physical law", "axis": "subject_domains", "value_id": "physics", "weight": 4,
+         "cues_any": ["newton", "thermodynamic", "conservation", "inverse-square", "second law", "coulomb", "noether"]},
+        {"sense": "moral/divine law", "axis": "subject_domains", "value_id": "morality", "weight": 4,
+         "cues_any": ["torah", "commandment", "moral law", "natural law", "lawgiver", "sinai"]},
+        {"sense": "civil/legal law", "axis": "subject_domains", "value_id": "sociology", "weight": 2,
+         "cues_any": ["statute", "court", "legislation", "lawsuit", "attorney"]}
+      ],
+      "never_alone": true
+    },
+    {
+      "word": "quantum",
+      "senses": [
+        {"sense": "actual quantum physics", "axis": "subject_domains", "value_id": "physics", "weight": 6,
+         "cues_any": ["hilbert", "wavefunction", "ψ", "schrödinger", "hamiltonian", "entanglement", "decoherence", "bell", "qubit", "planck"]},
+        {"sense": "interpretation of quantum mechanics", "axis": "subject_domains", "value_id": "consciousness", "weight": 4,
+         "cues_any": ["measurement problem", "observer", "copenhagen", "many-worlds", "collapse", "participatory"]},
+        {"sense": "Theophysics Law 7 (Quantum/Faith)", "axis": "chi_primary", "value_id": "Q", "weight": 5,
+         "cues_any": ["law 7", "faith", "collapse as choice", "doubt"]},
+        {"sense": "metaphor/popular use", "axis": null, "value_id": null, "weight": -3,
+         "cues_any": ["quantum leap", "quantum healing", "quantum manifestation", "quantum energy", "quantum mindset"]}
+      ],
+      "never_alone": true
+    },
+    {
+      "word": "prophecy",
+      "senses": [
+        {"sense": "biblical prophecy (text)", "axis": "subject_domains", "value_id": "scripture", "weight": 5,
+         "cues_any": ["isaiah", "daniel", "ezekiel", "jeremiah", "zechariah", "revelation", "fulfilled", "messianic"]},
+        {"sense": "prophecy statistics / data analysis", "axis": "epistemic_roles", "value_id": "evidence", "weight": 4,
+         "cues_any": ["probability", "dataset", "2114", "fulfillment rate", "chronological analysis", "csv"]},
+        {"sense": "Prophecy Intelligence project", "axis": "physical_home", "value_id": "10_ACTIVE_EFFORTS", "weight": 3,
+         "cues_any": ["prophecy intelligence", "pipeline", "station"]},
+        {"sense": "a testable prediction called 'prophecy'", "axis": "epistemic_roles", "value_id": "prediction", "weight": 3,
+         "cues_any": ["predicts", "will happen", "by 20", "forecast"]}
+      ],
+      "never_alone": true
+    },
+    {
+      "word": "Daniel",
+      "senses": [
+        {"sense": "Book of Daniel / prophet", "axis": "subject_domains", "value_id": "scripture", "weight": 5,
+         "cues_any": ["daniel 9", "daniel 2", "daniel 7", "seventy weeks", "nebuchadnezzar", "babylon", "dan."]},
+        {"sense": "a person named Daniel (contributor, author)", "axis": "physical_home", "value_id": "70_PEOPLE_WORLDVIEWS", "weight": 2,
+         "cues_any": ["dr.", "professor", "wrote", "email", "interview", "@"]}
+      ],
+      "never_alone": true,
+      "note": "A personal name must never be read as scripture without a scripture cue, and vice versa."
+    },
+    {
+      "word": "witness",
+      "senses": [
+        {"sense": "external convergence witness (TH_ / CKG linking)", "axis": "epistemic_roles", "value_id": "bridge", "weight": 4,
+         "cues_any": ["TH_", "convergence", "independent derivation", "friston", "shannon", "external witness"]},
+        {"sense": "historical/eyewitness testimony", "axis": "epistemic_roles", "value_id": "historical_case", "weight": 4,
+         "cues_any": ["eyewitness", "testimony", "apostle", "gospel account", "martyr"]},
+        {"sense": "personal witness/testimony of faith", "axis": "epistemic_roles", "value_id": "lived_fruit", "weight": 3,
+         "cues_any": ["my story", "testimony", "changed my life", "i was"]},
+        {"sense": "AI witness statement (crew)", "axis": "physical_home", "value_id": "80_SYSTEM", "weight": 2,
+         "cues_any": ["witness statement", "fable", "codex", "gemini", "crew"]}
+      ],
+      "never_alone": true
+    },
+    {
+      "word": "bridge",
+      "senses": [
+        {"sense": "cross-domain structural correspondence", "axis": "epistemic_roles", "value_id": "bridge", "weight": 6,
+         "cues_any": ["isomorphism", "maps to", "correspondence", "physics to theology", "B0", "B1", "B2", "B3", "bridge grade", "BRIDGE"]},
+        {"sense": "software bridge / connector", "axis": "physical_home", "value_id": "80_SYSTEM", "weight": 4,
+         "cues_any": ["bridge.py", "api bridge", "connector", "adapter", "topbar bridge", "lean_prover_bridge"]},
+        {"sense": "physical bridge / metaphor", "axis": null, "value_id": null, "weight": 0,
+         "cues_any": ["bridge over", "burn bridges", "golden gate"]}
+      ],
+      "never_alone": true
+    },
+    {
+      "word": "source",
+      "senses": [
+        {"sense": "external source material", "axis": "physical_home", "value_id": "30_SOURCES", "weight": 4,
+         "cues_any": ["doi", "isbn", "et al.", "journal", "published by", "pp.", "vol."]},
+        {"sense": "source code", "axis": "document_type", "value_id": "code", "weight": 4,
+         "cues_any": ["source code", "repository", "import ", "def ", "function"]},
+        {"sense": "provenance field ('source_path', 'source:')", "axis": null, "value_id": null, "weight": 0,
+         "cues_any": ["source_path", "source_file", "source:"]}
+      ],
+      "never_alone": true,
+      "note": "Frontmatter keys named 'source' are provenance, not evidence of an external source."
+    },
+    {
+      "word": "archive",
+      "senses": [
+        {"sense": "superseded/old material", "axis": "lifecycle", "value_id": "archived", "weight": 4,
+         "cues_any": ["superseded", "old version", "deprecated", "replaced by", "_previous versions", "v1"]},
+        {"sense": "archival historical source (e.g., archive.org, national archives)", "axis": "physical_home", "value_id": "30_SOURCES", "weight": 3,
+         "cues_any": ["archive.org", "wayback", "national archives", "manuscript collection"]},
+        {"sense": "a folder named ARCHIVE (path only)", "axis": "physical_home", "value_id": "90_ARCHIVE", "weight": 2,
+         "cues_any": ["/archive/", "\\archive\\", "_archive", "zzz archive"]}
+      ],
+      "never_alone": true,
+      "note": "Being inside an ARCHIVE folder is weak evidence: today's sort moved live material into archive-named folders."
+    },
+    {
+      "word": "AI",
+      "senses": [
+        {"sense": "AI tooling / crew operations", "axis": "physical_home", "value_id": "80_SYSTEM", "weight": 4,
+         "cues_any": ["prompt", "crew", "handoff", "api", "station", "model id", "claude", "codex", "gemini", "deepseek"]},
+        {"sense": "AI as a subject (alignment, consciousness, ethics)", "axis": "subject_domains", "value_id": "technology", "weight": 4,
+         "cues_any": ["alignment", "artificial intelligence", "machine consciousness", "agi", "substrate"]},
+        {"sense": "AI-generated document (provenance)", "axis": null, "value_id": null, "weight": 0,
+         "cues_any": ["generated by", "written by claude", "ai summary"]}
+      ],
+      "never_alone": true,
+      "note": "Two-letter token: must match as a whole word, case-sensitive 'AI'; never inside words (e.g., 'said', 'Thai')."
+    },
+    {
+      "word": "Lean",
+      "senses": [
+        {"sense": "Lean 4 theorem prover", "axis": "document_type", "value_id": "lean_file", "weight": 8,
+         "cues_any": [".lean", "lean 4", "mathlib", "lake", "theorem", "sorry", "elan"]},
+        {"sense": "Lean pipeline/receipts (system)", "axis": "physical_home", "value_id": "80_SYSTEM", "weight": 3,
+         "cues_any": ["lean_prover_bridge", "LEAN_NNN", "lean_verified", "lean pipeline"]},
+        {"sense": "ordinary English 'lean'", "axis": null, "value_id": null, "weight": -5,
+         "cues_any": ["lean on", "lean manufacturing", "lean meat", "lean startup", "lean in"]}
+      ],
+      "never_alone": true,
+      "note": "Case-sensitive 'Lean' plus a Lean cue; lowercase 'lean' without a cue is English."
+    },
+    {
+      "word": "truth",
+      "senses": [
+        {"sense": "Law 3 (Electromagnetism/Truth)", "axis": "chi_primary", "value_id": "E", "weight": 4,
+         "cues_any": ["law 3", "signal", "noise", "deception", "electromagnet"]},
+        {"sense": "truth predicate / grading (Book Zero)", "axis": "physical_home", "value_id": "40_CANONIZATION", "weight": 3,
+         "cues_any": ["truth predicate", "book zero", "VERIFIED", "TESTED", "DERIVED", "MAPPED", "grade"]},
+        {"sense": "philosophical truth (epistemology)", "axis": "subject_domains", "value_id": "philosophy", "weight": 3,
+         "cues_any": ["correspondence theory", "coherence theory", "epistemology", "justified"]},
+        {"sense": "devotional/theological 'the truth'", "axis": "subject_domains", "value_id": "theology", "weight": 2,
+         "cues_any": ["i am the way", "spirit of truth", "john 14", "john 8:32"]}
+      ],
+      "never_alone": true
+    }
+  ],
+  "negative_controls": [
+    {"id": "NC-01", "test_text": "This article uses quantum as a metaphor for a quantum leap in spiritual life.", "must_not_assign": [["subject_domains", "physics"]], "reason": "Metaphorical quantum."},
+    {"id": "NC-02", "test_text": "Theological Tags Registry: tag, definition, related papers, related tags.", "must_not_assign": [["physical_home", "80_SYSTEM"]], "may_propose": [["physical_home", "20_KNOWLEDGE_ATLAS"]], "reason": "A concept registry is not software."},
+    {"id": "NC-03", "test_text": "Station registry: 025_CKG_V4 endpoint port 8765 provider deepseek station.json.", "must_not_assign": [["physical_home", "20_KNOWLEDGE_ATLAS"]], "may_propose": [["physical_home", "80_SYSTEM"]], "reason": "A software registry is system."},
+    {"id": "NC-04", "test_text": "The proof is in the pudding: my life changed after I prayed.", "must_not_assign": [["epistemic_roles", "proof"], ["document_type", "proof"]], "reason": "Rhetorical proof."},
+    {"id": "NC-05", "test_text": "theorem settle_injective : Function.Injective (settle d₀) := by intro a b h", "must_not_assign": [["epistemic_roles", "evidence"]], "may_propose": [["document_type", "lean_file"]], "reason": "Lean proof is not empirical evidence."},
+    {"id": "NC-06", "test_text": "This paper is canonical and should be admitted to canon immediately.", "must_not_assign": [["canon_status", "admitted"]], "reason": "No text can admit itself; ruling_id required."},
+    {"id": "NC-07", "test_text": "Daniel emailed me the spreadsheet yesterday.", "must_not_assign": [["subject_domains", "scripture"]], "reason": "A person named Daniel."},
+    {"id": "NC-08", "test_text": "Daniel 9:24-27 and the seventy weeks prophecy.", "must_not_assign": [["physical_home", "70_PEOPLE_WORLDVIEWS"]], "may_propose": [["subject_domains", "scripture"]], "reason": "Book of Daniel."},
+    {"id": "NC-09", "test_text": "We should lean on each other during hard times.", "must_not_assign": [["document_type", "lean_file"]], "reason": "English 'lean'."},
+    {"id": "NC-10", "test_text": "He claims to have filed an insurance claim.", "must_not_assign": [["epistemic_roles", "claim"]], "reason": "Ordinary 'claim'."},
+    {"id": "NC-11", "test_text": "Canon EOS R5 camera settings for the video shoot.", "must_not_assign": [["physical_home", "40_CANONIZATION"], ["canon_status", "candidate"]], "reason": "Camera brand."},
+    {"id": "NC-12", "test_text": "source_path: C:\\Users\\David\\Documents\\notes.md", "must_not_assign": [["physical_home", "30_SOURCES"]], "reason": "Provenance key, not external source."},
+    {"id": "NC-13", "test_text": "The lean_prover_bridge.py connector forwards builds to the Lean server.", "must_not_assign": [["epistemic_roles", "bridge"]], "may_propose": [["physical_home", "80_SYSTEM"]], "reason": "Software bridge."},
+    {"id": "NC-14", "test_text": "Newton's second law of motion and conservation of momentum.", "must_not_assign": [["subject_domains", "sociology"]], "may_propose": [["subject_domains", "physics"]], "reason": "Physical law, not civil law."},
+    {"id": "NC-15", "test_text": "She said the Thai restaurant was great.", "must_not_assign": [["physical_home", "80_SYSTEM"], ["subject_domains", "technology"]], "reason": "'AI' inside words must not match."},
+    {"id": "NC-16", "test_text": "Speaking the truth in love builds up the church.", "must_not_assign": [["chi_primary", "E"], ["physical_home", "40_CANONIZATION"]], "reason": "Devotional truth is not Law 3 or the truth predicate."},
+    {"id": "NC-17", "test_text": "Old receipts were moved to the ARCHIVE folder; this paper is the current final version.", "must_not_assign": [["lifecycle", "archived"]], "reason": "Mentioning an archive folder is not being archived."},
+    {"id": "NC-18", "test_text": "Imagine a civilization without humans run by AI on Mars.", "must_not_assign": [["subject_domains", "technology"]], "may_propose": [["epistemic_roles", "model"]], "reason": "A thought experiment ABOUT AI is a model first; technology only with technical cues."},
+    {"id": "NC-19", "test_text": "This sermon is proof that God loves you.", "must_not_assign": [["epistemic_roles", "proof"], ["document_type", "proof"]], "reason": "Devotional rhetorical proof."},
+    {"id": "NC-20", "test_text": "Witness statement — Fable, crew review of Section 6.", "must_not_assign": [["epistemic_roles", "historical_case"]], "may_propose": [["physical_home", "80_SYSTEM"]], "reason": "AI crew witness statement."}
+  ]
+}

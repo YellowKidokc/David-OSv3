@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://faiththruphysics.com/schemas/identity-envelope.v1.schema.json",
+  "title": "Extensible Identity Envelope v1",
+  "type": "object",
+  "required": ["schema_version", "root_uuid", "short_uuid", "identifiers", "relations", "derivatives", "assessments"],
+  "properties": {
+    "schema_version": {"const": "identity-envelope.v1"},
+    "root_uuid": {"type": "string", "format": "uuid"},
+    "short_uuid": {"type": "string", "pattern": "^u-[0-9A-F]{12,32}$"},
+    "human_id": {"type": ["string", "null"]},
+    "identifiers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["order", "scheme", "value", "authority", "status"],
+        "properties": {
+          "order": {"type": "integer", "minimum": 0},
+          "scheme": {"type": "string", "minLength": 1},
+          "value": {"type": "string", "minLength": 1},
+          "expanded_value": {"type": ["string", "null"]},
+          "authority": {"type": "string"},
+          "status": {"type": "string"},
+          "aliases": {"type": "array", "items": {"type": "string"}},
+          "valid_from": {"type": ["string", "null"]},
+          "valid_to": {"type": ["string", "null"]}
+        },
+        "additionalProperties": true
+      }
+    },
+    "relations": {"type": "array", "items": {"type": "object"}},
+    "derivatives": {"type": "array", "items": {"type": "object"}},
+    "assessments": {"type": "array", "items": {"type": "object"}}
+  },
+  "additionalProperties": true
+}

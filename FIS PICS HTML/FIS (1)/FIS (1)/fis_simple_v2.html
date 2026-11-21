@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FIS · Simple Mode (staged)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#08090d; --surface:#101218; --line:#222736; --line2:#2c3547;
+    --text:#eceff5; --muted:#9ea4b5; --gold:#d4af37; --blue:#6aa6ff;
+    --green:#34d399; --red:#fb7185; --amber:#f59e0b; --violet:#9f7aea;
+    --shadow:0 12px 35px rgba(0,0,0,.32);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; font-family:Inter,system-ui,sans-serif; color:var(--text);
+    background:radial-gradient(1400px 600px at 10% -10%,rgba(96,165,250,.08),transparent 55%),var(--bg);
+    min-height:100vh;
+  }
+  .topbar{
+    position:sticky; top:0; z-index:20; display:flex; justify-content:space-between;
+    align-items:center; padding:12px 18px; border-bottom:1px solid var(--line);
+    background:rgba(8,9,13,.94); backdrop-filter:blur(7px);
+  }
+  .brand{font-size:12px; letter-spacing:.12em; text-transform:uppercase; font-weight:700}
+  .brand span{color:var(--gold)}
+  .status{font-size:11px; border:1px solid rgba(52,211,153,.35); border-radius:20px; padding:5px 10px; color:#9cf4c8}
+  .layout{max-width:880px; margin:18px auto; padding:0 16px 40px}
+  .screen{display:none}
+  .screen.active{display:block}
+
+  h1.big{margin:0 0 4px; font-family:"Crimson Text",serif; font-size:clamp(1.6rem,3vw,2.2rem); color:#fff}
+  h1.big span{color:var(--gold)}
+  .sub{color:var(--muted); margin:0 0 18px; font-size:13px}
+
+  /* scan report */
+  .statgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:14px}
+  .stat{border:1px solid var(--line); border-radius:9px; background:#0d0f15; padding:12px}
+  .stat strong{font-size:26px; color:#fff; display:block; font-family:"JetBrains Mono",monospace; line-height:1.1}
+  .stat span{color:var(--muted); font-size:11px}
+  .stat.flag strong{color:var(--amber)}
+  .reclaim{border:1px dashed #334158; border-radius:8px; padding:9px 11px; color:#d2d9e5; font-size:12px; background:rgba(102,126,234,.06); margin-bottom:18px}
+
+  .gatehead{font-size:12px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin:0 0 8px}
+  .modes{display:grid; gap:10px}
+  .mode{
+    display:grid; grid-template-columns:auto 1fr auto; gap:12px; align-items:center;
+    border:1px solid var(--line2); border-radius:10px; background:#0d121a; padding:13px 14px;
+    cursor:pointer; text-align:left; color:var(--text); transition:.14s;
+  }
+  .mode:hover{border-color:#3a455c; background:#11161f}
+  .mode .ic{width:34px; height:34px; border-radius:8px; display:grid; place-items:center; font-size:18px}
+  .mode .t{font-weight:700; font-size:14px}
+  .mode .d{color:var(--muted); font-size:12px; margin-top:1px}
+  .mode .go{font-size:18px; color:var(--muted)}
+  .mode.primary{border-color:#f2c94c; background:linear-gradient(180deg,rgba(212,175,55,.14),#0d121a 70%)}
+  .mode.primary .ic{background:rgba(212,175,55,.18)}
+  .mode.recommended-tag::after{content:"recommended"; position:absolute}
+
+  /* resolver */
+  .progress{display:flex; gap:6px; margin-bottom:16px; flex-wrap:wrap}
+  .pip{flex:1; min-width:30px; height:5px; border-radius:3px; background:#1c2230}
+  .pip.done{background:var(--green)}
+  .pip.active{background:var(--gold)}
+  .pip.deferred{background:var(--violet)}
+
+  .card{border:1px solid var(--line); border-radius:10px; background:rgba(16,18,24,.95); margin-bottom:10px; overflow:hidden; box-shadow:var(--shadow)}
+  .card.collapsed .body{display:none}
+  .chead{display:grid; grid-template-columns:auto 1fr auto; gap:11px; align-items:center; padding:13px 15px; cursor:default}
+  .card.collapsed .chead{cursor:pointer}
+  .num{width:26px; height:26px; border-radius:7px; display:grid; place-items:center; font-size:12px; font-weight:700; background:#1a2030; color:var(--muted); font-family:"JetBrains Mono",monospace}
+  .card.active .num{background:var(--gold); color:#151515}
+  .card.done .num{background:rgba(52,211,153,.18); color:var(--green)}
+  .card.deferred .num{background:rgba(159,122,234,.2); color:var(--violet)}
+  .ctitle{font-weight:700; font-size:14px; color:#fff}
+  .cfound{color:var(--muted); font-size:12px; margin-top:1px}
+  .cresolved{font-size:12px; color:var(--green)}
+  .cresolved.def{color:var(--violet)}
+  .pencil{font-size:11px; color:var(--muted); border:1px solid var(--line2); border-radius:6px; padding:3px 8px}
+
+  .body{padding:0 15px 15px}
+  .rec{
+    border:1px solid rgba(52,211,153,.4); border-radius:9px; background:rgba(52,211,153,.06);
+    padding:12px; margin-bottom:10px;
+  }
+  .rec .lbl{display:flex; align-items:center; gap:8px; font-weight:700; font-size:13.5px; color:#eafff5}
+  .recbadge{font-size:9px; text-transform:uppercase; letter-spacing:.08em; background:rgba(52,211,153,.18); color:#bff6da; border-radius:999px; padding:2px 7px}
+  .why{color:var(--muted); font-size:12px; margin-top:6px; line-height:1.5}
+  .actions{display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-top:11px}
+  .btn{border:1px solid var(--line2); border-radius:7px; padding:8px 13px; font-size:12px; font-weight:700; color:#ced6e7; cursor:pointer; background:#111926}
+  .btn:hover{border-color:#3a455c}
+  .btn-primary{background:var(--gold); color:#151515; border-color:#f2c94c}
+  .btn-link{background:transparent; border:none; color:var(--blue); padding:8px 4px}
+
+  .others{margin-top:10px; display:none}
+  .others.show{display:block}
+  .opt{
+    display:grid; grid-template-columns:1fr auto; gap:10px; align-items:center;
+    border:1px solid var(--line2); border-radius:8px; background:#0b0f17; padding:10px 12px; margin-bottom:7px; cursor:pointer; transition:.12s;
+  }
+  .opt:hover{border-color:var(--blue); background:#0e131d}
+  .opt .ol{font-weight:600; font-size:13px; color:#dce3f0}
+  .opt .ow{color:var(--muted); font-size:11.5px; margin-top:3px; line-height:1.45}
+  .opt.adv{border-color:rgba(159,122,234,.45); background:rgba(159,122,234,.07)}
+  .opt.adv .ol{color:#cbb6f5}
+
+  /* footer plan */
+  .footer{position:sticky; bottom:0; margin-top:18px; border-top:1px solid var(--line); background:rgba(8,9,13,.96); backdrop-filter:blur(6px); padding:14px 2px; display:grid; grid-template-columns:1fr auto; gap:12px; align-items:center}
+  .planline{font-size:12px; color:var(--muted)}
+  .planline b{color:#dfe5f0}
+  .runbtn{border:1px solid #f2c94c; background:var(--gold); color:#151515; font-weight:700; border-radius:8px; padding:11px 20px; font-size:13px; cursor:pointer}
+  .runbtn:disabled{opacity:.4; cursor:not-allowed; background:#1a2030; color:var(--muted); border-color:var(--line2)}
+
+  .backlink{background:none; border:none; color:var(--muted); font-size:12px; cursor:pointer; padding:0; margin-bottom:14px}
+  .backlink:hover{color:var(--text)}
+
+  @media(max-width:620px){ .statgrid{grid-template-columns:1fr 1fr} .footer{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">FINAL INTELLIGENCE <span>FIS</span></div>
+    <div class="status" id="globalStatus">Scan complete</div>
+  </div>
+
+  <main class="layout">
+
+    <!-- ============ SCREEN 1 : SCAN REPORT ============ -->
+    <section class="screen active" id="screen-report">
+      <h1 class="big">Scan complete<span>.</span></h1>
+      <p class="sub" id="reportSub">Looked through <b>C:\Users\lowes\OneDrive\A</b> — here's what's there before anything moves.</p>
+
+      <div class="statgrid">
+        <div class="stat"><strong id="sFiles">4,820</strong><span>Files scanned</span></div>
+        <div class="stat"><strong id="sFolders">318</strong><span>Folders</span></div>
+        <div class="stat flag"><strong id="sDupes">3</strong><span>Exact-duplicate groups (7 files)</span></div>
+        <div class="stat flag"><strong id="sAnom">6</strong><span>Anomaly buckets</span></div>
+        <div class="stat"><strong id="sProtected">12</strong><span>Protected (won't touch)</span></div>
+        <div class="stat"><strong id="sUnknown">9</strong><span>Unknown / low-confidence</span></div>
+      </div>
+      <div class="reclaim" id="reclaim">≈ <b>58 MB</b> reclaimable from exact duplicates. Nothing has been changed — this is read-only so far.</div>
+
+      <p class="gatehead">How do you want to handle it?</p>
+      <div class="modes">
+        <button class="mode primary" onclick="goResolver()">
+          <div class="ic">⚡</div>
+          <div><div class="t">Run File Intelligence</div><div class="d">Guided. One decision at a time, each with a recommended rule. ~3 choices and you're done.</div></div>
+          <div class="go">→</div>
+        </button>
+        <button class="mode" onclick="stub('Manual mode: you walk every group and pick keepers yourself. (stub)')">
+          <div class="ic">✋</div>
+          <div><div class="t">Manual</div><div class="d">No recommendations. You select keepers file-by-file.</div></div>
+          <div class="go">→</div>
+        </button>
+        <button class="mode" onclick="stub('Advanced workbench: full action stack (scan, combine, separate, rename, move, archive, automation, report) with reorder + preview. The screenshots you sent. (stub)')">
+          <div class="ic">⚙️</div>
+          <div><div class="t">Advanced</div><div class="d">Full action stack, reorder, preview, automation rules.</div></div>
+          <div class="go">→</div>
+        </button>
+      </div>
+    </section>
+
+    <!-- ============ SCREEN 2 : RESOLVER ============ -->
+    <section class="screen" id="screen-resolver">
+      <button class="backlink" onclick="show('screen-report')">← Back to scan report</button>
+      <h1 class="big">File Intelligence<span>.</span></h1>
+      <p class="sub">Each step recommends one rule. Accept it, or pick a different one. Reject all and it goes to Advanced.</p>
+      <div class="progress" id="progress"></div>
+      <div id="cards"></div>
+
+      <div class="footer">
+        <div class="planline" id="planLine">Resolve each step to build the plan.</div>
+        <button class="runbtn" id="runBtn" disabled onclick="runPlan()">Run plan</button>
+      </div>
+    </section>
+
+    <!-- ============ SCREEN 3 : DONE ============ -->
+    <section class="screen" id="screen-done">
+      <h1 class="big">Plan ready<span>.</span></h1>
+      <p class="sub">This is what would execute. Real moves stay behind a final confirm.</p>
+      <div id="doneBody"></div>
+      <div style="margin-top:16px; display:flex; gap:10px">
+        <button class="btn btn-primary" onclick="stub('Execute: hands the plan to the backend with the preview-only / confirm gate.')">Confirm &amp; execute</button>
+        <button class="btn" onclick="show('screen-resolver')">← Adjust</button>
+      </div>
+    </section>
+
+  </main>
+
+<script>
+/* ---------- decision data (one block = one decision) ---------- */
+/* recommended = choices[0]. Order of choices is the cascade order. */
+const DECISIONS = [
+  {
+    id:"dupes",
+    title:"Exact duplicates",
+    found:"3 groups · 7 files · 4 are redundant copies",
+    choices:[
+      {label:"Keep newest, recycle the rest",
+       why:"Most recent modified date wins in each group. Identical older copies go to the Recycle Bin (recoverable). Frees ~58 MB."},
+      {label:"Keep the copy in the cleanest folder",
+       why:"Prefers your main working folders over Archive / Backup / Temp paths, then recycles the rest."},
+      {label:"Keep all, move extras to \\_review",
+       why:"Nothing deleted. Every duplicate collected into one review folder so you decide later."}
+    ]
+  },
+  {
+    id:"sameNameDiff",
+    title:"Same name, different content",
+    found:"5 collisions — these would silently overwrite each other",
+    choices:[
+      {label:"Send both to \\_review (don't merge)",
+       why:"Safest. Same filename but different bytes means one isn't a copy of the other. Parked for a human look."},
+      {label:"Keep newer, suffix the older",
+       why:"Newer kept in place; older renamed with a _v1 suffix beside it so nothing is lost."},
+      {label:"Keep both where they are",
+       why:"No action. You accept the collision risk and sort it later."}
+    ]
+  },
+  {
+    id:"sameContentDiff",
+    title:"Same content, different name",
+    found:"8 files — likely harmless rename variants",
+    choices:[
+      {label:"Keep cleanest name, recycle the rest",
+       why:"Bytes are identical, so only the name differs. Keeps the tidiest filename, recycles _FINAL2 / _copy variants."},
+      {label:"Keep all, move extras to \\_review",
+       why:"Nothing deleted; variants gathered for review."},
+      {label:"Keep both where they are",
+       why:"No action."}
+    ]
+  },
+  {
+    id:"nearDup",
+    title:"Near-duplicates (revisions)",
+    found:"6 files — copies with suffixes / small edits",
+    choices:[
+      {label:"Move all to \\_review",
+       why:"Close but not identical (edits, suffixes like _v2, _draft). Too risky to auto-delete — gathered for you."},
+      {label:"Keep newest, review the rest",
+       why:"Best guess at the live version stays; older revisions go to review."},
+      {label:"Keep all where they are",
+       why:"No action."}
+    ]
+  },
+  {
+    id:"protected",
+    title:"Protected items",
+    found:"12 — programs, config, index/map files",
+    choices:[
+      {label:"Skip — don't touch",
+       why:"Programs, .json/.yaml config, schemas and maps run the system. Default is hands-off unless you say otherwise."},
+      {label:"List them, take no action",
+       why:"Same as skip, but writes them to the report so you can see exactly what was protected."},
+      {label:"Treat as normal files",
+       why:"Removes protection and lets the rules above apply to them. Not advised."}
+    ]
+  },
+  {
+    id:"unknown",
+    title:"Unknown / low-confidence",
+    found:"9 — couldn't classify with confidence",
+    choices:[
+      {label:"Move to \\_review",
+       why:"The engine isn't sure what these are. Parked together for a quick human pass instead of guessing."},
+      {label:"Leave in place, flag in report",
+       why:"No move; just noted in the final report."},
+      {label:"Skip entirely",
+       why:"Ignore them this run."}
+    ]
+  }
+];
+
+/* ---------- state ---------- */
+const st = DECISIONS.map((d,i)=>({ id:d.id, chosen:null, deferred:false }));
+let activeIdx = 0;
+
+const $ = id => document.getElementById(id);
+
+function show(screenId){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  $(screenId).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function stub(msg){ alert(msg); }
+function goResolver(){ show('screen-resolver'); render(); }
+
+/* ---------- render resolver ---------- */
+function render(){
+  // progress pips
+  $('progress').innerHTML = DECISIONS.map((d,i)=>{
+    let cls = 'pip';
+    if(st[i].deferred) cls+=' deferred';
+    else if(st[i].chosen!=null) cls+=' done';
+    else if(i===activeIdx) cls+=' active';
+    return `<div class="${cls}"></div>`;
+  }).join('');
+
+  // cards
+  $('cards').innerHTML = DECISIONS.map((d,i)=>{
+    const s = st[i];
+    const resolved = s.chosen!=null || s.deferred;
+    const isActive = i===activeIdx && !resolved;
+    let stateCls = 'collapsed';
+    if(isActive) stateCls='active';
+    else if(s.deferred) stateCls='collapsed deferred';
+    else if(s.chosen!=null) stateCls='collapsed done';
+
+    const numTxt = s.chosen!=null ? '✓' : (s.deferred ? '→' : (i+1));
+
+    // collapsed header summary
+    let summary = `<div class="cfound">${d.found}</div>`;
+    if(s.chosen!=null) summary = `<div class="cresolved">✓ ${d.choices[s.chosen].label}</div>`;
+    if(s.deferred)     summary = `<div class="cresolved def">→ Sent to Advanced</div>`;
+
+    const editBtn = resolved ? `<span class="pencil">change</span>` : '';
+
+    // expanded body (only active)
+    let body = '';
+    if(isActive){
+      const rec = d.choices[0];
+      body = `
+        <div class="body">
+          <div class="rec">
+            <div class="lbl"><span class="recbadge">recommended</span> ${rec.label}</div>
+            <div class="why">${rec.why}</div>
+            <div class="actions">
+              <button class="btn btn-primary" onclick="accept(${i},0)">Accept &amp; continue</button>
+              <button class="btn-link" onclick="toggleOthers(${i})">See other options ▾</button>
+            </div>
+          </div>
+          <div class="others" id="others-${i}">
+            ${d.choices.slice(1).map((c,k)=>`
+              <div class="opt" onclick="accept(${i},${k+1})">
+                <div><div class="ol">${c.label}</div><div class="ow">${c.why}</div></div>
+                <div class="go">→</div>
+              </div>`).join('')}
+            <div class="opt adv" onclick="defer(${i})">
+              <div><div class="ol">None of these — send to Advanced</div><div class="ow">Hands this bucket to the advanced workbench and keeps you moving.</div></div>
+              <div class="go">→</div>
+            </div>
+          </div>
+        </div>`;
+    }
+
+    return `
+      <div class="card ${stateCls}">
+        <div class="chead" ${resolved?`onclick="reopen(${i})"`:''}>
+          <div class="num">${numTxt}</div>
+          <div><div class="ctitle">${d.title}</div>${summary}</div>
+          ${editBtn}
+        </div>
+        ${body}
+      </div>`;
+  }).join('');
+
+  updateFooter();
+}
+
+function toggleOthers(i){ $('others-'+i).classList.toggle('show'); }
+
+function accept(i, choiceIdx){
+  st[i].chosen = choiceIdx;
+  st[i].deferred = false;
+  advance();
+}
+function defer(i){
+  st[i].deferred = true;
+  st[i].chosen = null;
+  advance();
+}
+function reopen(i){
+  st[i].chosen = null;
+  st[i].deferred = false;
+  activeIdx = i;
+  render();
+}
+function advance(){
+  // next unresolved
+  const next = st.findIndex(s=>s.chosen==null && !s.deferred);
+  activeIdx = next === -1 ? DECISIONS.length : next;
+  render();
+}
+
+function allResolved(){ return st.every(s=>s.chosen!=null || s.deferred); }
+
+function updateFooter(){
+  const done = st.filter(s=>s.chosen!=null).length;
+  const def  = st.filter(s=>s.deferred).length;
+  const left = DECISIONS.length - done - def;
+  let txt = `<b>${done}</b> resolved`;
+  if(def) txt += ` · <b>${def}</b> to Advanced`;
+  txt += left ? ` · <b>${left}</b> left` : ` · ready to run`;
+  $('planLine').innerHTML = txt;
+  $('runBtn').disabled = !allResolved();
+  $('runBtn').textContent = def ? 'Run plan + open Advanced' : 'Run plan';
+  $('globalStatus').textContent = allResolved() ? 'Plan ready' : 'Resolving…';
+}
+
+function runPlan(){
+  const rows = DECISIONS.map((d,i)=>{
+    const s=st[i];
+    if(s.deferred) return `<div class="opt adv"><div><div class="ol">${d.title}</div><div class="ow">→ Advanced workbench</div></div></div>`;
+    return `<div class="opt"><div><div class="ol">${d.title}</div><div class="ow">${d.choices[s.chosen].label}</div></div></div>`;
+  }).join('');
+  $('doneBody').innerHTML = rows;
+  show('screen-done');
+}
+
+render();
+</script>
+</body>
+</html>

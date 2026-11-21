@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-6cfb2e6d0bca",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.068426+00:00",
+  "source": {
+    "path": "MEQ-10-C-coherence.md",
+    "line": 15,
+    "source_sha256": "f47bdc1cec83aacc29620c4f5ac2cad14dce06fbcacd140b4b456eb182d4bd3f"
+  },
+  "equation": {
+    "raw": "C = Icoherent/Itotal",
+    "normalized": "c=icoherent/itotal",
+    "fingerprint": "6cfb2e6d0bcad9787a60681f999c22052e0e62c71392d70892e33f3c55dfdbd1"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

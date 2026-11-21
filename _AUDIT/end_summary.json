@@ -1,0 +1,28 @@
+{
+  "git_unchanged": true,
+  "scope": "Metadata comparison uses size and mtime for observed files from collector pass to close. Content exclusions and tree boundaries are in the evidence CSVs.",
+  "changed": [
+    {
+      "path": ".data/deepseek_placement.py",
+      "change": "added"
+    },
+    {
+      "path": ".data/deepseek_placement/DATA.json",
+      "change": "added"
+    },
+    {
+      "path": ".data/deepseek_placement/FIS.json",
+      "change": "added"
+    },
+    {
+      "path": ".data/deepseek_placement/TAGGERS.json",
+      "change": "added"
+    },
+    {
+      "path": ".data/glance_run_01.log",
+      "change": "size or mtime changed"
+    }
+  ],
+  "first_files": 137116,
+  "final_files": 137120
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-1a7768b8acb0",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.628650+00:00",
+  "source": {
+    "path": "MEQ-TheInformationalStructureofConsciousness.md",
+    "line": 83,
+    "source_sha256": "1ab7ff2ca8688cb74b32c208c568af86c62515f7dcb10911861c78dd2cfb91ff"
+  },
+  "equation": {
+    "raw": "H=∑i=1nIie−diH = \\sum_{i=1}^{n} I_i e^{-d_i}",
+    "normalized": "h=∑i=1niie-dih=\\sum_{i=1}^{n}i_ie^{-d_i}",
+    "fingerprint": "1a7768b8acb019740de99098b1d4f235e195f70206de500192b2e457acfc4209"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,75 @@
+﻿cluster,path,hash_or_signature,keep|retire|salvage,note
+A · FIS,fis,Verified functional/source signature (no byte equality claimed),keep,Standalone approval-bound filesystem pipeline and SQLite · Choose as first-pass FIS implementation.
+A · FIS,file-intelligence-system,Verified functional/source signature (no byte equality claimed),salvage,"Folder-memory FIS, doc-type classifier, legacy namer and DB · Keep richer classify_document_type rules and note/SQLite converters; default writer behavior differs."
+A · FIS,file-intelligence-hub,Verified functional/source signature (no byte equality claimed),salvage,Nested independent job/worker/watch package · Preserve history; port only proven deltas.
+A · FIS,tools/file-intelligence-sources,Verified functional/source signature (no byte equality claimed),keep,Reference snapshot with provenance · Keep as read-only reference.
+A · FIS,06_FIS_HTML,Verified functional/source signature (no byte equality claimed),keep,"Paper identity/receipt HTML view · Keep as presentation, not first-pass classifier."
+A · FIS,FIS PICS HTML,Verified functional/source signature (no byte equality claimed),salvage,Prototype and active Simple FIS view · Preserve wired Simple and 5FIS/6FIS layout evidence.
+A · FIS,tools/fis-intelligence,Verified functional/source signature (no byte equality claimed),keep,"CLI, MCP, index and Rust commands in one home · Most complete integrated lookup tool, distinct from FIS registration."
+A · FIS,tools/fis/FIS-HTML-Intelligence,Verified functional/source signature (no byte equality claimed),salvage,Identical index DB and three measured code files; connection notes differ · Retain distinct notes then retire verified duplicates after caller migration.
+B · Taggers,Theophysics_Tagger,Verified functional/source signature (no byte equality claimed),keep,"Registry tagger and SQLite browse UI with optional watcher · Strongest operating surface, catalog retains decisions."
+B · Taggers,tools/filetagger,Verified functional/source signature (no byte equality claimed),salvage,"Lower-level file/folder/CHI taggers and math artefacts with a daemon · Use unique catalog/equation behavior, keep daemon disabled unless appointed."
+B · Taggers,tools/file-intelligence-sources/snapshots/filetagger,Verified functional/source signature (no byte equality claimed),keep,Snapshot · Six measured scripts equivalent after normalizing line endings.
+C · Organizers,tools/organize,Verified functional/source signature (no byte equality claimed),salvage,Vendored pattern organizer plus Chi/rules/fallback and own organize.db · Adds rule-driven patterns and cross-drive inventory; retain seeds and integration notes.
+C · Organizers,engine,Verified functional/source signature (no byte equality claimed),keep,"Registry/admission, sidecar proposals and explicit rename/undo · Different authority boundary; preserve imports."
+C · Organizers,rule_brick,Verified functional/source signature (no byte equality claimed),keep,Questions/receipt gate only · No write authority.
+C · Organizers,10_FILE_ACTIONS,Verified functional/source signature (no byte equality claimed),keep,Object/folder organizing and batch previews · Retain fast route and receipts.
+C · Organizers,shared,Verified functional/source signature (no byte equality claimed),keep,Contracts and helpers · Retain compatibility paths.
+D · Classifiers,03_CLASSIFY,Verified functional/source signature (no byte equality claimed),keep,"MIM v1 YAML, validation/review and optional DeepSeek triage · Primary review contract, centralize predictions outside v3."
+D · Classifiers,tools/organize/classifier.py,Verified functional/source signature (no byte equality claimed),salvage,"Chi rules, SQLite, LLM fallback · Candidate classifier/features; distinct schema."
+D · Classifiers,file-intelligence-system/fis_classifier.py,Verified functional/source signature (no byte equality claimed),salvage,"Folder, CHI/law/domain and doc-type results · Port local doc-type evidence."
+D · Classifiers,apps/classify/src/run.py,Verified functional/source signature (no byte equality claimed),keep,"classification.v1 JSONL; Rust lexicon or Python FIS/Chi; optional Claude · Make first pass SQLite-backed, explicit unresolved routing."
+D · Classifiers,10_FILE_ACTIONS/shared/deep_identify.py,Verified functional/source signature (no byte equality claimed),keep,JSON + file_cards/families/orphans CSV; scan_db adapter · Keep independent evidence and improve registry link.
+D · Classifiers,10_FILE_ACTIONS/shared/glance_match.py,Verified functional/source signature (no byte equality claimed),salvage,Page shape/terms/labels → CSV plus summary · Fast recognition evidence.
+D · Classifiers,10_FILE_ACTIONS/shared/apol_shadow.py,Verified functional/source signature (no byte equality claimed),keep,APOL shadow JSON; format/terms/boilerplate plus optional MiniLM · Pilot evidence; do not automatically promote.
+D · Classifiers,10_FILE_ACTIONS/shared/attention_vector.py,Verified functional/source signature (no byte equality claimed),salvage,TF-IDF signals and vector similarity · Use as independent local signal.
+D · Classifiers,10_FILE_ACTIONS/shared/lexicon_overlay.py,Verified functional/source signature (no byte equality claimed),keep,Lexicon scores on file cards · Keep rule/source version explicit.
+D · Classifiers,10_FILE_ACTIONS/shared/atom_match.py,Verified functional/source signature (no byte equality claimed),salvage,Claim overlap plus optional atom extraction · Bridge downstream; API stays explicit.
+D · Classifiers,10_FILE_ACTIONS/shared/series_finder.py,Verified functional/source signature (no byte equality claimed),keep,Series recognition/copy planning CSV and evidence · Protected edits and user routing.
+D · Classifiers,10_FILE_ACTIONS/shared/series_aware_flatten.py,Verified functional/source signature (no byte equality claimed),keep,Series-aware flatten preview/apply routing · Requires separate action authorization.
+E · Hubs,hub,Verified functional/source signature (no byte equality claimed),keep,"Installed workers, notices and collection APIs · Runtime authority, not file classification."
+E · Hubs,folder_hub,Verified functional/source signature (no byte equality claimed),keep,Folder report/relay and read-only attached registry queries · Use as thin read model.
+E · Hubs,file-intelligence-hub,Verified functional/source signature (no byte equality claimed),salvage,"Worktree with overlapping runtime · native, runner, storage/db and cli differ by hash."
+F · Data,data,Verified functional/source signature (no byte equality claimed),salvage,Contracts and tracked generated feeds · Separate generated output after consumer map.
+F · Data,_data,Verified functional/source signature (no byte equality claimed),keep,Registry and stage receipts · Maintain compatibility until location configuration exists.
+F · Data,.data,Verified functional/source signature (no byte equality claimed),keep,Local workbook/tests/inventories/migration evidence · Separate authoritative inputs from rebuildable outputs.
+F · Data,10_FILE_ACTIONS/logs,Verified functional/source signature (no byte equality claimed),salvage,6.98 GB matches output and sibling scan receipts · Conserve run provenance.
+F · Data,runs,Verified functional/source signature (no byte equality claimed),keep,1.35 GB historical supervised runs · Archive with metadata and rollback history.
+G · Lossless,_LOSSLESS_SUMMARY,Verified functional/source signature (no byte equality claimed),keep,"Launcher, release scripts and examples · Most complete base."
+G · Lossless,LossLess/_LOSSLESS_SUMMARY,Verified functional/source signature (no byte equality claimed),salvage,Second Lossless source · Namer differs; compare before retiring.
+H · GUI,step-3-combined-board.html,Verified functional/source signature (no byte equality claimed),keep,"Three-pane combined mockup · Best visual reference, no live integration claim."
+H · GUI,FIS PICS HTML/simple.html,Verified functional/source signature (no byte equality claimed),keep,Guided workflow and Prediction_GUI embedding · Best current guided shell; external API path must move together.
+H · GUI,gui,Verified functional/source signature (no byte equality claimed),keep,Native FIS/scanner/review launchers · Keep reachability and current edits.
+H · GUI,apps,Verified functional/source signature (no byte equality claimed),keep,Launcher/adapter set · Preserve LAUNCH.bat behavior.
+H · GUI,D:\GitHub\Prediction_GUI,Verified functional/source signature (no byte equality claimed),keep,"Engine harness, approvals and actions · Prediction and review owner."
+I · Root kits,files.zip,Verified functional/source signature (no byte equality claimed),salvage,Original inventory kit · Archive as provenance.
+I · Root kits,scripts.zip,Verified functional/source signature (no byte equality claimed),salvage,Historical script and startup kit · Do not rerun or overwrite current launchers.
+I · Root kits,tools/codex-script-hub,Verified functional/source signature (no byte equality claimed),keep,Recovered working launcher and utilities · Retain configuration and provenance.
+A · FIS,tools/fis-intelligence/state/fis_html.sqlite,7044efe5e7deb37d91a48b20a019d1f7bd4300a9556ad5893ed81191b02ac3da,keep,byte-identical with tools/fis/FIS-HTML-Intelligence/state/fis_html.sqlite
+A · FIS,tools/fis/FIS-HTML-Intelligence/state/fis_html.sqlite,7044efe5e7deb37d91a48b20a019d1f7bd4300a9556ad5893ed81191b02ac3da,retire,byte-identical with tools/fis-intelligence/state/fis_html.sqlite
+A · FIS,tools/fis-intelligence/src/cli.py,1f5a10f3288df9eed96a21b6e85f9ffb5a2731f66f371880a0e5c3d40dc6143d,keep,byte-identical with tools/fis/FIS-HTML-Intelligence/src/cli.py
+A · FIS,tools/fis/FIS-HTML-Intelligence/src/cli.py,1f5a10f3288df9eed96a21b6e85f9ffb5a2731f66f371880a0e5c3d40dc6143d,keep,byte-identical with tools/fis-intelligence/src/cli.py
+A · FIS,tools/fis-intelligence/src/fis_html_index.py,338731c28dc7d4f5d2dd78fabd4dd0ce8936f0ad8fa261892f2ebb70580583af,keep,byte-identical with tools/fis/FIS-HTML-Intelligence/src/fis_html_index.py
+A · FIS,tools/fis/FIS-HTML-Intelligence/src/fis_html_index.py,338731c28dc7d4f5d2dd78fabd4dd0ce8936f0ad8fa261892f2ebb70580583af,keep,byte-identical with tools/fis-intelligence/src/fis_html_index.py
+A · FIS,tools/fis-intelligence/src/fis_mcp_server.py,62fc250dc5534cbd92a63219c74515ca6d5f20818840aaf90e61da0eb48d3826,keep,byte-identical with tools/fis/FIS-HTML-Intelligence/src/fis_mcp_server.py
+A · FIS,tools/fis/FIS-HTML-Intelligence/src/fis_mcp_server.py,62fc250dc5534cbd92a63219c74515ca6d5f20818840aaf90e61da0eb48d3826,keep,byte-identical with tools/fis-intelligence/src/fis_mcp_server.py
+G · Lossless,LossLess/_LOSSLESS_SUMMARY/lossless.py,16717f44ef56201b74f3a7e30911270b837179f6c9b2ae1dcf8ed07792ec5f7f,keep,line-endings only with _LOSSLESS_SUMMARY/lossless-tools/lossless-tools/lossless.py
+G · Lossless,_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/lossless.py,1166f18e462b6a2ca292a8e90968db89ba1e816d789e9080139c8ad231efd53e,keep,line-endings only with LossLess/_LOSSLESS_SUMMARY/lossless.py
+G · Lossless,LossLess/_LOSSLESS_SUMMARY/namer.py,ff1b5b51fe1456c84f38a19c1d9abe2c5205e69656f83980afa7b079223889bd,keep,different with _LOSSLESS_SUMMARY/lossless-tools/lossless-tools/namer.py
+G · Lossless,_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/namer.py,3038bdf4601fbb380f7278e915b8b4f1ec0231117456c421fb81a6606ef03a9d,salvage,different with LossLess/_LOSSLESS_SUMMARY/namer.py
+G · Lossless,LossLess/_LOSSLESS_SUMMARY/deepseek_call.py,95bceaba2b65155216aaeb247a862a00321466e83423ab4c6f24a736e17f6a0b,keep,line-endings only with _LOSSLESS_SUMMARY/lossless-tools/lossless-tools/deepseek_call.py
+G · Lossless,_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/deepseek_call.py,fdc153986f935ce362ad92c102848ad0596c535998b4c30a4e007168ef32a03b,keep,line-endings only with LossLess/_LOSSLESS_SUMMARY/deepseek_call.py
+G · Lossless,LossLess/_LOSSLESS_SUMMARY/README.md,f548d5dc3f99660ba4627bfd5f63ca250d3f9e862fbb4c34084409da85d64f66,keep,line-endings only with _LOSSLESS_SUMMARY/lossless-tools/lossless-tools/README.md
+G · Lossless,_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/README.md,50cb56041c3b043af7f386f586c5b8a943cd04d99a982bab3a3a6720c3b094b4,keep,line-endings only with LossLess/_LOSSLESS_SUMMARY/README.md
+B · Taggers,tools/filetagger/filetagger.py,7bd2bead4fef0ee266c5326cd02175784264df4dca64d3fbf0ff217fd0c36599,keep,line-endings only with tools/file-intelligence-sources/snapshots/filetagger/filetagger.py
+B · Taggers,tools/file-intelligence-sources/snapshots/filetagger/filetagger.py,e28602888f7b6fc3b5a4550bee4fb382367b79e476ccc5c32fce3d9e700f9d10,keep,line-endings only with tools/filetagger/filetagger.py
+B · Taggers,tools/filetagger/foldertagger.py,b6e7f19034628869b14956e4438db2123441efb04da104300ad9b4574e03c59c,keep,line-endings only with tools/file-intelligence-sources/snapshots/filetagger/foldertagger.py
+B · Taggers,tools/file-intelligence-sources/snapshots/filetagger/foldertagger.py,5edcf657891dbff9e5e711e208fa2e7669acda08d670cd1c854c19c2cc245349,keep,line-endings only with tools/filetagger/foldertagger.py
+B · Taggers,tools/filetagger/filetagger_chi.py,86d02b0ea1f6e0a99a6f94e8eee05aeb6872261c61c6e944a4b5a9d022dc1cdb,keep,line-endings only with tools/file-intelligence-sources/snapshots/filetagger/filetagger_chi.py
+B · Taggers,tools/file-intelligence-sources/snapshots/filetagger/filetagger_chi.py,047c0a66297c927f974e3ade266a37a048658840c32ec060c2b11102f44557cd,keep,line-endings only with tools/filetagger/filetagger_chi.py
+B · Taggers,tools/filetagger/filetagger_chi_v2.py,fb3ff3c506d240afa0823dbd956a9e4c47bd5b3b8ef5904173a8aa3b4a975a9c,keep,line-endings only with tools/file-intelligence-sources/snapshots/filetagger/filetagger_chi_v2.py
+B · Taggers,tools/file-intelligence-sources/snapshots/filetagger/filetagger_chi_v2.py,d5c3131a511a24b9325db76fa28ae4c87f70720d288cc9b218007cfb40770a29,keep,line-endings only with tools/filetagger/filetagger_chi_v2.py
+B · Taggers,tools/filetagger/filetagger_daemon.py,87e8821f2ccaf85a317a56123dd76716849b86a96435f40e0c50399431da5b17,keep,line-endings only with tools/file-intelligence-sources/snapshots/filetagger/filetagger_daemon.py
+B · Taggers,tools/file-intelligence-sources/snapshots/filetagger/filetagger_daemon.py,6d27fe8bed186680d591016c0ee8cd27c4b59d364ad6c1aae6fa69f635383f75,keep,line-endings only with tools/filetagger/filetagger_daemon.py
+B · Taggers,tools/filetagger/chi_pipeline.py,bcbfd2c03a1e7c8ad9e6b6930fa3e2d15be7d3b084d34f801ea669edb26a5379,keep,line-endings only with tools/file-intelligence-sources/snapshots/filetagger/chi_pipeline.py
+B · Taggers,tools/file-intelligence-sources/snapshots/filetagger/chi_pipeline.py,b417ee0dbda691f8341d8f0cab1afcc1d7b6c27c1beb4f2d508856ab26476091,keep,line-endings only with tools/filetagger/chi_pipeline.py

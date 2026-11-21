@@ -28,6 +28,21 @@ dos-api --port 10000
 | `dos-poll` | Start polling file watcher |
 | `dos-health` | Print node health JSON |
 | `dos-top` | Top-of-Mind CLI (post messages, search memory) |
+| `rule-brick` | Register AI work intent, inspect shared heuristic questions, and close work with a receipt |
+
+### Rule Brick: shared AI work contract
+
+All AI and programmatic filesystem work should consult [`rule_brick/PRINCIPLES.md`](rule_brick/PRINCIPLES.md)
+and open a Rule Brick session before analysis or proposed changes. During work,
+engines record evidence-backed predictions against the shared question registry;
+afterward, the worker closes the session with an outcome receipt. Rule Brick is
+advisory and cannot authorize rename, move, deletion, or canonization.
+
+```powershell
+rule-brick before --agent codex --intent "inspect naming and placement" --root D:\Example
+rule-brick questions
+rule-brick after --session SESSION_ID --status complete --outcome "report written; no files changed"
+```
 
 ### Observe-only Master Equation intake
 

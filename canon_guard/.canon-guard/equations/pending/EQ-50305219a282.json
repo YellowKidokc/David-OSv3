@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-50305219a282",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.265741+00:00",
+  "source": {
+    "path": "MEQ-FRUITS_OF_SPIRIT_EQUATIONS.md",
+    "line": 101,
+    "source_sha256": "1bd25fa3f88a1c040f26ed4f987768f10eec70ba7c7b554297fb692a83d4fe6c"
+  },
+  "equation": {
+    "raw": "F_i = 1 + \\frac{9}{1 + e^{-z}}",
+    "normalized": "f_i=1+\\frac{9}{1+e^{-z}}",
+    "fingerprint": "50305219a282e2242b1aebf431a176ef3578bbe9865f6790cbe73ead01680e95"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

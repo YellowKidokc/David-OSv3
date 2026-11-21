@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-c3d5c0e71ecd",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.175617+00:00",
+  "source": {
+    "path": "MEQ-128_PROT18.4_Social-Coherence-Monitoring.md",
+    "line": 330,
+    "source_sha256": "e606e4a8aa8313e0679ad2c43cb669ed121cfd5e21b828396bacfdd6fc91ba9a"
+  },
+  "equation": {
+    "raw": "$$\\Delta C = (a_2 + b_2 t_c) - (a_1 + b_1 t_c)$$",
+    "normalized": "$$\\deltac=(a_2+b_2t_c)-(a_1+b_1t_c)$$",
+    "fingerprint": "c3d5c0e71ecdd1f08a17a675f222f50d24c1960570b856997cf69a8c61ece2a5"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

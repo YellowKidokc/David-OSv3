@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-d8abfe2bc322",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.334750+00:00",
+  "source": {
+    "path": "MEQ-AXIOM_DERIVATION_CHAIN.md",
+    "line": 226,
+    "source_sha256": "98b81ed1ea33b3433fa485a4fb240c8ca4c19a014ae901ba16578a7d079932d5"
+  },
+  "equation": {
+    "raw": "χ = ∏(η_i) dx dy dt",
+    "normalized": "chi=∏(η_i)dxdydt",
+    "fingerprint": "d8abfe2bc322494afa4970ab1c3464ede3dba33cdf7ba408c9bf3d92b0568bcd"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

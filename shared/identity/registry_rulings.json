@@ -1,0 +1,71 @@
+{
+  "standard": "Document Identity Standard v1.0",
+  "ruled_by": "David Lowe",
+  "date": "2026-11-07",
+  "series": {
+    "DLAY": {
+      "canonical_title": "The Default Layer",
+      "members": {
+        "DLAY.00.INDEX": "overview",
+        "DLAY.01.DEFAULT": "Chapter 01",
+        "DLAY.02.ENERGY": "Chapter 02",
+        "DLAY.03.INFRASTRUCTURE": "Chapter 03",
+        "DLAY.04.FRICTIONLESS": "Chapter 04",
+        "DLAY.05.WATER": "Chapter 05 (Water Event)",
+        "DLAY.06.DEPENDENCY": "Chapter 06",
+        "DLAY.07.CHOICE": "Chapter 07",
+        "DLAY.08.CODA": "Coda"
+      }
+    },
+    "JREV": {
+      "canonical_title": "The Jesus Reversal",
+      "members": {
+        "JREV.00.INDEX": "overview",
+        "JREV.01.SUFFERING": "Paper I",
+        "JREV.02.WORLD": "Paper II (rebuilt)",
+        "JREV.03.MISTAKE": "Paper III",
+        "JREV.04.RULER": "Paper IV",
+        "JREV.05.GARDEN": "Paper V",
+        "JREV.06.REVERSAL": "Paper VI",
+        "JREV.07.VERDICT": "Paper VII",
+        "JREV.08.EPILOGUE": "Epilogue",
+        "JREV.80.ALLAGAINST": "companion",
+        "JREV.81.INVISIBLE": "companion",
+        "JREV.82.ONERULE": "companion",
+        "JREV.83.TWOFIRES": "companion",
+        "JREV.84.THINKING": "companion",
+        "JREV.89.AUTHORITY": "displaced pre-rebuild Paper II",
+        "JREV.95.CONCORDANCE": "concordance"
+      },
+      "displaced": ["JREV.89.AUTHORITY"]
+    },
+    "MEQU": {
+      "canonical_title": "Master Equation",
+      "members": {
+        "MEQU.00.CANON77": "Canon dump (77 questions)",
+        "MEQU.01.GRACE": "Law 01 (Newton-Grace)",
+        "MEQU.02.MOMENTUM": "Law 02 (Newton-Momentum)",
+        "MEQU.03.TRUTH": "Law 03 (Maxwell-Truth)",
+        "MEQU.04.AGAPE": "Law 04 (Yukawa-Agape)",
+        "MEQU.05.JUDGMENT": "Law 05 (Clausius-Judgment)",
+        "MEQU.06.LOGOS": "Law 06 (Shannon-Logos)",
+        "MEQU.07.FAITH": "Law 07 (Born-Faith)",
+        "MEQU.08.FRAME": "Law 08 (Einstein-Frame)",
+        "MEQU.09.CONSERVATION": "Law 09 (Fermi-Conservation)",
+        "MEQU.10.COHERENCE": "Law 10 (Coherence-Christ)"
+      },
+      "planned": ["MEQU.07.FAITH"],
+      "notes": {
+        "MEQU.07.FAITH": "NOT YET WRITTEN",
+        "MEQU.08.FRAME": "file says Law 09",
+        "MEQU.09.CONSERVATION": "file says Law 08"
+      }
+    }
+  },
+  "relations": [
+    ["DLAY.05.WATER", "SOURCE_NARRATIVE_FOR", "JREV.02.WORLD"],
+    ["JREV.02.WORLD", "INTERPRETS", "DLAY.05.WATER"],
+    ["JREV.89.AUTHORITY", "SUPERSEDED_BY", "JREV.02.WORLD"],
+    ["JREV.02.WORLD", "DERIVED_FROM", "JREV.89.AUTHORITY"]
+  ]
+}

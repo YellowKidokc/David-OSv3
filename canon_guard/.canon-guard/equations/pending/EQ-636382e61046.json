@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-636382e61046",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.112994+00:00",
+  "source": {
+    "path": "MEQ-10LawsDeep.md",
+    "line": 270,
+    "source_sha256": "ed48286acac4bf8ee2e1b9bfa725d233285c58f77edaaedd5f2a49b3bac56cf9"
+  },
+  "equation": {
+    "raw": "✔ **S** = Spiritual Pull",
+    "normalized": "✔**s**=spiritualpull",
+    "fingerprint": "636382e6104609bb43fe93a6959a92384d2e26dcd5567d2f72e344d4d9a7dc74"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

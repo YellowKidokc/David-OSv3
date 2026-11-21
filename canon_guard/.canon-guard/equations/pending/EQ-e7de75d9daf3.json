@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-e7de75d9daf3",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.488473+00:00",
+  "source": {
+    "path": "MEQ-MasterEqredfined.md",
+    "line": 322,
+    "source_sha256": "d108f210474798d891779a44f6b3da0e913112cc5776262832d759a183e9715b"
+  },
+  "equation": {
+    "raw": "C = ∫ψ*Ôψdτ × R_J",
+    "normalized": "c=integralψ*ôψdτ*r_j",
+    "fingerprint": "e7de75d9daf3f18d439d3275f2a38500c799599de1e9256037285f56ff720833"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

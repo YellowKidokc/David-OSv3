@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-f07ac72fec0a",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.772703+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Grace_Function_Model.md",
+    "line": 3400,
+    "source_sha256": "6c4b5b1936c802221bf804bd8fe71b9acc9dbea21bbd45ee6f781f2dd5f544ab"
+  },
+  "equation": {
+    "raw": "$$1 + \\sum_{i=1}^{n} F_i e^{-d_i}$$",
+    "normalized": "$$1+\\sum_{i=1}^{n}f_ie^{-d_i}$$",
+    "fingerprint": "f07ac72fec0a15af130c06a917fc3dd97ae01b5d8e12aa5b2483cd4a3671d5c7"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

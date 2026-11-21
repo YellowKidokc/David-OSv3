@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-9ace2482ac6e",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.323741+00:00",
+  "source": {
+    "path": "MEQ-3.md",
+    "line": 533,
+    "source_sha256": "bac11d16ac15b56f604ef8ca82f12e96d1e7d392bbc2fd6310b8f202d5d2ee09"
+  },
+  "equation": {
+    "raw": "→ **Cold soul = chaos magnet.**",
+    "normalized": "->**coldsoul=chaosmagnet.**",
+    "fingerprint": "9ace2482ac6e2842f0276e8038bc301d4cfb88349789cc3ee8915028444f23a9"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

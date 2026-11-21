@@ -1,0 +1,72 @@
+{
+  "schema": "theophysics.ppk.prediction.v1",
+  "recommendations": [
+    {
+      "action": "route:7q-classifier.station",
+      "score": 0.0,
+      "confidence": 0.125,
+      "reason": []
+    },
+    {
+      "action": "route:claim-extractor.station",
+      "score": 0.0,
+      "confidence": 0.125,
+      "reason": []
+    },
+    {
+      "action": "route:fruits-spirit-canon.station",
+      "score": 0.0,
+      "confidence": 0.125,
+      "reason": []
+    },
+    {
+      "action": "route:graph-linker.station",
+      "score": 0.0,
+      "confidence": 0.125,
+      "reason": []
+    },
+    {
+      "action": "route:html-article.station",
+      "score": 0.0,
+      "confidence": 0.125,
+      "reason": []
+    },
+    {
+      "action": "route:math-layer.station",
+      "score": 0.0,
+      "confidence": 0.125,
+      "reason": []
+    },
+    {
+      "action": "route:math-translation-layer.station",
+      "score": 0.0,
+      "confidence": 0.125,
+      "reason": []
+    },
+    {
+      "action": "route:metadata-extractor.station",
+      "score": 0.0,
+      "confidence": 0.125,
+      "reason": []
+    }
+  ],
+  "features_used": [
+    "behavior_code_changed=0",
+    "has_cli=1",
+    "has_git_checkout=1",
+    "has_jsonl_output=1",
+    "has_runtime_logger=1",
+    "has_tests=1",
+    "model_dirs_mutated=0",
+    "package_name=organize-tool",
+    "package_version=3.3.0",
+    "selected_model_spine=17_portable_preference_kernel",
+    "source_file_count≈162.0",
+    "source_total_bytes≈1272673.0",
+    "support_models_available=17_portable_preference_kernel",
+    "support_models_available=13_preference_implicit",
+    "support_models_available=18_river_streaming",
+    "support_models_available=19_markovify_text"
+  ],
+  "stored_raw_content": false
+}

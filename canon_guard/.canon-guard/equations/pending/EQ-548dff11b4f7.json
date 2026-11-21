@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-548dff11b4f7",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.295779+00:00",
+  "source": {
+    "path": "MEQ-law-01-G-grace.md",
+    "line": 3,
+    "source_sha256": "c08cabfe3ffa332000a65bee62fa9848f99c8a7738b9cf30dcfc583e74f674f5"
+  },
+  "equation": {
+    "raw": "∂G/∂t = Φext(t) · Θ(Sc − S) − γG∇SC",
+    "normalized": "partialg/partialt=φext(t)*θ(sc-s)-γg∇sc",
+    "fingerprint": "548dff11b4f783d999901f747f7cf4e8b0d0c644a170d67583d66c2fe72eedbc"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

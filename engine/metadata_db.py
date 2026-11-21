@@ -52,6 +52,7 @@ CREATE TABLE IF NOT EXISTS files (
     classified_at  TEXT,
     -- proposal / review
     proposed_name  TEXT,
+    engine_predictions TEXT,                -- json
     decision       TEXT,                     -- auto_approve | queue | skip
     reason         TEXT,
     confidence     REAL,
@@ -71,14 +72,14 @@ CREATE TABLE IF NOT EXISTS scan_runs (
 );
 """
 
-_JSON_FIELDS = {"chi_vector", "domain_scores", "tags"}
+_JSON_FIELDS = {"chi_vector", "domain_scores", "tags", "engine_predictions"}
 
 
 # Columns that may be missing from an older filebrain.sqlite (schema grew over
 # time). The DB is additive: we ALTER in anything absent instead of failing.
 _EXPECTED_COLS = {
     "gate_category": "TEXT", "gate_tier": "TEXT", "gate_route": "TEXT",
-    "gate_access": "TEXT",
+    "gate_access": "TEXT", "engine_predictions": "TEXT",
 }
 
 
@@ -124,7 +125,7 @@ def upsert_file(con: sqlite3.Connection, rec: dict) -> None:
         "topic_slug", "chi_vector", "chi_primary", "chi_secondary", "chi_confidence",
         "domain_scores", "evidence", "fruit", "anti_fruit", "tags", "role",
         "gate_category", "gate_tier", "gate_route", "gate_access",
-        "classified_at", "proposed_name", "decision", "reason", "confidence",
+        "classified_at", "proposed_name", "engine_predictions", "decision", "reason", "confidence",
         "approved", "notes",
     ]
     # FileRecord uses "extension"; DB column is "ext"

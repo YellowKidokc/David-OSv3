@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-ef850ea9068d",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.330798+00:00",
+  "source": {
+    "path": "MEQ-Law08.md",
+    "line": 39,
+    "source_sha256": "9f917562beafda0ed96573897ddcca37db2fd76a910596f937a1f66334d123f2"
+  },
+  "equation": {
+    "raw": "Delta C * Delta W >= K / 2",
+    "normalized": "deltac*deltaw>=k/2",
+    "fingerprint": "ef850ea9068d06bd06fbdbbf3aafdab865b9d89839d6eacbbaa68e3782534658"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

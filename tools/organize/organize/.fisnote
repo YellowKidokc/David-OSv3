@@ -1,0 +1,28 @@
+---
+fis_schema: "folder-index.v1"
+folder_id: "FLD-20260906-3bf2e615"
+folder: "David-OS\ZZZ_ARCHIVE_CLEANUP_2026-08-13\_salvage_boot_up\organize\organize"
+folder_class: "project"
+confidence: 0.6
+dependency_risk: 0.0
+dominant_family: "code"
+dominant_ratio: 0.92
+file_count: 25
+classified_at: "2026-09-06T05:54:52"
+allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
+suggested_name: "organize"
+---
+
+# FIS Folder Index: organize
+
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 25  ·  **Dominant**: code (92%)
+
+## Allowed actions
+- index
+- rename_internal
+- subfolder_sort
+- archive_exports
+
+**Suggested name**: `organize`  (not applied — review before use)
+
+<!-- FIS folder-index.v1: parseable note; safe to regenerate. -->

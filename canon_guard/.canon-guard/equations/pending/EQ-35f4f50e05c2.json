@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-35f4f50e05c2",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.548559+00:00",
+  "source": {
+    "path": "MEQ-PSYCHOLOGY_COHERENCE.md",
+    "line": 19,
+    "source_sha256": "29576940e2f3e6d1229717a6df1320c5658d4aa87098553c8828e98766d188ee"
+  },
+  "equation": {
+    "raw": "dC/dt = O·G(1-C) - S·C",
+    "normalized": "dc/dt=o*g(1-c)-s*c",
+    "fingerprint": "35f4f50e05c2adaa58ffbb5a18d09e607272c5dd20a71bf51de2b8a09575614a"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

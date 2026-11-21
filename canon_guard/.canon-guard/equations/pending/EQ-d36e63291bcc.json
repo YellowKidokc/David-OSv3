@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-d36e63291bcc",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.648663+00:00",
+  "source": {
+    "path": "MEQ-theophysics-mathematical-glossary.md",
+    "line": 204,
+    "source_sha256": "4a561e9ad179dc38191e9dcc45991ce7d0b700a76e32eb6bec46176620325ef9"
+  },
+  "equation": {
+    "raw": "F(t) = F_max × (1 - e^(-α×spiritual_disciplines(t)))",
+    "normalized": "f(t)=f_max*(1-e^(-α*spiritual_disciplines(t)))",
+    "fingerprint": "d36e63291bcce53f609dd051da30bf59f935b926bf22189fc3542d9e225a4e77"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

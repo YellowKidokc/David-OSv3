@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-584e3aec2f03",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.565593+00:00",
+  "source": {
+    "path": "MEQ-QUICK_REFERENCE.md",
+    "line": 70,
+    "source_sha256": "737f42be74431c3123ca68cbed2f7d32fcd3f3cc5a5f0bd8da80ceb677c86a0c"
+  },
+  "equation": {
+    "raw": "L_LC = χ(t)[d/dt(Σ Lᵢ)]² - S·χ(t)",
+    "normalized": "l_lc=chi(t)[d/dt(σlᵢ)]^2-s*chi(t)",
+    "fingerprint": "584e3aec2f0376ed70d679ef5c649581936cbe9d7ca9a4a1d8326b1262b3fe8b"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

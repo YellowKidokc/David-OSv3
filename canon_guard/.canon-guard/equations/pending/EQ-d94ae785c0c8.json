@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-d94ae785c0c8",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.616643+00:00",
+  "source": {
+    "path": "MEQ-Thebreakdownofequation.md",
+    "line": 758,
+    "source_sha256": "1d5664ecbf4e238a0f08802631751e3c185a0ff2fe054efdf93aa7c40ebf8535"
+  },
+  "equation": {
+    "raw": "Q \\cdot C = \\sum_{i=1}^n q_i c_i",
+    "normalized": "q*c=\\sum_{i=1}^nq_ic_i",
+    "fingerprint": "d94ae785c0c8ca3fcb40c30053810426c6b136e0acb0768d913b635d9471ebeb"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

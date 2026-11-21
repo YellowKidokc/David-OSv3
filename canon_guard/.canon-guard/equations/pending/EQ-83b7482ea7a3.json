@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-83b7482ea7a3",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.855423+00:00",
+  "source": {
+    "path": "MEQ-Untitled4-Copy.md",
+    "line": 6953,
+    "source_sha256": "21fe5fde357a2e7ba3a40b40deca1f824c0e1d6f4819fcd0dff9476c792f3906"
+  },
+  "equation": {
+    "raw": "c=299,792,458 m/sc = 299,792,458 \\, \\text{m/s}c=299,792,458m/s",
+    "normalized": "c=299,792,458m/sc=299,792,458\\,m/sc=299,792,458m/s",
+    "fingerprint": "83b7482ea7a3da36e68d2c0cd59849f3c358d56a45ae92e57e6d4a5eb92fe6a5"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

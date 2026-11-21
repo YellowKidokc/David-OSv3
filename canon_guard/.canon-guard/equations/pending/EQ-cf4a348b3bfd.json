@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-cf4a348b3bfd",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.630751+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Scientific_Curiosity_and_NDA.md",
+    "line": 717,
+    "source_sha256": "77fe614a39c063992cd296b8dbdfbd34243730c137eeac5265edac085aa24138"
+  },
+  "equation": {
+    "raw": "ρcₒₕₑᵣₑₙₜ = |Ψbₑₗᵢₑᵥₑᵣ⟩⟨Ψbₑₗᵢₑᵥₑᵣ| × e^(-sin_intensity × time_duration)",
+    "normalized": "ρcₒₕₑᵣₑₙₜ=|ψbₑₗᵢₑᵥₑᵣ⟩⟨ψbₑₗᵢₑᵥₑᵣ|*e^(-sin_intensity*time_duration)",
+    "fingerprint": "cf4a348b3bfd2bc47455a18b3b06c6692046b2dd6df66ee2f7bdc583edeb7d5f"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

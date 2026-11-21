@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-5aece42973df",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.805875+00:00",
+  "source": {
+    "path": "MEQ-Untitled16.md",
+    "line": 53,
+    "source_sha256": "e13b3e3cc7d5bd0d74dda28436f0e01584108d62c37c4a9bdc7bf2df6ce1c1d0"
+  },
+  "equation": {
+    "raw": "Disorder Total = $E + S$",
+    "normalized": "disordertotal=$e+s$",
+    "fingerprint": "5aece42973dfa0ca42025a1326e0a027d9db5f4a5e5b732052ebece16972ac2b"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

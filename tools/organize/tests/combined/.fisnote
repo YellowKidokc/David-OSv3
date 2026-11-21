@@ -1,0 +1,28 @@
+---
+fis_schema: "folder-index.v1"
+folder_id: "FLD-20260906-46afaa02"
+folder: "David-OS\ZZZ_ARCHIVE_CLEANUP_2026-08-13\_salvage_boot_up\organize\tests\combined"
+folder_class: "project"
+confidence: 0.6
+dependency_risk: 0.0
+dominant_family: "code"
+dominant_ratio: 0.889
+file_count: 9
+classified_at: "2026-09-06T05:54:52"
+allowed_actions: ["index", "rename_internal", "subfolder_sort", "archive_exports"]
+suggested_name: "combined"
+---
+
+# FIS Folder Index: combined
+
+**Class**: project  ·  **Confidence**: 60%  ·  **Files**: 9  ·  **Dominant**: code (89%)
+
+## Allowed actions
+- index
+- rename_internal
+- subfolder_sort
+- archive_exports
+
+**Suggested name**: `combined`  (not applied — review before use)
+
+<!-- FIS folder-index.v1: parseable note; safe to regenerate. -->

@@ -1,0 +1,76 @@
+#!/usr/bin/env python3
+"""Merge the seed registry with every tag already present in canonical papers."""
+
+import csv
+import re
+from pathlib import Path
+
+ROOT = Path(r"C:\Theophysics_Tagger")
+SEED = ROOT / "01_REGISTRY" / "tag_registry.csv"
+GROWN = ROOT / "01_REGISTRY" / "grown_tags.csv"
+PAPER_TAGS = Path(r"\\192.168.2.50\h_hp\Desktop\_____pipeline-workflows-main\EVIDENCE_CHAIN_INTAKE\OUTBOX\01_CLASSIFIED_LIBRARY\02_BY_TAG\00_TAG_REGISTRY.csv")
+LIBRARY_INDEX = Path(r"\\192.168.2.50\h_hp\Desktop\_____pipeline-workflows-main\EVIDENCE_CHAIN_INTAKE\OUTBOX\01_CLASSIFIED_LIBRARY\00_LIBRARY_LOCATIONS.md")
+OUTPUT = ROOT / "01_REGISTRY" / "combined_tag_registry.csv"
+SOURCE_LIST = ROOT / "01_REGISTRY" / "canonical_186_sources.txt"
+
+
+def main() -> int:
+    with SEED.open(encoding="utf-8-sig", newline="") as handle:
+        reader = csv.DictReader(handle)
+        fields = list(reader.fieldnames or [])
+        rows = list(reader)
+    by_slug = {row["slug"].casefold(): row for row in rows}
+
+    # Tags accepted by grow_tags.py (Theophysics folders and terms found in the documents).
+    if GROWN.exists():
+        with GROWN.open(encoding="utf-8-sig", newline="") as handle:
+            for item in csv.DictReader(handle):
+                key = (item.get("slug") or "").casefold()
+                if not key or key in by_slug:
+                    continue
+                row = {field: item.get(field, "") for field in fields}
+                rows.append(row)
+                by_slug[key] = row
+
+    with PAPER_TAGS.open(encoding="utf-8-sig", newline="") as handle:
+        for item in csv.DictReader(handle):
+            key = item["tag_id"].casefold()
+            aliases = [value.strip() for value in item["aliases"].split(";") if value.strip()]
+            if key in by_slug:
+                row = by_slug[key]
+                current = [value.strip() for value in row.get("aliases", "").split(";") if value.strip()]
+                row["aliases"] = "; ".join(dict.fromkeys([*current, *aliases]))
+                continue
+            display = aliases[0] if aliases else item["tag_id"]
+            row = {field: "" for field in fields}
+            row.update({
+                "tag": display,
+                "slug": item["tag_id"],
+                "category": "Paper-derived topic",
+                "parent_path": f"Topics/{item['tag_id']}",
+                "aliases": "; ".join(aliases[1:]),
+                "route_enabled": "yes",
+                "scope": "document",
+                "description": f"Derived from canonical paper metadata; appears in {item['paper_count']} paper(s).",
+            })
+            rows.append(row)
+            by_slug[key] = row
+
+    with OUTPUT.open("w", encoding="utf-8-sig", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fields)
+        writer.writeheader()
+        writer.writerows(rows)
+
+    text = LIBRARY_INDEX.read_text(encoding="utf-8", errors="replace")
+    paths = re.findall(r"^- Canonical record: `(.+?)`$", text, re.M)
+    SOURCE_LIST.write_text("\n".join(paths) + "\n", encoding="utf-8-sig")
+    print(f"Seed tags: {len(rows) - sum(1 for key in by_slug if key not in {r['slug'].casefold() for r in rows[:672]})}")
+    print(f"Combined unique tags: {len(rows)}")
+    print(f"Canonical source paths: {len(paths)}")
+    print(f"Registry: {OUTPUT}")
+    print(f"Source list: {SOURCE_LIST}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

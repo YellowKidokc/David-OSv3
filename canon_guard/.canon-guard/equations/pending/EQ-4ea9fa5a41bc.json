@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-4ea9fa5a41bc",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.039588+00:00",
+  "source": {
+    "path": "MEQ-00-MasterOutline.md",
+    "line": 9524,
+    "source_sha256": "082fae2f3083b27cfb2dff7b38e8a48167c5d25d33b0cc911e5168f5ab88c102"
+  },
+  "equation": {
+    "raw": "Where ΔE = gravitational self-energy",
+    "normalized": "whereδe=gravitationalself-energy",
+    "fingerprint": "4ea9fa5a41bc9b88c9fe8c7fe5abd20045786c9a800241e300bebb39d92bfb78"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

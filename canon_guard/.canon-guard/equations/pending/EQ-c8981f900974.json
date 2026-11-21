@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-c8981f900974",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.386853+00:00",
+  "source": {
+    "path": "MEQ-LAWS7BTheTrinityPatterninQuantumReality.md",
+    "line": 148,
+    "source_sha256": "b1d3487998604a82fa32a0695ffc94f86f3ecdbb30eb1d04dfb6d0f8f806eca3"
+  },
+  "equation": {
+    "raw": "$$\\mathcal{D}(t) = e^{-\\lambda t}$$",
+    "normalized": "$$\\mathcal{d}(t)=e^{-\\lambdat}$$",
+    "fingerprint": "c8981f900974662bbd06ba1f758b690c0b8212c4f348b42871997bb568d2c7a7"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

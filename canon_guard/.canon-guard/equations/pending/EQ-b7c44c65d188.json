@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-b7c44c65d188",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.965771+00:00",
+  "source": {
+    "path": "MEQ-01-MasterEquationOutline-Mind-Map.md",
+    "line": 310,
+    "source_sha256": "605f479be4ed01b9e02ff47b31a74c6efb05c4995e54f678066ca05bb81b23e9"
+  },
+  "equation": {
+    "raw": "L=G e−SegoL = G\\,e^{-S_{ego}}L=Ge−Sego​",
+    "normalized": "l=ge-segol=ge^{-s_{ego}}l=ge-sego​",
+    "fingerprint": "b7c44c65d188109bac25c34ff286f81a2246c64a75950e6f622bc7742ce6d609"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

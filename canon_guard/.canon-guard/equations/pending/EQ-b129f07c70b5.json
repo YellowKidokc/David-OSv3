@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-b129f07c70b5",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.057903+00:00",
+  "source": {
+    "path": "MEQ-04-S-entropy.md",
+    "line": 15,
+    "source_sha256": "8b7cfbd11afcaa4032f68811da3e21901719d0ff6321220bcb057b47f914034f"
+  },
+  "equation": {
+    "raw": "dS = dQ/T",
+    "normalized": "ds=dq/t",
+    "fingerprint": "b129f07c70b5611ecfd29cf747c497ab137f3a19b05db948903b970f3cd73735"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

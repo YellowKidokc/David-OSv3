@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-b3544143d7bc",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.608636+00:00",
+  "source": {
+    "path": "MEQ-THE_ONE_VARIABLE.md",
+    "line": 215,
+    "source_sha256": "f02cd357f6fc6d94e258f4f6bcfa471050e6ffc644637a547ec19603809e5416"
+  },
+  "equation": {
+    "raw": "χ = 𝒞",
+    "normalized": "chi=𝒞",
+    "fingerprint": "b3544143d7bc7a70a8f5b05aa1395de066eed800d0ccdf7ef3ce581a5e209066"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

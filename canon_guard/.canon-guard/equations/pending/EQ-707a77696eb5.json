@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-707a77696eb5",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.441404+00:00",
+  "source": {
+    "path": "MEQ-MASTER_EQUATION_CANONICAL_v4.md",
+    "line": 465,
+    "source_sha256": "1a4c0b026db6c5d375d9a849ded78e4d87da3a55271c364ab586895964341667"
+  },
+  "equation": {
+    "raw": "[σ̂, Û] = 0 for all self-operations Û",
+    "normalized": "[σ̂,û]=0forallself-operationsû",
+    "fingerprint": "707a77696eb5ab4a838de1f64010b896f18a6732759ad7148310b383f22461a9"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

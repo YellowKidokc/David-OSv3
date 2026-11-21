@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-10d48652cf5b",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.569594+00:00",
+  "source": {
+    "path": "MEQ-SPECULATIVE.md",
+    "line": 63,
+    "source_sha256": "b2b56a0dd4cae2ee3ec5f59dc295c220b65a5cec6f9d0bacfc3dd93282047089"
+  },
+  "equation": {
+    "raw": "S = ∫(L_matter + L_χ-field - Φ(t)·R(Ψ))dt",
+    "normalized": "s=integral(l_matter+l_chi-field-φ(t)*r(ψ))dt",
+    "fingerprint": "10d48652cf5becb5002fadeed3a89ee8e681ee7810e5a02c98471c4e1c12a782"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

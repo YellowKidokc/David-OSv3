@@ -10,8 +10,10 @@ import sqlite3
 import unicodedata
 from pathlib import Path
 
+from rapidfuzz import fuzz, process
+
 from engine import registry
-from engine.code_fields import Codebook
+from engine.code_fields import Codebook, DEFAULT_CODES, DEFAULT_RULES
 
 
 def terms(value):
@@ -58,6 +60,28 @@ def real_item(path,record_types):
     return True
 
 
+def name_key(value):
+    return " ".join(re.findall(r"[^\W_]+", unicodedata.normalize("NFKC", value).casefold()))
+
+
+def name_evidence(path, proposed, sibling_names):
+    if not proposed:
+        return {"current_name_similarity": None, "similar_existing_name": "",
+                "similar_existing_name_score": None}
+    proposed_key = name_key(Path(proposed).stem)
+    choices = {
+        name: key for name, key in sibling_names.items()
+        if name != path.name and Path(name).suffix.casefold() == path.suffix.casefold()
+    }
+    match = process.extractOne(proposed_key, choices, scorer=fuzz.ratio,
+                               score_cutoff=85) if proposed_key else None
+    return {
+        "current_name_similarity": round(fuzz.ratio(proposed_key, name_key(path.stem)), 2),
+        "similar_existing_name": match[2] if match else "",
+        "similar_existing_name_score": round(match[1], 2) if match else None,
+    }
+
+
 def build(db,root,output,codebook=None):
     book=codebook or Codebook();root=Path(root).resolve(strict=True);output=Path(output).resolve()
     if output.is_relative_to(root):raise ValueError('Preview output must be outside the pilot')
@@ -67,6 +91,7 @@ def build(db,root,output,codebook=None):
             FROM files f JOIN versions v ON v.version_id=f.version_id JOIN works w ON w.work_id=v.work_id WHERE f.present=1 ORDER BY f.path''')
             if Path(r['path']).is_relative_to(root)]
     proposals=[]
+    sibling_names = {}
     for row in rows:
         path=Path(row['path']);reason=[];proposed='';used={};confidence=None
         if row['record_type']!='work':reason=['Held: '+row['record_type']+' record; no source rename proposed']
@@ -95,8 +120,16 @@ def build(db,root,output,codebook=None):
                     if series:reason.append('existing series/ordinal used; membership remains subject to review')
                 else:reason=['Held: no concept code supported by the locked vocabulary cues']
         if proposed and path.with_name(proposed).exists() and path.with_name(proposed)!=path:reason.append('HOLD: target already exists')
+        if proposed and path.parent not in sibling_names:
+            sibling_names[path.parent] = {
+                sibling.name: name_key(sibling.stem)
+                for sibling in sorted(path.parent.iterdir()) if sibling.is_file()
+            }
+        similarity = name_evidence(path, proposed, sibling_names.get(path.parent, {}))
+        if similarity["similar_existing_name"]:
+            reason.append("similar existing filename requires review: " + similarity["similar_existing_name"])
         proposals.append({'old_path':str(path),'proposed_name':proposed,'codes_used':registry.dump(used),'reason':'; '.join(reason),
-                          'confidence':confidence,'source_sha256':row['sha256'],'codebook_sha256':book.hash})
+                          'confidence':confidence,**similarity,'source_sha256':row['sha256'],'codebook_sha256':book.hash})
     counts={}
     for row in proposals:
         if row['proposed_name']:counts[row['proposed_name'].casefold()]=counts.get(row['proposed_name'].casefold(),0)+1
@@ -135,4 +168,8 @@ def build(db,root,output,codebook=None):
 
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--db',type=Path,default=registry.REPO/'_data/registry.sqlite');p.add_argument('--root',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
-    args=p.parse_args();print(registry.dump(build(args.db,args.root,args.output)))
+    p.add_argument('--codebook', type=Path, default=DEFAULT_CODES)
+    p.add_argument('--filing-rules', type=Path, default=DEFAULT_RULES)
+    args = p.parse_args()
+    print(registry.dump(build(args.db, args.root, args.output,
+                              Codebook(args.codebook, args.filing_rules))))

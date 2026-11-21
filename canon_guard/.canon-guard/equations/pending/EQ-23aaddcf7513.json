@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-23aaddcf7513",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.291778+00:00",
+  "source": {
+    "path": "MEQ-JesusasLightFrameworkandNavigation.md",
+    "line": 37,
+    "source_sha256": "566eecb7ff11a06a6923f16d967f57d71b7044dbb855740e61fa8fdfdb49cb51"
+  },
+  "equation": {
+    "raw": "D --> D2[Physics: Wavelength<br>λ = c/f]",
+    "normalized": "d-->d2[physics:wavelength<br>λ=c/f]",
+    "fingerprint": "23aaddcf75132a65f1e5dc5912b8112ac293c7d3f6c32852e621d77414838f41"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

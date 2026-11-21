@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-055f0445fe02",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.334806+00:00",
+  "source": {
+    "path": "MEQ-Law1-Copy.md",
+    "line": 242,
+    "source_sha256": "e2028fa1dc5755d4b2be4f4b65e096ed6376f070bfdf69ba19b637321998d52c"
+  },
+  "equation": {
+    "raw": "✔ **F** = Gravitational Force",
+    "normalized": "✔**f**=gravitationalforce",
+    "fingerprint": "055f0445fe02b96bba38a379e9e18ab083379a5f3755a098df381c874e62bcdf"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

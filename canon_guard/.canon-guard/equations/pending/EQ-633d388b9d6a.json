@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-633d388b9d6a",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.019847+00:00",
+  "source": {
+    "path": "MEQ-03-solved-mathematical-examples.md",
+    "line": 311,
+    "source_sha256": "4dbfd23e509df0e73f65351fbac86c2bf9f691aea5027c97a1b63039d0fab15b"
+  },
+  "equation": {
+    "raw": "P_sin = 2.3 × 0.8 = **1.84 spiritual_momentum_units**",
+    "normalized": "p_sin=2.3*0.8=**1.84spiritual_momentum_units**",
+    "fingerprint": "633d388b9d6a7814e1e2f0de9d406924b7bb42cd4a2de3f9cb61b08e11b76e3c"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

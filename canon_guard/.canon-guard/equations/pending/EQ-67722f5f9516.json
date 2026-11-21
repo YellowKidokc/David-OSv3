@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-67722f5f9516",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.406379+00:00",
+  "source": {
+    "path": "MEQ-LLC_CANONICAL_v5.md",
+    "line": 259,
+    "source_sha256": "321a0d8efb87e9a7003d387014ecef8b34ed2bb865dd3ca41c10e33271a91cfd"
+  },
+  "equation": {
+    "raw": "χ(W) = C_W[∭(G(W)·M(W)·E(W)·S(W)·T(W)·K(W)·R(W)·Q(W)·F(W)) dx dy dt]",
+    "normalized": "chi(w)=c_w[triple_integral(g(w)*m(w)*e(w)*s(w)*t(w)*k(w)*r(w)*q(w)*f(w))dxdydt]",
+    "fingerprint": "67722f5f9516c9b0af618d8ecc5e459e1d32b531432410877aadd848f221f81c"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

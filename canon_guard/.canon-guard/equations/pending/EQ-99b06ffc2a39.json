@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-99b06ffc2a39",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.485473+00:00",
+  "source": {
+    "path": "MEQ-MasterEqredfined.md",
+    "line": 304,
+    "source_sha256": "d108f210474798d891779a44f6b3da0e913112cc5776262832d759a183e9715b"
+  },
+  "equation": {
+    "raw": "I(humanity) → I(Christ) = ∫S(t)dt",
+    "normalized": "i(humanity)->i(christ)=integrals(t)dt",
+    "fingerprint": "99b06ffc2a39b90007f759d74300e8551dac9dcb6513aaaab68e30c6e0d7a836"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

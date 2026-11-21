@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-c94cd6ab0570",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.617401+00:00",
+  "source": {
+    "path": "MEQ-00_MATH_SUMMARY.md",
+    "line": 485,
+    "source_sha256": "6c68ac764c4536e2f86e24ca6255a50c7ed39ef5f5a52e797626d1dbb24cdf0e"
+  },
+  "equation": {
+    "raw": "N(t) = N₀e^(-λt) + ∑ᵢ Rᵢ(1-e^(-λᵢt))",
+    "normalized": "n(t)=n₀e^(-λt)+∑ᵢrᵢ(1-e^(-λᵢt))",
+    "fingerprint": "c94cd6ab05703ae9ad29a8aa114e5f10e21f69a87ff6a0c82d6bf1a640e467ca"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

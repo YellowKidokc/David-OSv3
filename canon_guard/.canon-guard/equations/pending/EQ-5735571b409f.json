@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-5735571b409f",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.642586+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Elijahs_Quantum_Journey.md",
+    "line": 292,
+    "source_sha256": "e6eeb5115cc47421d45cba407a3f4809e91b8a9e7a1699843eda0947fc1e3a91"
+  },
+  "equation": {
+    "raw": "χ=∭(G⋅M⋅E⋅S⋅T⋅K⋅R⋅Q⋅F⋅C)dxdydt+U",
+    "normalized": "chi=triple_integral(g⋅m⋅e⋅s⋅t⋅k⋅r⋅q⋅f⋅c)dxdydt+u",
+    "fingerprint": "5735571b409fc6828e00932f0d5fb25216f842531d112cd63df6a9aec3ce246d"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

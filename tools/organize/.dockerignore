@@ -1,0 +1,9 @@
+# ignore everything
+*
+
+# except pyproject files
+!pyproject.toml
+!uv.lock
+
+# and the organize folder
+!organize/**/*.py

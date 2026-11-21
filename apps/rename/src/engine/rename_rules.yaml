@@ -1,0 +1,75 @@
+# Renamer rules: the "context clue words".  Edit freely; the renamer re-reads this on every scan.
+#
+# Name pattern (hybrid, decided 2026-10-14):
+#     DOMAIN__TYPE__words_in_lowercase__YYYYMMDD__ST.ext
+#     e.g. TPH__ART__gtq_05a_trinity_mechanism__20260812__AC.md
+#
+# How a clue matches: a clue word is looked for in the file NAME first (strong evidence),
+# then in the TITLE (the first "# " heading), then in the first ~4,000 characters of text.
+# First rule that matches wins, so put specific rules above general ones.
+
+max_words: 7            # words kept in the middle part
+max_length: 150         # whole filename cap (Kimi's engine allows 180; shorter is safer on the NAS)
+auto_check: 0.75        # rows at or above this confidence start out checked
+
+# DOMAIN: what the file is about.  3-letter codes, matching Kimi's live FIS engine.
+domains:
+  - {code: MEQ, words: [master equation, master eq, lagrangian, nabla, chi field]}
+  - {code: AXM, words: [axiom, axioms]}
+  - {code: CON, words: [consciousness, sentien, observer]}
+  - {code: GRC, words: [grace, agape, redemption, restoration, restores]}
+  - {code: COS, words: [cosmolog, universe, big bang, hubble, time began]}
+  - {code: FRM, words: [lean 4, formal derivation, theorem, lemma, proof]}
+  - {code: ETH, words: [moral, ethic, virtue, decay, sin]}
+  - {code: INF, words: [information theory, it from bit, binary, code, computer, language]}
+  - {code: SOC, words: [america, society, polariz, politic, culture, institution, separates us]}
+  - {code: FAM, words: [lowe family, family, genealogy]}
+  - {code: SCI, words: [scientific method, test suite, benchmark, empirical, falsif]}
+  - {code: PHY, words: [physics, quantum, relativity, decoherence, photon, entropy, wave]}
+  - {code: THE, words: [theology, scripture, gospel, jesus, bible, testament, god, trinity, logos]}
+  - {code: TPH, words: [theophysics, theophys, coherence]}
+domain_fallback: GEN    # nothing matched: low confidence, you decide
+
+# TYPE: what kind of document it is.  Role words in your filenames are the strongest clues.
+types:
+  - {code: TMP, words: [template]}
+  - {code: TAN, words: [tangent]}
+  - {code: REF, words: [ref, reference, academic analysis, index]}
+  - {code: RES, words: [research]}
+  - {code: NOT, words: [notes, editorial]}
+  - {code: INS, words: [insert, addition]}
+  - {code: DAT, words: [data, dataset]}
+  - {code: TST, words: [test, benchmark, head to head, conclusions]}
+  - {code: DRV, words: [derivation, formal]}
+  - {code: CHP, words: [chapter, part]}
+  - {code: PAP, words: [paper, thesis]}
+  - {code: AUD, words: [review, audit]}
+  - {code: STY, words: [story, photographer, narrative]}
+  - {code: ART, words: [main, article]}
+type_fallback: ART
+
+# STATUS (ST): the file's lifecycle, never the card's "standing".
+status:
+  - {code: DR, words: [draft, wip, sample, scratch, working]}
+  - {code: FN, words: [final, full, complete, cited, published]}
+  - {code: AR, words: [archive, old, backup, bak, deprecated]}
+  - {code: RV, words: [review, todo, pending]}
+status_fallback: AC
+archive_after_days: 365   # untouched this long and no clue word -> AR
+
+# Series prefixes: kept at the front of the words so reading order survives the rename.
+# Pattern (regex) -> how it is written.  {n} = number (2 digits), {x} = letter suffix (a, b ...).
+series:
+  - {pattern: '^gtq[_ -]*(\d+)([a-z]?)(?=[ ._-]|$)', as: 'gtq_{n}{x}'}
+  - {pattern: '^chapter[_ -]*(\d+)([a-z]?)(?=[ ._-]|$)', as: 'ch{n}{x}'}
+  - {pattern: '^paper[_ -]*(\d+)([a-z]?)(?=[ ._-]|$)', as: 'p{n}{x}'}
+  - {pattern: '^p(\d+)([a-z]?)_', as: 'p{n}{x}'}
+  - {pattern: '^(\d+)\.(\d+)(?=[ ._-])', as: '{n}_{x}'}
+  - {pattern: '^(\d+)[ ._-]*([a-z]?)(?=[ ._-])', as: '{n}{x}'}
+
+# Words dropped from the middle part (role words already live in TYPE; filler adds nothing).
+drop_words: [main, tangent, ref, research, notes, insert, addition, article, data, the, a, an,
+             and, of, to, for, with, in, on, md, copy, final, draft, v1, v2, v3, part]
+
+# Never touch these (guardrail GR-003 / GR-004): any path containing one is skipped.
+protect: [.git, node_modules, package.json, .obsidian, .venv, .env, ZZZ_DELETE]

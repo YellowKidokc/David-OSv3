@@ -24,3 +24,12 @@ runtime/search-tools/
 data/search-cache/
 data/search-history/
 data/saved-searches/
+
+# runtime junk (2026-11-15)
+.pytest_codex*/
+06_FIS_HTML/out/
+06_FIS_HTML/receipts/
+10_FILE_ACTIONS/jobs/
+10_FILE_ACTIONS/logs/
+system/ledger/*.jsonl
+

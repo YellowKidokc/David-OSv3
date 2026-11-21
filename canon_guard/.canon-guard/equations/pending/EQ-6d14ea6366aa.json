@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-6d14ea6366aa",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.907502+00:00",
+  "source": {
+    "path": "MEQ-variable-Q-faith.md",
+    "line": 25,
+    "source_sha256": "5c4179a1242c0826c01d1b959b881a0429a79ee863c19d7ed9debe2f6d256622"
+  },
+  "equation": {
+    "raw": "Q(t) = ∫0t G(τ) · e−(t−τ)/τc dτ · Θ(F·Q − Θc)",
+    "normalized": "q(t)=integral0tg(τ)*e-(t-τ)/τcdτ*θ(f*q-θc)",
+    "fingerprint": "6d14ea6366aa1fc02f5bc9bc41d8094433569fc9e473164de346e617ea817ecb"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

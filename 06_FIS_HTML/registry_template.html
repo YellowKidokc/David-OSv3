@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>__PAGE_TITLE__</title>
+<style>
+:root{color-scheme:dark;--bg:#060708;--panel:#0c0f14;--panel2:#090b0f;--line:#222a35;--text:#e7edf5;--muted:#8b97a7;--accent:#d1a922;--accent2:#f1d37a;--link:#6ea8e8;
+  --green:#34d399;--green-dim:rgba(52,211,153,.13);--red:#f87171;--red-dim:rgba(248,113,113,.14);--amber:#fbbf24;--amber-dim:rgba(251,191,36,.13);--mono:ui-monospace,Consolas,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 system-ui,sans-serif}
+a{color:var(--link);text-decoration:none}a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.layout{max-width:1560px;margin:auto;display:grid;grid-template-columns:240px minmax(0,1fr);gap:24px;padding:28px}
+main{min-width:0}
+h1{font:600 34px Georgia,serif;margin:5px 0 8px}
+h2{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin:30px 0 10px;scroll-margin-top:16px}
+code{font-family:var(--mono);font-size:12px;color:#d6e5f5;word-break:break-word}
+.eyebrow{font-family:var(--mono);color:var(--accent);font-size:12px;letter-spacing:1px}
+.muted{color:var(--muted)}
+.crumbs{font:12px var(--mono);color:var(--muted);margin-bottom:10px;word-break:break-all}
+.identity{border-left:3px solid var(--accent);padding:8px 0 8px 12px;margin:8px 0 6px;background:linear-gradient(90deg,rgba(209,169,34,.08),transparent)}
+.identity code{display:block;font-size:15px;color:var(--accent2);margin-bottom:4px}
+.identity span{display:block;color:var(--muted);font-size:12px}
+.sidebar{position:sticky;top:20px;align-self:start;border:1px solid var(--line);background:var(--panel);padding:12px;max-height:calc(100vh - 40px);overflow:auto}
+.sidebar a,.sidebar .child{display:flex;justify-content:space-between;gap:8px;padding:7px 6px;border-bottom:1px solid #1a222d}
+.sidebar .child{color:var(--muted);font-size:12.5px}
+.sidebar .child span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sidebar .child span:last-child{font:11px var(--mono);flex:none}
+.side-title{font:600 15px Georgia,serif;padding:4px 6px 12px}
+.side-label{color:var(--accent);font:10px var(--mono);letter-spacing:1px;text-transform:uppercase;padding:16px 6px 5px}
+.summary{display:grid;grid-template-columns:repeat(4,minmax(140px,1fr));gap:7px;margin:14px 0}
+.metric{border:1px solid var(--line);padding:8px 9px;background:var(--panel)}
+.metric b{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:600}
+.capsule{border:1px solid var(--line);background:var(--panel);padding:12px 14px}
+.capsule p{margin:0}
+.health{list-style:none;padding:0;margin:0;display:grid;gap:4px}
+.health li{border:1px solid var(--line);background:var(--panel);padding:8px 10px;font-size:13px}
+.health li::before{content:"\25C6  ";font-size:11px}
+.health li.warn::before{color:var(--accent)}.health li.ok::before{color:#5f7f6a}
+.health code{margin-left:6px}
+.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:0 0 8px}
+input[type=search]{width:min(440px,100%);padding:9px 10px;border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:3px;font:inherit}
+button{font:inherit;border:1px solid var(--line);background:var(--panel);color:var(--text);padding:8px 10px;border-radius:3px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+.legend{display:flex;flex-wrap:wrap;gap:14px;color:var(--muted);font-size:12px;margin-left:auto}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:2px;vertical-align:-1px;margin-right:5px}
+.cols{display:grid;grid-template-columns:minmax(190px,1.25fr) minmax(190px,1.3fr) 104px minmax(130px,1fr) 236px 48px;gap:8px;align-items:center}
+.head{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px;margin:0 0 4px;padding:0 10px}
+.list{display:grid;gap:4px}
+.block{border:1px solid var(--line);background:var(--panel)}
+.block summary{padding:8px 10px;list-style:none;cursor:pointer}
+.block summary::-webkit-details-marker{display:none}
+.block[open] summary{border-bottom:1px solid var(--line);background:var(--panel2)}
+.block[open]{border-color:#3a3320}
+.pname b{display:block;font:600 12.5px var(--mono);color:var(--accent2)}
+.pname span{display:block;font-weight:600}
+.meq{font:600 11px var(--mono);color:var(--accent2)}
+.kw{color:var(--muted);font-size:12.5px;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.mini{display:flex;gap:4px;flex-wrap:wrap}
+.box{width:15px;height:15px;border-radius:3px;display:inline-block}
+.b-done{background:var(--green);box-shadow:0 0 8px rgba(52,211,153,.35)}.b-red{background:var(--red)}.b-claimed{background:var(--amber)}.b-na{border:1.5px dashed var(--muted)}
+.src{justify-self:end;font-size:12px}
+.inside{padding:12px 12px 14px}
+.inside h3{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin:0 0 8px;font-weight:600}
+.steps{display:flex;flex-wrap:wrap;gap:6px}
+.stepbtn{border-radius:4px;padding:6px 10px;font-size:12.5px;font-weight:600;background:none}
+.stepbtn.s-done{background:var(--green-dim);color:var(--green);border-color:rgba(52,211,153,.35)}
+.stepbtn.s-red{background:var(--red-dim);color:var(--red);border-color:rgba(248,113,113,.4)}
+.stepbtn.s-claimed{background:var(--amber-dim);color:var(--amber);border-color:rgba(251,191,36,.4)}
+.stepbtn.s-na{color:var(--muted);border:1px dashed var(--muted)}
+.stepbtn[aria-pressed="true"]{outline:2px solid var(--accent);outline-offset:1px}
+.receipt{margin:8px 0 4px;border:1px solid var(--line);background:var(--panel2);padding:9px 11px;font-size:12.5px;min-height:40px}
+.receipt b{display:block;margin-bottom:3px}.receipt code{display:block;color:var(--muted);padding:1px 0}
+.next{color:var(--muted);font-size:12.5px;margin-bottom:14px}
+table{width:100%;border-collapse:collapse;background:var(--panel2)}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px;width:200px;font-weight:600}
+table.wide th{width:auto}
+.none{color:var(--muted);font-style:italic}
+.jump{background:none;border:0;padding:0;color:var(--link);font:12px var(--mono)}
+.jump:hover{text-decoration:underline}
+details.plain{border:1px solid var(--line);padding:10px;background:var(--panel);margin-top:8px}
+details.plain summary{cursor:pointer;color:var(--muted)}
+pre{white-space:pre-wrap;word-break:break-word;font:11.5px/1.5 var(--mono);color:var(--muted);margin:8px 0 0}
+.hist{display:grid;gap:0}
+.hist div{display:grid;grid-template-columns:130px 150px minmax(0,1fr);gap:10px;padding:6px 10px;border:1px solid var(--line);border-top:0;background:var(--panel);font-size:12.5px}
+.hist div:first-child{border-top:1px solid var(--line)}
+.hist span:nth-child(1){font-family:var(--mono);color:var(--muted)}.hist span:nth-child(2){font-family:var(--mono);color:var(--accent2)}
+@media(max-width:1100px){.cols{grid-template-columns:minmax(0,1fr) 236px}.cols>:nth-child(2),.cols>:nth-child(3),.cols>:nth-child(4),.cols>:nth-child(6){display:none}.legend{margin-left:0}}
+@media(max-width:800px){.layout{display:block;padding:16px}.sidebar{position:relative;top:auto;max-height:none;margin-bottom:16px}.summary{grid-template-columns:repeat(2,1fr)}table{display:block;overflow:auto}th{width:130px}}
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="side-title" id="sideTitle"></div>
+    <a href="#overview">Overview</a><a href="#health">Health</a><a href="#papers">Papers</a><a href="#folders">Folders</a>
+    <a href="#relationships">Relationships</a><a href="#history">History</a><a href="#context">Machine context</a>
+    <div class="side-label">Child folders</div>
+    <div id="sideFolders"></div>
+  </aside>
+  <main id="overview">
+    <nav class="crumbs" id="crumbs"></nav>
+    <div class="eyebrow">FIS REGISTRY / WORK ORDER VIEW</div>
+    <h1 id="h1"></h1>
+    <div class="identity"><code id="meqFolder"></code><span id="meqNote"></span></div>
+    <div class="summary" id="summary"></div>
+    <section><h2>Semantic capsule</h2><div class="capsule"><p id="capsule"></p></div></section>
+    <section id="health"><h2>Health</h2><ul class="health" id="healthList"></ul></section>
+
+    <h2 id="papers">Papers here</h2>
+    <div class="controls">
+      <input id="q" type="search" placeholder="Find by id, title, Master Equation name, or keyword" aria-label="Filter papers">
+      <button id="toggle" type="button">Open all</button>
+      <button id="copy" type="button">Copy for AI</button>
+      <button id="dl" type="button">Download JSON</button>
+      <div class="legend">
+        <span><i style="background:var(--green)"></i>Done, receipt on disk</span>
+        <span><i style="background:var(--red)"></i>Skipped</span>
+        <span><i style="background:var(--amber)"></i>Claimed, not checked</span>
+        <span><i style="border:1.5px dashed var(--muted)"></i>Does not apply</span>
+      </div>
+    </div>
+    <div class="cols head"><span>Paper</span><span>Master Equation name</span><span>Status</span><span>Keywords</span><span>Progress</span><span style="justify-self:end">Open</span></div>
+    <div class="list" id="rows"></div>
+
+    <h2 id="folders">Child folders</h2>
+    <div id="folderTable"></div>
+    <h2 id="relationships">Relationships</h2>
+    <div id="relTable"></div>
+    <h2 id="history">History</h2>
+    <div class="hist" id="hist"></div>
+    <details class="plain" id="context" style="margin-top:28px"><summary>Machine context and audit fields</summary><pre id="ctx"></pre></details>
+  </main>
+</div>
+<script id="registry-data" type="application/json">__REGISTRY_JSON__</script>
+<script>
+const D = JSON.parse(document.getElementById('registry-data').textContent);
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const byId = Object.fromEntries(D.papers.map(p => [p.id, p]));
+const openStep = {};
+let query = '';
+const VARS = 'G M E S T K R Q F C'.split(' ');
+const fileUrl = rel => 'file:///' + (D.root.replace(/\\/g, '/') + '/' + rel).split('/').map(encodeURIComponent).join('/').replace(/%3A/i, ':');
+const size = n => n == null ? '' : n < 1024 ? n + ' B' : n < 1048576 ? (n / 1024).toFixed(1) + ' KB' : (n / 1048576).toFixed(1) + ' MB';
+
+// Steps after the last finished one are not drawn. A gap before it shows red.
+function lastDone(p){ let last = -1; D.steps.forEach((s, i) => { const st = p.steps[s.key].state; if (st === 'done' || st === 'claimed') last = i; }); return last; }
+function shown(p){
+  return D.steps.slice(0, lastDone(p) + 1).map(s => { const x = p.steps[s.key];
+    return {...s, ...x, look: x.state === 'done' ? 'done' : x.state === 'claimed' ? 'claimed' : x.state === 'na' ? 'na' : 'red'}; });
+}
+function nextStep(p){ return D.steps.slice(lastDone(p) + 1).find(s => p.steps[s.key].state !== 'na') || null; }
+const lookWord = l => ({done: 'done', red: 'skipped', claimed: 'claimed, not checked', na: 'does not apply'}[l]);
+const keywordsOf = p => [...new Set([...(p.keywords || []), ...(p.tags || []), ...((p.fis && p.fis.keywords) || [])])];
+const plainKeywords = p => keywordsOf(p).filter(k => k.length > 2 && !/^L\d\d$/.test(k) && !/_/.test(k));
+const searchText = p => [p.id, p.title, p.uuid, p.short_uuid, p.me_name, p.status, p.path, p.fis && p.fis.lossless, p.fis && p.fis.proposed_name, ...(p.aliases || []), ...keywordsOf(p)].join(' ').toLowerCase();
+
+function drawTop(){
+  document.title = 'Registry | ' + D.root_name;
+  $('sideTitle').textContent = D.root_name;
+  $('crumbs').textContent = D.root;
+  $('h1').textContent = D.root_name;
+  const withChi = D.papers.filter(p => p.fis && p.fis.chi && Object.keys(p.fis.chi).length);
+  if (withChi.length){
+    const avg = Object.fromEntries(VARS.map(v => [v, Math.round(withChi.reduce((a, p) => a + (p.fis.chi[v] || 0), 0) / withChi.length)]));
+    $('meqFolder').textContent = VARS.map(v => v + avg[v]).join(' ') + ' :: [G.C] [M.F] [E.Q] [S.R] [T.K]';
+    $('meqNote').textContent = `Folder Master Equation aggregate (average across ${withChi.length} papers)`;
+  } else {
+    $('meqFolder').textContent = 'Master Equation name not issued';
+    $('meqNote').textContent = 'The FIS engine was not available during this scan.';
+  }
+  const all = D.papers.flatMap(shown), n = k => all.filter(x => x.look === k).length;
+  $('summary').innerHTML = `
+    <div class="metric"><b>Papers</b>${D.papers.length} registered, ${D.total_files.toLocaleString()} files in the folder</div>
+    <div class="metric"><b>Steps with receipts</b><span style="color:var(--green)">${n('done')} done</span>, <span style="color:var(--red)">${n('red')} skipped</span>, <span style="color:var(--amber)">${n('claimed')} unchecked</span></div>
+    <div class="metric"><b>Furthest step reached</b>${esc((D.steps[Math.max(-1, ...D.papers.map(lastDone))] || {label: 'none'}).label)}</div>
+    <div class="metric"><b>Scan</b><code>${esc(D.scanned_at)}</code></div>`;
+  const drafted = D.papers.filter(p => p.steps.draft.state === 'done').length;
+  $('capsule').textContent = `${D.papers.length} registered papers in ${D.folders.length - 1} child folders. ${drafted} have a written draft and ${D.papers.length - drafted} are outlines or stubs. ` +
+    `A step is counted only when its receipt was found on disk during the scan.`;
+  $('sideFolders').innerHTML = D.folders.filter(f => f.name).map(f => `<div class="child" title="${esc(f.name)}"><span>${esc(f.name)}</span><span>${f.total.toLocaleString()}</span></div>`).join('') || '<span class="child">None</span>';
+}
+
+function drawHealth(){
+  const P = D.papers, N = P.length, ids = a => a.length ? `<code>${esc(a.map(p => p.id).join(', '))}</code>` : '';
+  const skipped = P.filter(p => shown(p).some(x => x.look === 'red'));
+  const differ = P.filter(p => p.copies.some(c => !c.same));
+  const stubs = P.filter(p => p.steps.draft.state !== 'done');
+  const noMe = P.filter(p => !p.me_name), noUuid = P.filter(p => !p.uuid);
+  const claimed = P.filter(p => shown(p).some(x => x.look === 'claimed'));
+  const reviewed = P.filter(p => p.steps.review.state === 'done');
+  const row = (ok, label, value, extra) => `<li class="${ok ? 'ok' : 'warn'}">${esc(label)}<code>${esc(value)}</code>${extra || ''}</li>`;
+  $('healthList').innerHTML = [
+    row(!skipped.length, 'Papers with a skipped step', `${skipped.length} of ${N}`, ids(skipped)),
+    row(!differ.length, 'Papers with a second copy whose text differs', `${differ.length} of ${N}`, ids(differ)),
+    row(!stubs.length, 'Outlines or stubs without a draft', `${stubs.length} of ${N}`, ids(stubs)),
+    row(!claimed.length, 'Receipts that could not be checked', `${claimed.length} of ${N}`, ids(claimed)),
+    row(!noMe.length, 'Master Equation name issued', `${N - noMe.length} of ${N}`),
+    row(!noUuid.length, 'UUID issued', `${N - noUuid.length} of ${N}`),
+    row(reviewed.length === N, 'Review ruling recorded', `${reviewed.length} of ${N}`),
+  ].join('');
+}
+
+function paperInside(p){
+  const sh = shown(p), nx = nextStep(p), f = p.fis || {}, os = sh.find(x => x.key === openStep[p.id]);
+  const receipt = os ? `<b>${esc(os.label)}: ${lookWord(os.look)}</b>` + (os.receipts || []).map(r => `<code>${esc(r)}</code>`).join('') + (os.note ? `<div class="muted" style="margin-top:3px">${esc(os.note)}</div>` : '')
+    : '<span class="none">Pick a box to see its receipt.</span>';
+  const c = v => v || v === 0 ? `<code>${esc(v)}</code>` : '<span class="none">not set</span>';
+  const jump = r => `<button class="jump" data-go="${esc(r.id)}">${esc(r.id)}</button> <span class="muted">${esc(String(r.relation).replace(/_/g, ' '))}</span>`;
+  const rel = [...p.relates_out.map(r => 'this paper: ' + jump(r)), ...p.relates_in.map(r => 'points here: ' + jump(r))];
+  const chi = f.chi ? VARS.filter(v => f.chi[v]).map(v => v + ':' + f.chi[v]).join(', ') : '';
+  const hist = D.history.filter(h => h.paper === p.id).reverse();
+  const tr = (k, v) => `<tr><th>${esc(k)}</th><td>${v}</td></tr>`;
+  return `<div class="inside">
+    <h3>How far it has come</h3>
+    <div class="steps">${sh.length ? sh.map(x => `<button class="stepbtn s-${x.look}" data-step="${x.key}" aria-pressed="${openStep[p.id] === x.key}">${esc(x.label)}</button>`).join('') : '<span class="none">Nothing has a receipt yet.</span>'}</div>
+    <div class="receipt">${receipt}</div>
+    <div class="next">${nx ? 'Next step: ' + esc(nx.label) + '.' : 'Every step has a receipt.'}</div>
+    <table><tbody>
+      ${tr('Open source location', `<a href="${esc(fileUrl(p.path))}">${esc(p.path)}</a>`)}
+      ${tr('Master Equation name', c(p.me_name))}
+      ${tr('Paper ID', c(p.id))}
+      ${tr('UUID', c(p.uuid))}
+      ${tr('Short UUID', c(p.short_uuid))}
+      ${tr('Series / position', c(p.series + (p.position != null ? ' / ' + p.position : '')))}
+      ${tr('Lossless address', c(f.lossless))}
+      ${tr('Proposed compressed name', c(f.proposed_name))}
+      ${tr('SHA-256', c(p.sha256))}
+      ${tr('Keywords', keywordsOf(p).length ? `<code>${esc(keywordsOf(p).join(', '))}</code>` : '<span class="none">none found</span>')}
+      ${tr('Also known as', p.aliases.length ? `<code>${esc(p.aliases.join(', '))}</code>` : '<span class="none">none</span>')}
+      ${tr('Dominant CHI', c(f.chi_factor ? f.chi_factor + ' / ' + (f.chi_name || '') : ''))}
+      ${tr('CHI vector', c(chi))}
+      ${tr('Law signal', c(f.law))}
+      ${tr('Domain signal', c(f.domain))}
+      ${tr('Content role', c(f.role))}
+      ${tr('Document type', c(f.doc_type))}
+      ${tr('Structural evidence', c(f.evidence != null ? f.evidence + '/100' : ''))}
+      ${tr('Classifier confidence', c(f.confidence))}
+      ${tr('Type / status', c([p.type, p.status].filter(Boolean).join(' / ')))}
+      ${tr('Other copies', p.copies.length ? p.copies.map(x => `<code>${esc(x.path)}</code> <span class="muted">${x.same ? 'same text' : 'text differs'}${x.registered ? '' : ', no frontmatter'}</span>`).join('<br>') : '<span class="none">none</span>')}
+      ${tr('Also shown in', p.shown_in.length ? esc(p.shown_in.join(', ')) : '<span class="none">no other folder shows it yet</span>')}
+      ${tr('Relates to', rel.length ? rel.join('<br>') : '<span class="none">no links to other papers recorded</span>')}
+      ${tr('Last modified', c(p.modified))}
+      ${tr('Size', c(size(p.size)))}
+      ${tr('History', hist.length ? hist.map(h => `<code>${esc(h.at)}</code> ${esc(h.what)}`).join('<br>') : '<span class="none">no changes since the first scan</span>')}
+    </tbody></table>
+    <details class="plain"><summary>Frontmatter as written in the file</summary><pre>${esc(p.frontmatter)}</pre></details>
+  </div>`;
+}
+
+function drawPapers(keepOpen){
+  const open = new Set(keepOpen || [...document.querySelectorAll('#rows details[open]')].map(d => d.dataset.id));
+  const q = query.trim().toLowerCase();
+  const ps = D.papers.filter(p => !q || searchText(p).includes(q));
+  $('rows').innerHTML = ps.map(p => {
+    const sh = shown(p), f = p.fis || {};
+    return `<details class="block" id="P-${esc(p.id)}" data-id="${esc(p.id)}" ${open.has(p.id) ? 'open' : ''}>
+      <summary class="cols">
+        <span class="pname"><b>${esc(p.id)}</b><span>${esc(p.title)}</span></span>
+        <code class="meq">${esc(f.me_short || p.me_name || 'not issued')}</code>
+        <span class="muted" style="overflow-wrap:anywhere;font-size:12.5px">${esc(String(p.status || 'not set').replace(/_/g, ' '))}</span>
+        <span class="kw">${esc(plainKeywords(p).slice(0, 6).join(', ') || 'none')}</span>
+        <span class="mini">${sh.map(x => `<i class="box b-${x.look}" title="${esc(x.label)}: ${lookWord(x.look)}"></i>`).join('') || '<span class="none">no receipts</span>'}</span>
+        <a class="src" href="${esc(fileUrl(p.path))}">source</a>
+      </summary>${open.has(p.id) ? paperInside(p) : ''}</details>`;
+  }).join('') || '<div class="block none" style="padding:12px">No paper matches that search.</div>';
+  $('rows').querySelectorAll('details').forEach(d => {
+    d.addEventListener('toggle', () => { if (d.open && !d.querySelector('.inside')) { d.insertAdjacentHTML('beforeend', paperInside(byId[d.dataset.id])); wire(d); } });
+    wire(d);
+  });
+  $('toggle').textContent = ps.length && ps.every(p => open.has(p.id)) ? 'Close all' : 'Open all';
+}
+function wire(d){
+  const id = d.dataset.id;
+  d.querySelectorAll('.src').forEach(a => a.onclick = e => e.stopPropagation());
+  d.querySelectorAll('[data-step]').forEach(b => b.onclick = () => {
+    openStep[id] = openStep[id] === b.dataset.step ? null : b.dataset.step;
+    d.querySelector('.inside').outerHTML = paperInside(byId[id]); wire(d);
+  });
+  d.querySelectorAll('[data-go]').forEach(b => b.onclick = () => {
+    query = ''; $('q').value = '';
+    drawPapers([...document.querySelectorAll('#rows details[open]')].map(x => x.dataset.id).concat(b.dataset.go));
+    document.getElementById('P-' + b.dataset.go)?.scrollIntoView({block: 'start'});
+  });
+}
+
+function drawRest(){
+  const fs = D.folders.filter(f => f.name);
+  $('folderTable').innerHTML = fs.length ? '<table class="wide"><thead><tr><th>Folder</th><th>Files inside</th><th>Registered paper</th></tr></thead><tbody>' +
+    fs.map(f => { const ps = D.papers.filter(p => p.folder === f.name);
+      return `<tr><td><a href="${esc(fileUrl(f.name))}">${esc(f.name)}</a></td><td><code>${f.total.toLocaleString()}</code></td><td>${ps.map(p => `<button class="jump" data-jump="${esc(p.id)}">${esc(p.id)}</button>`).join(', ') || '<span class="none">none</span>'}</td></tr>`; }).join('') + '</tbody></table>'
+    : '<div class="capsule"><p class="none">None</p></div>';
+  const edges = D.papers.flatMap(p => p.relates_out.map(r => [p.id, r.relation, r.id]));
+  $('relTable').innerHTML = edges.length ? '<table class="wide"><thead><tr><th>From</th><th>Relation</th><th>To</th></tr></thead><tbody>' +
+    edges.map(e => `<tr><td><button class="jump" data-jump="${esc(e[0])}">${esc(e[0])}</button></td><td>${esc(String(e[1]).replace(/_/g, ' '))}</td><td><button class="jump" data-jump="${esc(e[2])}">${esc(e[2])}</button></td></tr>`).join('') + '</tbody></table>'
+    : '<div class="capsule"><p class="none">No paper links to another paper yet. Links come from wikilinks in the text and from knowledge-graph receipts.</p></div>';
+  document.querySelectorAll('[data-jump]').forEach(b => b.onclick = () => {
+    query = ''; $('q').value = '';
+    drawPapers([...document.querySelectorAll('#rows details[open]')].map(x => x.dataset.id).concat(b.dataset.jump));
+    document.getElementById('P-' + b.dataset.jump)?.scrollIntoView({block: 'start'});
+  });
+  $('hist').innerHTML = D.history.slice().reverse().map(h => `<div><span>${esc(h.at)}</span><span>${esc(h.paper || '')}</span><span>${esc(h.what)}</span></div>`).join('');
+  $('ctx').textContent = JSON.stringify({schema: D.schema, root: D.root, scanned_at: D.scanned_at, total_files: D.total_files, papers: D.papers.length,
+    steps: D.steps.map(s => s.key), folders: D.folders.map(f => ({name: f.name || '(top level)', files: f.total}))}, null, 2);
+}
+
+$('q').oninput = e => { query = e.target.value; drawPapers(); };
+$('toggle').onclick = () => {
+  const all = [...document.querySelectorAll('#rows details')], opening = all.some(d => !d.open);
+  drawPapers(opening ? all.map(d => d.dataset.id) : []);
+};
+$('copy').onclick = async () => {
+  const open = [...document.querySelectorAll('#rows details[open]')].map(d => byId[d.dataset.id]);
+  const payload = open.length ? open : D.papers;
+  try { await navigator.clipboard.writeText(JSON.stringify(payload, null, 2)); $('copy').textContent = `Copied ${payload.length} paper${payload.length === 1 ? '' : 's'}`; }
+  catch { $('copy').textContent = 'Copy blocked by the browser'; }
+  setTimeout(() => $('copy').textContent = 'Copy for AI', 1800);
+};
+$('dl').onclick = () => {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([JSON.stringify(D, null, 2)], {type: 'application/json'}));
+  a.download = D.root_name.replace(/[^\w\-]+/g, '_') + '_registry.json';
+  a.click(); URL.revokeObjectURL(a.href);
+};
+drawTop(); drawHealth(); drawPapers([]); drawRest();
+// A link ending in #P-<paper id> opens straight to that paper.
+const linked = decodeURIComponent(location.hash.slice(1));
+if (linked.startsWith('P-') && byId[linked.slice(2)]) {
+  openStep[linked.slice(2)] = (shown(byId[linked.slice(2)]).find(x => x.look !== 'done') || {}).key || null;
+  drawPapers([linked.slice(2)]);
+  document.getElementById(linked)?.scrollIntoView({block: 'start'});
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1126 @@
+{
+  "schema": "theophysics.backside.organize_audit.v1",
+  "created_at_utc": "2026-06-03T04:11:33+00:00",
+  "note": "pre-change baseline with PPK prediction handoff in D:\\GitHub\\organize",
+  "scope": {
+    "target_package": "D:\\GitHub\\organize",
+    "model_paths": [
+      "\\\\dlowenas\\brain\\Backside\\_models\\_Models\\17_portable_preference_kernel",
+      "\\\\dlowenas\\brain\\Backside\\_models\\_Models\\13_preference_implicit",
+      "\\\\dlowenas\\brain\\Backside\\_models\\_Models\\18_river_streaming",
+      "\\\\dlowenas\\brain\\Backside\\_models\\_Models\\19_markovify_text"
+    ],
+    "behavior_code_changed": false,
+    "model_dirs_mutated": false
+  },
+  "model_ranking_for_this_lane": [
+    {
+      "rank": 1,
+      "folder": "17_portable_preference_kernel",
+      "role": "routing and preference decision spine"
+    },
+    {
+      "rank": 2,
+      "folder": "13_preference_implicit",
+      "role": "future collaborative filtering support"
+    },
+    {
+      "rank": 3,
+      "folder": "18_river_streaming",
+      "role": "future online learning support"
+    },
+    {
+      "rank": 4,
+      "folder": "19_markovify_text",
+      "role": "future text-prediction support"
+    }
+  ],
+  "package": {
+    "root": "D:\\GitHub\\organize",
+    "package_name": "organize-tool",
+    "version": "3.3.0",
+    "has_git": true,
+    "git_status": {
+      "available": true,
+      "returncode": 0,
+      "stdout": "## main...origin/main\n?? BACKSIDE_CHANGE_LEDGER.md\n?? _backside_audit/\n?? tools/",
+      "stderr": ""
+    }
+  },
+  "source_inventory": {
+    "file_count": 154,
+    "total_bytes": 1230849,
+    "files": [
+      {
+        "path": ".dockerignore",
+        "size_bytes": 127,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "d8dc3364d7a4270c96e175795995144b4e48b6b0250d697295a3bdbadc57e92b"
+      },
+      {
+        "path": ".editorconfig",
+        "size_bytes": 363,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "5a37bc5832efdb526472f7e400353949143ca014493aa3266ca0db72e5efad84"
+      },
+      {
+        "path": ".github/dependabot.yml",
+        "size_bytes": 193,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "a68a3fbb32c56196412a53cd9027afc2aaca02e10819f6f05d1af1bbec2ea877"
+      },
+      {
+        "path": ".github/FUNDING.yml",
+        "size_bytes": 580,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "3d52e55f784e5e609c22e31e81c337ff5df09c850206ad5db3a19e79f9282b17"
+      },
+      {
+        "path": ".github/ISSUE_TEMPLATE/bug_report.md",
+        "size_bytes": 447,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "a022f3f2102593ec5155b52e34a5744033fb4e95d65e6f03658e4ad8224c1bee"
+      },
+      {
+        "path": ".github/ISSUE_TEMPLATE/feature_request.md",
+        "size_bytes": 628,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "21fe4e09ec066ef5e920a0daa1e94ff52928191940b3909907c0b4554c015422"
+      },
+      {
+        "path": ".github/PULL_REQUEST_TEMPLATE.md",
+        "size_bytes": 557,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "d4929b56e5d62d3926e6e2b95126897125f09deed9e845c01865f8ff9277fd8e"
+      },
+      {
+        "path": ".github/workflows/publish-docker-image.yml",
+        "size_bytes": 1280,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "06f87ab90ec4c38da3047497347c2352e0538d71c007b44c485ac136b7e9a01b"
+      },
+      {
+        "path": ".github/workflows/tests.yml",
+        "size_bytes": 939,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "6372ad2015ae9709f164e9defbfd1d0dac45a9a5f71c05f72c87c61dd08011db"
+      },
+      {
+        "path": ".gitignore",
+        "size_bytes": 2315,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "5c28ae488482a4cdc25deb82708ad08afc9521f12a6b74a22b9db622f862340b"
+      },
+      {
+        "path": ".pre-commit-config.yaml",
+        "size_bytes": 623,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "22a66e66e19a429c28c70e2f34ce219d5c4da41c986cf4f89f355085bf6be35c"
+      },
+      {
+        "path": ".readthedocs.yml",
+        "size_bytes": 493,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "0cd34c277e03de599e55eabda375e43126709a17bba9b1cbcf6185a0d7755395"
+      },
+      {
+        "path": "BACKSIDE_CHANGE_LEDGER.md",
+        "size_bytes": 957,
+        "mtime_utc": "2026-06-03T04:11:00+00:00",
+        "sha256": "82bc6969f4842be4a04ab2b454d1862c1c7071ad8240edb7893c54a5169869e9"
+      },
+      {
+        "path": "CHANGELOG.md",
+        "size_bytes": 13982,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "bbf4e813cda75a6492630fad73306683ecd8e78f6da31508ce91322599e7a2a1"
+      },
+      {
+        "path": "Dockerfile",
+        "size_bytes": 726,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "9eeabec1d6f4ae9ab81a7c8ed6cdc329341af4b6dd43b8880e10cc116962076f"
+      },
+      {
+        "path": "docs/actions.md",
+        "size_bytes": 9836,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "4665f75f6d288c03908fc6a748cf4b6033eebbb6ded4678a88f456af261c2f29"
+      },
+      {
+        "path": "docs/changelog.md",
+        "size_bytes": 78,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "c874a3539e4602444c7b36bad284b413c495b8aa041d414a19c30a13ac162f11"
+      },
+      {
+        "path": "docs/configuration.md",
+        "size_bytes": 2316,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "c2018d51ec4bcd7138c12e8b497cbcb802d35d749990bf9897a195665be03ccd"
+      },
+      {
+        "path": "docs/docker.md",
+        "size_bytes": 1391,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "8a11b87dc9417f6866435090606648a8b4f57b176591ac6708fb8df77a50b03d"
+      },
+      {
+        "path": "docs/filters.md",
+        "size_bytes": 15459,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "82961e19f1f7f32ed91154e12a3fa8bfadbf4068a50c888cbe033bbc72254df0"
+      },
+      {
+        "path": "docs/img/organize-v3.jpg",
+        "size_bytes": 252870,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "946cae183d963bb03c7d3700b1869569576957b4a4b3f5793583afb11f47dd6b"
+      },
+      {
+        "path": "docs/img/organize.pdf",
+        "size_bytes": 308245,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "08ab009a5161f1da21a1fd6e08bf67869566c5c71d0d25824628557b4c6c71f2"
+      },
+      {
+        "path": "docs/img/organize.svg",
+        "size_bytes": 63794,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "20e684a52a2b6ba965176f1b7d6461d2b65314d69acbd049e9c2bbe372448bab"
+      },
+      {
+        "path": "docs/index.md",
+        "size_bytes": 114,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "b7b442f354e1426287a1ab4810b8940016e8ba7e9010257dd49ccbef541df6de"
+      },
+      {
+        "path": "docs/locations.md",
+        "size_bytes": 3961,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "186c86b993ca1c06ce9129b4c9375b20720085957f1aa159057c15718fbefdcc"
+      },
+      {
+        "path": "docs/migrating.md",
+        "size_bytes": 4440,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "b256600b6ee6cf43ab4767ddcae58e6e721e9783a836366b2ee1a2468f43ffae"
+      },
+      {
+        "path": "docs/rules.md",
+        "size_bytes": 4395,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "6716b573bd57db993974327c92657da364bec57f88a62e493e74f25517d388e8"
+      },
+      {
+        "path": "docs/textract-hints.md",
+        "size_bytes": 984,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "50cb42fc11ac19ddb05ba16a079966a19b533cc9473eb216f451137d618bd4d7"
+      },
+      {
+        "path": "LICENSE.txt",
+        "size_bytes": 1098,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "1764c85bb5ee7181e3891fb1f6dd39a4cc4fc041f40120fd0b5ba3520a9b9a39"
+      },
+      {
+        "path": "main.py",
+        "size_bytes": 71,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "d55893f1e16c4dbba30bc21f77237f249ce1ea4f0484d6224941d06d2b2da3cf"
+      },
+      {
+        "path": "manage.py",
+        "size_bytes": 5734,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "11d4064078f8e54c79f657bdde93d244031401411ea42198a7348850c32f984c"
+      },
+      {
+        "path": "mkdocs.yml",
+        "size_bytes": 831,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "a5163a61112161b1f570bea0bdca9a99465fa3dbcc749e73af780bd9da741628"
+      },
+      {
+        "path": "organize/__init__.py",
+        "size_bytes": 190,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "448aa3d697a96253802202a14c54bad419b8fe587e1873059038afb27175a736"
+      },
+      {
+        "path": "organize/__main__.py",
+        "size_bytes": 67,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "361529ff6db6231d92a9823c0a561a56d21469a2c2cf6e8b14f694a418e51a1b"
+      },
+      {
+        "path": "organize/__version__.py",
+        "size_bytes": 23,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "dbf572549b03d95009c85bcbc68574d9682b6d8c83b3122db18c850003aa9a0f"
+      },
+      {
+        "path": "organize/action.py",
+        "size_bytes": 760,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "5d6f2ae3efa75a5a6cf9b11fa83b25b72343f95325d1ef2feeddc1463e907fca"
+      },
+      {
+        "path": "organize/actions/__init__.py",
+        "size_bytes": 640,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "4ee5c0ed92909fec9442b78a0429287fd24401fa767fe05b30be345dbe9f84b0"
+      },
+      {
+        "path": "organize/actions/common/__init__.py",
+        "size_bytes": 0,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "organize/actions/common/conflict.py",
+        "size_bytes": 4278,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "0408a2a0179e10bbd26e421ccd0d12fba854328a5b2bedbd52988597b2325186"
+      },
+      {
+        "path": "organize/actions/common/target_path.py",
+        "size_bytes": 1068,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "54794d5c1ae7ef738f2d9cea638531f4201ac555302754baa41b9d6b8c75ed96"
+      },
+      {
+        "path": "organize/actions/confirm.py",
+        "size_bytes": 1002,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "3eeddb8ed5f13943f9f22ec7c062c4723eb07e6ff5f13a5bf9aa7f705133af23"
+      },
+      {
+        "path": "organize/actions/copy.py",
+        "size_bytes": 3739,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "f9825420842f2c18f980ca8708ccb276988902046e7bb86d85496ddd165bd831"
+      },
+      {
+        "path": "organize/actions/delete.py",
+        "size_bytes": 1167,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "6e7ffe2af616bf70d5f3e7f954e34f19f93f2601d6e4403325238183d83ac902"
+      },
+      {
+        "path": "organize/actions/echo.py",
+        "size_bytes": 1033,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "41946fb116c0fa2ceb00ade37d94c14d9b091405f36cc5318f36dc12b42d1907"
+      },
+      {
+        "path": "organize/actions/hardlink.py",
+        "size_bytes": 3063,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "51440685059a3d714a062bab8d1118d29a4f1f61cdfe2170575155f0864216df"
+      },
+      {
+        "path": "organize/actions/macos_tags.py",
+        "size_bytes": 2390,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "6e713f0c3d9f051d4194ea045aee85b4ba4023ece397be6b4cefb36ba308642e"
+      },
+      {
+        "path": "organize/actions/move.py",
+        "size_bytes": 3418,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "9d18140cbae999e7c235e2f981aafce4dea5c735c71b6321fcce5ae3d7282694"
+      },
+      {
+        "path": "organize/actions/python.py",
+        "size_bytes": 2458,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "37b8156195c35f84750196bbae8588b42882433b49776833379fd0201e507ffe"
+      },
+      {
+        "path": "organize/actions/rename.py",
+        "size_bytes": 2471,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "341140726a668ca13bb7a4fe600ea36705fd0ecf4484878f6223efa32c47723c"
+      },
+      {
+        "path": "organize/actions/shell.py",
+        "size_bytes": 3216,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "c99ee9668dcb2f1f40f67c85af4679525c33c957004156b7e29b6192c2fc7cc6"
+      },
+      {
+        "path": "organize/actions/symlink.py",
+        "size_bytes": 2889,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "c517733ac1c9b5a973a3ca80983de3f4a0dd4340f892102ee221e4bfb70744fd"
+      },
+      {
+        "path": "organize/actions/trash.py",
+        "size_bytes": 921,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "2e5b3709e806521e20dbe873f6e6597e6dc68334dc9c236618982ff89a6ee574"
+      },
+      {
+        "path": "organize/actions/write.py",
+        "size_bytes": 3433,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "02c4130ec11b03773e871e2176689635f4a2aafd8e2b76c4ac04ffb4ca116b45"
+      },
+      {
+        "path": "organize/cli.py",
+        "size_bytes": 9120,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "8696e396ea299f131bb3d4ac137af21a3a0659f0d36f0e6c46969dee951e2032"
+      },
+      {
+        "path": "organize/config.py",
+        "size_bytes": 3587,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "db11ee0e49d2f215f3b37d80107b9547da70906ddd4822d6b31a16f1eba09087"
+      },
+      {
+        "path": "organize/errors.py",
+        "size_bytes": 1539,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "803d8ca0f8c6c254e32ef093dd93679c0ef4be199a193394be9c7161bff6c168"
+      },
+      {
+        "path": "organize/filter.py",
+        "size_bytes": 2202,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "ad46dec13d2835b0fb144b9f5ec5255549da08ee6c537a15353302da61f254bf"
+      },
+      {
+        "path": "organize/filters/__init__.py",
+        "size_bytes": 739,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "ab06bd0652740301b6181db428b02f77b100917fe4017e00173815e52c9b16a8"
+      },
+      {
+        "path": "organize/filters/common/__init__.py",
+        "size_bytes": 0,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "organize/filters/common/timefilter.py",
+        "size_bytes": 2328,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "3cc38d88907baa0db05e71e2bdfb167a72e1d367434d57e94897952ce7345937"
+      },
+      {
+        "path": "organize/filters/created.py",
+        "size_bytes": 2658,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "be7cb262b44fa5fb1c50889765795111b3d666344e7527ab7ae479a3b2f2ef56"
+      },
+      {
+        "path": "organize/filters/date_added.py",
+        "size_bytes": 1730,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "98d9c54bc6882b0786a5537141bd9650a05b4b3a92269c37219d93fb37d8ace6"
+      },
+      {
+        "path": "organize/filters/date_lastused.py",
+        "size_bytes": 1802,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "89276c311aba7c6a211ad5cc3d43c92a0353e9b90faed564c992773b61406522"
+      },
+      {
+        "path": "organize/filters/duplicate.py",
+        "size_bytes": 7489,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "dc10fac5f84cd5d6d1993fcb8b88d9a06e7fc908b65c9450352eb4d62783eb18"
+      },
+      {
+        "path": "organize/filters/empty.py",
+        "size_bytes": 567,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "607ecba3d2a42b259c6ccb00d042448e265229eb17e1f6f762873ad7ecb26788"
+      },
+      {
+        "path": "organize/filters/exif.py",
+        "size_bytes": 9078,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "fb205c49fbeb8ce9810c5ac63d2559c2aedabca75a97775725c32cb7a94e2fd6"
+      },
+      {
+        "path": "organize/filters/extension.py",
+        "size_bytes": 2104,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "716e423fac2b382b85515da23aaee4198d98ce2943d22904b9d1530efa4e5272"
+      },
+      {
+        "path": "organize/filters/filecontent.py",
+        "size_bytes": 4301,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "df09b06a07b1a75faaba3077472442465e05b264ba92db272e5ec66c0eb4c6f9"
+      },
+      {
+        "path": "organize/filters/hash.py",
+        "size_bytes": 2754,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "96a669eadc1b4c47c65fd60c2118e592774c25af805f61f4620847cc33a690cc"
+      },
+      {
+        "path": "organize/filters/lastmodified.py",
+        "size_bytes": 1331,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "3bdc74db1503fb4e99aece4c6122b36d354a02a39527ba926f88edc169678b7a"
+      },
+      {
+        "path": "organize/filters/macos_tags.py",
+        "size_bytes": 1768,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "0b2b938b0569e7326b833541bf2b2ba4c8323e84b375eb2b6c942b0742595272"
+      },
+      {
+        "path": "organize/filters/mimetype.py",
+        "size_bytes": 1915,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "d7dffa4e4af1ca4e95bf4603b5dcc5f46630be2d4b4b12f9b8177241fbbd906d"
+      },
+      {
+        "path": "organize/filters/name.py",
+        "size_bytes": 3063,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "96bb3f81cd2cb50f1a395f4c74e688c494fa6002416e93ad85dbf72975f69f0f"
+      },
+      {
+        "path": "organize/filters/python.py",
+        "size_bytes": 2750,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "cffc562cbd24e17ca012c6a95ae4fe3cf0c233c603e29c6aa7b30fffa56f1521"
+      },
+      {
+        "path": "organize/filters/regex.py",
+        "size_bytes": 1398,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "3e2d3cc93ea7591b39eba2714fa562d81014ee2190b2d4ab1c83057655084467"
+      },
+      {
+        "path": "organize/filters/size.py",
+        "size_bytes": 5340,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "43f2b5f6bfa8853e4eddc8cbc332ec7b2c97bf50989291bed10abae1bedbebe4"
+      },
+      {
+        "path": "organize/find_config.py",
+        "size_bytes": 3568,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "06abb5ce85dd3ca4b2ea5b6f87946f97d2a1971d51cbde94fde901423b41adeb"
+      },
+      {
+        "path": "organize/location.py",
+        "size_bytes": 1078,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "fee4b5cc311e2ab3d3f8220da92fc03848732c2bc26c247d6e95686eda80c00b"
+      },
+      {
+        "path": "organize/logger.py",
+        "size_bytes": 625,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "0de31ea43553a98261337a13da951c92e2ecc357181048b4add0216ee9348cbf"
+      },
+      {
+        "path": "organize/output/__init__.py",
+        "size_bytes": 202,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "b80de52b5c754ce7e76b3476dd3328cc5dbb4e69884ef51475ae5f2504ac61b7"
+      },
+      {
+        "path": "organize/output/_sender.py",
+        "size_bytes": 428,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "acd2650dd8720a2e114304a9ee5b6a05b8828ba5600629018ac3dd997904c756"
+      },
+      {
+        "path": "organize/output/default.py",
+        "size_bytes": 6979,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "0a1b58c18e653ff7f2489fd7a6a96d1f4476f79b82451bc57db11f8662a38e0c"
+      },
+      {
+        "path": "organize/output/jsonl.py",
+        "size_bytes": 3144,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "f72c4761951e75467d97e65f6827ca4a05575d420cd67c40786cff7673728004"
+      },
+      {
+        "path": "organize/output/output.py",
+        "size_bytes": 951,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "a957c591b4f956d13703069cde37be47eb0de0abd8a32566eed665959d9f88ad"
+      },
+      {
+        "path": "organize/output/saving.py",
+        "size_bytes": 1181,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "8cc3efbdc9e4ef1273d9d2090e409dd0f922934029a6b3aa3ed79ada7fb9f7a2"
+      },
+      {
+        "path": "organize/py.typed",
+        "size_bytes": 0,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "organize/registry.py",
+        "size_bytes": 1335,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "094ed36db773b5d3d75acc97f7579d0d1edfea48a92490d37cb1bc7184f191da"
+      },
+      {
+        "path": "organize/resource.py",
+        "size_bytes": 2931,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "6aaab389b6617baa7eae8acf881990a0a286f0c446e05d12607d9053d2bc4e6a"
+      },
+      {
+        "path": "organize/rule.py",
+        "size_bytes": 10638,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "31bb1d171fba80e10ab5ab6af6dae10a9b1c5af4df64ab062276452f35351106"
+      },
+      {
+        "path": "organize/template.py",
+        "size_bytes": 1393,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "c2e4f26d6c6ed7830f9c30690426292bb98d1575bf142661a02c741a89fdbbe8"
+      },
+      {
+        "path": "organize/utils.py",
+        "size_bytes": 2428,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "48e8b77949e87a8dac71cd728815d54380a85bfc797cf48938f3297dac70dff4"
+      },
+      {
+        "path": "organize/validators.py",
+        "size_bytes": 712,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "fef5ce877a84606b06186df951449bca85b77fdb42b05c564fa0048c934b818a"
+      },
+      {
+        "path": "organize/walker.py",
+        "size_bytes": 5381,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "a73eb82272b093282f8a225eb6243cd0558cd685b0e28e11f31fa986674c6699"
+      },
+      {
+        "path": "pyproject.toml",
+        "size_bytes": 2730,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "d2e4ae76e21bfa4b4ddace37f3d6c90154c01efc06e118bd8c346a0325f47ad4"
+      },
+      {
+        "path": "pyrightconfig.json",
+        "size_bytes": 142,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "562e2bbf7c347fa9bf4cc093798e08f8e5e266bed085816f267e4f9bea81483a"
+      },
+      {
+        "path": "README.md",
+        "size_bytes": 8908,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "46d4c186acc3f74d1ae39c7d4e5bba446e40d259bcf4a4d927e1c19191cf6c01"
+      },
+      {
+        "path": "tests/actions/__init__.py",
+        "size_bytes": 0,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "tests/actions/test_common.py",
+        "size_bytes": 2968,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "f08b1bac1e791a331326cf22c4e0251f7581a547129721b1b8fe900899190b9a"
+      },
+      {
+        "path": "tests/actions/test_conflict_resolution.py",
+        "size_bytes": 3378,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "5088d94133814f331931d13c32aadfe76b4dd3c82bba66ac3ff071b11c9d7206"
+      },
+      {
+        "path": "tests/actions/test_copy.py",
+        "size_bytes": 4685,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "153e3e24be2dd8e2fbb84d94fe65df8dfe25bde46e78cfd8b13293f1e2d9c6ad"
+      },
+      {
+        "path": "tests/actions/test_delete.py",
+        "size_bytes": 2225,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "13ed2fe6f1a6aba312ec092aec9a08a9f4febb8536e3f0fdc697a78ac26be354"
+      },
+      {
+        "path": "tests/actions/test_echo.py",
+        "size_bytes": 1086,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "647a27f41fdd73dcb8bcc0f37fa73cf42caa18973765c5bf3887b1b428a57743"
+      },
+      {
+        "path": "tests/actions/test_macos_tags.py",
+        "size_bytes": 787,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "f41b70d75b834a53b73be49d584205bbe5468f780ae3fb9000f92a92ff339ec0"
+      },
+      {
+        "path": "tests/actions/test_move.py",
+        "size_bytes": 2955,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "5174e2efe49f2e59310173bf45687b5734aea7742dbd8cecb6fb897dd9fca487"
+      },
+      {
+        "path": "tests/actions/test_python.py",
+        "size_bytes": 793,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "adedbe08d19c1afe2a6c2670119b8e706e25f55b001d09d15c9e1af1c6b3ff0b"
+      },
+      {
+        "path": "tests/actions/test_rename.py",
+        "size_bytes": 3394,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "e7b2e7b2d3af22a263eee8637157f5efcf6534b1758ea5c9e9bd7d7c893bf6be"
+      },
+      {
+        "path": "tests/actions/test_shell.py",
+        "size_bytes": 1255,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "8d267954fe1e27984cf7d05f9ce0c0dbc43fc9f7004eae7eae007d974b07b544"
+      },
+      {
+        "path": "tests/actions/test_symlink.py",
+        "size_bytes": 890,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "e34c186f29a3d8611e274dd32d38b2030c436bb1bc32813e5c95513b1c31d190"
+      },
+      {
+        "path": "tests/actions/test_trash.py",
+        "size_bytes": 964,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "9884e68e5bd7867be8044b5f8a5126907d4bb0a74899eca6af2885396fa5739b"
+      },
+      {
+        "path": "tests/actions/test_write.py",
+        "size_bytes": 3570,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "05f2a5c78672cd0f0440226cf1022600c7362f679e709da173c896aa71f55eba"
+      },
+      {
+        "path": "tests/combined/__init__.py",
+        "size_bytes": 0,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "tests/combined/test_cli.py",
+        "size_bytes": 3602,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "230d3f0bcb72fa3aa36b9e1b15213680966e8b012439f5238237b1be39806819"
+      },
+      {
+        "path": "tests/combined/test_codepost_usecase.py",
+        "size_bytes": 1265,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "dc67df89cd4360fad32bec0c7cf279a01871a46c9013e5eda1d56f9ffab33b46"
+      },
+      {
+        "path": "tests/combined/test_dependent_rules.py",
+        "size_bytes": 791,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "1593729f0d59d0dafd0b1624f73fca5f94ce08c149de058d6343d30150074faa"
+      },
+      {
+        "path": "tests/combined/test_example_config.py",
+        "size_bytes": 427,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "960174610b7a867ce32a1b9a32318a5e3f61c636bba850a061aa2c0697911be4"
+      },
+      {
+        "path": "tests/combined/test_keep_folder_structure.py",
+        "size_bytes": 1916,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "86b4ad2a6a7f3e7dcba53e633a46b36a9d3619703c671f15db0fff5b09d25f7b"
+      },
+      {
+        "path": "tests/combined/test_rename_regex.py",
+        "size_bytes": 835,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "95481b8c0b1c52e629e63918beebb929987a2c6765d01a21fc7f8867fcfabff2"
+      },
+      {
+        "path": "tests/combined/test_simple_replace.py",
+        "size_bytes": 552,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "83040510ca1db402402339409a9c101cda31e3206d95deab39ecf69a7f870b86"
+      },
+      {
+        "path": "tests/conftest.py",
+        "size_bytes": 1894,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "69701b6c0f283dc26d86a611db60f54ca7a6528563190a5956efeb7a360826fd"
+      },
+      {
+        "path": "tests/core/__init__.py",
+        "size_bytes": 0,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "tests/core/test_config.py",
+        "size_bytes": 7904,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "0850d5e35e59cc30f9cbe7a9baf1fec02cbd439f5b43aab4e615dbfc7606b53c"
+      },
+      {
+        "path": "tests/core/test_filter_mode.py",
+        "size_bytes": 1363,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "dd3bea670e8e6cea89cb9ea687234cce91acdc330f56c01c678aad409bbbc080"
+      },
+      {
+        "path": "tests/core/test_ignore_seen_files.py",
+        "size_bytes": 1488,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "c9eefe297a1701c34b247fa744fd57e5be0b3d1105b4f4d2e3c1ab812ac3226b"
+      },
+      {
+        "path": "tests/core/test_location.py",
+        "size_bytes": 2931,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "a2c71c2725d349e67c82ab9824d8c29cce4461277b1fe5cd2ced798017f27653"
+      },
+      {
+        "path": "tests/core/test_relativepath.py",
+        "size_bytes": 341,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "927ba4ae98344aa356e67f81a094049bb79cd608acfca52bc9861def09ed7661"
+      },
+      {
+        "path": "tests/core/test_tags.py",
+        "size_bytes": 1421,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "37b1c5934877f54a00a90bc255a6241e3717c54e8056995ba267fb5264c5b0d8"
+      },
+      {
+        "path": "tests/core/test_unicode.py",
+        "size_bytes": 2767,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "54349abe6ca0c1d98bb53d72c0bcfd618a83cab42cf294d9c48d94f547c3940c"
+      },
+      {
+        "path": "tests/core/test_walker.py",
+        "size_bytes": 4854,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "307adb1b2985ff1d5be10fbca5c67dc2ccf4a4130cc6ccc2ac8a61fa51ed0de3"
+      },
+      {
+        "path": "tests/filters/__init__.py",
+        "size_bytes": 0,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "tests/filters/test_created.py",
+        "size_bytes": 786,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "f114974c22e9321335d93d07aee16052d1243a67eb69966be885893b5f583eed"
+      },
+      {
+        "path": "tests/filters/test_duplicate.py",
+        "size_bytes": 1916,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "10fe2d6e5e74bdd5d91a515be59b5ca59f0de3b35770315f40d1f6980b716f9f"
+      },
+      {
+        "path": "tests/filters/test_exif.py",
+        "size_bytes": 3597,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "b4a32516536335e3862dfecef5169509d20a14514a776e272d3177bef8ce080a"
+      },
+      {
+        "path": "tests/filters/test_extension.py",
+        "size_bytes": 1487,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "7601d6e7dfd3e182ce321948107f92fa73488da8bbf0df3c41f9bf205e363e01"
+      },
+      {
+        "path": "tests/filters/test_filecontent.py",
+        "size_bytes": 1080,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "a099fa97b56ebbe5361cebf56d1b1073f58c2b41d6b7366dac7f00cdd6d8fcfc"
+      },
+      {
+        "path": "tests/filters/test_hash.py",
+        "size_bytes": 1962,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "411555c3f32d0e06d8438b3abdc2a664b7ec1746f8ce8f29fc4155b8b6c179e8"
+      },
+      {
+        "path": "tests/filters/test_lastmodified.py",
+        "size_bytes": 2106,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "c19b757f91ac4a9d675e21d1aa64a09061964011c587c8aa23ba1e7b2899265a"
+      },
+      {
+        "path": "tests/filters/test_macos_tags.py",
+        "size_bytes": 2362,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "58377af934b4ea9704a475e7480999fe8c6a592b9aae3f0990769d59d36b1a83"
+      },
+      {
+        "path": "tests/filters/test_mimetype.py",
+        "size_bytes": 1284,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "541f86b4de0fe561dad708362e2cc0617c57dad5bf0345196de34390c63aa325"
+      },
+      {
+        "path": "tests/filters/test_name.py",
+        "size_bytes": 3598,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "ed097cfc6423aa98ed5e92e2d7f86b855c972a5a65614f0c0a1c11fb22fd1d01"
+      },
+      {
+        "path": "tests/filters/test_python.py",
+        "size_bytes": 6349,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "4702789185b376ab509e2c05e7ecddb58cfc0869e2c6c13021eaaee894bcd109"
+      },
+      {
+        "path": "tests/filters/test_regex.py",
+        "size_bytes": 2717,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "267256b9027470738a05495abfbfaa8879fb6001494cd23e422cc9676adaf6af"
+      },
+      {
+        "path": "tests/filters/test_size.py",
+        "size_bytes": 2797,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "2f66f9ca9a7e81d7b07540e40d5672f2f092ae9a5b8c86c397a3ca2580c3e7c7"
+      },
+      {
+        "path": "tests/resources/images-with-exif/1.jpg",
+        "size_bytes": 4829,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "1a89124db981ff1c435676b7d44dbe6ad1b1a3352841adcc04270e6f521fa340"
+      },
+      {
+        "path": "tests/resources/images-with-exif/2.jpg",
+        "size_bytes": 4382,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "f6382a0d48be8d867100e01ba2f0593a683b60a22fe13f0fe3deda2141adea9c"
+      },
+      {
+        "path": "tests/resources/images-with-exif/3.jpg",
+        "size_bytes": 5253,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "e79eaa5026af5baa92931279e39f6ab9d64125de742e8d1a3cc5c2b3de022e81"
+      },
+      {
+        "path": "tests/resources/images-with-exif/4.jpg",
+        "size_bytes": 5349,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "5801afea50143840e7ba4feec0a662b9ea7d61e5eac3e4c097b63647a5bf59b6"
+      },
+      {
+        "path": "tests/resources/images-with-exif/5.jpg",
+        "size_bytes": 6110,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "8f41df9230f5358ab4cb98edb32bcabd369690f58789029bada4f731d41b061a"
+      },
+      {
+        "path": "tests/test_api.py",
+        "size_bytes": 669,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "5cc1a62cdf3b7327630bdbd1c15fc22a16c3ac64aad8685f05b7aa2474fe1255"
+      },
+      {
+        "path": "tests/test_docs.py",
+        "size_bytes": 1558,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "b68ba47b1fc9f896cdbf1864c46a612b301bfb032e50a5fcf52280158b2bd10e"
+      },
+      {
+        "path": "tests/test_make_files.py",
+        "size_bytes": 368,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "6fc5f1f7f264d76b94dd2a293c1ed72230b3e039e23504c44d66b0c3224bc6b6"
+      },
+      {
+        "path": "tests/test_utils.py",
+        "size_bytes": 2458,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "04005ee80cedc0d008181408460127f037f3897be941809281311df4f7d9a809"
+      },
+      {
+        "path": "tests/test_validators.py",
+        "size_bytes": 319,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "aea57851c302afe2d861daf02721947f20ef095fcb7740a6911bf58a6e9fa1a7"
+      },
+      {
+        "path": "tools/backside_audit.py",
+        "size_bytes": 17772,
+        "mtime_utc": "2026-06-03T04:11:26+00:00",
+        "sha256": "29e9f5943772f575a82a1874ce63838b35ddb621387bd018836ce0155386426e"
+      },
+      {
+        "path": "uv.lock",
+        "size_bytes": 224070,
+        "mtime_utc": "2026-06-03T04:08:41+00:00",
+        "sha256": "b8615cd0efe820536705de67c27f9ade5c1b36c056442c61ccbbbe41050bb549"
+      }
+    ]
+  },
+  "models": [
+    {
+      "path": "\\\\dlowenas\\brain\\Backside\\_models\\_Models\\17_portable_preference_kernel",
+      "exists": true,
+      "read_only_intent": true,
+      "file_count": 6,
+      "dir_count": 4,
+      "total_bytes": 27242,
+      "top_level_entries": [
+        "README.md",
+        "docs",
+        "examples",
+        "fis_addons",
+        "sql"
+      ],
+      "readme_excerpt": "# FIS Portable Preference Kernel Package\n\nThis is the “home run” layer for `file-intelligence.station`.\n\n## Big idea\n\nYour current FIS already classifies and renames files.\n\nThis package turns FIS into the **Brain ingestion gateway**:\n\n```text\nartifact enters\n→ extract identity\n→ detect features\n→ create manifest\n→ recommend station routes\n→ learn from David's accept/reject/edit behavior\n→ produce portable preference model\n```\n\n## Why this matters\n\nThis is not normal memory.\n\nThis is a small private preference kernel:\n\n```text\nNo raw personal data.\nNo emails.\nNo screenshots.\nNo clipboard history.\nNo passwords.\n```\n\nIt stores only:\n\n```text\nfeature/action weights\nroute preferences\ncounts\nconfidence\n```\n\nYou can copy the model file to another machine and let another FIS/AI worker know how David likes work routed.\n\n## Install\n\nCopy `fis_addons/` into your station repo or put it on PYTHONPATH.\n\nRun SQL:\n\n```bash\npsql -h 192.168.1.97 -U fis_user -d fis_db -f sql/04_artifact_manifest_routes.sql\n```\n\n## Quick test\n\n```powershell\npython fis_addons\\artifact_manifest.py \"C:\\path\\to\\paper.md\"\n```\n\n## Learn a preference\n\n```powershell\npython fis_addons\\portable_preference_kernel.py learn ^\n  --features examples\\sample_features.json ^\n  --action \"route:claim-extractor.station\" ^\n  --reward 1\n```\n\n## Predict routes\n\n```powershell\npython fis_addons\\portable_preference_kernel.py predict ^\n  --features examples\\sample_features.json\n```\n\n## First real target\n\nUse this first for:\n\n```text\nfile features → station route recommendation\n```\n\nDo not start with full desktop behavior. Prove the kernel with file routing first.\n",
+      "files": [
+        {
+          "path": "README.md",
+          "size_bytes": 1646,
+          "mtime_utc": "2026-06-02T21:33:04+00:00",
+          "sha256": "715bddf4185f0302ca83e9b3ff0f59192a63f99b55426552429a928aebb99540"
+        },
+        {
+          "path": "docs/INTEGRATION_NOTES.md",
+          "size_bytes": 3011,
+          "mtime_utc": "2026-06-02T21:33:04+00:00",
+          "sha256": "435a9fa8380f03b2a7170c5cb137ac2b06cd24c320b2f5e360a0b2350df62098"
+        },
+        {
+          "path": "examples/sample_features.json",
+          "size_bytes": 451,
+          "mtime_utc": "2026-06-02T21:33:04+00:00",
+          "sha256": "726843f687b204aec2cabbc6ee9e26c98a8564122e2de8b443d6d62ec7255f38"
+        },
+        {
+          "path": "fis_addons/artifact_manifest.py",
+          "size_bytes": 8419,
+          "mtime_utc": "2026-06-02T21:33:04+00:00",
+          "sha256": "a9ab2f6c80f9d210106a13e77e4599abd0d3c07f7a229d0b69e36e5395ad2c5f"
+        },
+        {
+          "path": "fis_addons/portable_preference_kernel.py",
+          "size_bytes": 12034,
+          "mtime_utc": "2026-06-02T21:33:04+00:00",
+          "sha256": "3beabc9eb2f3a47ac4d88c7e79c4c9fe7d8babaa72fd8c36804a5c148bb4af76"
+        },
+        {
+          "path": "sql/04_artifact_manifest_routes.sql",
+          "size_bytes": 1681,
+          "mtime_utc": "2026-06-02T21:33:04+00:00",
+          "sha256": "cdd57633a382f5dca24f382e28f6b3f12c92802d9e05cd520b9873f0691ad923"
+        }
+      ]
+    },
+    {
+      "path": "\\\\dlowenas\\brain\\Backside\\_models\\_Models\\13_preference_implicit",
+      "exists": true,
+      "read_only_intent": true,
+      "file_count": 1,
+      "dir_count": 0,
+      "total_bytes": 719,
+      "top_level_entries": [
+        "README.md"
+      ],
+      "readme_excerpt": "# 13 — Implicit (Collaborative Filtering)\n\n**Library:** `implicit` (pip installed, 3.8k GitHub stars)\n**Type:** Item recommendation via matrix factorization (ALS, BPR, logistic MF)\n**Use case:** \"Files/apps David uses together\" — if you open Obsidian after Claude, recommend Obsidian next time you're in Claude.\n**Model size:** Tiny — sparse matrix of user-item interactions\n**Status:** Installed, not yet wired\n\n## How it connects to PPK\n\nPPK routes files to stations. Implicit learns which stations co-occur — \"David always runs claim-extractor THEN paper-proof-grader on the same file.\" It recommends the second station before David asks.\n\n## Quick test\n```python\nimport implicit\nprint(\"implicit ready\")\n```\n",
+      "files": [
+        {
+          "path": "README.md",
+          "size_bytes": 719,
+          "mtime_utc": "2026-06-02T16:41:20+00:00",
+          "sha256": "be6cfac803352baf50946e2f08ad380100f8228c718e8960f32917bae52eb7bc"
+        }
+      ]
+    },
+    {
+      "path": "\\\\dlowenas\\brain\\Backside\\_models\\_Models\\18_river_streaming",
+      "exists": true,
+      "read_only_intent": true,
+      "file_count": 1,
+      "dir_count": 0,
+      "total_bytes": 468,
+      "top_level_entries": [
+        "README.md"
+      ],
+      "readme_excerpt": "# 18 — River (Online Streaming ML)\n\n**Library:** `river` v0.25.0 (5k GitHub stars)\n**Type:** Incremental learning — one event at a time, microsecond latency\n**Use case:** Real-time behavior learning from every action\n**Model size:** Kilobytes forever\n**Status:** Installed, running inside BIL server on port 8420\n\n## Connection to PPK\nRiver is the learning engine. PPK is the portable output.\nBIL/River collects signals -> PPK stores portable preference identity.\n",
+      "files": [
+        {
+          "path": "README.md",
+          "size_bytes": 468,
+          "mtime_utc": "2026-06-02T16:41:41+00:00",
+          "sha256": "53204745183e5ecf2b183e913f783752c37c3d83ad14e8cdf7f259aeee59506d"
+        }
+      ]
+    },
+    {
+      "path": "\\\\dlowenas\\brain\\Backside\\_models\\_Models\\19_markovify_text",
+      "exists": true,
+      "read_only_intent": true,
+      "file_count": 1,
+      "dir_count": 0,
+      "total_bytes": 1010,
+      "top_level_entries": [
+        "README.md"
+      ],
+      "readme_excerpt": "# 19 — Markovify (Text Generation / Prediction)\n\n**Library:** `markovify` v0.9.4 (3.4k GitHub stars)\n**Type:** Markov chain text generator — predicts next words from writing style\n**Use case:** Clipboard autocomplete, writing prediction, \"David would say...\"\n**Model size:** Proportional to training corpus — a few MB for large corpus\n**Status:** Installed, needs training corpus (clipboard history + vault text)\n\n## Connection to PPK\nMarkovify is a specialist — it only does text prediction.\nFeed it David's clipboard JSONL + Obsidian vault text -> it generates sentences in David's style.\nCould power: autocomplete in HTML editor, suggested clipboard items, writing drafts.\n\n## Training source candidates\n- D:\\BIL\\exports\\clipboard_history.jsonl (clipboard text)\n- O:\\_Theophysics_v4\\ (Obsidian vault markdown)\n- faiththruphysics.com articles (published writing)\n\n## Quick test\n```python\nimport markovify\ntext = open(\"corpus.txt\").read()\nmodel = markovify.Text(text)\nprint(model.make_sentence())\n```\n",
+      "files": [
+        {
+          "path": "README.md",
+          "size_bytes": 1010,
+          "mtime_utc": "2026-06-02T16:41:51+00:00",
+          "sha256": "877884fee2816b3e8b8bb492fb93480d93c3bc5e42dc8bf85b13565f45ac4f7b"
+        }
+      ]
+    }
+  ],
+  "ppk_intake_features": {
+    "package_name": "organize-tool",
+    "package_version": "3.3.0",
+    "source_file_count": 154,
+    "source_total_bytes": 1230849,
+    "has_git_checkout": true,
+    "has_cli": true,
+    "has_jsonl_output": true,
+    "has_runtime_logger": true,
+    "has_tests": true,
+    "selected_model_spine": "17_portable_preference_kernel",
+    "support_models_available": [
+      "17_portable_preference_kernel",
+      "13_preference_implicit",
+      "18_river_streaming",
+      "19_markovify_text"
+    ],
+    "behavior_code_changed": false,
+    "model_dirs_mutated": false
+  },
+  "ppk_handoff": {
+    "model_spine": "17_portable_preference_kernel",
+    "script_path": "\\\\dlowenas\\brain\\Backside\\_models\\_Models\\17_portable_preference_kernel\\fis_addons\\portable_preference_kernel.py",
+    "features_path": "D:\\GitHub\\organize\\_backside_audit\\ppk\\20260603T041132Z_ppk_features.json",
+    "prediction_path": "D:\\GitHub\\organize\\_backside_audit\\ppk\\20260603T041132Z_ppk_prediction.json",
+    "ran_prediction": false,
+    "returncode": 1,
+    "stderr": "Traceback (most recent call last):\n  File \"\\\\dlowenas\\brain\\Backside\\_models\\_Models\\17_portable_preference_kernel\\fis_addons\\portable_preference_kernel.py\", line 336, in <module>\n    raise SystemExit(main())\n                     ~~~~^^\n  File \"\\\\dlowenas\\brain\\Backside\\_models\\_Models\\17_portable_preference_kernel\\fis_addons\\portable_preference_kernel.py\", line 325, in main\n    print(json.dumps(kernel.predict(features, args.top_k), indent=2, ensure_ascii=False))\n    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\lowes\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\encodings\\cp1252.py\", line 19, in encode\n    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\n           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nUnicodeEncodeError: 'charmap' codec can't encode character '\\u2248' in position 1501: character maps to <undefined>",
+    "stdout": ""
+  }
+}

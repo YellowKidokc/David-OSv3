@@ -1,0 +1,13 @@
+﻿{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "ckg-backside",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["D:\\GitHub\\pipeline-workflows\\CKG_SPLIT_DRAFT\\serve_backside.py", "8771"],
+      "port": 8771, "autoPort": false
+    }
+  ]
+}
+
+

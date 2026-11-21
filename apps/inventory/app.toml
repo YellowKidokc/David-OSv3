@@ -1,0 +1,7 @@
+name = "inventory"
+description = "Stage 1 inventory / registry of files"
+status = "skeleton"  # skeleton | migrating | canonical
+port = 0  # 0 = no server
+data_dir = "data/inventory"
+may_import = ["shared"]  # never other apps
+legacy_sources = ["02_INVENTORY", "engine/registry*"]

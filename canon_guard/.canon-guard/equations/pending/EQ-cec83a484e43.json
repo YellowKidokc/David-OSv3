@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-cec83a484e43",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.397373+00:00",
+  "source": {
+    "path": "MEQ-Lawsnotes.md",
+    "line": 2269,
+    "source_sha256": "34c50e5b5eb63756f341f7b303a373222d12786c251ce86b06cb0e9874769783"
+  },
+  "equation": {
+    "raw": "2. **Information Density Metric** S = kA/4",
+    "normalized": "2.**informationdensitymetric**s=ka/4",
+    "fingerprint": "cec83a484e433afc3528654d60b865f861315ce237590d74652c298b705f3619"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

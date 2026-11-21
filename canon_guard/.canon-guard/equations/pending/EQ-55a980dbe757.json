@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-55a980dbe757",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.694730+00:00",
+  "source": {
+    "path": "MEQ-TheResearchof2.md",
+    "line": 509,
+    "source_sha256": "48fcdfa9386f2a066492a571b6bc7972ca7cd57ecd131bacd1dee8ad76f8d6f7"
+  },
+  "equation": {
+    "raw": "Genesis + Error = Biblical Entropy",
+    "normalized": "genesis+error=biblicalentropy",
+    "fingerprint": "55a980dbe757dff168bc3bf923659d1f581ca4b588eeece02edbfc8ab247b2b6"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

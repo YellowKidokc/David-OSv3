@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-9b450436d0a9",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.970372+00:00",
+  "source": {
+    "path": "MEQ-Claude.md",
+    "line": 194,
+    "source_sha256": "8093b04a78358443d00782f29886e7307d6183d8fefd92fdcd8cd6fe4563eed9"
+  },
+  "equation": {
+    "raw": "\"equation\": \"χ(t) = χₘᵢₙ + (χ₀-χₘᵢₙ)e^(-δt) + ∑ᵢRᵢ(t)\",",
+    "normalized": "\"equation\":\"chi(t)=chiₘᵢₙ+(chi₀-chiₘᵢₙ)e^(-δt)+∑ᵢrᵢ(t)\",",
+    "fingerprint": "9b450436d0a9f78028e21294c7087b255cfff4bed9bc3200a5375c12c4467cae"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

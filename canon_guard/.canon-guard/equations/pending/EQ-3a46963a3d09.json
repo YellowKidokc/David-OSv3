@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-3a46963a3d09",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.084465+00:00",
+  "source": {
+    "path": "MEQ-10.md",
+    "line": 946,
+    "source_sha256": "fba2739802e5abaa4ecd6e7da4de10128ba6bc68dcff2be1c87f77ec78a7f554"
+  },
+  "equation": {
+    "raw": "> **F = G(m₁m₂)/r² (Gravity)**",
+    "normalized": ">**f=g(m₁m₂)/r^2(gravity)**",
+    "fingerprint": "3a46963a3d09543d2d64cc0782282f18a8740a5288313e4636ff8352274b0eb9"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

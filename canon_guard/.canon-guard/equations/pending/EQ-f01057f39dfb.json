@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-f01057f39dfb",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.064427+00:00",
+  "source": {
+    "path": "MEQ-09-F-sin.md",
+    "line": 5,
+    "source_sha256": "10192d5af9845c780bb74ed60710068d593fa9f9f64933d77ec5ab1ff117413c"
+  },
+  "equation": {
+    "raw": "dS/dt = ? ssin � F � dV = 0",
+    "normalized": "ds/dt=?ssin�f�dv=0",
+    "fingerprint": "f01057f39dfb497ecd4f728d5936b0847100b8be2d702d4affd85e21bd6aa46a"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-69380a1f5c5f",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.167653+00:00",
+  "source": {
+    "path": "MEQ-DC-HypostaticUnion.md",
+    "line": 7,
+    "source_sha256": "5be95017c1b1d5d0bc167e4df14e50dbea39ed496fa615b82445db4d514f89a7"
+  },
+  "equation": {
+    "raw": "formula: χJ = Ψ∞ + Φf",
+    "normalized": "formula:chij=ψ∞+φf",
+    "fingerprint": "69380a1f5c5f2ed7386418c62392374eeb2d00b8de0e9f2ba86bf35abe24ee0c"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

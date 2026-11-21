@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-317d645e2829",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.619643+00:00",
+  "source": {
+    "path": "MEQ-Thebreakdownofequation.md",
+    "line": 1030,
+    "source_sha256": "1d5664ecbf4e238a0f08802631751e3c185a0ff2fe054efdf93aa7c40ebf8535"
+  },
+  "equation": {
+    "raw": "E+S = \\frac{1}{G(R_p)} - 1",
+    "normalized": "e+s=\\frac{1}{g(r_p)}-1",
+    "fingerprint": "317d645e28296fc064676a832b7238b463bceb784f5262fba416942df0468ee9"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

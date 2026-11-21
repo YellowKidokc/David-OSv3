@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-692c9b5d3df5",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.074759+00:00",
+  "source": {
+    "path": "MEQ-00-MasterOutline.md",
+    "line": 10241,
+    "source_sha256": "082fae2f3083b27cfb2dff7b38e8a48167c5d25d33b0cc911e5168f5ab88c102"
+  },
+  "equation": {
+    "raw": "ℒ = ½(∂_μG)(∂^μG) + ½(∂_μS)(∂^μS) - V(G,S)",
+    "normalized": "ℒ=½(partial_mug)(partial^mug)+½(partial_mus)(partial^mus)-v(g,s)",
+    "fingerprint": "692c9b5d3df591397e0e74c016cf48a371bf47503682f0900cd3f4d9ffec8578"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

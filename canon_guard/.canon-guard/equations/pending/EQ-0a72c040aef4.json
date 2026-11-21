@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-0a72c040aef4",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.299778+00:00",
+  "source": {
+    "path": "MEQ-law-03-E-truth.md",
+    "line": 3,
+    "source_sha256": "406d6d51d3bffdb3d634a4ab8640f0667ea838cc2da77da0a4e82f58c1acf78e"
+  },
+  "equation": {
+    "raw": "∇²E − (1/c²)∂²E/∂t² = ρdeception/ε₀",
+    "normalized": "∇^2e-(1/c^2)partial^2e/partialt^2=ρdeception/ε₀",
+    "fingerprint": "0a72c040aef479c77fe5771d412de9faffff469ff9a6dd81928cb3892fe01b29"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

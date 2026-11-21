@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-38e0b62bcc06",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.609637+00:00",
+  "source": {
+    "path": "MEQ-Thebreakdownofequation.md",
+    "line": 166,
+    "source_sha256": "1d5664ecbf4e238a0f08802631751e3c185a0ff2fe054efdf93aa7c40ebf8535"
+  },
+  "equation": {
+    "raw": "R(F)=Fα1+FαR(F) = \\frac{F^\\alpha}{1 + F^\\alpha}R(F)=1+FαFα​",
+    "normalized": "r(f)=fα1+fαr(f)=\\frac{f^\\alpha}{1+f^\\alpha}r(f)=1+fαfα​",
+    "fingerprint": "38e0b62bcc063e858b4141be800e3e5621e2a91f1660ae6b38771b0dc488c359"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

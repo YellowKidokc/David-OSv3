@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-677e9d4b2644",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.010413+00:00",
+  "source": {
+    "path": "MEQ-Claude24.md",
+    "line": 305,
+    "source_sha256": "aa2d4755d680c32ea8f540ee6ad6019ebd43e1cc117fd446dc6c8a445b536b00"
+  },
+  "equation": {
+    "raw": "I(x,y) = |O(x,y)|² + |R(x,y)|² + O(x,y)R*(x,y) + O*(x,y)R(x,y)",
+    "normalized": "i(x,y)=|o(x,y)|^2+|r(x,y)|^2+o(x,y)r*(x,y)+o*(x,y)r(x,y)",
+    "fingerprint": "677e9d4b264461df9d8ee6f3fd3fb5fd499b81ee026a5c248f49ee02b1154305"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-5bef962f7b52",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.385853+00:00",
+  "source": {
+    "path": "MEQ-LawQuantumLightandDivineParadox.md",
+    "line": 35,
+    "source_sha256": "3be8beb89146a25b1a25b9df9afd65da5234471d665b3028a49ce5c3febd0893"
+  },
+  "equation": {
+    "raw": "P(x) = |Ψ(x)|²",
+    "normalized": "p(x)=|ψ(x)|^2",
+    "fingerprint": "5bef962f7b52427fb52963f9d3191f633082e253a5222cbae054022538ff1683"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

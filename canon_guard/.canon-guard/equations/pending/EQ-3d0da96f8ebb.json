@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-3d0da96f8ebb",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.688724+00:00",
+  "source": {
+    "path": "MEQ-THEOPHYSICS_THE_FULL_EXPLANATION.md",
+    "line": 633,
+    "source_sha256": "62068387239bf001857ed4b8443dfc82561d1430d3f0ae50d8452f18ab1244ce"
+  },
+  "equation": {
+    "raw": "Γ_sin = G_fall² · ψ⁵ / 192π³",
+    "normalized": "γ_sin=g_fall^2*ψ⁵/192π^3",
+    "fingerprint": "3d0da96f8ebbc9d595a8c12b6faa1cb926c48e33c3d3c140f2b314680a4b6824"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

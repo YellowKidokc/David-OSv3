@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-0f45e503b93a",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.473951+00:00",
+  "source": {
+    "path": "MEQ-MasterEqredfined.md",
+    "line": 109,
+    "source_sha256": "d108f210474798d891779a44f6b3da0e913112cc5776262832d759a183e9715b"
+  },
+  "equation": {
+    "raw": "T−1(S)=P\\mathcal{T}^{-1} (S) = PT−1(S)=P",
+    "normalized": "t-1(s)=p\\mathcal{t}^{-1}(s)=pt-1(s)=p",
+    "fingerprint": "0f45e503b93a3b0d4e1f23f58170462270c8397e71087b95aaa3fe4f84e03aac"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

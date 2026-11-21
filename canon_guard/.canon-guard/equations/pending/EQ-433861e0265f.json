@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-433861e0265f",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.531540+00:00",
+  "source": {
+    "path": "MEQ-OPERATORS.md",
+    "line": 37,
+    "source_sha256": "520ae900ffb78b4b7fdbe77819dd2b048be111f5c98313b10273e9eafe19aacd"
+  },
+  "equation": {
+    "raw": "Ω(Δ(Ψ(Λ))) = Identity(Logos)",
+    "normalized": "ω(δ(ψ(λ)))=identity(logos)",
+    "fingerprint": "433861e0265fc65e862b60de1d02eb7058c9350941d016b680b036228179e2fd"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

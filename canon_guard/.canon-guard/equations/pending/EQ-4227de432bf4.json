@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-4227de432bf4",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.975813+00:00",
+  "source": {
+    "path": "MEQ-02-EXPANDED-CORE-SECTIONS.md",
+    "line": 363,
+    "source_sha256": "71e3fb542cf2f64da41a1280ce8e71d16f6d48e6d887ee64924e0f10b0d07eec"
+  },
+  "equation": {
+    "raw": "I(A:B) = H(A) + H(B) - H(A,B)",
+    "normalized": "i(a:b)=h(a)+h(b)-h(a,b)",
+    "fingerprint": "4227de432bf466bf16fdcc10d34122caa8c5da8787e2c7298e9d2d9e005ebaf6"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

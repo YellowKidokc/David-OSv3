@@ -1,0 +1,892 @@
+﻿path,line,signal,excerpt
+_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/deepseek_call.py,2,deepseek,deepseek_call.py — DeepSeek API wrapper for lossless vial compression.
+_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/deepseek_call.py,2,DeepSeek,deepseek_call.py — DeepSeek API wrapper for lossless vial compression.
+_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/deepseek_call.py,3,DeepSeek,Sends a markdown/text file + the lossless factory prompt to DeepSeek
+_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/deepseek_call.py,6,DEEPSEEK,Requires: DEEPSEEK_API_KEY environment variable.
+_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/deepseek_call.py,9,deepseek,python deepseek_call.py <file>
+_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/deepseek_call.py,10,deepseek,python deepseek_call.py <file> --mode meq
+_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/deepseek_call.py,11,deepseek,python deepseek_call.py <file> --model deepseek-chat
+_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/deepseek_call.py,11,deepseek,python deepseek_call.py <file> --model deepseek-chat
+_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/deepseek_call.py,20,deepseek,API_URL = 'https://api.deepseek.com/v1/chat/completions'
+_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/deepseek_call.py,21,deepseek,DEFAULT_MODEL = 'deepseek-chat'
+_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/deepseek_call.py,55,deepseek,"def call_deepseek(content: str, mode: str = 'loss', model: str = DEFAULT_MODEL) -> str:"
+_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/deepseek_call.py,56,DEEPSEEK,"api_key = os.environ.get('DEEPSEEK_API_KEY', '')"
+_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/deepseek_call.py,58,DEEPSEEK,print('Error: set DEEPSEEK_API_KEY environment variable')
+_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/deepseek_call.py,119,DeepSeek,"print(f'Sending {len(content)} chars to DeepSeek ({model}, mode={mode})...')"
+_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/deepseek_call.py,120,deepseek,"result = call_deepseek(content, mode, model)"
+_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/lossless.py,3,DeepSeek,"Watches inbox/, compresses each file via DeepSeek, names it, writes to outbox/, moves original to done/."
+_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/lossless.py,20,deepseek,from deepseek_call import call_deepseek
+_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/lossless.py,20,deepseek,from deepseek_call import call_deepseek
+_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/lossless.py,56,DeepSeek,print(f'  Calling DeepSeek...')
+_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/lossless.py,59,deepseek,"vial_text = call_deepseek(content, mode)"
+_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/lossless.py,61,DeepSeek,print(f'  ERROR: DeepSeek call failed for {os.path.basename(path)}')
+_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/lossless.py,69,DeepSeek,# Replace whatever header DeepSeek put with our canonical one
+_LOSSLESS_SUMMARY/lossless-tools/lossless-tools/lossless.py,115,while True,while True:
+_FIS_ROOT_SIDECAR_ARCHIVE/apply_canon_namespaces.py,4,.fisnote,"The archive contains no markdown: it is a mirror tree of 54,941 `.fisnote`"
+_FIS_ROOT_SIDECAR_ARCHIVE/apply_canon_namespaces.py,140,.fisnote,"if "".fisnote"" not in files:"
+_FIS_ROOT_SIDECAR_ARCHIVE/apply_canon_namespaces.py,157,.fisnote,"path = os.path.join(current, "".fisnote"")"
+_FIS_ROOT_SIDECAR_ARCHIVE/apply_canon_namespaces.py,198,.fisnote,"""sidecar_format"": ""FIS folder-index.v1 (.fisnote) - archive contains no .md files"","
+_FIS_ROOT_SIDECAR_ARCHIVE/apply_canon_namespaces.py,203,.fisnote,"""no_markdown"": ""The archive holds 0 .md files; tagging target is the .fisnote frontmatter."","
+_FIS_ROOT_SIDECAR_ARCHIVE/apply_canon_namespaces.py,204,.fisnote,"""second_variant"": ""1,688 FIS_FOLDER_INDEX.fisnote files (fis_schema tag-ledger.v1) exist, all inside unclassified directories, so none required tagging."","
+_FIS_ROOT_SIDECAR_ARCHIVE/apply_canon_namespaces.py,205,.fisnote,"""regeneration_risk"": ""Each .fisnote declares itself 'safe to regenerate'. If the FIS indexer re-runs it will drop these keys; re-run apply_canon_namespaces.py --apply afterwards (it is idempotent)."","
+_FIS_ROOT_SIDECAR_ARCHIVE/apply_canon_namespaces.py,206,.fisnote,"""obsidian"": r""The archive lives at D:\_FIS_ROOT_SIDECAR_ARCHIVE, outside the vault at Z:\__New\Theophysics.new; O:\_Theophysics_v4 does not exist. Dataview also indexes .md only, so .fisnote frontmatt"
+_FIS_ROOT_SIDECAR_ARCHIVE/EVIDENCE/sidecar_corpus_indexer/theophysics_corpus_indexer/inventory.py,23,while True,while True:
+_FIS_ROOT_SIDECAR_ARCHIVE/EVIDENCE/sidecar_corpus_indexer/theophysics_corpus_indexer/inventory.py,36,while True,while True:
+tools/apply_routing_plan.py,83,uuid4(,"run_id = datetime.now().strftime(""%Y%m%d_%H%M%S"") + ""_"" + uuid.uuid4().hex[:8]"
+tools/gdrp_readonly_pilot.py,70,uuid4(,event_id = str(uuid.uuid4())
+tools/gdrp_readonly_pilot.py,200,deepseek,"def ask_deepseek_api(context: dict[str, Any], model: str, url: str, timeout: int) -> tuple[dict[str, Any], dict[str, Any]]:"
+tools/gdrp_readonly_pilot.py,201,DEEPSEEK,"api_key = os.environ.get(""DEEPSEEK_API_KEY"", """").strip()"
+tools/gdrp_readonly_pilot.py,203,DEEPSEEK,"raise RuntimeError(""DEEPSEEK_API_KEY is not configured"")"
+tools/gdrp_readonly_pilot.py,225,DeepSeek,"raise RuntimeError(f""DeepSeek API HTTP {exc.code}: {detail}"") from exc"
+tools/gdrp_readonly_pilot.py,286,DeepSeek,"""DeepSeek recognized role-specific artifacts; indexing may treat them as distinct, but no filesystem keeper was chosen."""
+tools/gdrp_readonly_pilot.py,298,deepseek,"parser.add_argument(""--model"", default=""deepseek-r1:latest"")"
+tools/gdrp_readonly_pilot.py,299,deepseek,"parser.add_argument(""--provider"", choices=(""ollama"", ""deepseek-api""), default=""ollama"")"
+tools/gdrp_readonly_pilot.py,301,deepseek,"parser.add_argument(""--deepseek-url"", default=""https://api.deepseek.com/chat/completions"")"
+tools/gdrp_readonly_pilot.py,301,deepseek,"parser.add_argument(""--deepseek-url"", default=""https://api.deepseek.com/chat/completions"")"
+tools/gdrp_readonly_pilot.py,314,deepseek,"if args.provider == ""deepseek-api"":"
+tools/gdrp_readonly_pilot.py,315,deepseek,"answer, raw = ask_deepseek_api(context, args.model, args.deepseek_url, args.timeout)"
+tools/gdrp_readonly_pilot.py,315,deepseek,"answer, raw = ask_deepseek_api(context, args.model, args.deepseek_url, args.timeout)"
+tools/gdrp_readonly_pilot.py,328,deepseek,"(args.out / ""deepseek-assessment.json"").write_text(json.dumps(answer, indent=2, ensure_ascii=False), encoding=""utf-8"")"
+tools/gdrp_readonly_pilot.py,330,uuid4(,attempt_id = str(uuid.uuid4())
+tools/organize/chi_generator.py,51,sqlite3.Connect,def connect_db() -> sqlite3.Connection:
+tools/organize/chi_generator.py,52,sqlite3.connect,"db = sqlite3.connect(DB_PATH, timeout=30)"
+tools/organize/chi_generator.py,174,sqlite3.Connect,"def upsert_db(db: sqlite3.Connection, folder: Path, meta: dict[str, Any], exists: bool) -> None:"
+tools/organize/classifier.py,65,sqlite3.Connect,def connect_db() -> sqlite3.Connection:
+tools/organize/classifier.py,66,sqlite3.connect,"db = sqlite3.connect(DB_PATH, timeout=30)"
+tools/organize/classifier.py,75,sqlite3.Connect,def seed_rules(db: sqlite3.Connection) -> None:
+tools/organize/classifier.py,117,sqlite3.Connect,"def classify_by_rules(db: sqlite3.Connection, file_path: str) -> tuple[str, float, str, list[int]]:"
+tools/organize/classifier.py,187,sqlite3.Connect,"def log_history(db: sqlite3.Connection, file_path: str, suggested: str, confidence: float, method: str) -> int:"
+tools/organize/engine.py,124,sqlite3.connect,db = sqlite3.connect(DB_PATH)
+tools/organize/engine.py,188,sqlite3.connect,db = sqlite3.connect(DB_PATH)
+tools/organize/engine.py,252,uuid4(,batch_id = str(uuid.uuid4())[:8]
+tools/organize/engine.py,269,uuid4(,batch_id = str(uuid.uuid4())[:8]
+tools/organize/engine.py,292,sqlite3.connect,db = sqlite3.connect(DB_PATH)
+tools/organize/engine.py,312,sqlite3.connect,db = sqlite3.connect(DB_PATH)
+tools/organize/manage.py,17,while True,while True:
+tools/organize/organize/gui.py,1997,daemon=True,"threading.Thread(target=_scan, daemon=True).start()"
+tools/organize/organize/gui.py,2133,daemon=True,"threading.Thread(target=worker, daemon=True).start()"
+tools/organize/organize/gui.py,2522,daemon=True,"threading.Thread(target=worker, daemon=True).start()"
+tools/organize/organize/gui.py,2577,daemon=True,"threading.Thread(target=worker, daemon=True).start()"
+tools/organize/organize/gui.py,2726,daemon=True,"threading.Thread(target=worker, daemon=True).start()"
+tools/organize/organize/gui.py,2730,while True,while True:
+tools/organize/organize/gui.py,2940,daemon=True,"threading.Thread(target=worker, daemon=True).start()"
+tools/organize/organize/gui.py,3007,daemon=True,"threading.Thread(target=worker, daemon=True).start()"
+tools/organize/organize/gui.py,3037,daemon=True,"threading.Thread(target=worker, daemon=True).start()"
+tools/organize/organize/gui.py,3151,daemon=True,"threading.Thread(target=worker, daemon=True).start()"
+tools/organize/organize/gui.py,3171,while True,while True:
+tools/organize/organize/gui.py,3315,daemon=True,"threading.Thread(target=worker, daemon=True).start()"
+tools/organize/organize/gui.py,3388,daemon=True,"threading.Thread(target=worker, daemon=True).start()"
+tools/organize/organize/gui.py,3480,daemon=True,"threading.Thread(target=worker, daemon=True).start()"
+tools/organize/organize/gui.py,3589,daemon=True,"threading.Thread(target=worker, daemon=True).start()"
+tools/organize/organize/gui.py,3690,daemon=True,"threading.Thread(target=worker, daemon=True).start()"
+tools/organize/organize/gui.py,3832,daemon=True,"self.hist_watcher_thread = threading.Thread(target=run, daemon=True)"
+tools/organize/organize/gui.py,3969,daemon=True,"thread = threading.Thread(target=self._run_worker, args=(yaml_text, simulate, target), daemon=True)"
+tools/organize/organize/gui.py,4013,while True,while True:
+tools/organize/organize/walker.py,29,while True,while True:
+tools/organize/organize/actions/common/conflict.py,45,while True,while True:
+tools/fis-intelligence/src/fis_html_index.py,175,sqlite3.Connect,def connect(db_path: Path) -> sqlite3.Connection:
+tools/fis-intelligence/src/fis_html_index.py,177,sqlite3.connect,conn = sqlite3.connect(db_path)
+tools/fis-intelligence/src/fis_html_index.py,263,sqlite3.Connect,"def _upsert_page(conn: sqlite3.Connection, root: Path, path: Path) -> bool:"
+tools/fis-intelligence/src/fis_html_index.py,301,sqlite3.Connect,"def rebuild_continuity(conn: sqlite3.Connection, root: Path) -> None:"
+tools/fis-intelligence/src/fis_html_index.py,377,sqlite3.Connect,def corpus_stats(conn: sqlite3.Connection) -> dict:
+tools/fis-intelligence/src/fis_html_index.py,391,sqlite3.Connect,"def register_collection_root(conn: sqlite3.Connection, name: str, root: Path, role: str, description: str = """") -> dict:"
+tools/fis-intelligence/src/fis_html_index.py,405,sqlite3.Connect,def list_collections(conn: sqlite3.Connection) -> list[dict]:
+tools/fis-intelligence/src/fis_html_index.py,419,sqlite3.Connect,"def fts_query(conn: sqlite3.Connection, query: str, limit: int = 10) -> list[dict]:"
+tools/fis-intelligence/src/fis_html_index.py,435,sqlite3.Connect,def list_series(conn: sqlite3.Connection) -> list[dict]:
+tools/fis-intelligence/src/fis_mcp_server.py,19,sqlite3.Connect,def readonly_connection() -> sqlite3.Connection:
+tools/fis-intelligence/src/fis_mcp_server.py,20,sqlite3.connect,"conn = sqlite3.connect(f""file:{DB_PATH.as_posix()}?mode=ro"", uri=True)"
+tools/fis/FIS-HTML-Intelligence/src/fis_html_index.py,175,sqlite3.Connect,def connect(db_path: Path) -> sqlite3.Connection:
+tools/fis/FIS-HTML-Intelligence/src/fis_html_index.py,177,sqlite3.connect,conn = sqlite3.connect(db_path)
+tools/fis/FIS-HTML-Intelligence/src/fis_html_index.py,263,sqlite3.Connect,"def _upsert_page(conn: sqlite3.Connection, root: Path, path: Path) -> bool:"
+tools/fis/FIS-HTML-Intelligence/src/fis_html_index.py,301,sqlite3.Connect,"def rebuild_continuity(conn: sqlite3.Connection, root: Path) -> None:"
+tools/fis/FIS-HTML-Intelligence/src/fis_html_index.py,377,sqlite3.Connect,def corpus_stats(conn: sqlite3.Connection) -> dict:
+tools/fis/FIS-HTML-Intelligence/src/fis_html_index.py,391,sqlite3.Connect,"def register_collection_root(conn: sqlite3.Connection, name: str, root: Path, role: str, description: str = """") -> dict:"
+tools/fis/FIS-HTML-Intelligence/src/fis_html_index.py,405,sqlite3.Connect,def list_collections(conn: sqlite3.Connection) -> list[dict]:
+tools/fis/FIS-HTML-Intelligence/src/fis_html_index.py,419,sqlite3.Connect,"def fts_query(conn: sqlite3.Connection, query: str, limit: int = 10) -> list[dict]:"
+tools/fis/FIS-HTML-Intelligence/src/fis_html_index.py,435,sqlite3.Connect,def list_series(conn: sqlite3.Connection) -> list[dict]:
+tools/fis/FIS-HTML-Intelligence/src/fis_mcp_server.py,19,sqlite3.Connect,def readonly_connection() -> sqlite3.Connection:
+tools/fis/FIS-HTML-Intelligence/src/fis_mcp_server.py,20,sqlite3.connect,"conn = sqlite3.connect(f""file:{DB_PATH.as_posix()}?mode=ro"", uri=True)"
+tools/filetagger/claim_jurisdiction.py,365,sqlite3.connect,db = sqlite3.connect(db_path)
+tools/filetagger/filetagger.py,185,sqlite3.connect,db = sqlite3.connect(a.db)
+tools/filetagger/filetagger_chi.py,201,sqlite3.connect,db = sqlite3.connect(db_path)
+tools/filetagger/filetagger_chi.py,246,sqlite3.connect,db = sqlite3.connect(a.db)
+tools/filetagger/filetagger_chi_v2.py,340,sqlite3.connect,db = sqlite3.connect(db_path)
+tools/filetagger/filetagger_chi_v2.py,402,sqlite3.connect,db = sqlite3.connect(a.db)
+tools/filetagger/filetagger_daemon.py,18,watchdog.,from watchdog.observers import Observer
+tools/filetagger/filetagger_daemon.py,19,watchdog.,from watchdog.events import FileSystemEventHandler
+tools/filetagger/filetagger_daemon.py,133,sqlite3.connect,"return sqlite3.connect(self.db_path, timeout=15)"
+tools/filetagger/filetagger_daemon.py,369,daemon=True,"daemon=True,"
+tools/filetagger/filetagger_daemon.py,379,Observer(,obs = Observer()
+tools/filetagger/filetagger_daemon.py,386,while True,while True:
+tools/filetagger/filetagger_gui.py,145,daemon=True,"threading.Thread(target=self._run_process, daemon=True).start()"
+tools/filetagger/filetagger_gui.py,190,while True,while True:
+tools/filetagger/foldertagger.py,159,uuid4(,folder_id = str(uuid.uuid4())
+tools/filetagger/gen_audit.py,9,sqlite3.connect,db = sqlite3.connect(DB)
+tools/filetagger/show_chi.py,2,sqlite3.connect,db = sqlite3.connect(r'D:\DONT TOUCH BOOT UP\filetagger\chi_catalog.db')
+tools/filetagger/show_site_claims.py,2,sqlite3.connect,"db = sqlite3.connect(r""D:\DONT TOUCH BOOT UP\filetagger\site_claims.db"")"
+tools/filetagger/salvaged/auto_sort.py,384,sqlite3.Connect,def get_db(root: str) -> sqlite3.Connection:
+tools/filetagger/salvaged/auto_sort.py,388,sqlite3.connect,conn = sqlite3.connect(DB_PATH)
+tools/filetagger/salvaged/memory/semantic.py,153,sqlite3.Connect,def _connect(self) -> sqlite3.Connection:
+tools/filetagger/salvaged/memory/semantic.py,154,sqlite3.connect,"conn = sqlite3.connect(str(self._path), timeout=10.0)"
+tools/filetagger/files/folder_scanner.py,200,.fisnote,""".chi"", "".fmeta"", "".fisnote"", "".fistag"", "".fisdead"","
+tools/filetagger/files/folder_scanner.py,363,.fisnote,""".chi"", "".fmeta"", "".fisnote"", "".fistag"", "".fisdead""}"
+tools/file-intelligence-sources/snapshots/FIS/fis_daemon.py,32,watchdog.,from watchdog.observers import Observer
+tools/file-intelligence-sources/snapshots/FIS/fis_daemon.py,33,watchdog.,from watchdog.events import FileSystemEventHandler
+tools/file-intelligence-sources/snapshots/FIS/fis_daemon.py,80,.fisnote,"""skip_exts"":            ["".chi"", "".fisnote""],"
+tools/file-intelligence-sources/snapshots/FIS/fis_daemon.py,228,.fisnote,return True  # never crawl .chi or .fisnote sidecars
+tools/file-intelligence-sources/snapshots/FIS/fis_daemon.py,385,sqlite3.connect,"c = sqlite3.connect(self.db_path, timeout=20)"
+tools/file-intelligence-sources/snapshots/FIS/fis_daemon.py,966,.fisnote,"skip_exts  = set(e.lower() for e in cfg.get(""skip_exts"", ["".chi"", "".fisnote""]))"
+tools/file-intelligence-sources/snapshots/FIS/fis_daemon.py,989,Observer(,obs = Observer()
+tools/file-intelligence-sources/snapshots/FIS/fis_daemon.py,1001,daemon=True,"name=""Crawler"", daemon=True),"
+tools/file-intelligence-sources/snapshots/FIS/fis_daemon.py,1003,daemon=True,"name=""Reconciler"", daemon=True),"
+tools/file-intelligence-sources/snapshots/FIS/fis_daemon.py,1006,daemon=True,"name=""StatusWriter"", daemon=True),"
+tools/file-intelligence-sources/snapshots/FIS/fis_daemon.py,1008,daemon=True,"name=""AIReview"", daemon=True),"
+tools/file-intelligence-sources/snapshots/FIS/fis_daemon.py,1016,while True,while True:
+tools/file-intelligence-sources/snapshots/FIS/fis_enricher.py,61,sqlite3.connect,con = sqlite3.connect(db_path)
+tools/file-intelligence-sources/snapshots/FIS/fis_folder_daemon.py,8,.fisnote,- Writes a .fisnote manifest inside each folder it classifies (read-only for humans)
+tools/file-intelligence-sources/snapshots/FIS/fis_folder_daemon.py,14,.fisnote,.fisnote                              ← written inside each classified folder
+tools/file-intelligence-sources/snapshots/FIS/fis_folder_daemon.py,33,watchdog.,from watchdog.observers import Observer
+tools/file-intelligence-sources/snapshots/FIS/fis_folder_daemon.py,34,watchdog.,from watchdog.events import FileSystemEventHandler
+tools/file-intelligence-sources/snapshots/FIS/fis_folder_daemon.py,54,.fisnote,"FISNOTE_FILENAME = "".fisnote"""
+tools/file-intelligence-sources/snapshots/FIS/fis_folder_daemon.py,56,.fisnote,# Folders that must NEVER receive a .fisnote write
+tools/file-intelligence-sources/snapshots/FIS/fis_folder_daemon.py,91,.fisnote,# .fisnote writer
+tools/file-intelligence-sources/snapshots/FIS/fis_folder_daemon.py,118,.fisnote,"""""""Write or update the .fisnote manifest inside a folder."""""""
+tools/file-intelligence-sources/snapshots/FIS/fis_folder_daemon.py,251,sqlite3.connect,"c = sqlite3.connect(self.db_path, timeout=20)"
+tools/file-intelligence-sources/snapshots/FIS/fis_folder_daemon.py,358,.fisnote,"""""""Classify a folder, store in DB, write .fisnote if appropriate."""""""
+tools/file-intelligence-sources/snapshots/FIS/fis_folder_daemon.py,483,.fisnote,"Writes .fisnote inside qualifying folders (non-system, non-risky, ≥ 2 files)."
+tools/file-intelligence-sources/snapshots/FIS/fis_folder_daemon.py,613,.fisnote,"logging.info(""Write .fisnotes: %s"", cfg.get(""write_fisnotes"", True))"
+tools/file-intelligence-sources/snapshots/FIS/fis_folder_daemon.py,626,Observer(,obs = Observer()
+tools/file-intelligence-sources/snapshots/FIS/fis_folder_daemon.py,635,daemon=True,"name=""FolderCrawler"", daemon=True),"
+tools/file-intelligence-sources/snapshots/FIS/fis_folder_daemon.py,638,daemon=True,"name=""FolderStatusWriter"", daemon=True),"
+tools/file-intelligence-sources/snapshots/FIS/fis_folder_daemon.py,646,while True,while True:
+tools/file-intelligence-sources/snapshots/FIS/fis_namer.py,356,sqlite3.connect,con = sqlite3.connect(db_path)
+tools/file-intelligence-sources/snapshots/FIS/fis_namer.py,429,sqlite3.connect,con = sqlite3.connect(db_path)
+tools/file-intelligence-sources/snapshots/FIS/INSTALL_STARTUP.bat,52,.fisnote,"echo Folder tracker: tracks folders, symptom/class schema + .fisnote manifests"
+tools/file-intelligence-sources/snapshots/filetagger/claim_jurisdiction.py,365,sqlite3.connect,db = sqlite3.connect(db_path)
+tools/file-intelligence-sources/snapshots/filetagger/filetagger.py,185,sqlite3.connect,db = sqlite3.connect(a.db)
+tools/file-intelligence-sources/snapshots/filetagger/filetagger_chi.py,201,sqlite3.connect,db = sqlite3.connect(db_path)
+tools/file-intelligence-sources/snapshots/filetagger/filetagger_chi.py,246,sqlite3.connect,db = sqlite3.connect(a.db)
+tools/file-intelligence-sources/snapshots/filetagger/filetagger_chi_v2.py,340,sqlite3.connect,db = sqlite3.connect(db_path)
+tools/file-intelligence-sources/snapshots/filetagger/filetagger_chi_v2.py,402,sqlite3.connect,db = sqlite3.connect(a.db)
+tools/file-intelligence-sources/snapshots/filetagger/filetagger_daemon.py,18,watchdog.,from watchdog.observers import Observer
+tools/file-intelligence-sources/snapshots/filetagger/filetagger_daemon.py,19,watchdog.,from watchdog.events import FileSystemEventHandler
+tools/file-intelligence-sources/snapshots/filetagger/filetagger_daemon.py,133,sqlite3.connect,"return sqlite3.connect(self.db_path, timeout=15)"
+tools/file-intelligence-sources/snapshots/filetagger/filetagger_daemon.py,369,daemon=True,"daemon=True,"
+tools/file-intelligence-sources/snapshots/filetagger/filetagger_daemon.py,379,Observer(,obs = Observer()
+tools/file-intelligence-sources/snapshots/filetagger/filetagger_daemon.py,386,while True,while True:
+tools/file-intelligence-sources/snapshots/filetagger/filetagger_gui.py,145,daemon=True,"threading.Thread(target=self._run_process, daemon=True).start()"
+tools/file-intelligence-sources/snapshots/filetagger/filetagger_gui.py,190,while True,while True:
+tools/file-intelligence-sources/snapshots/filetagger/foldertagger.py,159,uuid4(,folder_id = str(uuid.uuid4())
+tools/file-intelligence-sources/snapshots/filetagger/gen_audit.py,9,sqlite3.connect,db = sqlite3.connect(DB)
+tools/file-intelligence-sources/snapshots/filetagger/show_chi.py,2,sqlite3.connect,db = sqlite3.connect(r'D:\DONT TOUCH BOOT UP\filetagger\chi_catalog.db')
+tools/file-intelligence-sources/snapshots/filetagger/show_site_claims.py,2,sqlite3.connect,"db = sqlite3.connect(r""D:\DONT TOUCH BOOT UP\filetagger\site_claims.db"")"
+tools/file-intelligence-sources/snapshots/filetagger/salvaged/auto_sort.py,384,sqlite3.Connect,def get_db(root: str) -> sqlite3.Connection:
+tools/file-intelligence-sources/snapshots/filetagger/salvaged/auto_sort.py,388,sqlite3.connect,conn = sqlite3.connect(DB_PATH)
+tools/file-intelligence-sources/snapshots/filetagger/salvaged/memory/semantic.py,153,sqlite3.Connect,def _connect(self) -> sqlite3.Connection:
+tools/file-intelligence-sources/snapshots/filetagger/salvaged/memory/semantic.py,154,sqlite3.connect,"conn = sqlite3.connect(str(self._path), timeout=10.0)"
+tools/file-intelligence-sources/snapshots/filetagger/files/folder_scanner.py,200,.fisnote,""".chi"", "".fmeta"", "".fisnote"", "".fistag"", "".fisdead"","
+tools/file-intelligence-sources/snapshots/filetagger/files/folder_scanner.py,363,.fisnote,""".chi"", "".fmeta"", "".fisnote"", "".fistag"", "".fisdead""}"
+tools/codex-script-hub/script_dump/pdf_to_markdown.py,140,while True,while True:
+tools/codex-script-hub/script_dump/pdf_to_markdown.py,156,while True,while True:
+Theophysics_Tagger/AI_HUB_ADD_TOKENS.ps1,1,DeepSeek,"# AI Hub: add Kimi + DeepSeek tokens, push them to Cloudflare, then test."
+Theophysics_Tagger/AI_HUB_ADD_TOKENS.ps1,7,deepseek,"$NewAgents = @(""kimi"", ""deepseek"")"
+Theophysics_Tagger/AI_HUB_ADD_TOKENS.ps1,46,DeepSeek,"$body = @{ body = ""[claude] Test from Claude Code (2026-10-16): hub read and post both work. Kimi and DeepSeek now have tokens. Universal prompt for all AIs: C:\Theophysics_Tagger\AI_HUB_PROMPT.md"" } "
+Theophysics_Tagger/tools/fistag.py,62,sqlite3.connect,"con = sqlite3.connect(f""file:{db}?mode=ro"", uri=True)"
+Theophysics_Tagger/tools/fistag.py,73,sqlite3.Connect,"def subject(con: sqlite3.Connection, path: Path, domains: dict[str, str]) -> tuple[str, list[str]]:"
+Theophysics_Tagger/tools/fistag.py,125,sqlite3.connect,"con = sqlite3.connect(f""file:{DB}?mode=ro"", uri=True)"
+Theophysics_Tagger/tools/grow_tags.py,11,DeepSeek,Each gets the category of the folder it is most common in. --api: DeepSeek (DEEPSEEK_API_KEY) merges
+Theophysics_Tagger/tools/grow_tags.py,11,DEEPSEEK,Each gets the category of the folder it is most common in. --api: DeepSeek (DEEPSEEK_API_KEY) merges
+Theophysics_Tagger/tools/grow_tags.py,217,DeepSeek,"""""""DeepSeek tidies candidates in batches: drops noise, merges duplicates, picks a category, describes."""""""
+Theophysics_Tagger/tools/grow_tags.py,218,DEEPSEEK,"key = os.environ.get(""DEEPSEEK_API_KEY"")"
+Theophysics_Tagger/tools/grow_tags.py,220,DEEPSEEK,"print(""mine --api: DEEPSEEK_API_KEY is not set; candidates kept as found"")"
+Theophysics_Tagger/tools/grow_tags.py,232,deepseek,"body = json.dumps({""model"": ""deepseek-chat"", ""messages"": [{""role"": ""user"", ""content"": prompt}],"
+Theophysics_Tagger/tools/grow_tags.py,234,deepseek,"req = urllib.request.Request(""https://api.deepseek.com/chat/completions"", data=body,"
+Theophysics_Tagger/tools/grow_tags.py,253,DeepSeek,"""source"": ""documents + DeepSeek""})"
+Theophysics_Tagger/tools/tagger2.py,468,sqlite3.Connect,def open_db(path: Path) -> sqlite3.Connection:
+Theophysics_Tagger/tools/tagger2.py,470,sqlite3.connect,con = sqlite3.connect(str(path))
+Theophysics_Tagger/tools/tagger3.py,78,sqlite3.Connect,def open_db(path: Path) -> sqlite3.Connection:
+Theophysics_Tagger/tools/tagger3.py,732,watchdog.,from watchdog.events import FileSystemEventHandler
+Theophysics_Tagger/tools/tagger3.py,733,watchdog.,from watchdog.observers import Observer
+Theophysics_Tagger/tools/tagger3.py,764,Observer(,obs = Observer()
+Theophysics_Tagger/tools/tagger3.py,770,while True,while True:
+Theophysics_Tagger/tools/tagger3_gui.py,214,daemon=True,"threading.Thread(target=self.reader, args=(self.proc,), daemon=True).start()"
+Theophysics_Tagger/tools/tagger3_gui.py,224,while True,while True:
+Theophysics_Tagger/tools/tagger3_gui.py,273,daemon=True,"threading.Thread(target=work, daemon=True).start()"
+tests/test_codes_preview_usn.py,30,sqlite3.connect,with sqlite3.connect(db) as con:
+tests/test_codes_preview_usn.py,36,sqlite3.connect,with sqlite3.connect(db) as con:assert con.execute('SELECT status_level FROM works').fetchone()[0]=='ES'
+tests/test_codes_preview_usn.py,46,sqlite3.connect,with sqlite3.connect(db) as con:
+tests/test_codes_preview_usn.py,56,.fisnote,"empty=root/'notes_only';empty.mkdir();(empty/'.fisnote').write_text('note',encoding='utf-8')"
+tests/test_exact_search.py,62,sqlite3.connect,with sqlite3.connect(corpus/'records.db') as db:
+tests/test_fis_html_only.py,48,.fisnote,"assert not list(root.rglob(""*.fisnote""))"
+tests/test_fis_standalone.py,32,.fisnote,(self.root/'.fisnote').write_bytes(b'legacy\xff\x00 full content')
+tests/test_fis_standalone.py,53,.fisnote,self.assertFalse((self.root/'.fisnote').exists())
+tests/test_fis_standalone.py,168,.fisnote,(child/'paper draft.md.fisnote').write_text('All original note content <script>evil</script>')
+tests/test_fis_standalone.py,218,daemon=True,"worker = threading.Thread(target=server.serve_forever, daemon=True)"
+tests/test_folder_hub.py,86,DEEPSEEK,"monkeypatch.delenv('DEEPSEEK_API_KEY',raising=False)"
+tests/test_folder_hub.py,93,DEEPSEEK,"monkeypatch.setenv('DEEPSEEK_API_KEY','fixture-not-a-key')"
+tests/test_folder_hub.py,94,deepseek,"with patch('hub.api.routes_openai_compat._call_deepseek',return_value='A source-based answer') as call:"
+tests/test_folder_hub.py,163,DEEPSEEK,"monkeypatch.delenv('DEEPSEEK_API_KEY',raising=False)"
+tests/test_master_classification_policy.py,12,deepseek,def test_unknown_local_result_requests_deepseek() -> None:
+tests/test_master_classification_policy.py,14,deepseek,"assert result.state == ""request_deepseek"""
+tests/test_master_classification_policy.py,15,deepseek,assert result.needs_deepseek is True
+tests/test_master_classification_policy.py,19,deepseek,def test_mid_confidence_deepseek_result_carries_and_flags() -> None:
+tests/test_master_classification_policy.py,30,deepseek,def test_uncertain_deepseek_result_waits_for_human() -> None:
+tests/test_master_classification_policy.py,42,deepseek,"ClassificationThresholds(deepseek_accept_clean=0.70, deepseek_accept_flagged=0.90)"
+tests/test_master_classification_policy.py,42,deepseek,"ClassificationThresholds(deepseek_accept_clean=0.70, deepseek_accept_flagged=0.90)"
+tests/test_master_equation_intake.py,29,sqlite3.connect,"con = sqlite3.connect(output / ""master_equation_intake.sqlite"")"
+tests/test_openai_compat.py,10,DEEPSEEK,"monkeypatch.delenv(""DEEPSEEK_API_KEY"", raising=False)"
+tests/test_openai_compat.py,58,deepseek,"def test_openai_compat_uses_deepseek_when_key_is_configured(tmp_path, monkeypatch):"
+tests/test_openai_compat.py,63,DEEPSEEK,"monkeypatch.setenv(""DEEPSEEK_API_KEY"", ""test-key"")"
+tests/test_openai_compat.py,64,deepseek,"monkeypatch.setattr(routes_openai_compat, ""_call_deepseek"", lambda messages: ""DeepSeek downstream reply"")"
+tests/test_openai_compat.py,64,DeepSeek,"monkeypatch.setattr(routes_openai_compat, ""_call_deepseek"", lambda messages: ""DeepSeek downstream reply"")"
+tests/test_openai_compat.py,77,DeepSeek,"assert body[""choices""][0][""message""][""content""] == ""DeepSeek downstream reply"""
+tests/test_openai_compat.py,78,deepseek,"assert body[""top_of_mind""][""provider""] == ""deepseek"""
+tests/test_openai_compat.py,87,deepseek,def fake_deepseek(messages):
+tests/test_openai_compat.py,92,DEEPSEEK,"monkeypatch.setenv(""DEEPSEEK_API_KEY"", ""test-key"")"
+tests/test_openai_compat.py,93,deepseek,"monkeypatch.setattr(routes_openai_compat, ""_call_deepseek"", fake_deepseek)"
+tests/test_openai_compat.py,93,deepseek,"monkeypatch.setattr(routes_openai_compat, ""_call_deepseek"", fake_deepseek)"
+tests/test_stage1_registry.py,19,sqlite3.connect,with sqlite3.connect(db) as con:
+tests/test_stage1_registry.py,106,sqlite3.connect,with sqlite3.connect(db) as con:
+tests/test_stage1_registry.py,132,sqlite3.connect,with sqlite3.connect(db) as con:
+tests/test_stage1_registry.py,232,.fisnote,marker = source/'.fisnote'
+tests/test_stage1_registry.py,241,.fisnote,"for name, kind in [('.fisnote', 'infrastructure'), ('00_SERIES_INDEX.md', 'index')]:"
+tests/test_stage1_registry.py,249,.fisnote,"assert not any(r['kind'] == 'work' and r['subject'] in {by_name['.fisnote'], by_name['00_SERIES_INDEX.md']} for r in pending)"
+tests/test_stage1_registry.py,250,.fisnote,"assert not registry.set_record_type(db, by_name['.fisnote'], 'infrastructure', ruled_by='David', reason='same')['changed']"
+tests/test_stage1_registry.py,262,.fisnote,"assert all(n['status'] == 'not_applicable' for n in rows(db, 'nabla') if n['work_id'] == by_name['.fisnote'])"
+tests/test_stage1_registry.py,263,.fisnote,"registry.set_record_type(db, by_name['.fisnote'], 'work', ruled_by='David', reason='Undo test ruling')"
+tests/test_stage1_registry.py,264,.fisnote,"assert next(w for w in rows(db, 'works') if w['work_id'] == by_name['.fisnote'])['record_type'] == 'work'"
+tests/test_stage1_registry.py,269,sqlite3.connect,with sqlite3.connect(db) as con:
+tests/test_stage2b_sidecars_renaming.py,75,sqlite3.connect,with sqlite3.connect(db) as con:
+tests/test_stage2b_sidecars_renaming.py,104,sqlite3.connect,with sqlite3.connect(db) as con:
+tests/test_stage2b_sidecars_renaming.py,136,sqlite3.connect,with sqlite3.connect(db) as con:
+tests/test_stage2b_sidecars_renaming.py,197,sqlite3.connect,with sqlite3.connect(db) as con:
+shared/identity/identity.py,72,sqlite3.Connect,"def build_registry(db_path: Path, rulings_path: Path = HERE / ""registry_rulings.json"") -> sqlite3.Connection:"
+shared/identity/identity.py,73,sqlite3.connect,con = sqlite3.connect(db_path)
+shared/identity/layers.py,34,uuid4(,root = normalize_uuid(root_uuid or uuid.uuid4())
+shared/identity/test_layers.py,32,uuid4(,"left, right = str(uuid.uuid4()), str(uuid.uuid4())"
+shared/identity/test_layers.py,32,uuid4(,"left, right = str(uuid.uuid4()), str(uuid.uuid4())"
+scripts/desktop_cleanup_preview.py,17,.fisnote,"GENERATED = {'.fisnote', 'fis.html', 'thumbs.db', 'desktop.ini', '.ds_store'}"
+scripts/desktop_cleanup_preview.py,57,.fisnote,if p.name.lower() in GENERATED or p.suffix.lower() == '.fisnote' or p.name.startswith('~$'):
+scripts/fis_desktop_scan.py,11,.fisnote,one generated .fisnote per folder and per file
+scripts/fis_desktop_scan.py,39,.fisnote,"parser.add_argument(""--no-folder-notes"", action=""store_true"", help=""Do not write generated folder .fisnote views"")"
+scripts/fis_desktop_scan.py,40,.fisnote,"parser.add_argument(""--no-file-notes"", action=""store_true"", help=""Do not write generated per-file .fisnote sidecars"")"
+scripts/fis_desktop_scan.py,43,.fisnote,"parser.add_argument(""--no-wipe-fisnotes"", action=""store_true"", help=""Do not delete existing .fisnote files before scanning"")"
+scripts/fis_desktop_scan.py,53,.fisnote,"print(""Policy: generated .fisnote writes and cleanup are disabled globally; HTML remains enabled."")"
+scripts/index_memory_buckets.py,20,sqlite3.connect,with sqlite3.connect(db_path) as conn:
+scripts/init_hub_db.py,20,sqlite3.connect,with sqlite3.connect(db_path) as conn:
+scripts/verify_fis_folder.py,1,DeepSeek,"""""""Live local UI smoke check. --ask-live opts into one real DeepSeek call."""""""
+scripts/verify_fis_folder.py,50,DeepSeek,"page.get_by_role('button',name='Ask DeepSeek',exact=True).click()"
+scripts/youtube_dossier_eval.py,2,DEEPSEEK,"Written by Claude (chat), Nov 13, 2026. Standard library only. Reads DEEPSEEK_API_KEY from env."
+scripts/youtube_dossier_eval.py,11,DEEPSEEK,"KEY = os.environ.get(""DEEPSEEK_API_KEY"")"
+scripts/youtube_dossier_eval.py,12,deepseek,"MODEL = ""deepseek-chat"""
+scripts/youtube_dossier_eval.py,28,deepseek,"req = urllib.request.Request(""https://api.deepseek.com/chat/completions"","
+scripts/youtube_dossier_eval.py,107,DeepSeek,"header = f""# DeepSeek Evaluation: YouTube dossier for {pid}\n\n**Date:** {TODAY}  \n**Model:** {MODEL}  \n**Selected:** {len(chosen)} of {len(tx)} transcripts  \n**Harvest quality:** {sel.get('harvest"
+scripts/youtube_dossier_eval.py,125,DEEPSEEK,"sys.exit(""DEEPSEEK_API_KEY not set"")"
+scripts/fis/desktop_live.py,28,daemon=True,"threading.Thread(target=run, daemon=True).start()"
+runs/theophysics_media_publish_2026-08-24/content-publisher-main.before-persistent-substack-session.js,24,setInterval(,"---`}async findExistingDraft(){try{let e=this.isBilingual?this.selectedLanguage===""fr""?this.frontmatter.substack_draft_id_fr:this.frontmatter.substack_draft_id_en:this.frontmatter.substack_draft_id;if"
+runs/theophysics_media_publish_2026-08-24/content-publisher-main.before-persistent-substack-session.js,27,Observer(,"${i}\`\`\`\``,n=new O.Component;n.load(),await O.MarkdownRenderer.render(this.app,s,t,"""",n);let l=await this.waitForSvg(t,15e3);if(n.unload(),!l)return this.logger.warn(`TikZ block ${e}: no SVG produc"
+runs/theophysics_media_publish_2026-08-24/content-publisher-main.before-substack-login-fix.js,24,setInterval(,"---`}async findExistingDraft(){try{let e=this.isBilingual?this.selectedLanguage===""fr""?this.frontmatter.substack_draft_id_fr:this.frontmatter.substack_draft_id_en:this.frontmatter.substack_draft_id;if"
+runs/theophysics_media_publish_2026-08-24/content-publisher-main.before-substack-login-fix.js,27,Observer(,"${i}\`\`\`\``,n=new O.Component;n.load(),await O.MarkdownRenderer.render(this.app,s,t,"""",n);let l=await this.waitForSvg(t,15e3);if(n.unload(),!l)return this.logger.warn(`TikZ block ${e}: no SVG produc"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/utility/orchestrator.py,214,while True,while True:
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/utility/orchestrator.py,248,while True,while True:
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/utility/uuid_semantic_manager.py,66,uuid4(,yaml_data['paper_id'] = str(uuid.uuid4())
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/vault_scaffold_builder.py,273,while True,while True:
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/vault_watcher.py,28,watchdog.,from watchdog.observers import Observer
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/vault_watcher.py,29,watchdog.,"from watchdog.events import FileSystemEventHandler, FileCreatedEvent, \"
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/vault_watcher.py,119,uuid4(,"f""uuid: {uuid.uuid4()}\n"""
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/vault_watcher.py,437,Observer(,obs = Observer()
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/vault_watcher.py,444,Observer(,obs = Observer()
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/scripts/vault_watcher.py,455,while True,while True:
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,18,uuid4(,return str(uuid.uuid4())
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,39,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,429,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,462,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,510,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,551,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,560,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,584,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,593,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,608,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,625,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,647,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,689,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,707,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,743,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,761,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,792,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,823,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,840,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,871,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,888,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,920,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,951,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,978,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,996,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,1008,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,1019,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,1044,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,1085,sqlite3.connect,sconn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,1132,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,1189,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,1214,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,1242,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,1281,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,1321,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,1343,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,1376,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,1405,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,1427,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,1448,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/database_engine.py,1469,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/definition_engine.py,29,sqlite3.connect,conn = sqlite3.connect(self.db.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/definition_engine.py,169,sqlite3.connect,conn = sqlite3.connect(self.db.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/definition_engine.py,219,sqlite3.connect,conn = sqlite3.connect(self.db.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/ontology_engine.py,62,sqlite3.connect,conn = sqlite3.connect(self.db.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/research_engine.py,167,sqlite3.connect,conn = sqlite3.connect(self.db.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/engine/research_engine.py,273,sqlite3.connect,conn = sqlite3.connect(self.db.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/content_db.py,132,sqlite3.connect,self.conn = sqlite3.connect(str(self.db_path))
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/plugin_data_aggregator.py,286,uuid4(,return str(uuid.uuid4())
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/relationship_engine.py,383,MiniLM,self.model = SentenceTransformer('all-MiniLM-L6-v2')
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/semantic_tag_engine.py,25,uuid4(,return str(uuid.uuid4())
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/semantic_tag_engine.py,116,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/semantic_tag_engine.py,198,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/semantic_tag_engine.py,233,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/semantic_tag_engine.py,244,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/semantic_tag_engine.py,257,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/semantic_tag_engine.py,266,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/semantic_tag_engine.py,329,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/semantic_tag_engine.py,501,sqlite3.connect,sqlite_conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/semantic_tag_engine.py,556,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/semantic_tag_engine.py,607,sqlite3.connect,conn = sqlite3.connect(self.db_path)
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/stats_cache.py,57,sqlite3.Connect,def _get_conn(self) -> sqlite3.Connection:
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/stats_cache.py,59,sqlite3.connect,conn = sqlite3.connect(str(self.db_path))
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/vault_sync_engine.py,34,uuid4(,return str(uuid.uuid4())
+runs/folder_merge_desktop_pilot_20261030/MERGED_01/core/wikipedia_filler.py,294,uuid4(,"uuid=str(uuid.uuid4()),"
+runs/desktop_merge_supervised_20261030/merged/GOD_Derivation_Character_8d0763f62fe7/Kimi_Agent_Faith Physics 核心页面/app/chain-nav.js,177,setInterval(,"setInterval(attachListeners,2000);"
+runs/desktop_merge_supervised_20261030/merged/Export_Html_798643690e38/site-lib/scripts/webpage.js,1,Observer(,"""use strict"";(()=>{var t=(t,e,i)=>{if(!e.has(t))throw TypeError(""Cannot ""+i)},e=(e,i,s)=>(t(e,i,""read from private field""),s?s.call(e):i.get(e)),i=(t,e,i)=>{if(e.has(t))throw TypeError(""Cannot add the"
+runs/desktop_merge_supervised_20261030/merged/Export_Html_798643690e38/site-lib/scripts/webpage.js,1,Observer(,"""use strict"";(()=>{var t=(t,e,i)=>{if(!e.has(t))throw TypeError(""Cannot ""+i)},e=(e,i,s)=>(t(e,i,""read from private field""),s?s.call(e):i.get(e)),i=(t,e,i)=>{if(e.has(t))throw TypeError(""Cannot add the"
+runs/desktop_merge_supervised_20261030/merged/Export_Html_798643690e38/site-lib/scripts/webpage.js,1,Observer(,"""use strict"";(()=>{var t=(t,e,i)=>{if(!e.has(t))throw TypeError(""Cannot ""+i)},e=(e,i,s)=>(t(e,i,""read from private field""),s?s.call(e):i.get(e)),i=(t,e,i)=>{if(e.has(t))throw TypeError(""Cannot add the"
+runs/desktop_merge_supervised_20261030/merged/Export_Html_798643690e38/site-lib/scripts/webpage.js,1,Observer(,"""use strict"";(()=>{var t=(t,e,i)=>{if(!e.has(t))throw TypeError(""Cannot ""+i)},e=(e,i,s)=>(t(e,i,""read from private field""),s?s.call(e):i.get(e)),i=(t,e,i)=>{if(e.has(t))throw TypeError(""Cannot add the"
+runs/desktop_merge_supervised_20261030/merged/Consilience_Atlas_ATOM_b50da803a404/Rosetta Stone Connector v0.1/run_rosetta_connector.py,39,DEEPSEEK,"if os.getenv(""DEEPSEEK_API_KEY"", """").strip():"
+runs/desktop_merge_supervised_20261030/merged/Consilience_Atlas_ATOM_b50da803a404/Rosetta Stone Connector v0.1/run_rosetta_connector.py,40,DEEPSEEK,"return os.environ[""DEEPSEEK_API_KEY""].strip()"
+runs/desktop_merge_supervised_20261030/merged/Consilience_Atlas_ATOM_b50da803a404/Rosetta Stone Connector v0.1/run_rosetta_connector.py,44,DEEPSEEK,"if line.strip().startswith(""DEEPSEEK_API_KEY=""):"
+runs/desktop_merge_supervised_20261030/merged/Consilience_Atlas_ATOM_b50da803a404/Rosetta Stone Connector v0.1/run_rosetta_connector.py,46,DEEPSEEK,"raise RuntimeError(""DEEPSEEK_API_KEY was not found."")"
+runs/desktop_merge_supervised_20261030/merged/Consilience_Atlas_ATOM_b50da803a404/Rosetta Stone Connector v0.1/run_rosetta_connector.py,61,deepseek,"""https://api.deepseek.com/chat/completions"","
+runs/desktop_merge_supervised_20261030/merged/Consilience_Atlas_ATOM_b50da803a404/Rosetta Stone Connector v0.1/run_rosetta_connector.py,70,DeepSeek,"raise RuntimeError(f""DeepSeek HTTP {exc.code}: {exc.read().decode(errors='replace')}"") from exc"
+runs/desktop_merge_supervised_20261030/merged/Consilience_Atlas_ATOM_b50da803a404/Rosetta Stone Connector v0.1/run_rosetta_connector.py,160,DEEPSEEK,"parser.add_argument(""--model"", default=os.getenv(""DEEPSEEK_MODEL"") or ""deepseek-chat"")"
+runs/desktop_merge_supervised_20261030/merged/Consilience_Atlas_ATOM_b50da803a404/Rosetta Stone Connector v0.1/run_rosetta_connector.py,160,deepseek,"parser.add_argument(""--model"", default=os.getenv(""DEEPSEEK_MODEL"") or ""deepseek-chat"")"
+runs/desktop_merge_supervised_20261030/merged/Consilience_Atlas_ATOM_b50da803a404/Rosetta Stone Connector v0.1/run_rosetta_connector.py,213,deepseek,"""run_at"": now(), ""provider"": ""deepseek"", ""model"": args.model,"
+rule_brick/core.py,68,sqlite3.connect,self.conn = sqlite3.connect(self.db_path)
+rule_brick/core.py,124,uuid4(,session_id = str(uuid.uuid4())
+rule_brick/core.py,156,uuid4(,prediction_id = str(uuid.uuid4())
+rule_brick/core.py,198,uuid4(,"(str(uuid.uuid4()), session_id, phase, event_type, json.dumps(payload), _now()),"
+pipeline/chat_topic_segmenter.py,36,MiniLM,"MODEL_NAME = ""all-MiniLM-L6-v2""  # fast, good enough for topic boundaries"
+pipeline/chat_topic_segmenter.py,266,deepseek,"for p in ['claude', 'chatgpt', 'gemini', 'deepseek', 'kimi', 'grok']:"
+LossLess/_LOSSLESS_SUMMARY/deepseek_call.py,2,deepseek,deepseek_call.py — DeepSeek API wrapper for lossless vial compression.
+LossLess/_LOSSLESS_SUMMARY/deepseek_call.py,2,DeepSeek,deepseek_call.py — DeepSeek API wrapper for lossless vial compression.
+LossLess/_LOSSLESS_SUMMARY/deepseek_call.py,3,DeepSeek,Sends a markdown/text file + the lossless factory prompt to DeepSeek
+LossLess/_LOSSLESS_SUMMARY/deepseek_call.py,6,DEEPSEEK,Requires: DEEPSEEK_API_KEY environment variable.
+LossLess/_LOSSLESS_SUMMARY/deepseek_call.py,9,deepseek,python deepseek_call.py <file>
+LossLess/_LOSSLESS_SUMMARY/deepseek_call.py,10,deepseek,python deepseek_call.py <file> --mode meq
+LossLess/_LOSSLESS_SUMMARY/deepseek_call.py,11,deepseek,python deepseek_call.py <file> --model deepseek-chat
+LossLess/_LOSSLESS_SUMMARY/deepseek_call.py,11,deepseek,python deepseek_call.py <file> --model deepseek-chat
+LossLess/_LOSSLESS_SUMMARY/deepseek_call.py,20,deepseek,API_URL = 'https://api.deepseek.com/v1/chat/completions'
+LossLess/_LOSSLESS_SUMMARY/deepseek_call.py,21,deepseek,DEFAULT_MODEL = 'deepseek-chat'
+LossLess/_LOSSLESS_SUMMARY/deepseek_call.py,55,deepseek,"def call_deepseek(content: str, mode: str = 'loss', model: str = DEFAULT_MODEL) -> str:"
+LossLess/_LOSSLESS_SUMMARY/deepseek_call.py,56,DEEPSEEK,"api_key = os.environ.get('DEEPSEEK_API_KEY', '')"
+LossLess/_LOSSLESS_SUMMARY/deepseek_call.py,58,DEEPSEEK,print('Error: set DEEPSEEK_API_KEY environment variable')
+LossLess/_LOSSLESS_SUMMARY/deepseek_call.py,119,DeepSeek,"print(f'Sending {len(content)} chars to DeepSeek ({model}, mode={mode})...')"
+LossLess/_LOSSLESS_SUMMARY/deepseek_call.py,120,deepseek,"result = call_deepseek(content, mode, model)"
+LossLess/_LOSSLESS_SUMMARY/lossless.py,3,DeepSeek,"Watches inbox/, compresses each file via DeepSeek, names it, writes to outbox/, moves original to done/."
+LossLess/_LOSSLESS_SUMMARY/lossless.py,20,deepseek,from deepseek_call import call_deepseek
+LossLess/_LOSSLESS_SUMMARY/lossless.py,20,deepseek,from deepseek_call import call_deepseek
+LossLess/_LOSSLESS_SUMMARY/lossless.py,56,DeepSeek,print(f'  Calling DeepSeek...')
+LossLess/_LOSSLESS_SUMMARY/lossless.py,59,deepseek,"vial_text = call_deepseek(content, mode)"
+LossLess/_LOSSLESS_SUMMARY/lossless.py,61,DeepSeek,print(f'  ERROR: DeepSeek call failed for {os.path.basename(path)}')
+LossLess/_LOSSLESS_SUMMARY/lossless.py,69,DeepSeek,# Replace whatever header DeepSeek put with our canonical one
+LossLess/_LOSSLESS_SUMMARY/lossless.py,115,while True,while True:
+LEAN 4/theophysics_corpus_indexer/inventory.py,23,while True,while True:
+LEAN 4/theophysics_corpus_indexer/inventory.py,36,while True,while True:
+hub/workers/runner.py,76,while True,while True:
+hub/watchers/native.py,28,watchdog.,"events_module = importlib.import_module(""watchdog.events"")"
+hub/watchers/native.py,29,watchdog.,"observers_module = importlib.import_module(""watchdog.observers"")"
+hub/watchers/native.py,67,while True,while True:
+hub/watchers/runner.py,34,while True,while True:
+hub/storage/clipboard_repo.py,17,sqlite3.Connect,"def __init__(self, conn: sqlite3.Connection) -> None:"
+hub/storage/db.py,57,sqlite3.Connect,"Migration = Callable[[sqlite3.Connection], None]"
+hub/storage/db.py,60,sqlite3.Connect,def _migration_2(conn: sqlite3.Connection) -> None:
+hub/storage/db.py,73,sqlite3.Connect,def _migration_3(conn: sqlite3.Connection) -> None:
+hub/storage/db.py,134,sqlite3.Connect,def _migration_4(conn: sqlite3.Connection) -> None:
+hub/storage/db.py,162,sqlite3.Connect,def _migration_5(conn: sqlite3.Connection) -> None:
+hub/storage/db.py,204,sqlite3.Connect,def _migration_6(conn: sqlite3.Connection) -> None:
+hub/storage/db.py,230,sqlite3.Connect,def _migration_7(conn: sqlite3.Connection) -> None:
+hub/storage/db.py,260,sqlite3.Connect,def _migration_8(conn: sqlite3.Connection) -> None:
+hub/storage/db.py,293,sqlite3.Connect,def _migration_9(conn: sqlite3.Connection) -> None:
+hub/storage/db.py,308,sqlite3.Connect,def _migration_10(conn: sqlite3.Connection) -> None:
+hub/storage/db.py,339,sqlite3.Connect,def _migration_11(conn: sqlite3.Connection) -> None:
+hub/storage/db.py,348,sqlite3.Connect,def _migration_12(conn: sqlite3.Connection) -> None:
+hub/storage/db.py,379,sqlite3.Connect,def _migration_13(conn: sqlite3.Connection) -> None:
+hub/storage/db.py,414,sqlite3.Connect,def _migration_14(conn: sqlite3.Connection) -> None:
+hub/storage/db.py,502,sqlite3.Connect,def connect(db_path: str | Path) -> sqlite3.Connection:
+hub/storage/db.py,506,sqlite3.connect,conn = sqlite3.connect(path)
+hub/storage/db.py,513,sqlite3.Connect,def current_version(conn: sqlite3.Connection) -> int:
+hub/storage/db.py,518,sqlite3.Connect,"def migrate(conn: sqlite3.Connection, *, target_version: int = SCHEMA_VERSION) -> None:"
+hub/storage/db.py,531,sqlite3.Connect,def initialize(conn: sqlite3.Connection) -> None:
+hub/storage/desktop_file_cache_repo.py,25,sqlite3.Connect,"def __init__(self, conn: sqlite3.Connection) -> None:"
+hub/storage/folder_repo.py,39,sqlite3.Connect,"def __init__(self, conn: sqlite3.Connection) -> None:"
+hub/storage/intelligence_repo.py,20,sqlite3.Connect,"def __init__(self, conn: sqlite3.Connection) -> None:"
+hub/storage/job_repo.py,45,sqlite3.Connect,"def __init__(self, conn: sqlite3.Connection) -> None:"
+hub/storage/memory_repo.py,22,sqlite3.Connect,"def __init__(self, conn: sqlite3.Connection) -> None:"
+hub/storage/node_repo.py,34,sqlite3.Connect,"def __init__(self, conn: sqlite3.Connection) -> None:"
+hub/storage/top_of_mind_repo.py,22,sqlite3.Connect,"def __init__(self, conn: sqlite3.Connection) -> None:"
+hub/services/exact_search.py,184,while True,while True:
+hub/services/exact_search.py,190,daemon=True,"readers = [threading.Thread(target=read_stdout, daemon=True), threading.Thread(target=read_stderr, daemon=True)]"
+hub/services/exact_search.py,190,daemon=True,"readers = [threading.Thread(target=read_stdout, daemon=True), threading.Thread(target=read_stderr, daemon=True)]"
+hub/services/exact_search.py,198,while True,while True:
+hub/services/exact_search.py,269,daemon=True,"threading.Thread(target=_gather_worker, args=(job, cfg, args, paths, dest, keep_structure), daemon=True).start()"
+hub/services/provider_router.py,3,DeepSeek,Purpose: Replace hardcoded DeepSeek forwarding with a pluggable provider registry.
+hub/services/report_builder.py,44,uuid4(,"report_id = report_id or f""fis-{uuid.uuid4().hex[:12]}"""
+hub/intelligence/prediction_engine.py,147,sqlite3.connect,self.conn = sqlite3.connect(self.db_path)
+hub/intelligence/prediction_engine.py,412,uuid4(,"id=str(uuid.uuid4())[:12],"
+hub/intelligence/prediction_engine.py,451,uuid4(,"id=str(uuid.uuid4())[:12],"
+hub/api/routes_openai_compat.py,3,DeepSeek,"Refactored July 14, 2026: Replaced hardcoded DeepSeek forwarding with"
+hub/api/routes_openai_compat.py,5,DeepSeek,"endpoint (Ollama, LM Studio, OpenAI, DeepSeek, etc.) works via config/providers.json."
+hub/api/routes_openai_compat.py,31,DEEPSEEK,"DEEPSEEK_MODEL = os.environ.get(""DEEPSEEK_MODEL"", ""deepseek-chat"")"
+hub/api/routes_openai_compat.py,31,DEEPSEEK,"DEEPSEEK_MODEL = os.environ.get(""DEEPSEEK_MODEL"", ""deepseek-chat"")"
+hub/api/routes_openai_compat.py,31,deepseek,"DEEPSEEK_MODEL = os.environ.get(""DEEPSEEK_MODEL"", ""deepseek-chat"")"
+hub/api/routes_openai_compat.py,32,DEEPSEEK,"DEEPSEEK_BASE_URL = os.environ.get(""DEEPSEEK_BASE_URL"", ""https://api.deepseek.com/v1"").rstrip(""/"")"
+hub/api/routes_openai_compat.py,32,DEEPSEEK,"DEEPSEEK_BASE_URL = os.environ.get(""DEEPSEEK_BASE_URL"", ""https://api.deepseek.com/v1"").rstrip(""/"")"
+hub/api/routes_openai_compat.py,32,deepseek,"DEEPSEEK_BASE_URL = os.environ.get(""DEEPSEEK_BASE_URL"", ""https://api.deepseek.com/v1"").rstrip(""/"")"
+hub/api/routes_openai_compat.py,295,deepseek,def _call_deepseek(messages: list[ChatMessage]) -> str:
+hub/api/routes_openai_compat.py,296,DeepSeek,"""""""Legacy DeepSeek hook kept for older clients and tests."
+hub/api/routes_openai_compat.py,299,DEEPSEEK,compatibility bridge for environments that only configure DEEPSEEK_API_KEY.
+hub/api/routes_openai_compat.py,301,DEEPSEEK,"key = os.environ.get(""DEEPSEEK_API_KEY"", """").strip()"
+hub/api/routes_openai_compat.py,303,DEEPSEEK,"raise RuntimeError(""DEEPSEEK_API_KEY is not configured"")"
+hub/api/routes_openai_compat.py,306,DEEPSEEK,"""model"": DEEPSEEK_MODEL,"
+hub/api/routes_openai_compat.py,312,DEEPSEEK,"f""{DEEPSEEK_BASE_URL}/chat/completions"","
+hub/api/routes_openai_compat.py,322,DeepSeek,"raise RuntimeError(f""DeepSeek HTTP {exc.code}: {detail}"") from exc"
+hub/api/routes_openai_compat.py,324,DeepSeek,"raise RuntimeError(f""DeepSeek request failed: {exc.reason}"") from exc"
+hub/api/routes_openai_compat.py,326,DeepSeek,"raise RuntimeError(""DeepSeek request timed out"") from exc"
+hub/api/routes_openai_compat.py,331,DeepSeek,"raise RuntimeError(""unexpected response shape from DeepSeek"") from exc"
+hub/api/routes_openai_compat.py,424,DeepSeek,# ── Provider routing (replaces hardcoded DeepSeek) ────────────────
+hub/api/routes_openai_compat.py,434,DEEPSEEK,"if os.environ.get(""DEEPSEEK_API_KEY"", """").strip():"
+hub/api/routes_openai_compat.py,436,deepseek,content = _call_deepseek(routed_messages)
+hub/api/routes_openai_compat.py,438,deepseek,"""provider"": ""deepseek"","
+hub/api/routes_openai_compat.py,439,DeepSeek,"""provider_label"": ""DeepSeek"","
+hub/api/routes_openai_compat.py,440,DEEPSEEK,"""model"": DEEPSEEK_MODEL,"
+hub/api/routes_openai_compat.py,448,deepseek,"""provider"": ""deepseek"","
+hub/api/routes_openai_compat.py,456,DeepSeek,"""Top of Mind router received the request, but the DeepSeek compatibility path failed. """
+hub/api/routes_openai_compat.py,525,uuid4(,"""id"": f""chatcmpl-{uuid.uuid4().hex}"","
+hub/api/routes_openai_compat.py,546,uuid4(,"stream_id = f""chatcmpl-{uuid.uuid4().hex}"""
+hub/api/routes_openai_compat.py,626,uuid4(,"""id"": f""resp_{uuid.uuid4().hex}"","
+hub/api/routes_openai_compat.py,633,uuid4(,"""id"": f""msg_{uuid.uuid4().hex}"","
+gui/axiom_search_export.py,97,sqlite3.Connect,def registry_conn() -> sqlite3.Connection:
+gui/axiom_search_export.py,98,sqlite3.connect,"c = sqlite3.connect(f""file:{REGISTRY_DB}?mode=ro"", uri=True)"
+gui/filetagger_gui.py,148,daemon=True,"threading.Thread(target=self._run_process, daemon=True).start()"
+gui/filetagger_gui.py,193,while True,while True:
+gui/fis_scanner_gui.py,168,sqlite3.Connect,def init_db(db_path: Path) -> sqlite3.Connection:
+gui/fis_scanner_gui.py,170,sqlite3.connect,"conn = sqlite3.connect(str(db_path), check_same_thread=False)"
+gui/fis_scanner_gui.py,253,.fisnote,"if fp.suffix.lower() in SKIP_EXTS or fn.startswith("".fisnote""):"
+gui/fis_scanner_gui.py,798,sqlite3.connect,conn = sqlite3.connect(str(db))
+gui/fis_search_workbench.py,53,sqlite3.Connect,def registry() -> sqlite3.Connection:
+gui/fis_search_workbench.py,54,sqlite3.connect,"c = sqlite3.connect(f""file:{REGISTRY_DB}?mode=ro"", uri=True)"
+gui/fis_search_workbench.py,105,sqlite3.Connect,def index_conn() -> sqlite3.Connection:
+gui/fis_search_workbench.py,107,sqlite3.connect,c = sqlite3.connect(INDEX_DB)
+gui/fis_search_workbench.py,437,while True,while True:
+gui/fis_search_workbench.py,563,while True,while True:
+gui/fis_search_workbench.py,572,daemon=True,"threading.Thread(target=lambda: self._safe(build_index, wc, self.logmsg, self.stop_evt), daemon=True).start()"
+gui/fis_search_workbench.py,617,daemon=True,"threading.Thread(target=work, daemon=True).start()"
+gui/fis_search_workbench.py,645,daemon=True,"threading.Thread(target=work, daemon=True).start()"
+gui/launcher.py,22,DeepSeek,"(""03 · Document Classifier — Review sidecars"", ""../03_CLASSIFY/REVIEW.bat"", ""Every card · engine + DeepSeek suggestions · accept / reject / edit, one or all""),"
+gui/master_equation_intake_gui.py,126,daemon=True,"threading.Thread(target=work, daemon=True).start()"
+gui/master_equation_intake_gui.py,130,while True,while True:
+folder_hub/service.py,34,sqlite3.connect,"con = sqlite3.connect(self.home/'relay.sqlite', timeout=30)"
+folder_hub/service.py,70,sqlite3.connect,"with sqlite3.connect(attached.as_uri()+'?mode=ro',uri=True) as con:"
+folder_hub/service.py,150,sqlite3.connect,"with sqlite3.connect(db.as_uri()+'?mode=ro', uri=True) as con:"
+folder_hub/service.py,171,DeepSeek,"'ai': {'provider': 'DeepSeek', 'configured': bool(os.environ.get('DEEPSEEK_API_KEY'))},"
+folder_hub/service.py,171,DEEPSEEK,"'ai': {'provider': 'DeepSeek', 'configured': bool(os.environ.get('DEEPSEEK_API_KEY'))},"
+folder_hub/service.py,226,DEEPSEEK,if not os.environ.get('DEEPSEEK_API_KEY'):
+folder_hub/service.py,227,DeepSeek,"return {'status': 'not_configured', 'message': 'DeepSeek is not configured in this server process; no API call made.',"
+folder_hub/service.py,229,deepseek,"from hub.api.routes_openai_compat import ChatMessage, _call_deepseek"
+folder_hub/service.py,235,deepseek,"answer = _call_deepseek([ChatMessage(role='system', content=instructions),"
+folder_hub/service.py,237,DeepSeek,"return {'status': 'answered', 'answer': answer, 'provider': 'DeepSeek',"
+folder_hub/service.py,247,uuid4(,cid = uuid.uuid4().hex
+folder_hub/web.py,62,DeepSeek,"<button id=""ask"">Ask DeepSeek</button><div id=""answer"" class=""answer"" aria-live=""polite""></div></section></section>"
+folder_hub/web.py,84,daemon=True,"worker = threading.Thread(target=service.watch,args=(stop,),daemon=True,name='fis-hub-checks')"
+folder_hub/static/app.js,21,DeepSeek,$('ai-status').textContent=state.ai.configured?'DeepSeek connected through the backend. Selected source excerpts may be partial.':'DeepSeek key is not configured in this server process. Folder checks 
+folder_hub/static/app.js,21,DeepSeek,$('ai-status').textContent=state.ai.configured?'DeepSeek connected through the backend. Selected source excerpts may be partial.':'DeepSeek key is not configured in this server process. Folder checks 
+folder_hub/static/app.js,33,DeepSeek,"async function run(action,extra={}){if(busy)return;busy=true;document.querySelectorAll('button').forEach(b=>b.disabled=true);notice(action==='ask'?'Asking DeepSeek…':'Working…');"
+folder_hub/static/app.js,44,setInterval(,"else setInterval(()=>{if(!busy)refresh().catch(e=>{$('connection').textContent='Service unavailable';});},10000);"
+fis/background.py,24,daemon=True,"self.thread = threading.Thread(target=self.run, name='fis-background', daemon=True)"
+fis/crawler.py,70,daemon=True,"self.thread = threading.Thread(target=self._background, args=(root, speed), daemon=True)"
+fis/crawler.py,189,.fisnote,and not list(Path(folder).glob('*.fisnote'))
+fis/index.py,20,uuid4(,return uuid.uuid4().hex
+fis/index.py,39,sqlite3.connect,"con = sqlite3.connect(self.home / ""index.sqlite"", timeout=30)"
+fis/scan.py,39,.fisnote,"if reason or name.casefold() == 'fis.html' or name.casefold().endswith(('.fisnote', '.fmeta', '.fis.json', '.vial.md')):"
+fis/scan.py,57,.fisnote,note = p.with_name(p.name+'.fisnote')
+fis/sidecar.py,12,.fisnote,for p in sorted(Path(folder).glob('*.fisnote')):
+fis/static/app.js,77,setInterval(,"let queueCount=0;setInterval(async()=>{try{const next=await api('/api/state');const count=next.plans.reduce((n,p)=>n+p.pending_renames,0)+next.template_queue.length+(next.crawler.errors||[]).length;if"
+fis/static/live.js,29,setInterval(,"tick();setInterval(tick,1800);"
+fis/build/lib/fis/background.py,24,daemon=True,"self.thread = threading.Thread(target=self.run, name='fis-background', daemon=True)"
+fis/build/lib/fis/crawler.py,55,daemon=True,"self.thread = threading.Thread(target=self._background, args=(root, speed), daemon=True)"
+fis/build/lib/fis/crawler.py,165,.fisnote,and not list(Path(folder).glob('*.fisnote'))
+fis/build/lib/fis/index.py,20,uuid4(,return uuid.uuid4().hex
+fis/build/lib/fis/index.py,39,sqlite3.connect,"con = sqlite3.connect(self.home / ""index.sqlite"", timeout=30)"
+fis/build/lib/fis/scan.py,38,.fisnote,"if reason or name == 'FIS.html' or name.endswith('.fisnote') or name in {'.fmeta', '.folder.fmeta'}:"
+fis/build/lib/fis/scan.py,52,.fisnote,note = p.with_name(p.name+'.fisnote')
+fis/build/lib/fis/sidecar.py,12,.fisnote,for p in sorted(Path(folder).glob('*.fisnote')):
+fis/build/lib/fis/static/app.js,73,setInterval(,"let queueCount=0;setInterval(async()=>{try{const next=await api('/api/state');const count=next.plans.reduce((n,p)=>n+p.pending_renames,0)+next.template_queue.length+(next.crawler.errors||[]).length;if"
+file-intelligence-system/fis_folder_memory.py,4,.fisnote,or promotes content.  ``--write`` is required before it writes a .fisnote and
+file-intelligence-system/fis_folder_memory.py,42,.fisnote,"SKIP_FILES = {"".fisnote"", ""fis.html"", ""fis_folder_index.html"", ""thumbs.db"", ""desktop.ini"", "".ds_store""}"
+file-intelligence-system/fis_folder_memory.py,319,.fisnote,"and not p.name.lower().endswith("".fisnote"")"
+file-intelligence-system/fis_folder_memory.py,320,.fisnote,"and not p.name.startswith("".fisnote.legacy."")"
+file-intelligence-system/fis_folder_memory.py,328,sqlite3.Connect,def init_db(db_path: Path) -> sqlite3.Connection:
+file-intelligence-system/fis_folder_memory.py,330,sqlite3.connect,"conn = sqlite3.connect(db_path, timeout=60.0)"
+file-intelligence-system/fis_folder_memory.py,400,sqlite3.Connect,def ensure_compat_views(conn: sqlite3.Connection) -> None:
+file-intelligence-system/fis_folder_memory.py,449,sqlite3.Connect,"def upsert_folder(conn: sqlite3.Connection, folder: Path, files: list[Path], children: list[Path]) -> str:"
+file-intelligence-system/fis_folder_memory.py,469,sqlite3.Connect,"def upsert_file(conn: sqlite3.Connection, folder_id: str, path: Path) -> None:"
+file-intelligence-system/fis_folder_memory.py,525,sqlite3.Connect,"def backfill_doc_types(conn: sqlite3.Connection, limit: int = 0, force: bool = False,"
+file-intelligence-system/fis_folder_memory.py,663,sqlite3.Connect,"def enrich_local_ai(conn: sqlite3.Connection, limit: int, model: str) -> tuple[int, int]:"
+file-intelligence-system/fis_folder_memory.py,707,sqlite3.Connect,"def render_note(conn: sqlite3.Connection, folder: Path) -> str:"
+file-intelligence-system/fis_folder_memory.py,760,.fisnote,"link = relative_link(folder, child / "".fisnote"")"
+file-intelligence-system/fis_folder_memory.py,772,.fisnote,"return path.with_name(f""{path.name}.fisnote"")"
+file-intelligence-system/fis_folder_memory.py,825,sqlite3.Connect,"def write_file_notes(conn: sqlite3.Connection, folders: list[Path]) -> tuple[int, int]:"
+file-intelligence-system/fis_folder_memory.py,843,.fisnote,"for note in folder.glob(""*.fisnote""):"
+file-intelligence-system/fis_folder_memory.py,844,.fisnote,"if note.name == "".fisnote"" or note.name.startswith("".fisnote.legacy.""):"
+file-intelligence-system/fis_folder_memory.py,844,.fisnote,"if note.name == "".fisnote"" or note.name.startswith("".fisnote.legacy.""):"
+file-intelligence-system/fis_folder_memory.py,852,.fisnote,"source_name = note.name[:-len("".fisnote"")]"
+file-intelligence-system/fis_folder_memory.py,866,.fisnote,"folder_note = folder / "".fisnote"""
+file-intelligence-system/fis_folder_memory.py,870,.fisnote,"for note in root.rglob(""*.fisnote""):"
+file-intelligence-system/fis_folder_memory.py,880,sqlite3.Connect,"def live_file_rows(conn: sqlite3.Connection, folder: Path) -> tuple[sqlite3.Row, list[sqlite3.Row]]:"
+file-intelligence-system/fis_folder_memory.py,1350,sqlite3.Connect,"def render_html(conn: sqlite3.Connection, folder: Path) -> str:"
+file-intelligence-system/fis_folder_memory.py,1485,.fisnote,# or clean up Markdown-like .fisnote artifacts.
+file-intelligence-system/fis_folder_memory.py,1527,.fisnote,"note = folder / "".fisnote"""
+file-intelligence-system/fis_folder_memory.py,1530,.fisnote,"backup = folder / f"".fisnote.legacy.{datetime.now().strftime('%Y%m%d_%H%M%S')}"""
+file-intelligence-system/fis_folder_memory.py,1584,.fisnote,"parser.add_argument(""--write"", action=""store_true"", help=""Deprecated compatibility flag; .fisnote writing is disabled"")"
+file-intelligence-system/fis_folder_memory.py,1585,.fisnote,"parser.add_argument(""--file-notes"", action=""store_true"", help=""Deprecated compatibility flag; .fisnote writing is disabled"")"
+file-intelligence-system/fis_folder_memory.py,1586,.fisnote,"parser.add_argument(""--cleanup-stale"", action=""store_true"", help=""Deprecated compatibility flag; .fisnote mutation is disabled"")"
+file-intelligence-system/fis_folder_memory.py,1587,.fisnote,"parser.add_argument(""--wipe-fisnotes"", action=""store_true"", help=""Deprecated compatibility flag; .fisnote mutation is disabled"")"
+file-intelligence-system/fis_folder_memory.v2.1.0.py,4,.fisnote,or promotes content.  ``--write`` is required before it writes a .fisnote and
+file-intelligence-system/fis_folder_memory.v2.1.0.py,41,.fisnote,"SKIP_FILES = {"".fisnote"", ""fis.html"", ""fis_folder_index.html"", ""thumbs.db"", ""desktop.ini"", "".ds_store""}"
+file-intelligence-system/fis_folder_memory.v2.1.0.py,295,.fisnote,"and not p.name.lower().endswith("".fisnote"")"
+file-intelligence-system/fis_folder_memory.v2.1.0.py,296,.fisnote,"and not p.name.startswith("".fisnote.legacy."")"
+file-intelligence-system/fis_folder_memory.v2.1.0.py,304,sqlite3.Connect,def init_db(db_path: Path) -> sqlite3.Connection:
+file-intelligence-system/fis_folder_memory.v2.1.0.py,306,sqlite3.connect,conn = sqlite3.connect(db_path)
+file-intelligence-system/fis_folder_memory.v2.1.0.py,376,sqlite3.Connect,def ensure_compat_views(conn: sqlite3.Connection) -> None:
+file-intelligence-system/fis_folder_memory.v2.1.0.py,422,sqlite3.Connect,"def upsert_folder(conn: sqlite3.Connection, folder: Path, files: list[Path], children: list[Path]) -> str:"
+file-intelligence-system/fis_folder_memory.v2.1.0.py,442,sqlite3.Connect,"def upsert_file(conn: sqlite3.Connection, folder_id: str, path: Path) -> None:"
+file-intelligence-system/fis_folder_memory.v2.1.0.py,498,sqlite3.Connect,"def backfill_doc_types(conn: sqlite3.Connection, limit: int = 0, force: bool = False,"
+file-intelligence-system/fis_folder_memory.v2.1.0.py,636,sqlite3.Connect,"def enrich_local_ai(conn: sqlite3.Connection, limit: int, model: str) -> tuple[int, int]:"
+file-intelligence-system/fis_folder_memory.v2.1.0.py,680,sqlite3.Connect,"def render_note(conn: sqlite3.Connection, folder: Path) -> str:"
+file-intelligence-system/fis_folder_memory.v2.1.0.py,733,.fisnote,"link = relative_link(folder, child / "".fisnote"")"
+file-intelligence-system/fis_folder_memory.v2.1.0.py,745,.fisnote,"return path.with_name(f""{path.name}.fisnote"")"
+file-intelligence-system/fis_folder_memory.v2.1.0.py,798,sqlite3.Connect,"def write_file_notes(conn: sqlite3.Connection, folders: list[Path]) -> tuple[int, int]:"
+file-intelligence-system/fis_folder_memory.v2.1.0.py,816,.fisnote,"for note in folder.glob(""*.fisnote""):"
+file-intelligence-system/fis_folder_memory.v2.1.0.py,817,.fisnote,"if note.name == "".fisnote"" or note.name.startswith("".fisnote.legacy.""):"
+file-intelligence-system/fis_folder_memory.v2.1.0.py,817,.fisnote,"if note.name == "".fisnote"" or note.name.startswith("".fisnote.legacy.""):"
+file-intelligence-system/fis_folder_memory.v2.1.0.py,825,.fisnote,"source_name = note.name[:-len("".fisnote"")]"
+file-intelligence-system/fis_folder_memory.v2.1.0.py,839,.fisnote,"folder_note = folder / "".fisnote"""
+file-intelligence-system/fis_folder_memory.v2.1.0.py,843,.fisnote,"for note in root.rglob(""*.fisnote""):"
+file-intelligence-system/fis_folder_memory.v2.1.0.py,853,sqlite3.Connect,"def live_file_rows(conn: sqlite3.Connection, folder: Path) -> tuple[sqlite3.Row, list[sqlite3.Row]]:"
+file-intelligence-system/fis_folder_memory.v2.1.0.py,1322,sqlite3.Connect,"def render_html(conn: sqlite3.Connection, folder: Path) -> str:"
+file-intelligence-system/fis_folder_memory.v2.1.0.py,1452,.fisnote,# or clean up Markdown-like .fisnote artifacts.
+file-intelligence-system/fis_folder_memory.v2.1.0.py,1494,.fisnote,"note = folder / "".fisnote"""
+file-intelligence-system/fis_folder_memory.v2.1.0.py,1497,.fisnote,"backup = folder / f"".fisnote.legacy.{datetime.now().strftime('%Y%m%d_%H%M%S')}"""
+file-intelligence-system/fis_folder_memory.v2.1.0.py,1548,.fisnote,"parser.add_argument(""--write"", action=""store_true"", help=""Deprecated compatibility flag; .fisnote writing is disabled"")"
+file-intelligence-system/fis_folder_memory.v2.1.0.py,1549,.fisnote,"parser.add_argument(""--file-notes"", action=""store_true"", help=""Deprecated compatibility flag; .fisnote writing is disabled"")"
+file-intelligence-system/fis_folder_memory.v2.1.0.py,1550,.fisnote,"parser.add_argument(""--cleanup-stale"", action=""store_true"", help=""Deprecated compatibility flag; .fisnote mutation is disabled"")"
+file-intelligence-system/fis_folder_memory.v2.1.0.py,1551,.fisnote,"parser.add_argument(""--wipe-fisnotes"", action=""store_true"", help=""Deprecated compatibility flag; .fisnote mutation is disabled"")"
+file-intelligence-system/fis_namer.py,446,sqlite3.connect,con = sqlite3.connect(db_path)
+file-intelligence-system/fis_namer.py,519,sqlite3.connect,con = sqlite3.connect(db_path)
+file-intelligence-hub/file_intelligence_hub/workers/runner.py,76,while True,while True:
+file-intelligence-hub/file_intelligence_hub/watchers/native.py,28,watchdog.,"events_module = importlib.import_module(""watchdog.events"")"
+file-intelligence-hub/file_intelligence_hub/watchers/native.py,29,watchdog.,"observers_module = importlib.import_module(""watchdog.observers"")"
+file-intelligence-hub/file_intelligence_hub/watchers/native.py,67,while True,while True:
+file-intelligence-hub/file_intelligence_hub/watchers/runner.py,34,while True,while True:
+file-intelligence-hub/file_intelligence_hub/storage/db.py,57,sqlite3.Connect,"Migration = Callable[[sqlite3.Connection], None]"
+file-intelligence-hub/file_intelligence_hub/storage/db.py,60,sqlite3.Connect,def _migration_2(conn: sqlite3.Connection) -> None:
+file-intelligence-hub/file_intelligence_hub/storage/db.py,73,sqlite3.Connect,def _migration_3(conn: sqlite3.Connection) -> None:
+file-intelligence-hub/file_intelligence_hub/storage/db.py,134,sqlite3.Connect,def _migration_4(conn: sqlite3.Connection) -> None:
+file-intelligence-hub/file_intelligence_hub/storage/db.py,162,sqlite3.Connect,def _migration_5(conn: sqlite3.Connection) -> None:
+file-intelligence-hub/file_intelligence_hub/storage/db.py,204,sqlite3.Connect,def _migration_6(conn: sqlite3.Connection) -> None:
+file-intelligence-hub/file_intelligence_hub/storage/db.py,233,sqlite3.Connect,def connect(db_path: str | Path) -> sqlite3.Connection:
+file-intelligence-hub/file_intelligence_hub/storage/db.py,237,sqlite3.connect,conn = sqlite3.connect(path)
+file-intelligence-hub/file_intelligence_hub/storage/db.py,244,sqlite3.Connect,def current_version(conn: sqlite3.Connection) -> int:
+file-intelligence-hub/file_intelligence_hub/storage/db.py,249,sqlite3.Connect,"def migrate(conn: sqlite3.Connection, *, target_version: int = SCHEMA_VERSION) -> None:"
+file-intelligence-hub/file_intelligence_hub/storage/db.py,262,sqlite3.Connect,def initialize(conn: sqlite3.Connection) -> None:
+file-intelligence-hub/file_intelligence_hub/storage/intelligence_repo.py,20,sqlite3.Connect,"def __init__(self, conn: sqlite3.Connection) -> None:"
+file-intelligence-hub/file_intelligence_hub/storage/job_repo.py,45,sqlite3.Connect,"def __init__(self, conn: sqlite3.Connection) -> None:"
+file-intelligence-hub/file_intelligence_hub/storage/memory_repo.py,22,sqlite3.Connect,"def __init__(self, conn: sqlite3.Connection) -> None:"
+file-intelligence-hub/file_intelligence_hub/storage/node_repo.py,20,sqlite3.Connect,"def __init__(self, conn: sqlite3.Connection) -> None:"
+file-intelligence-hub/file_intelligence_hub/storage/top_of_mind_repo.py,22,sqlite3.Connect,"def __init__(self, conn: sqlite3.Connection) -> None:"
+engine/canon_scan.py,7,.fisnote,"2. This script disperses those rulings into every scanned folder's .fisnote,"
+engine/canon_scan.py,43,.fisnote,"MARKER = "".fisnote"""
+engine/canon_scan.py,266,.fisnote,"ap = argparse.ArgumentParser(description=""Disperse canon rulings into .fisnotes and scan WANTED vs WRITTEN."")"
+engine/canon_scan.py,270,.fisnote,"ap.add_argument(""--no-fisnote"", action=""store_true"", help=""Report only; don't touch .fisnote files"")"
+engine/canon_scan.py,296,.fisnote,"print(""Policy: generated .fisnote writes are disabled globally; canon reports remain enabled."")"
+engine/chi_engine.py,331,while True,while True:
+engine/chi_engine.py,470,sqlite3.Connect,"def init_db(db_path: Path, schema_path: Optional[Path] = None) -> sqlite3.Connection:"
+engine/chi_engine.py,471,sqlite3.connect,con = sqlite3.connect(db_path)
+engine/claim_jurisdiction.py,365,sqlite3.connect,db = sqlite3.connect(db_path)
+engine/classification_policy.py,4,DeepSeek,"local classification is sufficient, whether DeepSeek should be consulted, and"
+engine/classification_policy.py,17,deepseek,deepseek_accept_clean: float = 0.90
+engine/classification_policy.py,18,deepseek,deepseek_accept_flagged: float = 0.60
+engine/classification_policy.py,23,deepseek,"self.deepseek_accept_clean,"
+engine/classification_policy.py,24,deepseek,"self.deepseek_accept_flagged,"
+engine/classification_policy.py,28,deepseek,if self.deepseek_accept_flagged > self.deepseek_accept_clean:
+engine/classification_policy.py,28,deepseek,if self.deepseek_accept_flagged > self.deepseek_accept_clean:
+engine/classification_policy.py,40,deepseek,needs_deepseek: bool
+engine/classification_policy.py,67,deepseek,"deepseek: Mapping[str, Any] | None = None,"
+engine/classification_policy.py,81,deepseek,if deepseek is None:
+engine/classification_policy.py,83,deepseek,"""request_deepseek"", local_label, local_confidence, ""local"", False, False, True, False,"
+engine/classification_policy.py,87,deepseek,deepseek_label = _label(deepseek)
+engine/classification_policy.py,87,deepseek,deepseek_label = _label(deepseek)
+engine/classification_policy.py,88,deepseek,"deepseek_confidence = _confidence(deepseek.get(""confidence""))"
+engine/classification_policy.py,88,deepseek,"deepseek_confidence = _confidence(deepseek.get(""confidence""))"
+engine/classification_policy.py,89,deepseek,"needs_human = bool(deepseek.get(""needs_human""))"
+engine/classification_policy.py,91,deepseek,if deepseek_label and not needs_human and deepseek_confidence >= limits.deepseek_accept_clean:
+engine/classification_policy.py,91,deepseek,if deepseek_label and not needs_human and deepseek_confidence >= limits.deepseek_accept_clean:
+engine/classification_policy.py,91,deepseek,if deepseek_label and not needs_human and deepseek_confidence >= limits.deepseek_accept_clean:
+engine/classification_policy.py,93,deepseek,"""carry_clean"", deepseek_label, deepseek_confidence, ""deepseek"", True, False, False, False,"
+engine/classification_policy.py,93,deepseek,"""carry_clean"", deepseek_label, deepseek_confidence, ""deepseek"", True, False, False, False,"
+engine/classification_policy.py,93,deepseek,"""carry_clean"", deepseek_label, deepseek_confidence, ""deepseek"", True, False, False, False,"
+engine/classification_policy.py,94,DeepSeek,"""DeepSeek met the clean acceptance threshold"","
+engine/classification_policy.py,97,deepseek,if deepseek_label and not needs_human and deepseek_confidence >= limits.deepseek_accept_flagged:
+engine/classification_policy.py,97,deepseek,if deepseek_label and not needs_human and deepseek_confidence >= limits.deepseek_accept_flagged:
+engine/classification_policy.py,97,deepseek,if deepseek_label and not needs_human and deepseek_confidence >= limits.deepseek_accept_flagged:
+engine/classification_policy.py,99,deepseek,"""carry_flagged"", deepseek_label, deepseek_confidence, ""deepseek"", True, True, False, True,"
+engine/classification_policy.py,99,deepseek,"""carry_flagged"", deepseek_label, deepseek_confidence, ""deepseek"", True, True, False, True,"
+engine/classification_policy.py,99,deepseek,"""carry_flagged"", deepseek_label, deepseek_confidence, ""deepseek"", True, True, False, True,"
+engine/classification_policy.py,100,DeepSeek,"""DeepSeek met the provisional threshold; human review remains open"","
+engine/classification_policy.py,104,deepseek,"""hold_for_review"", deepseek_label or local_label, deepseek_confidence, ""deepseek"","
+engine/classification_policy.py,104,deepseek,"""hold_for_review"", deepseek_label or local_label, deepseek_confidence, ""deepseek"","
+engine/classification_policy.py,104,deepseek,"""hold_for_review"", deepseek_label or local_label, deepseek_confidence, ""deepseek"","
+engine/classification_policy.py,106,DeepSeek,"""classification remained uncertain or DeepSeek requested human judgment"","
+engine/code_fields.py,67,uuid4(,"registry.log(con,uuid.uuid4().hex,'work_codes_updated',work_id,{'fields':values,'authority':authority,'codebook_sha256':book.hash})"
+engine/code_fields.py,102,uuid4(,"registry.queue(con,uuid.uuid4().hex,'blast_radius',wid,"
+engine/config.py,147,.fisnote,"""skip_exts"": ["".chi"", "".fisnote"", "".fmeta""],"
+engine/enricher.py,93,sqlite3.Connect,"def __init__(self, con: sqlite3.Connection, reference_db: Optional[str] = None):"
+engine/enricher.py,95,sqlite3.Connect,self.ref: Optional[sqlite3.Connection] = None
+engine/enricher.py,98,sqlite3.connect,"self.ref = sqlite3.connect(f""file:{reference_db}?mode=ro"", uri=True)"
+engine/filetagger_core.py,185,sqlite3.connect,db = sqlite3.connect(a.db)
+engine/master_equation_intake.py,206,sqlite3.connect,con = sqlite3.connect(path)
+engine/metadata_db.py,86,sqlite3.Connect,def _migrate(con: sqlite3.Connection) -> None:
+engine/metadata_db.py,97,sqlite3.Connect,def connect(db_path: Optional[str] = None) -> sqlite3.Connection:
+engine/metadata_db.py,98,sqlite3.connect,con = sqlite3.connect(db_path or str(config.DB_PATH))
+engine/metadata_db.py,109,sqlite3.Connect,"def get_by_hash(con: sqlite3.Connection, sha256: str, exclude_path: str = """") -> List[sqlite3.Row]:"
+engine/metadata_db.py,115,sqlite3.Connect,"def get_one(con: sqlite3.Connection, path: str) -> Optional[sqlite3.Row]:"
+engine/metadata_db.py,119,sqlite3.Connect,"def upsert_file(con: sqlite3.Connection, rec: dict) -> None:"
+engine/metadata_db.py,160,sqlite3.Connect,"def start_run(con: sqlite3.Connection, roots: list, file_types: list) -> int:"
+engine/metadata_db.py,168,sqlite3.Connect,"def finish_run(con: sqlite3.Connection, run_id: int, file_count: int) -> None:"
+engine/metadata_db.py,172,sqlite3.Connect,def pending_queue(con: sqlite3.Connection) -> List[sqlite3.Row]:
+engine/metadata_db.py,180,sqlite3.Connect,def all_proposed(con: sqlite3.Connection) -> List[sqlite3.Row]:
+engine/metadata_db.py,186,sqlite3.Connect,def counts(con: sqlite3.Connection) -> dict:
+engine/me_rename_bridge.py,50,sqlite3.connect,with sqlite3.connect(db) as con:
+engine/me_rename_bridge.py,81,sqlite3.Connect,"def update_work(con: sqlite3.Connection, version_id: str, enrichment: dict[str, Any]) -> None:"
+engine/path_write_policy.py,54,.fisnote,"""""""Whether generated `.fisnote` artifacts may be written below *path*."
+engine/path_write_policy.py,75,.fisnote,"f""Generated .fisnote writes are disabled globally at {path}; use HTML or database output instead."""
+engine/registry.py,32,.fisnote,"'.md', '.markdown', '.txt', '.fisnote', '.rst', '.lean', '.json', '.jsonld',"
+engine/registry.py,65,sqlite3.connect,con = sqlite3.connect(path)
+engine/registry.py,145,while True,while True:
+engine/registry.py,248,uuid4(,version_id = 'V'+uuid.uuid4().hex
+engine/registry.py,300,uuid4(,run = uuid.uuid4().hex
+engine/registry.py,382,uuid4(,run = uuid.uuid4().hex
+engine/registry.py,412,uuid4(,run = uuid.uuid4().hex
+engine/registry.py,451,sqlite3.connect,con = sqlite3.connect(db_path)
+engine/rename_applier.py,66,while True,while True:
+engine/rename_applier.py,212,sqlite3.Connect,"def _update_admission_path(con: sqlite3.Connection, old: str, new: str) -> None:"
+engine/rename_applier.py,221,sqlite3.Connect,"def _update_registry_path(con: sqlite3.Connection, old: str, new: str) -> None:"
+engine/rename_applier.py,239,sqlite3.Connect,"con: sqlite3.Connection, item: dict[str, Any], changeset_id: str, reference_root: Path"
+engine/rename_applier.py,293,uuid4(,changeset_id = str(uuid.uuid4())
+engine/rename_preview.py,57,.fisnote,"if low in {'fis.html','fis.md','.fisnote','.fis','sidecars','sidecars_and_json','dossiers','thumbnails'}:return False"
+engine/rename_preview.py,58,.fisnote,"if low.endswith(('.fisnote','.fmeta','.bak','.sidecar.json','.canon.sidecar.json')):return False"
+engine/rename_preview.py,59,.fisnote,"if low.startswith(('.fisnote.legacy.','thumbnail','thumb_')):return False"
+engine/rename_preview.py,88,sqlite3.connect,"with sqlite3.connect(Path(db).resolve().as_uri()+'?mode=ro',uri=True) as con:"
+engine/sidecar_writer.py,157,uuid4(,run_id = uuid.uuid4().hex
+engine/smart_tagger.py,215,sqlite3.connect,conn = sqlite3.connect(str(db_path))
+engine/smart_tagger.py,228,sqlite3.connect,conn = sqlite3.connect(str(db_path))
+engine/stage2b_common.py,25,sqlite3.Connect,"def connect_registry(path: str | Path, *, migrate: bool = False) -> sqlite3.Connection:"
+engine/stage2b_common.py,29,sqlite3.connect,con = sqlite3.connect(db)
+engine/stage2b_common.py,37,sqlite3.Connect,"def table_exists(con: sqlite3.Connection, table: str) -> bool:"
+engine/stage2b_common.py,43,sqlite3.Connect,"def columns(con: sqlite3.Connection, table: str) -> set[str]:"
+engine/stage2b_common.py,49,sqlite3.Connect,def migrate_stage2b(con: sqlite3.Connection) -> None:
+engine/stage2b_common.py,73,sqlite3.Connect,"def admission_for(con: sqlite3.Connection, file_row: sqlite3.Row) -> dict[str, Any]:"
+engine/stage2b_common.py,151,sqlite3.Connect,"con: sqlite3.Connection,"
+engine/understand.py,44,.fisnote,"""documents"": "".md .txt .pdf .doc .docx .rtf .odt .epub .tex .html .htm .fisnote .chi"","
+engine/understand.py,66,deepseek,"""ai_chats"": ""chatgpt claude gemini kimi codex conversation conversations transcript export prompt chat chats deepseek gpt"","
+engine/understand.py,104,sqlite3.Connect,def connect(path: Path = DB_PATH) -> sqlite3.Connection:
+engine/understand.py,106,sqlite3.connect,con = sqlite3.connect(path)
+engine/understand.py,169,sqlite3.Connect,"def scan(roots: list[str], con: sqlite3.Connection, run_symptoms=False, blind=False, ollama_model=None,"
+engine/symptoms/research.py,31,sqlite3.connect,"with sqlite3.connect(f""file:{db}?mode=ro"",uri=True) as con:"
+engine/config/ignore_patterns.yaml,20,.fisnote,- .fisnote
+docs/FIS_TEMPLATE_v2.1.0/fis_folder_memory.v2.1.0.py,4,.fisnote,or promotes content.  ``--write`` is required before it writes a .fisnote and
+docs/FIS_TEMPLATE_v2.1.0/fis_folder_memory.v2.1.0.py,41,.fisnote,"SKIP_FILES = {"".fisnote"", ""fis.html"", ""fis_folder_index.html"", ""thumbs.db"", ""desktop.ini"", "".ds_store""}"
+docs/FIS_TEMPLATE_v2.1.0/fis_folder_memory.v2.1.0.py,295,.fisnote,"and not p.name.lower().endswith("".fisnote"")"
+docs/FIS_TEMPLATE_v2.1.0/fis_folder_memory.v2.1.0.py,296,.fisnote,"and not p.name.startswith("".fisnote.legacy."")"
+docs/FIS_TEMPLATE_v2.1.0/fis_folder_memory.v2.1.0.py,304,sqlite3.Connect,def init_db(db_path: Path) -> sqlite3.Connection:
+docs/FIS_TEMPLATE_v2.1.0/fis_folder_memory.v2.1.0.py,306,sqlite3.connect,conn = sqlite3.connect(db_path)
+docs/FIS_TEMPLATE_v2.1.0/fis_folder_memory.v2.1.0.py,376,sqlite3.Connect,def ensure_compat_views(conn: sqlite3.Connection) -> None:
+docs/FIS_TEMPLATE_v2.1.0/fis_folder_memory.v2.1.0.py,422,sqlite3.Connect,"def upsert_folder(conn: sqlite3.Connection, folder: Path, files: list[Path], children: list[Path]) -> str:"
+docs/FIS_TEMPLATE_v2.1.0/fis_folder_memory.v2.1.0.py,442,sqlite3.Connect,"def upsert_file(conn: sqlite3.Connection, folder_id: str, path: Path) -> None:"
+docs/FIS_TEMPLATE_v2.1.0/fis_folder_memory.v2.1.0.py,498,sqlite3.Connect,"def backfill_doc_types(conn: sqlite3.Connection, limit: int = 0, force: bool = False,"
+docs/FIS_TEMPLATE_v2.1.0/fis_folder_memory.v2.1.0.py,636,sqlite3.Connect,"def enrich_local_ai(conn: sqlite3.Connection, limit: int, model: str) -> tuple[int, int]:"
+docs/FIS_TEMPLATE_v2.1.0/fis_folder_memory.v2.1.0.py,680,sqlite3.Connect,"def render_note(conn: sqlite3.Connection, folder: Path) -> str:"
+docs/FIS_TEMPLATE_v2.1.0/fis_folder_memory.v2.1.0.py,733,.fisnote,"link = relative_link(folder, child / "".fisnote"")"
+docs/FIS_TEMPLATE_v2.1.0/fis_folder_memory.v2.1.0.py,745,.fisnote,"return path.with_name(f""{path.name}.fisnote"")"
+docs/FIS_TEMPLATE_v2.1.0/fis_folder_memory.v2.1.0.py,798,sqlite3.Connect,"def write_file_notes(conn: sqlite3.Connection, folders: list[Path]) -> tuple[int, int]:"
+docs/FIS_TEMPLATE_v2.1.0/fis_folder_memory.v2.1.0.py,816,.fisnote,"for note in folder.glob(""*.fisnote""):"
+docs/FIS_TEMPLATE_v2.1.0/fis_folder_memory.v2.1.0.py,817,.fisnote,"if note.name == "".fisnote"" or note.name.startswith("".fisnote.legacy.""):"
+docs/FIS_TEMPLATE_v2.1.0/fis_folder_memory.v2.1.0.py,817,.fisnote,"if note.name == "".fisnote"" or note.name.startswith("".fisnote.legacy.""):"
+docs/FIS_TEMPLATE_v2.1.0/fis_folder_memory.v2.1.0.py,825,.fisnote,"source_name = note.name[:-len("".fisnote"")]"
+docs/FIS_TEMPLATE_v2.1.0/fis_folder_memory.v2.1.0.py,839,.fisnote,"folder_note = folder / "".fisnote"""
+docs/FIS_TEMPLATE_v2.1.0/fis_folder_memory.v2.1.0.py,843,.fisnote,"for note in root.rglob(""*.fisnote""):"
+docs/FIS_TEMPLATE_v2.1.0/fis_folder_memory.v2.1.0.py,853,sqlite3.Connect,"def live_file_rows(conn: sqlite3.Connection, folder: Path) -> tuple[sqlite3.Row, list[sqlite3.Row]]:"
+docs/FIS_TEMPLATE_v2.1.0/fis_folder_memory.v2.1.0.py,1322,sqlite3.Connect,"def render_html(conn: sqlite3.Connection, folder: Path) -> str:"
+docs/FIS_TEMPLATE_v2.1.0/fis_folder_memory.v2.1.0.py,1452,.fisnote,# or clean up Markdown-like .fisnote artifacts.
+docs/FIS_TEMPLATE_v2.1.0/fis_folder_memory.v2.1.0.py,1494,.fisnote,"note = folder / "".fisnote"""
+docs/FIS_TEMPLATE_v2.1.0/fis_folder_memory.v2.1.0.py,1497,.fisnote,"backup = folder / f"".fisnote.legacy.{datetime.now().strftime('%Y%m%d_%H%M%S')}"""
+docs/FIS_TEMPLATE_v2.1.0/fis_folder_memory.v2.1.0.py,1548,.fisnote,"parser.add_argument(""--write"", action=""store_true"", help=""Deprecated compatibility flag; .fisnote writing is disabled"")"
+docs/FIS_TEMPLATE_v2.1.0/fis_folder_memory.v2.1.0.py,1549,.fisnote,"parser.add_argument(""--file-notes"", action=""store_true"", help=""Deprecated compatibility flag; .fisnote writing is disabled"")"
+docs/FIS_TEMPLATE_v2.1.0/fis_folder_memory.v2.1.0.py,1550,.fisnote,"parser.add_argument(""--cleanup-stale"", action=""store_true"", help=""Deprecated compatibility flag; .fisnote mutation is disabled"")"
+docs/FIS_TEMPLATE_v2.1.0/fis_folder_memory.v2.1.0.py,1551,.fisnote,"parser.add_argument(""--wipe-fisnotes"", action=""store_true"", help=""Deprecated compatibility flag; .fisnote mutation is disabled"")"
+config/classification_schema.yaml,7,DeepSeek,"#          DeepSeek API calls, Kimi template nodes, GUI tools."
+config/classification_schema.yaml,13,DeepSeek,#    pipeline_name: what DeepSeek returns
+config/classification_schema.yaml,520,DEEPSEEK,# 18. DEEPSEEK API CALL TEMPLATE
+config/classification_schema.yaml,522,deepseek,deepseek_classification_prompt: |
+config/master_equation_node.yaml,410,DeepSeek,# This is the question DeepSeek asks for every
+apps/classify/src/engines/fis/fis_namer.py,446,sqlite3.connect,con = sqlite3.connect(db_path)
+apps/classify/src/engines/fis/fis_namer.py,519,sqlite3.connect,con = sqlite3.connect(db_path)
+agents/filetagger.py,185,sqlite3.connect,db = sqlite3.connect(a.db)
+agents/foldertagger.py,159,uuid4(,folder_id = str(uuid.uuid4())
+agents/folder_scanner.py,200,.fisnote,""".chi"", "".fmeta"", "".fisnote"", "".fistag"", "".fisdead"","
+agents/folder_scanner.py,363,.fisnote,""".chi"", "".fmeta"", "".fisnote"", "".fistag"", "".fisdead""}"
+agents/scanners/folder_scanner.py,205,.fisnote,""".chi"", "".fmeta"", "".fisnote"", "".fistag"", "".fisdead"","
+agents/scanners/folder_scanner.py,368,.fisnote,""".chi"", "".fmeta"", "".fisnote"", "".fistag"", "".fisdead""}"
+10_FILE_ACTIONS/shared/apol_shadow.py,191,MiniLM,"parser.add_argument(""--model"", type=Path, help=""Optional local MiniLM model directory"")"
+10_FILE_ACTIONS/shared/atom_match.py,14,deepseek,"matcher.extract_atoms(paths, provider=""deepseek"")  # run atoms station on selected files"
+10_FILE_ACTIONS/shared/atom_match.py,64,deepseek,"async def extract_atoms_for_file(self, path: str, provider: str = ""deepseek"") -> dict:"
+10_FILE_ACTIONS/shared/atom_match.py,68,DEEPSEEK,"if not os.environ.get(""DEEPSEEK_API_KEY""):"
+10_FILE_ACTIONS/shared/atom_match.py,72,DEEPSEEK,"os.environ[""DEEPSEEK_API_KEY""] = winreg.QueryValueEx(k, ""DEEPSEEK_API_KEY"")[0]"
+10_FILE_ACTIONS/shared/atom_match.py,72,DEEPSEEK,"os.environ[""DEEPSEEK_API_KEY""] = winreg.QueryValueEx(k, ""DEEPSEEK_API_KEY"")[0]"
+10_FILE_ACTIONS/shared/atom_match.py,74,DEEPSEEK,"return {""path"": path, ""error"": ""DEEPSEEK_API_KEY not set"", ""atom_count"": 0, ""atoms"": []}"
+10_FILE_ACTIONS/shared/atom_match.py,85,uuid4(,run_id = uuid.uuid4().hex[:12]
+10_FILE_ACTIONS/shared/atom_match.py,119,deepseek,"async def extract_atoms_batch(self, paths: list[str], provider: str = ""deepseek"","
+10_FILE_ACTIONS/shared/deep_identify.py,81,deepseek,"""ai_chats"": ""chatgpt claude gemini kimi codex conversation transcript export prompt chat deepseek gpt"","
+10_FILE_ACTIONS/shared/deep_identify_to_quickcall.py,3,DeepSeek,"Takes a deep_identify report, selects files worth a DeepSeek pass, runs them"
+10_FILE_ACTIONS/shared/deep_identify_to_quickcall.py,16,DEEPSEEK,Requires: DEEPSEEK_API_KEY in environment or Windows registry.
+10_FILE_ACTIONS/shared/deep_identify_to_quickcall.py,31,DeepSeek,"""""""Get DeepSeek API key from env or Windows registry."""""""
+10_FILE_ACTIONS/shared/deep_identify_to_quickcall.py,32,DEEPSEEK,"key = os.environ.get(""DEEPSEEK_API_KEY"")"
+10_FILE_ACTIONS/shared/deep_identify_to_quickcall.py,38,DEEPSEEK,"key = winreg.QueryValueEx(k, ""DEEPSEEK_API_KEY"")[0]"
+10_FILE_ACTIONS/shared/deep_identify_to_quickcall.py,39,DEEPSEEK,"os.environ[""DEEPSEEK_API_KEY""] = key"
+10_FILE_ACTIONS/shared/deep_identify_to_quickcall.py,46,DeepSeek,"""""""Pick files worth sending to DeepSeek."""""""
+10_FILE_ACTIONS/shared/deep_identify_to_quickcall.py,176,DeepSeek,"parser.add_argument(""--max-calls"", type=int, default=30, help=""Max DeepSeek API calls"")"
+10_FILE_ACTIONS/shared/deep_identify_to_quickcall.py,197,DeepSeek,"print(f""Selected {len(selected)} files for DeepSeek pass:"")"
+10_FILE_ACTIONS/shared/deep_identify_to_quickcall.py,207,DEEPSEEK,"print(""ERROR: DEEPSEEK_API_KEY not found in environment or registry."")"
+10_FILE_ACTIONS/shared/scan_db.py,150,sqlite3.connect,self.conn = sqlite3.connect(str(self.path))
+10_FILE_ACTIONS/shared/runs/ftp_final/run_atoms_171.py,24,deepseek,"print(f""Concurrency: {len(paths)} (all at once), Provider: deepseek"")"
+10_FILE_ACTIONS/shared/runs/ftp_final/run_atoms_171.py,27,deepseek,"results = await matcher.extract_atoms_batch(paths, provider=""deepseek"", max_concurrent=171)"
+10_FILE_ACTIONS/shared/runs/ftp_final/run_atoms_ALL.py,56,deepseek,"results = await matcher.extract_atoms_batch(paths, provider=""deepseek"", max_concurrent=len(paths))"
+05_TOPIC_COLLECTION/BACKSIDE/topic_gui.py,239,daemon=True,"threading.Thread(target=run, daemon=True).start()"
+05_TOPIC_COLLECTION/BACKSIDE/topic_gui.py,409,while True,while True:
+03_CLASSIFY/ZZZ_DELETE/review_py_before_deepseek/review.py,241,daemon=True,"threading.Thread(target=self._load_worker, args=(folder, self.var_facet.get()), daemon=True).start()"
+03_CLASSIFY/03_RENAMING/renamer_gui.py,104,daemon=True,daemon=True).start()
+03_CLASSIFY/03_RENAMING/renamer_gui.py,108,while True,while True:
+03_CLASSIFY/02_CLASSIFICATION/tests/smoke.py,55,sqlite3.connect,"ditto = db.parent / ""Ditto.db""; c = sqlite3.connect(ditto)"
+03_CLASSIFY/02_CLASSIFICATION/harness/contract.py,31,uuid4(,id: str = field(default_factory=lambda: uuid.uuid4().hex[:12])
+03_CLASSIFY/02_CLASSIFICATION/harness/contract.py,54,uuid4(,id: str = field(default_factory=lambda: uuid.uuid4().hex[:12])
+03_CLASSIFY/02_CLASSIFICATION/harness/ledger.py,37,sqlite3.connect,self.conn = sqlite3.connect(self.path)
+03_CLASSIFY/02_CLASSIFICATION/harness/adapters/chrome_history.py,42,sqlite3.connect,conn = sqlite3.connect(tmp)
+03_CLASSIFY/02_CLASSIFICATION/harness/adapters/clipboard.py,98,sqlite3.connect,conn = sqlite3.connect(tmp)
+03_CLASSIFY/02_CLASSIFICATION/harness/adapters/clipboard.py,127,while True,while True:
+03_CLASSIFY/02_CLASSIFICATION/gui/app.py,169,daemon=True,"threading.Thread(target=work, daemon=True).start()"
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,11,DeepSeek,"sent to DeepSeek; it explains where it stopped, proposes a value, and may ask"
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,39,DeepSeek,"SHARED = ROOT / ""00_SHARED""                            # rulebook, validator, DeepSeek, data"
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,47,deepseek,import deepseek_triage as ds                              # noqa: E402  (00_SHARED)
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,67,DeepSeek,"VIEWS = (""All"", ""Needs attention"", ""Stuck (send to DeepSeek)"", ""Disagrees with current"","
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,68,DeepSeek,"""Missing value"", ""DeepSeek answered"", ""DeepSeek has a question"", ""Undecided"", ""Decided"")"
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,68,DeepSeek,"""Missing value"", ""DeepSeek answered"", ""DeepSeek has a question"", ""Undecided"", ""Decided"")"
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,87,DeepSeek,"ai: dict[str, Any] = field(default_factory=dict)     # last DeepSeek answer"
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,171,deepseek,"COLS = (""card"", ""current"", ""suggested"", ""conf"", ""deepseek"", ""problems"", ""decision"", ""final"")"
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,227,DeepSeek,"ttk.Label(ds_bar, text=""DeepSeek:"").pack(side=""left"")"
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,232,DeepSeek,"ttk.Button(ds_bar, text=""✔ Accept DeepSeek's value (selected)"", command=self.accept_ai).pack(side=""left"", padx=4)"
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,237,DEEPSEEK,"text=""key found"" if ds.available() else ""no DEEPSEEK_API_KEY — buttons will report it"")"
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,287,daemon=True,"threading.Thread(target=self._load_worker, args=(folder, self.var_facet.get()), daemon=True).start()"
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,314,deepseek,"runner.ledger.register_engine(""deepseek"", ds.URL, ""service"", ""next_subject"","
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,315,DeepSeek,"{""describe"": ""DeepSeek triage on stuck cards (harness/deepseek_triage.py)""})"
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,315,deepseek,"{""describe"": ""DeepSeek triage on stuck cards (harness/deepseek_triage.py)""})"
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,366,DeepSeek,"if view == ""Stuck (send to DeepSeek)"" and not r.stuck: continue"
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,367,DeepSeek,"if view == ""DeepSeek answered"" and not r.ai: continue"
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,368,DeepSeek,"if view == ""DeepSeek has a question"" and not r.ai.get(""question""): continue"
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,378,deepseek,"""deepseek"": lambda r: r.ai.get(""value"") or """","
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,508,DEEPSEEK,"out += ["""", ""DEEPSEEK:""]"
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,553,DeepSeek,# ---- DeepSeek -----------------------------------------------------
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,556,DeepSeek,"messagebox.showinfo(""DeepSeek"", ""Nothing selected / nothing stuck.""); return"
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,558,DeepSeek,"""DeepSeek"", f""Ask DeepSeek about {len(rows)} card(s)?\n"""
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,558,DeepSeek,"""DeepSeek"", f""Ask DeepSeek about {len(rows)} card(s)?\n"""
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,560,deepseek,"f""deepseek-chat, roughly 1-2k tokens per card.""):"
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,575,daemon=True,"threading.Thread(target=self._ai_worker, args=(jobs, facet, self.var_blind.get()), daemon=True).start()"
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,598,deepseek,"""DELETE FROM predictions WHERE engine='deepseek' AND context_key=? AND resolved_at IS NULL"", (key,))"
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,600,deepseek,"engine=""deepseek"", target=""next_subject"", context_key=key,"
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,609,daemon=True,"threading.Thread(target=notify.toast, daemon=True, args=("
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,610,DeepSeek,"""DeepSeek finished"", f""Answered {total} card(s)"""
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,621,DeepSeek,"messagebox.showinfo(""DeepSeek"", ""None of the selected cards has a DeepSeek value yet."")"
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,621,DeepSeek,"messagebox.showinfo(""DeepSeek"", ""None of the selected cards has a DeepSeek value yet."")"
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,626,DeepSeek,"messagebox.showinfo(""DeepSeek"", ""Select one card that DeepSeek has answered.""); return"
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,626,DeepSeek,"messagebox.showinfo(""DeepSeek"", ""Select one card that DeepSeek has answered.""); return"
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,628,DeepSeek,"dlg = tk.Toplevel(self); dlg.title(f""Answer DeepSeek — {r.subject}""); dlg.transient(self); dlg.grab_set()"
+03_CLASSIFY/02_CLASSIFICATION/gui/review.py,683,daemon=True,daemon=True).start()
+03_CLASSIFY/01_SIDECARS/sidecar_report.py,40,DeepSeek,"# Cards where DeepSeek, blind to the current value, read the summary differently"
+03_CLASSIFY/01_SIDECARS/sidecar_report.py,159,DeepSeek,"""DeepSeek, reading only the name and summary with the current standing hidden, saw these differently."","
+03_CLASSIFY/01_SIDECARS/sidecar_report.py,161,DeepSeek,"""| Card | Card says | DeepSeek reads | Why |"", ""|---|---|---|---|""]"
+03_CLASSIFY/00_SHARED/blind_test_papers.py,1,DeepSeek,"""""""Blind test: can DeepSeek predict each card's `standing` with the value hidden?"
+03_CLASSIFY/00_SHARED/blind_test_papers.py,20,deepseek,import deepseek_triage as ds   # noqa: E402
+03_CLASSIFY/00_SHARED/deepseek_triage.py,1,DeepSeek,"""""""DeepSeek triage — when a card is stuck, ask a model what's wrong and what the"
+03_CLASSIFY/00_SHARED/deepseek_triage.py,6,DEEPSEEK,Key: DEEPSEEK_API_KEY (environment). Model: deepseek-chat (override DEEPSEEK_MODEL).
+03_CLASSIFY/00_SHARED/deepseek_triage.py,6,deepseek,Key: DEEPSEEK_API_KEY (environment). Model: deepseek-chat (override DEEPSEEK_MODEL).
+03_CLASSIFY/00_SHARED/deepseek_triage.py,6,DEEPSEEK,Key: DEEPSEEK_API_KEY (environment). Model: deepseek-chat (override DEEPSEEK_MODEL).
+03_CLASSIFY/00_SHARED/deepseek_triage.py,7,deepseek,"Answers are cached in data/deepseek_cache.json by (card text, facet, your reply),"
+03_CLASSIFY/00_SHARED/deepseek_triage.py,22,deepseek,"URL = ""https://api.deepseek.com/chat/completions"""
+03_CLASSIFY/00_SHARED/deepseek_triage.py,24,deepseek,"CACHE = ROOT / ""data"" / ""deepseek_cache.json"""
+03_CLASSIFY/00_SHARED/deepseek_triage.py,57,DEEPSEEK,"key = os.environ.get(""DEEPSEEK_API_KEY"", """").strip()"
+03_CLASSIFY/00_SHARED/deepseek_triage.py,132,DEEPSEEK,"return {""_error"": ""no key: set DEEPSEEK_API_KEY or put it in 03_CLASSIFY/00_SHARED/data/key.txt""}"
+03_CLASSIFY/00_SHARED/deepseek_triage.py,138,DEEPSEEK,"""model"": os.environ.get(""DEEPSEEK_MODEL"", ""deepseek-chat""),"
+03_CLASSIFY/00_SHARED/deepseek_triage.py,138,deepseek,"""model"": os.environ.get(""DEEPSEEK_MODEL"", ""deepseek-chat""),"
+.data/apol_probe.py,3,sqlite3.connect,c = sqlite3.connect(db)
+.data/migrate_compare.py,6,.fisnote,"SKIPEXT = {'.map', '.pyc', '.fisnote'}"
+.data/operator_map/run_operator_contracts.py,2,DEEPSEEK,"Reads DEEPSEEK_API_KEY from env. Writes new files only. 30 parallel calls."""""""
+.data/operator_map/run_operator_contracts.py,9,DEEPSEEK,"client = OpenAI(api_key=os.environ[""DEEPSEEK_API_KEY""], base_url=""https://api.deepseek.com"")"
+.data/operator_map/run_operator_contracts.py,9,deepseek,"client = OpenAI(api_key=os.environ[""DEEPSEEK_API_KEY""], base_url=""https://api.deepseek.com"")"
+.data/operator_map/run_operator_contracts.py,42,deepseek,"r = client.chat.completions.create(model=""deepseek-chat"", temperature=0.2,"
+.data/operator_map/run_operator_contracts.py,66,deepseek,"receipt = {""run"": stamp, ""model"": ""deepseek-chat"", ""calls"": len(jobs),"
+.data/operator_map/run_operator_contracts_v2_blind.py,2,DEEPSEEK,"Reads DEEPSEEK_API_KEY from env. Writes new files only. 30 parallel calls."""""""
+.data/operator_map/run_operator_contracts_v2_blind.py,9,DEEPSEEK,"client = OpenAI(api_key=os.environ[""DEEPSEEK_API_KEY""], base_url=""https://api.deepseek.com"")"
+.data/operator_map/run_operator_contracts_v2_blind.py,9,deepseek,"client = OpenAI(api_key=os.environ[""DEEPSEEK_API_KEY""], base_url=""https://api.deepseek.com"")"
+.data/operator_map/run_operator_contracts_v2_blind.py,42,deepseek,"r = client.chat.completions.create(model=""deepseek-chat"", temperature=0.2,"
+.data/operator_map/run_operator_contracts_v2_blind.py,66,deepseek,"receipt = {""run"": stamp, ""model"": ""deepseek-chat"", ""calls"": len(jobs),"
+.data/operator_map/run_operator_contracts_v3_repair.py,2,DEEPSEEK,"Reads DEEPSEEK_API_KEY from env. Writes new files only. 30 parallel calls."""""""
+.data/operator_map/run_operator_contracts_v3_repair.py,9,DEEPSEEK,"client = OpenAI(api_key=os.environ[""DEEPSEEK_API_KEY""], base_url=""https://api.deepseek.com"")"
+.data/operator_map/run_operator_contracts_v3_repair.py,9,deepseek,"client = OpenAI(api_key=os.environ[""DEEPSEEK_API_KEY""], base_url=""https://api.deepseek.com"")"
+.data/operator_map/run_operator_contracts_v3_repair.py,35,deepseek,"r = client.chat.completions.create(model=""deepseek-chat"", temperature=0.2,"
+.data/operator_map/run_operator_contracts_v3_repair.py,59,deepseek,"receipt = {""run"": stamp, ""model"": ""deepseek-chat"", ""calls"": len(jobs),"
+.data/fis-install-check/Lib/site-packages/fis/background.py,24,daemon=True,"self.thread = threading.Thread(target=self.run, name='fis-background', daemon=True)"
+.data/fis-install-check/Lib/site-packages/fis/crawler.py,55,daemon=True,"self.thread = threading.Thread(target=self._background, args=(root, speed), daemon=True)"
+.data/fis-install-check/Lib/site-packages/fis/crawler.py,165,.fisnote,and not list(Path(folder).glob('*.fisnote'))
+.data/fis-install-check/Lib/site-packages/fis/index.py,20,uuid4(,return uuid.uuid4().hex
+.data/fis-install-check/Lib/site-packages/fis/index.py,39,sqlite3.connect,"con = sqlite3.connect(self.home / ""index.sqlite"", timeout=30)"
+.data/fis-install-check/Lib/site-packages/fis/scan.py,38,.fisnote,"if reason or name == 'FIS.html' or name.endswith('.fisnote') or name in {'.fmeta', '.folder.fmeta'}:"
+.data/fis-install-check/Lib/site-packages/fis/scan.py,52,.fisnote,note = p.with_name(p.name+'.fisnote')
+.data/fis-install-check/Lib/site-packages/fis/sidecar.py,12,.fisnote,for p in sorted(Path(folder).glob('*.fisnote')):
+.data/fis-install-check/Lib/site-packages/fis/static/app.js,73,setInterval(,"let queueCount=0;setInterval(async()=>{try{const next=await api('/api/state');const count=next.plans.reduce((n,p)=>n+p.pending_renames,0)+next.template_queue.length+(next.crawler.errors||[]).length;if"
+.data/fis-background-acceptance/20261025-122132/real-folder-copy/renamer_gui.py,104,daemon=True,daemon=True).start()
+.data/fis-background-acceptance/20261025-122132/real-folder-copy/renamer_gui.py,108,while True,while True:
+.data/fis-acceptance/20261025-115605/messy-copy/renamer_gui.py,104,daemon=True,daemon=True).start()
+.data/fis-acceptance/20261025-115605/messy-copy/renamer_gui.py,108,while True,while True:
+.data/axiom_chain_condensed/distill_to_atoms.py,10,DEEPSEEK,"if not os.environ.get(""DEEPSEEK_API_KEY""):"
+.data/axiom_chain_condensed/distill_to_atoms.py,14,DEEPSEEK,"os.environ[""DEEPSEEK_API_KEY""] = winreg.QueryValueEx(k, ""DEEPSEEK_API_KEY"")[0]"
+.data/axiom_chain_condensed/distill_to_atoms.py,14,DEEPSEEK,"os.environ[""DEEPSEEK_API_KEY""] = winreg.QueryValueEx(k, ""DEEPSEEK_API_KEY"")[0]"
+.data/axiom_chain_condensed/distill_to_atoms.py,40,deepseek,"provider=""deepseek"", system=SYSTEM, user=text,"
+.data/axiom_chain_191/condense_top20.py,1,DeepSeek,"""""""Condense the longest axiom chain nodes into template papers via DeepSeek."""""""
+.data/axiom_chain_191/condense_top20.py,13,DEEPSEEK,"if not os.environ.get(""DEEPSEEK_API_KEY""):"
+.data/axiom_chain_191/condense_top20.py,17,DEEPSEEK,"os.environ[""DEEPSEEK_API_KEY""] = winreg.QueryValueEx(k, ""DEEPSEEK_API_KEY"")[0]"
+.data/axiom_chain_191/condense_top20.py,17,DEEPSEEK,"os.environ[""DEEPSEEK_API_KEY""] = winreg.QueryValueEx(k, ""DEEPSEEK_API_KEY"")[0]"
+.data/axiom_chain_191/condense_top20.py,47,deepseek,"provider=""deepseek"", system=SYSTEM, user=user,"

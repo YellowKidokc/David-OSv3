@@ -1,0 +1,7 @@
+name = "fingerprint"
+description = "Content fingerprint + near-duplicate detection (Rust MinHash)"
+status = "parity-verified"  # skeleton | migrating | parity-verified | canonical
+port = 0  # 0 = no server
+data_dir = "data/fingerprint"
+may_import = ["shared"]  # never other apps
+legacy_sources = ["D:/GitHub/FIS/fingerprint.py"]

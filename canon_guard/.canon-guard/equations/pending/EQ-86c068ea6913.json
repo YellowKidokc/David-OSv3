@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-86c068ea6913",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.026579+00:00",
+  "source": {
+    "path": "MEQ-00-MasterOutline.md",
+    "line": 9478,
+    "source_sha256": "082fae2f3083b27cfb2dff7b38e8a48167c5d25d33b0cc911e5168f5ab88c102"
+  },
+  "equation": {
+    "raw": "t_quantum = t_classical / √(1 + ℏω/k_B T)",
+    "normalized": "t_quantum=t_classical/√(1+ℏω/k_bt)",
+    "fingerprint": "86c068ea691360d1ade1308e9b9cc152cb47fea00f9ab4e7700b8ce2d0da38c1"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

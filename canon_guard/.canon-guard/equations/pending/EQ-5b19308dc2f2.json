@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-5b19308dc2f2",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:28.421563+00:00",
+  "source": {
+    "path": "MEQ-ChatGPT-Quantum_Superposition_and_Morality-Copy.md",
+    "line": 473,
+    "source_sha256": "8d20e08a66489b5c607e1f434c8ed724d27b69e81c83fcce634680c8f7c1d11c"
+  },
+  "equation": {
+    "raw": "S = L(1-sin)/r²",
+    "normalized": "s=l(1-sin)/r^2",
+    "fingerprint": "5b19308dc2f2e6ad8026f1acdd0f2e839405f68b79fcd62ad5a9ebe5f9c36e9c"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

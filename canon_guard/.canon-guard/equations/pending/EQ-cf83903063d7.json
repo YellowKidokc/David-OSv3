@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-cf83903063d7",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.550559+00:00",
+  "source": {
+    "path": "MEQ-quantum-father-paper.md",
+    "line": 105,
+    "source_sha256": "1b875f5a1bd3c16dd5bb2f041fdb61437a16d060125d4e2aa370f9d4aa159394"
+  },
+  "equation": {
+    "raw": "\\hat{a}^\\dagger_{Father}|0⟩ = |Creation⟩",
+    "normalized": "\\hat{a}^\\dagger_{father}|0⟩=|creation⟩",
+    "fingerprint": "cf83903063d7beb199bdd8ab18eb926299dee0f0aadbfee8bf82780950f9153c"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

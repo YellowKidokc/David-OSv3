@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-f800e1a3060f",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.207705+00:00",
+  "source": {
+    "path": "MEQ-derivation-chain.md",
+    "line": 1469,
+    "source_sha256": "61df793cd5f7cd8ea4755823b7bf0d8edf9655af3919237adf17be80af4ef359"
+  },
+  "equation": {
+    "raw": "N4Moral Conservation∇_β T^αβ = 0",
+    "normalized": "n4moralconservation∇_βt^αβ=0",
+    "fingerprint": "f800e1a3060f50113afd2d573d76cea36fcdd4957092ca01b42ec275dc80eac9"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

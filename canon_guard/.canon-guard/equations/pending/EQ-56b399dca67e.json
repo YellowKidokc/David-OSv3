@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-56b399dca67e",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.545560+00:00",
+  "source": {
+    "path": "MEQ-PhysicsofFaith.md",
+    "line": 537,
+    "source_sha256": "0d06eaa09bbfc070ad6fd9010e71aa22fb30f36159c7f7e8b459d51420cf25a1"
+  },
+  "equation": {
+    "raw": "V(φ)=−μ2φ2/2+λφ4/4V(φ) = -μ²φ²/2 + λφ⁴/4V(φ)=−μ2φ2/2+λφ4/4",
+    "normalized": "v(φ)=-mu2φ2/2+λφ4/4v(φ)=-mu^2φ^2/2+λφ⁴/4v(φ)=-mu2φ2/2+λφ4/4",
+    "fingerprint": "56b399dca67e2ceb411dc95e6d8ef784439391eede5204740aeca4fc4e0cac1b"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

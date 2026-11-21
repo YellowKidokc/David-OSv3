@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-0e487898e9c2",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.310785+00:00",
+  "source": {
+    "path": "MEQ-Law02.md",
+    "line": 48,
+    "source_sha256": "a6e755d1c249b7e32a2fa548fe7546ad63519fe600031cbe98bfa5255a16736f"
+  },
+  "equation": {
+    "raw": "B = (Z*m_p + N*m_n - m_nucleus) * c^2",
+    "normalized": "b=(z*m_p+n*m_n-m_nucleus)*c^2",
+    "fingerprint": "0e487898e9c28e1a9616bbbfd1877f29cca5122c859c8f95f4e2a007571f5739"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-9c1a8ae6491e",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:26.870160+00:00",
+  "source": {
+    "path": "MEQ-00_MATH_SUMMARY.md",
+    "line": 10509,
+    "source_sha256": "6c68ac764c4536e2f86e24ca6255a50c7ed39ef5f5a52e797626d1dbb24cdf0e"
+  },
+  "equation": {
+    "raw": "G'(R_p) = e^{-\\gamma (S - R_J) \\cdot (1-R_p)}",
+    "normalized": "g'(r_p)=e^{-\\gamma(s-r_j)*(1-r_p)}",
+    "fingerprint": "9c1a8ae6491eb5c7ae75c7736471c588cd1d092c699d8efbbaca19dc1cf24910"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

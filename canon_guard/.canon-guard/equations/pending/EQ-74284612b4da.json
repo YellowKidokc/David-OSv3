@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-74284612b4da",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.207637+00:00",
+  "source": {
+    "path": "MEQ-137_D19.2_Law-II-Definition.md",
+    "line": 78,
+    "source_sha256": "9ad16c5ef5e54b240ec1bb70331d662332daeb12643162046f4ef1198ec34a69"
+  },
+  "equation": {
+    "raw": "M = \\int_V \\rho(x) \\, d^3x",
+    "normalized": "m=\\int_v\\rho(x)\\,d^3x",
+    "fingerprint": "74284612b4dadc370f28a2ac73b41e5d6a3f107ac9ce06f1132d0c326196cd8a"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

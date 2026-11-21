@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-e60cfba6b809",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:27.302725+00:00",
+  "source": {
+    "path": "MEQ-147_T19.1_Laws-Derive-From-Chi.md",
+    "line": 299,
+    "source_sha256": "6ac9b4f0cf4403c5cb9b7ca5b1b8e873b990396475620c99431cd0b0ed228da5"
+  },
+  "equation": {
+    "raw": "E_5 = -E_6 \\quad \\text{(conservation ↔ dissipation)}",
+    "normalized": "e_5=-e_6(conservation↔dissipation)",
+    "fingerprint": "e60cfba6b80910f782a1386395bcd1753789cf6da2c64d9cf69628d891b787cd"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}

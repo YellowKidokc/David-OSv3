@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "case_id": "EQ-f7b28db5b2d7",
+  "status": "pending",
+  "created_at": "2026-07-27T07:57:29.237723+00:00",
+  "source": {
+    "path": "MEQ-FIELD_EQUATIONS.md",
+    "line": 5,
+    "source_sha256": "85ea97157420e0af9b73e7f2e7c82982c5099c6530eeecde7e81a70df7615b0d"
+  },
+  "equation": {
+    "raw": "G_μν + Λg_μν = (8πG_N/c⁴)[T_μν^(matter) + T_μν^(W) + T_μν^(χ)]",
+    "normalized": "g_munu+λg_munu=(8πg_n/c⁴)[t_munu^(matter)+t_munu^(w)+t_munu^(chi)]",
+    "fingerprint": "f7b28db5b2d78fb2b74f354ee45f17981c46184987c8a5953102ef894dc51721"
+  },
+  "required_review": {
+    "classification": [
+      "equivalent",
+      "compatible",
+      "drift",
+      "new_canonical_candidate",
+      "not_an_equation"
+    ],
+    "math_translation": null,
+    "plain_translation": null,
+    "theological_translation": null,
+    "canonical_id": null,
+    "canonical_equation": null,
+    "confidence": null,
+    "evidence": [],
+    "reviewers": [],
+    "proposed_replacement": null
+  },
+  "policy": {
+    "minimum_independent_approvals": 2,
+    "human_ratification_required_for_canon_change": true,
+    "source_mutation_allowed": false
+  }
+}
